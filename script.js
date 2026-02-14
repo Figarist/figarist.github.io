@@ -6,15 +6,20 @@
 (function () {
   'use strict';
 
-  // ————————————————— TYPING EFFECT —————————————————
-  const TYPED_TEXT = 'Hello world. I am Figarist.';
-  const TYPING_SPEED = 70;   // ms per character
-  const START_DELAY = 600;   // ms before typing begins
+  // ————————————————— DETECT LANGUAGE —————————————————
+  var isUkrainian = document.documentElement.lang === 'uk';
 
-  const typedEl = document.getElementById('typed-text');
+  // ————————————————— TYPING EFFECT —————————————————
+  var TYPED_TEXT = isUkrainian
+    ? 'Привіт, світ. Я — Figarist.'
+    : 'Hello world. I am Figarist.';
+  var TYPING_SPEED = 70;   // ms per character
+  var START_DELAY = 600;   // ms before typing begins
+
+  var typedEl = document.getElementById('typed-text');
 
   if (typedEl) {
-    let i = 0;
+    var i = 0;
     function typeChar() {
       if (i < TYPED_TEXT.length) {
         typedEl.textContent += TYPED_TEXT.charAt(i);
@@ -26,10 +31,10 @@
   }
 
   // ————————————————— SCROLL FADE-IN —————————————————
-  const fadeEls = document.querySelectorAll('.fade-in');
+  var fadeEls = document.querySelectorAll('.fade-in');
 
   if ('IntersectionObserver' in window) {
-    const observer = new IntersectionObserver(
+    var observer = new IntersectionObserver(
       function (entries) {
         entries.forEach(function (entry) {
           if (entry.isIntersecting) {

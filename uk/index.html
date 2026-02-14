@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="uk">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- SEO: Primary Meta -->
+    <title>Figarist — Інді-розробник і викладач інформатики</title>
+    <meta name="description"
+        content="Персональний сайт Ігоря (Figarist). Unity-розробник, засновник Wrist & Pocket Studio та вчитель інформатики з України.">
+    <meta name="keywords"
+        content="Figarist, інді-розробник ігор, Unity розробник, вчитель інформатики, Wear OS, C#, розробка ігор, Україна, Wrist and Pocket Studio">
+    <meta name="author" content="Ігор (Figarist)">
+    <meta name="theme-color" content="#1a1a2e">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://figarist.github.io/uk/">
+
+    <!-- SEO: Hreflang -->
+    <link rel="alternate" hreflang="en" href="https://figarist.github.io/">
+    <link rel="alternate" hreflang="uk" href="https://figarist.github.io/uk/">
+    <link rel="alternate" hreflang="x-default" href="https://figarist.github.io/">
+
+    <!-- SEO: Open Graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Figarist">
+    <meta property="og:title" content="Figarist — Інді-розробник і викладач інформатики">
+    <meta property="og:description"
+        content="Unity-розробник, засновник Wrist & Pocket Studio та вчитель інформатики. Створюю ігри для Wear OS.">
+    <meta property="og:url" content="https://figarist.github.io/uk/">
+    <meta property="og:locale" content="uk_UA">
+    <meta property="og:locale:alternate" content="en_US">
+
+    <!-- SEO: Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Figarist — Інді-розробник і викладач інформатики">
+    <meta name="twitter:description" content="Unity-розробник, засновник Wrist & Pocket Studio та вчитель інформатики.">
+
+    <!-- SEO: JSON-LD (Person) -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "name": "Ігор",
+        "alternateName": "Figarist",
+        "url": "https://figarist.github.io",
+        "jobTitle": ["Інді-розробник ігор", "Вчитель інформатики"],
+        "knowsAbout": ["Unity", "C#", "Розробка ігор", "Wear OS", "Python", "Викладання інформатики"],
+        "address": {
+            "@type": "PostalAddress",
+            "addressLocality": "Зміїв",
+            "addressCountry": "UA"
+        },
+        "affiliatedOrganization": {
+            "@type": "Organization",
+            "name": "Wrist & Pocket Studio",
+            "url": "https://wristandpocket.github.io"
+        },
+        "sameAs": [
+            "https://github.com/Figarist",
+            "https://www.youtube.com/@Figarist",
+            "https://www.linkedin.com/in/figarist/"
+        ]
+    }
+    </script>
+
+    <!-- SEO: JSON-LD (WebSite) -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebSite",
+        "name": "Figarist",
+        "url": "https://figarist.github.io",
+        "inLanguage": ["en", "uk"],
+        "description": "Персональний сайт Ігоря (Figarist). Інді-розробник ігор та вчитель інформатики."
+    }
+    </script>
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;600&family=Inter:wght@400;500;600&display=swap"
+        rel="stylesheet">
+
+    <link rel="stylesheet" href="../styles.css">
+</head>
+
+<body>
+
+    <!-- ============================================================
+       NAV
+       ============================================================ -->
+    <nav class="site-nav" aria-label="Головна навігація">
+        <div class="container">
+            <a href="index.html" class="site-nav__brand">Figarist</a>
+            <div class="site-nav__links">
+                <a href="#studio">Студія</a>
+                <a href="#skills">Навички</a>
+                <a href="#projects">Майстерня</a>
+                <a href="#hardware">Залізо</a>
+                <a href="../index.html" class="lang-switch" title="English">🇬🇧 EN</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Line-number gutter decoration (desktop only) -->
+    <aside class="line-numbers" aria-hidden="true" id="line-numbers"></aside>
+
+    <!-- ============================================================
+       HERO
+       ============================================================ -->
+    <header class="hero" id="hero">
+        <div class="hero__content container">
+            <img src="https://github.com/Figarist.png" alt="Аватар Figarist" class="hero__avatar" width="120"
+                height="120">
+            <h1 class="hero__terminal">
+                <span class="prompt">&gt; </span><span id="typed-text"></span><span class="hero__cursor"></span>
+            </h1>
+            <p class="hero__subtitle">Unity-розробник · Викладач · Ентузіаст ретро-техніки</p>
+            <p class="hero__location">Зміїв, Україна <span class="flag">🇺🇦</span></p>
+        </div>
+    </header>
+
+    <main class="container">
+
+        <!-- ============================================================
+           ПОТОЧНИЙ ФОКУС
+           ============================================================ -->
+        <section id="studio" class="fade-in">
+            <h2><span class="comment">// </span><span class="keyword">ПОТОЧНИЙ_ФОКУС</span></h2>
+
+            <a href="https://wristandpocket.github.io/uk/" target="_blank" rel="noopener" class="studio-card">
+                <div class="studio-card__icon">⌚</div>
+                <h3 class="studio-card__title">Wrist & Pocket Studio</h3>
+                <p class="studio-card__text">
+                    Будую майбутнє <strong>ігор для Wear OS</strong>.<br>
+                    Маленькі екрани, великі пригоди — все створено в Unity.
+                </p>
+                <span class="studio-card__cta">
+                    Відвідати студію <span class="arrow">→</span>
+                </span>
+            </a>
+        </section>
+
+        <!-- ============================================================
+           СТЕК НАВИЧОК
+           ============================================================ -->
+        <section id="skills" class="fade-in">
+            <h2><span class="comment">// </span><span class="keyword">СТЕК_НАВИЧОК</span></h2>
+
+            <div class="skills__category">
+                <div class="skills__label">Розробка ігор</div>
+                <div class="skills__tags">
+                    <span class="skill-tag skill-tag--pink">Unity (URP)</span>
+                    <span class="skill-tag skill-tag--pink">C#</span>
+                    <span class="skill-tag skill-tag--pink">Shader Graph</span>
+                    <span class="skill-tag skill-tag--pink">Wear OS</span>
+                </div>
+            </div>
+
+            <div class="skills__category">
+                <div class="skills__label">Скриптинг</div>
+                <div class="skills__tags">
+                    <span class="skill-tag skill-tag--yellow">Python</span>
+                    <span class="skill-tag skill-tag--yellow">Обробка аудіо</span>
+                    <span class="skill-tag skill-tag--yellow">Автоматизація</span>
+                </div>
+            </div>
+
+            <div class="skills__category">
+                <div class="skills__label">Інструменти</div>
+                <div class="skills__tags">
+                    <span class="skill-tag skill-tag--cyan">Git</span>
+                    <span class="skill-tag skill-tag--cyan">Blender</span>
+                    <span class="skill-tag skill-tag--cyan">VS Code</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- ============================================================
+           МАЙСТЕРНЯ
+           ============================================================ -->
+        <section id="projects" class="fade-in">
+            <h2><span class="comment">// </span><span class="keyword">МАЙСТЕРНЯ</span></h2>
+
+            <div class="projects__grid">
+
+                <article class="project-card">
+                    <div class="project-card__emoji">🎵</div>
+                    <h3 class="project-card__title">Python Lo-Fi аудіо конвертер</h3>
+                    <p class="project-card__desc">
+                        Скрипт, що перетворює будь-який аудіофайл у затишну lo-fi версію з вініловим потріскуванням та
+                        ефектами пітчу.
+                    </p>
+                    <a href="#" class="project-card__link">переглянути код →</a>
+                </article>
+
+                <article class="project-card">
+                    <div class="project-card__emoji">🕹️</div>
+                    <h3 class="project-card__title">Nintendo DS Homebrew</h3>
+                    <p class="project-card__desc">
+                        Експерименти з homebrew-розробкою для DS — вичавлюю максимум з двоекранної консолі.
+                    </p>
+                    <a href="#" class="project-card__link">читати далі →</a>
+                </article>
+
+                <article class="project-card">
+                    <div class="project-card__emoji">🧑‍🏫</div>
+                    <h3 class="project-card__title">Урок «Що таке файл?»</h3>
+                    <p class="project-card__desc">
+                        Плани уроків та вправи для навчання учнів 3-го класу основам файлів і папок.
+                    </p>
+                    <a href="#" class="project-card__link">читати далі →</a>
+                </article>
+
+            </div>
+        </section>
+
+        <!-- ============================================================
+           КОЛЕКЦІЯ ЗАЛІЗА
+           ============================================================ -->
+        <section id="hardware" class="fade-in">
+            <h2><span class="comment">// </span><span class="keyword">КОЛЕКЦІЯ_ЗАЛІЗА</span></h2>
+
+            <ul class="hardware__list">
+                <li class="hardware__item">
+                    <span class="hardware__icon">💻</span>
+                    <span class="hardware__name">Fujitsu Lifebook A530</span>
+                    <span class="hardware__detail">Робоча конячка</span>
+                </li>
+                <li class="hardware__item">
+                    <span class="hardware__icon">🎮</span>
+                    <span class="hardware__name">Nintendo Switch & DS колекція</span>
+                    <span class="hardware__detail">Портативний майданчик</span>
+                </li>
+                <li class="hardware__item">
+                    <span class="hardware__icon">🖥️</span>
+                    <span class="hardware__name">Кастомні збірки ПК</span>
+                    <span class="hardware__detail">Бойова станція</span>
+                </li>
+            </ul>
+        </section>
+
+    </main>
+
+    <!-- ============================================================
+       FOOTER
+       ============================================================ -->
+    <footer class="footer fade-in">
+        <div class="container">
+            <div class="footer__socials">
+
+                <a href="https://github.com/Figarist" target="_blank" rel="noopener" class="footer__link"
+                    aria-label="GitHub">
+                    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path
+                            d="M12 2C6.477 2 2 6.477 2 12c0 4.42 2.865 8.166 6.839 9.489.5.092.682-.217.682-.482 0-.237-.009-.866-.013-1.7-2.782.604-3.369-1.34-3.369-1.34-.454-1.156-1.11-1.464-1.11-1.464-.908-.62.069-.607.069-.607 1.003.07 1.531 1.03 1.531 1.03.892 1.529 2.341 1.087 2.91.831.092-.646.35-1.086.636-1.336-2.22-.253-4.555-1.11-4.555-4.943 0-1.091.39-1.984 1.029-2.683-.103-.253-.446-1.27.098-2.647 0 0 .84-.269 2.75 1.025A9.578 9.578 0 0 1 12 6.836a9.59 9.59 0 0 1 2.504.337c1.909-1.294 2.747-1.025 2.747-1.025.546 1.377.203 2.394.1 2.647.64.699 1.028 1.592 1.028 2.683 0 3.842-2.339 4.687-4.566 4.935.359.309.678.919.678 1.852 0 1.336-.012 2.415-.012 2.743 0 .267.18.578.688.48C19.138 20.161 22 16.416 22 12c0-5.523-4.477-10-10-10z" />
+                    </svg>
+                    GitHub
+                </a>
+
+                <a href="https://www.youtube.com/@Figarist" target="_blank" rel="noopener" class="footer__link"
+                    aria-label="YouTube">
+                    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path
+                            d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z" />
+                    </svg>
+                    YouTube
+                </a>
+
+                <a href="https://www.linkedin.com/in/figarist/" target="_blank" rel="noopener" class="footer__link"
+                    aria-label="LinkedIn">
+                    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path
+                            d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
+                    </svg>
+                    LinkedIn
+                </a>
+
+                <a href="mailto:figarist.dev@gmail.com" class="footer__link" aria-label="Електронна пошта">
+                    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path
+                            d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4-8 5-8-5V6l8 5 8-5v2z" />
+                    </svg>
+                    Пошта
+                </a>
+
+            </div>
+
+            <p class="footer__copy">Скомпільовано Figarist &copy; 2026</p>
+        </div>
+    </footer>
+
+    <script src="../script.js"></script>
+</body>
+
+</html>

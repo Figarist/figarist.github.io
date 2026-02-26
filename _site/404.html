@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="uk">
+
+<!-- SEO: Primary Meta -->
+<title>404 — Not Found — Figarist — Інді-розробник і викладач</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+<meta name="description"
+    content="Персональний сайт Ігоря (Figarist). Unity-розробник, засновник Wrist & Pocket Studio та вчитель інформатики.">
+<meta name="keywords"
+    content="Figarist, indie game developer, Unity developer, computer science teacher, Wear OS, C#, game dev, Ukraine, Wrist and Pocket Studio, розробка ігор, викладач інформатики">
+<meta name="author" content="Ігор (Figarist)">
+<meta name="theme-color" content="#f2f0eb">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="http://localhost:4000/404.html">
+
+<!-- Anti-Flicker UI Language State (Runs before CSS/DOM) -->
+<script>
+    (function () {
+        try {
+            var storedLang = localStorage.getItem('figarist_ui_lang');
+            var currentPath = window.location.pathname;
+
+            // Sync Hub directly
+            if (currentPath === '/' || currentPath === '/blog/') {
+                localStorage.setItem('figarist_ui_lang', 'en');
+                storedLang = 'en';
+            } else if (currentPath === '/uk/' || currentPath === '/uk/blog/') {
+                localStorage.setItem('figarist_ui_lang', 'uk');
+                storedLang = 'uk';
+            }
+
+            var pref = storedLang || 'uk';
+            document.documentElement.classList.add('lang-' + pref);
+        } catch (e) { }
+    })();
+</script>
+
+<!-- SEO: Hreflang -->
+<link rel="alternate" hreflang="en" href="http://localhost:4000/">
+<link rel="alternate" hreflang="uk" href="http://localhost:4000/uk/">
+<link rel="alternate" hreflang="x-default" href="http://localhost:4000/">
+
+<!-- SEO: Open Graph -->
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Figarist">
+<meta property="og:title"
+    content="Figarist — Інді-розробник і викладач">
+<meta property="og:description"
+    content="Unity-розробник, засновник Wrist & Pocket Studio та вчитель інформатики. Створюю ігри для Wear OS.">
+<meta property="og:url" content="http://localhost:4000/404.html">
+<meta property="og:locale" content="uk_UA">
+<meta property="og:locale:alternate" content="en_US">
+
+<!-- SEO: Twitter Card -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title"
+    content="Figarist — Інді-розробник і викладач">
+<meta name="twitter:description"
+    content="Unity-розробник, засновник Wrist & Pocket Studio та вчитель інформатики.">
+
+<!-- SEO: JSON-LD Structured Data (Person) -->
+<script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "name": "Ihor",
+        "alternateName": "Figarist",
+        "url": "https://figarist.github.io",
+        "jobTitle": ["Indie Game Developer", "Computer Science Teacher"],
+        "knowsAbout": ["Unity", "C#", "Game Development", "Wear OS", "Python", "Computer Science Education"],
+        "address": {
+            "@type": "PostalAddress",
+            "addressLocality": "Zmiiv",
+            "addressCountry": "UA"
+        },
+        "affiliatedOrganization": {
+            "@type": "Organization",
+            "name": "Wrist & Pocket Studio",
+            "url": "https://wristandpocket.github.io"
+        },
+        "sameAs": [
+            "https://github.com/Figarist",
+            "https://www.youtube.com/@Figarist",
+            "https://www.linkedin.com/in/figarist/"
+        ]
+    }
+    </script>
+
+<!-- SEO: JSON-LD Structured Data (WebSite) -->
+<script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebSite",
+        "name": "Figarist",
+        "url": "https://figarist.github.io",
+        "inLanguage": ["en", "uk"],
+        "description": "Personal site of Ihor (Figarist). Indie game developer and computer science teacher."
+    }
+    </script>
+
+<!-- Fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link
+    href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Fira+Code:wght@400;500;600&display=swap"
+    rel="stylesheet">
+
+<link rel="stylesheet" href="/styles.css">
+<meta name="google-site-verification" content="Whr2bJTggESM1pyCXLfqwodNQu6cNqk_XKdZ0ix2Tyk" />
+<script src="/assets/js/locale.js" defer></script>
+</head>
+
+<body>
+
+    <header>
+    <nav class="site-nav" aria-label="Головна навігація">
+        <div class="nav-inner">
+            <a href="/uk/"
+                class="site-nav__brand" id="site-logo">Figarist</a>
+            <div class="site-nav__links">
+                
+                <a href="#studio">
+                    <span data-i18n-en class="liquid-hide">Studio</span>
+                    <span data-i18n-uk class="">Студія</span>
+                </a>
+                <a href="#webgl">
+                    <span data-i18n-en class="liquid-hide">Playground</span>
+                    <span data-i18n-uk class="">Ігровий майданчик</span>
+                </a>
+                <a href="#stack">
+                    <span data-i18n-en class="liquid-hide">Stack</span>
+                    <span data-i18n-uk class="">Стек</span>
+                </a>
+                <a href="#shrine">
+                    <span data-i18n-en class="liquid-hide">Shrine</span>
+                    <span data-i18n-uk class="">Зала слави</span>
+                </a>
+
+                <!-- Language Switcher -->
+                
+                <!-- On hubs/indexes: Smart path-based navigation -->
+                
+                
+                <a href="/uk/404.html" class="lang-switch js-lang-nav" title="Українська">🇺🇦 UA</a>
+                
+                
+            </div>
+        </div>
+    </nav>
+</header>
+
+    <!-- ============================================================
+       CONTENT
+       ============================================================ -->
+    <main class="jekyll-main">
+        <div class="post-container" style="text-align: center; padding-top: 120px; padding-bottom: 80px;">
+    <h1 style="font-size: 5rem; color: var(--accent-blue); font-family: var(--font-mono); margin-bottom: 0;">404</h1>
+    <h2 style="margin-top: 10px; margin-bottom: 20px;">Файл не знайдено</h2>
+
+    <p
+        style="color: var(--text-muted); margin-bottom: 40px; font-size: 1.1rem; max-width: 400px; margin-left: auto; margin-right: auto;">
+        На відміну від моїх учнів 3-го класу, цей сервер не знає, що таке файл і де його шукати.
+    </p>
+
+    <a href="/" class="btn-back" style="display: inline-flex;">← Повернутися на базу</a>
+</div>
+    </main>
+
+    <footer class="bento-footer">
+    <p>Скомпільовано Figarist &copy; 2026
+    </p>
+</footer>
+
+    <script src="/script.js"></script>
+</body>
+
+</html>

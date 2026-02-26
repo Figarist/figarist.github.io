@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="uk">
+
+<!-- SEO: Primary Meta -->
+<title>Харків, блекаути та розробка під Wear OS — Figarist — Інді-розробник і викладач</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+<meta name="description"
+    content="Персональний сайт Ігоря (Figarist). Unity-розробник, засновник Wrist & Pocket Studio та вчитель інформатики.">
+<meta name="keywords"
+    content="Figarist, indie game developer, Unity developer, computer science teacher, Wear OS, C#, game dev, Ukraine, Wrist and Pocket Studio, розробка ігор, викладач інформатики">
+<meta name="author" content="Ігор (Figarist)">
+<meta name="theme-color" content="#f2f0eb">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="http://localhost:4000/blog/2026/02/26/kharkiv-cats-unity/">
+
+<!-- Anti-Flicker UI Language State (Runs before CSS/DOM) -->
+<script>
+    (function () {
+        try {
+            var storedLang = localStorage.getItem('figarist_ui_lang');
+            var currentPath = window.location.pathname;
+
+            // Sync Hub directly
+            if (currentPath === '/' || currentPath === '/blog/') {
+                localStorage.setItem('figarist_ui_lang', 'en');
+                storedLang = 'en';
+            } else if (currentPath === '/uk/' || currentPath === '/uk/blog/') {
+                localStorage.setItem('figarist_ui_lang', 'uk');
+                storedLang = 'uk';
+            }
+
+            var pref = storedLang || 'uk';
+            document.documentElement.classList.add('lang-' + pref);
+        } catch (e) { }
+    })();
+</script>
+
+<!-- SEO: Hreflang -->
+<link rel="alternate" hreflang="en" href="http://localhost:4000/">
+<link rel="alternate" hreflang="uk" href="http://localhost:4000/uk/">
+<link rel="alternate" hreflang="x-default" href="http://localhost:4000/">
+
+<!-- SEO: Open Graph -->
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Figarist">
+<meta property="og:title"
+    content="Figarist — Інді-розробник і викладач">
+<meta property="og:description"
+    content="Unity-розробник, засновник Wrist & Pocket Studio та вчитель інформатики. Створюю ігри для Wear OS.">
+<meta property="og:url" content="http://localhost:4000/blog/2026/02/26/kharkiv-cats-unity/">
+<meta property="og:locale" content="uk_UA">
+<meta property="og:locale:alternate" content="en_US">
+
+<!-- SEO: Twitter Card -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title"
+    content="Figarist — Інді-розробник і викладач">
+<meta name="twitter:description"
+    content="Unity-розробник, засновник Wrist & Pocket Studio та вчитель інформатики.">
+
+<!-- SEO: JSON-LD Structured Data (Person) -->
+<script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "name": "Ihor",
+        "alternateName": "Figarist",
+        "url": "https://figarist.github.io",
+        "jobTitle": ["Indie Game Developer", "Computer Science Teacher"],
+        "knowsAbout": ["Unity", "C#", "Game Development", "Wear OS", "Python", "Computer Science Education"],
+        "address": {
+            "@type": "PostalAddress",
+            "addressLocality": "Zmiiv",
+            "addressCountry": "UA"
+        },
+        "affiliatedOrganization": {
+            "@type": "Organization",
+            "name": "Wrist & Pocket Studio",
+            "url": "https://wristandpocket.github.io"
+        },
+        "sameAs": [
+            "https://github.com/Figarist",
+            "https://www.youtube.com/@Figarist",
+            "https://www.linkedin.com/in/figarist/"
+        ]
+    }
+    </script>
+
+<!-- SEO: JSON-LD Structured Data (WebSite) -->
+<script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebSite",
+        "name": "Figarist",
+        "url": "https://figarist.github.io",
+        "inLanguage": ["en", "uk"],
+        "description": "Personal site of Ihor (Figarist). Indie game developer and computer science teacher."
+    }
+    </script>
+
+<!-- Fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link
+    href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Fira+Code:wght@400;500;600&display=swap"
+    rel="stylesheet">
+
+<link rel="stylesheet" href="/styles.css">
+<meta name="google-site-verification" content="Whr2bJTggESM1pyCXLfqwodNQu6cNqk_XKdZ0ix2Tyk" />
+<script src="/assets/js/locale.js" defer></script>
+</head>
+
+<body>
+
+    <header>
+    <nav class="site-nav" aria-label="Головна навігація">
+        <div class="nav-inner">
+            <a href="/uk/"
+                class="site-nav__brand" id="site-logo">Figarist</a>
+            <div class="site-nav__links">
+                
+                <a href="/uk/#studio">
+                    <span data-i18n-en class="liquid-hide">Studio</span>
+                    <span data-i18n-uk class="">Студія</span>
+                </a>
+                <a href="/uk/#webgl">
+                    <span data-i18n-en class="liquid-hide">Playground</span>
+                    <span data-i18n-uk class="">Ігровий майданчик</span>
+                </a>
+                <a href="/uk/#stack">
+                    <span data-i18n-en class="liquid-hide">Stack</span>
+                    <span data-i18n-uk class="">Стек</span>
+                </a>
+                <a href="/uk/#shrine">
+                    <span data-i18n-en class="liquid-hide">Shrine</span>
+                    <span data-i18n-uk class="">Зала слави</span>
+                </a>
+
+                <!-- Language Switcher -->
+                
+                <!-- On posts: JS handles the toggle exclusively without navigation -->
+                <a href="#" class="lang-switch js-lang-toggle "
+                    data-i18n-uk title="English">🇬🇧 EN</a>
+                <a href="#" class="lang-switch js-lang-toggle liquid-hide"
+                    data-i18n-en title="Українська">🇺🇦 UA</a>
+                
+            </div>
+        </div>
+    </nav>
+</header>
+
+    <!-- ============================================================
+       CONTENT
+       ============================================================ -->
+    <main class="jekyll-main">
+        <article class="post-container" itemscope itemtype="https://schema.org/BlogPosting">
+
+  <a href="/uk/" class="btn-back" id="back-to-hub">
+    <span data-i18n-en class="liquid-hide">← Back to Hub</span>
+    <span data-i18n-uk class="">← Назад до головної</span>
+  </a>
+
+  <h1 itemprop="headline">Харків, блекаути та розробка під Wear OS</h1>
+  <time class="post-date" datetime="2026-02-26T00:00:00+02:00" itemprop="datePublished">
+    26 February 2026
+  </time>
+
+  <div itemprop="articleBody">
+    <p>Сьогодні світло вимкнули о дев’ятій ранку. Я сидів із ноутбуком, кава ще не охолола, а Unity вже радісно повідомив, що compile errors — це не баги, а «featured experience». Ласкаво просимо до розробки у Змієві, передмісті Харківської області.</p>
+
+<h2 id="котячий-qa-відділ">Котячий QA-відділ</h2>
+
+<p>Поки я налагоджував garbage collection у черговому Wear OS проєкті, наш кіт <strong>Кацу</strong> вийшов із туалету і закричав. Не просто нявкнув — саме закричав, як людина, яка щойно усвідомила, що відправила невідредагований email начальнику. Гучно. З виразом. Із паузою для ефекту.</p>
+
+<p><strong>Сімона</strong> — наша друга кішка — просто спостерігала. Без реакції. Абсолютний zero-allocation кіт: нічого зайвого, жодних алокацій уваги на чужі проблеми. Ідеальний Wear OS розробник.</p>
+
+<p>Саша підняла голову від книжки, подивилась на мене. Я — на неї. Ми не сказали нічого. Це і є Кацу.</p>
+
+<h2 id="чому-wear-os--це-не-примха">Чому Wear OS — це не примха</h2>
+
+<p>Коли живеш з блекаутами, розумієш цінність <strong>маленьких екранів</strong>. Смартгодинник не потребує зарядки так часто, як телефон. Гра на ньому — це 2–3 хвилини чистого досвіду: поки кава вариться, поки генератор прогрівається, поки Кацу знову вирішить «поділитись» результатами своїх справ.</p>
+
+<p>У <strong>Wrist &amp; Pocket Studio</strong> я роблю саме це — мікро-ігри для Wear OS. І тут є своя філософія:</p>
+
+<ul>
+  <li><strong>Жодних GC спайків.</strong> <code class="language-plaintext highlighter-rouge">List&lt;T&gt;</code> замість масивів — смерть для фреймрейту на круглому дисплеї. Пули об’єктів — обов’язково.</li>
+  <li><strong>Мінімум пам’яті.</strong> 512 MB RAM — стеля для більшості годинників. Текстури — тільки те, що потрібно.</li>
+  <li><strong>Жодної залежності від інтернету.</strong> Блекаут = офлайн. Гра має працювати завжди.</li>
+</ul>
+
+<p>Це не обмеження — це дизайн-мислення. Як японські хайку: краса у стисненості.</p>
+
+<h2 id="компіляція-завершена">Компіляція завершена</h2>
+
+<p>Світло повернулось. Кацу спав. Сімона дивилась у вікно на голубів — очевидно, складаючи оптимальний алгоритм їхнього захоплення. Unity білд пройшов чисто.</p>
+
+<p>Хороший день.</p>
+
+<hr />
+
+<p><em>Wrist &amp; Pocket Studio — <a href="https://wristandpocket.github.io">wristandpocket.github.io</a></em></p>
+
+  </div>
+
+  
+  <div class="post-tags">
+    
+    <span class="post-tag">#life</span>
+    
+    <span class="post-tag">#wearos</span>
+    
+    <span class="post-tag">#unity</span>
+    
+    <span class="post-tag">#gamedev</span>
+    
+  </div>
+  
+
+</article>
+
+<!-- JSON-LD: BlogPosting -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Харків, блекаути та розробка під Wear OS",
+  "datePublished": "2026-02-26T00:00:00+02:00",
+  "dateModified": "2026-02-26T00:00:00+02:00",
+  "inLanguage": "uk",
+  "author": {
+    "@type": "Person",
+    "name": "Figarist",
+    "url": "https://figarist.github.io"
+  },
+  "publisher": {
+    "@type": "Person",
+    "name": "Figarist",
+    "url": "https://figarist.github.io"
+  },
+  "url": "http://localhost:4000/blog/2026/02/26/kharkiv-cats-unity/",
+  "description": "Про котів, блекаути і те, чому Wear OS — ідеальна платформа для мікро-ігор."
+}
+</script>
+    </main>
+
+    <footer class="bento-footer">
+    <p>Скомпільовано Figarist &copy; 2026
+    </p>
+</footer>
+
+    <script src="/script.js"></script>
+</body>
+
+</html>

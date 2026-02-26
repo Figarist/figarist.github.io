@@ -1,0 +1,21 @@
+# Jekyll
+_site/
+.sass-cache/
+.jekyll-cache/
+.jekyll-metadata
+
+# Bundler
+vendor/
+.bundle/
+
+# Editor/OS specific
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+*.swp
+
+# AI Agent Artifacts (Keep only if needed, usually ignored in production)
+.agents/
+.agent/
+brain/

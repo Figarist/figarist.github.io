@@ -1,36 +1,14 @@
 /* ============================================================
-   FIGARIST — Digital Garden
-   Vanilla JS: Typing effect, scroll animations, line numbers
+   FIGARIST — Bento UI Portfolio
+   Vanilla JS: Scroll animations · WebGL overlay · Card tilt
    ============================================================ */
 
 (function () {
   'use strict';
 
-  // ————————————————— DETECT LANGUAGE —————————————————
-  var isUkrainian = document.documentElement.lang === 'uk';
-
-  // ————————————————— TYPING EFFECT —————————————————
-  var TYPED_TEXT = isUkrainian
-    ? 'Привіт, світ. Я — Figarist.'
-    : 'Hello world. I am Figarist.';
-  var TYPING_SPEED = 70;   // ms per character
-  var START_DELAY = 600;   // ms before typing begins
-
-  var typedEl = document.getElementById('typed-text');
-
-  if (typedEl) {
-    var i = 0;
-    function typeChar() {
-      if (i < TYPED_TEXT.length) {
-        typedEl.textContent += TYPED_TEXT.charAt(i);
-        i++;
-        setTimeout(typeChar, TYPING_SPEED);
-      }
-    }
-    setTimeout(typeChar, START_DELAY);
-  }
-
-  // ————————————————— SCROLL FADE-IN —————————————————
+  /* ——————————————————————————————————————————
+     1. SCROLL FADE-IN  (Intersection Observer)
+  —————————————————————————————————————————— */
   var fadeEls = document.querySelectorAll('.fade-in');
 
   if ('IntersectionObserver' in window) {
@@ -38,12 +16,18 @@
       function (entries) {
         entries.forEach(function (entry) {
           if (entry.isIntersecting) {
-            entry.target.classList.add('visible');
+            // Staggered delay based on element position in grid
+            var delay = 0;
+            var idx = Array.prototype.indexOf.call(fadeEls, entry.target);
+            if (idx > 0) delay = idx * 60; // 60ms per card
+            setTimeout(function () {
+              entry.target.classList.add('visible');
+            }, delay);
             observer.unobserve(entry.target);
           }
         });
       },
-      { threshold: 0.15 }
+      { threshold: 0.08 }
     );
 
     fadeEls.forEach(function (el) {
@@ -51,26 +35,104 @@
     });
   } else {
     // Fallback: show everything immediately
-    fadeEls.forEach(function (el) {
-      el.classList.add('visible');
+    fadeEls.forEach(function (el) { el.classList.add('visible'); });
+  }
+
+  /* ——————————————————————————————————————————
+     2. WEBGL CLICK-TO-PLAY OVERLAY
+  —————————————————————————————————————————— */
+  var overlay = document.getElementById('webgl-overlay');
+  var iframe = document.getElementById('webgl-iframe');
+  var status = document.getElementById('webgl-status');
+
+  function activateWebGL() {
+    if (!overlay || !iframe) return;
+
+    // Fade the overlay out
+    overlay.style.transition = 'opacity 0.4s ease';
+    overlay.style.opacity = '0';
+    overlay.style.pointerEvents = 'none';
+
+    setTimeout(function () {
+      overlay.style.display = 'none';
+      // Activate the iframe
+      iframe.classList.add('active');
+      // Update status indicator
+      if (status) {
+        status.textContent = '● Loading…';
+        status.style.color = '#f7e04a';
+      }
+    }, 400);
+  }
+
+  if (overlay) {
+    overlay.addEventListener('click', activateWebGL);
+    overlay.addEventListener('keydown', function (e) {
+      if (e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault();
+        activateWebGL();
+      }
     });
   }
 
-  // ————————————————— LINE NUMBERS (decorative) —————————————————
-  var lineGutter = document.getElementById('line-numbers');
+  /* ——————————————————————————————————————————
+     3. CARD SUBTLE TILT (on mouse move)
+     Applies a gentle perspective tilt to hovered cards.
+     Excluded: studio card (it has its own visual feedback)
+  —————————————————————————————————————————— */
+  var tiltCards = document.querySelectorAll(
+    '.bento-card:not(.card--studio):not(.card--contact)'
+  );
 
-  if (lineGutter && window.innerWidth > 768) {
-    var lineCount = Math.ceil(document.documentElement.scrollHeight / 22);
-    lineCount = Math.min(lineCount, 300); // cap for performance
-    var fragment = document.createDocumentFragment();
+  var prefersReducedMotion =
+    window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-    for (var n = 1; n <= lineCount; n++) {
-      var span = document.createElement('span');
-      span.textContent = n;
-      fragment.appendChild(span);
-    }
+  if (!prefersReducedMotion) {
+    tiltCards.forEach(function (card) {
+      card.addEventListener('mousemove', function (e) {
+        var rect = card.getBoundingClientRect();
+        var x = e.clientX - rect.left;
+        var y = e.clientY - rect.top;
+        var cw = rect.width;
+        var ch = rect.height;
+        // Normalize to [-1, 1]
+        var nx = (x / cw - 0.5) * 2;
+        var ny = (y / ch - 0.5) * 2;
+        // Max 4deg tilt
+        var rotateX = -ny * 4;
+        var rotateY = nx * 4;
+        card.style.transform =
+          'perspective(800px) rotateX(' + rotateX + 'deg) rotateY(' + rotateY + 'deg) translateY(-3px)';
+      });
 
-    lineGutter.appendChild(fragment);
+      card.addEventListener('mouseleave', function () {
+        card.style.transform = '';
+      });
+    });
+  }
+
+  /* ——————————————————————————————————————————
+     4. DOODLE PARALLAX on Bio card
+  —————————————————————————————————————————— */
+  var bioCard = document.getElementById('bio');
+  var doodles = bioCard ? bioCard.querySelectorAll('.doodle') : [];
+
+  if (bioCard && doodles.length && !prefersReducedMotion) {
+    bioCard.addEventListener('mousemove', function (e) {
+      var rect = bioCard.getBoundingClientRect();
+      var x = (e.clientX - rect.left) / rect.width - 0.5;
+      var y = (e.clientY - rect.top) / rect.height - 0.5;
+
+      doodles.forEach(function (d, i) {
+        var depth = (i + 1) * 6; // 6px, 12px, 18px, 24px
+        d.style.transform =
+          'translate(' + (x * depth) + 'px, ' + (y * depth) + 'px)';
+      });
+    });
+
+    bioCard.addEventListener('mouseleave', function () {
+      doodles.forEach(function (d) { d.style.transform = ''; });
+    });
   }
 
 })();

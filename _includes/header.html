@@ -1,0 +1,46 @@
+<header>
+    <nav class="site-nav" aria-label="{% if page.lang == 'uk' %}Головна навігація{% else %}Main navigation{% endif %}">
+        <div class="nav-inner">
+            <a href="{% if page.lang == 'uk' %}{{ '/uk/' | relative_url }}{% else %}{{ '/' | relative_url }}{% endif %}"
+                class="site-nav__brand" id="site-logo">Figarist</a>
+            <div class="site-nav__links">
+                {% capture base_url %}{% if page.url contains '/blog/' %}{% if page.lang == 'uk' %}{{ '/uk/' |
+                relative_url }}{% else %}{{ '/' | relative_url }}{% endif %}{% else %}{% endif %}{% endcapture %}
+                <a href="{{ base_url }}#studio">
+                    <span data-i18n-en class="{% if page.lang=='uk' %}liquid-hide{% endif %}">Studio</span>
+                    <span data-i18n-uk class="{% if page.lang=='en' %}liquid-hide{% endif %}">Студія</span>
+                </a>
+                <a href="{{ base_url }}#webgl">
+                    <span data-i18n-en class="{% if page.lang=='uk' %}liquid-hide{% endif %}">Playground</span>
+                    <span data-i18n-uk class="{% if page.lang=='en' %}liquid-hide{% endif %}">Ігровий майданчик</span>
+                </a>
+                <a href="{{ base_url }}#stack">
+                    <span data-i18n-en class="{% if page.lang=='uk' %}liquid-hide{% endif %}">Stack</span>
+                    <span data-i18n-uk class="{% if page.lang=='en' %}liquid-hide{% endif %}">Стек</span>
+                </a>
+                <a href="{{ base_url }}#shrine">
+                    <span data-i18n-en class="{% if page.lang=='uk' %}liquid-hide{% endif %}">Shrine</span>
+                    <span data-i18n-uk class="{% if page.lang=='en' %}liquid-hide{% endif %}">Зала слави</span>
+                </a>
+
+                <!-- Language Switcher -->
+                {% if layout.name == 'post' or page.layout == 'post' %}
+                <!-- On posts: JS handles the toggle exclusively without navigation -->
+                <a href="#" class="lang-switch js-lang-toggle {% if page.lang=='en' %}liquid-hide{% endif %}"
+                    data-i18n-uk title="English">🇬🇧 EN</a>
+                <a href="#" class="lang-switch js-lang-toggle {% if page.lang=='uk' %}liquid-hide{% endif %}"
+                    data-i18n-en title="Українська">🇺🇦 UA</a>
+                {% else %}
+                <!-- On hubs/indexes: Smart path-based navigation -->
+                {% if page.url contains '/uk/' %}
+                {% assign target_url = page.url | remove_first: '/uk' | replace: '//', '/' %}
+                <a href="{{ target_url | relative_url }}" class="lang-switch js-lang-nav" title="English">🇬🇧 EN</a>
+                {% else %}
+                {% assign target_url = '/uk' | append: page.url | replace: '//', '/' %}
+                <a href="{{ target_url | relative_url }}" class="lang-switch js-lang-nav" title="Українська">🇺🇦 UA</a>
+                {% endif %}
+                {% endif %}
+            </div>
+        </div>
+    </nav>
+</header>

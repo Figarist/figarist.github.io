@@ -149,29 +149,12 @@ lang: en
   <!-- ══════════════════════════════════════════
            CARD 5 — NINTENDO SHRINE (1 col × 2 row)
            ══════════════════════════════════════════ -->
-  <article class="bento-card card--shrine span-1-2 fade-in" id="shrine">
-    <div class="card-label">PORTABLE_PLAYGROUND</div>
-    <div class="shrine__icon" aria-hidden="true">🕹️</div>
-    <h3 class="shrine__title">Nintendo Shrine</h3>
-    <ul class="shrine__list">
-      <li class="shrine__item">
-        <span class="shrine__badge">SWITCH</span>
-        Nintendo Switch
-      </li>
-      <li class="shrine__item">
-        <span class="shrine__badge">DS</span>
-        Nintendo DS Collection
-      </li>
-      <li class="shrine__item">
-        <span class="shrine__badge">DEV</span>
-        DS Homebrew Experiments
-      </li>
-    </ul>
-    <p class="shrine__note">Pushing dual-screen handhelds to their limits.</p>
-    <div class="shrine__pixels" aria-hidden="true">
-      <span>▪</span><span>▪</span><span>▪</span><span>▪</span>
-      <span>▪</span><span>▪</span><span>▪</span><span>▪</span>
-    </div>
+  <article class="bento-card card--shrine span-1-2 fade-in" id="shrine"
+    style="background: var(--card-bg-warm); display: flex; flex-direction: column;">
+    <h2 style="font-size: 1.5rem; margin-bottom: 8px;">The Shrine</h2>
+    <p style="color: var(--text-muted); font-size: 0.9rem; margin-bottom: 16px;">Nintendo DS archive, Switch & Simcade
+      rig.</p>
+    <a href="{{ '/collection/' | relative_url }}" class="btn-read-more" style="margin-top: auto;">Unlock the vault →</a>
   </article>
 
   <!-- ══════════════════════════════════════════
@@ -182,7 +165,7 @@ lang: en
     <div class="teaching__icon" aria-hidden="true">🧑‍🏫</div>
     <h3 class="teaching__title">"What is a File?"</h3>
     <p class="teaching__desc">Lesson plans &amp; activities for 3rd-grade CS fundamentals.</p>
-    <span class="teaching__cta">read lesson →</span>
+    <a href="/blog/2026/02/26/what-is-a-file/" class="teaching__cta" data-i18n="read_lesson">Read lesson →</a>
   </article>
 
   <!-- ══════════════════════════════════════════

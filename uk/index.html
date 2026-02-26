@@ -150,29 +150,13 @@ lang: uk
     <!-- ══════════════════════════════════════════
    КАРТКА 5 — ЗАЛА СЛАВИ NINTENDO (1 кол × 2 ряди)
    ══════════════════════════════════════════ -->
-    <article class="bento-card card--shrine span-1-2 fade-in" id="shrine">
-        <div class="card-label">ПОРТАТИВНИЙ_МАЙДАНЧИК</div>
-        <div class="shrine__icon" aria-hidden="true">🕹️</div>
-        <h3 class="shrine__title">Зала слави Nintendo</h3>
-        <ul class="shrine__list">
-            <li class="shrine__item">
-                <span class="shrine__badge">SWITCH</span>
-                Nintendo Switch
-            </li>
-            <li class="shrine__item">
-                <span class="shrine__badge">DS</span>
-                Колекція Nintendo DS
-            </li>
-            <li class="shrine__item">
-                <span class="shrine__badge">DEV</span>
-                Homebrew для DS
-            </li>
-        </ul>
-        <p class="shrine__note">Вичавлюю максимум з двоекранних консолей.</p>
-        <div class="shrine__pixels" aria-hidden="true">
-            <span>▪</span><span>▪</span><span>▪</span><span>▪</span>
-            <span>▪</span><span>▪</span><span>▪</span><span>▪</span>
-        </div>
+    <article class="bento-card card--shrine span-1-2 fade-in" id="shrine"
+        style="background: var(--card-bg-warm); display: flex; flex-direction: column;">
+        <h2 style="font-size: 1.5rem; margin-bottom: 8px;">Зала слави</h2>
+        <p style="color: var(--text-muted); font-size: 0.9rem; margin-bottom: 16px;">Архів Nintendo DS, Switch та
+            симрейсинг сетап.</p>
+        <a href="{{ '/uk/collection/' | relative_url }}" class="btn-read-more" style="margin-top: auto;">Відкрити
+            сховище →</a>
     </article>
 
     <!-- ══════════════════════════════════════════
@@ -183,7 +167,7 @@ lang: uk
         <div class="teaching__icon" aria-hidden="true">🧑‍🏫</div>
         <h3 class="teaching__title">«Що таке файл?»</h3>
         <p class="teaching__desc">Плани уроків та вправи для учнів 3-го класу з основ інформатики.</p>
-        <span class="teaching__cta">читати урок →</span>
+        <a href="/blog/2026/02/26/what-is-a-file/" class="teaching__cta">Читати урок →</a>
     </article>
 
     <!-- ══════════════════════════════════════════

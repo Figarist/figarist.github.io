@@ -1637,3 +1637,43 @@ html.lang-en [data-i18n-uk] {
 html:not([class*="lang-"]) .liquid-hide {
   display: none !important;
 }
+
+/* ======================== GALLERY GRID ======================== */
+.photo-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 16px;
+}
+.photo-card {
+  border-radius: 16px;
+  overflow: hidden;
+  background: var(--card-bg);
+  border: 1px solid var(--border-card);
+  aspect-ratio: 4 / 3;
+}
+.photo-card.span-wide {
+  grid-column: 1 / -1;
+  aspect-ratio: 21 / 9;
+}
+.photo-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform var(--t-normal);
+}
+.photo-card:hover img {
+  transform: scale(1.03);
+}
+.photo-placeholder {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #e9e7e2;
+  color: var(--text-muted);
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  text-align: center;
+  padding: 20px;
+}

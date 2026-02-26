@@ -26,9 +26,9 @@ const portfolio = {
     studio: "Wrist & Pocket Studio",
     
     stack: {
-        frontend: "Pure HTML5 + CSS3 + Vanilla JS",
-        hosting: "GitHub Pages",
-        fonts: ["Fira Code", "Inter"]
+        frontend: "Jekyll + Pure HTML5 + CSS3 + Vanilla JS",
+        architecture: "Bento Grid UI",
+        hosting: "GitHub Pages"
     }
 };
 ```
@@ -42,10 +42,10 @@ const portfolio = {
 | Core Tech | Description |
 | :---: | :--- |
 | ![](https://img.shields.io/badge/HTML5-E34F26?style=flat-square&logo=html5&logoColor=white) | Pure HTML5, zero frameworks |
-| ![](https://img.shields.io/badge/CSS3-1572B6?style=flat-square&logo=css3&logoColor=white) | Vanilla CSS3, zero build steps |
-| ![](https://img.shields.io/badge/JavaScript-F7DF1E?style=flat-square&logo=javascript&logoColor=black) | Vanilla JS, auto-detects `html[lang]` |
+| ![](https://img.shields.io/badge/CSS3-1572B6?style=flat-square&logo=css3&logoColor=white) | Vanilla CSS3, Grid layouts |
+| ![](https://img.shields.io/badge/JavaScript-F7DF1E?style=flat-square&logo=javascript&logoColor=black) | Vanilla JS, WebGL embedding |
+| ![](https://img.shields.io/badge/Jekyll-CC0000?style=flat-square&logo=jekyll&logoColor=white) | Static Site Generation (DRY Includes) |
 | ![](https://img.shields.io/badge/GitHub_Pages-222222?style=flat-square&logo=githubpages&logoColor=white) | Deploys from `main` branch automatically |
-| ![](https://img.shields.io/badge/Fonts-Fira_Code_&_Inter-4285F4?style=flat-square&logo=googlefonts&logoColor=white) | Used for headings and body |
 
 </div>
 
@@ -54,36 +54,37 @@ const portfolio = {
 ## 📁 𝙵𝚒𝚕𝚎 𝚂𝚝𝚛𝚞𝚌𝚝𝚞𝚛𝚎
 
 ```text
-├── index.html          # English homepage (default)
+├── index.html          # English Bento Hub (default)
 ├── uk/
-│   └── index.html      # Ukrainian homepage
-├── styles.css          # Single shared stylesheet
-├── script.js           # Shared script (auto-detects html[lang])
-├── sitemap.xml         # Hreflang alternates for search engines
-├── robots.txt          # Crawl rules + sitemap link
-└── Example/            # Reference copy of the studio site (DO NOT DEPLOY)
+│   └── index.html      # Ukrainian Bento Hub
+├── _includes/          # DRY Jekyll includes (head, nav, footer)
+├── _layouts/           # Jekyll layouts for posts and pages
+├── _posts/             # Markdown blog posts
+├── styles.css          # Shared global styles + Bento layout
+├── script.js           # Shared scripting
+├── sitemap.xml         # SEO Hreflang alternates
+└── robots.txt          # SEO Crawl rules
 ```
 
 <br/>
 
-## 🎨 𝙳𝚎𝚜𝚒𝚐𝚗 𝚂𝚢𝚜𝚝𝚎𝚖 — "𝙸𝙳𝙴 𝙳𝚊𝚛𝚔 𝙼𝚘𝚍𝚎"
+## 🎨 𝙳𝚎𝚜𝚒𝚐𝚗 𝚂𝚢𝚜𝚝𝚎𝚖 — "𝙱𝚎𝚗𝚝𝚘 𝚄𝙸 & 𝙲𝚕𝚘𝚞𝚍 𝙳𝚊𝚗𝚌𝚎𝚛"
 
 <div align="center">
 
-| Token | Value | Hex |
+| Token | Details | Hex |
 | :---: | :---: | :---: |
-| **Background** | Deep / Primary | ![](https://img.shields.io/badge/%231a1a2e-1a1a2e?style=flat-square)&nbsp;![](https://img.shields.io/badge/%231e1e2e-1e1e2e?style=flat-square) |
-| **Surface** | Surface / Card | ![](https://img.shields.io/badge/%23252535-252535?style=flat-square)&nbsp;![](https://img.shields.io/badge/%232a2a3c-2a2a3c?style=flat-square) |
-| **Accents** | Pink / Blue / Yellow | ![](https://img.shields.io/badge/%23f5a0c0-f5a0c0?style=flat-square)&nbsp;![](https://img.shields.io/badge/%237ec8e3-7ec8e3?style=flat-square)&nbsp;![](https://img.shields.io/badge/%23e8d44d-e8d44d?style=flat-square) |
-| **Accents** | Green / Cyan / Purple | ![](https://img.shields.io/badge/%2398c379-98c379?style=flat-square)&nbsp;![](https://img.shields.io/badge/%2356d6c2-56d6c2?style=flat-square)&nbsp;![](https://img.shields.io/badge/%23c49bdb-c49bdb?style=flat-square) |
-| **Text** | Bright / Primary | ![](https://img.shields.io/badge/%23eeeef5-eeeef5?style=flat-square)&nbsp;![](https://img.shields.io/badge/%23d4d4e4-d4d4e4?style=flat-square) |
-| **Border** | Border Color | ![](https://img.shields.io/badge/%233a3a52-3a3a52?style=flat-square) |
+| **Background** | Cloud Dancer Page Bg | ![](https://img.shields.io/badge/%23f2f0eb-f2f0eb?style=flat-square) |
+| **Surface** | Pure White Cards | ![](https://img.shields.io/badge/%23ffffff-ffffff?style=flat-square) |
+| **Accents** | Cool Blue / Deep Blue | ![](https://img.shields.io/badge/%23a2c2e1-a2c2e1?style=flat-square)&nbsp;![](https://img.shields.io/badge/%236e9fc7-6e9fc7?style=flat-square) |
+| **Accents** | Blush Pink / Deep Rose | ![](https://img.shields.io/badge/%23f5c2cc-f5c2cc?style=flat-square)&nbsp;![](https://img.shields.io/badge/%23d97f93-d97f93?style=flat-square) |
+| **Text** | Dark Text / Muted | ![](https://img.shields.io/badge/%231a1a2e-1a1a2e?style=flat-square)&nbsp;![](https://img.shields.io/badge/%238888a8-8888a8?style=flat-square) |
 
 </div>
 
 > [!NOTE]
-> **Visual effects:** CRT scanline overlay (`body::after`), blinking cursor, decorative line-number gutter (desktop only), scroll fade-in via `IntersectionObserver`.
-> **Section headings** use `// KEYWORD` syntax-highlighting pattern (green comment + purple keyword).
+> **Architectural rules:** Layout MUST use `display: grid` with explicit `grid-template-areas`. 
+> Fractional span classes (`.span-X-X`) and `grid-auto-flow: dense` are FORBIDDEN stringently.
 
 <br/>
 
@@ -97,9 +98,8 @@ const portfolio = {
 </div>
 
 - **EN** = root `/index.html` (canonical: `https://figarist.github.io/`)
-- **UK** = `/uk/index.html` (canonical: `https://figarist.github.io/uk/`)
-- Both pages share `styles.css` and `script.js` (UK page uses `../` paths)
-- `script.js` reads `document.documentElement.lang` to choose typing text
+- Both index pages share Jekyll Includes in `_includes/` (`<head>`, `<nav>`, `<footer>`) which adapt dynamically.
+- Blog layout adapts based on YAML frontmatter variables (`lang: en` vs `lang: uk`).
 
 <br/>
 
@@ -130,14 +130,17 @@ Nav bar link with class `.lang-switch`:
 
 <br/>
 
-## 📑 𝙲𝚘𝚗𝚝𝚎𝚗𝚝 𝚂𝚎𝚌𝚝𝚒𝚘𝚗𝚜 (𝚜𝚊𝚖𝚎 𝚘𝚛𝚍𝚎𝚛 𝚘𝚗 𝚋𝚘𝚝𝚑 𝚙𝚊𝚐𝚎𝚜)
+## 📑 𝙲𝚘𝚗𝚝𝚎𝚗𝚝 𝚂𝚎𝚌𝚝𝚒𝚘𝚗𝚜 (𝙱𝚎𝚗𝚝𝚘 𝙶𝚛𝚒𝚍)
 
-1. **Hero** — typing animation (`> Hello world. I am Figarist.` / `> Привіт, світ. Я — Figarist.`), avatar from GitHub API
-2. **CURRENT_FOCUS** — studio card linking to `wristandpocket.github.io` (UK version links to `/uk/`)
-3. **SKILL_STACK** — tagged by category (Game Dev / Scripting / Tools)
-4. **THE_WORKSHOP** — personal project cards (NOT studio games)
-5. **HARDWARE_COLLECTION** — beloved tech list
-6. **Footer** — GitHub, YouTube, LinkedIn, Email + copyright
+1. **BIO** — Avatar, name, roles, taglines
+2. **WRIST & POCKET STUDIO** — Showcase of the flagship studio with Wear OS CSS mockups
+3. **WEBGL PLAYGROUND** — Interactive WebGL canvas via click-to-play iFrame overlay
+4. **TECH STACK** — Grid of icons showcasing proficiencies
+5. **SHRINE** — Collection vault covering DS/Switch & Sim Racing devices
+6. **TEACHING** — Classroom CS fundamentals log
+7. **UTILITY CORE** — Python tools & widgets
+8. **WORKSHOP** — Blog feed driven by Jekyll
+9. **CONTACT** — External links / handles
 
 <br/>
 
@@ -146,13 +149,11 @@ Nav bar link with class `.lang-switch`:
 > [!WARNING]
 > Please adhere strictly to the rules below to ensure the stability and styling of the portfolio!
 
-1. **No frameworks.** This is a pure HTML/CSS/JS site. Do not introduce React, Tailwind, etc.
-2. **Both languages.** Any content change must be applied to BOTH `index.html` and `uk/index.html`.
-3. **SEO parity.** If you add/change meta tags, do it on both pages with correct locale values.
-4. **Sitemap sync.** If you add new pages, add entries to `sitemap.xml` with hreflang alternates.
-5. **Studio site is the reference.** The `Example/` folder contains the studio site — use it as a pattern reference for SEO structure. Do not modify or deploy it.
-6. **Shared assets.** `styles.css` and `script.js` serve both languages. UK page references them with `../`.
-7. **Responsive.** Mobile hides nav section links but keeps the language switcher visible.
+1. **Core Philosophy:** Pure HTML5, CSS3, Vanilla JS, and Liquid / Jekyll layout. No heavy NPM packages. No React.
+2. **Bilingual Sync:** Structural additions to the Bento grid must be mirrored in BOTH `index.html` and `uk/index.html`.
+3. **DRY Includes:** Header, nav, and footer are modularized via `_includes/`. Never duplicate these parts across documents.
+4. **WebGL & Media:** WebGL canvases MUST be wrapped in a stateless click-to-play iframe overlay. Images should use `.webp` formatting and contain `loading="lazy"` tags.
+5. **SEO & Performance:** Maintain microdata, JSON-LD Schema.org tags, and canonical / hreflang markers comprehensively.
 
 <br/>
 

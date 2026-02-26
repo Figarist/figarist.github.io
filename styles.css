@@ -110,7 +110,8 @@ a {
 }
 
 .nav-inner {
-  max-width: 1280px;
+  width: 100%;
+  max-width: 1300px;
   margin: 0 auto;
   padding: 16px 24px;
   display: flex;
@@ -176,20 +177,19 @@ a {
   gap: var(--bento-gap);
   /* Гнучкі відступи: на ПК більше простору, на планшетах менше */
   padding: clamp(16px, 3vw, 32px);
-  width: 100%;
-  /* Даємо сітці розтягуватися на сучасних моніторах */
-  max-width: 1440px;
+  max-width: 1300px;
   margin: 0 auto;
-  grid-template-columns: repeat(4, 1fr);
-  /* Базова висота картки. Якщо контенту більше — вона плавно збільшиться */
-  grid-auto-rows: minmax(140px, auto);
+  grid-template-columns: repeat(3, 1fr);
+  /* Базова висота картки */
+  grid-auto-rows: minmax(180px, auto);
 
-  /* Жорстка архітектура (0 дірок) */
+  /* Збалансований 3-колоночний лейаут — кожна ~33% ширини */
   grid-template-areas:
-    "bio     bio     studio  studio"
-    "webgl   webgl   stack   shrine"
-    "blog    blog    python  shrine"
-    "teach   teach   contact contact";
+    "bio      bio      stack"
+    "studio   studio   shrine"
+    "webgl    webgl    shrine"
+    "blog     blog     python"
+    "teach    contact  contact";
 }
 
 #bio {
@@ -1338,6 +1338,14 @@ button:focus-visible,
   padding: 0 24px;
 }
 
+/* На головній сторінці .jekyll-main обгортає bento-grid —
+   прибираємо обмеження ширини */
+.jekyll-main:has(.bento-grid) {
+  max-width: 100%;
+  margin: 0;
+  padding: 0;
+}
+
 @media (max-width: 600px) {
   .floating-nav {
     top: 12px;
@@ -1619,5 +1627,13 @@ button:focus-visible,
   background: var(--accent-blue);
   color: #fff;
   box-shadow: 0 4px 16px rgba(162, 194, 225, 0.4);
-}html.lang-uk [data-i18n-en], html.lang-en [data-i18n-uk] { display: none !important; }
-html:not([class*="lang-"]) .liquid-hide { display: none !important; }
+}
+
+html.lang-uk [data-i18n-en],
+html.lang-en [data-i18n-uk] {
+  display: none !important;
+}
+
+html:not([class*="lang-"]) .liquid-hide {
+  display: none !important;
+}

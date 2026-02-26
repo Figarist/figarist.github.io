@@ -1,0 +1,109 @@
+<!-- SEO: Primary Meta -->
+<title>{% if page.title %}{{ page.title }} — {% endif %}Figarist{% if page.lang == 'uk' %} — Інді-розробник і викладач{%
+    else %} — Indie Dev & Tech Educator{% endif %}</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+<meta name="description"
+    content="{% if page.lang == 'uk' %}Персональний сайт Ігоря (Figarist). Unity-розробник, засновник Wrist & Pocket Studio та вчитель інформатики.{% else %}Personal site of Ihor (Figarist). Unity developer, founder of Wrist & Pocket Studio, and computer science teacher based in Ukraine.{% endif %}">
+<meta name="keywords"
+    content="Figarist, indie game developer, Unity developer, computer science teacher, Wear OS, C#, game dev, Ukraine, Wrist and Pocket Studio{% if page.lang == 'uk' %}, розробка ігор, викладач інформатики{% endif %}">
+<meta name="author" content="{% if page.lang == 'uk' %}Ігор (Figarist){% else %}Ihor (Figarist){% endif %}">
+<meta name="theme-color" content="#f2f0eb">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="{{ page.url | replace:'index.html','' | absolute_url }}">
+
+<!-- Anti-Flicker UI Language State (Runs before CSS/DOM) -->
+<script>
+    (function () {
+        try {
+            var storedLang = localStorage.getItem('figarist_ui_lang');
+            var currentPath = window.location.pathname;
+
+            // Sync Hub directly
+            if (currentPath === '/' || currentPath === '/blog/') {
+                localStorage.setItem('figarist_ui_lang', 'en');
+                storedLang = 'en';
+            } else if (currentPath === '/uk/' || currentPath === '/uk/blog/') {
+                localStorage.setItem('figarist_ui_lang', 'uk');
+                storedLang = 'uk';
+            }
+
+            var pref = storedLang || '{{ page.lang | default: "uk" }}';
+            document.documentElement.classList.add('lang-' + pref);
+        } catch (e) { }
+    })();
+</script>
+
+<!-- SEO: Hreflang -->
+<link rel="alternate" hreflang="en" href="{{ '/' | absolute_url }}">
+<link rel="alternate" hreflang="uk" href="{{ '/uk/' | absolute_url }}">
+<link rel="alternate" hreflang="x-default" href="{{ '/' | absolute_url }}">
+
+<!-- SEO: Open Graph -->
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Figarist">
+<meta property="og:title"
+    content="Figarist — {% if page.lang == 'uk' %}Інді-розробник і викладач{% else %}Indie Dev & Tech Educator{% endif %}">
+<meta property="og:description"
+    content="{% if page.lang == 'uk' %}Unity-розробник, засновник Wrist & Pocket Studio та вчитель інформатики. Створюю ігри для Wear OS.{% else %}Unity developer, founder of Wrist & Pocket Studio, and computer science teacher. Building games for Wear OS.{% endif %}">
+<meta property="og:url" content="{{ page.url | absolute_url }}">
+<meta property="og:locale" content="{% if page.lang == 'uk' %}uk_UA{% else %}en_US{% endif %}">
+<meta property="og:locale:alternate" content="{% if page.lang == 'uk' %}en_US{% else %}uk_UA{% endif %}">
+
+<!-- SEO: Twitter Card -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title"
+    content="Figarist — {% if page.lang == 'uk' %}Інді-розробник і викладач{% else %}Indie Dev & Tech Educator{% endif %}">
+<meta name="twitter:description"
+    content="{% if page.lang == 'uk' %}Unity-розробник, засновник Wrist & Pocket Studio та вчитель інформатики.{% else %}Unity developer, founder of Wrist & Pocket Studio, and computer science teacher.{% endif %}">
+
+<!-- SEO: JSON-LD Structured Data (Person) -->
+<script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "name": "Ihor",
+        "alternateName": "Figarist",
+        "url": "https://figarist.github.io",
+        "jobTitle": ["Indie Game Developer", "Computer Science Teacher"],
+        "knowsAbout": ["Unity", "C#", "Game Development", "Wear OS", "Python", "Computer Science Education"],
+        "address": {
+            "@type": "PostalAddress",
+            "addressLocality": "Zmiiv",
+            "addressCountry": "UA"
+        },
+        "affiliatedOrganization": {
+            "@type": "Organization",
+            "name": "Wrist & Pocket Studio",
+            "url": "https://wristandpocket.github.io"
+        },
+        "sameAs": [
+            "https://github.com/Figarist",
+            "https://www.youtube.com/@Figarist",
+            "https://www.linkedin.com/in/figarist/"
+        ]
+    }
+    </script>
+
+<!-- SEO: JSON-LD Structured Data (WebSite) -->
+<script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebSite",
+        "name": "Figarist",
+        "url": "https://figarist.github.io",
+        "inLanguage": ["en", "uk"],
+        "description": "Personal site of Ihor (Figarist). Indie game developer and computer science teacher."
+    }
+    </script>
+
+<!-- Fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link
+    href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Fira+Code:wght@400;500;600&display=swap"
+    rel="stylesheet">
+
+<link rel="stylesheet" href="{{ '/styles.css' | relative_url }}">
+<meta name="google-site-verification" content="Whr2bJTggESM1pyCXLfqwodNQu6cNqk_XKdZ0ix2Tyk" />
+<script src="{{ '/assets/js/locale.js' | relative_url }}" defer></script>
+</head>

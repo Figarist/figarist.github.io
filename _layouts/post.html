@@ -1,0 +1,53 @@
+---
+layout: default
+---
+
+<article class="post-container" itemscope itemtype="https://schema.org/BlogPosting">
+
+  <a href="{% if page.lang == 'uk' %}/uk/{% else %}/{% endif %}" class="btn-back" id="back-to-hub">
+    <span data-i18n-en class="{% if page.lang=='uk' %}liquid-hide{% endif %}">← Back to Hub</span>
+    <span data-i18n-uk class="{% if page.lang=='en' %}liquid-hide{% endif %}">← Назад до головної</span>
+  </a>
+
+  <h1 itemprop="headline">{{ page.title }}</h1>
+  <time class="post-date" datetime="{{ page.date | date_to_xmlschema }}" itemprop="datePublished">
+    {{ page.date | date: "%d %B %Y" }}
+  </time>
+
+  <div itemprop="articleBody">
+    {{ content }}
+  </div>
+
+  {% if page.tags.size > 0 %}
+  <div class="post-tags">
+    {% for tag in page.tags %}
+    <span class="post-tag">#{{ tag }}</span>
+    {% endfor %}
+  </div>
+  {% endif %}
+
+</article>
+
+<!-- JSON-LD: BlogPosting -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": {{ page.title | jsonify }},
+  "datePublished": "{{ page.date | date_to_xmlschema }}",
+  "dateModified": "{{ page.last_modified_at | default: page.date | date_to_xmlschema }}",
+  "inLanguage": "{{ page.lang | default: 'uk' }}",
+  "author": {
+    "@type": "Person",
+    "name": "Figarist",
+    "url": "https://figarist.github.io"
+  },
+  "publisher": {
+    "@type": "Person",
+    "name": "Figarist",
+    "url": "https://figarist.github.io"
+  },
+  "url": "{{ page.url | absolute_url }}",
+  "description": {{ page.description | default: page.excerpt | strip_html | jsonify }}
+}
+</script>

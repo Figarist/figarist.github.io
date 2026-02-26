@@ -1,0 +1,51 @@
+# ============================================================
+#  Figarist — Jekyll Configuration
+# ============================================================
+
+title:       "Figarist Blog"
+description: "Indie Dev (Unity, Wear OS), Educator, and Tech Enthusiast."
+url:         "https://figarist.github.io"
+baseurl:     ""
+
+lang:        "en"
+author:      "Ihor (Figarist)"
+
+# ── Build ────────────────────────────────────────────────────
+markdown:    kramdown
+highlighter: rouge
+
+# Exclude dev artefacts from the build
+exclude:
+  - README.md
+  - "*.sh"
+  - Gemfile
+  - Gemfile.lock
+  - node_modules/
+  - .agent/
+  - .git/
+
+# ── Plugins ──────────────────────────────────────────────────
+plugins:
+  - jekyll-seo-tag
+  - jekyll-sitemap
+  - jekyll-feed
+
+# ── Defaults ─────────────────────────────────────────────────
+defaults:
+  - scope:
+      path:   ""
+      type:   "posts"
+    values:
+      layout: "post"
+  - scope:
+      path:   ""
+      type:   "pages"
+    values:
+      layout: "default"
+
+# ── Permalink ─────────────────────────────────────────────────
+permalink: /blog/:year/:month/:day/:title/
+
+# ── Feed ──────────────────────────────────────────────────────
+feed:
+  path: feed.xml

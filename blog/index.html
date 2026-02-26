@@ -1,0 +1,25 @@
+---
+layout: default
+title: "The Workshop / Blog"
+lang: en
+---
+
+<div class="post-container">
+    <a href="/" class="btn-back">← Back to Hub</a>
+
+    <h1 style="margin-bottom: 8px;">The Workshop</h1>
+    <p style="color: var(--text-muted); margin-bottom: 40px; font-family: var(--font-mono); font-size: 0.85rem;">Latest
+        notes & dev logs.</p>
+
+    <ul class="post-list" style="margin-top: 0;">
+        {% for post in site.posts %}
+        <li style="margin-bottom: 12px;">
+            <a href="{{ post.url | relative_url }}"
+                style="padding: 16px; border: 1px solid var(--border-light); background: var(--card-bg);">
+                <span class="post-title" style="font-size: 1.2rem; margin-bottom: 6px;">{{ post.title }}</span>
+                <time class="post-meta">{{ post.date | date: "%B %d, %Y" }}</time>
+            </a>
+        </li>
+        {% endfor %}
+    </ul>
+</div>

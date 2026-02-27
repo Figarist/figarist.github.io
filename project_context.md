@@ -43,10 +43,13 @@ figarist.github.io/
 │
 ├── _posts/                 # Блог-пости (Markdown + YAML front matter)
 │   ├── 2026-02-27-what-is-a-file-en.md
-│   └── 2026-02-27-what-is-a-file-uk.md
+│   └── 2026-02-27-unity-charge-mechanic-en.md  # Нові типи постів
 │
 ├── blog/
 │   └── index.html          # Мультимовний список постів
+│
+├── education/
+│   └── index.html          # Колекція навчальних матеріалів
 │
 ├── collection/
 │   └── index.html          # Мультимовна сторінка колекції ігор
@@ -104,11 +107,13 @@ figarist.github.io/
   grid-template-columns: repeat(3, 1fr);
   grid-auto-rows: minmax(180px, auto);
   grid-template-areas:
-    "bio    bio    stack"
-    "studio studio shrine"
-    "webgl  webgl  shrine"
-    "blog   blog   python"
-    "teach  contact contact";
+    "bio          bio          stack"
+    "studio       studio       shrine"
+    "webgl        webgl        shrine"
+    "feed-vr      feed-vr      feed-gamedev"
+    "feed-vr      feed-vr      feed-gamedev"
+    "feed-personal feed-edu   python"
+    "teach        contact      contact";
 }
 ```
 
@@ -120,9 +125,12 @@ figarist.github.io/
 | `webgl` | `#webgl` | `.card--webgl` |
 | `stack` | `#stack` | `.card--stack` |
 | `shrine` | `#shrine` | `.card--shrine` |
-| `teach` | `#teaching` | `.card--teaching` |
+| `feed-vr` | `#feed-vr` | `.card--feed-vr` |
+| `feed-gamedev` | `#feed-gamedev` | `.card--feed-gamedev` |
+| `feed-personal` | `#feed-personal` | `.card--feed-personal` |
+| `feed-edu` | `#feed-edu` | `.card--feed-edu` |
 | `python` | `#python` | `.card--python` |
-| `blog` | `#blog` | `.card--blog` |
+| `teach` | `#teaching` | `.card--teaching` |
 | `contact` | `#contact` | `.card--contact` |
 
 ### Responsive Breakpoints

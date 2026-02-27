@@ -1,21 +1,23 @@
 ---
 layout: default
 title: "Education Hub — Figarist"
-lang: en
 ---
+
 <div class="post-container" style="max-width: 900px;">
     <a href="{{ '/' | relative_url }}" class="btn-back">
-        <span data-i18n-en class="{% if page.lang=='uk' %}liquid-hide{% endif %}">← Back to Hub</span>
-        <span data-i18n-uk class="{% if page.lang=='en' %}liquid-hide{% endif %}">← Назад до головної</span>
+        {% if site.active_lang == 'uk' %}← Назад до головної{% else %}← Back to Hub{% endif %}
     </a>
 
-    <h1 style="margin-bottom: 8px;">Education Hub</h1>
+    <h1 style="margin-bottom: 8px;">
+        {% if site.active_lang == 'uk' %}Освітній Центр{% else %}Education Hub{% endif %}
+    </h1>
     <p style="color: var(--text-muted); margin-bottom: 40px; font-family: var(--font-mono); font-size: 0.85rem;">
-        Evergreen tutorials, guides, and lesson plans.
+        {% if site.active_lang == 'uk' %}Актуальні туторіали, посібники та плани уроків.{% else %}Evergreen tutorials,
+        guides, and lesson plans.{% endif %}
     </p>
 
     <div style="display: flex; flex-direction: column; gap: 16px;">
-        {% assign sorted_edu = site.education | sort: "sort_order" %}
+        {% assign sorted_edu = site.education | where: "lang", site.active_lang | sort: "sort_order" %}
         {% for item in sorted_edu %}
         <a href="{{ item.url | relative_url }}" class="bento-card fade-in"
             style="text-decoration: none; padding: 24px; transition: transform 0.2s; display: block;">

@@ -1,45 +1,46 @@
 <header>
-    <nav class="site-nav" aria-label="{% if page.lang == 'uk' %}Головна навігація{% else %}Main navigation{% endif %}">
+    <nav class="site-nav"
+        aria-label="{% if site.active_lang == 'uk' %}Головна навігація{% else %}Main navigation{% endif %}">
         <div class="nav-inner">
-            <a href="{% if page.lang == 'uk' %}{{ '/uk/' | relative_url }}{% else %}{{ '/' | relative_url }}{% endif %}"
-                class="site-nav__brand" id="site-logo">Figarist</a>
+            <a href="{{ '/' | relative_url }}" class="site-nav__brand" id="site-logo">Figarist</a>
             <div class="site-nav__links">
-                {% capture base_url %}{% if page.url contains '/blog/' %}{% if page.lang == 'uk' %}{{ '/uk/' |
-                relative_url }}{% else %}{{ '/' | relative_url }}{% endif %}{% else %}{% endif %}{% endcapture %}
-                <a href="{{ base_url }}#studio">
-                    <span data-i18n-en class="{% if page.lang=='uk' %}liquid-hide{% endif %}">Studio</span>
-                    <span data-i18n-uk class="{% if page.lang=='en' %}liquid-hide{% endif %}">Студія</span>
+                <a href="{{ '/' | relative_url }}#studio">
+                    {% if site.active_lang == 'uk' %}Студія{% else %}Studio{% endif %}
                 </a>
-                <a href="{{ base_url }}#webgl">
-                    <span data-i18n-en class="{% if page.lang=='uk' %}liquid-hide{% endif %}">Playground</span>
-                    <span data-i18n-uk class="{% if page.lang=='en' %}liquid-hide{% endif %}">Ігровий майданчик</span>
+                <a href="{{ '/' | relative_url }}#webgl">
+                    {% if site.active_lang == 'uk' %}Ігровий майданчик{% else %}Playground{% endif %}
                 </a>
-                <a href="{{ base_url }}#stack">
-                    <span data-i18n-en class="{% if page.lang=='uk' %}liquid-hide{% endif %}">Stack</span>
-                    <span data-i18n-uk class="{% if page.lang=='en' %}liquid-hide{% endif %}">Стек</span>
+                <a href="{{ '/' | relative_url }}#stack">
+                    {% if site.active_lang == 'uk' %}Стек{% else %}Stack{% endif %}
                 </a>
-                <a href="{{ base_url }}#shrine">
-                    <span data-i18n-en class="{% if page.lang=='uk' %}liquid-hide{% endif %}">Shrine</span>
-                    <span data-i18n-uk class="{% if page.lang=='en' %}liquid-hide{% endif %}">Зала слави</span>
+                <a href="{{ '/' | relative_url }}#shrine">
+                    {% if site.active_lang == 'uk' %}Зала слави{% else %}Shrine{% endif %}
                 </a>
 
-                <!-- Language Switcher -->
-                {% if layout.name == 'post' or page.layout == 'post' %}
-                <!-- On posts: JS handles the toggle exclusively without navigation -->
-                <a href="#" class="lang-switch js-lang-toggle {% if page.lang=='en' %}liquid-hide{% endif %}"
-                    data-i18n-uk title="English">🇬🇧 EN</a>
-                <a href="#" class="lang-switch js-lang-toggle {% if page.lang=='uk' %}liquid-hide{% endif %}"
-                    data-i18n-en title="Українська">🇺🇦 UA</a>
-                {% else %}
-                <!-- On hubs/indexes: Smart path-based navigation -->
-                {% if page.url contains '/uk/' %}
-                {% assign target_url = page.url | remove_first: '/uk' | replace: '//', '/' %}
-                <a href="{{ target_url | relative_url }}" class="lang-switch js-lang-nav" title="English">🇬🇧 EN</a>
-                {% else %}
-                {% assign target_url = '/uk' | append: page.url | replace: '//', '/' %}
-                <a href="{{ target_url | relative_url }}" class="lang-switch js-lang-nav" title="Українська">🇺🇦 UA</a>
-                {% endif %}
-                {% endif %}
+                <!-- Language Switcher (Polyglot) -->
+                {% assign bare_url = page.url | remove_first: '/uk' %}
+                {% if bare_url == '' %}{% assign bare_url = '/' %}{% endif %}
+                <div class="lang-switch-wrapper"
+                    style="display:flex;gap:8px;align-items:center;background:rgba(255,255,255,0.6);padding:4px 12px;border-radius:20px;border:1px solid var(--border-light,#e0e0e0);">
+                    {% for lang in site.languages %}
+                    {% if lang == site.active_lang %}
+                    <span class="lang-switch active"
+                        style="font-weight:700;text-transform:uppercase;font-size:0.85rem;cursor:default;">{{ lang
+                        }}</span>
+                    {% else %}
+                    {% if lang == site.default_lang %}
+                    <a {% static_href %}href="{{ site.baseurl }}{{ bare_url }}" {% endstatic_href %} class="lang-switch"
+                        style="text-transform:uppercase;font-size:0.85rem;color:var(--text-muted,#888);text-decoration:none;">{{
+                        lang }}</a>
+                    {% else %}
+                    <a {% static_href %}href="{{ site.baseurl }}/{{ lang }}{{ bare_url }}" {% endstatic_href %}
+                        class="lang-switch"
+                        style="text-transform:uppercase;font-size:0.85rem;color:var(--text-muted,#888);text-decoration:none;">{{
+                        lang }}</a>
+                    {% endif %}
+                    {% endif %}
+                    {% endfor %}
+                </div>
             </div>
         </div>
     </nav>

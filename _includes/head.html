@@ -11,32 +11,16 @@
 <meta name="robots" content="index, follow">
 <link rel="canonical" href="{{ page.url | replace:'index.html','' | absolute_url }}">
 
-<!-- Anti-Flicker UI Language State (Runs before CSS/DOM) -->
-<script>
-    (function () {
-        try {
-            var storedLang = localStorage.getItem('figarist_ui_lang');
-            var currentPath = window.location.pathname;
-
-            // Sync Hub directly
-            if (currentPath === '/' || currentPath === '/blog/') {
-                localStorage.setItem('figarist_ui_lang', 'en');
-                storedLang = 'en';
-            } else if (currentPath === '/uk/' || currentPath === '/uk/blog/') {
-                localStorage.setItem('figarist_ui_lang', 'uk');
-                storedLang = 'uk';
-            }
-
-            var pref = storedLang || '{{ page.lang | default: "uk" }}';
-            document.documentElement.classList.add('lang-' + pref);
-        } catch (e) { }
-    })();
-</script>
 
 <!-- SEO: Hreflang -->
-<link rel="alternate" hreflang="en" href="{{ '/' | absolute_url }}">
-<link rel="alternate" hreflang="uk" href="{{ '/uk/' | absolute_url }}">
-<link rel="alternate" hreflang="x-default" href="{{ '/' | absolute_url }}">
+{% assign bare_url = page.url | remove_first: '/uk' %}
+{% if bare_url == '' %}{% assign bare_url = '/' %}{% endif %}
+<link rel="alternate" {% static_href %}href="{{ site.url }}{{ site.baseurl }}{{ bare_url }}" {% endstatic_href %}
+    hreflang="en">
+<link rel="alternate" {% static_href %}href="{{ site.url }}{{ site.baseurl }}/uk{{ bare_url }}" {% endstatic_href %}
+    hreflang="uk">
+<link rel="alternate" {% static_href %}href="{{ site.url }}{{ site.baseurl }}{{ bare_url }}" {% endstatic_href %}
+    hreflang="x-default">
 
 <!-- SEO: Open Graph -->
 <meta property="og:type" content="website">
@@ -104,5 +88,4 @@
 
 <link rel="stylesheet" href="{{ '/styles.css' | relative_url }}">
 <meta name="google-site-verification" content="Whr2bJTggESM1pyCXLfqwodNQu6cNqk_XKdZ0ix2Tyk" />
-<script src="{{ '/assets/js/locale.js' | relative_url }}" defer></script>
 </head>

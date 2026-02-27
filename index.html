@@ -20,22 +20,13 @@ layout: default
       <div class="bio__text">
         <h1 class="bio__name">Figarist</h1>
         <p class="bio__roles">
-          {% if site.active_lang == 'uk' %}
-          Unity Розробник · Викладач · Ретро-ентузіаст
-          {% else %}
-          Unity Dev · Educator · Retro Enthusiast
-          {% endif %}
+          {{ site.data[site.active_lang].strings.bio_roles }}
         </p>
-        <p class="bio__location">📍 {% if site.active_lang == 'uk' %}Зміїв, Україна{% else %}Zmiiv, Ukraine{% endif %}
-          🇺🇦</p>
+        <p class="bio__location">📍 {{ site.data[site.active_lang].strings.bio_location_full }} 🇺🇦</p>
       </div>
     </div>
     <p class="bio__tagline">
-      {% if site.active_lang == 'uk' %}
-      Створюю маленькі світи для маленьких екранів — і вчу дітей, що таке файл насправді.
-      {% else %}
-      Building tiny worlds for tiny screens — and teaching kids what a file actually is.
-      {% endif %}
+      {{ site.data[site.active_lang].strings.bio_tagline }}
     </p>
   </article>
 
@@ -46,14 +37,10 @@ layout: default
     id="studio" aria-label="Visit Wrist & Pocket Studio">
 
     <div class="studio__header">
-      <span class="studio__badge">FLAGSHIP</span>
+      <span class="studio__badge">{{ site.data[site.active_lang].strings.studio_badge }}</span>
       <h2 class="studio__title">Wrist &amp; Pocket Studio</h2>
       <p class="studio__sub">
-        {% if site.active_lang == 'uk' %}
-        Створюємо майбутнє ігор для Wear OS
-        {% else %}
-        Building the future of Wear OS gaming
-        {% endif %}
+        {{ site.data[site.active_lang].strings.studio_sub }}
       </p>
     </div>
 
@@ -103,7 +90,7 @@ layout: default
         <span class="studio__tag">Wear OS</span>
       </span>
       <span class="studio__cta">
-        {% if site.active_lang == 'uk' %}Відвідати Студію{% else %}Visit Studio{% endif %} <span class="arrow">→</span>
+        {{ site.data[site.active_lang].strings.studio_cta_text }} <span class="arrow">→</span>
       </span>
     </div>
   </a>
@@ -116,11 +103,7 @@ layout: default
       <span class="webgl__icon">⚡</span>
       <h2 class="webgl__title">WebGL Playground</h2>
       <p class="webgl__sub">
-        {% if site.active_lang == 'uk' %}
-        Інтерактивні демо Unity у вашому браузері
-        {% else %}
-        Interactive Unity demos in your browser
-        {% endif %}
+        {{ site.data[site.active_lang].strings.webgl_sub }}
       </p>
     </div>
 
@@ -134,11 +117,10 @@ layout: default
           </svg>
         </div>
         <p class="webgl__overlay-text">
-          {% if site.active_lang == 'uk' %}Натисніть для гри{% else %}Click to Play{% endif %}
+          {{ site.data[site.active_lang].strings.webgl_overlay_text }}
         </p>
         <p class="webgl__overlay-note">
-          {% if site.active_lang == 'uk' %}Завантажує Unity WebGL — може зайняти хвилину{% else %}Loads Unity WebGL —
-          may take a moment{% endif %}
+          {{ site.data[site.active_lang].strings.webgl_overlay_note }}
         </p>
       </div>
       <!-- The actual iframe — activated on click -->
@@ -148,13 +130,9 @@ layout: default
 
     <p class="webgl__caption">
       <span class="webgl__status" id="webgl-status">
-        {% if site.active_lang == 'uk' %}● Незабаром{% else %}● Coming soon{% endif %}
+        {{ site.data[site.active_lang].strings.webgl_status }}
       </span>
-      {% if site.active_lang == 'uk' %}
-      Майбутня домівка інтерактивних міні-ігор на Unity.
-      {% else %}
-      Future home of interactive Unity mini-games.
-      {% endif %}
+      {{ site.data[site.active_lang].strings.webgl_caption }}
     </p>
   </article>
 
@@ -162,7 +140,7 @@ layout: default
            CARD 4 — TECH STACK (1 col × 1 row)
            ══════════════════════════════════════════ -->
   <article class="bento-card card--stack fade-in" id="stack">
-    <div class="card-label">TECH_STACK</div>
+    <div class="card-label">{{ site.data[site.active_lang].strings.tech_stack_label }}</div>
     <div class="blueprint-grid" aria-hidden="true"></div>
     <div class="stack__icons">
       <div class="stack__item" title="Unity">
@@ -189,16 +167,12 @@ layout: default
            ══════════════════════════════════════════ -->
   <article class="bento-card card--shrine fade-in" id="shrine"
     style="background: var(--card-bg-warm); display: flex; flex-direction: column;">
-    <h2 style="font-size: 1.5rem; margin-bottom: 8px;">The Shrine</h2>
+    <h2 style="font-size: 1.5rem; margin-bottom: 8px;">{{ site.data[site.active_lang].strings.shrine_title }}</h2>
     <p style="color: var(--text-muted); font-size: 0.9rem; margin-bottom: 16px;">
-      {% if site.active_lang == 'uk' %}
-      Архів Nintendo DS, Switch та Simcade.
-      {% else %}
-      Nintendo DS archive, Switch & Simcade rig.
-      {% endif %}
+      {{ site.data[site.active_lang].strings.shrine_desc }}
     </p>
     <a href="{{ '/collection/' | relative_url }}" class="btn-read-more" style="margin-top: auto;">
-      {% if site.active_lang == 'uk' %}Відкрити сховище →{% else %}Unlock the vault →{% endif %}
+      {{ site.data[site.active_lang].strings.shrine_cta }}
     </a>
   </article>
 
@@ -206,18 +180,14 @@ layout: default
            CARD 6 — TEACHING (1 col × 1 row)
            ══════════════════════════════════════════ -->
   <article class="bento-card card--teaching fade-in" id="teaching">
-    <div class="card-label">CLASSROOM</div>
+    <div class="card-label">{{ site.data[site.active_lang].strings.classroom_label }}</div>
     <div class="teaching__icon" aria-hidden="true">🧑‍🏫</div>
     <h3 class="teaching__title">"What is a File?"</h3>
     <p class="teaching__desc">
-      {% if site.active_lang == 'uk' %}
-      Плани уроків та активності для 3-го класу з основ інформатики.
-      {% else %}
-      Lesson plans &amp; activities for 3rd-grade CS fundamentals.
-      {% endif %}
+      {{ site.data[site.active_lang].strings.teaching_desc }}
     </p>
     <a href="{{ '/blog/what-is-a-file/' | relative_url }}" class="teaching__cta">
-      {% if site.active_lang == 'uk' %}Читати урок →{% else %}Read lesson →{% endif %}
+      {{ site.data[site.active_lang].strings.teaching_cta }}
     </a>
   </article>
 
@@ -225,7 +195,7 @@ layout: default
            CARD 7 — PYTHON LO-FI (1 col × 1 row)
            ══════════════════════════════════════════ -->
   <article class="bento-card card--python fade-in" id="python">
-    <div class="card-label">UTILITY_CORE</div>
+    <div class="card-label">{{ site.data[site.active_lang].strings.utility_core_label }}</div>
     <div class="python__terminal">
       <div class="terminal__bar">
         <span class="terminal__dot dot--red"></span>
@@ -241,11 +211,7 @@ layout: default
     </div>
     <h3 class="python__title">Python Lo-Fi Tool</h3>
     <p class="python__desc">
-      {% if site.active_lang == 'uk' %}
-      Перетворює аудіо на затишний lo-fi з тріском вінілу.
-      {% else %}
-      Transforms audio into cozy lo-fi with vinyl crackle.
-      {% endif %}
+      {{ site.data[site.active_lang].strings.python_desc }}
     </p>
   </article>
 
@@ -253,13 +219,12 @@ layout: default
            CARD 8 — VR NEWS & LIFE FEED (2 col × 1 row)
            ══════════════════════════════════════════ -->
   <article class="bento-card card--feed card--feed-vr fade-in" id="feed-vr">
-    <div class="card-label">VR_LIFE</div>
+    <div class="card-label">{{ site.data[site.active_lang].strings.vr_life_label }}</div>
     <h2 class="feed__heading">
-      {% if site.active_lang == 'uk' %}Новини VR та Життя{% else %}VR News &amp; Life{% endif %}
+      {{ site.data[site.active_lang].strings.vr_heading }}
     </h2>
     <p class="feed__subtitle">
-      {% if site.active_lang == 'uk' %}Гарнітури, XR експерименти та імерсивні думки{% else %}Headsets, XR experiments
-      &amp; immersive thoughts{% endif %}
+      {{ site.data[site.active_lang].strings.vr_subtitle }}
     </p>
     <ul class="post-list">
       {% assign vr_posts = site.posts | where: "lang", site.active_lang | where: "category", "vr" %}
@@ -273,13 +238,12 @@ layout: default
       </li>
       {% else %}
       <li class="post-list__empty">
-        {% if site.active_lang == 'uk' %}Публікації про VR незабаром — залишайтеся з нами.{% else %}VR posts incoming —
-        stay tuned.{% endif %}
+        {{ site.data[site.active_lang].strings.vr_empty }}
       </li>
       {% endfor %}
     </ul>
     <a href="{{ '/blog/' | relative_url }}#vr" class="btn-read-more">
-      {% if site.active_lang == 'uk' %}Усі публікації про VR →{% else %}All VR posts →{% endif %}
+      {{ site.data[site.active_lang].strings.vr_cta }}
     </a>
   </article>
 
@@ -287,11 +251,10 @@ layout: default
            CARD 9 — UNITY & GAMEDEV FEED (2 col × 1 row)
            ══════════════════════════════════════════ -->
   <article class="bento-card card--feed card--feed-gamedev fade-in" id="feed-gamedev">
-    <div class="card-label">THE_WORKSHOP</div>
-    <h2 class="feed__heading">Unity &amp; GameDev</h2>
+    <div class="card-label">{{ site.data[site.active_lang].strings.workshop_label }}</div>
+    <h2 class="feed__heading">{{ site.data[site.active_lang].strings.gamedev_heading }}</h2>
     <p class="feed__subtitle">
-      {% if site.active_lang == 'uk' %}Девлоги, механіки та експерименти Wear OS{% else %}Dev logs, mechanics &amp; Wear
-      OS experiments{% endif %}
+      {{ site.data[site.active_lang].strings.gamedev_subtitle }}
     </p>
     <ul class="post-list">
       {% assign gamedev_posts = site.posts | where: "lang", site.active_lang | where: "category", "gamedev" %}
@@ -305,13 +268,12 @@ layout: default
       </li>
       {% else %}
       <li class="post-list__empty">
-        {% if site.active_lang == 'uk' %}Девлоги незабаром — залишайтеся з нами.{% else %}Dev logs incoming — stay
-        tuned.{% endif %}
+        {{ site.data[site.active_lang].strings.gamedev_empty }}
       </li>
       {% endfor %}
     </ul>
     <a href="{{ '/blog/' | relative_url }}#gamedev" class="btn-read-more">
-      {% if site.active_lang == 'uk' %}Усі публікації про розробку ігор →{% else %}All GameDev posts →{% endif %}
+      {{ site.data[site.active_lang].strings.gamedev_cta }}
     </a>
   </article>
 
@@ -319,13 +281,12 @@ layout: default
            CARD 10 — PERSONAL / VLOG FEED (1 col × 1 row)
            ══════════════════════════════════════════ -->
   <article class="bento-card card--feed card--feed-personal fade-in" id="feed-personal">
-    <div class="card-label">VLOG</div>
+    <div class="card-label">{{ site.data[site.active_lang].strings.vlog_label }}</div>
     <h2 class="feed__heading">
-      {% if site.active_lang == 'uk' %}Особисте Життя{% else %}Personal Life{% endif %}
+      {{ site.data[site.active_lang].strings.personal_heading }}
     </h2>
     <p class="feed__subtitle">
-      {% if site.active_lang == 'uk' %}Коти, відключення світла та життя розробника в Україні{% else %}Cats, power cuts
-      &amp; dev life in Ukraine{% endif %}
+      {{ site.data[site.active_lang].strings.personal_subtitle }}
     </p>
     <ul class="post-list">
       {% assign personal_posts = site.posts | where: "lang", site.active_lang | where: "category", "personal" %}
@@ -339,13 +300,12 @@ layout: default
       </li>
       {% else %}
       <li class="post-list__empty">
-        {% if site.active_lang == 'uk' %}Влог незабаром — залишайтеся з нами.{% else %}Vlog posts incoming — stay
-        tuned.{% endif %}
+        {{ site.data[site.active_lang].strings.personal_empty }}
       </li>
       {% endfor %}
     </ul>
     <a href="{{ '/blog/' | relative_url }}#personal" class="btn-read-more">
-      {% if site.active_lang == 'uk' %}Усі влоги →{% else %}All vlogs →{% endif %}
+      {{ site.data[site.active_lang].strings.personal_cta }}
     </a>
   </article>
 
@@ -353,13 +313,12 @@ layout: default
            CARD 11 — EDUCATION COLLECTION (1 col × 1 row)
            ══════════════════════════════════════════ -->
   <article class="bento-card card--feed card--feed-edu fade-in" id="feed-edu">
-    <div class="card-label">EDUCATION</div>
+    <div class="card-label">{{ site.data[site.active_lang].strings.education_label }}</div>
     <h2 class="feed__heading">
-      {% if site.active_lang == 'uk' %}Навчайся зі мною{% else %}Learn With Me{% endif %}
+      {{ site.data[site.active_lang].strings.edu_heading }}
     </h2>
     <p class="feed__subtitle">
-      {% if site.active_lang == 'uk' %}Актуальні туторіали та посібники{% else %}Evergreen tutorials &amp; guides{%
-      endif %}
+      {{ site.data[site.active_lang].strings.edu_subtitle }}
     </p>
     <ul class="post-list">
       {% assign edu_items = site.education | where: "lang", site.active_lang | sort: "sort_order" %}
@@ -372,13 +331,12 @@ layout: default
       </li>
       {% else %}
       <li class="post-list__empty">
-        {% if site.active_lang == 'uk' %}Туторіали незабаром — залишайтеся з нами.{% else %}Tutorials incoming — stay
-        tuned.{% endif %}
+        {{ site.data[site.active_lang].strings.edu_empty }}
       </li>
       {% endfor %}
     </ul>
     <a href="{{ '/education/' | relative_url }}" class="btn-read-more">
-      {% if site.active_lang == 'uk' %}Усі статті →{% else %}All articles →{% endif %}
+      {{ site.data[site.active_lang].strings.edu_cta }}
     </a>
   </article>
 
@@ -387,7 +345,7 @@ layout: default
            ══════════════════════════════════════════ -->
   <div class="bento-card card--contact fade-in" id="contact">
     <p class="contact__intro">
-      {% if site.active_lang == 'uk' %}Знайдіть мене в мережі{% else %}Find me across the web{% endif %}
+      {{ site.data[site.active_lang].strings.contact_intro }}
     </p>
     <div class="contact__links">
 
@@ -418,7 +376,7 @@ layout: default
 
       <a href="https://wristandpocket.github.io" target="_blank" rel="noopener"
         class="contact__link contact__link--primary" id="link-studio">
-        {% if site.active_lang == 'uk' %}⌚ Сайт Студії →{% else %}⌚ Studio Site →{% endif %}
+        {{ site.data[site.active_lang].strings.studio_site }}
       </a>
 
     </div>

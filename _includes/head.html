@@ -1,12 +1,10 @@
 <!-- SEO: Primary Meta -->
-<title>{% if page.title %}{{ page.title }} — {% endif %}Figarist{% if page.lang == 'uk' %} — Інді-розробник і викладач{%
-    else %} — Indie Dev & Tech Educator{% endif %}</title>
+<title>{% if page.title %}{{ page.title }} — {% endif %}Figarist{{ site.data[site.active_lang].strings.head_title_suffix
+    }}</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
-<meta name="description"
-    content="{% if page.lang == 'uk' %}Персональний сайт Ігоря (Figarist). Unity-розробник, засновник Wrist & Pocket Studio та вчитель інформатики.{% else %}Personal site of Ihor (Figarist). Unity developer, founder of Wrist & Pocket Studio, and computer science teacher based in Ukraine.{% endif %}">
-<meta name="keywords"
-    content="Figarist, indie game developer, Unity developer, computer science teacher, Wear OS, C#, game dev, Ukraine, Wrist and Pocket Studio{% if page.lang == 'uk' %}, розробка ігор, викладач інформатики{% endif %}">
-<meta name="author" content="{% if page.lang == 'uk' %}Ігор (Figarist){% else %}Ihor (Figarist){% endif %}">
+<meta name="description" content="{{ site.data[site.active_lang].strings.head_desc }}">
+<meta name="keywords" content="{{ site.data[site.active_lang].strings.head_keywords }}">
+<meta name="author" content="{{ site.data[site.active_lang].strings.head_author }}">
 <meta name="theme-color" content="#f2f0eb">
 <meta name="robots" content="index, follow">
 <link rel="canonical" href="{{ page.url | replace:'index.html','' | absolute_url }}">
@@ -25,20 +23,18 @@
 <!-- SEO: Open Graph -->
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Figarist">
-<meta property="og:title"
-    content="Figarist — {% if page.lang == 'uk' %}Інді-розробник і викладач{% else %}Indie Dev & Tech Educator{% endif %}">
-<meta property="og:description"
-    content="{% if page.lang == 'uk' %}Unity-розробник, засновник Wrist & Pocket Studio та вчитель інформатики. Створюю ігри для Wear OS.{% else %}Unity developer, founder of Wrist & Pocket Studio, and computer science teacher. Building games for Wear OS.{% endif %}">
+<meta property="og:title" content="Figarist{{ site.data[site.active_lang].strings.head_title_suffix }}">
+<meta property="og:description" content="{{ site.data[site.active_lang].strings.head_og_desc }}">
 <meta property="og:url" content="{{ page.url | absolute_url }}">
-<meta property="og:locale" content="{% if page.lang == 'uk' %}uk_UA{% else %}en_US{% endif %}">
-<meta property="og:locale:alternate" content="{% if page.lang == 'uk' %}en_US{% else %}uk_UA{% endif %}">
+<meta property="og:locale" content="{{ site.data[site.active_lang].strings.head_og_locale }}">
+{% for alternate in site.data[site.active_lang].strings.head_og_locale_alternates %}
+<meta property="og:locale:alternate" content="{{ alternate }}">
+{% endfor %}
 
 <!-- SEO: Twitter Card -->
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title"
-    content="Figarist — {% if page.lang == 'uk' %}Інді-розробник і викладач{% else %}Indie Dev & Tech Educator{% endif %}">
-<meta name="twitter:description"
-    content="{% if page.lang == 'uk' %}Unity-розробник, засновник Wrist & Pocket Studio та вчитель інформатики.{% else %}Unity developer, founder of Wrist & Pocket Studio, and computer science teacher.{% endif %}">
+<meta name="twitter:title" content="Figarist{{ site.data[site.active_lang].strings.head_title_suffix }}">
+<meta name="twitter:description" content="{{ site.data[site.active_lang].strings.head_desc }}">
 
 <!-- SEO: JSON-LD Structured Data (Person) -->
 <script type="application/ld+json">
@@ -74,7 +70,7 @@
         "@type": "WebSite",
         "name": "Figarist",
         "url": "https://figarist.github.io",
-        "inLanguage": ["en", "uk"],
+        "inLanguage": ["en", "uk", "ru", "ko"],
         "description": "Personal site of Ihor (Figarist). Indie game developer and computer science teacher."
     }
     </script>
@@ -88,4 +84,67 @@
 
 <link rel="stylesheet" href="{{ '/styles.css' | relative_url }}">
 <meta name="google-site-verification" content="Whr2bJTggESM1pyCXLfqwodNQu6cNqk_XKdZ0ix2Tyk" />
+
+<!-- TASK 2: Auto-Redirect on First Visit & Preference -->
+<script>
+    (function () {
+        try {
+            var activeLang = '{{ site.active_lang }}';
+            var preferredLang = localStorage.getItem('preferred_lang');
+            var targetLang = null;
+
+            // 1. Check if preference exists
+            if (preferredLang) {
+                if (preferredLang !== activeLang) {
+                    targetLang = preferredLang;
+                }
+            } else {
+                // 3. First time visitor: Detect browser language
+                var browserLang = navigator.language || navigator.userLanguage;
+                var languages = navigator.languages || [browserLang];
+                var detectedLang = 'en'; // default
+
+                if (languages.some(l => l.startsWith('uk'))) {
+                    detectedLang = 'uk';
+                } else if (languages.some(l => l.startsWith('ru'))) {
+                    detectedLang = 'ru';
+                } else if (languages.some(l => l.startsWith('ko'))) {
+                    detectedLang = 'ko';
+                }
+
+                localStorage.setItem('preferred_lang', detectedLang);
+                if (activeLang !== detectedLang) {
+                    targetLang = detectedLang;
+                }
+            }
+
+            // Execute Redirect
+            if (targetLang && targetLang !== activeLang) {
+                var currentPath = window.location.pathname;
+                var pathWithoutLang = currentPath;
+                var match = currentPath.match(/^\/(uk|ru|ko)(\/|$)/);
+                if (match) {
+                    pathWithoutLang = currentPath.substring(match[0].length);
+                    if (!pathWithoutLang.startsWith('/')) {
+                        pathWithoutLang = '/' + pathWithoutLang;
+                    }
+                }
+
+                var prefix = targetLang === 'en' ? '' : '/' + targetLang;
+                var nextPath = prefix + pathWithoutLang;
+                // Add trailing slash check if it had one before (github pages standard)
+                nextPath = nextPath.replace(/\/\//g, '/');
+                if (nextPath === '') nextPath = '/';
+
+                if (currentPath !== nextPath) {
+                    window.location.replace(nextPath + window.location.hash);
+                }
+            }
+        } catch (e) {
+            // Failsafe mostly for Safari Private Mode / localStorage quota errors
+            console.warn('Language auto-detect failed:', e);
+        }
+    })();
+</script>
+
 </head>

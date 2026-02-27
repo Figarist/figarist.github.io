@@ -1,0 +1,92 @@
+back_to_hub: "← На Головну"
+read_more: "Читати далі"
+related_posts: "Дивіться також"
+
+# BIO CARD
+bio_roles: "Unity Розробник · Викладач · Ретро Ентузіаст"
+bio_location: "Зміїв, Україна"
+bio_tagline: "Створюю маленькі світи для маленьких екранів — та вчу дітей, що таке файл насправді."
+
+# STUDIO CARD
+studio_sub: "Будуємо майбутнє ігор для Wear OS"
+visit_studio: "Відвідати Студію"
+studio_site: "⌚ Сайт Студії →"
+
+# WEBGL CARD
+webgl_sub: "Інтерактивні демо Unity у вашому браузері"
+webgl_overlay_text: "Натисніть, щоб грати"
+webgl_overlay_note: "Завантажує Unity WebGL — це може зайняти хвилину"
+webgl_status: "● Скоро буде"
+webgl_caption: "Майбутня домівка інтерактивних міні-ігор на Unity."
+
+# SHRINE CARD
+shrine_desc: "Архів Nintendo DS, Switch та Simcade ріг."
+shrine_cta: "Відкрити сховище →"
+
+# TEACHING CARD
+teaching_desc: "Плани уроків та завдання з основ CS для 3-х класів."
+teaching_cta: "Читати урок →"
+
+# PYTHON CARD
+python_desc: "Перетворює аудіо на затишний lo-fi з вініловим тріском."
+
+# VR FEED
+vr_heading: "VR Новини та Життя"
+vr_subtitle: "Шоломи, XR експерименти та занурення"
+vr_empty: "VR пости вже на підході — стежте за оновленнями."
+vr_cta: "Всі VR пости →"
+
+# GAMEDEV FEED
+gamedev_subtitle: "Щоденники розробки, механіки та експерименти Wear OS"
+gamedev_empty: "Логи розробки вже на підході — стежте за оновленнями."
+gamedev_cta: "Всі GameDev пости →"
+
+# PERSONAL FEED
+personal_heading: "Особисте життя"
+personal_subtitle: "Коти, відключення світла та життя розробника в Україні"
+personal_empty: "Влоги вже на підході — стежте за оновленнями."
+personal_cta: "Всі влоги →"
+
+# EDUCATION FEED
+edu_heading: "Вчіться зі мною"
+edu_subtitle: "Вічнозелені туторіали та гайди"
+edu_empty: "Туторіали вже на підході — стежте за оновленнями."
+edu_cta: "Всі статті →"
+
+# CONTACT CARD
+contact_intro: "Знайдіть мене в мережі"
+
+# GLOBAL UI
+main_nav_aria: "Головна навігація"
+nav_studio: "Студія"
+nav_playground: "Майданчик"
+nav_stack: "Стек"
+nav_shrine: "Святиня"
+
+# HEAD META
+head_title_suffix: " — Indie розробник та вчитель"
+head_desc: "Персональний сайт Ігоря (Figarist). Unity розробник, засновник Wrist & Pocket Studio та вчитель інформатики з України."
+head_keywords: "Figarist, інді розробник, Unity розробник, вчитель інформатики, Wear OS, C#, розробка ігор, Україна, Wrist and Pocket Studio"
+head_author: "Ігор (Figarist)"
+head_og_desc: "Unity розробник, засновник Wrist & Pocket Studio та вчитель інформатики. Створюю ігри для Wear OS."
+
+# FOOTER
+footer_compiled: "Зібрано"
+
+# OG LOCALES
+head_og_locale: uk_UA
+head_og_locale_alternates: ["en_US", "ru_RU", "ko_KR"]
+
+# ADDITIONAL UI KEYS
+bio_location_full: "Зміїв, Україна"
+studio_badge: "ФЛАГМАН"
+studio_cta_text: "Відвідати Студію"
+shrine_title: "Святиня"
+tech_stack_label: "СТЕК_ТЕХНОЛОГІЙ"
+classroom_label: "КЛАС"
+utility_core_label: "ЯДРО_УТИЛІТ"
+vr_life_label: "VR_ЖИТТЯ"
+workshop_label: "МАЙСТЕРНЯ"
+vlog_label: "ВЛОГ"
+gamedev_heading: "Unity та GameDev"
+education_label: "ОСВІТА"

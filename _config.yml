@@ -37,7 +37,7 @@ plugins:
   - jekyll-polyglot
 
 # ── Polyglot Settings ────────────────────────────────────────
-languages: ["en", "uk"]
+languages: ["en", "uk", "ru", "ko"]
 default_lang: "en"
 exclude_from_localization:
   - assets

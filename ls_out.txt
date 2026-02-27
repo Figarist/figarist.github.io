@@ -1,0 +1,43 @@
+﻿
+
+    Directory: D:\GitHub\figarist.github.io
+
+
+Mode                 LastWriteTime         Length Name                                                                    
+----                 -------------         ------ ----                                                                    
+d-----        26.02.2026      9:13                .agent                                                                  
+d-----        26.02.2026     10:15                .agents                                                                 
+d-----        27.02.2026     11:06                .github                                                                 
+d-----        27.02.2026     11:29                .jekyll-cache                                                           
+d-----        26.02.2026     11:33                assets                                                                  
+d-----        26.02.2026     10:40                blog                                                                    
+d-----        27.02.2026      8:16                collection                                                              
+d-----        27.02.2026     10:47                education                                                               
+d-----        27.02.2026     12:41                _data                                                                   
+d-----        27.02.2026     11:15                _education                                                              
+d-----        27.02.2026      8:16                _includes                                                               
+d-----        27.02.2026     10:38                _layouts                                                                
+d-----        27.02.2026     12:52                _posts                                                                  
+d-----        27.02.2026     12:55                _site                                                                   
+-a----        26.02.2026     11:52            273 .gitignore                                                              
+-a----        26.02.2026     10:45            842 404.html                                                                
+-a----        27.02.2026     11:20             65 build.log                                                               
+-a----        27.02.2026     11:57            297 build_error.txt                                                         
+-a----        27.02.2026     12:12           2340 deployment_guide.md                                                     
+-a----        27.02.2026     12:57          11047 env_vars.txt                                                            
+-a----        27.02.2026     11:28            384 Gemfile                                                                 
+-a----        27.02.2026     12:15           6975 Gemfile.lock                                                            
+-a----        27.02.2026     12:55           1363 git_status.txt                                                          
+-a----        27.02.2026     12:56             10 hello.txt                                                               
+-a----        27.02.2026     12:45          18997 index.html                                                              
+-a----        27.02.2026     12:58              0 ls_out.txt                                                              
+-a----        27.02.2026     12:58           2199 path.txt                                                                
+-a----        27.02.2026     12:48          10962 project_context.md                                                      
+-a----        27.02.2026     12:48           8732 README.md                                                               
+-a----        14.02.2026     10:47             74 robots.txt                                                              
+-a----        27.02.2026     12:27           6623 script.js                                                               
+-a----        26.02.2026     12:28            596 sitemap.xml                                                             
+-a----        27.02.2026     12:35          41089 styles.css                                                              
+-a----        27.02.2026     12:41           2458 _config.yml                                                             
+
+

@@ -19,9 +19,10 @@ READ THESE RULES BEFORE EXECUTING ANY COMMAND.
 - **Responsive:** Mobile MUST elegantly collapse into a `flex-direction: column` stack at `max-width: 768px`. Always ensure `<meta name="viewport" content="width=device-width, initial-scale=1.0">` is present.
 
 ## 3. BILINGUAL SYNC (JEKYLL POLYGLOT)
-- **Static Hubs:** `index.html` is strictly DRY. Do NOT create duplicate directories like `/uk/index.html`. Instead, rely on `jekyll-polyglot` and write bilingual text natively inline using `{% if site.active_lang == 'uk' %}...{% endif %}`. Polyglot handles the dual-site generation.
-- **Includes:** Extract globals (`<head>`, `<nav>`, `<footer>`) to `_includes/` and manage translations using the `site.active_lang` liquid logic. Do not duplicate arrays unnecessarily. 
-- **Blog Posts:** Posts are duplicated physically (e.g., `post-en.md` & `post-uk.md`). They MUST share the exact same `permalink:` string in their YAML Front Matter, but diverge using `lang: en` and `lang: uk`. Polyglot will sync them together automatically.
+- **Languages:** The site supports 4 languages: `en` (default), `uk`, `ru`, and `ko`.
+- **Static Hubs:** `index.html` is strictly DRY. Do NOT create duplicate directories like `/uk/index.html`. Instead, rely on `jekyll-polyglot` and write bilingual text using UI dictionaries: `{{ site.data[site.active_lang].strings.key_name }}`. Polyglot handles the multi-site generation. Do NOT use inline `{% if %}` or `{% case %}` statements for UI text to avoid DOM bloat.
+- **Includes:** Extract globals (`<head>`, `<nav>`, `<footer>`) to `_includes/` and manage translations using the dictionaries. Do not duplicate arrays unnecessarily. 
+- **Blog Posts:** Posts are duplicated physically (e.g., `post-en.md`, `post-uk.md`, `post-ru.md`). They MUST share the exact same `permalink:` string in their YAML Front Matter, but diverge using `lang: en`, `lang: uk`, etc. Polyglot will sync them together automatically.
 
 ## 4. NAVIGATION & UX
 - **Global Nav:** Use a "Floating Navbar" (`.site-nav` or `.floating-nav`) — a sticky, translucent glass-morphism element.

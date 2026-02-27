@@ -81,7 +81,7 @@
      Excluded: studio card (it has its own visual feedback)
   —————————————————————————————————————————— */
   var tiltCards = document.querySelectorAll(
-    '.bento-card:not(.card--studio):not(.card--contact)'
+    '.bento-card:not(.card--studio):not(.card--contact), .bento-tilt-target'
   );
 
   var prefersReducedMotion =
@@ -140,24 +140,24 @@
   —————————————————————————————————————————— */
   var emailLinks = document.querySelectorAll('a[href^="mailto:"]');
 
-  emailLinks.forEach(function(link) {
-    link.addEventListener('click', function(e) {
+  emailLinks.forEach(function (link) {
+    link.addEventListener('click', function (e) {
       // Don't prevent default, let the mailto string work its magic if they have an app.
       // But also copy it to clipboard if they don't!
       var emailAddress = this.getAttribute('href').replace('mailto:', '');
 
       if (navigator.clipboard && window.isSecureContext) {
-        navigator.clipboard.writeText(emailAddress).then(function() {
+        navigator.clipboard.writeText(emailAddress).then(function () {
           var originalHTML = link.innerHTML;
           // Basic check to not duplicate the copied text if clicked rapidly
           if (link.textContent.indexOf('Copied!') === -1) {
             link.innerHTML = 'Copied!';
-            setTimeout(function() {
+            setTimeout(function () {
               link.innerHTML = originalHTML;
             }, 2000);
           }
-        }).catch(function(err) {
-            console.error('Failed to copy email: ', err);
+        }).catch(function (err) {
+          console.error('Failed to copy email: ', err);
         });
       }
     });

@@ -92,13 +92,15 @@ const portfolio = {
 <div align="center">
 
 ![](https://img.shields.io/badge/EN-English-00247D?style=for-the-badge)&nbsp;
-![](https://img.shields.io/badge/UK-Ukrainian-FFD700?style=for-the-badge&logoColor=black)
+![](https://img.shields.io/badge/UK-Ukrainian-FFD700?style=for-the-badge&logoColor=black)&nbsp;
+![](https://img.shields.io/badge/RU-Russian-DDDDDD?style=for-the-badge&logoColor=black)&nbsp;
+![](https://img.shields.io/badge/KO-Korean-CD2E3A?style=for-the-badge&logoColor=white)
 
 </div>
 
-- **EN/UK Hubs:** `index.html` is compiled dynamically. `jekyll-polyglot` automatically splits the single root HTML file into a fallback English root (`/`) and a localized Ukrainian subdirectory (`/uk/`).
-- **DRY Translation:** `index.html` and Jekyll Includes (`_includes/`) rely on inline Liquid conditional tags (`{% if site.active_lang == 'uk' %}`) to render localized strings natively during the build phase. No JS flickering.
-- **Blog Architecture:** Blog posts use `_layouts/post.html`. You manage posts by duplicating the markdown files natively (`post-en.md`, `post-uk.md`). Both files must share the identical `permalink` attribute in YAML Frontmatter, but possess distinct `lang: en`/`lang: uk` variables.
+- **Multi-Language Hubs:** `index.html` is compiled dynamically. `jekyll-polyglot` automatically splits the single root HTML file into a fallback English root (`/`) and localized subdirectories (`/uk/`, `/ru/`, `/ko/`).
+- **DRY Translation:** `index.html` and Jekyll Includes (`_includes/`) rely on centralized YAML dictionaries (`_data/[lang]/strings.yml`) to render localized strings natively during the build phase (`{{ site.data[site.active_lang].strings.key }}`). No JS flickering and no massive bloated HTML files.
+- **Blog Architecture:** Blog posts use `_layouts/post.html`. You manage posts by duplicating the markdown files natively (`post-en.md`, `post-uk.md`, `post-ru.md`, `post-ko.md`). All files must share the identical `permalink` attribute in YAML Frontmatter, but possess distinct `lang: en`/`lang: uk`/etc variables.
 
 <br/>
 
@@ -151,7 +153,7 @@ Generated in `_includes/header.html` via a `{% for lang in site.languages %}` lo
 > Please adhere strictly to the rules below to ensure the stability and styling of the portfolio!
 
 1. **Core Philosophy:** Pure HTML5, CSS3, Vanilla JS, and Liquid / Jekyll layout. No heavy NPM packages. No React.
-2. **Bilingual Sync:** Write content **once** in `index.html` using `{% if site.active_lang == 'uk' %}` inline. `jekyll-polyglot` generates `/` and `/uk/` automatically — never copy files manually.
+2. **Bilingual Sync:** Write content **once** in `index.html` using localized data lookups `{{ site.data[site.active_lang].strings.key }}`. `jekyll-polyglot` generates all 4 languages automatically (`/`, `/uk/`, `/ru/`, `/ko/`) — never copy files manually.
 3. **DRY Includes:** Header, nav, and footer are modularized via `_includes/`. Never duplicate these parts across documents.
 4. **WebGL & Media:** WebGL canvases MUST be wrapped in a stateless click-to-play iframe overlay. Images should use `.webp` formatting and contain `loading="lazy"` tags.
 5. **SEO & Performance:** Maintain microdata, JSON-LD Schema.org tags, and canonical / hreflang markers comprehensively.

@@ -1,0 +1,92 @@
+back_to_hub: "← Back to Hub"
+read_more: "Read More"
+related_posts: "Keep Reading"
+
+# BIO CARD
+bio_roles: "Unity Dev · Educator · Retro Enthusiast"
+bio_location: "Zmiiv, Ukraine"
+bio_tagline: "Building tiny worlds for tiny screens — and teaching kids what a file actually is."
+
+# STUDIO CARD
+studio_sub: "Building the future of Wear OS gaming"
+visit_studio: "Visit Studio"
+studio_site: "⌚ Studio Site →"
+
+# WEBGL CARD
+webgl_sub: "Interactive Unity demos in your browser"
+webgl_overlay_text: "Click to Play"
+webgl_overlay_note: "Loads Unity WebGL — may take a moment"
+webgl_status: "● Coming soon"
+webgl_caption: "Future home of interactive Unity mini-games."
+
+# SHRINE CARD
+shrine_desc: "Nintendo DS archive, Switch & Simcade rig."
+shrine_cta: "Unlock the vault →"
+
+# TEACHING CARD
+teaching_desc: "Lesson plans & activities for 3rd-grade CS fundamentals."
+teaching_cta: "Read lesson →"
+
+# PYTHON CARD
+python_desc: "Transforms audio into cozy lo-fi with vinyl crackle."
+
+# VR FEED
+vr_heading: "VR News & Life"
+vr_subtitle: "Headsets, XR experiments & immersive thoughts"
+vr_empty: "VR posts incoming — stay tuned."
+vr_cta: "All VR posts →"
+
+# GAMEDEV FEED
+gamedev_subtitle: "Dev logs, mechanics & Wear OS experiments"
+gamedev_empty: "Dev logs incoming — stay tuned."
+gamedev_cta: "All GameDev posts →"
+
+# PERSONAL FEED
+personal_heading: "Personal Life"
+personal_subtitle: "Cats, power cuts & dev life in Ukraine"
+personal_empty: "Vlog posts incoming — stay tuned."
+personal_cta: "All vlogs →"
+
+# EDUCATION FEED
+edu_heading: "Learn With Me"
+edu_subtitle: "Evergreen tutorials & guides"
+edu_empty: "Tutorials incoming — stay tuned."
+edu_cta: "All articles →"
+
+# CONTACT CARD
+contact_intro: "Find me across the web"
+
+# GLOBAL UI
+main_nav_aria: "Main navigation"
+nav_studio: "Studio"
+nav_playground: "Playground"
+nav_stack: "Stack"
+nav_shrine: "Shrine"
+
+# HEAD META
+head_title_suffix: " — Indie Dev & Tech Educator"
+head_desc: "Personal site of Ihor (Figarist). Unity developer, founder of Wrist & Pocket Studio, and computer science teacher based in Ukraine."
+head_keywords: "Figarist, indie game developer, Unity developer, computer science teacher, Wear OS, C#, game dev, Ukraine, Wrist and Pocket Studio"
+head_author: "Ihor (Figarist)"
+head_og_desc: "Unity developer, founder of Wrist & Pocket Studio, and computer science teacher. Building games for Wear OS."
+
+# FOOTER
+footer_compiled: "Compiled by"
+
+# OG LOCALES
+head_og_locale: en_US
+head_og_locale_alternates: ["uk_UA", "ru_RU", "ko_KR"]
+
+# ADDITIONAL UI KEYS
+bio_location_full: "Zmiiv, Ukraine"
+studio_badge: "FLAGSHIP"
+studio_cta_text: "Visit Studio"
+shrine_title: "The Shrine"
+tech_stack_label: "TECH_STACK"
+classroom_label: "CLASSROOM"
+utility_core_label: "UTILITY_CORE"
+vr_life_label: "VR_LIFE"
+workshop_label: "THE_WORKSHOP"
+vlog_label: "VLOG"
+gamedev_heading: "Unity & GameDev"
+education_label: "EDUCATION"

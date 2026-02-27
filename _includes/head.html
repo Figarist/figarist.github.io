@@ -11,12 +11,16 @@
 
 
 <!-- SEO: Hreflang -->
-{% assign bare_url = page.url | remove_first: '/uk' %}
+{% assign bare_url = page.url | remove_first: '/uk' | remove_first: '/ru' | remove_first: '/ko' %}
 {% if bare_url == '' %}{% assign bare_url = '/' %}{% endif %}
 <link rel="alternate" {% static_href %}href="{{ site.url }}{{ site.baseurl }}{{ bare_url }}" {% endstatic_href %}
     hreflang="en">
 <link rel="alternate" {% static_href %}href="{{ site.url }}{{ site.baseurl }}/uk{{ bare_url }}" {% endstatic_href %}
     hreflang="uk">
+<link rel="alternate" {% static_href %}href="{{ site.url }}{{ site.baseurl }}/ru{{ bare_url }}" {% endstatic_href %}
+    hreflang="ru">
+<link rel="alternate" {% static_href %}href="{{ site.url }}{{ site.baseurl }}/ko{{ bare_url }}" {% endstatic_href %}
+    hreflang="ko">
 <link rel="alternate" {% static_href %}href="{{ site.url }}{{ site.baseurl }}{{ bare_url }}" {% endstatic_href %}
     hreflang="x-default">
 

@@ -135,4 +135,32 @@
     });
   }
 
+  /* ——————————————————————————————————————————
+     5. EMAIL COPY TO CLIPBOARD
+  —————————————————————————————————————————— */
+  var emailLinks = document.querySelectorAll('a[href^="mailto:"]');
+
+  emailLinks.forEach(function(link) {
+    link.addEventListener('click', function(e) {
+      // Don't prevent default, let the mailto string work its magic if they have an app.
+      // But also copy it to clipboard if they don't!
+      var emailAddress = this.getAttribute('href').replace('mailto:', '');
+
+      if (navigator.clipboard && window.isSecureContext) {
+        navigator.clipboard.writeText(emailAddress).then(function() {
+          var originalHTML = link.innerHTML;
+          // Basic check to not duplicate the copied text if clicked rapidly
+          if (link.textContent.indexOf('Copied!') === -1) {
+            link.innerHTML = 'Copied!';
+            setTimeout(function() {
+              link.innerHTML = originalHTML;
+            }, 2000);
+          }
+        }).catch(function(err) {
+            console.error('Failed to copy email: ', err);
+        });
+      }
+    });
+  });
+
 })();

@@ -55,6 +55,7 @@ exclude_from_localization:
   - javascript
   - images
   - sitemap.xml
+  - robots.txt
 parallel_localization: false
 
 # ── Defaults ─────────────────────────────────────────────────

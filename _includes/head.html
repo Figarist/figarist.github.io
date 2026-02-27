@@ -7,19 +7,11 @@
 <!-- Jekyll SEO Tag (Generates Title, OG, Twitter, JSON-LD, Canonical) -->
 {% seo %}
 
-<!-- CRITICAL: jekyll-polyglot Hreflang logic (DO NOT DELETE) -->
-{% assign bare_url = page.url | remove_first: '/uk' | remove_first: '/ru' | remove_first: '/ko' %}
-{% if bare_url == '' %}{% assign bare_url = '/' %}{% endif %}
-<link rel="alternate" {% static_href %}href="{{ site.url }}{{ site.baseurl }}{{ bare_url }}" {% endstatic_href %}
-    hreflang="en">
-<link rel="alternate" {% static_href %}href="{{ site.url }}{{ site.baseurl }}/uk{{ bare_url }}" {% endstatic_href %}
-    hreflang="uk">
-<link rel="alternate" {% static_href %}href="{{ site.url }}{{ site.baseurl }}/ru{{ bare_url }}" {% endstatic_href %}
-    hreflang="ru">
-<link rel="alternate" {% static_href %}href="{{ site.url }}{{ site.baseurl }}/ko{{ bare_url }}" {% endstatic_href %}
-    hreflang="ko">
-<link rel="alternate" {% static_href %}href="{{ site.url }}{{ site.baseurl }}{{ bare_url }}" {% endstatic_href %}
-    hreflang="x-default">
+<!-- Polyglot: Generates Hreflang logic perfectly -->
+{% I18n_Headers %}
+
+<!-- RSS Feeds -->
+{% feed_meta %}
 
 <!-- Fonts -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -29,6 +21,9 @@
     rel="stylesheet">
 
 <link rel="stylesheet" href="{{ '/styles.css' | relative_url }}">
+
+<!-- Privacy-First Analytics (Zero cookies, no GDPR banner required) -->
+<script defer data-domain="figarist.github.io" src="https://plausible.io/js/script.js"></script>
 
 <!-- TASK 2: Auto-Redirect on First Visit & Preference -->
 <script>

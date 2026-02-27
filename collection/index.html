@@ -5,21 +5,19 @@ title: "The Shrine — Figarist"
 
 <div class="post-container" style="max-width: 900px;">
     <a href="{{ '/' | relative_url }}" class="btn-back">
-        {% if site.active_lang == 'uk' %}← Назад до головної{% else %}← Back to Hub{% endif %}
+        {{ site.data[site.active_lang].strings.back_to_hub }}
     </a>
 
     <h1 style="margin-bottom: 8px;">
-        {% if site.active_lang == 'uk' %}Сховище{% else %}The Shrine{% endif %}
+        {{ site.data[site.active_lang].strings.shrine_title }}
     </h1>
     <p style="color: var(--text-muted); margin-bottom: 40px; font-family: var(--font-mono);">
-        {% if site.active_lang == 'uk' %}Колекція, що надихає робити власні ігри. Від обмеженого заліза Nintendo DS до
-        сучасного автосимулятора.{% else %}A collection that inspires making my own games. From the limited hardware of
-        Nintendo DS to a modern sim racing rig.{% endif %}
+        {{ site.data[site.active_lang].strings.shrine_long_desc }}
     </p>
 
     <h2
         style="font-size: 1.2rem; margin-bottom: 16px; border-bottom: 1px solid var(--border-light); padding-bottom: 8px;">
-        {% if site.active_lang == 'uk' %}Портативки Nintendo{% else %}Nintendo Handhelds{% endif %}
+        {{ site.data[site.active_lang].strings.shrine_section_handhelds }}
     </h2>
     <div class="photo-grid">
         <div class="photo-card">
@@ -35,7 +33,7 @@ title: "The Shrine — Figarist"
 
     <h2
         style="font-size: 1.2rem; margin-top: 48px; margin-bottom: 16px; border-bottom: 1px solid var(--border-light); padding-bottom: 8px;">
-        {% if site.active_lang == 'uk' %}Автосимулятор{% else %}Sim Racing Rig{% endif %}
+        {{ site.data[site.active_lang].strings.shrine_section_simracing }}
     </h2>
     <div class="photo-grid">
         <div class="photo-card span-wide">

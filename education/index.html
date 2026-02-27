@@ -5,15 +5,14 @@ title: "Education Hub — Figarist"
 
 <div class="post-container" style="max-width: 900px;">
     <a href="{{ '/' | relative_url }}" class="btn-back">
-        {% if site.active_lang == 'uk' %}← Назад до головної{% else %}← Back to Hub{% endif %}
+        {{ site.data[site.active_lang].strings.back_to_hub }}
     </a>
 
     <h1 style="margin-bottom: 8px;">
-        {% if site.active_lang == 'uk' %}Освітній Центр{% else %}Education Hub{% endif %}
+        {{ site.data[site.active_lang].strings.education_hub_title }}
     </h1>
     <p style="color: var(--text-muted); margin-bottom: 40px; font-family: var(--font-mono); font-size: 0.85rem;">
-        {% if site.active_lang == 'uk' %}Актуальні туторіали, посібники та плани уроків.{% else %}Evergreen tutorials,
-        guides, and lesson plans.{% endif %}
+        {{ site.data[site.active_lang].strings.education_hub_subtitle }}
     </p>
 
     <div style="display: flex; flex-direction: column; gap: 16px;">

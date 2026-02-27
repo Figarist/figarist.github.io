@@ -18,10 +18,10 @@ READ THESE RULES BEFORE EXECUTING ANY COMMAND.
 - **Aesthetic:** "Light Bento Theme". Background is "Cloud Dancer" (`--bg-color: #f2f0eb`), cards are pure white (`--card-bg: #ffffff`), text is dark/tactile. DO NOT use dark mode universally.
 - **Responsive:** Mobile MUST elegantly collapse into a `flex-direction: column` stack at `max-width: 768px`. Always ensure `<meta name="viewport" content="width=device-width, initial-scale=1.0">` is present.
 
-## 3. BILINGUAL SYNC & JEKYLL INCLUDES
-- **Static Hubs:** `index.html` (EN) and `uk/index.html` (UK) contain ONLY the Bento Grid content. Changes to the cards must be mirrored manually.
-- **DRY Includes:** `<head>`, `<nav>` (Header), and `<footer>` are extracted into `_includes/`. They handle bilingual logic dynamically using Liquid `{% if page.lang == 'uk' %}`. Do not duplicate these files.
-- **Blog Posts:** Posts use `_layouts/post.html` and their UI language adapts dynamically based on the `lang: en` or `lang: uk` YAML Front Matter variable.
+## 3. BILINGUAL SYNC (JEKYLL POLYGLOT)
+- **Static Hubs:** `index.html` is strictly DRY. Do NOT create duplicate directories like `/uk/index.html`. Instead, rely on `jekyll-polyglot` and write bilingual text natively inline using `{% if site.active_lang == 'uk' %}...{% endif %}`. Polyglot handles the dual-site generation.
+- **Includes:** Extract globals (`<head>`, `<nav>`, `<footer>`) to `_includes/` and manage translations using the `site.active_lang` liquid logic. Do not duplicate arrays unnecessarily. 
+- **Blog Posts:** Posts are duplicated physically (e.g., `post-en.md` & `post-uk.md`). They MUST share the exact same `permalink:` string in their YAML Front Matter, but diverge using `lang: en` and `lang: uk`. Polyglot will sync them together automatically.
 
 ## 4. NAVIGATION & UX
 - **Global Nav:** Use a "Floating Navbar" (`.site-nav` or `.floating-nav`) — a sticky, translucent glass-morphism element.

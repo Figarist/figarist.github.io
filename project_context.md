@@ -7,13 +7,13 @@
 
 ## 🔧 ТЕХНОЛОГІЧНИЙ СТЕК
 
-- **Jekyll** (статичний генератор) + **GitHub Pages**
+- **Jekyll** (STATIC GENERATOR) + **GitHub Actions** (deployment)
+- **Plugin Localization:** `jekyll-polyglot` (bilingual sync)
 - **Мова шаблонів:** Liquid
-- **CSS:** Pure Vanilla CSS (Grid, Flexbox, CSS Variables) — NO Tailwind, NO Bootstrap
-- **JS:** Vanilla JavaScript (IIFE pattern, без фреймворків)
+- **CSS:** Pure Vanilla CSS (Grid) — NO Tailwind, NO Bootstrap
+- **JS:** Vanilla JavaScript (ОБМЕЖЕНО: без фреймворків)
 - **Markdown:** kramdown + rouge (підсвітка коду)
 - **Шрифти:** `Outfit` (sans) + `Fira Code` (mono) з Google Fonts
-- **Плагіни Jekyll:** `jekyll-seo-tag`, `jekyll-sitemap`, `jekyll-feed`
 
 ---
 
@@ -22,43 +22,34 @@
 ```
 figarist.github.io/
 │
-├── _config.yml             # Jekyll конфіг (title, url, plugins, permalink, defaults)
-├── index.html              # Головна сторінка EN (Bento Grid)
+├── .github/
+│   └── workflows/
+│       └── jekyll.yml      # GitHub Actions CI/CD для збірки Polyglot
+├── _config.yml             # Jekyll конфіг (title, url, plugins, languages)
+├── index.html              # Bento Hub (Мультимовний)
 ├── styles.css              # Головний CSS файл (~1679 рядків)
-├── script.js               # Головний JS (scroll anim, WebGL overlay, tilt, parallax, email copy)
+├── script.js               # Головний JS (scroll anim, WebGL overlay)
 ├── robots.txt
 ├── sitemap.xml
 │
 ├── _includes/
-│   ├── head.html           # <head> + SEO мета + JSON-LD + антифлікер скрипт + шрифти
+│   ├── head.html           # <head> + SEO мета + JSON-LD (Hreflang via Polyglot)
 │   ├── header.html         # Floating navbar з білінгвальними посиланнями
 │   └── footer.html         # Мінімальний футер з роком
 │
 ├── _layouts/
 │   ├── default.html        # Базовий лейаут (head → header → main → footer → script.js)
-│   └── post.html           # Лейаут посту (extends default, + btn-back, h1, time, tags, JSON-LD)
+│   └── post.html           # Лейаут посту (extends default)
 │
 ├── _posts/                 # Блог-пости (Markdown + YAML front matter)
-│   ├── 2026-02-26-kharkiv-cats-unity.md
-│   ├── 2026-02-26-minecraft-python.md
-│   └── 2026-02-27-what-is-a-file.md
-│
-├── assets/
-│   └── js/
-│       └── locale.js       # Мовний перемикач (localStorage + data-i18n CSS класи)
+│   ├── 2026-02-27-what-is-a-file-en.md
+│   └── 2026-02-27-what-is-a-file-uk.md
 │
 ├── blog/
-│   └── index.html          # EN список постів
+│   └── index.html          # Мультимовний список постів
 │
 ├── collection/
-│   └── index.html          # EN сторінка колекції ігор
-│
-└── uk/                     # Українська мовна гілка
-    ├── index.html          # Головна UA (копія EN Bento Grid + lang: uk)
-    ├── blog/
-    │   └── index.html      # UA список постів
-    └── collection/
-        └── index.html      # UA сторінка колекції
+│   └── index.html          # Мультимовна сторінка колекції ігор
 ```
 
 ---
@@ -140,52 +131,31 @@ figarist.github.io/
 
 ---
 
-## 🌐 БІЛІНГВАЛЬНА СИСТЕМА (EN / UK)
+## 🌐 БІЛІНГВАЛЬНА СИСТЕМА (Jekyll-Polyglot)
 
 ### Архітектура
-- **EN Hub:** [index.html](file:///d:/GitHub/figarist.github.io/index.html) (root) → `lang` не вказаний (дефолт `en`)
-- **UK Hub:** [uk/index.html](file:///d:/GitHub/figarist.github.io/uk/index.html) → `lang: uk` у YAML front matter
-- **Blog posts:** одна версія, `lang: uk` або `lang: en` у front matter
+Увесь сайт управляється плагіном `jekyll-polyglot`. `_config.yml` настроєно на 2 мови (`en`, `uk`) з `default_lang: en`.
+Jekyll збирає сайт **ДВІЧІ**, ігноруючи JS-милиці, автоматично створюючи `/uk/` subdirectory на основі `site.active_lang`.
 
-### Антифлікер (в [_includes/head.html](file:///d:/GitHub/figarist.github.io/_includes/head.html))
+### Написання Мультимовного Коду
+Оскільки `index.html` збирається двічі, переклад виконується напряму через Liquid:
 ```html
-<script>
-  (function () {
-    var storedLang = localStorage.getItem('figarist_ui_lang');
-    var path = window.location.pathname;
-    if (path === '/' || path === '/blog/') { storedLang = 'en'; }
-    else if (path === '/uk/' || path === '/uk/blog/') { storedLang = 'uk'; }
-    var pref = storedLang || '{{ page.lang | default: "uk" }}';
-    document.documentElement.classList.add('lang-' + pref);
-  })();
-</script>
+<h2>{% if site.active_lang == 'uk' %}Мої Проєкти{% else %}My Projects{% endif %}</h2>
 ```
-Додає `lang-en` або `lang-uk` клас до `<html>` **до рендеру CSS**.
+**ЗАБОРОНЕНО:** Використовувати `liquid-hide` чи JavaScript класи `display: none` для мов.
 
-### CSS Hiding Pattern
-```css
-/* В styles.css */
-html.lang-en [data-i18n-uk] { display: none; }
-html.lang-uk [data-i18n-en] { display: none; }
-.liquid-hide { display: none; }
-```
+### Блог (`_posts/`)
+Всі пости пишуться ПАРОЮ (EN і UK файли окремо). У них обов'язково повинні співпадати:
+- `permalink:` (ідентичні у обох файлів)
+А відрізнятися має:
+- `lang: en` або `lang: uk` у Front Matter.
+Polyglot автоматично зшиває їх через `<link rel="alternate">` використовуючи збіг `permalink`.
 
-### HTML Pattern для двомовних елементів
+### Перемикач мов (`href` Escape Trap)
+Polyglot має агресивний regex-парсинг. Якщо створювати `href="/"` перемикач, він його насильно змінить на `href="/uk/"`. Щоб цього уникнути у SEO-тегах (`hreflang`) та кнопках "EN / UK", ми використовуємо блок-тег `{% static_href %}`:
 ```html
-<span data-i18n-en class="{% if page.lang=='uk' %}liquid-hide{% endif %}">Studio</span>
-<span data-i18n-uk class="{% if page.lang=='en' %}liquid-hide{% endif %}">Студія</span>
+<a {% static_href %}href="/путь/"{% endstatic_href %}>EN</a>
 ```
-- Liquid `liquid-hide` = fallback без JS
-- `data-i18n-en` / `data-i18n-uk` = CSS-керована видимість через `lang-*` клас на `<html>`
-
-### Навігація між мовами
-- **На Хабах (index):** навігаційні посилання переводять на `/uk/` або `/`
-- **На Постах:** `.js-lang-toggle` — перемикає мову без перезавантаження через `locale.js`
-
-### `assets/js/locale.js`
-- Читає `localStorage.getItem('figarist_ui_lang')`
-- Перемикає `lang-en` / `lang-uk` клас на `<html>`
-- Оновлює href у `#back-to-hub` та `#site-logo`
 
 ---
 
@@ -221,8 +191,7 @@ html.lang-uk [data-i18n-en] { display: none; }
 - Акцент: `--accent-green` (wasabi)
 
 ### `.card--blog` (`#blog`)
-- Виводить `site.posts` через Liquid loop
-- Посилання ведуть на `/blog/YYYY/MM/DD/slug/`
+- Виводить пости через `site.posts | where: "lang", site.active_lang`
 
 ### `.card--contact` (`#contact`)
 - Email через `mailto:` + JS copy-to-clipboard (script.js §5)
@@ -297,8 +266,8 @@ permalink: /blog/:year/:month/:day/:title/
 ## ⚠️ ПРАВИЛА ДЛЯ ЗМІН
 
 1. **НЕ** використовувати Tailwind, React, jQuery, Bootstrap
-2. Зміни в `index.html` (EN) **вручну дублювати** в `uk/index.html`
-3. `_includes/` — DRY шаблони, не дублювати
+2. Зміни в `index.html` пишуться **ДЛЯ ОБОХ МОВ ОДНОЧАСНО** використовуючи `{% if site.active_lang == 'uk' %}`. Ні в якому разі не копіюйте файли вручну.
+3. Пости у блозі пишуться парами (2 файли) з ІДЕНТИЧНИМ `permalink:`.
 4. Grid Areas — завжди через `grid-template-areas`, ніяких `grid-auto-flow: dense`
 5. WebGL — тільки через iframe + overlay, ніяких авто-завантажень
 6. Зображення — `.webp` + `loading="lazy"` (крім hero)

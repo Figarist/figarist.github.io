@@ -33,7 +33,7 @@ figarist.github.io/
 ├── sitemap.xml
 │
 ├── _includes/
-│   ├── head.html           # <head> + SEO мета + JSON-LD (Hreflang via Polyglot)
+│   ├── head.html           # <head> + SEO мета + JSON-LD (Hreflang via Polyglot). Підтримує localized titles через `title_key`.
 │   ├── header.html         # Floating navbar з білінгвальними посиланнями
 │   └── footer.html         # Мінімальний футер з роком
 │
@@ -264,7 +264,7 @@ permalink: /blog/:year/:month/:day/:title/
 ## 🔍 SEO
 
 - **JSON-LD:** `Person` + `WebSite` в `head.html`, `BlogPosting` в `post.html`
-- **Hreflang:** `en`, `uk`, `x-default`
+- **Hreflang:** `en`, `uk`, `ru`, `ko`, `x-default`
 - **Open Graph + Twitter Card**
 - **Google Search Console:** verification через meta тег
 - **Cross-link:** завжди є посилання на `https://wristandpocket.github.io`

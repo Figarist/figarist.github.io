@@ -1,5 +1,5 @@
 ---
-description: Sync site changes to both English and Ukrainian versions
+description: Sync site changes across all 4 supported languages (EN, UK, RU, KO)
 ---
 
 # 🌐 BILINGUAL SYNC: POLYGLOT LOCALIZATION
@@ -21,6 +21,15 @@ When adding a new UI card or text element, create the translation keys in ALL FO
 <h2>{{ site.data[site.active_lang].strings.my_projects_title }}</h2>
 ```
 Polyglot will automatically drop the correct string into the indices.
+
+#### Localized Titles
+To localise the browser tab and social title without hardcoding it in the frontmatter, use `title_key` instead of `title`:
+```yaml
+---
+title_key: my_page_title_id
+---
+```
+The logic in `head.html` will automatically fetch the translation from `_data/[lang]/strings.yml`.
 
 ### 2. Blogging (`_posts/`)
 Polyglot handles blog posts a bit differently. You **MUST** create separate Markdown files for each language.

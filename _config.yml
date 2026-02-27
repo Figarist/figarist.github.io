@@ -8,7 +8,17 @@ url:         "https://figarist.github.io"
 baseurl:     ""
 
 lang:        "en"
-author:      "Ihor (Figarist)"
+author:
+  name: "Ihor (Figarist)"
+  twitter: "figarist"
+  url: "https://figarist.github.io"
+
+social:
+  name: "Ihor (Figarist)"
+  links:
+    - "https://www.youtube.com/@proVR_ua"
+    - "https://t.me/proVR_ua"
+    - "https://github.com/Figarist"
 
 # ── Build ────────────────────────────────────────────────────
 markdown:    kramdown
@@ -49,6 +59,10 @@ parallel_localization: false
 
 # ── Defaults ─────────────────────────────────────────────────
 defaults:
+  - scope:
+      path: ""
+    values:
+      image: "/assets/images/default-social-card.jpg"
   - scope:
       path:   ""
       type:   "posts"

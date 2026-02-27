@@ -37,7 +37,7 @@ jobs:
           JEKYLL_ENV: production
 
       - name: Minify HTML
-        uses: emepetres/html-minifier-action@v2
+        uses: emepetres/html-minifier-action@master
         with:
           directory: './_site'
 

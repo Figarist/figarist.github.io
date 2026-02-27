@@ -3,18 +3,23 @@ layout: null
 ---
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
-  <url>
-    <loc>{{ site.url }}/</loc>
-    <lastmod>{{ site.time | date_to_xmlschema }}</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>1.0</priority>
-  </url>
-  {% for post in site.posts %}
-  <url>
-    <loc>{{ site.url }}{{ post.url }}</loc>
-    <lastmod>{{ post.date | date_to_xmlschema }}</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
+  {% assign collections = site.pages | concat: site.posts | concat: site.education %}
+  {% for doc in collections %}
+    {% if doc.sitemap != false and doc.url %}
+      {% unless doc.url contains '.xml' or doc.url contains '.css' or doc.url contains 'assets/' or doc.url == '/404.html' or doc.url contains 'CNAME' %}
+        {% for lang in site.languages %}
+          <url>
+            <loc>{{ site.url }}{% if lang != site.default_lang %}/{{ lang }}{% endif %}{{ doc.url | remove: 'index.html' }}</loc>
+            <lastmod>{{ doc.last_modified_at | default: doc.date | default: site.time | date_to_xmlschema }}</lastmod>
+            <changefreq>{{ doc.sitemap.changefreq | default: 'monthly' }}</changefreq>
+            <priority>{% if doc.url == '/' or doc.url == '/index.html' %}1.0{% else %}{{ doc.sitemap.priority | default: 0.8 }}{% endif %}</priority>
+            {% for alt_lang in site.languages %}
+              <xhtml:link rel="alternate" hreflang="{{ alt_lang }}" href="{{ site.url }}{% if alt_lang != site.default_lang %}/{{ alt_lang }}{% endif %}{{ doc.url | remove: 'index.html' }}" />
+            {% endfor %}
+            <xhtml:link rel="alternate" hreflang="x-default" href="{{ site.url }}{{ doc.url | remove: 'index.html' }}" />
+          </url>
+        {% endfor %}
+      {% endunless %}
+    {% endif %}
   {% endfor %}
 </urlset>

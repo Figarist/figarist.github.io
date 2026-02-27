@@ -3,6 +3,7 @@ title: "Unity Physics From Zero: A Beginner's Complete Guide"
 author: "Ihor (Figarist)"
 tags: [unity, physics, tutorial, beginner]
 lang: en
+permalink: /education/unity-physics-beginner-guide/
 level: beginner
 sort_order: 1
 description: "Everything you need to understand Unity's physics engine — Rigidbody, Colliders, forces, and where beginners go wrong."

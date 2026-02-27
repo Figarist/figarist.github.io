@@ -23,7 +23,6 @@ collections:
 # Exclude dev artefacts from the build
 exclude:
   - README.md
-  - "*.sh"
   - Gemfile
   - Gemfile.lock
   - node_modules/
@@ -35,6 +34,18 @@ plugins:
   - jekyll-seo-tag
   - jekyll-sitemap
   - jekyll-feed
+  - jekyll-polyglot
+
+# ── Polyglot Settings ────────────────────────────────────────
+languages: ["en", "uk"]
+default_lang: "en"
+exclude_from_localization:
+  - assets
+  - css
+  - javascript
+  - images
+  - sitemap.xml
+parallel_localization: false
 
 # ── Defaults ─────────────────────────────────────────────────
 defaults:

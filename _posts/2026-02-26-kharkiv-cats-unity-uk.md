@@ -3,6 +3,7 @@ layout: post
 title: "Харків, блекаути та розробка під Wear OS"
 date: 2026-02-26
 lang: uk
+permalink: /blog/kharkiv-cats-unity/
 categories: life
 tags: [life, wearos, unity, gamedev]
 description: "Про котів, блекаути і те, чому Wear OS — ідеальна платформа для мікро-ігор."

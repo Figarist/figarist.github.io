@@ -6,6 +6,7 @@ author: "Ihor (Figarist)"
 category: personal
 tags: [personal, life, vlog, cats, kharkiv]
 lang: en
+permalink: /blog/personal-blackout-thursday/
 description: "A personal vlog about a blackout day in Kharkiv, two very opinionated cats, and somehow shipping a Unity build anyway."
 excerpt: "The power was out. The cats were chaotic. The build still shipped. A typical Thursday."
 ---

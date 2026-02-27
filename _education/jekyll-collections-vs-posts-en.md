@@ -3,6 +3,7 @@ title: "Jekyll Collections vs Posts: When to Use Each"
 author: "Ihor (Figarist)"
 tags: [jekyll, static-site, web, tutorial]
 lang: en
+permalink: /education/jekyll-collections-vs-posts/
 level: beginner
 sort_order: 3
 description: "A practical guide to understanding the difference between Jekyll posts and collections — and choosing the right one for your content."

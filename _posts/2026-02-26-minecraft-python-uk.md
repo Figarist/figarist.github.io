@@ -3,6 +3,7 @@ layout: post
 title: "Навчання школярів основ програмування за допомогою середовища Minecraft"
 date: 2026-02-26 10:15:00 +0200
 lang: uk
+permalink: /blog/minecraft-python-education/
 categories: teaching
 tags: [education, teaching, python, minecraft]
 description: "Як використовувати Minecraft для навчання школярів основам програмування мовою Python."

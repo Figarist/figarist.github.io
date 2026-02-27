@@ -3,6 +3,7 @@ layout: post
 title: "Що таке файл? Або як пояснити базові концепції 3-му класу"
 date: 2026-02-26 10:00:00 +0200
 lang: uk
+permalink: /blog/what-is-a-file/
 categories: teaching
 tags: [education, teaching, basics, minecraft]
 description: "Як пояснити концепцію файлів для 3-го класу: дієва аналогія зі скринями в Minecraft."

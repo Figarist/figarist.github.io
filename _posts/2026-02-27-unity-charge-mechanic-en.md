@@ -6,6 +6,7 @@ author: "Ihor (Figarist)"
 category: gamedev
 tags: [unity, gamedev, csharp, mechanics]
 lang: en
+permalink: /blog/unity-charge-mechanic/
 description: "A deep-dive into implementing a hold-to-charge kick mechanic in Unity — power curves, particle effects, and keeping GC allocations zero."
 excerpt: "From 10% power on mouse-down to a full-force launch on release — here's the exact implementation."
 ---

@@ -3,6 +3,7 @@ title: "Wear OS Game Dev: The Zero-GC Mindset"
 author: "Ihor (Figarist)"
 tags: [wearos, unity, performance, gamedev, intermediate]
 lang: en
+permalink: /education/wearos-zero-gc-mindset/
 level: intermediate
 sort_order: 2
 description: "How to build games for Wear OS without triggering garbage collection spikes that tank frame rate on constrained smartwatch hardware."

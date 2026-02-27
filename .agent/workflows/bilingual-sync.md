@@ -2,34 +2,39 @@
 description: Sync site changes to both English and Ukrainian versions
 ---
 
-# 🌐 BILINGUAL SYNC: HUB MIRRORING
-This workflow enforces the "DRY Includes" architecture for the Figarist Portfolio.
+# 🌐 BILINGUAL SYNC: POLYGLOT LOCALIZATION
+This workflow enforces the robust `jekyll-polyglot` architecture built for the Figarist Portfolio.
 
 > [!IMPORTANT]
-> Since refactoring, `index.html` (EN) and `uk/index.html` (UK) contain **ONLY** the Bento Grid content. Layouts, SEO, and navigation are shared via `_includes/`.
+> The old manual `/uk/` directory duplication hack has been **DEPRECATED**. The entire site is now 100% DRY. Polyglot automatically generates both `/` (EN) and `/uk/` natively from single source files!
 
 ## 🏗️ ARCHITECTURAL RULES
-1. **Shared Layout:** Both hubs MUST use `layout: default`.
-2. **Language Front Matter:** 
-   - EN: `lang: en`
-   - UK: `lang: uk`
-3. **DRY Includes:** Never edit `<head>`, `<nav>`, or `<footer>` inside the hubs. Edit them in `_includes/` using Liquid logic for translations.
+1. **The Core Plugin:** The site relies on `jekyll-polyglot` which hooks into `jekyll build`. It renders the site twice (once for EN, once for UK).
+2. **Current Active Language:** During compilation, you can check the current target language via Liquid: `{% if site.active_lang == 'uk' %}...{% endif %}`.
+3. **No More Hiding:** Do not use `liquid-hide` or JavaScript/CSS `display: none` toggle hacks. Output translations dynamically inline, because Polyglot separates them into completely isolated physical HTML files!
 
-## 🔄 THE SYNC PROCESS (MANUAL MIRRORING)
-When you add or modify a Bento card in one hub, you **MUST** mirror the structure to the other.
+## 🔄 HOW TO LOCALIZE
 
-1. **Copy Structure:** Copy the specific `<article>` or `<a>` card from the source hub.
-2. **Translate Content:** Paste it into the destination hub and translate:
-   - Titles and descriptions.
-   - Accessibility labels (`aria-label`).
-   - Relative URLs (e.g., `/blog/` → `{{ '/blog/' | relative_url }}`).
-3. **Keep IDs:** Ensure the `id` (e.g., `id="bio"`) remains identical for CSS Grid mapping.
+### 1. Static Hubs & Layouts (`index.html`, `_includes/`, etc)
+When adding a new UI card or text element, write it ONCE in `index.html` and use Liquid conditionals inline:
+```html
+<h2>{% if site.active_lang == 'uk' %}Мої Проєкти{% else %}My Projects{% endif %}</h2>
+```
+Polyglot will automatically drop the correct pure-HTML string into the root and `/uk/` directory indices.
+
+### 2. Blogging (`_posts/`)
+Polyglot handles blog posts a bit differently. You **MUST** create two separate Markdown files.
+1. `2026-02-27-vr-headsets-en.md` (`lang: en`)
+2. `2026-02-27-vr-headsets-uk.md` (`lang: uk`)
+
+> [!CAUTION]
+> Both localized pairs MUST share the exact same `permalink:` string in their YAML frontmatter (e.g., `permalink: /blog/vr-headsets/`). Polyglot uses this matching permalink to map the hreflang SEO tags together!
 
 ## ✅ SANITY CHECKLIST
-- [ ] Does the `lang` variable in Front Matter match the directory?
-- [ ] Are all hardcoded links using `{{ 'path' | relative_url }}`?
-- [ ] Did you translate the `alt` tags for images?
-- [ ] Is the `grid-area` ID consistent across both files?
+- [ ] Are you utilizing `site.active_lang` rather than `page.lang` in the layouts?
+- [ ] If creating a post, did you create both `-en` and `-uk` files?
+- [ ] Do both post files share the identical `permalink` attribute?
+- [ ] Are you avoiding JS-based translation switching?
 
 ---
 *Follow the "Embedded-First" philosophy: Zero unnecessary JS, Pure Native Power.*

@@ -4,28 +4,27 @@ layout: default
 
 <article class="post-container education-article" itemscope itemtype="https://schema.org/Article">
 
-    <a href="/" class="btn-back" id="back-to-hub">
-        <span data-i18n-en class="{% if page.lang=='uk' %}liquid-hide{% endif %}">← Back to Hub</span>
-        <span data-i18n-uk class="{% if page.lang=='en' %}liquid-hide{% endif %}">← Назад до головної</span>
-    </a>
+  <a href="{{ '/' | relative_url }}" class="btn-back" id="back-to-hub">
+    <span>{{ site.data[site.active_lang].strings.back_to_hub }}</span>
+  </a>
 
-    {% if page.level %}
-    <span class="edu-level edu-level--{{ page.level }}">{{ page.level }}</span>
-    {% endif %}
+  {% if page.level %}
+  <span class="edu-level edu-level--{{ page.level }}">{{ page.level }}</span>
+  {% endif %}
 
-    <h1 itemprop="headline">{{ page.title }}</h1>
+  <h1 itemprop="headline">{{ page.title }}</h1>
 
-    {% if page.tags.size > 0 %}
-    <div class="post-tags">
-        {% for tag in page.tags %}
-        <span class="post-tag">#{{ tag }}</span>
-        {% endfor %}
-    </div>
-    {% endif %}
+  {% if page.tags.size > 0 %}
+  <div class="post-tags">
+    {% for tag in page.tags %}
+    <span class="post-tag">#{{ tag }}</span>
+    {% endfor %}
+  </div>
+  {% endif %}
 
-    <div class="edu-body" itemprop="articleBody">
-        {{ content }}
-    </div>
+  <div class="edu-body" itemprop="articleBody">
+    {{ content }}
+  </div>
 
 </article>
 
@@ -35,7 +34,7 @@ layout: default
   "@context": "https://schema.org",
   "@type": "Article",
   "headline": {{ page.title | jsonify }},
-  "inLanguage": "{{ page.lang | default: 'en' }}",
+  "inLanguage": "{{ site.active_lang }}",
   "author": {
     "@type": "Person",
     "name": "Figarist",

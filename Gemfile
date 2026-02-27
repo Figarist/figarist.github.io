@@ -1,7 +1,15 @@
 source "https://rubygems.org"
 
-# Matches the exact gem set used by GitHub Pages
-gem "github-pages", group: :jekyll_plugins
+# Use Jekyll directly (NOT github-pages) so custom plugins like Polyglot load
+gem "jekyll", "~> 4.3"
+
+# Plugins
+group :jekyll_plugins do
+  gem "jekyll-feed", "~> 0.12"
+  gem "jekyll-seo-tag"
+  gem "jekyll-sitemap"
+  gem "jekyll-polyglot"
+end
 
 # Required for Ruby 3.x local dev server (WEBrick removed from stdlib)
 gem "webrick", "~> 1.8"

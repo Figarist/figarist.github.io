@@ -194,14 +194,15 @@ lang: uk
     </article>
 
     <!-- ══════════════════════════════════════════
-   КАРТКА 8 — МАЙСТЕРНЯ / БЛОГ (2 кол × 2 ряди)
-   ══════════════════════════════════════════ -->
-    <article class="bento-card card--blog fade-in" id="blog">
-        <div class="card-label">МАЙСТЕРНЯ</div>
-        <h2 class="blog__heading">Майстерня</h2>
-        <p class="blog__subtitle">Останні записи та думки</p>
+           КАРТКА 8 — VR NEWS & LIFE FEED (2 кол × 1 ряд)
+           ══════════════════════════════════════════ -->
+    <article class="bento-card card--feed card--feed-vr fade-in" id="feed-vr">
+        <div class="card-label">VR_LIFE</div>
+        <h2 class="feed__heading">VR News &amp; Life</h2>
+        <p class="feed__subtitle">Шоломи, XR-експерименти та думки про імерсію</p>
         <ul class="post-list">
-            {% for post in site.posts limit:3 %}
+            {% assign vr_posts = site.posts | where: "category", "vr" %}
+            {% for post in vr_posts limit:3 %}
             <li>
                 <a href="{{ post.url | relative_url }}">
                     <span class="post-title">{{ post.title }}</span>
@@ -210,10 +211,81 @@ lang: uk
                 </a>
             </li>
             {% else %}
-            <li class="post-list__empty">Пости незабаром — слідкуйте.</li>
+            <li class="post-list__empty">VR пости незабаром — слідкуйте.</li>
             {% endfor %}
         </ul>
-        <a href="{{ '/uk/blog/' | relative_url }}" class="btn-read-more">Читати всі →</a>
+        <a href="{{ '/uk/blog/' | relative_url }}#vr" class="btn-read-more">Усі VR пости →</a>
+    </article>
+
+    <!-- ══════════════════════════════════════════
+           КАРТКА 9 — UNITY & GAMEDEV FEED (2 кол × 1 ряд)
+           ══════════════════════════════════════════ -->
+    <article class="bento-card card--feed card--feed-gamedev fade-in" id="feed-gamedev">
+        <div class="card-label">МАЙСТЕРНЯ</div>
+        <h2 class="feed__heading">Unity &amp; GameDev</h2>
+        <p class="feed__subtitle">Dev-логи, механіки та експерименти під Wear OS</p>
+        <ul class="post-list">
+            {% assign gamedev_posts = site.posts | where: "category", "gamedev" %}
+            {% for post in gamedev_posts limit:3 %}
+            <li>
+                <a href="{{ post.url | relative_url }}">
+                    <span class="post-title">{{ post.title }}</span>
+                    <time class="post-meta" datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date:
+                        "%d.%m.%Y" }}</time>
+                </a>
+            </li>
+            {% else %}
+            <li class="post-list__empty">Dev-логи незабаром — слідкуйте.</li>
+            {% endfor %}
+        </ul>
+        <a href="{{ '/uk/blog/' | relative_url }}#gamedev" class="btn-read-more">Усі GameDev пости →</a>
+    </article>
+
+    <!-- ══════════════════════════════════════════
+           КАРТКА 10 — PERSONAL / VLOG FEED (1 кол × 1 ряд)
+           ══════════════════════════════════════════ -->
+    <article class="bento-card card--feed card--feed-personal fade-in" id="feed-personal">
+        <div class="card-label">ВЛОГ</div>
+        <h2 class="feed__heading">Особисте</h2>
+        <p class="feed__subtitle">Коти, блекаути та розробка в Україні</p>
+        <ul class="post-list">
+            {% assign personal_posts = site.posts | where: "category", "personal" %}
+            {% for post in personal_posts limit:3 %}
+            <li>
+                <a href="{{ post.url | relative_url }}">
+                    <span class="post-title">{{ post.title }}</span>
+                    <time class="post-meta" datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date:
+                        "%d.%m.%Y" }}</time>
+                </a>
+            </li>
+            {% else %}
+            <li class="post-list__empty">Влоги незабаром — слідкуйте.</li>
+            {% endfor %}
+        </ul>
+        <a href="{{ '/uk/blog/' | relative_url }}#personal" class="btn-read-more">Усі влоги →</a>
+    </article>
+
+    <!-- ══════════════════════════════════════════
+           КАРТКА 11 — EDUCATION COLLECTION (1 кол × 1 ряд)
+           ══════════════════════════════════════════ -->
+    <article class="bento-card card--feed card--feed-edu fade-in" id="feed-edu">
+        <div class="card-label">НАВЧАННЯ</div>
+        <h2 class="feed__heading">Навчайся зі мною</h2>
+        <p class="feed__subtitle">Вічнозелені туторіали та гайди</p>
+        <ul class="post-list">
+            {% assign edu_items = site.education | sort: "sort_order" %}
+            {% for item in edu_items limit:3 %}
+            <li>
+                <a href="{{ item.url | relative_url }}">
+                    <span class="post-title">{{ item.title }}</span>
+                    {% if item.level %}<span class="post-meta edu-level">{{ item.level }}</span>{% endif %}
+                </a>
+            </li>
+            {% else %}
+            <li class="post-list__empty">Матеріали незабаром — слідкуйте.</li>
+            {% endfor %}
+        </ul>
+        <a href="{{ '/uk/education/' | relative_url }}" class="btn-read-more">Усі матеріали →</a>
     </article>
 
     <!-- ══════════════════════════════════════════

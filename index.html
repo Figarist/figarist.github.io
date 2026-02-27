@@ -34,7 +34,7 @@ layout: default
            CARD 2 — WRIST & POCKET STUDIO (2 col × 2 row)
            ══════════════════════════════════════════ -->
   <a href="https://wristandpocket.github.io" target="_blank" rel="noopener" class="bento-card card--studio fade-in"
-    id="studio" aria-label="Visit Wrist & Pocket Studio">
+    id="studio" aria-label="{{ site.data[site.active_lang].strings.aria_visit_studio }}">
 
     <div class="studio__header">
       <span class="studio__badge">{{ site.data[site.active_lang].strings.studio_badge }}</span>
@@ -109,7 +109,8 @@ layout: default
 
     <div class="webgl__frame-wrap" id="webgl-wrap">
       <!-- Click-to-play overlay -->
-      <div class="webgl__overlay" id="webgl-overlay" role="button" tabindex="0" aria-label="Click to load WebGL demo">
+      <div class="webgl__overlay" id="webgl-overlay" role="button" tabindex="0"
+        aria-label="{{ site.data[site.active_lang].strings.aria_load_webgl }}">
         <div class="webgl__play-btn" aria-hidden="true">
           <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
             <circle cx="12" cy="12" r="11" stroke="currentColor" stroke-width="1.5" />
@@ -124,8 +125,8 @@ layout: default
         </p>
       </div>
       <!-- The actual iframe — activated on click -->
-      <iframe id="webgl-iframe" class="webgl__iframe" src="about:blank" title="Unity WebGL Demo"
-        allowfullscreen></iframe>
+      <iframe id="webgl-iframe" class="webgl__iframe" src="about:blank"
+        title="{{ site.data[site.active_lang].strings.webgl_iframe_title }}" allowfullscreen></iframe>
     </div>
 
     <p class="webgl__caption">
@@ -182,7 +183,7 @@ layout: default
   <article class="bento-card card--teaching fade-in" id="teaching">
     <div class="card-label">{{ site.data[site.active_lang].strings.classroom_label }}</div>
     <div class="teaching__icon" aria-hidden="true">🧑‍🏫</div>
-    <h3 class="teaching__title">"What is a File?"</h3>
+    <h3 class="teaching__title">{{ site.data[site.active_lang].strings.teaching_title }}</h3>
     <p class="teaching__desc">
       {{ site.data[site.active_lang].strings.teaching_desc }}
     </p>
@@ -209,7 +210,7 @@ layout: default
         <code class="terminal__line terminal__line--cursor">_</code>
       </div>
     </div>
-    <h3 class="python__title">Python Lo-Fi Tool</h3>
+    <h3 class="python__title">{{ site.data[site.active_lang].strings.python_title }}</h3>
     <p class="python__desc">
       {{ site.data[site.active_lang].strings.python_desc }}
     </p>

@@ -192,14 +192,15 @@ lang: en
   </article>
 
   <!-- ══════════════════════════════════════════
-           CARD 8 — WORKSHOP / BLOG FEED (2 col × 2 row)
+           CARD 8 — VR NEWS & LIFE FEED (2 col × 1 row)
            ══════════════════════════════════════════ -->
-  <article class="bento-card card--blog fade-in" id="blog">
-    <div class="card-label">THE_WORKSHOP</div>
-    <h2 class="blog__heading">The Workshop</h2>
-    <p class="blog__subtitle">Latest notes &amp; dev logs</p>
+  <article class="bento-card card--feed card--feed-vr fade-in" id="feed-vr">
+    <div class="card-label">VR_LIFE</div>
+    <h2 class="feed__heading">VR News &amp; Life</h2>
+    <p class="feed__subtitle">Headsets, XR experiments &amp; immersive thoughts</p>
     <ul class="post-list">
-      {% for post in site.posts limit:3 %}
+      {% assign vr_posts = site.posts | where: "category", "vr" %}
+      {% for post in vr_posts limit:3 %}
       <li>
         <a href="{{ post.url | relative_url }}">
           <span class="post-title">{{ post.title }}</span>
@@ -208,10 +209,81 @@ lang: en
         </a>
       </li>
       {% else %}
-      <li class="post-list__empty">Posts incoming — stay tuned.</li>
+      <li class="post-list__empty">VR posts incoming — stay tuned.</li>
       {% endfor %}
     </ul>
-    <a href="{{ '/blog/' | relative_url }}" class="btn-read-more">View all posts →</a>
+    <a href="{{ '/blog/' | relative_url }}#vr" class="btn-read-more">All VR posts →</a>
+  </article>
+
+  <!-- ══════════════════════════════════════════
+           CARD 9 — UNITY & GAMEDEV FEED (2 col × 1 row)
+           ══════════════════════════════════════════ -->
+  <article class="bento-card card--feed card--feed-gamedev fade-in" id="feed-gamedev">
+    <div class="card-label">THE_WORKSHOP</div>
+    <h2 class="feed__heading">Unity &amp; GameDev</h2>
+    <p class="feed__subtitle">Dev logs, mechanics &amp; Wear OS experiments</p>
+    <ul class="post-list">
+      {% assign gamedev_posts = site.posts | where: "category", "gamedev" %}
+      {% for post in gamedev_posts limit:3 %}
+      <li>
+        <a href="{{ post.url | relative_url }}">
+          <span class="post-title">{{ post.title }}</span>
+          <time class="post-meta" datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: "%B %d, %Y"
+            }}</time>
+        </a>
+      </li>
+      {% else %}
+      <li class="post-list__empty">Dev logs incoming — stay tuned.</li>
+      {% endfor %}
+    </ul>
+    <a href="{{ '/blog/' | relative_url }}#gamedev" class="btn-read-more">All GameDev posts →</a>
+  </article>
+
+  <!-- ══════════════════════════════════════════
+           CARD 10 — PERSONAL / VLOG FEED (1 col × 1 row)
+           ══════════════════════════════════════════ -->
+  <article class="bento-card card--feed card--feed-personal fade-in" id="feed-personal">
+    <div class="card-label">VLOG</div>
+    <h2 class="feed__heading">Personal Life</h2>
+    <p class="feed__subtitle">Cats, power cuts &amp; dev life in Ukraine</p>
+    <ul class="post-list">
+      {% assign personal_posts = site.posts | where: "category", "personal" %}
+      {% for post in personal_posts limit:3 %}
+      <li>
+        <a href="{{ post.url | relative_url }}">
+          <span class="post-title">{{ post.title }}</span>
+          <time class="post-meta" datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: "%B %d, %Y"
+            }}</time>
+        </a>
+      </li>
+      {% else %}
+      <li class="post-list__empty">Vlog posts incoming — stay tuned.</li>
+      {% endfor %}
+    </ul>
+    <a href="{{ '/blog/' | relative_url }}#personal" class="btn-read-more">All vlogs →</a>
+  </article>
+
+  <!-- ══════════════════════════════════════════
+           CARD 11 — EDUCATION COLLECTION (1 col × 1 row)
+           ══════════════════════════════════════════ -->
+  <article class="bento-card card--feed card--feed-edu fade-in" id="feed-edu">
+    <div class="card-label">EDUCATION</div>
+    <h2 class="feed__heading">Learn With Me</h2>
+    <p class="feed__subtitle">Evergreen tutorials &amp; guides</p>
+    <ul class="post-list">
+      {% assign edu_items = site.education | sort: "sort_order" %}
+      {% for item in edu_items limit:3 %}
+      <li>
+        <a href="{{ item.url | relative_url }}">
+          <span class="post-title">{{ item.title }}</span>
+          {% if item.level %}<span class="post-meta edu-level">{{ item.level }}</span>{% endif %}
+        </a>
+      </li>
+      {% else %}
+      <li class="post-list__empty">Tutorials incoming — stay tuned.</li>
+      {% endfor %}
+    </ul>
+    <a href="{{ '/education/' | relative_url }}" class="btn-read-more">All articles →</a>
   </article>
 
   <!-- ══════════════════════════════════════════

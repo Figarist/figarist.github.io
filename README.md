@@ -45,7 +45,7 @@ const portfolio = {
 | ![](https://img.shields.io/badge/CSS3-1572B6?style=flat-square&logo=css3&logoColor=white) | Vanilla CSS3, Grid layouts |
 | ![](https://img.shields.io/badge/JavaScript-F7DF1E?style=flat-square&logo=javascript&logoColor=black) | Vanilla JS, WebGL embedding |
 | ![](https://img.shields.io/badge/Jekyll-CC0000?style=flat-square&logo=jekyll&logoColor=white) | Static Site Generation (DRY Includes) |
-| ![](https://img.shields.io/badge/GitHub_Pages-222222?style=flat-square&logo=githubpages&logoColor=white) | Deploys from `main` branch automatically |
+| ![](https://img.shields.io/badge/GitHub_Pages-222222?style=flat-square&logo=githubpages&logoColor=white) | Deploys via **GitHub Actions** (required for `jekyll-polyglot`) |
 
 </div>
 
@@ -54,9 +54,8 @@ const portfolio = {
 ## 📁 𝙵𝚒𝚕𝚎 𝚂𝚝𝚛𝚞𝚌𝚝𝚞𝚛𝚎
 
 ```text
-├── index.html          # English Bento Hub (default)
-├── uk/
-│   └── index.html      # Ukrainian Bento Hub
+├── .github/workflows/  # GitHub Actions (Jekyll builds for jekyll-polyglot)
+├── index.html          # Bento UI Hub (Polyglot builds both EN and UK from this)
 ├── _includes/          # DRY Jekyll includes (head, nav, footer)
 ├── _layouts/           # Jekyll layouts for posts and pages
 ├── _posts/             # Markdown blog posts
@@ -97,9 +96,9 @@ const portfolio = {
 
 </div>
 
-- **EN** = root `/index.html` (canonical: `https://figarist.github.io/`)
-- Both index pages share Jekyll Includes in `_includes/` (`<head>`, `<nav>`, `<footer>`) which adapt dynamically.
-- Blog layout adapts based on YAML frontmatter variables (`lang: en` vs `lang: uk`).
+- **EN/UK Hubs:** `index.html` is compiled dynamically. `jekyll-polyglot` automatically splits the single root HTML file into a fallback English root (`/`) and a localized Ukrainian subdirectory (`/uk/`).
+- **DRY Translation:** `index.html` and Jekyll Includes (`_includes/`) rely on inline Liquid conditional tags (`{% if site.active_lang == 'uk' %}`) to render localized strings natively during the build phase. No JS flickering.
+- **Blog Architecture:** Blog posts use `_layouts/post.html`. You manage posts by duplicating the markdown files natively (`post-en.md`, `post-uk.md`). Both files must share the identical `permalink` attribute in YAML Frontmatter, but possess distinct `lang: en`/`lang: uk` variables.
 
 <br/>
 
@@ -124,9 +123,9 @@ const portfolio = {
 
 ### 🔄 𝙻𝚊𝚗𝚐𝚞𝚊𝚐𝚎 𝚂𝚠𝚒𝚝𝚌𝚑𝚎𝚛
 
-Nav bar link with class `.lang-switch`:
-- EN page → `<a href="uk/index.html" class="lang-switch">🇺🇦 UA</a>`
-- UK page → `<a href="../index.html" class="lang-switch">🇬🇧 EN</a>`
+Generated in `_includes/header.html` via a `{% for lang in site.languages %}` loop. Uses `{% static_href %}` to bypass Polyglot's URL rewriting:
+```html
+<a {% static_href %}href="/uk/"{% endstatic_href %} class="lang-switch">uk</a>
 
 <br/>
 
@@ -150,7 +149,7 @@ Nav bar link with class `.lang-switch`:
 > Please adhere strictly to the rules below to ensure the stability and styling of the portfolio!
 
 1. **Core Philosophy:** Pure HTML5, CSS3, Vanilla JS, and Liquid / Jekyll layout. No heavy NPM packages. No React.
-2. **Bilingual Sync:** Structural additions to the Bento grid must be mirrored in BOTH `index.html` and `uk/index.html`.
+2. **Bilingual Sync:** Write content **once** in `index.html` using `{% if site.active_lang == 'uk' %}` inline. `jekyll-polyglot` generates `/` and `/uk/` automatically — never copy files manually.
 3. **DRY Includes:** Header, nav, and footer are modularized via `_includes/`. Never duplicate these parts across documents.
 4. **WebGL & Media:** WebGL canvases MUST be wrapped in a stateless click-to-play iframe overlay. Images should use `.webp` formatting and contain `loading="lazy"` tags.
 5. **SEO & Performance:** Maintain microdata, JSON-LD Schema.org tags, and canonical / hreflang markers comprehensively.

@@ -85,27 +85,3 @@ layout: default
   </div>
 </section>
 {% endif %}
-
-<!-- JSON-LD: BlogPosting -->
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "BlogPosting",
-  "headline": {{ page.title | jsonify }},
-  "datePublished": "{{ page.date | date_to_xmlschema }}",
-  "dateModified": "{{ page.last_modified_at | default: page.date | date_to_xmlschema }}",
-  "inLanguage": "{{ site.active_lang }}",
-  "author": {
-    "@type": "Person",
-    "name": "Figarist",
-    "url": "https://figarist.github.io"
-  },
-  "publisher": {
-    "@type": "Person",
-    "name": "Figarist",
-    "url": "https://figarist.github.io"
-  },
-  "url": "{{ page.url | absolute_url }}",
-  "description": {{ page.description | default: page.excerpt | strip_html | jsonify }}
-}
-</script>

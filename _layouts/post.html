@@ -14,16 +14,15 @@ layout: default
   </time>
 
   <div itemprop="articleBody">
-    {{ content }}
-  </div>
+    {{ content | replace: '<img', '<img loading="lazy"' }} </div>
 
-  {% if page.tags.size > 0 %}
-  <div class="post-tags">
-    {% for tag in page.tags %}
-    <span class="post-tag">#{{ tag }}</span>
-    {% endfor %}
-  </div>
-  {% endif %}
+      {% if page.tags.size > 0 %}
+      <div class="post-tags">
+        {% for tag in page.tags %}
+        <span class="post-tag">#{{ tag }}</span>
+        {% endfor %}
+      </div>
+      {% endif %}
 
 </article>
 

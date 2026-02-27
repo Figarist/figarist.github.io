@@ -131,15 +131,17 @@ Generated in `_includes/header.html` via a `{% for lang in site.languages %}` lo
 
 ## 📑 𝙲𝚘𝚗𝚝𝚎𝚗𝚝 𝚂𝚎𝚌𝚝𝚒𝚘𝚗𝚜 (𝙱𝚎𝚗𝚝𝚘 𝙶𝚛𝚒𝚍)
 
-1. **BIO** — Avatar, name, roles, taglines
-2. **WRIST & POCKET STUDIO** — Showcase of the flagship studio with Wear OS CSS mockups
-3. **WEBGL PLAYGROUND** — Interactive WebGL canvas via click-to-play iFrame overlay
-4. **TECH STACK** — Grid of icons showcasing proficiencies
-5. **SHRINE** — Collection vault covering DS/Switch & Sim Racing devices
-6. **TEACHING** — Classroom CS fundamentals log
-7. **UTILITY CORE** — Python tools & widgets
-8. **WORKSHOP** — Blog feed driven by Jekyll
-9. **CONTACT** — External links / handles
+1. **BIO** — Avatar, name, roles, taglines.
+2. **WRIST & POCKET STUDIO** — Showcase of the flagship studio with Wear OS CSS mockups.
+3. **WEBGL PLAYGROUND** — Interactive WebGL canvas via click-to-play iFrame overlay.
+4. **TECH STACK** — Grid of icons showcasing proficiencies.
+5. **SHRINE** — Collection vault covering DS/Switch & Sim Racing devices.
+6. **VR LIFE FEED** — Headsets, XR experiments & immersive thoughts.
+7. **THE WORKSHOP FEED** — Unity dev logs, mechanics & Wear OS experiments.
+8. **VLOG FEED** — Personal life, cats & dev life in Ukraine.
+9. **EDUCATION FEED** — Classroom fundamentals & tutorials.
+10. **UTILITY CORE** — Python tools & widgets.
+11. **CONTACT** — External links / handles.
 
 <br/>
 

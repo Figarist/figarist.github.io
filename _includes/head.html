@@ -1,6 +1,11 @@
-<!-- SEO: Primary Meta -->
-<title>{% if page.title %}{{ page.title }} — {% endif %}Figarist{{ site.data[site.active_lang].strings.head_title_suffix
-    }}</title>
+<title>
+    {% if page.title_key %}
+    {{ site.data[site.active_lang].strings[page.title_key] }}
+    {% elsif page.title %}
+    {{ page.title }}
+    {% endif %}
+    — Figarist{{ site.data[site.active_lang].strings.head_title_suffix }}
+</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
 <meta name="description" content="{{ site.data[site.active_lang].strings.head_desc }}">
 <meta name="keywords" content="{{ site.data[site.active_lang].strings.head_keywords }}">
@@ -27,7 +32,8 @@
 <!-- SEO: Open Graph -->
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Figarist">
-<meta property="og:title" content="Figarist{{ site.data[site.active_lang].strings.head_title_suffix }}">
+<meta property="og:title"
+    content="{% if page.title_key %}{{ site.data[site.active_lang].strings[page.title_key] }}{% elsif page.title %}{{ page.title }}{% endif %} — Figarist{{ site.data[site.active_lang].strings.head_title_suffix }}">
 <meta property="og:description" content="{{ site.data[site.active_lang].strings.head_og_desc }}">
 <meta property="og:url" content="{{ page.url | absolute_url }}">
 <meta property="og:locale" content="{{ site.data[site.active_lang].strings.head_og_locale }}">

@@ -68,7 +68,7 @@ defaults:
   - scope:
       path: ""
     values:
-      image: "/assets/images/default-social-card.jpg"
+      image: "/assets/images/default-social-card.webp"
   - scope:
       path: ""
       type: "posts"

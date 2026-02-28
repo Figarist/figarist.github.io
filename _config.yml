@@ -2,12 +2,12 @@
 #  Figarist — Jekyll Configuration
 # ============================================================
 
-title:       "Figarist Blog"
+title: "Figarist Blog"
 description: "Indie Dev (Unity, Wear OS), Educator, and Tech Enthusiast."
-url:         "https://figarist.github.io"
-baseurl:     ""
+url: "https://figarist.github.io"
+baseurl: ""
 
-lang:        "en"
+lang: "en"
 author:
   name: "Ihor (Figarist)"
   twitter: "figarist"
@@ -21,13 +21,16 @@ social:
     - "https://github.com/Figarist"
 
 # ── Build ────────────────────────────────────────────────────
-markdown:    kramdown
+markdown: kramdown
 highlighter: rouge
+sass:
+  style: compressed
+  sourcemap: never
 
 # ── Collections ──────────────────────────────────────────────
 collections:
   education:
-    output:    true
+    output: true
     permalink: /education/:title/
 
 # Exclude dev artefacts from the build
@@ -56,6 +59,8 @@ exclude_from_localization:
   - images
   - sitemap.xml
   - robots.txt
+  - styles.scss
+  - styles.css
 parallel_localization: false
 
 # ── Defaults ─────────────────────────────────────────────────
@@ -65,18 +70,18 @@ defaults:
     values:
       image: "/assets/images/default-social-card.jpg"
   - scope:
-      path:   ""
-      type:   "posts"
+      path: ""
+      type: "posts"
     values:
       layout: "post"
   - scope:
-      path:   ""
-      type:   "pages"
+      path: ""
+      type: "pages"
     values:
       layout: "default"
   - scope:
-      path:   ""
-      type:   "education"
+      path: ""
+      type: "education"
     values:
       layout: "education"
 

@@ -1,6 +1,0 @@
-﻿Configuration file: D:/GitHub/figarist.github.io/_config.yml
-            Source: D:/GitHub/figarist.github.io
-       Destination: D:/GitHub/figarist.github.io/_site
- Incremental build: disabled. Enable with --incremental
-      Generating... 
-       Jekyll Feed: Generating feed for posts

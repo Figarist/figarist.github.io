@@ -15,6 +15,16 @@ Thumbs.db
 .idea/
 *.swp
 
+# Debug / temp artifacts
+build.log
+build_error.txt
+env_vars.txt
+git_status.txt
+ls_out.txt
+path.txt
+hello.txt
+test.yml
+
 # AI Agent Artifacts (Keep only if needed, usually ignored in production)
 .agents/
 .agent/

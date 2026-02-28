@@ -137,6 +137,13 @@ figarist.github.io/
 --t-fast: 0.18s ease;
 --t-med: 0.28s ease;
 --t-slow: 0.45s ease;
+
+/* UX Snappiness Metrics */
+--tilt-duration-in: 0.1s; /* Snappy 3D response */
+--tilt-duration-out: 0.4s; /* Smooth 3D return */
+--entry-duration: 1.2s; /* Ultra-soft fade-in */
+--entry-lift: 15px; /* Vertical arrival offset */
+--main-top-margin: 70px; /* Spacing for mobile/bento overlap */
 ```
 
 ### Bento Grid Layout (3 колонки)
@@ -247,7 +254,8 @@ Polyglot має агресивний regex-парсинг. Якщо створю
 
 2. **Ручний вибір** — inline `<script>` в `header.html`:
    - При кліку на мову у switcher зберігає вибір у `preferred_lang`
-   - При наступному візиті авто-редірект враховує збережений вибір
+   - Використовує `data-lang` атрибути та `translate="no"`, щоб уникнути конфліктів з Google Translate.
+   - Redirect logic у `head.html` має whitelist (`en`, `uk`, `ru`, `ko`) для запобігання URL-loop.
 
 > ⚠️ **LEGACY:** Файл `assets/js/locale.js` був **DEPRECATED** і видалений з проекту. Він використовував старий ключ `figarist_ui_lang` та CSS-class toggling. НЕ відтворювати.
 
@@ -350,7 +358,7 @@ level: beginner # beginner | intermediate | advanced
   <div class="nav-inner">
     <!-- max-width: 1300px, backdrop-filter: blur(18px) -->
     <a href="{{ '/' | relative_url }}" class="site-nav__brand" id="site-logo"
-      >Figarist</a
+      >ХАБ</a
     >
     <div class="site-nav__links">
       <!-- Anchor links: #studio, #webgl, #stack, #shrine -->
@@ -379,6 +387,7 @@ level: beginner # beginner | intermediate | advanced
 | §3     | Card subtle tilt 4° на mousemove (крім `.card--studio`, `.card--contact`) |
 | §4     | Bio card doodle parallax                                                  |
 | §5     | Email copy to clipboard                                                   |
+| §6     | View Transitions API (CSS fade + morphing)                                |
 
 ---
 

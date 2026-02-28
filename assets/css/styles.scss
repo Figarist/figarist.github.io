@@ -113,14 +113,40 @@ a {
 /* ======================== NAV ======================== */
 .site-nav {
   position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  z-index: 200;
-  background: rgba(242, 240, 235, 0.85);
-  backdrop-filter: blur(18px);
-  -webkit-backdrop-filter: blur(18px);
-  border-bottom: 1px solid var(--border-light);
+  top: 16px; /* Floating from the top */
+  left: 50%;
+  transform: translateX(-50%);
+  width: calc(100% - 32px);
+  max-width: 1200px;
+  margin: 0 auto;
+  z-index: 1000;
+  
+  /* Liquid Glass Core */
+  background: rgba(255, 255, 255, 0.45);
+  backdrop-filter: blur(28px) saturate(160%);
+  -webkit-backdrop-filter: blur(28px) saturate(160%);
+  
+  /* The "Liquid" Surface - high gloss reflection */
+  background-image: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.4) 0%,
+    rgba(255, 255, 255, 0.1) 40%,
+    rgba(255, 255, 255, 0) 51%,
+    rgba(255, 255, 255, 0.05) 100%
+  );
+  
+  /* Inner Glow & Border */
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  border-radius: 24px;
+  
+  /* Layered Shadows for Depth */
+  box-shadow: 
+    0 4px 24px -1px rgba(0, 0, 0, 0.08),
+    0 2px 8px -1px rgba(0, 0, 0, 0.04),
+    inset 0 1px 1px rgba(255, 255, 255, 0.6), /* Edge highlight */
+    inset 0 -1px 2px rgba(0, 0, 0, 0.02);      /* Soft bottom edge */
+    
+  transition: top var(--t-med), width var(--t-med), background var(--t-med);
 }
 
 .nav-inner {
@@ -164,19 +190,53 @@ a {
   color: var(--text-primary);
 }
 
-.lang-switch {
-  padding: 5px 14px;
-  border: 1.5px solid var(--accent-blue);
+.lang-switch-wrapper {
+  display: flex;
+  gap: 4px;
+  align-items: center;
+  background: rgba(0, 0, 0, 0.03);
+  padding: 4px;
   border-radius: 99px;
-  font-size: 0.78rem !important;
-  font-weight: 600 !important;
-  color: var(--accent-blue-d) !important;
-  transition: background var(--t-fast), color var(--t-fast);
+  border: 1px solid rgba(0, 0, 0, 0.04);
+  backdrop-filter: blur(4px);
 }
 
-.lang-switch:hover {
-  background: var(--accent-blue);
-  color: #fff !important;
+.lang-switch {
+  padding: 6px 12px;
+  border-radius: 99px;
+  font-size: 0.72rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  color: var(--text-secondary);
+  transition: all var(--t-fast);
+  cursor: pointer;
+  border: 1px solid transparent;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 1;
+}
+
+.lang-switch:hover:not(.active) {
+  color: var(--text-primary);
+  background: rgba(255, 255, 255, 0.3);
+}
+
+.lang-switch.active {
+  background: rgba(255, 255, 255, 0.85);
+  color: var(--text-primary);
+  box-shadow: 
+    0 2px 8px rgba(0, 0, 0, 0.05),
+    inset 0 1px 1px rgba(255, 255, 255, 1);
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  cursor: default;
+  
+  /* Reflection effect inside the active pill */
+  background-image: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0.1) 0%,
+    rgba(255, 255, 255, 0) 100%
+  );
 }
 
 /* ======================== BENTO PAGE ======================== */
@@ -1317,20 +1377,39 @@ button:focus-visible,
    ============================================================ */
 .floating-nav {
   position: sticky;
-  top: 20px;
+  top: 16px;
   z-index: 1000;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  max-width: 600px;
-  margin: 20px auto 0;
+  max-width: 700px;
+  margin: 16px auto 0;
   padding: 12px 24px;
   border-radius: 100px;
-  background: rgba(242, 240, 235, 0.72);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-  border: 1px solid var(--border-light);
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.07);
+  
+  /* Liquid Glass Core */
+  background: rgba(255, 255, 255, 0.45);
+  backdrop-filter: blur(24px) saturate(150%);
+  -webkit-backdrop-filter: blur(24px) saturate(150%);
+  
+  /* High Gloss Reflection */
+  background-image: linear-gradient(
+    145deg,
+    rgba(255, 255, 255, 0.3) 0%,
+    rgba(255, 255, 255, 0) 50%,
+    rgba(255, 255, 255, 0.05) 100%
+  );
+  
+  /* Inner Glow & Border */
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  
+  /* Organic Depth Shadows */
+  box-shadow: 
+    0 10px 40px -10px rgba(0, 0, 0, 0.1),
+    0 4px 12px -2px rgba(0, 0, 0, 0.05),
+    inset 0 1px 1px rgba(255, 255, 255, 0.7);
+    
+  transition: transform var(--t-med), box-shadow var(--t-med);
 }
 
 .floating-nav__logo {
@@ -1370,7 +1449,7 @@ button:focus-visible,
    ============================================================ */
 .jekyll-main {
   max-width: 720px;
-  margin: 55px auto 80px;
+  margin: 80px auto 80px;
   padding: 0 24px;
 }
 

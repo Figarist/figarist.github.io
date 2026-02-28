@@ -156,12 +156,22 @@ figarist.github.io/
 
 <br/>
 
-### 🔄 𝙻𝚊𝚗𝚐𝚞𝚊𝚐𝚎 𝚂𝚠𝚒𝚝𝚌𝚑𝚎𝚛
+### 🔄 𝙻𝚊𝚗𝚐𝚞𝚊𝚐𝚎 𝚂𝚠𝚒𝚝𝚌𝚑𝚎𝚛 — "𝚂𝚝𝚊𝚋𝚕𝚎 & 𝚃𝚛𝚊𝚗𝚜𝚕𝚊𝚝𝚎-𝙿𝚛𝚘𝚘𝚏"
 
-Generated in `_includes/header.html` via a `{% for lang in site.languages %}` loop. Uses `{% static_href %}` to bypass Polyglot's URL rewriting:
+Generated in `_includes/header.html` via a `{% for lang in site.languages %}` loop. Uses `{% static_href %}` and `data-lang` attributes to prevent Google Translate loops:
 
 ```html
-<a {% static_href %}href="/uk/" {% endstatic_href %} class="lang-switch">uk</a>
+<a
+  {%
+  static_href
+  %}href="/uk/"
+  {%
+  endstatic_href
+  %}
+  class="lang-switch"
+  data-lang="uk"
+  >uk</a
+>
 ```
 
 <br/>

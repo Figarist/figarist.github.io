@@ -79,6 +79,7 @@ head_og_locale: en_US
 head_og_locale_alternates: ["uk_UA", "ru_RU", "ko_KR"]
 
 # ADDITIONAL UI KEYS
+min_read: "min read"
 bio_location_full: "Zmiiv, Ukraine"
 studio_badge: "FLAGSHIP"
 studio_cta_text: "Visit Studio"

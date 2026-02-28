@@ -79,6 +79,7 @@ head_og_locale: uk_UA
 head_og_locale_alternates: ["en_US", "ru_RU", "ko_KR"]
 
 # ADDITIONAL UI KEYS
+min_read: "хв читання"
 bio_location_full: "Зміїв, Україна"
 studio_badge: "ФЛАГМАН"
 studio_cta_text: "Відвідати Студію"

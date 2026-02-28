@@ -79,6 +79,7 @@ head_og_locale: ko_KR
 head_og_locale_alternates: ["en_US", "uk_UA", "ru_RU"]
 
 # ADDITIONAL UI KEYS
+min_read: "분 읽기"
 bio_location_full: "우크라이나, 즈미이브"
 studio_badge: "플래그십"
 studio_cta_text: "스튜디오 방문"

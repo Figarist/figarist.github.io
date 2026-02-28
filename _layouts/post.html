@@ -2,6 +2,8 @@
 layout: default
 ---
 
+<div id="reading-progress-bar"></div>
+
 <article class="post-container" itemscope itemtype="https://schema.org/BlogPosting">
 
   <a href="{{ '/' | relative_url }}" class="btn-back" id="back-to-hub">
@@ -9,9 +11,15 @@ layout: default
   </a>
 
   <h1 itemprop="headline" style="view-transition-name: post-{{ page.slug }};">{{ page.title }}</h1>
-  <time class="post-date" datetime="{{ page.date | date_to_xmlschema }}" itemprop="datePublished">
-    {{ page.date | date: "%d %B %Y" }}
-  </time>
+  <div class="post-header-meta">
+    <time class="post-date" datetime="{{ page.date | date_to_xmlschema }}" itemprop="datePublished">
+      {{ page.date | date: "%d %B %Y" }}
+    </time>
+    {% assign words = content | strip_html | number_of_words %}
+    {% assign read_time = words | divided_by: 160 %}
+    {% if read_time == 0 %}{% assign read_time = 1 %}{% endif %}
+    <span class="badge badge--reading-time">⏳ {{ read_time }} {{ site.data[site.active_lang].strings.min_read }}</span>
+  </div>
 
   <div itemprop="articleBody">
     {{ content | replace: '<img', '<img loading="lazy"' }} </div>

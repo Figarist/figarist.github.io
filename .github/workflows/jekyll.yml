@@ -37,9 +37,9 @@ jobs:
           JEKYLL_ENV: production
 
       - name: Minify HTML
-        uses: emepetres/html-minifier-action@master
+        uses: emepetres/html-minifier-action@v1
         with:
-          directory: './_site'
+          rootDir: './_site'
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3

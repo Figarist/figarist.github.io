@@ -8,7 +8,7 @@ layout: default
     <span>{{ site.data[site.active_lang].strings.back_to_hub }}</span>
   </a>
 
-  <h1 itemprop="headline">{{ page.title }}</h1>
+  <h1 itemprop="headline" style="view-transition-name: post-{{ page.slug }};">{{ page.title }}</h1>
   <time class="post-date" datetime="{{ page.date | date_to_xmlschema }}" itemprop="datePublished">
     {{ page.date | date: "%d %B %Y" }}
   </time>

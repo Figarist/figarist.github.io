@@ -78,10 +78,9 @@
   /* ——————————————————————————————————————————
      3. CARD SUBTLE TILT (on mouse move)
      Applies a gentle perspective tilt to hovered cards.
-     Excluded: studio card (it has its own visual feedback)
   —————————————————————————————————————————— */
   var tiltCards = document.querySelectorAll(
-    '.bento-card:not(.card--studio):not(.card--contact), .bento-tilt-target'
+    '.bento-card, .bento-tilt-target'
   );
 
   var prefersReducedMotion =
@@ -89,6 +88,9 @@
 
   if (!prefersReducedMotion) {
     tiltCards.forEach(function (card) {
+      // Set fixed transition for snappy response but smooth return
+      card.style.transition = 'transform 0.1s ease-out, box-shadow var(--t-med), background var(--t-med)';
+
       card.addEventListener('mousemove', function (e) {
         var rect = card.getBoundingClientRect();
         var x = e.clientX - rect.left;
@@ -98,15 +100,22 @@
         // Normalize to [-1, 1]
         var nx = (x / cw - 0.5) * 2;
         var ny = (y / ch - 0.5) * 2;
-        // Max 4deg tilt
-        var rotateX = -ny * 4;
-        var rotateY = nx * 4;
+        // Max 2.5deg tilt
+        var rotateX = -ny * 2.5;
+        var rotateY = nx * 2.5;
+        
         card.style.transform =
-          'perspective(800px) rotateX(' + rotateX + 'deg) rotateY(' + rotateY + 'deg) translateY(-3px)';
+          'perspective(1000px) rotateX(' + rotateX + 'deg) rotateY(' + rotateY + 'deg)';
       });
 
       card.addEventListener('mouseleave', function () {
+        card.style.transition = 'transform 0.4s ease';
         card.style.transform = '';
+      });
+      
+      // Re-enable snappy transition when entering
+      card.addEventListener('mouseenter', function() {
+        card.style.transition = 'transform 0.1s ease-out';
       });
     });
   }

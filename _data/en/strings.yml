@@ -57,6 +57,7 @@ edu_cta: "All articles →"
 contact_intro: "Find me across the web"
 
 # GLOBAL UI
+nav_brand: "HUB"
 main_nav_aria: "Main navigation"
 nav_studio: "Studio"
 nav_playground: "Playground"

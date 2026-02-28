@@ -88,8 +88,7 @@
 
   if (!prefersReducedMotion) {
     tiltCards.forEach(function (card) {
-      // Set fixed transition for snappy response but smooth return
-      card.style.transition = 'transform 0.1s ease-out, box-shadow var(--t-med), background var(--t-med)';
+      // Snappy response but smooth return
 
       card.addEventListener('mousemove', function (e) {
         var rect = card.getBoundingClientRect();
@@ -109,7 +108,7 @@
       });
 
       card.addEventListener('mouseleave', function () {
-        card.style.transition = 'transform 0.4s ease';
+        card.style.transition = 'transform 0.3s ease';
         card.style.transform = '';
       });
       
@@ -171,5 +170,16 @@
       }
     });
   });
+
+  /* ——————————————————————————————————————————
+     6. READING PROGRESS
+  —————————————————————————————————————————— */
+  var pb = document.getElementById('reading-progress-bar');
+  if (pb) {
+    window.addEventListener('scroll', function() {
+      var h = document.documentElement;
+      pb.style.width = ((h.scrollTop || document.body.scrollTop) / (h.scrollHeight - h.clientHeight) * 100) + '%';
+    }, { passive: true });
+  }
 
 })();

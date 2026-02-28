@@ -70,6 +70,17 @@
   --t-slow: 0.45s ease;
 }
 
+/* ======================== VIEW TRANSITIONS ======================== */
+@view-transition {
+  navigation: auto;
+}
+
+::view-transition-old(root),
+::view-transition-new(root) {
+  animation-duration: 0.4s;
+  animation-timing-function: ease-in-out;
+}
+
 /* ======================== RESET ======================== */
 *,
 *::before,
@@ -170,8 +181,8 @@ a {
 
 /* ======================== BENTO PAGE ======================== */
 .bento-page {
-  padding-top: calc(56px + var(--bento-gap));
-  /* nav height + gap */
+  padding-top: 110px;
+  /* fixed nav height + gap offset */
 }
 
 /* ======================== BENTO GRID ======================== */
@@ -266,6 +277,8 @@ a {
   position: relative;
   transition: transform var(--t-med), box-shadow var(--t-med);
   will-change: transform;
+  transform-style: preserve-3d;
+  backface-visibility: hidden;
 }
 
 .card--bio,
@@ -579,7 +592,7 @@ a {
   border-radius: 3px;
   font-size: 0.5rem;
   font-weight: bold;
-  transition: transform 0.4s ease;
+  transition: transform 0.15s ease;
 }
 
 .tile--red {
@@ -1357,7 +1370,7 @@ button:focus-visible,
    ============================================================ */
 .jekyll-main {
   max-width: 720px;
-  margin: 40px auto 80px;
+  margin: 55px auto 80px;
   padding: 0 24px;
 }
 
@@ -1365,8 +1378,6 @@ button:focus-visible,
    прибираємо обмеження ширини */
 .jekyll-main:has(.bento-grid) {
   max-width: 100%;
-  margin: 0;
-  padding: 0;
 }
 
 @media (max-width: 600px) {

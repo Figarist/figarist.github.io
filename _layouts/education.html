@@ -12,7 +12,7 @@ layout: default
   <span class="edu-level edu-level--{{ page.level }}">{{ page.level }}</span>
   {% endif %}
 
-  <h1 itemprop="headline">{{ page.title }}</h1>
+  <h1 itemprop="headline" style="view-transition-name: post-{{ page.slug }};">{{ page.title }}</h1>
 
   {% if page.tags.size > 0 %}
   <div class="post-tags">

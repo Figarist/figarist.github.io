@@ -217,6 +217,12 @@ a {
   grid-area: shrine;
 }
 
+.card--shrine {
+  background: var(--card-bg-warm);
+  display: flex;
+  flex-direction: column;
+}
+
 #teaching {
   grid-area: teach;
 }

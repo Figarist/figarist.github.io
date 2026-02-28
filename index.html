@@ -230,7 +230,7 @@ layout: default
       {% assign vr_posts = site.posts | where: "lang", site.active_lang | where: "category", "vr" %}
       {% for post in vr_posts limit:3 %}
       <li>
-        <a href="{{ post.url | relative_url }}">
+        <a href="{{ post.url | relative_url }}" style="view-transition-name: post-{{ post.slug }};">
           <span class="post-title">{{ post.title }}</span>
           <time class="post-meta" datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: "%B %d, %Y"
             }}</time>
@@ -260,7 +260,7 @@ layout: default
       {% assign gamedev_posts = site.posts | where: "lang", site.active_lang | where: "category", "gamedev" %}
       {% for post in gamedev_posts limit:3 %}
       <li>
-        <a href="{{ post.url | relative_url }}">
+        <a href="{{ post.url | relative_url }}" style="view-transition-name: post-{{ post.slug }};">
           <span class="post-title">{{ post.title }}</span>
           <time class="post-meta" datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: "%B %d, %Y"
             }}</time>
@@ -292,7 +292,7 @@ layout: default
       {% assign personal_posts = site.posts | where: "lang", site.active_lang | where: "category", "personal" %}
       {% for post in personal_posts limit:3 %}
       <li>
-        <a href="{{ post.url | relative_url }}">
+        <a href="{{ post.url | relative_url }}" style="view-transition-name: post-{{ post.slug }};">
           <span class="post-title">{{ post.title }}</span>
           <time class="post-meta" datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: "%B %d, %Y"
             }}</time>
@@ -324,7 +324,7 @@ layout: default
       {% assign edu_items = site.education | where: "lang", site.active_lang | sort: "sort_order" %}
       {% for item in edu_items limit:3 %}
       <li>
-        <a href="{{ item.url | relative_url }}">
+        <a href="{{ item.url | relative_url }}" style="view-transition-name: post-{{ item.slug }};">
           <span class="post-title">{{ item.title }}</span>
           {% if item.level %}<span class="post-meta edu-level">{{ item.level }}</span>{% endif %}
         </a>

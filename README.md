@@ -20,16 +20,17 @@
 
 ```typescript
 const portfolio = {
-    owner: "Ihor (Figarist)",
-    role: "Indie Game Developer & CS Teacher",
-    location: "Zmiiv, Ukraine UA",
-    studio: "Wrist & Pocket Studio",
-    
-    stack: {
-        frontend: "Jekyll + Pure HTML5 + CSS3 + Vanilla JS",
-        architecture: "Bento Grid UI",
-        hosting: "GitHub Pages"
-    }
+  owner: "Ihor (Figarist)",
+  role: "Indie Game Developer & CS Teacher",
+  location: "Zmiiv, Ukraine 🇺🇦",
+  studio: "Wrist & Pocket Studio",
+
+  stack: {
+    frontend: "Jekyll + Pure HTML5 + CSS3 + Vanilla JS",
+    architecture: "Bento Grid UI",
+    i18n: "jekyll-polyglot (EN, UK, RU, KO)",
+    hosting: "GitHub Pages (via GitHub Actions)",
+  },
 };
 ```
 
@@ -39,12 +40,12 @@ const portfolio = {
 
 <div align="center">
 
-| Core Tech | Description |
-| :---: | :--- |
-| ![](https://img.shields.io/badge/HTML5-E34F26?style=flat-square&logo=html5&logoColor=white) | Pure HTML5, zero frameworks |
-| ![](https://img.shields.io/badge/CSS3-1572B6?style=flat-square&logo=css3&logoColor=white) | Vanilla CSS3, Grid layouts |
-| ![](https://img.shields.io/badge/JavaScript-F7DF1E?style=flat-square&logo=javascript&logoColor=black) | Vanilla JS, WebGL embedding |
-| ![](https://img.shields.io/badge/Jekyll-CC0000?style=flat-square&logo=jekyll&logoColor=white) | Static Site Generation (DRY Includes) |
+|                                                Core Tech                                                 | Description                                                     |
+| :------------------------------------------------------------------------------------------------------: | :-------------------------------------------------------------- |
+|       ![](https://img.shields.io/badge/HTML5-E34F26?style=flat-square&logo=html5&logoColor=white)        | Pure HTML5, zero frameworks                                     |
+|        ![](https://img.shields.io/badge/CSS3-1572B6?style=flat-square&logo=css3&logoColor=white)         | Vanilla CSS3 (SCSS), Grid layouts, CSS Variables                |
+|  ![](https://img.shields.io/badge/JavaScript-F7DF1E?style=flat-square&logo=javascript&logoColor=black)   | Vanilla JS, WebGL embedding, IIFE architecture                  |
+|      ![](https://img.shields.io/badge/Jekyll-CC0000?style=flat-square&logo=jekyll&logoColor=white)       | Static Site Generation (DRY Includes, Liquid templates)         |
 | ![](https://img.shields.io/badge/GitHub_Pages-222222?style=flat-square&logo=githubpages&logoColor=white) | Deploys via **GitHub Actions** (required for `jekyll-polyglot`) |
 
 </div>
@@ -54,15 +55,46 @@ const portfolio = {
 ## 📁 𝙵𝚒𝚕𝚎 𝚂𝚝𝚛𝚞𝚌𝚝𝚞𝚛𝚎
 
 ```text
-├── .github/workflows/  # GitHub Actions (Jekyll builds for jekyll-polyglot)
-├── index.html          # Bento UI Hub (Polyglot builds both EN and UK from this)
-├── _includes/          # DRY Jekyll includes (head, nav, footer)
-├── _layouts/           # Jekyll layouts for posts and pages
-├── _posts/             # Markdown blog posts
-├── styles.css          # Shared global styles + Bento layout
-├── script.js           # Shared scripting
-├── sitemap.xml         # SEO Hreflang alternates
-└── robots.txt          # SEO Crawl rules
+figarist.github.io/
+├── .github/workflows/
+│   └── jekyll.yml          # GitHub Actions CI/CD (Polyglot build + HTML minify)
+├── index.html              # Bento UI Hub (Polyglot builds EN, UK, RU, KO from this)
+├── 404.html                # Custom 404 page (quadrilingual)
+├── script.js               # Main JS (scroll anim, WebGL overlay, card tilt, parallax)
+├── robots.txt              # SEO crawl rules
+│
+├── _config.yml             # Jekyll config (title, url, plugins, languages, collections)
+├── Gemfile                 # Ruby dependencies (Jekyll, Polyglot, SEO, Sitemap, Feed)
+│
+├── _includes/
+│   ├── head.html           # <head> + SEO + Polyglot Hreflang + auto-redirect script
+│   ├── header.html         # Floating navbar + language switcher + preference save
+│   └── footer.html         # Minimal footer with year
+│
+├── _layouts/
+│   ├── default.html        # Base layout (head → header → main → footer → script.js)
+│   ├── post.html           # Blog post layout (extends default)
+│   └── education.html      # Education article layout (extends default, custom JSON-LD)
+│
+├── _data/
+│   ├── en/strings.yml      # 🇬🇧 English UI dictionary
+│   ├── uk/strings.yml      # 🇺🇦 Ukrainian UI dictionary
+│   ├── ru/strings.yml      # Russian UI dictionary
+│   └── ko/strings.yml      # 🇰🇷 Korean UI dictionary
+│
+├── _posts/                 # Blog posts (4 files per topic: EN, UK, RU, KO)
+├── _education/             # Education collection (4 files per topic: EN, UK, RU, KO)
+│
+├── _plugins/
+│   └── polyglot_frozen_string_patch.rb  # Fixes FrozenError in Polyglot + SCSS
+│
+├── assets/
+│   ├── css/styles.scss     # Main stylesheet (~1900 lines, Bento UI design system)
+│   └── images/             # Social cards, avatars, logos
+│
+├── blog/index.html         # Blog listing page (quadrilingual)
+├── education/index.html    # Education hub page (quadrilingual)
+└── collection/index.html   # Game collection page (quadrilingual)
 ```
 
 <br/>
@@ -71,23 +103,23 @@ const portfolio = {
 
 <div align="center">
 
-| Token | Details | Hex |
-| :---: | :---: | :---: |
-| **Background** | Cloud Dancer Page Bg | ![](https://img.shields.io/badge/%23f2f0eb-f2f0eb?style=flat-square) |
-| **Surface** | Pure White Cards | ![](https://img.shields.io/badge/%23ffffff-ffffff?style=flat-square) |
-| **Accents** | Cool Blue / Deep Blue | ![](https://img.shields.io/badge/%23a2c2e1-a2c2e1?style=flat-square)&nbsp;![](https://img.shields.io/badge/%236e9fc7-6e9fc7?style=flat-square) |
-| **Accents** | Blush Pink / Deep Rose | ![](https://img.shields.io/badge/%23f5c2cc-f5c2cc?style=flat-square)&nbsp;![](https://img.shields.io/badge/%23d97f93-d97f93?style=flat-square) |
-| **Text** | Dark Text / Muted | ![](https://img.shields.io/badge/%231a1a2e-1a1a2e?style=flat-square)&nbsp;![](https://img.shields.io/badge/%238888a8-8888a8?style=flat-square) |
+|     Token      |        Details         |                                                                      Hex                                                                       |
+| :------------: | :--------------------: | :--------------------------------------------------------------------------------------------------------------------------------------------: |
+| **Background** |  Cloud Dancer Page Bg  |                                      ![](https://img.shields.io/badge/%23f2f0eb-f2f0eb?style=flat-square)                                      |
+|  **Surface**   |    Pure White Cards    |                                      ![](https://img.shields.io/badge/%23ffffff-ffffff?style=flat-square)                                      |
+|  **Accents**   | Cool Blue / Deep Blue  | ![](https://img.shields.io/badge/%23a2c2e1-a2c2e1?style=flat-square)&nbsp;![](https://img.shields.io/badge/%236e9fc7-6e9fc7?style=flat-square) |
+|  **Accents**   | Blush Pink / Deep Rose | ![](https://img.shields.io/badge/%23f5c2cc-f5c2cc?style=flat-square)&nbsp;![](https://img.shields.io/badge/%23d97f93-d97f93?style=flat-square) |
+|    **Text**    |   Dark Text / Muted    | ![](https://img.shields.io/badge/%231a1a2e-1a1a2e?style=flat-square)&nbsp;![](https://img.shields.io/badge/%238888a8-8888a8?style=flat-square) |
 
 </div>
 
 > [!NOTE]
-> **Architectural rules:** Layout MUST use `display: grid` with explicit `grid-template-areas`. 
-> Fractional span classes (`.span-X-X`) and `grid-auto-flow: dense` are FORBIDDEN stringently.
+> **Architectural rules:** Layout MUST use `display: grid` with explicit `grid-template-areas`.
+> Fractional span classes (`.span-X-X`) and `grid-auto-flow: dense` are FORBIDDEN.
 
 <br/>
 
-## 🌍 𝙱𝚒𝚕𝚒𝚗𝚐𝚞𝚊𝚕 𝙰𝚛𝚌𝚑𝚒𝚝𝚎𝚌𝚝𝚞𝚛𝚎
+## 🌍 𝚀𝚞𝚊𝚍𝚛𝚒𝚕𝚒𝚗𝚐𝚞𝚊𝚕 𝙰𝚛𝚌𝚑𝚒𝚝𝚎𝚌𝚝𝚞𝚛𝚎
 
 <div align="center">
 
@@ -101,6 +133,7 @@ const portfolio = {
 - **Multi-Language Hubs:** `index.html` is compiled dynamically. `jekyll-polyglot` automatically splits the single root HTML file into a fallback English root (`/`) and localized subdirectories (`/uk/`, `/ru/`, `/ko/`).
 - **DRY Translation:** `index.html` and Jekyll Includes (`_includes/`) rely on centralized YAML dictionaries (`_data/[lang]/strings.yml`) to render localized strings natively during the build phase (`{{ site.data[site.active_lang].strings.key }}`). No JS flickering and no massive bloated HTML files.
 - **Blog Architecture:** Blog posts use `_layouts/post.html`. You manage posts by duplicating the markdown files natively (`post-en.md`, `post-uk.md`, `post-ru.md`, `post-ko.md`). All files must share the identical `permalink` attribute in YAML Frontmatter, but possess distinct `lang: en`/`lang: uk`/etc variables.
+- **Education Architecture:** Education items follow the same quad-file pattern as posts, using `_layouts/education.html` with a custom JSON-LD `Article` schema.
 
 <br/>
 
@@ -108,16 +141,16 @@ const portfolio = {
 
 <div align="center">
 
-| Step | Requirement | Target |
-| :---: | :--- | :---: |
-| 1 | `<link rel="canonical">` | Page-specific URL |
-| 2 | `<link rel="alternate" hreflang="en/uk/x-default">` | Both |
-| 3 | `<meta property="og:locale">` + `og:locale:alternate` | Swapped per Lang |
-| 4 | `<meta name="robots" content="index, follow">` | Both |
-| 5 | `<meta name="keywords">` | Language-specific |
-| 6 | JSON-LD `Person` schema (`affiliatedOrganization` → Wrist & Pocket) | Both |
-| 7 | JSON-LD `WebSite` schema (`inLanguage: ["en", "uk"]`) | Both |
-| 8 | `<meta name="google-site-verification">` | EN Only |
+| Step | Requirement                                               |             Target              |
+| :--: | :-------------------------------------------------------- | :-----------------------------: |
+|  1   | `<link rel="canonical">`                                  | Automated via `jekyll-seo-tag`  |
+|  2   | `<link rel="alternate" hreflang="en/uk/ru/ko/x-default">` | Automated via `jekyll-polyglot` |
+|  3   | `<meta property="og:locale">` + `og:locale:alternate`     | Automated via `jekyll-seo-tag`  |
+|  4   | `<meta name="robots" content="index, follow">`            |           `head.html`           |
+|  5   | JSON-LD `Person` / `WebSite` / `BlogPosting` schemas      | Automated via `jekyll-seo-tag`  |
+|  6   | `sitemap.xml`                                             | Automated via `jekyll-sitemap`  |
+|  7   | `feed.xml` (RSS)                                          |   Automated via `jekyll-feed`   |
+|  8   | `<meta name="google-site-verification">`                  |           `head.html`           |
 
 </div>
 
@@ -126,8 +159,10 @@ const portfolio = {
 ### 🔄 𝙻𝚊𝚗𝚐𝚞𝚊𝚐𝚎 𝚂𝚠𝚒𝚝𝚌𝚑𝚎𝚛
 
 Generated in `_includes/header.html` via a `{% for lang in site.languages %}` loop. Uses `{% static_href %}` to bypass Polyglot's URL rewriting:
+
 ```html
-<a {% static_href %}href="/uk/"{% endstatic_href %} class="lang-switch">uk</a>
+<a {% static_href %}href="/uk/" {% endstatic_href %} class="lang-switch">uk</a>
+```
 
 <br/>
 
@@ -153,15 +188,17 @@ Generated in `_includes/header.html` via a `{% for lang in site.languages %}` lo
 > Please adhere strictly to the rules below to ensure the stability and styling of the portfolio!
 
 1. **Core Philosophy:** Pure HTML5, CSS3, Vanilla JS, and Liquid / Jekyll layout. No heavy NPM packages. No React.
-2. **Bilingual Sync:** Write content **once** in `index.html` using localized data lookups `{{ site.data[site.active_lang].strings.key }}`. `jekyll-polyglot` generates all 4 languages automatically (`/`, `/uk/`, `/ru/`, `/ko/`) — never copy files manually.
+2. **Quadrilingual Sync:** Write content **once** in `index.html` using localized data lookups `{{ site.data[site.active_lang].strings.key }}`. `jekyll-polyglot` generates all 4 languages automatically (`/`, `/uk/`, `/ru/`, `/ko/`) — never copy files manually.
 3. **DRY Includes:** Header, nav, and footer are modularized via `_includes/`. Never duplicate these parts across documents.
 4. **WebGL & Media:** WebGL canvases MUST be wrapped in a stateless click-to-play iframe overlay. Images should use `.webp` formatting and contain `loading="lazy"` tags.
-5. **SEO & Performance:** Maintain microdata, JSON-LD Schema.org tags, and canonical / hreflang markers comprehensively.
+5. **SEO & Performance:** The site uses `jekyll-seo-tag`, `jekyll-sitemap`, and `jekyll-feed` for automated SEO. Maintain proper YAML Front Matter (`title`, `description`, `image:`, `tags`). Polyglot generates hreflang tags automatically.
+6. **Custom Plugin:** Do NOT remove `_plugins/polyglot_frozen_string_patch.rb` — it fixes a critical `FrozenError` in Polyglot's interaction with SCSS.
 
 <br/>
 
 <div align="center">
-  **💜 𝙼𝚊𝚍𝚎 𝚠𝚒𝚝𝚑 𝚙𝚊𝚜𝚜𝚒𝚘𝚗 𝚋𝚢 𝙵𝚒𝚐𝚊𝚛𝚒𝚜𝚝 | 𝙴𝚜𝚝. 𝟸𝟶𝟸𝟼 💜**
+  <strong>💜 𝙼𝚊𝚍𝚎 𝚠𝚒𝚝𝚑 𝚙𝚊𝚜𝚜𝚒𝚘𝚗 𝚋𝚢 𝙵𝚒𝚐𝚊𝚛𝚒𝚜𝚝 | 𝙴𝚜𝚝. 𝟸𝟶𝟸𝟼 💜</strong>
 
-  <sub>𝙲𝚘𝚍𝚒𝚗𝚐, 𝙶𝚊𝚖𝚒𝚗𝚐 & 𝚅𝚒𝚋𝚒𝚗𝚐 🎮🎵✨</sub>
+<sub>𝙲𝚘𝚍𝚒𝚗𝚐, 𝙶𝚊𝚖𝚒𝚗𝚐 & 𝚅𝚒𝚋𝚒𝚗𝚐 🎮🎵✨</sub>
+
 </div>

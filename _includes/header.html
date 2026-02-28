@@ -1,7 +1,7 @@
 <header>
     <nav class="site-nav" aria-label="{{ site.data[site.active_lang].strings.main_nav_aria }}">
         <div class="nav-inner">
-            <a href="{{ '/' | relative_url }}" class="site-nav__brand" id="site-logo">Figarist</a>
+            <a href="{{ '/' | relative_url }}" class="site-nav__brand" id="site-logo">{{ site.data[site.active_lang].strings.nav_brand }}</a>
             <div class="site-nav__links">
                 <a href="{{ '/' | relative_url }}#studio">
                     {{ site.data[site.active_lang].strings.nav_studio }}
@@ -26,23 +26,16 @@
                 {% endif %}
                 {% endfor %}
                 {% if bare_url == '' %}{% assign bare_url = '/' %}{% endif %}
-                <div class="lang-switch-wrapper"
-                    style="display:flex;gap:8px;align-items:center;background:rgba(255,255,255,0.6);padding:4px 12px;border-radius:20px;border:1px solid var(--border-light,#e0e0e0);">
+                <div class="lang-switch-wrapper">
                     {% for lang in site.languages %}
                     {% if lang == site.active_lang %}
-                    <span class="lang-switch active"
-                        style="font-weight:700;text-transform:uppercase;font-size:0.85rem;cursor:default;">{{ lang
-                        }}</span>
+                    <span class="lang-switch active">{{ lang }}</span>
                     {% else %}
                     {% if lang == site.default_lang %}
-                    <a {% static_href %}href="{{ site.baseurl }}{{ bare_url }}" {% endstatic_href %} class="lang-switch"
-                        style="text-transform:uppercase;font-size:0.85rem;color:var(--text-muted,#888);text-decoration:none;">{{
-                        lang }}</a>
+                    <a {% static_href %}href="{{ site.baseurl }}{{ bare_url }}" {% endstatic_href %} class="lang-switch">{{ lang }}</a>
                     {% else %}
                     <a {% static_href %}href="{{ site.baseurl }}/{{ lang }}{{ bare_url }}" {% endstatic_href %}
-                        class="lang-switch"
-                        style="text-transform:uppercase;font-size:0.85rem;color:var(--text-muted,#888);text-decoration:none;">{{
-                        lang }}</a>
+                        class="lang-switch">{{ lang }}</a>
                     {% endif %}
                     {% endif %}
                     {% endfor %}

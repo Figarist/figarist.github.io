@@ -57,6 +57,7 @@ edu_cta: "Всі статті →"
 contact_intro: "Знайдіть мене в мережі"
 
 # GLOBAL UI
+nav_brand: "ХАБ"
 main_nav_aria: "Головна навігація"
 nav_studio: "Студія"
 nav_playground: "Майданчик"

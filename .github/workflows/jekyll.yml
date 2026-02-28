@@ -40,6 +40,7 @@ jobs:
         uses: emepetres/html-minifier-action@v1
         with:
           rootDir: './_site'
+          minifyJS: false
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3

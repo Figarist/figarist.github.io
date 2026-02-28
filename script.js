@@ -19,7 +19,7 @@
             // Staggered delay based on element position in grid
             var delay = 0;
             var idx = Array.prototype.indexOf.call(fadeEls, entry.target);
-            if (idx > 0) delay = idx * 60; // 60ms per card
+            if (idx > 0) delay = idx * 100; // 100ms per card for an even smoother, cinematic sequence
             setTimeout(function () {
               entry.target.classList.add('visible');
             }, delay);

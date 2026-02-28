@@ -39,9 +39,14 @@
             var preferredLang = localStorage.getItem('preferred_lang');
             var targetLang = null;
 
-            // 1. Check if preference exists
+            // 1. Check if preference exists and is valid
+            var supportedLangs = ['en', 'uk', 'ru', 'ko'];
             if (preferredLang) {
-                if (preferredLang !== activeLang) {
+                if (!supportedLangs.includes(preferredLang)) {
+                    // Fail-safe: if localStorage has junk (like Google Translate strings), clear it
+                    localStorage.removeItem('preferred_lang');
+                    preferredLang = null;
+                } else if (preferredLang !== activeLang) {
                     targetLang = preferredLang;
                 }
             } else {

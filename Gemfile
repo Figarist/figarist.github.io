@@ -13,11 +13,3 @@ end
 
 # Required for Ruby 3.x local dev server (WEBrick removed from stdlib)
 gem "webrick", "~> 1.8"
-
-# Windows local development server optimizations
-platforms :mingw, :x64_mingw, :mswin do
-  # Avoid polling for file changes
-  gem "wdm", ">= 0.1.0"
-  # Silence Ruby 4.0 'fiddle' deprecation warning
-  gem "fiddle"
-end

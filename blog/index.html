@@ -1,24 +1,24 @@
 ---
 layout: default
-title: "The Workshop / Blog"
+title_key: blog_hub_title
 ---
 
 <div class="post-container" style="max-width: 900px;">
     <a href="{{ '/' | relative_url }}" class="btn-back">
-        {% if site.active_lang == 'uk' %}← Назад до головної{% else %}← Back to Hub{% endif %}
+        {{ site.data[site.active_lang].strings.back_to_hub }}
     </a>
 
     <h1 style="margin-bottom: 8px;">
-        {% if site.active_lang == 'uk' %}Майстерня{% else %}The Workshop{% endif %}
+        {{ site.data[site.active_lang].strings.blog_hub_title }}
     </h1>
     <p style="color: var(--text-muted); margin-bottom: 40px; font-family: var(--font-mono); font-size: 0.85rem;">
-        {% if site.active_lang == 'uk' %}Останні нотатки та девлоги.{% else %}Latest notes & dev logs.{% endif %}
+        {{ site.data[site.active_lang].strings.blog_hub_subtitle }}
     </p>
 
     <!-- ── VR SECTION ── -->
     <h2 id="vr"
         style="font-size: 1.2rem; margin-top: 48px; margin-bottom: 16px; border-bottom: 1px solid var(--border-light); padding-bottom: 8px; color: var(--accent-blue-d);">
-        {% if site.active_lang == 'uk' %}Новини VR та Життя{% else %}VR News & Life{% endif %}
+        {{ site.data[site.active_lang].strings.vr_heading }}
     </h2>
     <ul class="post-list" style="margin-top: 0;">
         {% assign vr_posts = site.posts | where: "lang", site.active_lang | where: "category", "vr" %}
@@ -32,7 +32,7 @@ title: "The Workshop / Blog"
         </li>
         {% else %}
         <li style="color: var(--text-muted); font-style: italic;">
-            {% if site.active_lang == 'uk' %}Жодних публікацій не знайдено.{% else %}No posts found.{% endif %}
+            {{ site.data[site.active_lang].strings.no_posts_found }}
         </li>
         {% endfor %}
     </ul>
@@ -40,7 +40,7 @@ title: "The Workshop / Blog"
     <!-- ── GAMEDEV SECTION ── -->
     <h2 id="gamedev"
         style="font-size: 1.2rem; margin-top: 48px; margin-bottom: 16px; border-bottom: 1px solid var(--border-light); padding-bottom: 8px; color: var(--accent-green-d);">
-        {% if site.active_lang == 'uk' %}Unity та GameDev{% else %}Unity & GameDev{% endif %}
+        {{ site.data[site.active_lang].strings.gamedev_heading }}
     </h2>
     <ul class="post-list" style="margin-top: 0;">
         {% assign gd_posts = site.posts | where: "lang", site.active_lang | where: "category", "gamedev" %}
@@ -54,7 +54,7 @@ title: "The Workshop / Blog"
         </li>
         {% else %}
         <li style="color: var(--text-muted); font-style: italic;">
-            {% if site.active_lang == 'uk' %}Жодних публікацій не знайдено.{% else %}No posts found.{% endif %}
+            {{ site.data[site.active_lang].strings.no_posts_found }}
         </li>
         {% endfor %}
     </ul>
@@ -62,7 +62,7 @@ title: "The Workshop / Blog"
     <!-- ── PERSONAL SECTION ── -->
     <h2 id="personal"
         style="font-size: 1.2rem; margin-top: 48px; margin-bottom: 16px; border-bottom: 1px solid var(--border-light); padding-bottom: 8px; color: var(--accent-pink-d);">
-        {% if site.active_lang == 'uk' %}Особисте Життя{% else %}Personal Life{% endif %}
+        {{ site.data[site.active_lang].strings.personal_heading }}
     </h2>
     <ul class="post-list" style="margin-top: 0;">
         {% assign p_posts = site.posts | where: "lang", site.active_lang | where: "category", "personal" %}
@@ -76,7 +76,7 @@ title: "The Workshop / Blog"
         </li>
         {% else %}
         <li style="color: var(--text-muted); font-style: italic;">
-            {% if site.active_lang == 'uk' %}Жодних публікацій не знайдено.{% else %}No posts found.{% endif %}
+            {{ site.data[site.active_lang].strings.no_posts_found }}
         </li>
         {% endfor %}
     </ul>
@@ -87,7 +87,7 @@ title: "The Workshop / Blog"
     {% if other_posts.size > 0 %}
     <h2
         style="font-size: 1.2rem; margin-top: 48px; margin-bottom: 16px; border-bottom: 1px solid var(--border-light); padding-bottom: 8px; color: var(--text-secondary);">
-        {% if site.active_lang == 'uk' %}Архів{% else %}Archive{% endif %}
+        {{ site.data[site.active_lang].strings.blog_archive_heading }}
     </h2>
     <ul class="post-list" style="margin-top: 0;">
         {% for post in other_posts %}

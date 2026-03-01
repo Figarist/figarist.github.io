@@ -7,28 +7,66 @@ layout: default
     {{ site.data[site.active_lang].strings.back_to_hub }}
   </a>
 
-  <h1 class="hub-page-title">
-    {{ page.title }}
-  </h1>
-  <p class="hub-page-subtitle">
-    {{ page.type | capitalize }}: {{ page.title }}
-  </p>
+  {% include breadcrumbs.html %}
+
+  <div class="archive-hub__header">
+    {% if page.type == 'category' %}
+    <span class="archive-hub__badge archive-hub__badge--category">📂 {{ site.data[site.active_lang].strings.category_label | default: "Category" }}</span>
+    {% else %}
+    <span class="archive-hub__badge archive-hub__badge--tag">#{{ page.title }}</span>
+    {% endif %}
+
+    <h1 class="hub-page-title">{{ page.title | capitalize }}</h1>
+    <p class="hub-page-subtitle">
+      {{ page.posts | size }} {{ site.data[site.active_lang].strings.posts_count | default: "posts" }}
+    </p>
+  </div>
 
   <ul class="post-list blog-list">
     {% for post in page.posts %}
-    {% if post.lang == site.active_lang %}
+    {% if post.lang == site.active_lang or post.lang == nil %}
     <li>
       <a href="{{ post.url | relative_url }}" class="blog-list__item">
         <span class="post-title blog-list__title">{{ post.title }}</span>
         <div class="blog-list__meta">
-          <time class="post-meta" datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: "%B %d, %Y" }}</time>
+          <time class="post-meta" datetime="{{ post.date | date_to_xmlschema }}">
+            {{ post.date | date: "%B %d, %Y" }}
+          </time>
           {% if post.category %}
           <span class="blog-list__category">{{ post.category }}</span>
           {% endif %}
         </div>
+        {% if post.tags.size > 0 %}
+        <div class="archive-hub__post-tags">
+          {% for tag in post.tags %}
+          <span class="archive-hub__mini-tag">#{{ tag }}</span>
+          {% endfor %}
+        </div>
+        {% endif %}
       </a>
     </li>
     {% endif %}
     {% endfor %}
   </ul>
+
+  <!-- All Categories & Tags Navigation -->
+  <div class="archive-hub__nav">
+    <h3 class="archive-hub__nav-heading">{{ site.data[site.active_lang].strings.all_categories | default: "All Categories" }}</h3>
+    <div class="archive-hub__pill-row">
+      {% for cat in site.categories %}
+      <a href="{{ '/blog/category/' | append: cat[0] | append: '/' | relative_url }}" class="archive-hub__pill archive-hub__pill--category {% if page.title == cat[0] %}active{% endif %}">
+        📂 {{ cat[0] | capitalize }} <span class="archive-hub__count">{{ cat[1].size }}</span>
+      </a>
+      {% endfor %}
+    </div>
+
+    <h3 class="archive-hub__nav-heading">{{ site.data[site.active_lang].strings.all_tags | default: "All Tags" }}</h3>
+    <div class="archive-hub__pill-row">
+      {% for tag in site.tags %}
+      <a href="{{ '/blog/tag/' | append: tag[0] | append: '/' | relative_url }}" class="archive-hub__pill archive-hub__pill--tag {% if page.title == tag[0] %}active{% endif %}">
+        #{{ tag[0] }} <span class="archive-hub__count">{{ tag[1].size }}</span>
+      </a>
+      {% endfor %}
+    </div>
+  </div>
 </div>

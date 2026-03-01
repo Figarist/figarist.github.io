@@ -121,3 +121,9 @@ search_close_label: "Close search"
 search_select_hint: "Enter to select"
 search_close_hint: "Esc to close"
 search_no_results: "No matches found for"
+
+# ── Archives ──
+category_label: "Category"
+posts_count: "posts"
+all_categories: "All Categories"
+all_tags: "All Tags"

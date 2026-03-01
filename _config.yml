@@ -49,6 +49,7 @@ plugins:
   - jekyll-feed
   - jekyll-polyglot
   - jekyll-paginate-v2
+  - jekyll-spaceship
 
 # ── Pagination Settings ──────────────────────────────────────
 pagination:
@@ -101,3 +102,21 @@ permalink: /blog/:year/:month/:day/:title/
 # ── Feed ──────────────────────────────────────────────────────
 feed:
   path: feed.xml
+
+# ── Spaceship Settings ──────────────────────────────────────
+jekyll-spaceship:
+  mathjax:
+    src: "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/MathJax.js?config=TeX-MML-AM_CHTML"
+    config:
+      tex2jax:
+        inlineMath: [["$", "$"], ['\\(', '\\)']]
+        displayMath: [["$$", "$$"], ['\\[', '\\]']]
+        processEscapes: true
+  mermaid:
+    src: "https://unpkg.com/mermaid/dist/mermaid.min.js"
+  video:
+    youtube:
+      width: 100%
+      height: auto
+  audio:
+  table:

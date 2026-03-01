@@ -1,0 +1,68 @@
+/* ============================================================
+   SPACESHIP ENHANCEMENTS (Bento UI Styling)
+   ============================================================ */
+
+/* ── Videos & Iframes (YouTube/Spotify) ────────────────── */
+.post-container .video,
+.post-container iframe {
+  width: 100% !important;
+  aspect-ratio: 16 / 9;
+  border-radius: var(--card-radius);
+  border: none;
+  box-shadow: var(--shadow-card);
+  margin: 2rem 0;
+  overflow: hidden;
+}
+
+/* ── Tables (Bento Card Style) ─────────────────────────── */
+.post-container table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+  background: var(--card-bg-warm);
+  border-radius: var(--card-radius);
+  border: 1px solid var(--border-card);
+  box-shadow: var(--shadow-card);
+  margin: 2.5rem 0;
+  overflow: hidden;
+  font-size: 0.95rem;
+}
+
+.post-container th {
+  background: rgba(0, 0, 0, 0.03);
+  color: var(--text-primary);
+  font-weight: 700;
+  text-align: left;
+  padding: 1rem 1.25rem;
+}
+
+.post-container td {
+  padding: 1rem 1.25rem;
+  color: var(--text-secondary);
+  border-top: 1px solid var(--border-light);
+}
+
+.post-container tr:first-child td {
+  border-top: none;
+}
+
+/* ── Mermaid Diagrams ──────────────────────────────────── */
+.mermaid {
+  background: var(--card-bg);
+  border-radius: var(--card-radius);
+  padding: var(--card-padding);
+  border: 1px solid var(--border-card);
+  box-shadow: var(--shadow-card);
+  margin: 2rem 0;
+  overflow-x: auto;
+  display: flex;
+  justify-content: center;
+}
+
+/* ── MathJax Spacing ────────────────────────────────────── */
+.MathJax_Display {
+  margin: 2rem 0 !important;
+  padding: 1rem;
+  background: rgba(0, 0, 0, 0.02);
+  border-radius: 8px;
+}

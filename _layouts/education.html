@@ -22,6 +22,10 @@ layout: default
 
   <h1 itemprop="headline" style="view-transition-name: post-{{ page.slug }};">{{ page.title }}</h1>
 
+  <div class="post-meta">
+    ✍️ {{ site.data[site.active_lang].strings.author_name }} &bull; 📅 {{ page.date | date: "%B %d, %Y" }}
+  </div>
+
   {% if page.tags.size > 0 %}
   <div class="post-tags">
     {% for tag in page.tags %}

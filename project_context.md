@@ -44,7 +44,7 @@ graph TD
 - **Spaceship Engine:** Mermaid, MathJax, Технічні таблиці.
 - **Performance Budget:** JS < 20KB, CSS < 30KB. Жорсткі ліміти.
 - **GoatCounter:** Privacy-first analytics (Zero-cookies).
-- **Bento Design:** Grid-native UI без сторонніх фреймворків.
+- **Hub Design:** Grid-native UI without third-party frameworks.
 
 ---
 
@@ -66,12 +66,12 @@ graph TD
 - **Do:** Додавай у `script.js` всередині IIFE. Використовуй `IntersectionObserver` для анімацій.
 - **Don't:** Не створюй `onclick=""` атрибути. Тільки `addEventListener`.
 
-### Case: Bento Layout Modification
+### Case: Hub Layout Modification
 
 - **Method:** Тільки через `grid-template-areas`.
 
 ```css
-.bento-grid {
+.hub-grid {
   grid-template-areas: "bio bio stack" ...;
 }
 ```

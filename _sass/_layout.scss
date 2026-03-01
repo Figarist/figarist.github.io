@@ -166,9 +166,9 @@
   padding: 0 24px;
 }
 
-/* На головній сторінці .jekyll-main обгортає bento-grid —
+/* На головній сторінці .jekyll-main обгортає hub-grid —
    прибираємо обмеження ширини */
-.jekyll-main:has(.bento-grid) {
+.jekyll-main:has(.hub-grid) {
   max-width: 100%;
 }
 
@@ -184,7 +184,7 @@
 }
 
 /* ======================== FOOTER ======================== */
-.bento-footer {
+.hub-footer {
   text-align: center;
   padding: 20px;
   font-size: 0.75rem;
@@ -206,7 +206,7 @@
     padding: 10px 18px;
   }
 
-  .jekyll-main:not(.bento-page) {
+  .jekyll-main:not(.hub-page) {
     margin-top: 28px;
     padding: 0 16px;
   }

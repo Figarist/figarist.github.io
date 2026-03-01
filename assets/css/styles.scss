@@ -1,12 +1,12 @@
 ---
-# Front matter required for Jekyll to process this file
 ---
 @use "variables";
 @use "base";
 @use "layout";
-@use "bento-grid";
-@use "bento-cards";
+@use "grid";
+@use "cards";
 @use "post";
 @use "search";
 @use "components";
 @use "spaceship";
+@use "footer";

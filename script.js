@@ -90,7 +90,7 @@
      Applies a gentle perspective tilt to hovered cards.
   —————————————————————————————————————————— */
   var tiltCards = document.querySelectorAll(
-    '.bento-card, .bento-tilt-target'
+    '.hub-card, .bento-tilt-target'
   );
 
   var prefersReducedMotion =

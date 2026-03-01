@@ -1,0 +1,166 @@
+/* ============================================================
+   COMPONENTS
+   ============================================================ */
+
+/* ======================== LANGUAGE SWITCHER ======================== */
+.lang-switch-wrapper {
+  display: flex;
+  gap: 4px;
+  align-items: center;
+  background: rgba(0, 0, 0, 0.03);
+  padding: 4px;
+  border-radius: 99px;
+  border: 1px solid rgba(0, 0, 0, 0.04);
+  backdrop-filter: blur(4px);
+}
+
+.lang-switch {
+  padding: 6px 12px;
+  border-radius: 99px;
+  font-size: 0.72rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  color: var(--text-secondary);
+  transition: all var(--t-fast);
+  cursor: pointer;
+  border: 1px solid transparent;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 1;
+}
+
+.lang-switch:hover:not(.active) {
+  color: var(--text-primary);
+  background: rgba(255, 255, 255, 0.3);
+}
+
+.lang-switch.active {
+  background: rgba(255, 255, 255, 0.85);
+  color: var(--text-primary);
+  box-shadow: 
+    0 2px 8px rgba(0, 0, 0, 0.05),
+    inset 0 1px 1px rgba(255, 255, 255, 1);
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  cursor: default;
+  
+  /* Reflection effect inside the active pill */
+  background-image: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0.1) 0%,
+    rgba(255, 255, 255, 0) 100%
+  );
+}
+
+/* ======================== BUTTONS ======================== */
+
+/* ── Back button ────────────────────────────────────────── */
+.btn-back {
+  display: inline-flex;
+  margin-bottom: 2rem;
+  padding: 8px 20px;
+  border-radius: 100px;
+  border: 1.5px solid var(--accent-cyan);
+  color: var(--accent-cyan);
+  font-size: 0.85rem;
+  font-weight: 600;
+  text-decoration: none;
+  transition: background var(--t-fast), color var(--t-fast), box-shadow var(--t-fast);
+}
+
+@media (hover: hover) {
+  .btn-back:hover {
+    background: var(--accent-cyan);
+    color: #0f0e17;
+    box-shadow: 0 4px 16px rgba(78, 205, 196, 0.3);
+  }
+}
+
+/* ── Read-more CTA ───────────────────────────────────────── */
+.btn-read-more {
+  display: inline-block;
+  align-self: flex-start;
+  margin-top: auto;
+  padding: 8px 18px;
+  border-radius: 99px;
+  border: 1.5px solid var(--accent-blue);
+  color: var(--accent-blue-d);
+  font-size: 0.82rem;
+  font-weight: 600;
+  text-decoration: none;
+  transition: background var(--t-fast), color var(--t-fast), box-shadow var(--t-fast);
+}
+
+@media (hover: hover) {
+  .btn-read-more:hover {
+    background: var(--accent-blue);
+    color: #fff;
+    box-shadow: 0 4px 16px rgba(162, 194, 225, 0.4);
+  }
+}
+
+/* ── Code copy button ────────────────────────────────────── */
+.btn-copy-code {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  padding: 5px 10px;
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  color: var(--text-secondary);
+  background: rgba(255, 255, 255, 0.4);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  border-radius: 8px;
+  cursor: pointer;
+  opacity: 0;
+  transition: all var(--t-fast);
+  z-index: 10;
+  
+  @media (hover: hover) {
+    &:hover {
+      background: rgba(255, 255, 255, 0.8);
+      color: var(--text-primary);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    }
+  }
+  
+  &.copied {
+    background: var(--accent-green);
+    color: var(--text-primary);
+    border-color: var(--accent-green-d);
+    opacity: 1;
+  }
+}
+
+/* ======================== CODE HIGHLIGHTING HELPERS ======================== */
+div.highlight {
+  position: relative;
+  
+  &:hover .btn-copy-code {
+    opacity: 1;
+  }
+}
+
+/* Add space at the top to prevent button overlapping code text */
+div.highlight pre {
+  padding-top: 36px !important;
+}
+
+/* ======================== SCROLL ANIMATIONS ======================== */
+.fade-in {
+  opacity: 0;
+  transform: translateY(15px); /* Soft lift offset */
+  transition: 
+    opacity 0.6s ease-out, 
+    transform 0.1s cubic-bezier(0.22, 1, 0.36, 1);
+  will-change: opacity, transform;
+}
+
+.fade-in.visible {
+  opacity: 1;
+  transform: translateY(0);
+}

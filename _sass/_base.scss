@@ -1,0 +1,96 @@
+/* ============================================================
+   BASE & RESET
+   ============================================================ */
+
+/* ======================== VIEW TRANSITIONS ======================== */
+@view-transition {
+  navigation: auto;
+}
+
+::view-transition-old(root),
+::view-transition-new(root) {
+  animation-duration: 0.2s;
+  animation-timing-function: ease-in-out;
+}
+
+/* ======================== RESET ======================== */
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 100px; /* Offset for floating navbar */
+  font-size: 16px;
+}
+
+body {
+  font-family: var(--font-sans);
+  background-color: var(--bg-color);
+  color: var(--text-primary);
+  line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* ======================== ACCESSIBILITY ======================== */
+a:focus-visible,
+button:focus-visible,
+[role="button"]:focus-visible {
+  outline: 2px solid var(--accent-blue-d);
+  outline-offset: 3px;
+  border-radius: 6px;
+}
+
+/* ======================== SELECTION ======================== */
+::selection {
+  background: var(--accent-blue);
+  color: #fff;
+}
+
+/* ======================== SCROLLBAR ======================== */
+::-webkit-scrollbar {
+  width: 7px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--bg-color);
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(0, 0, 0, 0.15);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(0, 0, 0, 0.25);
+}
+
+/* ======================== REDUCED MOTION ======================== */
+@media (prefers-reduced-motion: reduce) {
+  .car {
+    animation: none;
+  }
+
+  .terminal__line--cursor {
+    animation: none;
+  }
+
+  .bento-card {
+    transition: none;
+  }
+
+  .fade-in {
+    transition: none;
+  }
+}

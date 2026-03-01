@@ -1,0 +1,149 @@
+/* ============================================================
+   BENTO GRID SYSTEM
+   ============================================================ */
+
+/* ======================== BENTO PAGE ======================== */
+.jekyll-main.bento-page {
+  padding-top: 85px !important; /* Forces override against global .jekyll-main shorthand */
+}
+
+/* ======================== BENTO GRID ======================== */
+.bento-grid {
+  display: grid;
+  gap: var(--bento-gap);
+  /* Гнучкі відступи: на ПК більше простору, на планшетах менше */
+  padding: clamp(16px, 3vw, 32px);
+  max-width: 1300px;
+  margin: 0 auto;
+  grid-template-columns: repeat(3, 1fr);
+  /* Базова висота картки */
+  grid-auto-rows: minmax(180px, auto);
+
+  /* New 4-stream content layout */
+  grid-template-areas:
+    "bio          bio          stack"
+    "studio       studio       shrine"
+    "webgl        webgl        shrine"
+    "feed-vr      feed-vr      feed-gamedev"
+    "feed-vr      feed-vr      feed-gamedev"
+    "feed-personal feed-edu   python"
+    "teach        contact      contact";
+}
+
+#bio {
+  grid-area: bio;
+}
+
+#studio {
+  grid-area: studio;
+}
+
+#webgl {
+  grid-area: webgl;
+}
+
+#stack {
+  grid-area: stack;
+}
+
+#shrine {
+  grid-area: shrine;
+}
+
+#teaching {
+  grid-area: teach;
+}
+
+#python {
+  grid-area: python;
+}
+
+#contact {
+  grid-area: contact;
+}
+
+#feed-vr {
+  grid-area: feed-vr;
+}
+
+#feed-gamedev {
+  grid-area: feed-gamedev;
+}
+
+#feed-personal {
+  grid-area: feed-personal;
+}
+
+#feed-edu {
+  grid-area: feed-edu;
+}
+
+/* ======================== ПЛАНШЕТ (ПЕРЕХІДНИЙ СТАН) ======================== */
+@media (max-width: 1080px) {
+  .bento-grid {
+    max-width: 800px;
+    /* Звужуємо для акуратного вигляду 2-х колонок */
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-areas:
+      "bio     bio"
+      "studio  studio"
+      "webgl   webgl"
+      "blog    blog"
+      "stack   python"
+      "shrine  shrine"
+      "teach   teach"
+      "contact contact";
+  }
+
+  /* Hide text links before they squash on iPad profiles */
+  .site-nav__links a:not(.lang-switch) {
+    display: none;
+  }
+}
+
+/* ======================== МОБІЛКА (ПРАВИЛЬНИЙ СТЕК) ======================== */
+@media (max-width: 768px) {
+
+  /* Збільшив breakpoint до 768px для надійності */
+  .bento-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    padding: 16px;
+  }
+
+  .jekyll-main.bento-page {
+    padding-top: calc(85px + env(safe-area-inset-top)) !important;
+    margin-top: 0 !important;
+  }
+
+  .site-nav {
+    top: calc(16px + env(safe-area-inset-top));
+    width: calc(100% - 32px);
+  }
+
+  .site-nav__links a:not(.lang-switch) {
+    display: none;
+  }
+
+  .site-nav__links .lang-switch {
+    display: inline-flex;
+  }
+
+  .bento-grid {
+    grid-template-areas:
+      "bio"
+      "studio"
+      "webgl"
+      "stack"
+      "shrine"
+      "feed-vr"
+      "feed-gamedev"
+      "feed-personal"
+      "feed-edu"
+      "teaching"
+      "python"
+      "contact";
+    grid-template-columns: 1fr;
+  }
+}

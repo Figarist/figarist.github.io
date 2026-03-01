@@ -1,7 +1,7 @@
 # figarist.github.io (EXTREME EDITION)
 
 <div align="center">
-  <img src="https://readme-typing-svg.herokuapp.com?font=Fira+Code&size=36&duration=3000&pause=1000&color=9D4EDD&center=true&vCenter=true&width=800&lines=figarist.github.io+%F0%9F%8E%AE;Performance+First+%E2%9A%A1;Bento+UI+Grid+%F0%9F%A7%B1;Quadrilingual+Sync+%F0%9F%8C%8E" alt="Typing SVG" />
+  <img src="https://readme-typing-svg.herokuapp.com?font=Fira+Code&size=36&duration=3000&pause=1000&color=9D4EDD&center=true&vCenter=true&width=800&lines=figarist.github.io+%F0%9F%8E%AE;Performance+First+%E2%9A%A1;Hub+Architecture+%F0%9F%A7%B1;Quadrilingual+Sync+%F0%9F%8C%8E" alt="Typing SVG" />
 </div>
 
 ---
@@ -47,9 +47,10 @@ JEKYLL_ENV=production bundle exec jekyll serve
 
 | Feature               | Technology                         | Status        |
 | :-------------------- | :--------------------------------- | :------------ |
-| **Engine**            | Jekyll 4.3                         | ⚡ Stable     |
+| **Engine**            | Jekyll 4.4                         | ⚡ Stable     |
+| **Architecture**      | Hub Design (Native Grid)           | 🏗️ Core       |
 | **Localization**      | Quadrilingual (EN, UK, RU, KO)     | 🌍 Native     |
-| **UX**                | PWA (Workbox) + View Transitions   | ✨ Premium    |
+| **UX**                | PWA (Workbox) + Liquid Glass UI    | ✨ Premium    |
 | **Performance**       | WebP + Minification + Lazy-loading | 🚀 Optimized  |
 | **Technical Visuals** | Spaceship (Mermaid/MathJax)        | 📊 Active     |
 | **Analytics**         | GoatCounter (Privacy-first)        | 📈 Integrated |
@@ -67,19 +68,20 @@ JEKYLL_ENV=production bundle exec jekyll serve
 
 ## 📂 STRUCTURE MINI-GUIDE
 
-- `_includes/` → Modular components (Header, Foot, Author Box).
+- `_includes/` → Modular components (Header, Floating Footer, Author Box).
 - `_data/` → Localization dictionaries (Strings).
-- `_layouts/` → Bento blueprints (Default, Post, Edu).
+- `_layouts/` → Hub blueprints (Default, Post, Edu).
 - `assets/` → Compressed media & SCSS manifests.
 
 ---
 
 ## 🤖 AI ASSISTANT PROTOCOL (EXTREME)
 
-1. **Strict Embedded-First:** No frameworks. No bloat.
-2. **Bento Rigor:** `grid-template-areas` is the only way.
+1. **Strict Embedded-First:** No frameworks (React/Tailwind). No bloat.
+2. **Hub Rigor:** `grid-template-areas` is the only way for the main grid.
 3. **Quad-Sync:** Every new post needs 4 language siblings.
 4. **Performance:** JS < 20KB, CSS < 30KB.
+5. **Aesthetics:** "Liquid Glass" (glassmorphism) for Top Nav and Footer.
 
 ---
 

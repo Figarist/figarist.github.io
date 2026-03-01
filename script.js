@@ -181,5 +181,42 @@
       pb.style.width = ((h.scrollTop || document.body.scrollTop) / (h.scrollHeight - h.clientHeight) * 100) + '%';
     }, { passive: true });
   }
+  /* ——————————————————————————————————————————
+     7. CODE COPY BUTTONS
+  —————————————————————————————————————————— */
+  var codeBlocks = document.querySelectorAll('div.highlight');
+
+  codeBlocks.forEach(function (block) {
+    if (block.querySelector('.btn-copy-code')) return; // Avoid duplicates
+
+    var button = document.createElement('button');
+    button.className = 'btn-copy-code';
+    button.type = 'button';
+    button.innerText = 'Copy';
+
+    button.addEventListener('click', function () {
+      var codeEl = block.querySelector('code');
+      if (!codeEl) return;
+      
+      var code = codeEl.innerText;
+
+      if (navigator.clipboard && window.isSecureContext) {
+        navigator.clipboard.writeText(code).then(function () {
+          button.innerText = 'Copied! ✔️';
+          button.classList.add('copied');
+
+          setTimeout(function () {
+            button.innerText = 'Copy';
+            button.classList.remove('copied');
+          }, 2000);
+        }).catch(function (err) {
+          console.error('Failed to copy code: ', err);
+        });
+      }
+    });
+
+    block.appendChild(button);
+  });
 
 })();
+

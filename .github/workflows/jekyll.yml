@@ -49,7 +49,7 @@ jobs:
           bundle exec htmlproofer ./_site \
             --allow-hash-href \
             --ignore-empty-alt \
-            --ignore-urls "/^https:\/\/(figarist\.com|fonts\.googleapis\.com|fonts\.gstatic\.com|mermaid\.ink|polyfill\.io)/"
+            --ignore-urls "/^https:\/\/(figarist\.github\.io|figarist\.com|fonts\.googleapis\.com|fonts\.gstatic\.com|mermaid\.ink|polyfill\.io)/"
 
       - name: Check JS bundle size
         run: |

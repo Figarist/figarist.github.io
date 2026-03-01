@@ -1,0 +1,127 @@
+/* ============================================================
+   HUB SUB-PAGES — Blog hub, Education hub, Shrine hub
+   Styles that replaced inline style="" attributes.
+   ============================================================ */
+
+/* ── Shared page elements ── */
+.hub-page-title {
+  margin-bottom: 8px;
+}
+
+.hub-page-subtitle {
+  color: var(--text-muted);
+  margin-bottom: 40px;
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+}
+
+/* ── Blog hub ── */
+.blog-hub {
+  max-width: 900px;
+}
+
+.blog-list {
+  margin-top: 0;
+}
+
+.blog-list__item {
+  padding: 16px;
+  border: 1px solid var(--border-light);
+  background: var(--card-bg);
+  display: block;
+  text-decoration: none;
+  border-radius: var(--card-radius);
+  transition: transform var(--t-fast);
+}
+
+.blog-list__title {
+  font-size: 1.2rem;
+  margin-bottom: 6px;
+  display: block;
+  color: var(--text-primary);
+}
+
+.blog-list__meta {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+}
+
+.blog-list__meta .post-meta {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+}
+
+.blog-list__category {
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  padding: 2px 8px;
+  border-radius: 4px;
+  background: var(--bg-color);
+  color: var(--text-secondary);
+}
+
+.blog-list__item li {
+  margin-bottom: 12px;
+}
+
+/* pagination styles are defined in _components.scss */
+
+/* ── Education hub ── */
+.edu-hub {
+  max-width: 900px;
+}
+
+.edu-hub__list {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.edu-hub__card {
+  text-decoration: none;
+  padding: 24px;
+  transition: transform 0.2s;
+  display: block;
+}
+
+.edu-hub__card-title {
+  font-size: 1.25rem;
+  margin: 8px 0 4px 0;
+  color: var(--text-primary);
+}
+
+.edu-hub__card-excerpt {
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+  margin-bottom: 0;
+}
+
+.edu-hub__tags {
+  margin-top: 12px;
+  display: flex;
+  gap: 8px;
+}
+
+.edu-hub__tag {
+  font-size: 0.7rem;
+  color: var(--text-muted);
+  font-family: var(--font-mono);
+}
+
+/* ── Shrine hub ── */
+.shrine-hub {
+  max-width: 900px;
+}
+
+.shrine-hub__section-title {
+  font-size: 1.2rem;
+  margin-bottom: 16px;
+  border-bottom: 1px solid var(--border-light);
+  padding-bottom: 8px;
+}
+
+.shrine-hub__section-title--spaced {
+  margin-top: 48px;
+}

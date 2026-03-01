@@ -1,0 +1,34 @@
+---
+layout: default
+---
+
+<div class="post-container archive-hub">
+  <a href="{{ '/' | relative_url }}" class="btn-back">
+    {{ site.data[site.active_lang].strings.back_to_hub }}
+  </a>
+
+  <h1 class="hub-page-title">
+    {{ page.title }}
+  </h1>
+  <p class="hub-page-subtitle">
+    {{ page.type | capitalize }}: {{ page.title }}
+  </p>
+
+  <ul class="post-list blog-list">
+    {% for post in page.posts %}
+    {% if post.lang == site.active_lang %}
+    <li>
+      <a href="{{ post.url | relative_url }}" class="blog-list__item">
+        <span class="post-title blog-list__title">{{ post.title }}</span>
+        <div class="blog-list__meta">
+          <time class="post-meta" datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: "%B %d, %Y" }}</time>
+          {% if post.category %}
+          <span class="blog-list__category">{{ post.category }}</span>
+          {% endif %}
+        </div>
+      </a>
+    </li>
+    {% endif %}
+    {% endfor %}
+  </ul>
+</div>

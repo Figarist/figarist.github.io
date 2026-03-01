@@ -1,0 +1,103 @@
+/* ============================================================
+   CARD: PYTHON LO-FI (1×1)
+   ============================================================ */
+.card--python {
+  background: #0d1117;
+  color: var(--text-on-dark);
+}
+
+.python__terminal {
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 10px;
+  overflow: hidden;
+  margin-bottom: 14px;
+  flex: 1;
+}
+
+.terminal__bar {
+  background: rgba(255, 255, 255, 0.06);
+  padding: 7px 10px;
+  display: flex;
+  gap: 6px;
+  align-items: center;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.terminal__dot {
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.dot--red {
+  background: #ff5f57;
+}
+
+.dot--yellow {
+  background: #febc2e;
+}
+
+.dot--green {
+  background: #28c840;
+}
+
+.terminal__body {
+  padding: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.terminal__line {
+  display: block;
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  line-height: 1.6;
+  color: rgba(242, 240, 235, 0.7);
+}
+
+.t-comment {
+  color: rgba(255, 255, 255, 0.3);
+  font-style: italic;
+}
+
+.t-kw {
+  color: #c792ea;
+}
+
+.t-fn {
+  color: var(--accent-cyan);
+}
+
+.terminal__line--cursor {
+  color: var(--accent-green);
+  will-change: opacity;
+  animation: term-blink 1s step-end infinite;
+}
+
+@keyframes term-blink {
+
+  0%,
+  100% {
+    opacity: 1;
+  }
+
+  50% {
+    opacity: 0;
+  }
+}
+
+.python__title {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: rgba(255, 255, 255, 0.9);
+  margin-bottom: 4px;
+}
+
+.python__desc {
+  font-size: 0.75rem;
+  color: rgba(255, 255, 255, 0.4);
+  line-height: 1.5;
+}

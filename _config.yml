@@ -50,10 +50,13 @@ plugins:
   - jekyll-feed
   - jekyll-polyglot
   - jekyll-paginate-v2
-  #  - jekyll-spaceship
+  - jekyll-spaceship
   - jekyll-minifier
   - jekyll-redirect-from
   - jekyll-pwa-workbox
+  - jekyll-toc
+  - jekyll-last-modified-at
+  - jekyll-archives
 
 # ── Pagination Settings ──────────────────────────────────────
 pagination:
@@ -76,7 +79,7 @@ exclude_from_localization:
   - robots.txt
   - styles.scss
   - styles.css
-parallel_localization: true
+parallel_localization: false
 
 # ── Defaults ─────────────────────────────────────────────────
 defaults:
@@ -141,3 +144,23 @@ pwa:
   precache_glob_patterns:
     - "assets/**/*.{js,css,webp,svg}"
     - "index.html"
+
+# ── TOC Settings ──────────────────────────────────────────────
+toc:
+  min_level: 2
+  max_level: 4
+  list_class: "toc__list"
+  item_class: "toc__item"
+  sublist_class: "toc__sublist"
+
+# ── Archives Settings ────────────────────────────────────────
+jekyll-archives:
+  enabled:
+    - categories
+    - tags
+  layouts:
+    category: archive
+    tag: archive
+  permalinks:
+    category: /blog/category/:name/
+    tag: /blog/tag/:name/

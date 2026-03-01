@@ -38,13 +38,14 @@ graph TD
 
 ## 🔧 ТЕХНОЛОГІЧНИЙ ЯДРО: "ZERO-BLOAT"
 
-- **Jekyll 4.3:** Основа SSG.
+- **Jekyll 4.4:** Основа SSG.
 - **Polyglot Sync:** Квадрилінгвальна збірка (EN, UK, RU, KO).
 - **PWA (Workbox):** Офлайн-перший підхід для швидкого завантаження.
 - **Spaceship Engine:** Mermaid, MathJax, Технічні таблиці.
 - **Performance Budget:** JS < 20KB, CSS < 30KB. Жорсткі ліміти.
 - **GoatCounter:** Privacy-first analytics (Zero-cookies).
-- **Hub Design:** Grid-native UI without third-party frameworks.
+- **Hub Design:** Grid-native UI with Liquid Glass aesthetics.
+- **WebP First:** All images must be compressed and converted via `jekyll-webp`.
 
 ---
 
@@ -55,7 +56,7 @@ graph TD
 1. **Read `gemini3rules.md`:** Це "Конституція". Не порушуй її.
 2. **Check `task.md`:** Поточний статус та незавершені задачі.
 3. **Verify `strings.yml`:** Перед додаванням UI-елементів перевір наявність ключів у всіх 4 словниках.
-4. **Zero Assumptions:** Якщо архітектура не ясна — дивись Mermaid діаграми.
+4. **Liquid Glass Consistency:** Будь-який новий плаваючий елемент має відповідати стилю Header/Footer.
 
 ---
 
@@ -68,7 +69,7 @@ graph TD
 
 ### Case: Hub Layout Modification
 
-- **Method:** Тільки через `grid-template-areas`.
+- **Method:** Тільки через `grid-template-areas` у `_sass/_grid.scss`.
 
 ```css
 .hub-grid {
@@ -76,13 +77,13 @@ graph TD
 }
 ```
 
-- **Constraint:** Area name має збігатися з ID елемента.
+- **Constraint:** Area name має збігатися з ID елемента в HTML.
 
 ---
 
 ## ⚡ STRUCTURE & ASSETS
 
-- **Modular SCSS:** `_sass/_variables.scss` → `_sass/_base.scss` → `_sass/_components.scss`.
+- **Modular SCSS:** `_sass/_variables.scss` → `_sass/_base.scss` → `_sass/_components.scss` → `_sass/_footer.scss`.
 - **Media Strategy:** Тільки WebP. Lazy-loading для 90% контенту.
 - **JS Layout:**
   - §1-3: UI/Interactivity (Scroll, Tilt, WebGL).
@@ -94,9 +95,10 @@ graph TD
 ## ⚠️ EXTREME CONSTRAINTS
 
 1. **DRY 100%:** Жодного дубляжу HTML. Тільки Liquid + Dictionaries.
-2. **Permalink Parity:** Всі 4 мовні версії контенту мають ідентичний `permalink`.
+2. **Hub Parity:** `index.html` — це єдине джерело структури головної сторінки.
 3. **Asset Integrity:** Не видаляти `_plugins/polyglot_frozen_string_patch.rb`.
 4. **Authorship:** Завжди `author: ihor`.
+5. **Zero Frameworks:** Тільки Vanilla JS та Pure CSS.
 
 ---
 

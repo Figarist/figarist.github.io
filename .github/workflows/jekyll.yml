@@ -44,6 +44,14 @@ jobs:
         env:
           JEKYLL_ENV: production
 
+      - name: Test with HTML Proofer
+        run: |
+          bundle exec htmlproofer ./_site \
+            --allow-hash-href \
+            --check-html \
+            --empty-alt-ignore \
+            --ignore-urls "/^https:\/\/figarist\.com/"
+
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:

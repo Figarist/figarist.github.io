@@ -1,232 +1,90 @@
-# figarist.github.io
+# figarist.github.io (EXTREME EDITION)
 
 <div align="center">
-  <img src="https://readme-typing-svg.herokuapp.com?font=Fira+Code&size=32&duration=3000&pause=1000&color=C77DFF&center=true&vCenter=true&width=800&lines=figarist.github.io+%F0%9F%8E%AE;Indie+Game+Developer+%F0%9F%95%B9%EF%B8%8F;Founder+of+Wrist+%26+Pocket+Studio+%E2%9C%A8;Computer+Science+Teacher+%F0%9F%93%9A" alt="Typing SVG" />
+  <img src="https://readme-typing-svg.herokuapp.com?font=Fira+Code&size=36&duration=3000&pause=1000&color=9D4EDD&center=true&vCenter=true&width=800&lines=figarist.github.io+%F0%9F%8E%AE;Performance+First+%E2%9A%A1;Bento+UI+Grid+%F0%9F%A7%B1;Quadrilingual+Sync+%F0%9F%8C%8E" alt="Typing SVG" />
 </div>
 
-<br/>
+---
 
-<div align="center">
-  
-  [![Website](https://img.shields.io/badge/Website-figarist.github.io-C77DFF?style=for-the-badge&logo=github&logoColor=white)](https://figarist.github.io)
-  [![Studio](https://img.shields.io/badge/Studio-Wrist_%26_Pocket-000000?style=for-the-badge&logo=unity&logoColor=white)](https://wristandpocket.github.io)
-  [![Location](https://img.shields.io/badge/Location-Zmiiv,_Ukraine-0052B4?style=for-the-badge&logo=googlemaps&logoColor=white)](https://www.google.com/maps/place/Zmiiv)
-  
-</div>
+## 🗺️ PROJECT MAP
 
-<br/>
-
-## 🌌 𝙿𝚘𝚛𝚝𝚏𝚘𝚕𝚒𝚘 𝙾𝚟𝚎𝚛𝚟𝚒𝚎𝚠
-
-```typescript
-const portfolio = {
-  owner: "Ihor Sivochka",
-  role: "Indie Game Developer & CS Teacher",
-  location: "Zmiiv, Ukraine 🇺🇦",
-  studio: "Wrist & Pocket Studio",
-
-  stack: {
-    frontend: "Jekyll + Pure HTML5 + CSS3 + Vanilla JS",
-    architecture: "Bento Grid UI",
-    i18n: "jekyll-polyglot (EN, UK, RU, KO)",
-    ux: "Ultimate Search (Lunr.js) + View Transitions API + Reading Progress + Code Copy + Spaceship (Mermaid, MathJax) + PWA (Workbox Offline)",
-    hosting: "GitHub Pages (via GitHub Actions)",
-    optimization: "Minification (jekyll-minifier) + SEO Redirects",
-  },
-};
+```mermaid
+graph LR
+    subgraph Core
+        JS[script.js]
+        SCSS[_sass/]
+    end
+    subgraph Content
+        Posts[_posts/]
+        Edu[_education/]
+        Langs[_data/]
+    end
+    subgraph Ops
+        GA[.github/workflows/]
+        PWA[SW.js]
+    end
+    Core --- Content
+    Content --- Ops
 ```
 
-<br/>
+---
 
-## 🛠️ 𝚃𝚎𝚌𝚑 𝚂𝚝𝚊𝚌𝚔 & 𝙰𝚛𝚌𝚑𝚒𝚝𝚎𝚌𝚝𝚞𝚛𝚎
+## ⚡ QUICK START (DEVELOPER)
 
-<div align="center">
+Clone the ecosystem and launch the production-mode environment:
 
-|                                                Core Tech                                                 | Description                                              |
-| :------------------------------------------------------------------------------------------------------: | :------------------------------------------------------- |
-|       ![](https://img.shields.io/badge/HTML5-E34F26?style=flat-square&logo=html5&logoColor=white)        | Pure HTML5, zero frameworks                              |
-|        ![](https://img.shields.io/badge/CSS3-1572B6?style=flat-square&logo=css3&logoColor=white)         | Vanilla CSS3 (SCSS), Grid layouts, CSS Variables         |
-|  ![](https://img.shields.io/badge/JavaScript-F7DF1E?style=flat-square&logo=javascript&logoColor=black)   | Vanilla JS, WebGL, Lunr.js Search, IIFE Architecture     |
-|      ![](https://img.shields.io/badge/Jekyll-CC0000?style=flat-square&logo=jekyll&logoColor=white)       | SSG (Polyglot, SEO-tag, Redirects, PWA, Minifier)        |
-| ![](https://img.shields.io/badge/GitHub_Pages-222222?style=flat-square&logo=githubpages&logoColor=white) | Deploys via **GitHub Actions** (Polyglot + Minification) |
-
-</div>
-
-<br/>
-
-## 📁 𝙵𝚒𝚕𝚎 𝚂𝚝𝚛𝚞𝚌𝚝𝚞𝚛𝚎
-
-```text
-figarist.github.io/
-├── .github/workflows/
-│   └── jekyll.yml          # GitHub Actions CI/CD (Polyglot build + HTML minify)
-├── index.html              # Bento UI Hub (Polyglot builds EN, UK, RU, KO from this)
-├── search.json             # Search index generator (Liquid → Lunr.js)
-├── 404.html                # Custom 404 page (quadrilingual)
-├── script.js               # Main JS (scroll, search, WebGL, progress, copy, transitions, PWA)
-├── service-worker.js       # PWA Service Worker source
-├── robots.txt              # SEO crawl rules
-├── deployment_guide.md     # Deployment & local setup guide
-│
-├── _config.yml             # Jekyll config (title, url, plugins, languages, collections)
-├── Gemfile                 # Ruby dependencies (Jekyll, Polyglot, SEO, Sitemap, Feed)
-│
-├── _includes/
-│   ├── head.html           # <head> + SEO + View Transitions + Search Engine
-│   ├── header.html         # Navbar + search trigger + lang switcher
-│   ├── search-modal.html   # Ultimate Search UI (Lunr.js)
-│   ├── author_box.html     # Bento Author Box (include)
-│   └── footer.html         # Minimal footer with year
-│
-├── _layouts/
-│   ├── default.html        # Base layout (head → header → main → footer → script.js)
-│   ├── post.html           # Blog post layout (extends default)
-│   └── education.html      # Education article layout (extends default, custom JSON-LD)
-│
-├── _data/
-│   ├── authors.yml         # Global author data (JSON-LD sameAs, socials)
-│   ├── en/strings.yml      # 🇬🇧 English UI dictionary
-│   ├── uk/strings.yml      # 🇺🇦 Ukrainian UI dictionary
-│   ├── ru/strings.yml      # Russian UI dictionary
-│   └── ko/strings.yml      # 🇰🇷 Korean UI dictionary
-│
-├── _posts/                 # Blog posts (4 files per topic: EN, UK, RU, KO)
-├── _education/             # Education collection (4 files per topic: EN, UK, RU, KO)
-│
-├── _sass/                  # Modular SCSS architecture
-│   ├── _base.scss, _variables.scss, _search.scss, _spaceship.scss, etc.
-│   └── styles.scss (alias)
-│
-├── assets/
-│   ├── css/styles.scss     # SCSS manifest (imports from _sass/)
-│   └── images/             # Social cards, avatars, logos
-│
-├── blog/index.html         # Blog listing page (quadrilingual)
-├── education/index.html    # Education hub page (quadrilingual)
-└── collection/index.html   # Game collection page (quadrilingual)
+```powershell
+git clone https://github.com/figarist/figarist.github.io.git
+cd figarist.github.io
+bundle install
+# Launch with full optimization + PWA + Localization
+JEKYLL_ENV=production bundle exec jekyll serve
 ```
 
-<br/>
+---
 
-## 🎨 𝙳𝚎𝚜𝚒𝚐𝚗 𝚂𝚢𝚜𝚝𝚎𝚖 — "𝙱𝚎𝚗𝚝𝚘 𝚄𝙸 & 𝙲𝚕𝚘𝚞𝚍 𝙳𝚊𝚗𝚌𝚎𝚛"
+## 🛠️ TECHNICAL STACK MATURITY
 
-<div align="center">
+| Feature               | Technology                         | Status        |
+| :-------------------- | :--------------------------------- | :------------ |
+| **Engine**            | Jekyll 4.3                         | ⚡ Stable     |
+| **Localization**      | Quadrilingual (EN, UK, RU, KO)     | 🌍 Native     |
+| **UX**                | PWA (Workbox) + View Transitions   | ✨ Premium    |
+| **Performance**       | WebP + Minification + Lazy-loading | 🚀 Optimized  |
+| **Technical Visuals** | Spaceship (Mermaid/MathJax)        | 📊 Active     |
+| **Analytics**         | GoatCounter (Privacy-first)        | 📈 Integrated |
 
-|     Token      |        Details         |                                                                      Hex                                                                       |
-| :------------: | :--------------------: | :--------------------------------------------------------------------------------------------------------------------------------------------: |
-| **Background** |  Cloud Dancer Page Bg  |                                      ![](https://img.shields.io/badge/%23f2f0eb-f2f0eb?style=flat-square)                                      |
-|  **Surface**   |    Pure White Cards    |                                      ![](https://img.shields.io/badge/%23ffffff-ffffff?style=flat-square)                                      |
-|  **Accents**   | Cool Blue / Deep Blue  | ![](https://img.shields.io/badge/%23a2c2e1-a2c2e1?style=flat-square)&nbsp;![](https://img.shields.io/badge/%236e9fc7-6e9fc7?style=flat-square) |
-|  **Accents**   | Blush Pink / Deep Rose | ![](https://img.shields.io/badge/%23f5c2cc-f5c2cc?style=flat-square)&nbsp;![](https://img.shields.io/badge/%23d97f93-d97f93?style=flat-square) |
-|    **Text**    |   Dark Text / Muted    | ![](https://img.shields.io/badge/%231a1a2e-1a1a2e?style=flat-square)&nbsp;![](https://img.shields.io/badge/%238888a8-8888a8?style=flat-square) |
+---
 
-</div>
+## 🏗️ EXTREME DOCUMENTATION DEEP-DIVE
 
-> [!NOTE]
-> **Architectural rules:** Layout MUST use `display: grid` with explicit `grid-template-areas`.
-> Fractional span classes (`.span-X-X`) and `grid-auto-flow: dense` are FORBIDDEN.
-> **UX Rule:** All code blocks must have the automated copy button.
-> **Spaceship Rule:** Use `jekyll-spaceship` for Mermaid, MathJax, and advanced tables.
+- 🤖 [gemini3rules.md](.agents/rules/gemini3rules.md) — The AI Agent Constitution.
+- 📖 [project_context.md](project_context.md) — Architectural patterns and AI Handoffs.
+- 🚀 [deployment_guide.md](deployment_guide.md) — PWA Audits and CI/CD troubleshooting.
+- 🌐 [quadrilingual-sync.md](.agent/workflows/quadrilingual-sync.md) — The DRI protocol for translations.
 
-<br/>
+---
 
-## 🌍 𝚀𝚞𝚊𝚍𝚛𝚒𝚕𝚒𝚗𝚐𝚞𝚊𝚕 𝙰𝚛𝚌𝚑𝚒𝚝𝚎𝚌𝚝𝚞𝚛𝚎
+## 📂 STRUCTURE MINI-GUIDE
 
-<div align="center">
+- `_includes/` → Modular components (Header, Foot, Author Box).
+- `_data/` → Localization dictionaries (Strings).
+- `_layouts/` → Bento blueprints (Default, Post, Edu).
+- `assets/` → Compressed media & SCSS manifests.
 
-![](https://img.shields.io/badge/EN-English-00247D?style=for-the-badge)&nbsp;
-![](https://img.shields.io/badge/UK-Ukrainian-FFD700?style=for-the-badge&logoColor=black)&nbsp;
-![](https://img.shields.io/badge/RU-Russian-DDDDDD?style=for-the-badge&logoColor=black)&nbsp;
-![](https://img.shields.io/badge/KO-Korean-CD2E3A?style=for-the-badge&logoColor=white)
+---
 
-</div>
+## 🤖 AI ASSISTANT PROTOCOL (EXTREME)
 
-- **Multi-Language Hubs:** `index.html` is compiled dynamically. `jekyll-polyglot` automatically splits the single root HTML file into a fallback English root (`/`) and localized subdirectories (`/uk/`, `/ru/`, `/ko/`).
-- **DRY Translation:** `index.html` and Jekyll Includes (`_includes/`) rely on centralized YAML dictionaries (`_data/[lang]/strings.yml`) to render localized strings natively during the build phase (`{{ site.data[site.active_lang].strings.key }}`). No JS flickering and no massive bloated HTML files.
-- **Blog Architecture:** Blog posts use `_layouts/post.html`. You manage posts by duplicating the markdown files natively (`post-en.md`, `post-uk.md`, `post-ru.md`, `post-ko.md`). All files must share the identical `permalink` attribute in YAML Frontmatter, but possess distinct `lang: en`/`lang: uk`/etc variables.
-- **Education Architecture:** Education items follow the same quad-file pattern as posts, using `_layouts/education.html` with a custom JSON-LD `Article` schema.
+1. **Strict Embedded-First:** No frameworks. No bloat.
+2. **Bento Rigor:** `grid-template-areas` is the only way.
+3. **Quad-Sync:** Every new post needs 4 language siblings.
+4. **Performance:** JS < 20KB, CSS < 30KB.
 
-<br/>
-
-### 🔍 𝚂𝙴𝙾 𝙲𝚑𝚎𝚌𝚔𝚕𝚒𝚜𝚝
+---
 
 <div align="center">
-
-| Step | Requirement                                               |             Target              |
-| :--: | :-------------------------------------------------------- | :-----------------------------: |
-|  1   | `<link rel="canonical">`                                  | Automated via `jekyll-seo-tag`  |
-|  2   | `<link rel="alternate" hreflang="en/uk/ru/ko/x-default">` | Automated via `jekyll-polyglot` |
-|  3   | `<meta property="og:locale">` + `og:locale:alternate`     | Automated via `jekyll-seo-tag`  |
-|  4   | `<meta name="robots" content="index, follow">`            |           `head.html`           |
-|  5   | JSON-LD `Person` / `WebSite` / `BlogPosting` schemas      | Automated via `jekyll-seo-tag`  |
-|  6   | `sitemap.xml`                                             | Automated via `jekyll-sitemap`  |
-|  7   | `feed.xml` (RSS)                                          |   Automated via `jekyll-feed`   |
-|  8   | `<meta name="google-site-verification">`                  |           `head.html`           |
-|  9   | SEO-safe Redirects from old URLs                          |  `jekyll-redirect-from` (v2.x)  |
-|  10  | PWA Application-Level Caching (Offline)                   | `jekyll-pwa-workbox` (Workbox)  |
-
-</div>
-
-<br/>
-
-### 🔄 𝙻𝚊𝚗𝚐𝚞𝚊𝚐𝚎 𝚂𝚠𝚒𝚝𝚌𝚑𝚎𝚛 — "𝚂𝚝𝚊𝚋𝚕𝚎 & 𝚃𝚛𝚊𝚗𝚜𝚕𝚊𝚝𝚎-𝙿𝚛𝚘𝚘𝚏"
-
-Generated in `_includes/header.html` via a `{% for lang in site.languages %}` loop. Uses `{% static_href %}` and `data-lang` attributes to prevent Google Translate loops:
-
-```html
-<a
-  {%
-  static_href
-  %}href="/uk/"
-  {%
-  endstatic_href
-  %}
-  class="lang-switch"
-  data-lang="uk"
-  >uk</a
->
-```
-
-<br/>
-
-## 📑 𝙲𝚘𝚗𝚝𝚎𝚗𝚝 𝚂𝚎𝚌𝚝𝚒𝚘𝚗𝚜 (𝙱𝚎𝚗𝚝𝚘 𝙶𝚛𝚒𝚍)
-
-1. **BIO** — Avatar, name, roles, taglines.
-2. **WRIST & POCKET STUDIO** — Showcase of the flagship studio with Wear OS CSS mockups.
-3. **WEBGL PLAYGROUND** — Interactive WebGL canvas via click-to-play iFrame overlay.
-4. **TECH STACK** — Grid of icons showcasing proficiencies.
-5. **SHRINE** — Collection vault covering DS/Switch & Sim Racing devices.
-6. **VR LIFE FEED** — Headsets, XR experiments & immersive thoughts.
-7. **THE WORKSHOP FEED** — Unity dev logs, mechanics & Wear OS experiments.
-8. **VLOG FEED** — Personal life, cats & dev life in Ukraine.
-9. **EDUCATION FEED** — Classroom fundamentals & tutorials.
-10. **UTILITY CORE** — Python tools & widgets.
-11. **CONTACT** — External links / handles.
-
-<br/>
-
-## 🤖 𝚁𝚞𝚕𝚎𝚜 𝚏𝚘𝚛 𝙰𝙸 𝙰𝚜𝚜𝚒𝚜𝚝𝚊𝚗𝚝𝚜
-
-> [!WARNING]
-> Please adhere strictly to the rules below to ensure the stability and styling of the portfolio!
-
-1. **Core Philosophy:** Pure HTML5, CSS3, Vanilla JS, and Liquid / Jekyll layout. No heavy NPM packages. No React.
-2. **Quadrilingual Sync:** Write content **once** in `index.html` using localized data lookups `{{ site.data[site.active_lang].strings.key }}`. `jekyll-polyglot` generates all 4 languages automatically.
-3. **UX & Interactivity:** Use View Transitions API. Reading progress, "Ultimate Search" (Lunr.js), and code copy buttons must be handled by Vanilla JS in `script.js`.
-4. **Technical Visuals:** Use `jekyll-spaceship` for technical posts (Mermaid, MathJax, advanced tables). Style with `_sass/_spaceship.scss`.
-5. **Design System:** Follow the "Light Bento" aesthetic. Layouts MUST use `display: grid` with `grid-template-areas`. Prefer modular SCSS (`_sass/`) and `@use` over `@import`.
-6. **DRY Includes:** Header, nav, and footer are modularized via `_includes/`. Never duplicate these parts across documents.
-7. **WebGL & Media:** WebGL canvases MUST be wrapped in a stateless click-to-play iframe overlay. Images should use `.webp` formatting and contain `loading="lazy"` tags.
-8. **SEO & Performance:** The site uses `jekyll-seo-tag`, `jekyll-sitemap`, and `jekyll-feed` for automated SEO. Maintain proper YAML Front Matter (`title`, `description`, `image:`, `tags`, `author: ihor`). Polyglot generates hreflang tags automatically.
-9. **Custom Plugin:** Do NOT remove `_plugins/polyglot_frozen_string_patch.rb` — it fixes a critical `FrozenError` in Polyglot's interaction with SCSS.
-10. **Authorship & E-E-A-T:** Always use `author: ihor` in front matter to link to the professional profile in `_data/authors.yml`.
-11. **Localization DRY:** Never hardcode names or bios. Use `{{ site.data[site.active_lang].strings.author_name }}` and `author_bio` from the translation dictionaries.
-
-<br/>
-
-<div align="center">
-  <strong>💜 Made with passion by Ihor Sivochka | Est. 2026 💜</strong>
-
-<sub>𝙲𝚘𝚍𝚒𝚗𝚐, 𝙶𝚊𝚖𝚒𝚗𝚐 & 𝚅𝚒𝚋𝚒𝚗𝚐 🎮🎵✨</sub>
-
+  <strong>💜 Developed with extreme precision by Ihor Sivochka | 2026 💜</strong>
+  <br/>
+  <sub>𝙿𝚞𝚛𝚎 𝙽𝚊𝚝𝚒𝚟𝚎 𝙿𝚘𝚠𝚎𝚛 | 𝚉𝚎𝚛𝚘-𝚋𝚕𝚘𝚊𝚝 𝙰𝚛𝚌𝚑𝚒𝚝𝚎𝚌𝚝𝚞𝚛𝚎</sub>
 </div>

@@ -1,3 +1,6 @@
+<head>
+<meta charset="utf-8">
+
 <!-- Viewport & Meta Base -->
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
 <meta name="theme-color" content="#f2f0eb">
@@ -6,6 +9,9 @@
 
 <!-- Favicon -->
 <link rel="shortcut icon" type="image/png" href="{{ '/assets/images/figaristgithub.png' | relative_url }}">
+
+<!-- PWA Manifest -->
+<link rel="manifest" href="{{ '/manifest.json' | relative_url }}">
 
 <!-- Jekyll SEO Tag (Generates Title, OG, Twitter, JSON-LD, Canonical) -->
 {% seo %}
@@ -20,13 +26,13 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="preload" as="style"
-    href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Fira+Code:wght@400;500;600&display=swap">
+    href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700&family=Fira+Code:wght@400&display=swap">
 <link rel="stylesheet"
-    href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Fira+Code:wght@400;500;600&display=swap"
+    href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700&family=Fira+Code:wght@400&display=swap"
     media="print" onload="this.media='all'">
 <noscript>
     <link rel="stylesheet"
-        href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Fira+Code:wght@400;500;600&display=swap">
+        href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700&family=Fira+Code:wght@400&display=swap">
 </noscript>
 
 <link rel="stylesheet" href="{{ '/assets/css/styles.css' | relative_url }}">
@@ -35,71 +41,6 @@
 <script data-goatcounter="https://figarist.goatcounter.com/count"
     async src="https://gc.zgo.at/count.js"></script>
 
-<!-- TASK 2: Auto-Redirect on First Visit & Preference -->
-<script>
-    (function () {
-        try {
-            var activeLang = '{{ site.active_lang }}';
-            var preferredLang = localStorage.getItem('preferred_lang');
-            var targetLang = null;
-
-            // 1. Check if preference exists and is valid
-            var supportedLangs = ['en', 'uk', 'ru', 'ko'];
-            if (preferredLang) {
-                if (!supportedLangs.includes(preferredLang)) {
-                    // Fail-safe: if localStorage has junk (like Google Translate strings), clear it
-                    localStorage.removeItem('preferred_lang');
-                    preferredLang = null;
-                } else if (preferredLang !== activeLang) {
-                    targetLang = preferredLang;
-                }
-            } else {
-                // 3. First time visitor: Detect browser language
-                var browserLang = navigator.language || navigator.userLanguage;
-                var languages = navigator.languages || [browserLang];
-                var detectedLang = 'en'; // default
-
-                if (languages.some(l => l.startsWith('uk'))) {
-                    detectedLang = 'uk';
-                } else if (languages.some(l => l.startsWith('ru'))) {
-                    detectedLang = 'ru';
-                } else if (languages.some(l => l.startsWith('ko'))) {
-                    detectedLang = 'ko';
-                }
-
-                localStorage.setItem('preferred_lang', detectedLang);
-                if (activeLang !== detectedLang) {
-                    targetLang = detectedLang;
-                }
-            }
-
-            // Execute Redirect
-            if (targetLang && targetLang !== activeLang) {
-                var currentPath = window.location.pathname;
-                var pathWithoutLang = currentPath;
-                var match = currentPath.match(/^\/(uk|ru|ko)(\/|$)/);
-                if (match) {
-                    pathWithoutLang = currentPath.substring(match[0].length);
-                    if (!pathWithoutLang.startsWith('/')) {
-                        pathWithoutLang = '/' + pathWithoutLang;
-                    }
-                }
-
-                var prefix = targetLang === 'en' ? '' : '/' + targetLang;
-                var nextPath = prefix + pathWithoutLang;
-                // Add trailing slash check if it had one before (github pages standard)
-                nextPath = nextPath.replace(/\/\//g, '/');
-                if (nextPath === '') nextPath = '/';
-
-                if (currentPath !== nextPath) {
-                    window.location.replace(nextPath + window.location.hash);
-                }
-            }
-        } catch (e) {
-            // Failsafe mostly for Safari Private Mode / localStorage quota errors
-            console.warn('Language auto-detect failed:', e);
-        }
-    })();
-</script>
+{% include lang-redirect.html %}
 
 </head>

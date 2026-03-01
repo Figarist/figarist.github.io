@@ -1,0 +1,66 @@
+/* ============================================================
+   CARD: TECH STACK (1×1)
+   ============================================================ */
+.card--stack {
+  background: #fafbfd;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Blueprint grid pattern */
+.blueprint-grid {
+  position: absolute;
+  inset: 0;
+  opacity: 0.12;
+  background-image:
+    linear-gradient(var(--accent-blue) 1px, transparent 1px),
+    linear-gradient(90deg, var(--accent-blue) 1px, transparent 1px);
+  background-size: 24px 24px;
+  pointer-events: none;
+}
+
+.stack__icons {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
+  margin-top: auto;
+  position: relative;
+  z-index: 1;
+}
+
+.stack__item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  padding: 10px 8px;
+  background: rgba(255, 255, 255, 0.85);
+  border: 1px solid var(--border-card);
+  border-radius: 12px;
+  transition: background var(--t-fast), transform var(--t-fast), box-shadow var(--t-fast);
+  cursor: default;
+}
+
+@media (hover: hover) {
+  .stack__item:hover {
+    background: #fff;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  }
+}
+
+.stack__icon {
+  font-size: 1.3rem;
+  font-family: var(--font-mono);
+  font-weight: 700;
+  color: var(--accent-blue-d);
+  line-height: 1;
+}
+
+.stack__name {
+  font-size: 0.62rem;
+  font-weight: 600;
+  color: var(--text-secondary);
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}

@@ -1,0 +1,109 @@
+/* ============================================================
+   CARD: BIO (2×1)
+   ============================================================ */
+.card--bio {
+  background: linear-gradient(135deg, #fff 60%, #f0ecff 100%);
+}
+
+/* Doodle accents */
+.bio__doodles {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.doodle {
+  position: absolute;
+  font-size: 1.1rem;
+  opacity: 0.18;
+  user-select: none;
+  transition: opacity var(--t-slow);
+}
+
+.card--bio:hover .doodle {
+  opacity: 0.32;
+}
+
+.doodle--star {
+  top: 14px;
+  right: 56px;
+  font-size: 1.4rem;
+  color: var(--accent-plum);
+  transform: rotate(12deg);
+}
+
+.doodle--bracket {
+  top: 40px;
+  right: 20px;
+  font-size: 0.9rem;
+  color: var(--accent-blue-d);
+  font-family: var(--font-mono);
+}
+
+.doodle--heart {
+  bottom: 20px;
+  right: 40px;
+  font-size: 1.2rem;
+  color: var(--accent-pink-d);
+}
+
+.doodle--watch {
+  bottom: 14px;
+  right: 12px;
+  font-size: 1.6rem;
+}
+
+.bio__content {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 12px;
+}
+
+.bio__avatar {
+  width: 72px;
+  height: 72px;
+  border-radius: 50%;
+  border: 3px solid var(--border-light);
+  flex-shrink: 0;
+  transition: border-color var(--t-med), transform var(--t-med);
+  object-fit: cover;
+}
+
+@media (hover: hover) {
+  .card--bio:hover .bio__avatar {
+    border-color: var(--accent-blue);
+    transform: scale(1.05);
+  }
+}
+
+.bio__name {
+  font-family: var(--font-sans);
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 2px;
+  letter-spacing: -0.01em;
+}
+
+.bio__roles {
+  font-size: 0.82rem;
+  color: var(--text-secondary);
+  font-weight: 500;
+  margin-bottom: 2px;
+}
+
+.bio__location {
+  font-size: 0.78rem;
+  color: var(--text-muted);
+}
+
+.bio__tagline {
+  font-size: 0.88rem;
+  color: var(--text-secondary);
+  line-height: 1.6;
+  font-style: italic;
+  padding-top: 10px;
+  border-top: 1px solid var(--border-light);
+}

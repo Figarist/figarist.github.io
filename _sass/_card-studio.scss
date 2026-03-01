@@ -1,0 +1,268 @@
+/* ============================================================
+   CARD: STUDIO (2×2) — Wrist & Pocket Studio
+   ============================================================ */
+.card--studio {
+  background: #0f0e17;
+  color: var(--text-on-dark);
+  cursor: pointer;
+  transition: transform var(--t-med), box-shadow var(--t-med), background var(--t-med);
+}
+
+@media (hover: hover) {
+  .card--studio:hover {
+    background: #14121f;
+    box-shadow: 0 12px 40px rgba(162, 194, 225, 0.25), 0 4px 16px rgba(0, 0, 0, 0.2);
+  }
+}
+
+.studio__header {
+  margin-bottom: 20px;
+}
+
+.studio__badge {
+  display: inline-block;
+  font-family: var(--font-mono);
+  font-size: 0.6rem;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  color: var(--accent-cyan);
+  border: 1px solid rgba(78, 205, 196, 0.4);
+  border-radius: 99px;
+  padding: 3px 10px;
+  margin-bottom: 10px;
+  text-transform: uppercase;
+}
+
+.studio__title {
+  font-size: 1.35rem;
+  font-weight: 700;
+  color: #ffffff;
+  margin-bottom: 4px;
+  line-height: 1.2;
+}
+
+.studio__sub {
+  font-size: 0.82rem;
+  color: rgba(255, 255, 255, 0.5);
+}
+
+/* Watch mockups */
+.studio__watches {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  flex: 1;
+  align-items: center;
+  padding: 10px 0;
+}
+
+.watch-mockup {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+}
+
+.watch-bezel {
+  width: 90px;
+  height: 90px;
+  border-radius: 50%;
+  background: linear-gradient(145deg, #2a2a3c, #1a1a28);
+  border: 3px solid rgba(162, 194, 225, 0.3);
+  box-shadow:
+    0 0 0 1px rgba(255, 255, 255, 0.05),
+    0 0 20px rgba(162, 194, 225, 0.15),
+    inset 0 2px 4px rgba(255, 255, 255, 0.08);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: border-color var(--t-med), box-shadow var(--t-med);
+  overflow: hidden;
+}
+
+.card--studio:hover .watch-bezel {
+  border-color: rgba(78, 205, 196, 0.6);
+  box-shadow:
+    0 0 0 1px rgba(255, 255, 255, 0.08),
+    0 0 30px rgba(78, 205, 196, 0.25),
+    inset 0 2px 4px rgba(255, 255, 255, 0.1);
+}
+
+.watch-screen {
+  width: 76px;
+  height: 76px;
+  border-radius: 50%;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Racer game screen */
+.watch-game--racer {
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(180deg, #0d1b2a 0%, #1a3a5c 50%, #2d5a3d 100%);
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.road {
+  position: absolute;
+  width: 24px;
+  height: 100%;
+  background: #333;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.road-line {
+  position: absolute;
+  width: 3px;
+  height: 12px;
+  background: #f7e04a;
+  top: 30%;
+  left: 50%;
+  transform: translateX(-50%);
+  border-radius: 2px;
+}
+
+.car {
+  position: absolute;
+  font-size: 0.9rem;
+  z-index: 2;
+  will-change: transform;
+  animation: car-drive 2s ease-in-out infinite alternate;
+}
+
+.car--1 {
+  bottom: 20%;
+  left: 42%;
+  animation-delay: 0s;
+}
+
+.car--2 {
+  bottom: 50%;
+  left: 44%;
+  animation-delay: 0.8s;
+  font-size: 0.8rem;
+}
+
+@keyframes car-drive {
+  from {
+    transform: translateY(0);
+  }
+
+  to {
+    transform: translateY(-6px);
+  }
+}
+
+/* Puzzle game screen */
+.watch-game--puzzle {
+  width: 100%;
+  height: 100%;
+  background: #1a1a2e;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.puzzle-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2px;
+  width: 60px;
+  height: 60px;
+}
+
+.puzzle-tile {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 3px;
+  font-size: 0.5rem;
+  font-weight: bold;
+  transition: transform 0.15s ease;
+}
+
+.tile--red {
+  background: rgba(232, 96, 60, 0.85);
+  color: #fff;
+}
+
+.tile--blue {
+  background: rgba(162, 194, 225, 0.85);
+  color: #fff;
+}
+
+.tile--yellow {
+  background: rgba(247, 224, 74, 0.85);
+  color: #333;
+}
+
+.tile--green {
+  background: rgba(78, 205, 196, 0.85);
+  color: #fff;
+}
+
+.card--studio:hover .puzzle-tile {
+  transform: scale(0.9);
+}
+
+.watch-label {
+  font-size: 0.62rem;
+  color: rgba(255, 255, 255, 0.45);
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  text-align: center;
+}
+
+.studio__footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 16px;
+  padding-top: 14px;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.studio__tags {
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+}
+
+.studio__tag {
+  font-family: var(--font-mono);
+  font-size: 0.62rem;
+  padding: 2px 8px;
+  background: rgba(255, 255, 255, 0.07);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 99px;
+  color: rgba(255, 255, 255, 0.55);
+}
+
+.studio__cta {
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--accent-cyan);
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  white-space: nowrap;
+}
+
+.studio__cta .arrow {
+  display: inline-block;
+  transition: transform var(--t-fast);
+}
+
+@media (hover: hover) {
+  .card--studio:hover .studio__cta .arrow {
+    transform: translateX(4px);
+  }
+}

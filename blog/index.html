@@ -5,77 +5,34 @@ pagination:
   enabled: true
 ---
 
-<div class="post-container" style="max-width: 900px">
+<div class="post-container blog-hub">
   <a href="{{ '/' | relative_url }}" class="btn-back">
     {{ site.data[site.active_lang].strings.back_to_hub }}
   </a>
 
-  <h1 style="margin-bottom: 8px">
+  <h1 class="hub-page-title">
     {{ site.data[site.active_lang].strings.blog_hub_title }}
   </h1>
-  <p
-    style="
-      color: var(--text-muted);
-      margin-bottom: 40px;
-      font-family: var(--font-mono);
-      font-size: 0.85rem;
-    "
-  >
+  <p class="hub-page-subtitle">
     {{ site.data[site.active_lang].strings.blog_hub_subtitle }}
   </p>
 
   <!-- ── PAGINATED FEED ── -->
-  <ul class="post-list" style="margin-top: 0">
+  <ul class="post-list blog-list">
     {% for post in paginator.posts %} {% if post.lang == site.active_lang %}
-    <li style="margin-bottom: 12px">
-      <a
-        href="{{ post.url | relative_url }}"
-        style="
-          padding: 16px;
-          border: 1px solid var(--border-light);
-          background: var(--card-bg);
-          display: block;
-          text-decoration: none;
-          border-radius: var(--card-radius);
-          transition: transform var(--t-fast);
-        "
-      >
-        <span
-          class="post-title"
-          style="
-            font-size: 1.2rem;
-            margin-bottom: 6px;
-            display: block;
-            color: var(--text-primary);
-          "
-          >{{ post.title }}</span
-        >
-        <div style="display: flex; gap: 12px; align-items: center">
-          <time
-            class="post-meta"
-            style="font-size: 0.8rem; color: var(--text-muted)"
-            >{{ post.date | date: "%B %d, %Y" }}</time
-          >
+    <li>
+      <a href="{{ post.url | relative_url }}" class="blog-list__item">
+        <span class="post-title blog-list__title">{{ post.title }}</span>
+        <div class="blog-list__meta">
+          <time class="post-meta" datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: "%B %d, %Y" }}</time>
           {% if post.category %}
-          <span
-            class="post-category-tag"
-            style="
-              font-size: 0.7rem;
-              text-transform: uppercase;
-              letter-spacing: 0.05em;
-              padding: 2px 8px;
-              border-radius: 4px;
-              background: var(--bg-color);
-              color: var(--text-secondary);
-            "
-            >{{ post.category }}</span
-          >
+          <span class="blog-list__category">{{ post.category }}</span>
           {% endif %}
         </div>
       </a>
     </li>
     {% endif %} {% else %}
-    <li style="color: var(--text-muted); font-style: italic">
+    <li class="post-list__empty">
       {{ site.data[site.active_lang].strings.no_posts_found }}
     </li>
     {% endfor %}
@@ -83,53 +40,26 @@ pagination:
 
   <!-- ── PAGINATION UI ── -->
   {% if paginator.total_pages > 1 %}
-  <nav
-    class="pagination"
-    aria-label="Pagination"
-    style="
-      margin-top: 48px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 12px;
-    "
-  >
+  <nav class="pagination" aria-label="Pagination">
     {% if paginator.previous_page %}
-    <a
-      href="{{ paginator.previous_page_path | relative_url }}"
-      class="pagination-item pagination-prev"
-    >
+    <a href="{{ paginator.previous_page_path | relative_url }}" class="pagination-item pagination-prev">
       {{ site.data[site.active_lang].strings.prev_page }}
     </a>
     {% else %}
-    <span class="pagination-item disabled"
-      >{{ site.data[site.active_lang].strings.prev_page }}</span
-    >
+    <span class="pagination-item disabled">{{ site.data[site.active_lang].strings.prev_page }}</span>
     {% endif %}
 
-    <span
-      class="pagination-info"
-      style="
-        font-family: var(--font-mono);
-        font-size: 0.9rem;
-        color: var(--text-secondary);
-      "
-    >
+    <span class="pagination-info">
       {{ site.data[site.active_lang].strings.page_count }} {{ paginator.page }}
       / {{ paginator.total_pages }}
     </span>
 
     {% if paginator.next_page %}
-    <a
-      href="{{ paginator.next_page_path | relative_url }}"
-      class="pagination-item pagination-next"
-    >
+    <a href="{{ paginator.next_page_path | relative_url }}" class="pagination-item pagination-next">
       {{ site.data[site.active_lang].strings.next_page }}
     </a>
     {% else %}
-    <span class="pagination-item disabled"
-      >{{ site.data[site.active_lang].strings.next_page }}</span
-    >
+    <span class="pagination-item disabled">{{ site.data[site.active_lang].strings.next_page }}</span>
     {% endif %}
   </nav>
   {% endif %}

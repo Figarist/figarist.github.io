@@ -4,14 +4,14 @@
    ============================================================ */
 
 (function () {
-  'use strict';
+  "use strict";
 
   /* ——————————————————————————————————————————
      1. SCROLL FADE-IN  (Intersection Observer)
   —————————————————————————————————————————— */
-  var fadeEls = document.querySelectorAll('.fade-in');
+  var fadeEls = document.querySelectorAll(".fade-in");
 
-  if ('IntersectionObserver' in window) {
+  if ("IntersectionObserver" in window) {
     var lastIntersectTime = 0;
     var batchStaggerCount = 0;
 
@@ -31,13 +31,13 @@
             lastIntersectTime = now;
 
             setTimeout(function () {
-              entry.target.classList.add('visible');
+              entry.target.classList.add("visible");
             }, delay);
             observer.unobserve(entry.target);
           }
         });
       },
-      { threshold: 0.08 }
+      { threshold: 0.08 },
     );
 
     fadeEls.forEach(function (el) {
@@ -45,40 +45,42 @@
     });
   } else {
     // Fallback: show everything immediately
-    fadeEls.forEach(function (el) { el.classList.add('visible'); });
+    fadeEls.forEach(function (el) {
+      el.classList.add("visible");
+    });
   }
 
   /* ——————————————————————————————————————————
      2. WEBGL CLICK-TO-PLAY OVERLAY
   —————————————————————————————————————————— */
-  var overlay = document.getElementById('webgl-overlay');
-  var iframe = document.getElementById('webgl-iframe');
-  var status = document.getElementById('webgl-status');
+  var overlay = document.getElementById("webgl-overlay");
+  var iframe = document.getElementById("webgl-iframe");
+  var status = document.getElementById("webgl-status");
 
   function activateWebGL() {
     if (!overlay || !iframe) return;
 
     // Fade the overlay out
-    overlay.style.transition = 'opacity 0.4s ease';
-    overlay.style.opacity = '0';
-    overlay.style.pointerEvents = 'none';
+    overlay.style.transition = "opacity 0.4s ease";
+    overlay.style.opacity = "0";
+    overlay.style.pointerEvents = "none";
 
     setTimeout(function () {
-      overlay.style.display = 'none';
+      overlay.style.display = "none";
       // Activate the iframe
-      iframe.classList.add('active');
+      iframe.classList.add("active");
       // Update status indicator
       if (status) {
-        status.textContent = '● Loading…';
-        status.style.color = '#f7e04a';
+        status.textContent = "● Loading…";
+        status.style.color = "#f7e04a";
       }
     }, 400);
   }
 
   if (overlay) {
-    overlay.addEventListener('click', activateWebGL);
-    overlay.addEventListener('keydown', function (e) {
-      if (e.key === 'Enter' || e.key === ' ') {
+    overlay.addEventListener("click", activateWebGL);
+    overlay.addEventListener("keydown", function (e) {
+      if (e.key === "Enter" || e.key === " ") {
         e.preventDefault();
         activateWebGL();
       }
@@ -89,18 +91,17 @@
      3. CARD SUBTLE TILT (on mouse move)
      Applies a gentle perspective tilt to hovered cards.
   —————————————————————————————————————————— */
-  var tiltCards = document.querySelectorAll(
-    '.hub-card, .bento-tilt-target'
-  );
+  var tiltCards = document.querySelectorAll(".hub-card, .bento-tilt-target");
 
-  var prefersReducedMotion =
-    window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var prefersReducedMotion = window.matchMedia(
+    "(prefers-reduced-motion: reduce)",
+  ).matches;
 
   if (!prefersReducedMotion) {
     tiltCards.forEach(function (card) {
       // Snappy response but smooth return
 
-      card.addEventListener('mousemove', function (e) {
+      card.addEventListener("mousemove", function (e) {
         var rect = card.getBoundingClientRect();
         var x = e.clientX - rect.left;
         var y = e.clientY - rect.top;
@@ -112,19 +113,23 @@
         // Max 2.5deg tilt
         var rotateX = -ny * 2.5;
         var rotateY = nx * 2.5;
-        
+
         card.style.transform =
-          'perspective(1000px) rotateX(' + rotateX + 'deg) rotateY(' + rotateY + 'deg)';
+          "perspective(1000px) rotateX(" +
+          rotateX +
+          "deg) rotateY(" +
+          rotateY +
+          "deg)";
       });
 
-      card.addEventListener('mouseleave', function () {
-        card.style.transition = 'transform 0.3s ease';
-        card.style.transform = '';
+      card.addEventListener("mouseleave", function () {
+        card.style.transition = "transform 0.3s ease";
+        card.style.transform = "";
       });
-      
+
       // Re-enable snappy transition when entering
-      card.addEventListener('mouseenter', function() {
-        card.style.transition = 'transform 0.1s ease-out';
+      card.addEventListener("mouseenter", function () {
+        card.style.transition = "transform 0.1s ease-out";
       });
     });
   }
@@ -132,11 +137,11 @@
   /* ——————————————————————————————————————————
      4. DOODLE PARALLAX on Bio card
   —————————————————————————————————————————— */
-  var bioCard = document.getElementById('bio');
-  var doodles = bioCard ? bioCard.querySelectorAll('.doodle') : [];
+  var bioCard = document.getElementById("bio");
+  var doodles = bioCard ? bioCard.querySelectorAll(".doodle") : [];
 
   if (bioCard && doodles.length && !prefersReducedMotion) {
-    bioCard.addEventListener('mousemove', function (e) {
+    bioCard.addEventListener("mousemove", function (e) {
       var rect = bioCard.getBoundingClientRect();
       var x = (e.clientX - rect.left) / rect.width - 0.5;
       var y = (e.clientY - rect.top) / rect.height - 0.5;
@@ -144,12 +149,14 @@
       doodles.forEach(function (d, i) {
         var depth = (i + 1) * 6; // 6px, 12px, 18px, 24px
         d.style.transform =
-          'translate(' + (x * depth) + 'px, ' + (y * depth) + 'px)';
+          "translate(" + x * depth + "px, " + y * depth + "px)";
       });
     });
 
-    bioCard.addEventListener('mouseleave', function () {
-      doodles.forEach(function (d) { d.style.transform = ''; });
+    bioCard.addEventListener("mouseleave", function () {
+      doodles.forEach(function (d) {
+        d.style.transform = "";
+      });
     });
   }
 
@@ -159,24 +166,27 @@
   var emailLinks = document.querySelectorAll('a[href^="mailto:"]');
 
   emailLinks.forEach(function (link) {
-    link.addEventListener('click', function (e) {
+    link.addEventListener("click", function (e) {
       // Don't prevent default, let the mailto string work its magic if they have an app.
       // But also copy it to clipboard if they don't!
-      var emailAddress = this.getAttribute('href').replace('mailto:', '');
+      var emailAddress = this.getAttribute("href").replace("mailto:", "");
 
       if (navigator.clipboard && window.isSecureContext) {
-        navigator.clipboard.writeText(emailAddress).then(function () {
-          var originalHTML = link.innerHTML;
-          // Basic check to not duplicate the copied text if clicked rapidly
-          if (link.textContent.indexOf('Copied!') === -1) {
-            link.innerHTML = 'Copied!';
-            setTimeout(function () {
-              link.innerHTML = originalHTML;
-            }, 2000);
-          }
-        }).catch(function (err) {
-          console.error('Failed to copy email: ', err);
-        });
+        navigator.clipboard
+          .writeText(emailAddress)
+          .then(function () {
+            var originalHTML = link.innerHTML;
+            // Basic check to not duplicate the copied text if clicked rapidly
+            if (link.textContent.indexOf("Copied!") === -1) {
+              link.innerHTML = "Copied!";
+              setTimeout(function () {
+                link.innerHTML = originalHTML;
+              }, 2000);
+            }
+          })
+          .catch(function (err) {
+            console.error("Failed to copy email: ", err);
+          });
       }
     });
   });
@@ -184,44 +194,55 @@
   /* ——————————————————————————————————————————
      6. READING PROGRESS
   —————————————————————————————————————————— */
-  var pb = document.getElementById('reading-progress-bar');
+  var pb = document.getElementById("reading-progress-bar");
   if (pb) {
-    window.addEventListener('scroll', function() {
-      var h = document.documentElement;
-      pb.style.width = ((h.scrollTop || document.body.scrollTop) / (h.scrollHeight - h.clientHeight) * 100) + '%';
-    }, { passive: true });
+    window.addEventListener(
+      "scroll",
+      function () {
+        var h = document.documentElement;
+        pb.style.width =
+          ((h.scrollTop || document.body.scrollTop) /
+            (h.scrollHeight - h.clientHeight)) *
+            100 +
+          "%";
+      },
+      { passive: true },
+    );
   }
   /* ——————————————————————————————————————————
      7. CODE COPY BUTTONS
   —————————————————————————————————————————— */
-  var codeBlocks = document.querySelectorAll('div.highlight');
+  var codeBlocks = document.querySelectorAll("div.highlight");
 
   codeBlocks.forEach(function (block) {
-    if (block.querySelector('.btn-copy-code')) return; // Avoid duplicates
+    if (block.querySelector(".btn-copy-code")) return; // Avoid duplicates
 
-    var button = document.createElement('button');
-    button.className = 'btn-copy-code';
-    button.type = 'button';
-    button.innerText = 'Copy';
+    var button = document.createElement("button");
+    button.className = "btn-copy-code";
+    button.type = "button";
+    button.innerText = "Copy";
 
-    button.addEventListener('click', function () {
-      var codeEl = block.querySelector('code');
+    button.addEventListener("click", function () {
+      var codeEl = block.querySelector("code");
       if (!codeEl) return;
-      
+
       var code = codeEl.innerText;
 
       if (navigator.clipboard && window.isSecureContext) {
-        navigator.clipboard.writeText(code).then(function () {
-          button.innerText = 'Copied! ✔️';
-          button.classList.add('copied');
+        navigator.clipboard
+          .writeText(code)
+          .then(function () {
+            button.innerText = "Copied! ✔️";
+            button.classList.add("copied");
 
-          setTimeout(function () {
-            button.innerText = 'Copy';
-            button.classList.remove('copied');
-          }, 2000);
-        }).catch(function (err) {
-          console.error('Failed to copy code: ', err);
-        });
+            setTimeout(function () {
+              button.innerText = "Copy";
+              button.classList.remove("copied");
+            }, 2000);
+          })
+          .catch(function (err) {
+            console.error("Failed to copy code: ", err);
+          });
       }
     });
 
@@ -231,84 +252,110 @@
   /* ——————————————————————————————————————————
      8. ULTIMATE SEARCH (Lunr.js)
   —————————————————————————————————————————— */
-  var searchModal = document.getElementById('search-modal');
-  var searchInput = document.getElementById('search-input');
-  var searchResults = document.getElementById('search-results');
-  var closeSearch = document.getElementById('close-search');
-  var searchTrigger = document.getElementById('search-trigger');
+  var searchModal = document.getElementById("search-modal");
+  var searchInput = document.getElementById("search-input");
+  var searchResults = document.getElementById("search-results");
+  var closeSearch = document.getElementById("close-search");
+  var searchTrigger = document.getElementById("search-trigger");
   var lunrIndex = null;
   var searchStore = [];
 
   function toggleSearch(show) {
     if (!searchModal) return;
     if (show) {
-      searchModal.removeAttribute('hidden');
+      searchModal.removeAttribute("hidden");
       searchInput.focus();
-      document.body.style.overflow = 'hidden'; // Prevent scroll
+      document.body.style.overflow = "hidden"; // Prevent scroll
       if (!lunrIndex) initSearch();
     } else {
-      searchModal.setAttribute('hidden', '');
-      document.body.style.overflow = '';
+      searchModal.setAttribute("hidden", "");
+      document.body.style.overflow = "";
     }
   }
 
   function initSearch() {
     // Get localized path from modal's data attribute (passed from Liquid)
-    var indexUrl = searchModal ? searchModal.getAttribute('data-index-url') : 'search.json';
+    var indexUrl = searchModal
+      ? searchModal.getAttribute("data-index-url")
+      : "search.json";
 
     fetch(indexUrl)
-      .then(function(response) { return response.json(); })
-      .then(function(data) {
+      .then(function (response) {
+        return response.json();
+      })
+      .then(function (data) {
         searchStore = data;
-        lunrIndex = lunr(function() {
+        lunrIndex = lunr(function () {
           // Disable stemming to ensure technical terms (Unity, C#, etc.) match exactly
           this.pipeline.remove(lunr.stemmer);
           this.searchPipeline.remove(lunr.stemmer);
 
-          this.ref('id');
-          this.field('title', { boost: 10 });
-          this.field('tags', { boost: 5 });
-          this.field('description', { boost: 3 });
-          this.field('content');
+          this.ref("id");
+          this.field("title", { boost: 10 });
+          this.field("tags", { boost: 5 });
+          this.field("description", { boost: 3 });
+          this.field("content");
 
           var self = this;
-          data.forEach(function(doc) {
+          data.forEach(function (doc) {
             self.add(doc);
           });
         });
       })
-      .catch(function(err) { console.error('Search index failed to load:', err); });
+      .catch(function (err) {
+        console.error("Search index failed to load:", err);
+      });
   }
 
   function executeSearch(query) {
     if (!lunrIndex || !query) {
-      searchResults.innerHTML = '';
+      searchResults.innerHTML = "";
       return;
     }
 
-    var results = lunrIndex.search(query + '*'); // Wildcard for better UX
-    var html = '';
+    var results = lunrIndex.search(query + "*"); // Wildcard for better UX
+    var html = "";
 
     if (results.length > 0) {
-      results.forEach(function(result) {
-        var item = searchStore.find(function(i) { return i.id === result.ref; });
+      results.forEach(function (result) {
+        var item = searchStore.find(function (i) {
+          return i.id === result.ref;
+        });
         if (item) {
-          var tagsHtml = item.tags.split(' ').map(function(t) { 
-            return t ? '<span class="search-tag">' + t + '</span>' : ''; 
-          }).join('');
+          var tagsHtml = item.tags
+            .split(" ")
+            .map(function (t) {
+              return t ? '<span class="search-tag">' + t + "</span>" : "";
+            })
+            .join("");
 
-          html += '<a href="' + item.url + '" class="search-result-item">' +
-                    '<div class="search-result-content">' +
-                      '<h4>' + item.title + '</h4>' +
-                      '<p>' + (item.description || '') + '</p>' +
-                      '<div class="search-result-tags">' + tagsHtml + '</div>' +
-                    '</div>' +
-                  '</a>';
+          html +=
+            '<a href="' +
+            item.url +
+            '" class="search-result-item">' +
+            '<div class="search-result-content">' +
+            "<h4>" +
+            item.title +
+            "</h4>" +
+            "<p>" +
+            (item.description || "") +
+            "</p>" +
+            '<div class="search-result-tags">' +
+            tagsHtml +
+            "</div>" +
+            "</div>" +
+            "</a>";
         }
       });
     } else {
-      var noResultsFoundText = searchResults.getAttribute('data-no-results') || 'No matches found for';
-      html = '<p class="search-no-results">' + noResultsFoundText + ' "' + query + '"</p>';
+      var noResultsFoundText =
+        searchResults.getAttribute("data-no-results") || "No matches found for";
+      html =
+        '<p class="search-no-results">' +
+        noResultsFoundText +
+        ' "' +
+        query +
+        '"</p>';
     }
 
     searchResults.innerHTML = html;
@@ -316,53 +363,61 @@
 
   // Event Listeners
   if (searchInput) {
-    searchInput.addEventListener('input', function(e) {
+    searchInput.addEventListener("input", function (e) {
       executeSearch(e.target.value);
     });
   }
 
   if (closeSearch) {
-    closeSearch.addEventListener('click', function() { toggleSearch(false); });
+    closeSearch.addEventListener("click", function () {
+      toggleSearch(false);
+    });
   }
 
   if (searchTrigger) {
-    searchTrigger.addEventListener('click', function() {
-      toggleSearch(searchModal.hasAttribute('hidden'));
+    searchTrigger.addEventListener("click", function () {
+      toggleSearch(searchModal.hasAttribute("hidden"));
     });
   }
 
   // Keyboard Shortcuts
-  window.addEventListener('keydown', function(e) {
-    var isMac = navigator.platform.toUpperCase().indexOf('MAC') >= 0;
+  window.addEventListener("keydown", function (e) {
+    var isMac = navigator.platform.toUpperCase().indexOf("MAC") >= 0;
     var metaKey = isMac ? e.metaKey : e.ctrlKey;
 
-    if (metaKey && e.key === 'k') {
+    if (metaKey && e.key === "k") {
       e.preventDefault();
-      toggleSearch(searchModal.hasAttribute('hidden'));
+      toggleSearch(searchModal.hasAttribute("hidden"));
     }
 
-    if (e.key === 'Escape' && !searchModal.hasAttribute('hidden')) {
+    if (e.key === "Escape" && !searchModal.hasAttribute("hidden")) {
       toggleSearch(false);
     }
   });
 
   // Close on backdrop click
   if (searchModal) {
-    searchModal.addEventListener('click', function(e) {
-      if (e.target === searchModal || e.target.classList.contains('search-modal-container')) {
+    searchModal.addEventListener("click", function (e) {
+      if (
+        e.target === searchModal ||
+        e.target.classList.contains("search-modal-container")
+      ) {
         toggleSearch(false);
       }
     });
   }
-
 })();
 
 // Service Worker Registration
-if ('serviceWorker' in navigator) {
-  window.addEventListener('load', () => {
-    navigator.serviceWorker.register('/sw.js')
-      .then(reg => console.log('SW registered:', reg))
-      .catch(err => console.error('SW registration failed:', err));
+if ("serviceWorker" in navigator) {
+  window.addEventListener("load", function () {
+    navigator.serviceWorker
+      .register("/sw.js")
+      .then(function (reg) {
+        console.log("SW registered:", reg);
+      })
+      .catch(function (err) {
+        console.error("SW registration failed:", err);
+      });
   });
 }
-

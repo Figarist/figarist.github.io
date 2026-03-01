@@ -10,14 +10,21 @@ layout: default
     <span>{{ site.data[site.active_lang].strings.back_to_hub }}</span>
   </a>
 
-  <div class="edu-meta" style="margin-bottom: 1.5rem; display: flex; align-items: center; gap: 12px; flex-wrap: wrap;">
+  {% include breadcrumbs.html %}
+
+  <div class="edu-meta">
     {% if page.level %}
-    <span class="edu-level edu-level--{{ page.level }}" style="margin-top: 0;">{{ page.level }}</span>
+    <span class="edu-level edu-level--{{ page.level }}">{{ page.level }}</span>
     {% endif %}
     {% assign words = content | strip_html | number_of_words %}
     {% assign read_time = words | divided_by: 160 %}
     {% if read_time == 0 %}{% assign read_time = 1 %}{% endif %}
     <span class="badge badge--reading-time">⏳ {{ read_time }} {{ site.data[site.active_lang].strings.min_read }}</span>
+    {% if page.last_modified_at %}
+    <time class="badge badge--updated" datetime="{{ page.last_modified_at | date_to_xmlschema }}">
+      🔄 {{ page.last_modified_at | date: "%B %d, %Y" }}
+    </time>
+    {% endif %}
   </div>
 
   <h1 itemprop="headline" style="view-transition-name: post-{{ page.slug }};">{{ page.title }}</h1>

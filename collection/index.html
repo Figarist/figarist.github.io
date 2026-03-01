@@ -3,20 +3,19 @@ layout: default
 title: "The Shrine — Figarist"
 ---
 
-<div class="post-container" style="max-width: 900px;">
+<div class="post-container shrine-hub">
     <a href="{{ '/' | relative_url }}" class="btn-back">
         {{ site.data[site.active_lang].strings.back_to_hub }}
     </a>
 
-    <h1 style="margin-bottom: 8px;">
+    <h1 class="hub-page-title">
         {{ site.data[site.active_lang].strings.shrine_title }}
     </h1>
-    <p style="color: var(--text-muted); margin-bottom: 40px; font-family: var(--font-mono);">
+    <p class="hub-page-subtitle">
         {{ site.data[site.active_lang].strings.shrine_long_desc }}
     </p>
 
-    <h2
-        style="font-size: 1.2rem; margin-bottom: 16px; border-bottom: 1px solid var(--border-light); padding-bottom: 8px;">
+    <h2 class="shrine-hub__section-title">
         {{ site.data[site.active_lang].strings.shrine_section_handhelds }}
     </h2>
     <div class="photo-grid">
@@ -31,13 +30,12 @@ title: "The Shrine — Figarist"
         </div>
     </div>
 
-    <h2
-        style="font-size: 1.2rem; margin-top: 48px; margin-bottom: 16px; border-bottom: 1px solid var(--border-light); padding-bottom: 8px;">
+    <h2 class="shrine-hub__section-title shrine-hub__section-title--spaced">
         {{ site.data[site.active_lang].strings.shrine_section_simracing }}
     </h2>
     <div class="photo-grid">
         <div class="photo-card span-wide">
-            <div class="photo-placeholder">Steering Wheel & Setup View</div>
+            <div class="photo-placeholder">Steering Wheel &amp; Setup View</div>
         </div>
     </div>
 </div>

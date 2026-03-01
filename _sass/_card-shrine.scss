@@ -1,0 +1,92 @@
+/* ============================================================
+   CARD: SHRINE (1×2) — Nintendo Collection
+   ============================================================ */
+.card--shrine {
+  background: linear-gradient(160deg, #1a0a2e 0%, #2d1458 70%, #3a1c6e 100%);
+  color: var(--text-on-dark);
+}
+
+.card--shrine .card-label {
+  color: rgba(255, 255, 255, 0.35);
+}
+
+.shrine__icon {
+  font-size: 2.2rem;
+  margin-bottom: 8px;
+}
+
+.shrine__title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #fff;
+  margin-bottom: 8px;
+  line-height: 1.2;
+}
+
+.shrine__desc {
+  color: var(--text-muted);
+  font-size: 0.9rem;
+  margin-bottom: 16px;
+}
+
+.shrine__list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  flex: 1;
+}
+
+.shrine__item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 0.82rem;
+  color: rgba(255, 255, 255, 0.7);
+  padding: 8px 12px;
+  background: rgba(255, 255, 255, 0.06);
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  transition: background var(--t-fast);
+}
+
+.shrine__item:hover {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.shrine__badge {
+  font-family: var(--font-mono);
+  font-size: 0.55rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  color: var(--accent-persimmon);
+  border: 1px solid rgba(232, 96, 60, 0.4);
+  border-radius: 4px;
+  padding: 1px 5px;
+  flex-shrink: 0;
+}
+
+.shrine__note {
+  font-size: 0.74rem;
+  color: rgba(255, 255, 255, 0.35);
+  margin-top: 10px;
+  font-style: italic;
+  line-height: 1.5;
+}
+
+.shrine__pixels {
+  margin-top: 12px;
+  display: flex;
+  gap: 4px;
+  flex-wrap: wrap;
+}
+
+.shrine__pixels span {
+  font-size: 0.5rem;
+  color: rgba(232, 96, 60, 0.5);
+  transition: color var(--t-fast);
+}
+
+.card--shrine:hover .shrine__pixels span {
+  color: rgba(232, 96, 60, 0.85);
+}

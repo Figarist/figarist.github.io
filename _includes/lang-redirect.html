@@ -1,0 +1,66 @@
+<!-- Auto-Redirect on First Visit & Language Preference -->
+<script>
+    (function () {
+        try {
+            var activeLang = '{{ site.active_lang }}';
+            var preferredLang = localStorage.getItem('preferred_lang');
+            var targetLang = null;
+
+            // 1. Check if preference exists and is valid
+            var supportedLangs = ['en', 'uk', 'ru', 'ko'];
+            if (preferredLang) {
+                if (!supportedLangs.includes(preferredLang)) {
+                    // Fail-safe: if localStorage has junk (like Google Translate strings), clear it
+                    localStorage.removeItem('preferred_lang');
+                    preferredLang = null;
+                } else if (preferredLang !== activeLang) {
+                    targetLang = preferredLang;
+                }
+            } else {
+                // 3. First time visitor: Detect browser language
+                var browserLang = navigator.language || navigator.userLanguage;
+                var languages = navigator.languages || [browserLang];
+                var detectedLang = 'en'; // default
+
+                if (languages.some(function(l) { return l.startsWith('uk'); })) {
+                    detectedLang = 'uk';
+                } else if (languages.some(function(l) { return l.startsWith('ru'); })) {
+                    detectedLang = 'ru';
+                } else if (languages.some(function(l) { return l.startsWith('ko'); })) {
+                    detectedLang = 'ko';
+                }
+
+                localStorage.setItem('preferred_lang', detectedLang);
+                if (activeLang !== detectedLang) {
+                    targetLang = detectedLang;
+                }
+            }
+
+            // Execute Redirect
+            if (targetLang && targetLang !== activeLang) {
+                var currentPath = window.location.pathname;
+                var pathWithoutLang = currentPath;
+                var match = currentPath.match(/^\/(uk|ru|ko)(\/|$)/);
+                if (match) {
+                    pathWithoutLang = currentPath.substring(match[0].length);
+                    if (!pathWithoutLang.startsWith('/')) {
+                        pathWithoutLang = '/' + pathWithoutLang;
+                    }
+                }
+
+                var prefix = targetLang === 'en' ? '' : '/' + targetLang;
+                var nextPath = prefix + pathWithoutLang;
+                // Add trailing slash check if it had one before (github pages standard)
+                nextPath = nextPath.replace(/\/\//g, '/');
+                if (nextPath === '') nextPath = '/';
+
+                if (currentPath !== nextPath) {
+                    window.location.replace(nextPath + window.location.hash);
+                }
+            }
+        } catch (e) {
+            // Failsafe mostly for Safari Private Mode / localStorage quota errors
+            console.warn('Language auto-detect failed:', e);
+        }
+    })();
+</script>

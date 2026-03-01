@@ -1,0 +1,16 @@
+# ============================================================
+#  Figarist — Development Config Overlay
+#  Usage: bundle exec jekyll serve --config _config.yml,_config_dev.yml
+# ============================================================
+
+# Disable minification for faster dev builds
+jekyll_minifier:
+  exclude:
+    - "**/*"
+
+# Disable PWA service worker in development
+pwa:
+  enabled: false
+
+# Verbose build
+verbose: true

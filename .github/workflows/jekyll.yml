@@ -48,8 +48,7 @@ jobs:
         run: |
           bundle exec htmlproofer ./_site \
             --allow-hash-href \
-            --check-html \
-            --empty-alt-ignore \
+            --ignore-empty-alt \
             --ignore-urls "/^https:\/\/figarist\.com/"
 
       - name: Upload artifact

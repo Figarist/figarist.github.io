@@ -9,11 +9,12 @@
 
 - **Jekyll** (Static Generator) + **GitHub Actions** (deployment via `.github/workflows/jekyll.yml`)
 - **Plugin Localization:** `jekyll-polyglot` (quadrilingual sync — en, uk, ru, ko)
-- **SEO Plugins:** `jekyll-seo-tag` (OG, Twitter, JSON-LD), `jekyll-sitemap` (sitemap.xml), `jekyll-feed` (feed.xml)
-- **Custom Plugin:** `_plugins/polyglot_frozen_string_patch.rb` (fixes `FrozenError` in Polyglot + SCSS)
+- **Pagination:** `jekyll-paginate-v2` (for blog listing)
+- **SEO Plugins:** `jekyll-seo-tag`, `jekyll-sitemap`, `jekyll-feed`
+- **Custom Plugin:** `_plugins/polyglot_frozen_string_patch.rb`
 - **Мова шаблонів:** Liquid
-- **CSS:** SCSS (compiled by Jekyll) → `assets/css/styles.scss` — NO Tailwind, NO Bootstrap
-- **JS:** Vanilla JavaScript (ОБМЕЖЕНО: без фреймворків). Головний файл: `script.js` (IIFE)
+- **CSS:** Modular SCSS architecture (`_sass/`) manifest: `assets/css/styles.scss` — NO Tailwind
+- **JS:** Vanilla JavaScript + **Lunr.js** (client-side search). File: `script.js`
 - **Markdown:** kramdown + rouge (підсвітка коду)
 - **Шрифти:** `Outfit` (sans) + `Fira Code` (mono) з Google Fonts
 - **Аналітика:** Plausible (privacy-first, zero cookies, no GDPR banner)
@@ -34,14 +35,16 @@ figarist.github.io/
 ├── Gemfile                     # Ruby залежності (Jekyll 4.3, Polyglot, SEO, Sitemap, Feed, Webrick)
 │
 ├── index.html                  # Bento Hub (Мультимовний — Polyglot збирає з нього 4 версії)
+├── search.json                 # Генератор пошукового індексу (Liquid → Lunr.js)
 ├── 404.html                    # Кастомна 404 сторінка (квадрилінгвальна)
-├── script.js                   # Головний JS (scroll anim, WebGL overlay, tilt, reading progress, code copy)
+├── script.js                   # Головний JS (scroll, search, WebGL, tilt, progress, copy)
 ├── robots.txt                  # SEO crawl rules
 ├── deployment_guide.md         # Покроковий гайд по деплою та локальному запуску
 │
 ├── _includes/
-│   ├── head.html               # <head> + jekyll-seo-tag + Polyglot hreflang + auto-redirect script
-│   ├── header.html             # Floating navbar + language switcher + preference save script
+│   ├── head.html               # <head> + SEO + View Transitions + Search Engine
+│   ├── header.html             # Navbar + search trigger + lang switcher
+│   ├── search-modal.html       # Модалка пошуку (Lunr.js)
 │   └── footer.html             # Мінімальний футер з роком
 │
 ├── _layouts/
@@ -68,12 +71,13 @@ figarist.github.io/
 │   ├── unity-physics-beginner-guide-{en,uk,ru,ko}.md
 │   └── wearos-zero-gc-mindset-{en,uk,ru,ko}.md
 │
-├── _plugins/
-│   └── polyglot_frozen_string_patch.rb  # Monkey-patch для FrozenError у Polyglot + SCSS
+├── _sass/                      # Модульна SCSS архітектура
+│   ├── _base.scss, _variables.scss, _search.scss, etc.
+│   └── styles.scss (alias)
 │
 ├── assets/
 │   ├── css/
-│   │   └── styles.scss         # Головний SCSS (~1909 рядків, Bento UI дизайн-система)
+│   │   └── styles.scss         # SCSS маніфест (імпортує файли з _sass/)
 │   └── images/
 │       ├── default-social-card.jpg  # OG/Twitter social card
 │       └── figaristgithub.png       # Аватар/лого
@@ -391,7 +395,8 @@ level: beginner # beginner | intermediate | advanced
 | §5     | Email copy to clipboard                                                   |
 | §6     | Reading Progress Bar (dynamic scroll tracking)                            |
 | §7     | Code Copy Buttons (vanilla clipboard integration)                         |
-| §8     | View Transitions API (CSS fade + morphing)                                |
+| §8     | Ultimate Search (Lunr.js integration + Cmd+K shortcut)                    |
+| §9     | View Transitions API (CSS fade + morphing)                                |
 
 ---
 

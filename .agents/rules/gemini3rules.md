@@ -22,9 +22,9 @@ READ THESE RULES BEFORE EXECUTING ANY COMMAND.
 - **Aesthetic:** "Light Bento Theme". Background is "Cloud Dancer" (`--bg-color: #f2f0eb`), cards are pure white (`--card-bg: #ffffff`), text is dark/tactile. DO NOT use dark mode universally.
 - **Responsive:** Mobile MUST elegantly collapse into a `flex-direction: column` stack at `max-width: 768px`. Always ensure `<meta name="viewport" content="width=device-width, initial-scale=1.0">` is present.
 - **Assets Structure:**
-  - CSS → `assets/css/styles.scss` (SCSS with Jekyll front matter, compiled to `assets/css/styles.css`)
+  - CSS → Modular SCSS (`_sass/`) with manifest `assets/css/styles.scss`. Prefer `@use` over `@import`.
   - Images → `assets/images/` (social cards, avatars, logos)
-  - JS → `script.js` at project root (IIFE, loaded via `default.html`). Prefer inline `<script>` in includes for new logic.
+  - JS → `script.js` at project root (scroll, search, WebGL, tilt).
 
 ## 3. MULTILINGUAL SYNC (JEKYLL POLYGLOT)
 
@@ -39,13 +39,13 @@ READ THESE RULES BEFORE EXECUTING ANY COMMAND.
 
 ## 4. CUSTOM PLUGINS
 
-- **`_plugins/polyglot_frozen_string_patch.rb`:** A runtime monkey-patch that fixes a `FrozenError` in `jekyll-polyglot` when it tries to modify frozen CSS strings returned by the SASS compiler. This file is CRITICAL for the build. Do NOT remove it.
+- **`_plugins/polyglot_frozen_string_patch.rb`:** CRITICAL. Fixes `FrozenError` in Polyglot + SCSS. Do NOT remove.
+- **`jekyll-paginate-v2`:** Handles blog pagination.
 
-## 5. NAVIGATION & UX
-
-- **Global Nav:** Use a "Floating Navbar" (`.site-nav`) — a sticky, translucent glass-morphism element with `backdrop-filter: blur(18px)`.
+- **Global Nav:** Use a "Floating Navbar" (`.site-nav`) with blur backdrop and search trigger.
 - **Level 2 Pages:** Always include a native "Back to Hub" (`.btn-back`) pill button.
-- **Language Switcher:** Generated in `_includes/header.html` via a `{% for lang in site.languages %}` loop. Uses `{% static_href %}` to bypass Polyglot's aggressive URL rewriting. Always include `data-lang` and `translate="no"` for stability.
+- **Search:** Ultimate Client-Side Search (Lunr.js). Toggle via `Cmd+K` or search icon in header.
+- **Language Switcher:** Generated in `_includes/header.html` via a `{% for lang in site.languages %}` loop.
 
 ## 6. UNITY WEBGL & MEDIA HANDLING
 

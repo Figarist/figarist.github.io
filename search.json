@@ -1,0 +1,20 @@
+---
+layout: null
+---
+[
+  {% assign docs = site.posts | concat: site.education %}
+  {% assign first = true %}
+  {% for doc in docs %}
+    {% if doc.lang == site.active_lang %}
+      {% if first %}{% assign first = false %}{% else %},{% endif %}
+      {
+        "id": {{ doc.url | relative_url | jsonify }},
+        "title": {{ doc.title | jsonify }},
+        "url": {{ doc.url | relative_url | jsonify }},
+        "tags": {{ doc.tags | join: " " | jsonify }},
+        "description": {{ doc.description | default: doc.excerpt | strip_html | normalize_whitespace | jsonify }},
+        "content": {{ doc.content | strip_html | normalize_whitespace | jsonify }}
+      }
+    {% endif %}
+  {% endfor %}
+]

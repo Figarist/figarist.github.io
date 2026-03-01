@@ -228,5 +228,125 @@
     block.appendChild(button);
   });
 
+  /* ——————————————————————————————————————————
+     8. ULTIMATE SEARCH (Lunr.js)
+  —————————————————————————————————————————— */
+  var searchModal = document.getElementById('search-modal');
+  var searchInput = document.getElementById('search-input');
+  var searchResults = document.getElementById('search-results');
+  var closeSearch = document.getElementById('close-search');
+  var searchTrigger = document.getElementById('search-trigger');
+  var lunrIndex = null;
+  var searchStore = [];
+
+  function toggleSearch(show) {
+    if (!searchModal) return;
+    if (show) {
+      searchModal.removeAttribute('hidden');
+      searchInput.focus();
+      document.body.style.overflow = 'hidden'; // Prevent scroll
+      if (!lunrIndex) initSearch();
+    } else {
+      searchModal.setAttribute('hidden', '');
+      document.body.style.overflow = '';
+    }
+  }
+
+  function initSearch() {
+    // Relative path works with Polyglot because current URL has the lang prefix if needed
+    fetch('search.json')
+      .then(function(response) { return response.json(); })
+      .then(function(data) {
+        searchStore = data;
+        lunrIndex = lunr(function() {
+          this.ref('id');
+          this.field('title', { boost: 10 });
+          this.field('tags', { boost: 5 });
+          this.field('description', { boost: 3 });
+          this.field('content');
+
+          var self = this;
+          data.forEach(function(doc) {
+            self.add(doc);
+          });
+        });
+      })
+      .catch(function(err) { console.error('Search index failed to load:', err); });
+  }
+
+  function executeSearch(query) {
+    if (!lunrIndex || !query) {
+      searchResults.innerHTML = '';
+      return;
+    }
+
+    var results = lunrIndex.search(query + '*'); // Wildcard for better UX
+    var html = '';
+
+    if (results.length > 0) {
+      results.forEach(function(result) {
+        var item = searchStore.find(function(i) { return i.id === result.ref; });
+        if (item) {
+          var tagsHtml = item.tags.split(' ').map(function(t) { 
+            return t ? '<span class="search-tag">' + t + '</span>' : ''; 
+          }).join('');
+
+          html += '<a href="' + item.url + '" class="search-result-item">' +
+                    '<div class="search-result-content">' +
+                      '<h4>' + item.title + '</h4>' +
+                      '<p>' + (item.description || '') + '</p>' +
+                      '<div class="search-result-tags">' + tagsHtml + '</div>' +
+                    '</div>' +
+                  '</a>';
+        }
+      });
+    } else {
+      html = '<p class="search-no-results">No matches found for "' + query + '"</p>';
+    }
+
+    searchResults.innerHTML = html;
+  }
+
+  // Event Listeners
+  if (searchInput) {
+    searchInput.addEventListener('input', function(e) {
+      executeSearch(e.target.value);
+    });
+  }
+
+  if (closeSearch) {
+    closeSearch.addEventListener('click', function() { toggleSearch(false); });
+  }
+
+  if (searchTrigger) {
+    searchTrigger.addEventListener('click', function() {
+      toggleSearch(searchModal.hasAttribute('hidden'));
+    });
+  }
+
+  // Keyboard Shortcuts
+  window.addEventListener('keydown', function(e) {
+    var isMac = navigator.platform.toUpperCase().indexOf('MAC') >= 0;
+    var metaKey = isMac ? e.metaKey : e.ctrlKey;
+
+    if (metaKey && e.key === 'k') {
+      e.preventDefault();
+      toggleSearch(searchModal.hasAttribute('hidden'));
+    }
+
+    if (e.key === 'Escape' && !searchModal.hasAttribute('hidden')) {
+      toggleSearch(false);
+    }
+  });
+
+  // Close on backdrop click
+  if (searchModal) {
+    searchModal.addEventListener('click', function(e) {
+      if (e.target === searchModal || e.target.classList.contains('search-modal-container')) {
+        toggleSearch(false);
+      }
+    });
+  }
+
 })();
 

@@ -48,7 +48,7 @@ layout: default
 
   <div itemprop="articleBody">
     {% if page.toc %}
-    {{ content | toc }}
+    {{ content | toc | replace: '<img', '<img loading="lazy"' }}
     {% else %}
     {{ content | replace: '<img', '<img loading="lazy"' }}
     {% endif %}

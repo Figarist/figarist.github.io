@@ -21,9 +21,13 @@ layout: default
     {% if read_time == 0 %}{% assign read_time = 1 %}{% endif %}
     <span class="badge badge--reading-time">⏳ {{ read_time }} {{ site.data[site.active_lang].strings.min_read }}</span>
     {% if page.last_modified_at %}
-    <time class="badge badge--updated" datetime="{{ page.last_modified_at | date_to_xmlschema }}">
-      🔄 {{ page.last_modified_at | date: "%B %d, %Y" }}
-    </time>
+      {% assign pub_date = page.date | date: "%Y-%m-%d" %}
+      {% assign mod_date = page.last_modified_at | date: "%Y-%m-%d" %}
+      {% if mod_date != pub_date %}
+      <time class="badge badge--updated" datetime="{{ page.last_modified_at | date_to_xmlschema }}">
+        🔄 {{ page.last_modified_at | date: "%B %d, %Y" }}
+      </time>
+      {% endif %}
     {% endif %}
   </div>
 
@@ -33,10 +37,17 @@ layout: default
     ✍️ {{ site.data[site.active_lang].strings.author_name }} &bull; 📅 {{ page.date | date: "%B %d, %Y" }}
   </div>
 
-  {% if page.tags.size > 0 %}
+  {% if page.tags.size > 0 or page.category %}
   <div class="post-tags">
+    {% if page.category %}
+    <a href="{{ '/blog/category/' | append: page.category | append: '/' | relative_url }}" class="post-tag post-tag--category">
+      📂 {{ page.category }}
+    </a>
+    {% endif %}
     {% for tag in page.tags %}
-    <span class="post-tag">#{{ tag }}</span>
+    <a href="{{ '/blog/tag/' | append: tag | append: '/' | relative_url }}" class="post-tag">
+      #{{ tag }}
+    </a>
     {% endfor %}
   </div>
   {% endif %}
@@ -62,6 +73,8 @@ layout: default
   "@type": "Article",
   "headline": {{ page.title | jsonify }},
   "inLanguage": "{{ site.active_lang }}",
+  "datePublished": "{{ page.date | date_to_xmlschema }}",
+  {% if page.last_modified_at %}"dateModified": "{{ page.last_modified_at | date_to_xmlschema }}",{% endif %}
   "author": {
     "@type": "Person",
     "name": "{{ site.data[site.active_lang].strings.author_name | default: 'Ihor Sivochka' }}",

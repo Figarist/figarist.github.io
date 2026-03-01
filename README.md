@@ -29,7 +29,7 @@ const portfolio = {
     frontend: "Jekyll + Pure HTML5 + CSS3 + Vanilla JS",
     architecture: "Bento Grid UI",
     i18n: "jekyll-polyglot (EN, UK, RU, KO)",
-    ux: "View Transitions API + Reading Progress + Code Copy",
+    ux: "Ultimate Search (Lunr.js) + View Transitions API + Reading Progress + Code Copy",
     hosting: "GitHub Pages (via GitHub Actions)",
   },
 };
@@ -41,13 +41,13 @@ const portfolio = {
 
 <div align="center">
 
-|                                                Core Tech                                                 | Description                                                     |
-| :------------------------------------------------------------------------------------------------------: | :-------------------------------------------------------------- |
-|       ![](https://img.shields.io/badge/HTML5-E34F26?style=flat-square&logo=html5&logoColor=white)        | Pure HTML5, zero frameworks                                     |
-|        ![](https://img.shields.io/badge/CSS3-1572B6?style=flat-square&logo=css3&logoColor=white)         | Vanilla CSS3 (SCSS), Grid layouts, CSS Variables                |
-|  ![](https://img.shields.io/badge/JavaScript-F7DF1E?style=flat-square&logo=javascript&logoColor=black)   | Vanilla JS, WebGL embedding, IIFE architecture                  |
-|      ![](https://img.shields.io/badge/Jekyll-CC0000?style=flat-square&logo=jekyll&logoColor=white)       | Static Site Generation (DRY Includes, Liquid templates)         |
-| ![](https://img.shields.io/badge/GitHub_Pages-222222?style=flat-square&logo=githubpages&logoColor=white) | Deploys via **GitHub Actions** (required for `jekyll-polyglot`) |
+|                                                Core Tech                                                 | Description                                              |
+| :------------------------------------------------------------------------------------------------------: | :------------------------------------------------------- |
+|       ![](https://img.shields.io/badge/HTML5-E34F26?style=flat-square&logo=html5&logoColor=white)        | Pure HTML5, zero frameworks                              |
+|        ![](https://img.shields.io/badge/CSS3-1572B6?style=flat-square&logo=css3&logoColor=white)         | Vanilla CSS3 (SCSS), Grid layouts, CSS Variables         |
+|  ![](https://img.shields.io/badge/JavaScript-F7DF1E?style=flat-square&logo=javascript&logoColor=black)   | Vanilla JS, WebGL, Lunr.js Search, IIFE Architecture     |
+|      ![](https://img.shields.io/badge/Jekyll-CC0000?style=flat-square&logo=jekyll&logoColor=white)       | SSG (jekyll-paginate-v2, Liquid templates)               |
+| ![](https://img.shields.io/badge/GitHub_Pages-222222?style=flat-square&logo=githubpages&logoColor=white) | Deploys via **GitHub Actions** (Polyglot + Minification) |
 
 </div>
 
@@ -60,8 +60,9 @@ figarist.github.io/
 ├── .github/workflows/
 │   └── jekyll.yml          # GitHub Actions CI/CD (Polyglot build + HTML minify)
 ├── index.html              # Bento UI Hub (Polyglot builds EN, UK, RU, KO from this)
+├── search.json             # Search index generator (Liquid → Lunr.js)
 ├── 404.html                # Custom 404 page (quadrilingual)
-├── script.js               # Main JS (scroll anim, WebGL, tilt, progress, code copy)
+├── script.js               # Main JS (scroll, search, WebGL, tilt, progress, copy)
 ├── robots.txt              # SEO crawl rules
 ├── deployment_guide.md     # Deployment & local setup guide
 │
@@ -69,8 +70,9 @@ figarist.github.io/
 ├── Gemfile                 # Ruby dependencies (Jekyll, Polyglot, SEO, Sitemap, Feed)
 │
 ├── _includes/
-│   ├── head.html           # <head> + SEO + Polyglot Hreflang + auto-redirect script
-│   ├── header.html         # Floating navbar + language switcher + preference save
+│   ├── head.html           # <head> + SEO + View Transitions + Search Engine
+│   ├── header.html         # Navbar + search trigger + lang switcher
+│   ├── search-modal.html   # Ultimate Search UI (Lunr.js)
 │   └── footer.html         # Minimal footer with year
 │
 ├── _layouts/
@@ -87,11 +89,12 @@ figarist.github.io/
 ├── _posts/                 # Blog posts (4 files per topic: EN, UK, RU, KO)
 ├── _education/             # Education collection (4 files per topic: EN, UK, RU, KO)
 │
-├── _plugins/
-│   └── polyglot_frozen_string_patch.rb  # Fixes FrozenError in Polyglot + SCSS
+├── _sass/                  # Modular SCSS architecture
+│   ├── _base.scss, _variables.scss, _search.scss, etc.
+│   └── styles.scss (alias)
 │
 ├── assets/
-│   ├── css/styles.scss     # Main stylesheet (~1900 lines, Bento UI design system)
+│   ├── css/styles.scss     # SCSS manifest (imports from _sass/)
 │   └── images/             # Social cards, avatars, logos
 │
 ├── blog/index.html         # Blog listing page (quadrilingual)
@@ -201,12 +204,13 @@ Generated in `_includes/header.html` via a `{% for lang in site.languages %}` lo
 > Please adhere strictly to the rules below to ensure the stability and styling of the portfolio!
 
 1. **Core Philosophy:** Pure HTML5, CSS3, Vanilla JS, and Liquid / Jekyll layout. No heavy NPM packages. No React.
-2. **Quadrilingual Sync:** Write content **once** in `index.html` using localized data lookups `{{ site.data[site.active_lang].strings.key }}`. `jekyll-polyglot` generates all 4 languages automatically (`/`, `/uk/`, `/ru/`, `/ko/`) — never copy files manually.
-3. **UX & Interactivity:** Use View Transitions API for seamless navigation. Reading progress and code copy buttons must be handled by Vanilla JS in `script.js`.
-4. **DRY Includes:** Header, nav, and footer are modularized via `_includes/`. Never duplicate these parts across documents.
-5. **WebGL & Media:** WebGL canvases MUST be wrapped in a stateless click-to-play iframe overlay. Images should use `.webp` formatting and contain `loading="lazy"` tags.
-6. **SEO & Performance:** The site uses `jekyll-seo-tag`, `jekyll-sitemap`, and `jekyll-feed` for automated SEO. Maintain proper YAML Front Matter (`title`, `description`, `image:`, `tags`). Polyglot generates hreflang tags automatically.
-7. **Custom Plugin:** Do NOT remove `_plugins/polyglot_frozen_string_patch.rb` — it fixes a critical `FrozenError` in Polyglot's interaction with SCSS.
+2. **Quadrilingual Sync:** Write content **once** in `index.html` using localized data lookups `{{ site.data[site.active_lang].strings.key }}`. `jekyll-polyglot` generates all 4 languages automatically.
+3. **UX & Interactivity:** Use View Transitions API. Reading progress, "Ultimate Search" (Lunr.js), and code copy buttons must be handled by Vanilla JS in `script.js`.
+4. **Design System:** Follow the "Light Bento" aesthetic. Layouts MUST use `display: grid` with `grid-template-areas`. Prefer modular SCSS (`_sass/`) and `@use` over `@import`.
+5. **DRY Includes:** Header, nav, and footer are modularized via `_includes/`. Never duplicate these parts across documents.
+6. **WebGL & Media:** WebGL canvases MUST be wrapped in a stateless click-to-play iframe overlay. Images should use `.webp` formatting and contain `loading="lazy"` tags.
+7. **SEO & Performance:** The site uses `jekyll-seo-tag`, `jekyll-sitemap`, and `jekyll-feed` for automated SEO. Maintain proper YAML Front Matter (`title`, `description`, `image:`, `tags`). Polyglot generates hreflang tags automatically.
+8. **Custom Plugin:** Do NOT remove `_plugins/polyglot_frozen_string_patch.rb` — it fixes a critical `FrozenError` in Polyglot's interaction with SCSS.
 
 <br/>
 

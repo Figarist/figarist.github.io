@@ -120,6 +120,7 @@ The site has a two-part language preference mechanism:
 - [ ] Are posts using `image:` in front matter for social cards?
 - [ ] For static pages, are you using `title_key` for localized titles?
 - [ ] Are you avoiding JS-based translation switching?
+- [ ] Have you verified `search.json` is generated for the new language settings?
 - [ ] Have you verified the new keys exist in **all four** `_data/*/strings.yml` files?
 
 ---

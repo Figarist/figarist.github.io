@@ -1,7 +1,5 @@
-# 🗂 PROJECT CONTEXT: figarist.github.io
-
 > Цей файл — повний контекст проекту для передачі іншому ШІ.
-> Автор: Ihor (Figarist) — Indie Game Developer & CS Teacher, Зміїв, UA.
+> Автор: Ihor Sivochka — Indie Game Developer & CS Teacher, Зміїв, UA.
 
 ---
 
@@ -41,10 +39,18 @@ figarist.github.io/
 ├── robots.txt                  # SEO crawl rules
 ├── deployment_guide.md         # Покроковий гайд по деплою та локальному запуску
 │
+├── _data/
+│   ├── authors.yml             # Global author data (SEO sameAs, social links, roles)
+│   ├── en/strings.yml          # 🇬🇧 Англійський UI словник (~110 ключів)
+│   ├── uk/strings.yml          # 🇺🇦 Український UI словник
+│   ├── ru/strings.yml          # Російський UI словник
+│   └── ko/strings.yml          # 🇰🇷 Корейський UI словник
+│
 ├── _includes/
 │   ├── head.html               # <head> + SEO + View Transitions + Search Engine
 │   ├── header.html             # Navbar + search trigger + lang switcher
 │   ├── search-modal.html       # Модалка пошуку (Lunr.js)
+│   ├── author_box.html         # Блок автора (localized bio + social icons)
 │   └── footer.html             # Мінімальний футер з роком
 │
 ├── _layouts/
@@ -210,7 +216,8 @@ Jekyll збирає сайт **ЧОТИРИ РАЗИ**, автоматично �
 Оскільки `index.html` збирається 4 рази, переклад виконується через глобальні словники `_data/[lang]/strings.yml`, щоб не роздувати DOM:
 
 ```html
-<h2>{{ site.data[site.active_lang].strings.my_projects }}</h2>
+<h2>{{ site.data[site.active_lang].strings.author_name }}</h2>
+<p>{{ site.data[site.active_lang].strings.author_bio }}</p>
 ```
 
 **ЗАБОРОНЕНО:** Використовувати `liquid-hide`, inline `{% if site.active_lang %}` (якщо тексту багато), чи JavaScript класи `display: none`.
@@ -309,6 +316,13 @@ Polyglot має агресивний regex-парсинг. Якщо створю
 - Email через `mailto:` + JS copy-to-clipboard (`script.js` §5)
 - **НЕ** включений у card tilt
 
+### `author_box.html` (Include)
+
+- Динамічний блок в кінці кожного посту/статті.
+- Тягне `author_name` та `author_bio` з активної мови.
+- Тягне соціалки та jobTitle з `_data/authors.yml`.
+- Має вбудовану Schema.org розмітку `Person`.
+
 ### `404.html`
 
 - Кастомна 404 сторінка
@@ -323,6 +337,7 @@ Polyglot має агресивний regex-парсинг. Якщо створю
 layout: post
 title: "Назва посту"
 date: 2026-02-26
+author: ihor # Посилання на ihor в _data/authors.yml
 lang: uk # en | uk | ru | ko
 permalink: /blog/topic-slug/ # ІДЕНТИЧНИЙ у всіх 4 файлах
 tags: [unity, gamedev]
@@ -344,6 +359,7 @@ permalink: /blog/:year/:month/:day/:title/
 ```yaml
 ---
 title: "Назва статті"
+author: ihor
 lang: uk # en | uk | ru | ko
 permalink: /education/topic-slug/ # ІДЕНТИЧНИЙ у всіх 4 файлах
 description: "Короткий опис для SEO"
@@ -424,3 +440,5 @@ level: beginner # beginner | intermediate | advanced
 8. Мобільна версія — `flex-direction: column` стек при `max-width: 768px`
 9. **НЕ** видаляти `_plugins/polyglot_frozen_string_patch.rb` — критичний для збірки
 10. **НЕ** відтворювати `assets/js/locale.js` — deprecated legacy файл, видалений з проекту
+11. **Authorship**: Всі нові пости/статті повинні мати `author: ihor` у front matter.
+12. **Localization**: При додаванні нових блоків у Bio чи Author Box — завжди додавати ключі `author_name` / `author_bio` у всі 4 файли `strings.yml`.

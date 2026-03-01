@@ -6,6 +6,8 @@ related_posts: "Keep Reading"
 bio_roles: "Unity Dev · Educator · Retro Enthusiast"
 bio_location: "Zmiiv, Ukraine"
 bio_tagline: "Building tiny worlds for tiny screens — and teaching kids what a file actually is."
+author_name: "Ihor Sivochka"
+author_bio: "Indie Game Developer, Wear OS enthusiast, and CS Teacher. Founder of Wrist & Pocket Studio. Passionate about retro hardware and building interactive digital experiences."
 
 # STUDIO CARD
 studio_sub: "Building the future of Wear OS gaming"
@@ -66,9 +68,9 @@ nav_shrine: "Shrine"
 
 # HEAD META
 head_title_suffix: " — Indie Dev & Tech Educator"
-head_desc: "Personal site of Ihor (Figarist). Unity developer, founder of Wrist & Pocket Studio, and computer science teacher based in Ukraine."
-head_keywords: "Figarist, indie game developer, Unity developer, computer science teacher, Wear OS, C#, game dev, Ukraine, Wrist and Pocket Studio"
-head_author: "Ihor (Figarist)"
+head_desc: "Personal site of Ihor Sivochka. Unity developer, founder of Wrist & Pocket Studio, and computer science teacher based in Ukraine."
+head_keywords: "Ihor Sivochka, Figarist, indie game developer, Unity developer, computer science teacher, Wear OS, C#, game dev, Ukraine, Wrist and Pocket Studio"
+head_author: "Ihor Sivochka"
 head_og_desc: "Unity developer, founder of Wrist & Pocket Studio, and computer science teacher. Building games for Wear OS."
 
 # FOOTER

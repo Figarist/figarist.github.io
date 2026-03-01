@@ -1,4 +1,4 @@
 <footer class="bento-footer">
-    <p>{{ site.data[site.active_lang].strings.footer_compiled }} Figarist &copy; {{ 'now' | date: "%Y" }}
+    <p>{{ site.data[site.active_lang].strings.footer_compiled }} {{ site.data[site.active_lang].strings.author_name | default: 'Ihor Sivochka' }} &copy; {{ 'now' | date: "%Y" }}
     </p>
 </footer>

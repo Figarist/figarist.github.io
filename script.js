@@ -1,5 +1,5 @@
 /* ============================================================
-   FIGARIST — Bento UI Portfolio
+   IHOR SIVOCHKA — Bento UI Portfolio
    Vanilla JS: Scroll animations · WebGL overlay · Card tilt
    ============================================================ */
 

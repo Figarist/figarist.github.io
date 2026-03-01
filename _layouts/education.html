@@ -40,6 +40,8 @@ layout: default
     {{ content }}
   </div>
 
+  {% include author_box.html %}
+
 </article>
 
 <!-- JSON-LD: EducationalArticle -->
@@ -51,12 +53,12 @@ layout: default
   "inLanguage": "{{ site.active_lang }}",
   "author": {
     "@type": "Person",
-    "name": "Figarist",
+    "name": "{{ site.data[site.active_lang].strings.author_name | default: 'Ihor Sivochka' }}",
     "url": "https://figarist.github.io"
   },
   "publisher": {
     "@type": "Person",
-    "name": "Figarist",
+    "name": "{{ site.data[site.active_lang].strings.author_name | default: 'Ihor Sivochka' }}",
     "url": "https://figarist.github.io"
   },
   "url": "{{ page.url | absolute_url }}",

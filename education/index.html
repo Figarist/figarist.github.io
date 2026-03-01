@@ -3,38 +3,34 @@ layout: default
 title_key: education_hub_title
 ---
 
-<div class="post-container" style="max-width: 900px;">
+<div class="post-container edu-hub">
     <a href="{{ '/' | relative_url }}" class="btn-back">
         {{ site.data[site.active_lang].strings.back_to_hub }}
     </a>
 
-    <h1 style="margin-bottom: 8px;">
+    <h1 class="hub-page-title">
         {{ site.data[site.active_lang].strings.education_hub_title }}
     </h1>
-    <p style="color: var(--text-muted); margin-bottom: 40px; font-family: var(--font-mono); font-size: 0.85rem;">
+    <p class="hub-page-subtitle">
         {{ site.data[site.active_lang].strings.education_hub_subtitle }}
     </p>
 
-    <div style="display: flex; flex-direction: column; gap: 16px;">
+    <div class="edu-hub__list">
         {% assign sorted_edu = site.education | where: "lang", site.active_lang | sort: "sort_order" %}
         {% for item in sorted_edu %}
-        <a href="{{ item.url | relative_url }}" class="hub-card fade-in"
-            style="text-decoration: none; padding: 24px; transition: transform 0.2s; display: block;">
+        <a href="{{ item.url | relative_url }}" class="hub-card edu-hub__card fade-in">
 
             {% if item.level %}
             <span class="edu-level">{{ item.level }}</span>
             {% endif %}
 
-            <h2 style="font-size: 1.25rem; margin: 8px 0 4px 0; color: var(--text-primary);">{{ item.title }}</h2>
-            <p style="color: var(--text-secondary); font-size: 0.9rem; margin-bottom: 0;">{{ item.excerpt | strip_html |
-                truncatewords: 25 }}</p>
+            <h2 class="edu-hub__card-title">{{ item.title }}</h2>
+            <p class="edu-hub__card-excerpt">{{ item.excerpt | strip_html | truncatewords: 25 }}</p>
 
-            <!-- Tags if any exist -->
             {% if item.tags.size > 0 %}
-            <div style="margin-top: 12px; display: flex; gap: 8px;">
+            <div class="edu-hub__tags">
                 {% for tag in item.tags %}
-                <span style="font-size: 0.7rem; color: var(--text-muted); font-family: var(--font-mono);">#{{ tag
-                    }}</span>
+                <span class="edu-hub__tag">#{{ tag }}</span>
                 {% endfor %}
             </div>
             {% endif %}

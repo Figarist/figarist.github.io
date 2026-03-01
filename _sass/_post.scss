@@ -58,6 +58,14 @@
   flex-wrap: wrap;
 }
 
+.edu-meta {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 1.5rem;
+  flex-wrap: wrap;
+}
+
 .post-meta {
   display: flex;
   align-items: center;
@@ -308,3 +316,45 @@
   /* Secret sauce: pushes the date to the bottom if title lengths vary! */
   transform: translateZ(5px);
 }
+
+/* ======================== BREADCRUMBS ======================== */
+.breadcrumbs {
+  margin-bottom: 1.5rem;
+}
+
+.breadcrumbs__list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  flex-wrap: wrap;
+}
+
+.breadcrumbs__item {
+  font-size: 0.78rem;
+  font-family: var(--font-mono);
+  color: var(--text-muted);
+}
+
+.breadcrumbs__item a {
+  color: var(--text-muted);
+  text-decoration: none;
+  transition: color var(--t-fast);
+}
+
+.breadcrumbs__item a:hover {
+  color: var(--text-primary);
+}
+
+.breadcrumbs__item + .breadcrumbs__item::before {
+  content: "›";
+  margin-right: 6px;
+  color: var(--border-light);
+}
+
+.breadcrumbs__item--active {
+  color: var(--text-secondary);
+}
+

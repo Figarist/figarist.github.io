@@ -51,6 +51,15 @@ jobs:
             --ignore-empty-alt \
             --ignore-urls "/^https:\/\/(figarist\.com|fonts\.googleapis\.com|fonts\.gstatic\.com|mermaid\.ink|polyfill\.io)/"
 
+      - name: Check JS bundle size
+        run: |
+          JS_SIZE=$(wc -c < _site/script.js)
+          echo "JS size: $JS_SIZE bytes"
+          if [ $JS_SIZE -gt 20480 ]; then
+            echo "::error::JS exceeds 20KB budget ($JS_SIZE bytes)"
+            exit 1
+          fi
+
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:

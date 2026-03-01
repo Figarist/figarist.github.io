@@ -10,17 +10,27 @@ layout: default
     <span>{{ site.data[site.active_lang].strings.back_to_hub }}</span>
   </a>
 
+  {% include breadcrumbs.html %}
+
   <h1 itemprop="headline" style="view-transition-name: post-{{ page.slug }};">{{ page.title }}</h1>
   
-  <div class="post-meta">
-    ✍️ {{ site.data[site.active_lang].strings.author_name }} &bull; 📅 {{ page.date | date: "%B %d, %Y" }}
-  </div>
-
   <div class="post-header-meta">
+    <span class="post-meta">
+      ✍️ {{ site.data[site.active_lang].strings.author_name }} &bull; 📅 {{ page.date | date: "%B %d, %Y" }}
+    </span>
     {% assign words = content | strip_html | number_of_words %}
     {% assign read_time = words | divided_by: 160 %}
     {% if read_time == 0 %}{% assign read_time = 1 %}{% endif %}
     <span class="badge badge--reading-time">⏳ {{ read_time }} {{ site.data[site.active_lang].strings.min_read }}</span>
+    {% if page.last_modified_at %}
+      {% assign pub_date = page.date | date: "%Y-%m-%d" %}
+      {% assign mod_date = page.last_modified_at | date: "%Y-%m-%d" %}
+      {% if mod_date != pub_date %}
+      <time class="badge badge--updated" datetime="{{ page.last_modified_at | date_to_xmlschema }}">
+        🔄 {{ page.last_modified_at | date: "%B %d, %Y" }}
+      </time>
+      {% endif %}
+    {% endif %}
   </div>
 
   {% if page.lang != site.active_lang %}
@@ -29,13 +39,49 @@ layout: default
   </div>
   {% endif %}
 
+  {% if page.toc %}
+  <nav class="toc" aria-label="Table of Contents">
+    <h3 class="toc__heading">Contents</h3>
+    {{ content | toc_only }}
+  </nav>
+  {% endif %}
+
   <div itemprop="articleBody">
-    {{ content | replace: '<img', '<img loading="lazy"' }} </div>
+    {% if page.toc %}
+    {{ content | toc }}
+    {% else %}
+    {{ content | replace: '<img', '<img loading="lazy"' }}
+    {% endif %}
+  </div>
 
 
   {% include author_box.html %}
 
 </article>
+
+<!-- JSON-LD: BlogPosting -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": {{ page.title | jsonify }},
+  "inLanguage": "{{ site.active_lang }}",
+  "datePublished": "{{ page.date | date_to_xmlschema }}",
+  {% if page.last_modified_at %}"dateModified": "{{ page.last_modified_at | date_to_xmlschema }}",{% endif %}
+  "author": {
+    "@type": "Person",
+    "name": "{{ site.data[site.active_lang].strings.author_name | default: 'Ihor Sivochka' }}",
+    "url": "https://figarist.github.io"
+  },
+  "publisher": {
+    "@type": "Person",
+    "name": "{{ site.data[site.active_lang].strings.author_name | default: 'Ihor Sivochka' }}",
+    "url": "https://figarist.github.io"
+  },
+  "url": "{{ page.url | absolute_url }}",
+  "description": {{ page.description | default: page.excerpt | strip_html | jsonify }}
+}
+</script>
 
 <!-- RELATED POSTS BENTO -->
 {% assign maxRelated = 3 %}

@@ -1,0 +1,20 @@
+{
+  "name": "Figarist — Indie Dev & Tech Educator",
+  "short_name": "Figarist",
+  "description": "Personal site of Ihor Sivochka. Unity developer, founder of Wrist & Pocket Studio, and computer science teacher.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#f2f0eb",
+  "theme_color": "#f2f0eb",
+  "orientation": "portrait-primary",
+  "lang": "en",
+  "categories": ["education", "games", "personalization"],
+  "icons": [
+    {
+      "src": "/assets/images/figaristgithub.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ]
+}

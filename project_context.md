@@ -442,7 +442,7 @@ level: beginner # beginner | intermediate | advanced
 8. Мобільна версія — `flex-direction: column` стек при `max-width: 768px`
 9. **НЕ** видаляти `_plugins/polyglot_frozen_string_patch.rb` — критичний для збірки
 10. **НЕ** відтворювати `assets/js/locale.js` — deprecated legacy файл, видалений з проекту
-11. **Authorship**: Всі нові пости/статті повинні мати `author: ihor` у front matter.
+11. **Authorship**: Всі нові пости/статті повинні мати `author: ihor` у front matter. Це критично для того, щоб плагін `jekyll-seo-tag` міг підтягнути повні дані автора (соціалки, біо) з глобального файлу `_data/authors.yml` для коректної JSON-LD мікророзмітки.
 12. **Localization**: При додаванні нових блоків у Bio чи Author Box — завжди додавати ключі `author_name` / `author_bio` у всі 4 файли `strings.yml`.
 13. **Technical Visuals**: Зберігайте працездатність `jekyll-spaceship`. Для Mermaid, діаграм та математики використовуйте синтаксис плагіна.
 14. **UX**: Всі блоки коду повинні мати кнопку копіювання (автоматично через §7 в `script.js`).

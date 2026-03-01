@@ -253,8 +253,10 @@
   }
 
   function initSearch() {
-    // Relative path works with Polyglot because current URL has the lang prefix if needed
-    fetch('search.json')
+    // Get localized path from modal's data attribute (passed from Liquid)
+    var indexUrl = searchModal ? searchModal.getAttribute('data-index-url') : 'search.json';
+
+    fetch(indexUrl)
       .then(function(response) { return response.json(); })
       .then(function(data) {
         searchStore = data;

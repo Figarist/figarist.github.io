@@ -63,6 +63,9 @@ GEM
       jekyll (>= 3.0, < 5.0)
     jekyll-polyglot (1.5.1)
       jekyll (>= 3.0)
+    jekyll-pwa-workbox (5.1.41)
+    jekyll-redirect-from (0.16.0)
+      jekyll (>= 3.3, < 5.0)
     jekyll-sass-converter (3.1.0)
       sass-embedded (~> 1.75)
     jekyll-seo-tag (2.8.0)
@@ -131,6 +134,8 @@ DEPENDENCIES
   jekyll-minifier
   jekyll-paginate-v2
   jekyll-polyglot
+  jekyll-pwa-workbox
+  jekyll-redirect-from
   jekyll-seo-tag
   jekyll-sitemap
   jekyll-spaceship
@@ -164,6 +169,8 @@ CHECKSUMS
   jekyll-minifier (0.2.2) sha256=f0a182b98b369492b9d93f1dd064223cf04a10ba31c49e1535f28fe35764ee19
   jekyll-paginate-v2 (3.0.0) sha256=001be6c1963caa41fed9c2f43b0d47201defa0395381eb8830487c1c2fc4f4e3
   jekyll-polyglot (1.5.1) sha256=1e702e943c2ead33c247b84abaa94aa728ca91f1d229d0dbd2d1c4aac527a253
+  jekyll-pwa-workbox (5.1.41) sha256=8192f6aee99c2c76c2638fd2bb5d9760d04213a1c138ce3f3339d31abab1e4e0
+  jekyll-redirect-from (0.16.0) sha256=6635cae569ef9b0f90ffb71ec014ba977177fafb44d32a2b0526288d4d9be6db
   jekyll-sass-converter (3.1.0) sha256=83925d84f1d134410c11d0c6643b0093e82e3a3cf127e90757a85294a3862443
   jekyll-seo-tag (2.8.0) sha256=3f2ed1916d56f14ebfa38e24acde9b7c946df70cb183af2cb5f0598f21ae6818
   jekyll-sitemap (1.4.0) sha256=0de08c5debc185ea5a8f980e1025c7cd3f8e0c35c8b6ef592f15c46235cf4218

@@ -1,93 +1,138 @@
-# 🚀 DEPLOYMENT & OPS GUIDE (EXTREME EDITION)
-
-This guide covers the full lifecycle of the Figarist Portfolio, from local dev to global CDN via GitHub Actions.
+# 🚀 DEPLOYMENT & OPS GUIDE
 
 ---
 
-## 🛠️ LOCAL DEVELOPMENT (EXTREME)
+## 🛠️ LOCAL DEVELOPMENT
 
-### 1. Zero-Friction Setup
+### Quick Setup
 
 ```bash
-# Clone and enter
 git clone https://github.com/figarist/figarist.github.io.git
 cd figarist.github.io
-
-# Install Ruby dependencies
 bundle install
 ```
 
-### 2. Local PWA & Minification Test
+### Dev Mode (fast, no minification)
 
-By default, `jekyll serve` might skip minification to speed up dev. To test the **production reality**:
+```bash
+bundle exec jekyll serve --config _config.yml,_config_dev.yml
+```
+
+- Minification disabled
+- PWA/Service Worker disabled
+- Verbose output enabled
+
+### Production Mode (full pipeline)
 
 ```bash
 JEKYLL_ENV=production bundle exec jekyll serve
 ```
 
-- **Check PWA:** Open DevTools → Application → Service Workers. Ensure `service-worker.js` is active.
-- **Check Minification:** View Source. HTML, CSS, and JS should be one-liners.
+- **Check PWA:** DevTools → Application → Service Workers
+- **Check Minification:** View Source — HTML/CSS/JS should be minified
+- **Check TOC:** Any post with `toc: true` in front matter should show Contents nav
+- **Check Archives:** Visit `/blog/category/gamedev/` or `/blog/tag/unity/`
 
 ---
 
-## 🏗️ CLOUD PERFORMANCE (GITHUB ACTIONS)
+## 🏗️ CI/CD PIPELINE
 
-The build engine lives in `.github/workflows/jekyll.yml`.
+**File:** `.github/workflows/jekyll.yml`
 
-### Build Bottleneck Monitoring
+```
+Push → bundle install → jekyll build → HTML Proofer → JS Bundle Check → Deploy
+```
 
-If builds take > 5 minutes:
+### CI Checks
 
-1. **Check Cache:** Verify `actions/cache` is correctly hitting the `vendor/bundle` and `.jekyll-cache`.
-2. **Minification Overhead:** `jekyll-minifier` is powerful but slow. Optimization: ensure it only runs on the final `_site` output.
-3. **Polyglot Cycles:** Remember, the site builds **4 times**. Incremental builds are disabled for stability.
+| Check            | What it does                             | Failure means                 |
+| ---------------- | ---------------------------------------- | ----------------------------- |
+| **HTML Proofer** | Validates all internal links, img alts   | Broken links in `_site/`      |
+| **Bundle Check** | `script.js` must be < 20KB (20480 bytes) | JS exceeds performance budget |
 
 ### Common CI Failures
 
-- `FrozenError` in SCSS: Ensure `_plugins/polyglot_frozen_string_patch.rb` is present.
-- `Permission Denied` on `Gemfile.lock`: Delete the lock file and `bundle install` locally, then push.
+| Error                                 | Fix                                                      |
+| ------------------------------------- | -------------------------------------------------------- |
+| `FrozenError` in SCSS                 | Ensure `_plugins/polyglot_frozen_string_patch.rb` exists |
+| `Permission Denied` on `Gemfile.lock` | Delete lock, `bundle install`, push                      |
+| HTML Proofer link failures            | Add domain to `--ignore-urls` in workflow                |
+| Bundle size exceeded                  | Audit `script.js`, remove unused code                    |
 
 ---
 
-## 📱 PWA AUDIT GUIDE (LIGHTHOUSE 100)
+## 🔌 ADDING NEW PLUGINS
 
-To maintain a perfect score:
-
-- **Maskable Icons:** Ensure `manifest.json` points to icons with `purpose: "any maskable"`.
-- **Offline First:** Verify `service-worker.js` caches `index.html` and the search index `search.json`.
-- **Theme Color:** Sync the `meta name="theme-color"` in `head.html` with `manifest.json`.
-
----
-
-## 🔄 EXTREME ROLLBACK PROTOCOL
-
-If a deployment breaks the site:
-
-1. **Quick Revert:**
-   ```bash
-   git revert HEAD
-   git push origin main
-   ```
-2. **Actions Override:** Go to GitHub Repository → Actions → Select the last stable run → "Re-run all jobs".
-   _Note: This only works if the previous stable build artifacts are still stored._
+1. Add gem to `Gemfile` (in `jekyll_plugins` group)
+2. Add to `plugins:` list in `_config.yml`
+3. Run `bundle install`
+4. Test: `JEKYLL_ENV=production bundle exec jekyll build`
+5. **Never add `jekyll-webp`** — excluded per user decision
 
 ---
 
-## 🔍 SEO & HREFLANG VALIDATION
+## 📝 ADDING NEW POSTS
 
-After deploy, run this check in terminal:
+Every post needs **4 language versions** with **identical `permalink`**:
+
+```yaml
+# _posts/2026-03-15-my-post-en.md
+---
+layout: post
+title: "My Post Title"
+date: 2026-03-15
+lang: en
+permalink: /blog/my-post/
+category: gamedev
+tags: [unity, csharp]
+description: "Short description for SEO."
+# toc: true  ← optional, enables Table of Contents
+---
+```
+
+Repeat for `-uk.md`, `-ru.md`, `-ko.md` with same `permalink`.
+
+**Archives auto-generate:** Adding `category: gamedev` and `tags: [unity]` creates pages at `/blog/category/gamedev/` and `/blog/tag/unity/` automatically.
+
+---
+
+## 📱 PWA AUDIT
+
+- **Manifest:** `manifest.json` at root, linked from `head.html`
+- **Icons:** `apple-touch-icon` + `shortcut icon` in `head.html`
+- **Theme Color:** Sync `<meta name="theme-color">` with `manifest.json` (`#f2f0eb`)
+- **Offline:** `service-worker.js` → Workbox precaches `index.html` + assets
+
+---
+
+## 🔍 SEO VALIDATION
+
+After deploy, verify hreflang:
 
 ```bash
 curl -sL https://figarist.github.io/uk/ | grep "hreflang"
 ```
 
-You should see:
+Expected: `en`, `uk`, `ru`, `ko`, `x-default`
 
-- `<link rel="alternate" hreflang="en" ...>`
-- `<link rel="alternate" hreflang="uk" ...>`
-- `<link rel="alternate" hreflang="ru" ...>`
-- `<link rel="alternate" hreflang="ko" ...>`
-- `<link rel="alternate" hreflang="x-default" ...>`
+Verify JSON-LD:
+
+```bash
+curl -sL https://figarist.github.io/blog/unity-charge-mechanic/ | grep "BlogPosting"
+```
+
+Expected: `"@type": "BlogPosting"` with `datePublished`, `dateModified`
+
+---
+
+## 🔄 ROLLBACK
+
+```bash
+git revert HEAD
+git push origin main
+```
+
+Or: GitHub → Actions → last stable run → "Re-run all jobs"
 
 ---
 

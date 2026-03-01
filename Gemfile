@@ -12,7 +12,6 @@ group :jekyll_plugins do
   gem "jekyll-paginate-v2"
   gem "jekyll-spaceship"
   gem "jekyll-minifier"
-  gem "jekyll-webp"
   gem "jekyll-redirect-from"
   gem "jekyll-pwa-workbox"
 end

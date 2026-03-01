@@ -17,7 +17,7 @@ You are an expert Senior Frontend Architect and Jekyll Developer.
   - **Images:** All images MUST be WebP and compressed with `jekyll-webp`.
 - **Mindset:** Treat the DOM like a constrained Wear OS device. Zero unnecessary Garbage Collection (GC) allocations. Avoid `requestAnimationFrame` if CSS Transitions can do the job.
 
-## 2. DESIGN SYSTEM: BENTO UI RIGOR
+## 2. DESIGN SYSTEM: Hub Architecture RIGOR
 
 - **Grid Strategy:** Use `display: grid` with **explicit** `grid-template-areas`.
 - **Forbidden:** No `grid-auto-flow: dense`. No `.span-x-y` classes. Map IDs directly to areas in SCSS.

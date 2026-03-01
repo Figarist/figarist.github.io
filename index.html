@@ -2,12 +2,12 @@
 layout: default
 ---
 
-<div class="bento-grid" id="bento-grid">
+<div class="hub-grid" id="hub-grid">
 
   <!-- ══════════════════════════════════════════
            CARD 1 — BIO (2 col × 1 row)
            ══════════════════════════════════════════ -->
-  <article class="bento-card card--bio fade-in" id="bio">
+  <article class="hub-card card--bio fade-in" id="bio">
     <div class="bio__doodles" aria-hidden="true">
       <span class="doodle doodle--star">✦</span>
       <span class="doodle doodle--bracket">{ }</span>
@@ -33,7 +33,7 @@ layout: default
   <!-- ══════════════════════════════════════════
            CARD 2 — WRIST & POCKET STUDIO (2 col × 2 row)
            ══════════════════════════════════════════ -->
-  <a href="https://wristandpocket.github.io" target="_blank" rel="noopener" class="bento-card card--studio fade-in"
+  <a href="https://wristandpocket.github.io" target="_blank" rel="noopener" class="hub-card card--studio fade-in"
     id="studio" aria-label="{{ site.data[site.active_lang].strings.aria_visit_studio }}">
 
     <div class="studio__header">
@@ -98,7 +98,7 @@ layout: default
   <!-- ══════════════════════════════════════════
            CARD 3 — WEBGl PLAYGROUND (2 col × 2 row)
            ══════════════════════════════════════════ -->
-  <article class="bento-card card--webgl fade-in" id="webgl">
+  <article class="hub-card card--webgl fade-in" id="webgl">
     <div class="webgl__header">
       <span class="webgl__icon">⚡</span>
       <h2 class="webgl__title">WebGL Playground</h2>
@@ -140,7 +140,7 @@ layout: default
   <!-- ══════════════════════════════════════════
            CARD 4 — TECH STACK (1 col × 1 row)
            ══════════════════════════════════════════ -->
-  <article class="bento-card card--stack fade-in" id="stack">
+  <article class="hub-card card--stack fade-in" id="stack">
     <div class="card-label">{{ site.data[site.active_lang].strings.tech_stack_label }}</div>
     <div class="blueprint-grid" aria-hidden="true"></div>
     <div class="stack__icons">
@@ -166,7 +166,7 @@ layout: default
   <!-- ══════════════════════════════════════════
            CARD 5 — NINTENDO SHRINE (1 col × 2 row)
            ══════════════════════════════════════════ -->
-  <article class="bento-card card--shrine fade-in" id="shrine">
+  <article class="hub-card card--shrine fade-in" id="shrine">
     <h2 style="font-size: 1.5rem; margin-bottom: 8px;">{{ site.data[site.active_lang].strings.shrine_title }}</h2>
     <p style="color: var(--text-muted); font-size: 0.9rem; margin-bottom: 16px;">
       {{ site.data[site.active_lang].strings.shrine_desc }}
@@ -176,25 +176,11 @@ layout: default
     </a>
   </article>
 
-  <!-- ══════════════════════════════════════════
-           CARD 6 — TEACHING (1 col × 1 row)
-           ══════════════════════════════════════════ -->
-  <article class="bento-card card--teaching fade-in" id="teaching">
-    <div class="card-label">{{ site.data[site.active_lang].strings.classroom_label }}</div>
-    <div class="teaching__icon" aria-hidden="true">🧑‍🏫</div>
-    <h3 class="teaching__title">{{ site.data[site.active_lang].strings.teaching_title }}</h3>
-    <p class="teaching__desc">
-      {{ site.data[site.active_lang].strings.teaching_desc }}
-    </p>
-    <a href="{{ '/blog/what-is-a-file/' | relative_url }}" class="teaching__cta">
-      {{ site.data[site.active_lang].strings.teaching_cta }}
-    </a>
-  </article>
 
   <!-- ══════════════════════════════════════════
            CARD 7 — PYTHON LO-FI (1 col × 1 row)
            ══════════════════════════════════════════ -->
-  <article class="bento-card card--python fade-in" id="python">
+  <article class="hub-card card--python fade-in" id="python">
     <div class="card-label">{{ site.data[site.active_lang].strings.utility_core_label }}</div>
     <div class="python__terminal">
       <div class="terminal__bar">
@@ -218,7 +204,7 @@ layout: default
   <!-- ══════════════════════════════════════════
            CARD 8 — VR NEWS & LIFE FEED (2 col × 1 row)
            ══════════════════════════════════════════ -->
-  <article class="bento-card card--feed card--feed-vr fade-in" id="feed-vr">
+  <article class="hub-card card--feed card--feed-vr fade-in" id="feed-vr">
     <div class="card-label">{{ site.data[site.active_lang].strings.vr_life_label }}</div>
     <h2 class="feed__heading">
       {{ site.data[site.active_lang].strings.vr_heading }}
@@ -250,7 +236,7 @@ layout: default
   <!-- ══════════════════════════════════════════
            CARD 9 — UNITY & GAMEDEV FEED (2 col × 1 row)
            ══════════════════════════════════════════ -->
-  <article class="bento-card card--feed card--feed-gamedev fade-in" id="feed-gamedev">
+  <article class="hub-card card--feed card--feed-gamedev fade-in" id="feed-gamedev">
     <div class="card-label">{{ site.data[site.active_lang].strings.workshop_label }}</div>
     <h2 class="feed__heading">{{ site.data[site.active_lang].strings.gamedev_heading }}</h2>
     <p class="feed__subtitle">
@@ -280,7 +266,7 @@ layout: default
   <!-- ══════════════════════════════════════════
            CARD 10 — PERSONAL / VLOG FEED (1 col × 1 row)
            ══════════════════════════════════════════ -->
-  <article class="bento-card card--feed card--feed-personal fade-in" id="feed-personal">
+  <article class="hub-card card--feed card--feed-personal fade-in" id="feed-personal">
     <div class="card-label">{{ site.data[site.active_lang].strings.vlog_label }}</div>
     <h2 class="feed__heading">
       {{ site.data[site.active_lang].strings.personal_heading }}
@@ -312,7 +298,7 @@ layout: default
   <!-- ══════════════════════════════════════════
            CARD 11 — EDUCATION COLLECTION (1 col × 1 row)
            ══════════════════════════════════════════ -->
-  <article class="bento-card card--feed card--feed-edu fade-in" id="feed-edu">
+  <article class="hub-card card--feed card--feed-edu fade-in" id="feed-edu">
     <div class="card-label">{{ site.data[site.active_lang].strings.education_label }}</div>
     <h2 class="feed__heading">
       {{ site.data[site.active_lang].strings.edu_heading }}
@@ -340,46 +326,5 @@ layout: default
     </a>
   </article>
 
-  <!-- ══════════════════════════════════════════
-           CARD 9 — CONTACT / SOCIAL BAR (4 col × 1 row)
-           ══════════════════════════════════════════ -->
-  <div class="bento-card card--contact fade-in" id="contact">
-    <p class="contact__intro">
-      {{ site.data[site.active_lang].strings.contact_intro }}
-    </p>
-    <div class="contact__links">
 
-      <a href="https://github.com/Figarist" target="_blank" rel="noopener" class="contact__link" id="link-github">
-        <svg viewBox="0 0 24 24" aria-hidden="true">
-          <path
-            d="M12 2C6.477 2 2 6.477 2 12c0 4.42 2.865 8.166 6.839 9.489.5.092.682-.217.682-.482 0-.237-.009-.866-.013-1.7-2.782.604-3.369-1.34-3.369-1.34-.454-1.156-1.11-1.464-1.11-1.464-.908-.62.069-.607.069-.607 1.003.07 1.531 1.03 1.531 1.03.892 1.529 2.341 1.087 2.91.831.092-.646.35-1.086.636-1.336-2.22-.253-4.555-1.11-4.555-4.943 0-1.091.39-1.984 1.029-2.683-.103-.253-.446-1.27.098-2.647 0 0 .84-.269 2.75 1.025A9.578 9.578 0 0 1 12 6.836a9.59 9.59 0 0 1 2.504.337c1.909-1.294 2.747-1.025 2.747-1.025.546 1.377.203 2.394.1 2.647.64.699 1.028 1.592 1.028 2.683 0 3.842-2.339 4.687-4.566 4.935.359.309.678.919.678 1.852 0 1.336-.012 2.415-.012 2.743 0 .267.18.578.688.48C19.138 20.161 22 16.416 22 12c0-5.523-4.477-10-10-10z" />
-        </svg>
-        GitHub
-      </a>
-
-      <a href="https://www.youtube.com/@proVR_ua" target="_blank" rel="noopener" class="contact__link"
-        id="link-youtube">
-        <svg viewBox="0 0 24 24" aria-hidden="true">
-          <path
-            d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z" />
-        </svg>
-        YouTube
-      </a>
-
-      <a href="mailto:igorsivoch@gmail.com" class="contact__link" id="link-email">
-        <svg viewBox="0 0 24 24" aria-hidden="true">
-          <path
-            d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4-8 5-8-5V6l8 5 8-5v2z" />
-        </svg>
-        Email
-      </a>
-
-      <a href="https://wristandpocket.github.io" target="_blank" rel="noopener"
-        class="contact__link contact__link--primary" id="link-studio">
-        {{ site.data[site.active_lang].strings.studio_site }}
-      </a>
-
-    </div>
-  </div>
-
-</div><!-- /.bento-grid -->
+</div><!-- /.hub-grid -->

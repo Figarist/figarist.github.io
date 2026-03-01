@@ -5,7 +5,7 @@ related_posts: "Keep Reading"
 # BIO CARD
 bio_roles: "Unity Dev · Educator · Retro Enthusiast"
 bio_location: "Zmiiv, Ukraine"
-bio_tagline: "Building tiny worlds for tiny screens — and teaching kids what a file actually is."
+bio_tagline: "Building tiny worlds for tiny screens — indie gamedev and educator."
 author_name: "Ihor Sivochka"
 author_bio: "Indie Game Developer, Wear OS enthusiast, and CS Teacher. Founder of Wrist & Pocket Studio. Passionate about retro hardware and building interactive digital experiences."
 
@@ -24,10 +24,6 @@ webgl_caption: "Future home of interactive Unity mini-games."
 # SHRINE CARD
 shrine_desc: "Nintendo DS archive, Switch & Simcade rig."
 shrine_cta: "Unlock the vault →"
-
-# TEACHING CARD
-teaching_desc: "Lesson plans & activities for 3rd-grade CS fundamentals."
-teaching_cta: "Read lesson →"
 
 # PYTHON CARD
 python_desc: "Transforms audio into cozy lo-fi with vinyl crackle."
@@ -75,6 +71,10 @@ head_og_desc: "Unity developer, founder of Wrist & Pocket Studio, and computer s
 
 # FOOTER
 footer_compiled: "Compiled by"
+footer_explore: "Explore"
+footer_connect: "Connect"
+footer_handmade: "Built with heart & code in Ukraine."
+footer_rights: "All rights reserved."
 
 # OG LOCALES
 head_og_locale: en_US
@@ -87,7 +87,6 @@ studio_badge: "FLAGSHIP"
 studio_cta_text: "Visit Studio"
 shrine_title: "The Shrine"
 tech_stack_label: "TECH_STACK"
-classroom_label: "CLASSROOM"
 utility_core_label: "UTILITY_CORE"
 vr_life_label: "VR_LIFE"
 workshop_label: "THE_WORKSHOP"
@@ -97,11 +96,10 @@ education_label: "EDUCATION"
 aria_visit_studio: "Visit Wrist & Pocket Studio"
 aria_load_webgl: "Click to load WebGL demo"
 webgl_iframe_title: "Unity WebGL Demo"
-teaching_title: "What is a File?"
 python_title: "Python Lo-Fi Tool"
 error_404_title: "404 — Not Found"
 error_404_h2: "File Not Found"
-error_404_text: "Unlike my 3rd-grade students, this server doesn't know what a file is or where to find it."
+error_404_text: "The page you looking for doesn't exist or has been moved."
 error_404_back: "← Back to Base"
 shrine_long_desc: "A collection that inspires making my own games. From the limited hardware of Nintendo DS to a modern sim racing rig."
 shrine_section_handhelds: "Nintendo Handhelds"

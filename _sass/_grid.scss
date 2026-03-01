@@ -3,14 +3,14 @@
    ============================================================ */
 
 /* ======================== BENTO PAGE ======================== */
-.jekyll-main.bento-page {
+.jekyll-main.hub-page {
   padding-top: 85px !important; /* Forces override against global .jekyll-main shorthand */
 }
 
 /* ======================== BENTO GRID ======================== */
-.bento-grid {
+.hub-grid {
   display: grid;
-  gap: var(--bento-gap);
+  gap: var(--hub-gap);
   /* Гнучкі відступи: на ПК більше простору, на планшетах менше */
   padding: clamp(16px, 3vw, 32px);
   max-width: 1300px;
@@ -26,8 +26,7 @@
     "webgl        webgl        shrine"
     "feed-vr      feed-vr      feed-gamedev"
     "feed-vr      feed-vr      feed-gamedev"
-    "feed-personal feed-edu   python"
-    "teach        contact      contact";
+    "feed-personal feed-edu   python";
 }
 
 #bio {
@@ -80,7 +79,7 @@
 
 /* ======================== ПЛАНШЕТ (ПЕРЕХІДНИЙ СТАН) ======================== */
 @media (max-width: 1080px) {
-  .bento-grid {
+  .hub-grid {
     max-width: 800px;
     /* Звужуємо для акуратного вигляду 2-х колонок */
     grid-template-columns: repeat(2, 1fr);
@@ -88,11 +87,9 @@
       "bio     bio"
       "studio  studio"
       "webgl   webgl"
-      "blog    blog"
+      "feed-vr feed-gamedev"
       "stack   python"
-      "shrine  shrine"
-      "teach   teach"
-      "contact contact";
+      "shrine  shrine";
   }
 
   /* Hide text links before they squash on iPad profiles */
@@ -105,14 +102,14 @@
 @media (max-width: 768px) {
 
   /* Збільшив breakpoint до 768px для надійності */
-  .bento-grid {
+  .hub-grid {
     display: flex;
     flex-direction: column;
     gap: 16px;
     padding: 16px;
   }
 
-  .jekyll-main.bento-page {
+  .jekyll-main.hub-page {
     padding-top: calc(85px + env(safe-area-inset-top)) !important;
     margin-top: 0 !important;
   }
@@ -130,7 +127,7 @@
     display: inline-flex;
   }
 
-  .bento-grid {
+  .hub-grid {
     grid-template-areas:
       "bio"
       "studio"
@@ -141,9 +138,7 @@
       "feed-gamedev"
       "feed-personal"
       "feed-edu"
-      "teaching"
-      "python"
-      "contact";
+      "python";
     grid-template-columns: 1fr;
   }
 }

@@ -18,7 +18,7 @@ title_key: education_hub_title
     <div style="display: flex; flex-direction: column; gap: 16px;">
         {% assign sorted_edu = site.education | where: "lang", site.active_lang | sort: "sort_order" %}
         {% for item in sorted_edu %}
-        <a href="{{ item.url | relative_url }}" class="bento-card fade-in"
+        <a href="{{ item.url | relative_url }}" class="hub-card fade-in"
             style="text-decoration: none; padding: 24px; transition: transform 0.2s; display: block;">
 
             {% if item.level %}

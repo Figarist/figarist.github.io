@@ -1,0 +1,16 @@
+﻿  Jekyll Spaceship: [1mЁЯЪА Jekyll-Spaceship 0.10.2[0m
+  Jekyll Spaceship: [1mЁЯОЙ A Jekyll plugin to provide powerful supports.[0m
+  Jekyll Spaceship: [1mЁЯСЙ [4mhttps://github.com/jeffreytse/jekyll-spaceship[0m
+Configuration file: D:/GitHub/figarist.github.io/_config.yml
+  Jekyll Spaceship: [1mЁЯЧВ  use table-processor[0m
+  Jekyll Spaceship: [1mЁЯЧВ  use mathjax-processor[0m
+  Jekyll Spaceship: [1mЁЯЧВ  use plantuml-processor[0m
+  Jekyll Spaceship: [1mЁЯЧВ  use mermaid-processor[0m
+  Jekyll Spaceship: [1mЁЯЧВ  use polyfill-processor[0m
+  Jekyll Spaceship: [1mЁЯЧВ  use media-processor[0m
+  Jekyll Spaceship: [1mЁЯЧВ  use emoji-processor[0m
+  Jekyll Spaceship: [1mЁЯЧВ  use element-processor[0m
+            Source: D:/GitHub/figarist.github.io
+       Destination: D:/GitHub/figarist.github.io/_site
+ Incremental build: disabled. Enable with --incremental
+      Generating... 

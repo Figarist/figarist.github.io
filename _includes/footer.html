@@ -1,4 +1,50 @@
-<footer class="bento-footer">
-    <p>{{ site.data[site.active_lang].strings.footer_compiled }} {{ site.data[site.active_lang].strings.author_name | default: 'Ihor Sivochka' }} &copy; {{ 'now' | date: "%Y" }}
-    </p>
+<footer class="hub-footer">
+    <div class="footer-container">
+        <div class="footer-grid">
+            <!-- Brand Section -->
+            <div class="footer-section brand">
+                <h3 class="footer-logo">{{ site.title }}</h3>
+                <p class="footer-tagline">{{ site.data[site.active_lang].strings.footer_handmade }}</p>
+                <div class="footer-social">
+                    <a href="https://github.com/Figarist" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>
+                    </a>
+                    <a href="https://www.youtube.com/@proVR_ua" target="_blank" rel="noopener noreferrer" aria-label="YouTube">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.33 29 29 0 0 0-.46-5.33z"></path><polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02"></polygon></svg>
+                    </a>
+                    <a href="https://t.me/proVR_ua" target="_blank" rel="noopener noreferrer" aria-label="Telegram">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Explore Section -->
+            <div class="footer-section links">
+                <h4>{{ site.data[site.active_lang].strings.footer_explore }}</h4>
+                <ul>
+                    <li><a href="{{ '/' | relative_url }}">{{ site.data[site.active_lang].strings.nav_brand }}</a></li>
+                    <li><a href="{{ '/blog/' | relative_url }}">{{ site.data[site.active_lang].strings.workshop_label }}</a></li>
+                    <li><a href="{{ '/education/' | relative_url }}">{{ site.data[site.active_lang].strings.education_label }}</a></li>
+                </ul>
+            </div>
+
+            <!-- Connect Section -->
+            <div class="footer-section links">
+                <h4>{{ site.data[site.active_lang].strings.footer_connect }}</h4>
+                <ul>
+                    <li><a href="https://wristandpocket.github.io" target="_blank">{{ site.data[site.active_lang].strings.nav_studio }}</a></li>
+                    <li><a href="mailto:{{ site.email | default: 'figarist@gmail.com' }}">Email</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <div class="copyright">
+                &copy; {{ 'now' | date: "%Y" }} {{ site.author.name }}. {{ site.data[site.active_lang].strings.footer_rights }}
+            </div>
+            <div class="compiled-by">
+                {{ site.data[site.active_lang].strings.footer_compiled }} <a href="https://github.com/Figarist" target="_blank">@Figarist</a>
+            </div>
+        </div>
+    </div>
 </footer>

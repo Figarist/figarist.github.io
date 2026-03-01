@@ -259,6 +259,10 @@
       .then(function(data) {
         searchStore = data;
         lunrIndex = lunr(function() {
+          // Disable stemming to ensure technical terms (Unity, C#, etc.) match exactly
+          this.pipeline.remove(lunr.stemmer);
+          this.searchPipeline.remove(lunr.stemmer);
+
           this.ref('id');
           this.field('title', { boost: 10 });
           this.field('tags', { boost: 5 });

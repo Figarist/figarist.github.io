@@ -14,6 +14,7 @@ group :jekyll_plugins do
   gem "jekyll-minifier"
   gem "jekyll-webp"
   gem "jekyll-redirect-from"
+  gem "jekyll-pwa-workbox"
 end
 
 # Required for Ruby 3.x local dev server (WEBrick removed from stdlib)

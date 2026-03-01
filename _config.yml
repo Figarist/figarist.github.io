@@ -53,6 +53,7 @@ plugins:
   - jekyll-minifier
   - jekyll-webp
   - jekyll-redirect-from
+  - jekyll-pwa-workbox
 
 # ── Pagination Settings ──────────────────────────────────────
 pagination:
@@ -139,3 +140,12 @@ webp:
   img_dir: ["assets/images"] # Our main image directory
   formats: [".jpeg", ".jpg", ".png", ".tiff"]
   append_ext: false # Replaces the extension (image.webp) instead of appending (image.png.webp)
+
+# ── PWA Settings ──────────────────────────────────────────────
+pwa:
+  sw_src_filepath: "service-worker.js"
+  sw_dest_filename: "sw.js"
+  precache_glob_directory: "_site"
+  precache_glob_patterns:
+    - "assets/**/*.{js,css,webp,svg}"
+    - "index.html"

@@ -12,14 +12,24 @@
   var fadeEls = document.querySelectorAll('.fade-in');
 
   if ('IntersectionObserver' in window) {
+    var lastIntersectTime = 0;
+    var batchStaggerCount = 0;
+
     var observer = new IntersectionObserver(
       function (entries) {
         entries.forEach(function (entry) {
           if (entry.isIntersecting) {
-            // Staggered delay based on element position in grid
-            var delay = 0;
-            var idx = Array.prototype.indexOf.call(fadeEls, entry.target);
-            if (idx > 0) delay = idx * 100; // 100ms per card for an even smoother, cinematic sequence
+            var now = performance.now();
+            // If more than 100ms passed since last intersection, reset the batch stagger
+            if (now - lastIntersectTime > 100) {
+              batchStaggerCount = 0;
+            }
+
+            // Staggered delay only for elements entering at the "same" time
+            var delay = batchStaggerCount * 80; // 80ms per card in a batch sequence
+            batchStaggerCount++;
+            lastIntersectTime = now;
+
             setTimeout(function () {
               entry.target.classList.add('visible');
             }, delay);

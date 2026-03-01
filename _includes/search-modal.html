@@ -21,28 +21,32 @@
           id="search-input-label"
           for="search-input"
           class="visually-hidden"
-          >Search site</label
+          >{{ site.data[site.active_lang].strings.search_label }}</label
         >
         <input
           type="text"
           id="search-input"
-          placeholder="{{ site.data[site.active_lang].strings.search_placeholder | default: 'Search posts, tutorials, tags... (Cmd+K)' }}"
+          placeholder="{{ site.data[site.active_lang].strings.search_placeholder }}"
           autocomplete="off"
         />
         <button
           id="close-search"
           class="btn-close-search"
-          aria-label="Close search"
+          aria-label="{{ site.data[site.active_lang].strings.search_close_label }}"
         >
           ×
         </button>
       </div>
-      <div id="search-results" class="search-results">
+      <div 
+        id="search-results" 
+        class="search-results"
+        data-no-results="{{ site.data[site.active_lang].strings.search_no_results }}"
+      >
         <!-- Results will be injected here -->
       </div>
       <div class="search-footer">
-        <span class="search-hint"><kbd>Enter</kbd> to select</span>
-        <span class="search-hint"><kbd>Esc</kbd> to close</span>
+        <span class="search-hint"><kbd>Enter</kbd> {{ site.data[site.active_lang].strings.search_select_hint }}</span>
+        <span class="search-hint"><kbd>Esc</kbd> {{ site.data[site.active_lang].strings.search_close_hint }}</span>
       </div>
     </div>
   </div>

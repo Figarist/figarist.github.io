@@ -307,7 +307,8 @@
         }
       });
     } else {
-      html = '<p class="search-no-results">No matches found for "' + query + '"</p>';
+      var noResultsFoundText = searchResults.getAttribute('data-no-results') || 'No matches found for';
+      html = '<p class="search-no-results">' + noResultsFoundText + ' "' + query + '"</p>';
     }
 
     searchResults.innerHTML = html;

@@ -1,4 +1,6 @@
-{% assign author = site.data.authors[include.author | default: page.author | default: 'ihor'] %}
+{% assign author_id = include.author | default: page.author | default: 'ihor' %}
+{% if author_id.name %}{% assign author_id = 'ihor' %}{% endif %}
+{% assign author = site.data.authors[author_id] | default: site.data.authors['ihor'] %}
 {% if author %}
 <section class="author-box fade-in" itemprop="author" itemscope itemtype="https://schema.org/Person">
     <div class="author-box__avatar">

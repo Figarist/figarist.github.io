@@ -29,6 +29,7 @@ const portfolio = {
     frontend: "Jekyll + Pure HTML5 + CSS3 + Vanilla JS",
     architecture: "Bento Grid UI",
     i18n: "jekyll-polyglot (EN, UK, RU, KO)",
+    ux: "View Transitions API + Reading Progress + Code Copy",
     hosting: "GitHub Pages (via GitHub Actions)",
   },
 };
@@ -60,8 +61,9 @@ figarist.github.io/
 │   └── jekyll.yml          # GitHub Actions CI/CD (Polyglot build + HTML minify)
 ├── index.html              # Bento UI Hub (Polyglot builds EN, UK, RU, KO from this)
 ├── 404.html                # Custom 404 page (quadrilingual)
-├── script.js               # Main JS (scroll anim, WebGL overlay, card tilt, parallax)
+├── script.js               # Main JS (scroll anim, WebGL, tilt, progress, code copy)
 ├── robots.txt              # SEO crawl rules
+├── deployment_guide.md     # Deployment & local setup guide
 │
 ├── _config.yml             # Jekyll config (title, url, plugins, languages, collections)
 ├── Gemfile                 # Ruby dependencies (Jekyll, Polyglot, SEO, Sitemap, Feed)
@@ -116,6 +118,7 @@ figarist.github.io/
 > [!NOTE]
 > **Architectural rules:** Layout MUST use `display: grid` with explicit `grid-template-areas`.
 > Fractional span classes (`.span-X-X`) and `grid-auto-flow: dense` are FORBIDDEN.
+> **UX Rule:** All code blocks must have the automated copy button.
 
 <br/>
 
@@ -199,10 +202,11 @@ Generated in `_includes/header.html` via a `{% for lang in site.languages %}` lo
 
 1. **Core Philosophy:** Pure HTML5, CSS3, Vanilla JS, and Liquid / Jekyll layout. No heavy NPM packages. No React.
 2. **Quadrilingual Sync:** Write content **once** in `index.html` using localized data lookups `{{ site.data[site.active_lang].strings.key }}`. `jekyll-polyglot` generates all 4 languages automatically (`/`, `/uk/`, `/ru/`, `/ko/`) — never copy files manually.
-3. **DRY Includes:** Header, nav, and footer are modularized via `_includes/`. Never duplicate these parts across documents.
-4. **WebGL & Media:** WebGL canvases MUST be wrapped in a stateless click-to-play iframe overlay. Images should use `.webp` formatting and contain `loading="lazy"` tags.
-5. **SEO & Performance:** The site uses `jekyll-seo-tag`, `jekyll-sitemap`, and `jekyll-feed` for automated SEO. Maintain proper YAML Front Matter (`title`, `description`, `image:`, `tags`). Polyglot generates hreflang tags automatically.
-6. **Custom Plugin:** Do NOT remove `_plugins/polyglot_frozen_string_patch.rb` — it fixes a critical `FrozenError` in Polyglot's interaction with SCSS.
+3. **UX & Interactivity:** Use View Transitions API for seamless navigation. Reading progress and code copy buttons must be handled by Vanilla JS in `script.js`.
+4. **DRY Includes:** Header, nav, and footer are modularized via `_includes/`. Never duplicate these parts across documents.
+5. **WebGL & Media:** WebGL canvases MUST be wrapped in a stateless click-to-play iframe overlay. Images should use `.webp` formatting and contain `loading="lazy"` tags.
+6. **SEO & Performance:** The site uses `jekyll-seo-tag`, `jekyll-sitemap`, and `jekyll-feed` for automated SEO. Maintain proper YAML Front Matter (`title`, `description`, `image:`, `tags`). Polyglot generates hreflang tags automatically.
+7. **Custom Plugin:** Do NOT remove `_plugins/polyglot_frozen_string_patch.rb` — it fixes a critical `FrozenError` in Polyglot's interaction with SCSS.
 
 <br/>
 

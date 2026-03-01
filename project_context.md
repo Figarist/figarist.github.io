@@ -17,6 +17,7 @@
 - **Markdown:** kramdown + rouge (підсвітка коду)
 - **Шрифти:** `Outfit` (sans) + `Fira Code` (mono) з Google Fonts
 - **Аналітика:** Plausible (privacy-first, zero cookies, no GDPR banner)
+- **UX Tech:** View Transitions API (Cross-document native transitions)
 
 ---
 
@@ -34,8 +35,9 @@ figarist.github.io/
 │
 ├── index.html                  # Bento Hub (Мультимовний — Polyglot збирає з нього 4 версії)
 ├── 404.html                    # Кастомна 404 сторінка (квадрилінгвальна)
-├── script.js                   # Головний JS (scroll anim, WebGL overlay, card tilt, parallax, email copy)
+├── script.js                   # Головний JS (scroll anim, WebGL overlay, tilt, reading progress, code copy)
 ├── robots.txt                  # SEO crawl rules
+├── deployment_guide.md         # Покроковий гайд по деплою та локальному запуску
 │
 ├── _includes/
 │   ├── head.html               # <head> + jekyll-seo-tag + Polyglot hreflang + auto-redirect script
@@ -133,7 +135,7 @@ figarist.github.io/
 --font-sans: "Outfit", system-ui, -apple-system, sans-serif;
 --font-mono: "Fira Code", "Courier New", monospace;
 
-/* Transitions */
+/* Transitions & Animations */
 --t-fast: 0.18s ease;
 --t-med: 0.28s ease;
 --t-slow: 0.45s ease;
@@ -387,7 +389,9 @@ level: beginner # beginner | intermediate | advanced
 | §3     | Card subtle tilt 4° на mousemove (крім `.card--studio`, `.card--contact`) |
 | §4     | Bio card doodle parallax                                                  |
 | §5     | Email copy to clipboard                                                   |
-| §6     | View Transitions API (CSS fade + morphing)                                |
+| §6     | Reading Progress Bar (dynamic scroll tracking)                            |
+| §7     | Code Copy Buttons (vanilla clipboard integration)                         |
+| §8     | View Transitions API (CSS fade + morphing)                                |
 
 ---
 

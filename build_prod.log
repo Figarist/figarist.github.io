@@ -1,0 +1,48 @@
+  Jekyll Spaceship: [1m🚀 Jekyll-Spaceship 0.10.2[0m
+  Jekyll Spaceship: [1m🎉 A Jekyll plugin to provide powerful supports.[0m
+  Jekyll Spaceship: [1m👉 [4mhttps://github.com/jeffreytse/jekyll-spaceship[0m
+Configuration file: D:/GitHub/figarist.github.io/_config.yml
+  Jekyll Spaceship: [1m🗂  use table-processor[0m
+C:/Ruby34-x64/lib/ruby/gems/3.4.0/gems/jekyll-spaceship-0.10.2/lib/jekyll-spaceship/processors/table-processor.rb:3: warning: ostruct was loaded from the standard library, but will no longer be part of the default gems starting from Ruby 4.0.0.
+You can add ostruct to your Gemfile or gemspec to silence this warning.
+  Jekyll Spaceship: [1m🗂  use mathjax-processor[0m
+  Jekyll Spaceship: [1m🗂  use plantuml-processor[0m
+C:/Ruby34-x64/lib/ruby/3.4.0/win32/registry.rb:2: warning: fiddle/import is found in fiddle, which will no longer be part of the default gems starting from Ruby 4.0.0.
+You can add fiddle to your Gemfile or gemspec to silence this warning.
+  Jekyll Spaceship: [1m🗂  use mermaid-processor[0m
+  Jekyll Spaceship: [1m🗂  use polyfill-processor[0m
+  Jekyll Spaceship: [1m🗂  use media-processor[0m
+  Jekyll Spaceship: [1m🗂  use emoji-processor[0m
+  Jekyll Spaceship: [1m🗂  use element-processor[0m
+            Source: D:/GitHub/figarist.github.io
+       Destination: D:/GitHub/figarist.github.io/_site
+ Incremental build: disabled. Enable with --incremental
+      Generating... 
+         AutoPages: Disabled/Not configured in site.config.
+        Pagination: Complete, processed 1 pagination page(s)
+       Jekyll Feed: Generating feed for posts
+  Jekyll Spaceship: [1m[PolyfillProcessor] _posts/2026-03-01-test-uk.md[0m
+  Jekyll Spaceship: [1m[MermaidProcessor] _posts/2026-03-01-test-uk.md[0m
+  Jekyll Spaceship: [1m[MediaProcessor] _posts/2026-03-01-test-uk.md[0m
+  Jekyll Spaceship: [1m[EmojiProcessor] _posts/2026-03-01-test-uk.md[0m
+  Jekyll Spaceship: [1m[TableProcessor] _posts/2026-03-01-test-uk.md[0m
+  Jekyll Spaceship: [1m[MathjaxProcessor] _posts/2026-03-01-test-uk.md[0m
+  Jekyll Spaceship: [1m[TableProcessor] _education/jekyll-collections-vs-posts-en.md[0m
+  Jekyll Spaceship: [1m[TableProcessor] _education/unity-physics-beginner-guide-en.md[0m
+         AutoPages: Disabled/Not configured in site.config.
+        Pagination: Complete, processed 1 pagination page(s)
+       Jekyll Feed: Generating feed for posts
+  Jekyll Spaceship: [1m[TableProcessor] _education/jekyll-collections-vs-posts-uk.md[0m
+  Jekyll Spaceship: [1m[TableProcessor] _education/unity-physics-beginner-guide-uk.md[0m
+         AutoPages: Disabled/Not configured in site.config.
+        Pagination: Complete, processed 1 pagination page(s)
+       Jekyll Feed: Generating feed for posts
+  Jekyll Spaceship: [1m[TableProcessor] _education/jekyll-collections-vs-posts-ru.md[0m
+  Jekyll Spaceship: [1m[TableProcessor] _education/unity-physics-beginner-guide-ru.md[0m
+         AutoPages: Disabled/Not configured in site.config.
+        Pagination: Complete, processed 1 pagination page(s)
+       Jekyll Feed: Generating feed for posts
+  Jekyll Spaceship: [1m[TableProcessor] _education/jekyll-collections-vs-posts-ko.md[0m
+  Jekyll Spaceship: [1m[TableProcessor] _education/unity-physics-beginner-guide-ko.md[0m
+                    done in 16.772 seconds.
+ Auto-regeneration: disabled. Use --watch to enable.

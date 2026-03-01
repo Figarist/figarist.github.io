@@ -31,8 +31,7 @@ const portfolio = {
     i18n: "jekyll-polyglot (EN, UK, RU, KO)",
     ux: "Ultimate Search (Lunr.js) + View Transitions API + Reading Progress + Code Copy + Spaceship (Mermaid, MathJax) + PWA (Workbox Offline)",
     hosting: "GitHub Pages (via GitHub Actions)",
-    optimization:
-      "Minification (jekyll-minifier) + WebP (jekyll-webp) + SEO Redirects",
+    optimization: "Minification (jekyll-minifier) + SEO Redirects",
   },
 };
 ```

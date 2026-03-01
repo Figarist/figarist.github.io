@@ -11,7 +11,6 @@
 - **Pagination:** `jekyll-paginate-v2` (for blog listing)
 - **SEO Plugins:** `jekyll-seo-tag`, `jekyll-sitemap`, `jekyll-feed`, `jekyll-redirect-from`
 - **PWA Support:** `jekyll-pwa-workbox` (Workbox caching, offline support)
-- **Image Optimization:** `jekyll-webp` (automatic WebP generation)
 - **Minification:** `jekyll-minifier` (HTML/CSS/JS/JSON minification)
 - **Custom Plugin:** `_plugins/polyglot_frozen_string_patch.rb`
 - **Мова шаблонів:** Liquid
@@ -426,8 +425,7 @@ level: beginner # beginner | intermediate | advanced
 
 ## 🚀 BUILD-TIME OPTIMIZATION (Perf Core)
 
-1. **Minification**: `jekyll-minifier` стискає HTML, CSS, JS та JSON прямо під час білду.
-2. **WebP Generation**: `jekyll-webp` автоматично конвертує зображення з `assets/images/` у формат `.webp`.
+2. **Minification**: `jekyll-minifier` стискає HTML, CSS, JS та JSON прямо під час білду.
 3. **SEO Redirects**: `jekyll-redirect-from` підтримує редіректи зі старих URL, інтегрований з Polyglot.
 4. **PWA (Workbox)**: `jekyll-pwa-workbox` створює `sw.js` для кешування ассетів та миттєвого завантаження.
 

@@ -51,7 +51,6 @@ plugins:
   - jekyll-paginate-v2
   - jekyll-spaceship
   - jekyll-minifier
-  - jekyll-webp
   - jekyll-redirect-from
   - jekyll-pwa-workbox
 
@@ -132,14 +131,6 @@ jekyll_minifier:
     - "vendor/**/*"
   uglifier_args:
     harmony: true
-
-# ── WebP Generator Settings ──────────────────────────────────
-webp:
-  enabled: true
-  quality: 85
-  img_dir: ["assets/images"] # Our main image directory
-  formats: [".jpeg", ".jpg", ".png", ".tiff"]
-  append_ext: false # Replaces the extension (image.webp) instead of appending (image.png.webp)
 
 # ── PWA Settings ──────────────────────────────────────────────
 pwa:

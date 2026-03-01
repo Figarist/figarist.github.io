@@ -21,7 +21,7 @@ Harmonious combination of game and educational technologies allows students to p
 
 The first version was released in 2008. Players can create and destroy various objects in a three-dimensional environment using ready-made blocks. Minecraft is a world of cubes or blocks, whose relative size is 1m x 1m x 1m, and each block has a position in the world `x`, `y`, `z`; where `x` and `z` are horizontal positions, and `y` is vertical.
 
-![Image of the 3D coordinate system in the game](/assets/minecraft-coords.png)
+<!-- Image of the 3D coordinate system missing: /assets/minecraft-coords.png -->
 
 ### Python and Minecraft Pi Edition
 

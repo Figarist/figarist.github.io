@@ -21,7 +21,7 @@ description: "마인크래프트를 사용하여 학생들에게 Python 프로�
 
 2008년에 처음 출시된 이 게임에서 플레이어는 준비된 블록을 사용하여 3차원 환경에서 다양한 물체를 만들고 파괴할 수 있습니다. 마인크래프트는 1m x 1m x 1m 크기의 정육면체(블록)로 이루어진 세상이며, 각 블록은 세상 속에서 `x`, `y`, `z` 좌표를 가집니다. 여기서 `x`와 `z`는 가로 위치를, `y`는 세로(높이) 위치를 나타냅니다.
 
-![게임 내 3D 좌표계 이미지](/assets/minecraft-coords.png)
+<!-- Image of the 3D coordinate system missing: /assets/minecraft-coords.png -->
 
 ### Python과 마인크래프트 Pi 에디션
 
@@ -78,4 +78,4 @@ for step in range(0, 1000):
 
 ---
 
-*Wrist & Pocket Studio — [wristandpocket.github.io](https://wristandpocket.github.io)*
+_Wrist & Pocket Studio — [wristandpocket.github.io](https://wristandpocket.github.io)_

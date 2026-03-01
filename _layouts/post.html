@@ -21,6 +21,12 @@ layout: default
     <span class="badge badge--reading-time">⏳ {{ read_time }} {{ site.data[site.active_lang].strings.min_read }}</span>
   </div>
 
+  {% if page.lang != site.active_lang %}
+  <div class="banner--translation-warning">
+    {{ site.data[site.active_lang].strings.translation_fallback_warning }}
+  </div>
+  {% endif %}
+
   <div itemprop="articleBody">
     {{ content | replace: '<img', '<img loading="lazy"' }} </div>
 

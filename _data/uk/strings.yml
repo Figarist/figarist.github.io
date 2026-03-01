@@ -121,3 +121,9 @@ search_close_label: "Закрити пошук"
 search_select_hint: "Enter щоб вибрати"
 search_close_hint: "Esc щоб закрити"
 search_no_results: "Нічого не знайдено за запитом"
+
+# ── Archives ──
+category_label: "Категорія"
+posts_count: "публікацій"
+all_categories: "Усі категорії"
+all_tags: "Усі теги"

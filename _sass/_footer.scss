@@ -1,5 +1,6 @@
 @use "variables" as *;
 
+.hub-footer {
   /* Match Header Width & Floating Feel */
   width: calc(100% - 32px);
   max-width: 1200px;
@@ -29,7 +30,7 @@
 
   .footer-grid {
     display: grid;
-    gap: var(--bento-gap, 20px);
+    gap: var(--hub-gap, 20px);
     grid-template-areas: "brand links-1 links-2";
     grid-template-columns: 2fr 1fr 1fr;
 

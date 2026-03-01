@@ -9,7 +9,10 @@
 - **Plugin Localization:** `jekyll-polyglot` (quadrilingual sync — en, uk, ru, ko)
 - **Technical Visuals:** `jekyll-spaceship` (Mermaid, MathJax, Tables)
 - **Pagination:** `jekyll-paginate-v2` (for blog listing)
-- **SEO Plugins:** `jekyll-seo-tag`, `jekyll-sitemap`, `jekyll-feed`
+- **SEO Plugins:** `jekyll-seo-tag`, `jekyll-sitemap`, `jekyll-feed`, `jekyll-redirect-from`
+- **PWA Support:** `jekyll-pwa-workbox` (Workbox caching, offline support)
+- **Image Optimization:** `jekyll-webp` (automatic WebP generation)
+- **Minification:** `jekyll-minifier` (HTML/CSS/JS/JSON minification)
 - **Custom Plugin:** `_plugins/polyglot_frozen_string_patch.rb`
 - **Мова шаблонів:** Liquid
 - **CSS:** Modular SCSS architecture (`_sass/`) manifest: `assets/css/styles.scss` — NO Tailwind
@@ -38,6 +41,8 @@ figarist.github.io/
 ├── 404.html                    # Кастомна 404 сторінка (квадрилінгвальна)
 ├── script.js                   # Головний JS (scroll, search, WebGL, progress, copy, transitions)
 ├── robots.txt                  # SEO crawl rules
+├── service-worker.js           # Workbox Service Worker source
+├── sw.js                       # Generated Service Worker (build artefact)
 ├── deployment_guide.md         # Покроковий гайд по деплою та локальному запуску
 │
 ├── _data/
@@ -415,6 +420,16 @@ level: beginner # beginner | intermediate | advanced
 | §8     | Ultimate Search (Lunr.js integration + Cmd+K shortcut)                    |
 | §9     | View Transitions API (CSS fade + morphing)                                |
 | §10    | Technical Visuals (Mermaid, MathJax, Tables via jekyll-spaceship)         |
+| §11    | Service Worker Registration (PWA support)                                 |
+
+---
+
+## 🚀 BUILD-TIME OPTIMIZATION (Perf Core)
+
+1. **Minification**: `jekyll-minifier` стискає HTML, CSS, JS та JSON прямо під час білду.
+2. **WebP Generation**: `jekyll-webp` автоматично конвертує зображення з `assets/images/` у формат `.webp`.
+3. **SEO Redirects**: `jekyll-redirect-from` підтримує редіректи зі старих URL, інтегрований з Polyglot.
+4. **PWA (Workbox)**: `jekyll-pwa-workbox` створює `sw.js` для кешування ассетів та миттєвого завантаження.
 
 ---
 

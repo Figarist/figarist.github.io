@@ -41,7 +41,16 @@ exclude:
   - Gemfile.lock
   - node_modules/
   - .agent/
+  - .agents/
   - .git/
+  - build.log
+  - build_prod.log
+  - build_error.txt
+  - build_out.txt
+  - build_trace.txt
+  - build_verbose.txt
+  - deployment_guide.md
+  - project_context.md
 
 # ── Plugins ──────────────────────────────────────────────────
 plugins:
@@ -75,11 +84,18 @@ exclude_from_localization:
   - css
   - javascript
   - images
+  - js
   - sitemap.xml
   - robots.txt
   - styles.scss
   - styles.css
-parallel_localization: false
+  - manifest.json
+  - service-worker.js
+  - sw.js
+  - sw-register.js
+  - redirects.json
+  - 404.html
+parallel_localization: true
 
 # ── Defaults ─────────────────────────────────────────────────
 defaults:

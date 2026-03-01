@@ -18,3 +18,7 @@ end
 
 # Required for Ruby 3.x local dev server (WEBrick removed from stdlib)
 gem "webrick", "~> 1.8"
+
+group :test do
+  gem "html-proofer", "~> 5.0"
+end

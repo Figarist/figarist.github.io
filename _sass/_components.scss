@@ -217,7 +217,7 @@ div.highlight pre {
   display: flex;
   gap: 28px;
   margin-top: 4rem;
-  padding: 32px;
+  padding: 16px 32px;
   background: var(--card-bg);
   border: 1px solid var(--border-light);
   border-radius: var(--card-radius);
@@ -235,17 +235,21 @@ div.highlight pre {
 
 .author-box__avatar {
   flex-shrink: 0;
-  width: 100px;
-  height: 100px;
+  width: 72px;
+  height: 72px;
   border-radius: 50%;
   overflow: hidden;
-  border: 4px solid var(--bg-color);
+  border: 3px solid var(--bg-color);
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  display: flex;
+  align-items: center;
+  justify-content: center;
 
   img {
     width: 100%;
     height: 100%;
     object-fit: cover;
+    display: block;
   }
 }
 
@@ -254,7 +258,7 @@ div.highlight pre {
 }
 
 .author-box__header {
-  margin-bottom: 8px;
+  margin-bottom: 4px;
 }
 
 .author-box__name {
@@ -262,6 +266,7 @@ div.highlight pre {
   font-weight: 700;
   color: var(--text-primary);
   margin-bottom: 2px;
+  line-height: 1;
 }
 
 .author-box__job {
@@ -271,14 +276,15 @@ div.highlight pre {
   text-transform: uppercase;
   color: var(--accent-blue-d);
   letter-spacing: 0.05em;
+  line-height: 1;
 }
 
 .author-box__bio {
-  font-size: 0.95rem;
-  line-height: 1.6;
+  font-size: 0.92rem;
+  line-height: 1.5;
   color: var(--text-secondary);
-  margin-bottom: 20px;
-  max-width: 600px;
+  margin-bottom: 12px;
+  max-width: 650px;
 }
 
 .author-box__socials {
@@ -310,4 +316,5 @@ div.highlight pre {
   &:hover {
     color: var(--text-primary);
   }
+  line-height: 1;
 }

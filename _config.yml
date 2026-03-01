@@ -76,7 +76,7 @@ exclude_from_localization:
   - robots.txt
   - styles.scss
   - styles.css
-parallel_localization: false
+parallel_localization: true
 
 # ── Defaults ─────────────────────────────────────────────────
 defaults:

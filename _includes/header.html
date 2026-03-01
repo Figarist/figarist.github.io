@@ -3,6 +3,7 @@
         <div class="nav-inner">
             <a href="{{ '/' | relative_url }}" class="site-nav__brand" id="site-logo">{{ site.data[site.active_lang].strings.nav_brand }}</a>
             <div class="site-nav__links">
+                {% if page.url == '/' or page.url == '/uk/' or page.url == '/ru/' or page.url == '/ko/' %}
                 <a href="{{ '/' | relative_url }}#studio">
                     {{ site.data[site.active_lang].strings.nav_studio }}
                 </a>
@@ -15,6 +16,7 @@
                 <a href="{{ '/' | relative_url }}#shrine">
                     {{ site.data[site.active_lang].strings.nav_shrine }}
                 </a>
+                {% endif %}
 
                 <!-- Language Switcher (Polyglot) -->
                 {% assign bare_url = page.url %}

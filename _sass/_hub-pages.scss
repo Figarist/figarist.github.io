@@ -125,3 +125,35 @@
 .shrine-hub__section-title--spaced {
   margin-top: 48px;
 }
+
+/* ======================== 404 PAGE ======================== */
+.error-404 {
+  text-align: center;
+  padding-top: 120px;
+  padding-bottom: 80px;
+}
+
+.error-404__code {
+  font-size: 5rem;
+  color: var(--accent-blue);
+  font-family: var(--font-mono);
+  margin-bottom: 0;
+}
+
+.error-404__heading {
+  margin-top: 10px;
+  margin-bottom: 20px;
+}
+
+.error-404__text {
+  color: var(--text-muted);
+  margin-bottom: 40px;
+  font-size: 1.1rem;
+  max-width: 400px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.error-404__btn {
+  display: inline-flex;
+}

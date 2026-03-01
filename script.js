@@ -406,6 +406,20 @@
       }
     });
   }
+
+  /* ——————————————————————————————————————————
+     9. LANGUAGE SWITCH — Save Preference
+  —————————————————————————————————————————— */
+  var langLinks = document.querySelectorAll('.lang-switch[data-lang]');
+  langLinks.forEach(function (link) {
+    link.addEventListener('click', function () {
+      var selectedLang = this.getAttribute('data-lang');
+      if (selectedLang) {
+        localStorage.setItem('preferred_lang', selectedLang.toLowerCase());
+      }
+    });
+  });
+
 })();
 
 // Service Worker Registration

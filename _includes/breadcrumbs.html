@@ -31,6 +31,18 @@
       <span itemprop="name">{{ page.title | truncatewords: 6 }}</span>
       <meta itemprop="position" content="3" />
     </li>
+
+    {% elsif page.layout == 'archive' %}
+    <li class="breadcrumbs__item" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+      <a href="{{ '/blog/' | relative_url }}" itemprop="item">
+        <span itemprop="name">{{ site.data[site.active_lang].strings.workshop_label }}</span>
+      </a>
+      <meta itemprop="position" content="2" />
+    </li>
+    <li class="breadcrumbs__item breadcrumbs__item--active" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+      <span itemprop="name">{{ page.title | capitalize }}</span>
+      <meta itemprop="position" content="3" />
+    </li>
     {% endif %}
   </ol>
 </nav>

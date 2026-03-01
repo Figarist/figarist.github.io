@@ -9,6 +9,7 @@ group :jekyll_plugins do
   gem "jekyll-seo-tag"
   gem "jekyll-sitemap"
   gem "jekyll-polyglot"
+  gem "jekyll-paginate-v2"
 end
 
 # Required for Ruby 3.x local dev server (WEBrick removed from stdlib)

@@ -29,7 +29,7 @@ const portfolio = {
     frontend: "Jekyll + Pure HTML5 + CSS3 + Vanilla JS",
     architecture: "Bento Grid UI",
     i18n: "jekyll-polyglot (EN, UK, RU, KO)",
-    ux: "Ultimate Search (Lunr.js) + View Transitions API + Reading Progress + Code Copy",
+    ux: "Ultimate Search (Lunr.js) + View Transitions API + Reading Progress + Code Copy + Spaceship (Mermaid, MathJax)",
     hosting: "GitHub Pages (via GitHub Actions)",
   },
 };
@@ -62,7 +62,7 @@ figarist.github.io/
 ├── index.html              # Bento UI Hub (Polyglot builds EN, UK, RU, KO from this)
 ├── search.json             # Search index generator (Liquid → Lunr.js)
 ├── 404.html                # Custom 404 page (quadrilingual)
-├── script.js               # Main JS (scroll, search, WebGL, tilt, progress, copy)
+├── script.js               # Main JS (scroll, search, WebGL, progress, copy, transitions)
 ├── robots.txt              # SEO crawl rules
 ├── deployment_guide.md     # Deployment & local setup guide
 │
@@ -92,7 +92,7 @@ figarist.github.io/
 ├── _education/             # Education collection (4 files per topic: EN, UK, RU, KO)
 │
 ├── _sass/                  # Modular SCSS architecture
-│   ├── _base.scss, _variables.scss, _search.scss, etc.
+│   ├── _base.scss, _variables.scss, _search.scss, _spaceship.scss, etc.
 │   └── styles.scss (alias)
 │
 ├── assets/
@@ -124,6 +124,7 @@ figarist.github.io/
 > **Architectural rules:** Layout MUST use `display: grid` with explicit `grid-template-areas`.
 > Fractional span classes (`.span-X-X`) and `grid-auto-flow: dense` are FORBIDDEN.
 > **UX Rule:** All code blocks must have the automated copy button.
+> **Spaceship Rule:** Use `jekyll-spaceship` for Mermaid, MathJax, and advanced tables.
 
 <br/>
 
@@ -208,13 +209,14 @@ Generated in `_includes/header.html` via a `{% for lang in site.languages %}` lo
 1. **Core Philosophy:** Pure HTML5, CSS3, Vanilla JS, and Liquid / Jekyll layout. No heavy NPM packages. No React.
 2. **Quadrilingual Sync:** Write content **once** in `index.html` using localized data lookups `{{ site.data[site.active_lang].strings.key }}`. `jekyll-polyglot` generates all 4 languages automatically.
 3. **UX & Interactivity:** Use View Transitions API. Reading progress, "Ultimate Search" (Lunr.js), and code copy buttons must be handled by Vanilla JS in `script.js`.
-4. **Design System:** Follow the "Light Bento" aesthetic. Layouts MUST use `display: grid` with `grid-template-areas`. Prefer modular SCSS (`_sass/`) and `@use` over `@import`.
-5. **DRY Includes:** Header, nav, and footer are modularized via `_includes/`. Never duplicate these parts across documents.
-6. **WebGL & Media:** WebGL canvases MUST be wrapped in a stateless click-to-play iframe overlay. Images should use `.webp` formatting and contain `loading="lazy"` tags.
-7. **SEO & Performance:** The site uses `jekyll-seo-tag`, `jekyll-sitemap`, and `jekyll-feed` for automated SEO. Maintain proper YAML Front Matter (`title`, `description`, `image:`, `tags`, `author: ihor`). Polyglot generates hreflang tags automatically.
-8. **Custom Plugin:** Do NOT remove `_plugins/polyglot_frozen_string_patch.rb` — it fixes a critical `FrozenError` in Polyglot's interaction with SCSS.
-9. **Authorship & E-E-A-T:** Always use `author: ihor` in front matter to link to the professional profile in `_data/authors.yml`.
-10. **Localization DRY:** Never hardcode names or bios. Use `{{ site.data[site.active_lang].strings.author_name }}` and `author_bio` from the translation dictionaries.
+4. **Technical Visuals:** Use `jekyll-spaceship` for technical posts (Mermaid, MathJax, advanced tables). Style with `_sass/_spaceship.scss`.
+5. **Design System:** Follow the "Light Bento" aesthetic. Layouts MUST use `display: grid` with `grid-template-areas`. Prefer modular SCSS (`_sass/`) and `@use` over `@import`.
+6. **DRY Includes:** Header, nav, and footer are modularized via `_includes/`. Never duplicate these parts across documents.
+7. **WebGL & Media:** WebGL canvases MUST be wrapped in a stateless click-to-play iframe overlay. Images should use `.webp` formatting and contain `loading="lazy"` tags.
+8. **SEO & Performance:** The site uses `jekyll-seo-tag`, `jekyll-sitemap`, and `jekyll-feed` for automated SEO. Maintain proper YAML Front Matter (`title`, `description`, `image:`, `tags`, `author: ihor`). Polyglot generates hreflang tags automatically.
+9. **Custom Plugin:** Do NOT remove `_plugins/polyglot_frozen_string_patch.rb` — it fixes a critical `FrozenError` in Polyglot's interaction with SCSS.
+10. **Authorship & E-E-A-T:** Always use `author: ihor` in front matter to link to the professional profile in `_data/authors.yml`.
+11. **Localization DRY:** Never hardcode names or bios. Use `{{ site.data[site.active_lang].strings.author_name }}` and `author_bio` from the translation dictionaries.
 
 <br/>
 

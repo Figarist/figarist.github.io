@@ -7,6 +7,7 @@
 
 - **Jekyll** (Static Generator) + **GitHub Actions** (deployment via `.github/workflows/jekyll.yml`)
 - **Plugin Localization:** `jekyll-polyglot` (quadrilingual sync — en, uk, ru, ko)
+- **Technical Visuals:** `jekyll-spaceship` (Mermaid, MathJax, Tables)
 - **Pagination:** `jekyll-paginate-v2` (for blog listing)
 - **SEO Plugins:** `jekyll-seo-tag`, `jekyll-sitemap`, `jekyll-feed`
 - **Custom Plugin:** `_plugins/polyglot_frozen_string_patch.rb`
@@ -35,7 +36,7 @@ figarist.github.io/
 ├── index.html                  # Bento Hub (Мультимовний — Polyglot збирає з нього 4 версії)
 ├── search.json                 # Генератор пошукового індексу (Liquid → Lunr.js)
 ├── 404.html                    # Кастомна 404 сторінка (квадрилінгвальна)
-├── script.js                   # Головний JS (scroll, search, WebGL, tilt, progress, copy)
+├── script.js                   # Головний JS (scroll, search, WebGL, progress, copy, transitions)
 ├── robots.txt                  # SEO crawl rules
 ├── deployment_guide.md         # Покроковий гайд по деплою та локальному запуску
 │
@@ -78,7 +79,7 @@ figarist.github.io/
 │   └── wearos-zero-gc-mindset-{en,uk,ru,ko}.md
 │
 ├── _sass/                      # Модульна SCSS архітектура
-│   ├── _base.scss, _variables.scss, _search.scss, etc.
+│   ├── _base.scss, _variables.scss, _search.scss, _spaceship.scss, etc.
 │   └── styles.scss (alias)
 │
 ├── assets/
@@ -413,6 +414,7 @@ level: beginner # beginner | intermediate | advanced
 | §7     | Code Copy Buttons (vanilla clipboard integration)                         |
 | §8     | Ultimate Search (Lunr.js integration + Cmd+K shortcut)                    |
 | §9     | View Transitions API (CSS fade + morphing)                                |
+| §10    | Technical Visuals (Mermaid, MathJax, Tables via jekyll-spaceship)         |
 
 ---
 
@@ -442,3 +444,5 @@ level: beginner # beginner | intermediate | advanced
 10. **НЕ** відтворювати `assets/js/locale.js` — deprecated legacy файл, видалений з проекту
 11. **Authorship**: Всі нові пости/статті повинні мати `author: ihor` у front matter.
 12. **Localization**: При додаванні нових блоків у Bio чи Author Box — завжди додавати ключі `author_name` / `author_bio` у всі 4 файли `strings.yml`.
+13. **Technical Visuals**: Зберігайте працездатність `jekyll-spaceship`. Для Mermaid, діаграм та математики використовуйте синтаксис плагіна.
+14. **UX**: Всі блоки коду повинні мати кнопку копіювання (автоматично через §7 в `script.js`).

@@ -13,7 +13,7 @@ layout: null
         "url": {{ doc.url | relative_url | jsonify }},
         "tags": {{ doc.tags | join: " " | jsonify }},
         "description": {{ doc.description | default: doc.excerpt | strip_html | normalize_whitespace | jsonify }},
-        "content": {{ doc.content | strip_html | normalize_whitespace | jsonify }}
+        "content": {{ doc.content | strip_html | truncatewords: 50 | jsonify }}
       }
     {% endif %}
   {% endfor %}

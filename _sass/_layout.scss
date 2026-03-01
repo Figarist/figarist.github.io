@@ -183,16 +183,7 @@
   transition: width 0.1s ease-out;
 }
 
-/* ======================== FOOTER ======================== */
-.hub-footer {
-  text-align: center;
-  padding: 20px;
-  font-size: 0.75rem;
-  color: #65657e; /* Darker variant of text-muted for passing contrast against var(--bg-color) */
-  font-family: var(--font-mono);
-  max-width: 1024px;
-  margin: 0 auto 8px;
-}
+
 
 @media (max-width: 600px) {
   .nav-inner {

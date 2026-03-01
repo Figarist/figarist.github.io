@@ -1,168 +1,94 @@
-# 🚀 Гайд по деплою Ihor Sivochka Portfolio
+# 🚀 DEPLOYMENT & OPS GUIDE (EXTREME EDITION)
 
-Оскільки ми перейшли на плагін `jekyll-polyglot`, стандартний деплой GitHub Pages (через гілку) більше не працює нативно, бо GitHub не підтримує кастомні плагіни.
-
-Ми налаштували **GitHub Actions**, який збирає сайт правильно.
+This guide covers the full lifecycle of the Figarist Portfolio, from local dev to global CDN via GitHub Actions.
 
 ---
 
-## 🖥️ Локальна розробка
+## 🛠️ LOCAL DEVELOPMENT (EXTREME)
 
-### Вимоги
-
-- **Ruby** ≥ 3.2 (перевірити: `ruby -v`)
-- **Bundler** (`gem install bundler`)
-
-### Перший запуск
+### 1. Zero-Friction Setup
 
 ```bash
+# Clone and enter
+git clone https://github.com/figarist/figarist.github.io.git
 cd figarist.github.io
+
+# Install Ruby dependencies
 bundle install
-bundle exec jekyll serve
 ```
 
-Сайт буде доступний на `http://localhost:4000`.
+### 2. Local PWA & Minification Test
 
-> [!NOTE]
-> Polyglot генерує всі 4 мовних версії і локально: `/` (EN), `/uk/`, `/ru/`, `/ko/`.
-> Кожна мова має свій власний пошуковий індекс у `search.json`.
-
-### Корисні команди
-
-| Команда                                 | Опис                                        |
-| --------------------------------------- | ------------------------------------------- |
-| `bundle exec jekyll serve`              | Запустити dev server з live reload          |
-| `bundle exec jekyll serve --livereload` | Автоматичне оновлення при збереженні файлів |
-| `bundle exec jekyll build`              | Збірка без серверу (результат у `_site/`)   |
-| `bundle exec jekyll build --trace`      | Збірка з повним stack trace (для дебагу)    |
-| `bundle exec jekyll clean`              | Очистити `_site/` та `.jekyll-cache/`       |
-
----
-
-## 🚢 Деплой на GitHub Pages
-
-### 1. Запуште зміни в GitHub
-
-Переконайтеся, що всі файли (особливо `.github/workflows/jekyll.yml` та `Gemfile`) завантажені в гілку `main`.
-
-### 2. Налаштуйте GitHub Pages (перший раз)
-
-1. Відкрийте ваш репозиторій на GitHub у браузері.
-2. Перейдіть в **Settings** > **Pages** (у лівому меню).
-3. У розділі **Build and deployment** знайдіть пункт **Source**.
-4. Змініть "Deploy from a branch" на **"GitHub Actions"**.
-
-> [!IMPORTANT]
-> Це критичний крок. Тепер GitHub не буде намагатися зібрати сайт сам, а замість цього дасть команду нашому скрипту в `.github/workflows/jekyll.yml`.
-
-### 3. Моніторинг деплою
-
-1. Перейдіть на вкладку **Actions** зверху вашого репозиторію.
-2. Ви побачите процес під назвою **"Deploy Jekyll with Polyglot"**.
-3. Коли він стане зеленим ✅ — сайт оновлено!
-
-### 4. Перевірка результату
-
-Відкрийте [figarist.github.io](https://figarist.github.io).
-
-| URL                                                      | Мова                 |
-| -------------------------------------------------------- | -------------------- |
-| [figarist.github.io](https://figarist.github.io)         | 🇬🇧 English (default) |
-| [figarist.github.io/uk/](https://figarist.github.io/uk/) | 🇺🇦 Українська        |
-| [figarist.github.io/ru/](https://figarist.github.io/ru/) | Російська            |
-| [figarist.github.io/ko/](https://figarist.github.io/ko/) | 🇰🇷 한국어            |
-
----
-
-## ⚙️ GitHub Actions Pipeline
-
-Файл: `.github/workflows/jekyll.yml`
-
-```
-push to main
-  │
-  ▼
-┌─────────────────────────────────┐
-│  1. Checkout repository         │
-│  2. Setup Ruby 3.2 + Bundler    │
-│  3. Configure Pages             │
-│  4. jekyll build (×4 langs)     │  ← Polyglot генерує EN, UK, RU, KO
-│  5. HTML Minify                 │
-│  6. Upload artifact             │
-└─────────────────────────────────┘
-  │
-  ▼
-┌─────────────────────────────────┐
-│  7. Deploy to GitHub Pages      │
-└─────────────────────────────────┘
-  │
-  ▼
-figarist.github.io ✅
-```
-
----
-
-## 🔧 Troubleshooting
-
-### `FrozenError: can't modify frozen String`
-
-**Причина:** `jekyll-polyglot` намагається модифікувати frozen CSS strings, повернуті SASS компілятором.
-
-**Рішення:** Файл `_plugins/polyglot_frozen_string_patch.rb` вже виправляє це. Переконайтеся, що він присутній:
+By default, `jekyll serve` might skip minification to speed up dev. To test the **production reality**:
 
 ```bash
-ls _plugins/polyglot_frozen_string_patch.rb
+JEKYLL_ENV=production bundle exec jekyll serve
 ```
 
-> [!CAUTION]
-> **НІКОЛИ** не видаляйте `_plugins/polyglot_frozen_string_patch.rb`. Без нього збірка впаде.
-
-### CSS не оновлюється після деплою
-
-Браузер кешує старі стилі. Рішення:
-
-- **Ctrl+F5** (hard refresh)
-- Або відкрити в Incognito/Private window
-
-### 404 на мовних субдиректоріях (`/uk/`, `/ru/`, `/ko/`)
-
-Перевірте:
-
-1. `_config.yml` → `languages: ["en", "uk", "ru", "ko"]`
-2. GitHub Pages Source встановлений на **"GitHub Actions"** (не branch)
-3. Пости/education мають коректний `lang:` у front matter
-
-### Build failure — загальна діагностика
-
-```bash
-# Запустити з повним trace:
-bundle exec jekyll build --trace
-
-# Очистити кеш і спробувати знову:
-bundle exec jekyll clean
-bundle exec jekyll build
-```
+- **Check PWA:** Open DevTools → Application → Service Workers. Ensure `service-worker.js` is active.
+- **Check Minification:** View Source. HTML, CSS, and JS should be one-liners.
 
 ---
 
-## 🔄 Rollback
+## 🏗️ CLOUD PERFORMANCE (GITHUB ACTIONS)
 
-Якщо деплой зламав сайт:
+The build engine lives in `.github/workflows/jekyll.yml`.
 
-### Через GitHub Actions
+### Build Bottleneck Monitoring
 
-1. Перейдіть у **Actions** → знайдіть останній **успішний** workflow run
-2. Натисніть **"Re-run all jobs"** — це перезбере сайт з того коміту
+If builds take > 5 minutes:
 
-### Через Git
+1. **Check Cache:** Verify `actions/cache` is correctly hitting the `vendor/bundle` and `.jekyll-cache`.
+2. **Minification Overhead:** `jekyll-minifier` is powerful but slow. Optimization: ensure it only runs on the final `_site` output.
+3. **Polyglot Cycles:** Remember, the site builds **4 times**. Incremental builds are disabled for stability.
+
+### Common CI Failures
+
+- `FrozenError` in SCSS: Ensure `_plugins/polyglot_frozen_string_patch.rb` is present.
+- `Permission Denied` on `Gemfile.lock`: Delete the lock file and `bundle install` locally, then push.
+
+---
+
+## 📱 PWA AUDIT GUIDE (LIGHTHOUSE 100)
+
+To maintain a perfect score:
+
+- **Maskable Icons:** Ensure `manifest.json` points to icons with `purpose: "any maskable"`.
+- **Offline First:** Verify `service-worker.js` caches `index.html` and the search index `search.json`.
+- **Theme Color:** Sync the `meta name="theme-color"` in `head.html` with `manifest.json`.
+
+---
+
+## 🔄 EXTREME ROLLBACK PROTOCOL
+
+If a deployment breaks the site:
+
+1. **Quick Revert:**
+   ```bash
+   git revert HEAD
+   git push origin main
+   ```
+2. **Actions Override:** Go to GitHub Repository → Actions → Select the last stable run → "Re-run all jobs".
+   _Note: This only works if the previous stable build artifacts are still stored._
+
+---
+
+## 🔍 SEO & HREFLANG VALIDATION
+
+After deploy, run this check in terminal:
 
 ```bash
-# Переглянути останні коміти:
-git log --oneline -5
-
-# Відкатити до попереднього коміту:
-git revert HEAD
-git push origin main
+curl -sL https://figarist.github.io/uk/ | grep "hreflang"
 ```
 
-GitHub Actions автоматично перезбере і задеплоїть.
+You should see:
+
+- `<link rel="alternate" hreflang="en" ...>`
+- `<link rel="alternate" hreflang="uk" ...>`
+- `<link rel="alternate" hreflang="ru" ...>`
+- `<link rel="alternate" hreflang="ko" ...>`
+- `<link rel="alternate" hreflang="x-default" ...>`
+
+---
+
+_Production is a garden. Tend it with automation._

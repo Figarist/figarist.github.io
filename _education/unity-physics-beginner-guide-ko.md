@@ -1,6 +1,6 @@
 ---
 title: "Unity 물리 기초: 초보자를 위한 완전 정복 가이드"
-author: "Ihor (Figarist)"
+author: ihor
 tags: [unity, physics, tutorial, beginner]
 lang: ko
 permalink: /education/unity-physics-beginner-guide/

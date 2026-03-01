@@ -2,7 +2,7 @@
 layout: post
 title:  "Meta Quest 3 проти PSVR2: Погляд розробника"
 date:   2026-02-27 10:00:00 +0200
-author: "Ihor (Figarist)"
+author: ihor
 category: vr
 tags: [vr, meta-quest, psvr2, hardware]
 lang: uk                                 # MUST specify the language

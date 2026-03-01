@@ -1,6 +1,6 @@
 ---
 title: "Разработка игр для Wear OS: Мышление Zero-GC"
-author: "Ihor (Figarist)"
+author: ihor
 tags: [wearos, unity, performance, gamedev, intermediate]
 lang: ru
 permalink: /education/wearos-zero-gc-mindset/

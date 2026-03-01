@@ -2,7 +2,7 @@
 layout: post
 title: "Создание механики накопления заряда в Unity"
 date: 2026-02-27 11:00:00 +0200
-author: "Ihor (Figarist)"
+author: ihor
 category: gamedev
 tags: [unity, gamedev, csharp, mechanics]
 lang: ru

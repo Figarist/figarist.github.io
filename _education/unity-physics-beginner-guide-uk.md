@@ -1,6 +1,6 @@
 ---
 title: "Фізика Unity з нуля: Повний посібник для початківців"
-author: "Ihor (Figarist)"
+author: ihor
 tags: [unity, physics, tutorial, beginner]
 lang: uk
 permalink: /education/unity-physics-beginner-guide/

@@ -1,6 +1,6 @@
 ---
 title: "Unity Physics From Zero: A Beginner's Complete Guide"
-author: "Ihor (Figarist)"
+author: ihor
 tags: [unity, physics, tutorial, beginner]
 lang: en
 permalink: /education/unity-physics-beginner-guide/

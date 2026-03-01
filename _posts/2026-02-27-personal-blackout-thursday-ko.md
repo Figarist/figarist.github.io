@@ -2,7 +2,7 @@
 layout: post
 title: "고양이 둘, 개발자 하나, 전기 없음"
 date: 2026-02-27 12:00:00 +0200
-author: "Ihor (Figarist)"
+author: ihor
 category: personal
 tags: [personal, life, vlog, cats, kharkiv]
 lang: ko

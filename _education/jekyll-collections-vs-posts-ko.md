@@ -1,6 +1,6 @@
 ---
 title: "Jekyll 컬렉션 vs 포스트: 상황에 맞는 선택 가이드"
-author: "Ihor (Figarist)"
+author: ihor
 tags: [jekyll, static-site, web, tutorial]
 lang: ko
 permalink: /education/jekyll-collections-vs-posts/

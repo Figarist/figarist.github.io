@@ -6,6 +6,8 @@ related_posts: "계속 읽기"
 bio_roles: "Unity 개발자 · 교육자 · 레트로 매니아"
 bio_location: "우크라이나, 즈미이브"
 bio_tagline: "작은 화면을 위한 작은 세상을 만들고, 아이들에게 파일이 실제로 무엇인지 가르칩니다."
+author_name: "이호르 시보치카"
+author_bio: "인디 게임 개발자, Wear OS 엔투지아스트 및 컴퓨터 과학 교사입니다. Wrist & Pocket Studio의 창립자이기도 합니다. 레트로 하드웨어와 인터랙티브한 디지털 경험을 만드는 것에 열정을 다하고 있습니다."
 
 # STUDIO CARD
 studio_sub: "Wear OS 게임의 미래를 만듭니다"
@@ -66,9 +68,9 @@ nav_shrine: "성지"
 
 # HEAD META
 head_title_suffix: " — 인디 개발자 & 기술 교육자"
-head_desc: "우크라이나의 Unity 개발자이자 Wrist & Pocket Studio 창립자, 컴퓨터 과학 교사인 이호르(Figarist)의 개인 사이트입니다."
-head_keywords: "Figarist, 인디 게임 개발자, Unity 개발자, 컴퓨터 과학 교사, Wear OS, C#, 게임 개발, 우크라이나, Wrist and Pocket Studio"
-head_author: "이호르 (Figarist)"
+head_desc: "우크라이나의 Unity 개발자이자 Wrist & Pocket Studio 창립자, 컴퓨터 과학 교사인 이호르 시보치카의 개인 사이트입니다."
+head_keywords: "이호르 시보치카, Figarist, 인디 게임 개발자, Unity 개발자, 컴퓨터 과학 교사, Wear OS, C#, 게임 개발, 우크라이나, Wrist and Pocket Studio"
+head_author: "이호르 시보치카"
 head_og_desc: "Unity 개발자, Wrist & Pocket Studio 창립자, 컴퓨터 과학 교사입니다. Wear OS용 게임을 만듭니다."
 
 # FOOTER

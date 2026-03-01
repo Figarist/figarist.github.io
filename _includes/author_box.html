@@ -1,0 +1,47 @@
+{% assign author = site.data.authors[include.author | default: page.author | default: 'ihor'] %}
+{% if author %}
+<section class="author-box fade-in" itemprop="author" itemscope itemtype="https://schema.org/Person">
+    <div class="author-box__avatar">
+        <img src="{{ author.picture | relative_url }}" alt="{{ site.data[site.active_lang].strings.author_name }} avatar" itemprop="image" loading="lazy">
+    </div>
+    <div class="author-box__content">
+        <div class="author-box__header">
+            <h3 class="author-box__name" itemprop="name">{{ site.data[site.active_lang].strings.author_name }}</h3>
+            <span class="author-box__job" itemprop="jobTitle">{{ author.jobTitle }}</span>
+        </div>
+        <p class="author-box__bio" itemprop="description">
+            {{ site.data[site.active_lang].strings.author_bio }}
+        </p>
+        <div class="author-box__socials">
+            {% if author.github %}
+            <a href="https://github.com/{{ author.github }}" class="author-box__link" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
+                <i class="fab fa-github"></i> github
+            </a>
+            {% endif %}
+            {% if author.twitter %}
+            <a href="https://x.com/{{ author.twitter }}" class="author-box__link" target="_blank" rel="noopener noreferrer" aria-label="X (Twitter)">
+                <i class="fab fa-x-twitter"></i> x
+            </a>
+            {% endif %}
+            {% if author.linkedin %}
+            <a href="https://www.linkedin.com/in/{{ author.linkedin }}" class="author-box__link" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+                <i class="fab fa-linkedin"></i> linkedin
+            </a>
+            {% endif %}
+            {% if author.youtube %}
+            <a href="https://www.youtube.com/@{{ author.youtube }}" class="author-box__link" target="_blank" rel="noopener noreferrer" aria-label="YouTube">
+                <i class="fab fa-youtube"></i> youtube
+            </a>
+            {% endif %}
+        </div>
+    </div>
+    
+    {% if author.sameAs %}
+    <div style="display:none;">
+        {% for link in author.sameAs %}
+        <link itemprop="sameAs" href="{{ link }}">
+        {% endfor %}
+    </div>
+    {% endif %}
+</section>
+{% endif %}

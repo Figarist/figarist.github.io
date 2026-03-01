@@ -1,6 +1,6 @@
 ---
 title: "Колекції Jekyll проти Постів: Коли що використовувати"
-author: "Ihor (Figarist)"
+author: ihor
 tags: [jekyll, static-site, web, tutorial]
 lang: uk
 permalink: /education/jekyll-collections-vs-posts/

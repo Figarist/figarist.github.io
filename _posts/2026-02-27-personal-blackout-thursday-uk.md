@@ -2,7 +2,7 @@
 layout: post
 title: "Двоє котів, один розробник і жодного кіловата"
 date: 2026-02-27 12:00:00 +0200
-author: "Ihor (Figarist)"
+author: ihor
 category: personal
 tags: [personal, life, vlog, cats, kharkiv]
 lang: uk

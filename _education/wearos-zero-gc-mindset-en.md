@@ -1,6 +1,6 @@
 ---
 title: "Wear OS Game Dev: The Zero-GC Mindset"
-author: "Ihor (Figarist)"
+author: ihor
 tags: [wearos, unity, performance, gamedev, intermediate]
 lang: en
 permalink: /education/wearos-zero-gc-mindset/

@@ -20,7 +20,7 @@
 
 ```typescript
 const portfolio = {
-  owner: "Ihor (Figarist)",
+  owner: "Ihor Sivochka",
   role: "Indie Game Developer & CS Teacher",
   location: "Zmiiv, Ukraine 🇺🇦",
   studio: "Wrist & Pocket Studio",
@@ -73,6 +73,7 @@ figarist.github.io/
 │   ├── head.html           # <head> + SEO + View Transitions + Search Engine
 │   ├── header.html         # Navbar + search trigger + lang switcher
 │   ├── search-modal.html   # Ultimate Search UI (Lunr.js)
+│   ├── author_box.html     # Bento Author Box (include)
 │   └── footer.html         # Minimal footer with year
 │
 ├── _layouts/
@@ -81,6 +82,7 @@ figarist.github.io/
 │   └── education.html      # Education article layout (extends default, custom JSON-LD)
 │
 ├── _data/
+│   ├── authors.yml         # Global author data (JSON-LD sameAs, socials)
 │   ├── en/strings.yml      # 🇬🇧 English UI dictionary
 │   ├── uk/strings.yml      # 🇺🇦 Ukrainian UI dictionary
 │   ├── ru/strings.yml      # Russian UI dictionary
@@ -209,13 +211,15 @@ Generated in `_includes/header.html` via a `{% for lang in site.languages %}` lo
 4. **Design System:** Follow the "Light Bento" aesthetic. Layouts MUST use `display: grid` with `grid-template-areas`. Prefer modular SCSS (`_sass/`) and `@use` over `@import`.
 5. **DRY Includes:** Header, nav, and footer are modularized via `_includes/`. Never duplicate these parts across documents.
 6. **WebGL & Media:** WebGL canvases MUST be wrapped in a stateless click-to-play iframe overlay. Images should use `.webp` formatting and contain `loading="lazy"` tags.
-7. **SEO & Performance:** The site uses `jekyll-seo-tag`, `jekyll-sitemap`, and `jekyll-feed` for automated SEO. Maintain proper YAML Front Matter (`title`, `description`, `image:`, `tags`). Polyglot generates hreflang tags automatically.
+7. **SEO & Performance:** The site uses `jekyll-seo-tag`, `jekyll-sitemap`, and `jekyll-feed` for automated SEO. Maintain proper YAML Front Matter (`title`, `description`, `image:`, `tags`, `author: ihor`). Polyglot generates hreflang tags automatically.
 8. **Custom Plugin:** Do NOT remove `_plugins/polyglot_frozen_string_patch.rb` — it fixes a critical `FrozenError` in Polyglot's interaction with SCSS.
+9. **Authorship & E-E-A-T:** Always use `author: ihor` in front matter to link to the professional profile in `_data/authors.yml`.
+10. **Localization DRY:** Never hardcode names or bios. Use `{{ site.data[site.active_lang].strings.author_name }}` and `author_bio` from the translation dictionaries.
 
 <br/>
 
 <div align="center">
-  <strong>💜 𝙼𝚊𝚍𝚎 𝚠𝚒𝚝𝚑 𝚙𝚊𝚜𝚜𝚒𝚘𝚗 𝚋𝚢 𝙵𝚒𝚐𝚊𝚛𝚒𝚜𝚝 | 𝙴𝚜𝚝. 𝟸𝟶𝟸𝟼 💜</strong>
+  <strong>💜 Made with passion by Ihor Sivochka | Est. 2026 💜</strong>
 
 <sub>𝙲𝚘𝚍𝚒𝚗𝚐, 𝙶𝚊𝚖𝚒𝚗𝚐 & 𝚅𝚒𝚋𝚒𝚗𝚐 🎮🎵✨</sub>
 

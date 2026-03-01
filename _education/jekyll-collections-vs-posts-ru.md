@@ -1,6 +1,6 @@
 ---
 title: "Jekyll Collections vs Posts: Когда и что использовать"
-author: "Ihor (Figarist)"
+author: ihor
 tags: [jekyll, static-site, web, tutorial]
 lang: ru
 permalink: /education/jekyll-collections-vs-posts/

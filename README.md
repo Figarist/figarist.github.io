@@ -29,8 +29,10 @@ const portfolio = {
     frontend: "Jekyll + Pure HTML5 + CSS3 + Vanilla JS",
     architecture: "Bento Grid UI",
     i18n: "jekyll-polyglot (EN, UK, RU, KO)",
-    ux: "Ultimate Search (Lunr.js) + View Transitions API + Reading Progress + Code Copy + Spaceship (Mermaid, MathJax)",
+    ux: "Ultimate Search (Lunr.js) + View Transitions API + Reading Progress + Code Copy + Spaceship (Mermaid, MathJax) + PWA (Workbox Offline)",
     hosting: "GitHub Pages (via GitHub Actions)",
+    optimization:
+      "Minification (jekyll-minifier) + WebP (jekyll-webp) + SEO Redirects",
   },
 };
 ```
@@ -46,7 +48,7 @@ const portfolio = {
 |       ![](https://img.shields.io/badge/HTML5-E34F26?style=flat-square&logo=html5&logoColor=white)        | Pure HTML5, zero frameworks                              |
 |        ![](https://img.shields.io/badge/CSS3-1572B6?style=flat-square&logo=css3&logoColor=white)         | Vanilla CSS3 (SCSS), Grid layouts, CSS Variables         |
 |  ![](https://img.shields.io/badge/JavaScript-F7DF1E?style=flat-square&logo=javascript&logoColor=black)   | Vanilla JS, WebGL, Lunr.js Search, IIFE Architecture     |
-|      ![](https://img.shields.io/badge/Jekyll-CC0000?style=flat-square&logo=jekyll&logoColor=white)       | SSG (jekyll-paginate-v2, Liquid templates)               |
+|      ![](https://img.shields.io/badge/Jekyll-CC0000?style=flat-square&logo=jekyll&logoColor=white)       | SSG (Polyglot, SEO-tag, Redirects, PWA, Minifier)        |
 | ![](https://img.shields.io/badge/GitHub_Pages-222222?style=flat-square&logo=githubpages&logoColor=white) | Deploys via **GitHub Actions** (Polyglot + Minification) |
 
 </div>
@@ -62,7 +64,8 @@ figarist.github.io/
 ├── index.html              # Bento UI Hub (Polyglot builds EN, UK, RU, KO from this)
 ├── search.json             # Search index generator (Liquid → Lunr.js)
 ├── 404.html                # Custom 404 page (quadrilingual)
-├── script.js               # Main JS (scroll, search, WebGL, progress, copy, transitions)
+├── script.js               # Main JS (scroll, search, WebGL, progress, copy, transitions, PWA)
+├── service-worker.js       # PWA Service Worker source
 ├── robots.txt              # SEO crawl rules
 ├── deployment_guide.md     # Deployment & local setup guide
 │
@@ -160,6 +163,8 @@ figarist.github.io/
 |  6   | `sitemap.xml`                                             | Automated via `jekyll-sitemap`  |
 |  7   | `feed.xml` (RSS)                                          |   Automated via `jekyll-feed`   |
 |  8   | `<meta name="google-site-verification">`                  |           `head.html`           |
+|  9   | SEO-safe Redirects from old URLs                          |  `jekyll-redirect-from` (v2.x)  |
+|  10  | PWA Application-Level Caching (Offline)                   | `jekyll-pwa-workbox` (Workbox)  |
 
 </div>
 

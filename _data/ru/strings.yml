@@ -5,7 +5,7 @@ related_posts: "Смотрите также"
 # BIO CARD
 bio_roles: "Unity Разработчик · Преподаватель · Ретро Энтузиаст"
 bio_location: "Змиев, Украина"
-bio_tagline: "Создаю маленькие миры для маленьких экранов — и учу детей, что такое файл на самом деле."
+bio_tagline: "Создаю маленькие миры для маленьких экранов — инди-разработчик и преподаватель."
 author_name: "Ігор Сівочка"
 author_bio: "Разработчик инди-игр, энтузиаст Wear OS и учитель информатики. Основатель Wrist & Pocket Studio. Увлекаюсь ретро-железом и созданием интерактивного цифрового опыта."
 
@@ -24,10 +24,6 @@ webgl_caption: "Будущий дом интерактивных мини-игр
 # SHRINE CARD
 shrine_desc: "Архив Nintendo DS, Switch и Simcade риг."
 shrine_cta: "Открыть хранилище →"
-
-# TEACHING CARD
-teaching_desc: "Планы уроков и задания по основам CS для 3-х классов."
-teaching_cta: "Читать урок →"
 
 # PYTHON CARD
 python_desc: "Превращает аудио в уютный lo-fi с виниловым треском."
@@ -75,6 +71,10 @@ head_og_desc: "Unity разработчик, основатель Wrist & Pocket
 
 # FOOTER
 footer_compiled: "Собрано"
+footer_explore: "Исследовать"
+footer_connect: "Связь"
+footer_handmade: "Сделано с любовью и кодом в Украине."
+footer_rights: "Все права защищены."
 
 # OG LOCALES
 head_og_locale: ru_RU
@@ -87,7 +87,6 @@ studio_badge: "ФЛАГМАН"
 studio_cta_text: "Посетить Студию"
 shrine_title: "Святилище"
 tech_stack_label: "СТЕК_ТЕХНОЛОГИЙ"
-classroom_label: "КЛАСС"
 utility_core_label: "ЯДРО_УТИЛІТ"
 vr_life_label: "VR_ЖИЗНЬ"
 workshop_label: "МАСТЕРСКАЯ"
@@ -97,11 +96,10 @@ education_label: "ОБРАЗОВАНИЕ"
 aria_visit_studio: "Посетить Wrist & Pocket Studio"
 aria_load_webgl: "Нажмите, чтобы загрузить демо WebGL"
 webgl_iframe_title: "Демо Unity WebGL"
-teaching_title: "Что такое Файл?"
 python_title: "Инструмент Python Lo-Fi"
 error_404_title: "404 — Не найдено"
 error_404_h2: "Файл не найден"
-error_404_text: "В отличие от моих учеников 3-го класса, этот сервер не знает, что такое файл и где его искать."
+error_404_text: "Страница, которую вы ищете, не существует или была перенесена."
 error_404_back: "← Вернуться на базу"
 shrine_long_desc: "Коллекция, вдохновляющая делать собственные игры. От ограниченного железа Nintendo DS до современного автосимулятора."
 shrine_section_handhelds: "Портативки Nintendo"

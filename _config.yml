@@ -8,6 +8,7 @@ url: "https://figarist.github.io"
 baseurl: ""
 
 lang: "en"
+email: "igorsivoch@gmail.com"
 author:
   name: "Ihor Sivochka"
   twitter: "figarist"
@@ -49,7 +50,7 @@ plugins:
   - jekyll-feed
   - jekyll-polyglot
   - jekyll-paginate-v2
-  - jekyll-spaceship
+  #  - jekyll-spaceship
   - jekyll-minifier
   - jekyll-redirect-from
   - jekyll-pwa-workbox
@@ -75,7 +76,7 @@ exclude_from_localization:
   - robots.txt
   - styles.scss
   - styles.css
-parallel_localization: false
+parallel_localization: true
 
 # ── Defaults ─────────────────────────────────────────────────
 defaults:

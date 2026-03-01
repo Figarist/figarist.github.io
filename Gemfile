@@ -10,6 +10,7 @@ group :jekyll_plugins do
   gem "jekyll-sitemap"
   gem "jekyll-polyglot"
   gem "jekyll-paginate-v2"
+  gem "jekyll-spaceship"
 end
 
 # Required for Ruby 3.x local dev server (WEBrick removed from stdlib)

@@ -6,6 +6,8 @@ related_posts: "Дивіться також"
 bio_roles: "Unity Розробник · Викладач · Ретро Ентузіаст"
 bio_location: "Зміїв, Україна"
 bio_tagline: "Створюю маленькі світи для маленьких екранів — та вчу дітей, що таке файл насправді."
+author_name: "Ігор Сівочка"
+author_bio: "Розробник інді-ігор, ентузіаст Wear OS та вчитель інформатики. Засновник Wrist & Pocket Studio. Захоплююсь ретро-залізом та створенням інтерактивного цифрового досвіду."
 
 # STUDIO CARD
 studio_sub: "Будуємо майбутнє ігор для Wear OS"
@@ -66,9 +68,9 @@ nav_shrine: "Святиня"
 
 # HEAD META
 head_title_suffix: " — Indie розробник та вчитель"
-head_desc: "Персональний сайт Ігоря (Figarist). Unity розробник, засновник Wrist & Pocket Studio та вчитель інформатики з України."
-head_keywords: "Figarist, інді розробник, Unity розробник, вчитель інформатики, Wear OS, C#, розробка ігор, Україна, Wrist and Pocket Studio"
-head_author: "Ігор (Figarist)"
+head_desc: "Персональний сайт Ігоря Сівочки. Unity розробник, засновник Wrist & Pocket Studio та вчитель інформатики з України."
+head_keywords: "Ігор Сівочка, Figarist, інді розробник, Unity розробник, вчитель інформатики, Wear OS, C#, розробка ігор, Україна, Wrist and Pocket Studio"
+head_author: "Ігор Сівочка"
 head_og_desc: "Unity розробник, засновник Wrist & Pocket Studio та вчитель інформатики. Створюю ігри для Wear OS."
 
 # FOOTER

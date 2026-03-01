@@ -15,10 +15,10 @@ layout: default
       <span class="doodle doodle--watch">⌚</span>
     </div>
     <div class="bio__content">
-      <img src="{{ '/assets/images/figaristgithub.png' | relative_url }}" alt="Figarist avatar" class="bio__avatar" width="72" height="72"
+      <img src="{{ '/assets/images/figaristgithub.png' | relative_url }}" alt="{{ site.data[site.active_lang].strings.author_name }} avatar" class="bio__avatar" width="72" height="72"
         fetchpriority="high">
       <div class="bio__text">
-        <h1 class="bio__name">Figarist</h1>
+        <h1 class="bio__name">{{ site.data[site.active_lang].strings.author_name }}</h1>
         <p class="bio__roles">
           {{ site.data[site.active_lang].strings.bio_roles }}
         </p>

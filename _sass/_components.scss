@@ -164,3 +164,51 @@ div.highlight pre {
   opacity: 1;
   transform: translateY(0);
 }
+
+/* ======================== PAGINATION ======================== */
+.pagination {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  margin-top: 4rem;
+  padding-top: 2rem;
+  border-top: 1px solid var(--border-light);
+}
+
+.pagination-item {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 8px 18px;
+  background: var(--card-bg);
+  border: 1px solid var(--border-light);
+  border-radius: 12px;
+  color: var(--text-primary);
+  font-family: var(--font-mono);
+  font-size: 0.82rem;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all var(--t-fast);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.02);
+
+  &:hover:not(.disabled) {
+    border-color: var(--accent-blue);
+    color: var(--accent-blue-d);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  }
+
+  &.disabled {
+    opacity: 0.4;
+    cursor: default;
+    background: transparent;
+  }
+}
+
+.pagination-info {
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  letter-spacing: -0.01em;
+}

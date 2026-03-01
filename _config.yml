@@ -48,6 +48,16 @@ plugins:
   - jekyll-sitemap
   - jekyll-feed
   - jekyll-polyglot
+  - jekyll-paginate-v2
+
+# ── Pagination Settings ──────────────────────────────────────
+pagination:
+  enabled: true
+  per_page: 6
+  permalink: "/blog/page/:num/"
+  limit: 0
+  sort_field: "date"
+  sort_reverse: true
 
 # ── Polyglot Settings ────────────────────────────────────────
 languages: ["en", "uk", "ru", "ko"]

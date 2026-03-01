@@ -1,0 +1,62 @@
+/* ============================================================
+   VARIABLES
+   ============================================================ */
+:root {
+  /* Bento Spec Primitives */
+  --bento-gap: 20px;
+  --card-radius: 20px;
+  --card-padding: 24px;
+
+  /* Cloud Dancer Palette (Pantone 2026) */
+  --bg-color: #f2f0eb;
+  /* Cloud Dancer — page background */
+  --card-bg: #ffffff;
+  /* Pure white cards */
+  --card-bg-warm: #faf8f4;
+  /* Warm white variant */
+
+  /* Accent System */
+  --accent-blue: #a2c2e1;
+  /* Pinterest 2026 Cool Blue */
+  --accent-blue-d: #6e9fc7;
+  /* Deeper blue for text */
+  --accent-pink: #f5c2cc;
+  /* Blush pink */
+  --accent-pink-d: #d97f93;
+  /* Deep rose */
+  --accent-green: #b5e853;
+  /* Wasabi — teaching card */
+  --accent-green-d: #7ab824;
+  /* Deep wasabi */
+  --accent-plum: #6b3fa0;
+  /* Plum Noir — shrine */
+  --accent-persimmon: #e8603c;
+  /* Persimmon — shrine accent */
+  --accent-yellow: #f7e04a;
+  /* Warm yellow */
+  --accent-cyan: #4ecdc4;
+  /* Interactive teal */
+
+  /* Text Hierarchy */
+  --text-primary: #1a1a2e;
+  --text-secondary: #4a4a6a;
+  --text-muted: #8888a8;
+  --text-on-dark: #f2f0eb;
+
+  /* Border */
+  --border-light: rgba(0, 0, 0, 0.07);
+  --border-card: rgba(0, 0, 0, 0.06);
+
+  /* Shadows */
+  --shadow-card: 0 4px 16px rgba(0, 0, 0, 0.06), 0 1px 4px rgba(0, 0, 0, 0.04);
+  --shadow-hover: 0 8px 32px rgba(0, 0, 0, 0.12), 0 2px 8px rgba(0, 0, 0, 0.06);
+
+  /* Typography */
+  --font-sans: 'Outfit', system-ui, -apple-system, sans-serif;
+  --font-mono: 'Fira Code', 'Courier New', monospace;
+
+  /* Transitions */
+  --t-fast: 0.18s ease;
+  --t-med: 0.28s ease;
+  --t-slow: 0.45s ease;
+}

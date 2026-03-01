@@ -1,0 +1,213 @@
+/* ============================================================
+   LAYOUT
+   ============================================================ */
+
+/* ======================== NAV ======================== */
+.site-nav {
+  position: fixed;
+  top: 16px; /* Floating from the top */
+  left: 50%;
+  transform: translateX(-50%);
+  width: calc(100% - 32px);
+  max-width: 1200px;
+  margin: 0 auto;
+  z-index: 1000;
+  
+  /* Liquid Glass Core */
+  background: rgba(255, 255, 255, 0.45);
+  backdrop-filter: blur(28px) saturate(160%);
+  -webkit-backdrop-filter: blur(28px) saturate(160%);
+  
+  /* The "Liquid" Surface - high gloss reflection */
+  background-image: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.4) 0%,
+    rgba(255, 255, 255, 0.1) 40%,
+    rgba(255, 255, 255, 0) 51%,
+    rgba(255, 255, 255, 0.05) 100%
+  );
+  
+  /* Inner Glow & Border */
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  border-radius: 24px;
+  
+  /* Layered Shadows for Depth */
+  box-shadow: 
+    0 4px 24px -1px rgba(0, 0, 0, 0.08),
+    0 2px 8px -1px rgba(0, 0, 0, 0.04),
+    inset 0 1px 1px rgba(255, 255, 255, 0.6), /* Edge highlight */
+    inset 0 -1px 2px rgba(0, 0, 0, 0.02);      /* Soft bottom edge */
+    
+  transition: width var(--t-med), background var(--t-med); /* Removed top transition to prevent shift */
+}
+
+.nav-inner {
+  width: 100%;
+  max-width: 1300px;
+  margin: 0 auto;
+  padding: 16px 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.site-nav__brand {
+  font-family: var(--font-sans);
+  font-weight: 700;
+  font-size: 1.1rem;
+  letter-spacing: 0.04em;
+  color: var(--text-primary);
+  transition: color var(--t-fast);
+}
+
+.site-nav__brand:hover {
+  color: var(--accent-blue-d);
+}
+
+.site-nav__links {
+  display: flex;
+  gap: 24px;
+  align-items: center;
+}
+
+.site-nav__links a {
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: var(--text-secondary);
+  transition: color var(--t-fast);
+  letter-spacing: 0.01em;
+}
+
+.site-nav__links a:hover {
+  color: var(--text-primary);
+}
+
+/* ============================================================
+   JEKYLL — FLOATING NAV
+   Used by _layouts/default.html (blog pages & posts).
+   The existing .site-nav remains for the portfolio index.html.
+   ============================================================ */
+.floating-nav {
+  position: sticky;
+  top: 16px;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  max-width: 700px;
+  margin: 16px auto 0;
+  padding: 12px 24px;
+  border-radius: 100px;
+  
+  /* Liquid Glass Core */
+  background: rgba(255, 255, 255, 0.45);
+  backdrop-filter: blur(24px) saturate(150%);
+  -webkit-backdrop-filter: blur(24px) saturate(150%);
+  
+  /* High Gloss Reflection */
+  background-image: linear-gradient(
+    145deg,
+    rgba(255, 255, 255, 0.3) 0%,
+    rgba(255, 255, 255, 0) 50%,
+    rgba(255, 255, 255, 0.05) 100%
+  );
+  
+  /* Inner Glow & Border */
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  
+  /* Organic Depth Shadows */
+  box-shadow: 
+    0 10px 40px -10px rgba(0, 0, 0, 0.1),
+    0 4px 12px -2px rgba(0, 0, 0, 0.05),
+    inset 0 1px 1px rgba(255, 255, 255, 0.7);
+    
+  transition: transform var(--t-med), box-shadow var(--t-med);
+}
+
+.floating-nav__logo {
+  font-family: var(--font-sans);
+  font-weight: 700;
+  font-size: 1rem;
+  letter-spacing: 0.04em;
+  color: var(--text-primary);
+  transition: color var(--t-fast);
+}
+
+.floating-nav__logo:hover {
+  color: var(--accent-blue-d);
+}
+
+.floating-nav__links {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.floating-nav__links a {
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: var(--text-secondary);
+  transition: color var(--t-fast);
+  letter-spacing: 0.01em;
+}
+
+.floating-nav__links a:hover {
+  color: var(--text-primary);
+}
+
+/* ============================================================
+   JEKYLL — MAIN CONTENT WRAPPER
+   Provides breathing room beneath the sticky floating nav.
+   ============================================================ */
+.jekyll-main {
+  max-width: 720px;
+  
+  margin: 0 auto 80px;
+  padding: 0 24px;
+}
+
+/* На головній сторінці .jekyll-main обгортає bento-grid —
+   прибираємо обмеження ширини */
+.jekyll-main:has(.bento-grid) {
+  max-width: 100%;
+}
+
+#reading-progress-bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 0%;
+  height: 4px;
+  background: linear-gradient(to right, var(--accent-blue), var(--accent-pink-d));
+  z-index: 9999;
+  transition: width 0.1s ease-out;
+}
+
+/* ======================== FOOTER ======================== */
+.bento-footer {
+  text-align: center;
+  padding: 20px;
+  font-size: 0.75rem;
+  color: #65657e; /* Darker variant of text-muted for passing contrast against var(--bg-color) */
+  font-family: var(--font-mono);
+  max-width: 1024px;
+  margin: 0 auto 8px;
+}
+
+@media (max-width: 600px) {
+  .nav-inner {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+
+  .floating-nav {
+    top: 12px;
+    margin: 12px 16px 0;
+    padding: 10px 18px;
+  }
+
+  .jekyll-main:not(.bento-page) {
+    margin-top: 28px;
+    padding: 0 16px;
+  }
+}

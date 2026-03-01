@@ -17,6 +17,27 @@ pagination:
     {{ site.data[site.active_lang].strings.blog_hub_subtitle }}
   </p>
 
+  <!-- ── BROWSE BY CATEGORY / TAG ── -->
+  <div class="archive-hub__nav archive-hub__nav--inline">
+    <h3 class="archive-hub__nav-heading">{{ site.data[site.active_lang].strings.all_categories | default: "All Categories" }}</h3>
+    <div class="archive-hub__pill-row">
+      {% for cat in site.categories %}
+      <a href="{{ '/blog/category/' | append: cat[0] | append: '/' | relative_url }}" class="archive-hub__pill archive-hub__pill--category">
+        📂 {{ cat[0] | capitalize }} <span class="archive-hub__count">{{ cat[1].size }}</span>
+      </a>
+      {% endfor %}
+    </div>
+
+    <h3 class="archive-hub__nav-heading">{{ site.data[site.active_lang].strings.all_tags | default: "All Tags" }}</h3>
+    <div class="archive-hub__pill-row">
+      {% for tag in site.tags %}
+      <a href="{{ '/blog/tag/' | append: tag[0] | append: '/' | relative_url }}" class="archive-hub__pill archive-hub__pill--tag">
+        #{{ tag[0] }} <span class="archive-hub__count">{{ tag[1].size }}</span>
+      </a>
+      {% endfor %}
+    </div>
+  </div>
+
   <!-- ── PAGINATED FEED ── -->
   <ul class="post-list blog-list">
     {% for post in paginator.posts %} {% if post.lang == site.active_lang %}

@@ -1,0 +1,13 @@
+{
+  "name": "figarist.github.io",
+  "version": "1.0.0",
+  "description": "figarist.github.io",
+  "main": "script.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "devDependencies": {
+    "jest": "^29.7.0",
+    "jest-environment-jsdom": "^29.7.0"
+  }
+}

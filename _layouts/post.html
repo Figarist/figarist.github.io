@@ -126,7 +126,7 @@ layout: default
 
 {% comment %} 4. Print if condition is met {% endcomment %}
 {% if sameTagCount >= minCommonTags %}
-<a class="related-bento__card bento-tilt-target" href="{{ post.url | relative_url }}">
+<a class="related-bento__card hub-card" href="{{ post.url | relative_url }}">
   {% assign main_tag = post.categories.first | default: post.tags.first %}
   {% if main_tag %}
   <span class="related-bento__badge">{{ main_tag }}</span>

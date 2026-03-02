@@ -169,7 +169,7 @@ figarist.github.io/
 | --- | ---------------- | --------------------------------------------- |
 | 1   | Scroll Fade-In   | `IntersectionObserver` for `.fade-in` cards   |
 | 2   | WebGL Overlay    | Click-to-load iframe for Unity demos          |
-| 3   | Card Tilt        | 3D perspective on hover (`bento-tilt-target`) |
+| 3   | Card Tilt        | 3D perspective on hover (`hub-card`)          |
 | 4   | Reading Progress | Scroll-based progress bar                     |
 | 5   | Copy Code        | Click-to-copy on code blocks                  |
 | 6   | Navbar Scroll    | Show/hide on scroll direction                 |

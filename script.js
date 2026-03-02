@@ -91,7 +91,7 @@
      3. CARD SUBTLE TILT (on mouse move)
      Applies a gentle perspective tilt to hovered cards.
   —————————————————————————————————————————— */
-  var tiltCards = document.querySelectorAll(".hub-card, .bento-tilt-target");
+  var tiltCards = document.querySelectorAll(".hub-card");
 
   var prefersReducedMotion = window.matchMedia(
     "(prefers-reduced-motion: reduce)",

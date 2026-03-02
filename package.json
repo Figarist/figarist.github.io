@@ -1,0 +1,28 @@
+{
+  "name": "app",
+  "version": "1.0.0",
+  "description": "<div align=\"center\">   <img src=\"https://readme-typing-svg.herokuapp.com?font=Fira+Code&size=36&duration=3000&pause=1000&color=9D4EDD&center=true&vCenter=true&width=800&lines=figarist.github.io+%F0%9F%8E%AE;Performance+First+%E2%9A%A1;Hub+Architecture+%F0%9F%A7%B1;Quadrilingual+Sync+%F0%9F%8C%8E\" alt=\"Typing SVG\" /> </div>",
+  "main": "script.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Figarist/figarist.github.io.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/Figarist/figarist.github.io/issues"
+  },
+  "homepage": "https://github.com/Figarist/figarist.github.io#readme",
+  "devDependencies": {
+    "jest": "^30.2.0",
+    "jest-environment-jsdom": "^30.2.0"
+  },
+  "dependencies": {
+    "jsdom": "^28.1.0"
+  }
+}

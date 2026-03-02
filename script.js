@@ -258,7 +258,6 @@
   var closeSearch = document.getElementById("close-search");
   var searchTrigger = document.getElementById("search-trigger");
   var lunrIndex = null;
-  var searchStore = [];
   var searchMap = {};
 
   function toggleSearch(show) {
@@ -285,7 +284,6 @@
         return response.json();
       })
       .then(function (data) {
-        searchStore = data;
         // Construct a map for O(1) lookups during search
         searchMap = {};
         data.forEach(function (item) {

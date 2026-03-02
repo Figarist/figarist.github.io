@@ -97,58 +97,70 @@
     "(prefers-reduced-motion: reduce)",
   ).matches;
 
+  // Common helper for throttled mousemove handlers
+  function createThrottledMouseMove(el, updateFn, resetFn) {
+    var ticking = false;
+    var clientX = 0;
+    var clientY = 0;
+    var rafId = null;
+
+    function onFrame() {
+      updateFn(el, clientX, clientY);
+      ticking = false;
+    }
+
+    el.addEventListener("mousemove", function (e) {
+      clientX = e.clientX;
+      clientY = e.clientY;
+
+      if (!ticking) {
+        rafId = window.requestAnimationFrame(onFrame);
+        ticking = true;
+      }
+    });
+
+    el.addEventListener("mouseleave", function () {
+      if (rafId) {
+        window.cancelAnimationFrame(rafId);
+        rafId = null;
+      }
+      ticking = false;
+      clientX = 0;
+      clientY = 0;
+      if (resetFn) resetFn(el);
+    });
+  }
+
   if (!prefersReducedMotion) {
     tiltCards.forEach(function (card) {
       // Snappy response but smooth return
-      var ticking = false;
-      var clientX = 0;
-      var clientY = 0;
-      var rafId = null;
+      createThrottledMouseMove(
+        card,
+        function (el, clientX, clientY) {
+          var rect = el.getBoundingClientRect();
+          var x = clientX - rect.left;
+          var y = clientY - rect.top;
+          var cw = rect.width;
+          var ch = rect.height;
+          // Normalize to [-1, 1]
+          var nx = (x / cw - 0.5) * 2;
+          var ny = (y / ch - 0.5) * 2;
+          // Max 2.5deg tilt
+          var rotateX = -ny * 2.5;
+          var rotateY = nx * 2.5;
 
-      function updateCardTransform() {
-        var rect = card.getBoundingClientRect();
-        var x = clientX - rect.left;
-        var y = clientY - rect.top;
-        var cw = rect.width;
-        var ch = rect.height;
-        // Normalize to [-1, 1]
-        var nx = (x / cw - 0.5) * 2;
-        var ny = (y / ch - 0.5) * 2;
-        // Max 2.5deg tilt
-        var rotateX = -ny * 2.5;
-        var rotateY = nx * 2.5;
-
-        card.style.transform =
-          "perspective(1000px) rotateX(" +
-          rotateX +
-          "deg) rotateY(" +
-          rotateY +
-          "deg)";
-
-        ticking = false;
-      }
-
-      card.addEventListener("mousemove", function (e) {
-        clientX = e.clientX;
-        clientY = e.clientY;
-
-        if (!ticking) {
-          rafId = window.requestAnimationFrame(updateCardTransform);
-          ticking = true;
+          el.style.transform =
+            "perspective(1000px) rotateX(" +
+            rotateX +
+            "deg) rotateY(" +
+            rotateY +
+            "deg)";
+        },
+        function (el) {
+          el.style.transition = "transform 0.3s ease";
+          el.style.transform = "";
         }
-      });
-
-      card.addEventListener("mouseleave", function () {
-        if (rafId) {
-          window.cancelAnimationFrame(rafId);
-          rafId = null;
-        }
-        ticking = false;
-        clientX = 0;
-        clientY = 0;
-        card.style.transition = "transform 0.3s ease";
-        card.style.transform = "";
-      });
+      );
 
       // Re-enable snappy transition when entering
       card.addEventListener("mouseenter", function () {
@@ -164,47 +176,25 @@
   var doodles = bioCard ? bioCard.querySelectorAll(".doodle") : [];
 
   if (bioCard && doodles.length && !prefersReducedMotion) {
-    var bioTicking = false;
-    var bioClientX = 0;
-    var bioClientY = 0;
-    var bioRafId = null;
+    createThrottledMouseMove(
+      bioCard,
+      function (el, clientX, clientY) {
+        var rect = el.getBoundingClientRect();
+        var x = (clientX - rect.left) / rect.width - 0.5;
+        var y = (clientY - rect.top) / rect.height - 0.5;
 
-    function updateBioTransform() {
-      var rect = bioCard.getBoundingClientRect();
-      var x = (bioClientX - rect.left) / rect.width - 0.5;
-      var y = (bioClientY - rect.top) / rect.height - 0.5;
-
-      doodles.forEach(function (d, i) {
-        var depth = (i + 1) * 6; // 6px, 12px, 18px, 24px
-        d.style.transform =
-          "translate(" + x * depth + "px, " + y * depth + "px)";
-      });
-
-      bioTicking = false;
-    }
-
-    bioCard.addEventListener("mousemove", function (e) {
-      bioClientX = e.clientX;
-      bioClientY = e.clientY;
-
-      if (!bioTicking) {
-        bioRafId = window.requestAnimationFrame(updateBioTransform);
-        bioTicking = true;
+        doodles.forEach(function (d, i) {
+          var depth = (i + 1) * 6; // 6px, 12px, 18px, 24px
+          d.style.transform =
+            "translate(" + x * depth + "px, " + y * depth + "px)";
+        });
+      },
+      function (el) {
+        doodles.forEach(function (d) {
+          d.style.transform = "";
+        });
       }
-    });
-
-    bioCard.addEventListener("mouseleave", function () {
-      if (bioRafId) {
-        window.cancelAnimationFrame(bioRafId);
-        bioRafId = null;
-      }
-      bioTicking = false;
-      bioClientX = 0;
-      bioClientY = 0;
-      doodles.forEach(function (d) {
-        d.style.transform = "";
-      });
-    });
+    );
   }
 
   /* ——————————————————————————————————————————

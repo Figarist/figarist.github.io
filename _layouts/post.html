@@ -104,9 +104,10 @@ layout: default
 {% assign relatedCount = 0 %}
 
 {% capture related_posts_html %}
-{% for post in site.posts %}
-{% comment %} 1. Filter out exact same post and mismatched language {% endcomment %}
-{% if post.url != page.url and post.lang == site.active_lang %}
+{% assign related_candidates = site.posts | where: 'lang', site.active_lang %}
+{% for post in related_candidates %}
+{% comment %} 1. Filter out exact same post {% endcomment %}
+{% if post.url != page.url %}
 {% assign sameTagCount = 0 %}
 
 {% comment %} 2. Check for matching categories {% endcomment %}

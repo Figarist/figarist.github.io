@@ -100,11 +100,15 @@
   if (!prefersReducedMotion) {
     tiltCards.forEach(function (card) {
       // Snappy response but smooth return
+      var ticking = false;
+      var clientX = 0;
+      var clientY = 0;
+      var rafId = null;
 
-      card.addEventListener("mousemove", function (e) {
+      function updateCardTransform() {
         var rect = card.getBoundingClientRect();
-        var x = e.clientX - rect.left;
-        var y = e.clientY - rect.top;
+        var x = clientX - rect.left;
+        var y = clientY - rect.top;
         var cw = rect.width;
         var ch = rect.height;
         // Normalize to [-1, 1]
@@ -120,9 +124,28 @@
           "deg) rotateY(" +
           rotateY +
           "deg)";
+
+        ticking = false;
+      }
+
+      card.addEventListener("mousemove", function (e) {
+        clientX = e.clientX;
+        clientY = e.clientY;
+
+        if (!ticking) {
+          rafId = window.requestAnimationFrame(updateCardTransform);
+          ticking = true;
+        }
       });
 
       card.addEventListener("mouseleave", function () {
+        if (rafId) {
+          window.cancelAnimationFrame(rafId);
+          rafId = null;
+        }
+        ticking = false;
+        clientX = 0;
+        clientY = 0;
         card.style.transition = "transform 0.3s ease";
         card.style.transform = "";
       });
@@ -141,19 +164,43 @@
   var doodles = bioCard ? bioCard.querySelectorAll(".doodle") : [];
 
   if (bioCard && doodles.length && !prefersReducedMotion) {
-    bioCard.addEventListener("mousemove", function (e) {
+    var bioTicking = false;
+    var bioClientX = 0;
+    var bioClientY = 0;
+    var bioRafId = null;
+
+    function updateBioTransform() {
       var rect = bioCard.getBoundingClientRect();
-      var x = (e.clientX - rect.left) / rect.width - 0.5;
-      var y = (e.clientY - rect.top) / rect.height - 0.5;
+      var x = (bioClientX - rect.left) / rect.width - 0.5;
+      var y = (bioClientY - rect.top) / rect.height - 0.5;
 
       doodles.forEach(function (d, i) {
         var depth = (i + 1) * 6; // 6px, 12px, 18px, 24px
         d.style.transform =
           "translate(" + x * depth + "px, " + y * depth + "px)";
       });
+
+      bioTicking = false;
+    }
+
+    bioCard.addEventListener("mousemove", function (e) {
+      bioClientX = e.clientX;
+      bioClientY = e.clientY;
+
+      if (!bioTicking) {
+        bioRafId = window.requestAnimationFrame(updateBioTransform);
+        bioTicking = true;
+      }
     });
 
     bioCard.addEventListener("mouseleave", function () {
+      if (bioRafId) {
+        window.cancelAnimationFrame(bioRafId);
+        bioRafId = null;
+      }
+      bioTicking = false;
+      bioClientX = 0;
+      bioClientY = 0;
       doodles.forEach(function (d) {
         d.style.transform = "";
       });

@@ -29,3 +29,4 @@ test.yml
 .agents/
 .agent/
 brain/
+node_modules/

@@ -88,6 +88,37 @@
   }
 
   /* ——————————————————————————————————————————
+     UTILITIES: Throttled MouseMove
+     Abstracts rAF throttling and listener cleanup.
+  —————————————————————————————————————————— */
+  function createThrottledMouseMove(el, updateCallback, resetCallback) {
+    var ticking = false;
+    var rafId = null;
+
+    function handleMouseMove(e) {
+      if (!ticking) {
+        rafId = window.requestAnimationFrame(function () {
+          updateCallback(e);
+          ticking = false;
+        });
+        ticking = true;
+      }
+    }
+
+    function handleMouseLeave() {
+      if (rafId) {
+        window.cancelAnimationFrame(rafId);
+        rafId = null;
+      }
+      ticking = false;
+      if (resetCallback) resetCallback();
+    }
+
+    el.addEventListener("mousemove", handleMouseMove);
+    el.addEventListener("mouseleave", handleMouseLeave);
+  }
+
+  /* ——————————————————————————————————————————
      3. CARD SUBTLE TILT (on mouse move)
      Applies a gentle perspective tilt to hovered cards.
   —————————————————————————————————————————— */
@@ -99,33 +130,31 @@
 
   if (!prefersReducedMotion) {
     tiltCards.forEach(function (card) {
-      // Snappy response but smooth return
+      createThrottledMouseMove(
+        card,
+        function (e) {
+          var rect = card.getBoundingClientRect();
+          var x = e.clientX - rect.left;
+          var y = e.clientY - rect.top;
+          var cw = rect.width;
+          var ch = rect.height;
+          var nx = (x / cw - 0.5) * 2;
+          var ny = (y / ch - 0.5) * 2;
+          var rotateX = -ny * 2.5;
+          var rotateY = nx * 2.5;
 
-      card.addEventListener("mousemove", function (e) {
-        var rect = card.getBoundingClientRect();
-        var x = e.clientX - rect.left;
-        var y = e.clientY - rect.top;
-        var cw = rect.width;
-        var ch = rect.height;
-        // Normalize to [-1, 1]
-        var nx = (x / cw - 0.5) * 2;
-        var ny = (y / ch - 0.5) * 2;
-        // Max 2.5deg tilt
-        var rotateX = -ny * 2.5;
-        var rotateY = nx * 2.5;
-
-        card.style.transform =
-          "perspective(1000px) rotateX(" +
-          rotateX +
-          "deg) rotateY(" +
-          rotateY +
-          "deg)";
-      });
-
-      card.addEventListener("mouseleave", function () {
-        card.style.transition = "transform 0.3s ease";
-        card.style.transform = "";
-      });
+          card.style.transform =
+            "perspective(1000px) rotateX(" +
+            rotateX +
+            "deg) rotateY(" +
+            rotateY +
+            "deg)";
+        },
+        function () {
+          card.style.transition = "transform 0.3s ease";
+          card.style.transform = "";
+        },
+      );
 
       // Re-enable snappy transition when entering
       card.addEventListener("mouseenter", function () {
@@ -141,23 +170,25 @@
   var doodles = bioCard ? bioCard.querySelectorAll(".doodle") : [];
 
   if (bioCard && doodles.length && !prefersReducedMotion) {
-    bioCard.addEventListener("mousemove", function (e) {
-      var rect = bioCard.getBoundingClientRect();
-      var x = (e.clientX - rect.left) / rect.width - 0.5;
-      var y = (e.clientY - rect.top) / rect.height - 0.5;
+    createThrottledMouseMove(
+      bioCard,
+      function (e) {
+        var rect = bioCard.getBoundingClientRect();
+        var x = (e.clientX - rect.left) / rect.width - 0.5;
+        var y = (e.clientY - rect.top) / rect.height - 0.5;
 
-      doodles.forEach(function (d, i) {
-        var depth = (i + 1) * 6; // 6px, 12px, 18px, 24px
-        d.style.transform =
-          "translate(" + x * depth + "px, " + y * depth + "px)";
-      });
-    });
-
-    bioCard.addEventListener("mouseleave", function () {
-      doodles.forEach(function (d) {
-        d.style.transform = "";
-      });
-    });
+        doodles.forEach(function (d, i) {
+          var depth = (i + 1) * 6;
+          d.style.transform =
+            "translate(" + x * depth + "px, " + y * depth + "px)";
+        });
+      },
+      function () {
+        doodles.forEach(function (d) {
+          d.style.transform = "";
+        });
+      },
+    );
   }
 
   /* ——————————————————————————————————————————

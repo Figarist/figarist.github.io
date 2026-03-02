@@ -258,7 +258,7 @@
   var closeSearch = document.getElementById("close-search");
   var searchTrigger = document.getElementById("search-trigger");
   var lunrIndex = null;
-  var searchStore = [];
+  var searchMap = {};
 
   function toggleSearch(show) {
     if (!searchModal) return;
@@ -284,7 +284,12 @@
         return response.json();
       })
       .then(function (data) {
-        searchStore = data;
+        // Construct a map for O(1) lookups during search
+        searchMap = {};
+        data.forEach(function (item) {
+          searchMap[item.id] = item;
+        });
+
         lunrIndex = lunr(function () {
           // Disable stemming to ensure technical terms (Unity, C#, etc.) match exactly
           this.pipeline.remove(lunr.stemmer);
@@ -318,9 +323,7 @@
 
     if (results.length > 0) {
       results.forEach(function (result) {
-        var item = searchStore.find(function (i) {
-          return i.id === result.ref;
-        });
+        var item = searchMap[result.ref];
         if (item) {
           var tagsHtml = item.tags
             .split(" ")

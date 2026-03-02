@@ -196,15 +196,22 @@
   —————————————————————————————————————————— */
   var pb = document.getElementById("reading-progress-bar");
   if (pb) {
+    var ticking = false;
     window.addEventListener(
       "scroll",
       function () {
-        var h = document.documentElement;
-        pb.style.width =
-          ((h.scrollTop || document.body.scrollTop) /
-            (h.scrollHeight - h.clientHeight)) *
-            100 +
-          "%";
+        if (!ticking) {
+          window.requestAnimationFrame(function () {
+            var h = document.documentElement;
+            pb.style.width =
+              ((h.scrollTop || document.body.scrollTop) /
+                (h.scrollHeight - h.clientHeight)) *
+                100 +
+              "%";
+            ticking = false;
+          });
+          ticking = true;
+        }
       },
       { passive: true },
     );

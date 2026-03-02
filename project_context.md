@@ -98,7 +98,7 @@ styles.scss imports:
 | --- | ---------------- | --------------------------------------------- |
 | 1   | Scroll Fade-In   | `IntersectionObserver` для `.fade-in` карток  |
 | 2   | WebGL Overlay    | Click-to-load iframe для Unity демо           |
-| 3   | Card Tilt        | 3D перспектива на hover (`bento-tilt-target`) |
+| 3   | Card Tilt        | 3D перспектива на hover (`hub-card`)          |
 | 4   | Reading Progress | Scroll-based прогрес-бар                      |
 | 5   | Copy Code        | Click-to-copy на блоках коду                  |
 | 6   | Navbar Scroll    | Show/hide навбар по напрямку скролу           |

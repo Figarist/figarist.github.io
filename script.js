@@ -203,7 +203,7 @@
         pb.style.width =
           ((h.scrollTop || document.body.scrollTop) /
             (h.scrollHeight - h.clientHeight)) *
-            100 +
+          100 +
           "%";
       },
       { passive: true },
@@ -285,7 +285,7 @@
       })
       .then(function (data) {
         // Construct a map for O(1) lookups during search
-        searchMap = {};
+        searchMap = Object.create(null);
         data.forEach(function (item) {
           searchMap[item.id] = item;
         });

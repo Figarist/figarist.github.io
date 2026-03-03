@@ -3,15 +3,12 @@ layout: default
 ---
 
 <div class="post-container archive-hub">
-  <a href="{{ '/' | relative_url }}" class="btn-back">
-    {{ site.data[site.active_lang].strings.back_to_hub }}
-  </a>
 
   {% include breadcrumbs.html %}
 
   <div class="archive-hub__header">
     {% if page.type == 'category' %}
-    <span class="archive-hub__badge archive-hub__badge--category">📂 {{ site.data[site.active_lang].strings.category_label | default: "Category" }}</span>
+    <span class="archive-hub__badge archive-hub__badge--category">{{ site.data[site.active_lang].strings.category_label | default: "Category" }}</span>
     {% else %}
     <span class="archive-hub__badge archive-hub__badge--tag">#{{ page.title }}</span>
     {% endif %}
@@ -55,7 +52,7 @@ layout: default
     <div class="archive-hub__pill-row">
       {% for cat in site.categories %}
       <a href="{{ '/blog/category/' | append: cat[0] | append: '/' | relative_url }}" class="archive-hub__pill archive-hub__pill--category {% if page.title == cat[0] %}active{% endif %}">
-        📂 {{ cat[0] | capitalize }} <span class="archive-hub__count">{{ cat[1].size }}</span>
+        {{ cat[0] | capitalize }} <span class="archive-hub__count">{{ cat[1].size }}</span>
       </a>
       {% endfor %}
     </div>

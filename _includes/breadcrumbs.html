@@ -15,10 +15,23 @@
       </a>
       <meta itemprop="position" content="2" />
     </li>
+    {% if page.category %}
+    <li class="breadcrumbs__item" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+      <a href="{{ '/blog/category/' | append: page.category | append: '/' | relative_url }}" itemprop="item">
+        <span itemprop="name">{{ page.category | upcase }}</span>
+      </a>
+      <meta itemprop="position" content="3" />
+    </li>
+    <li class="breadcrumbs__item breadcrumbs__item--active" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+      <span itemprop="name">{{ page.title | truncatewords: 6 }}</span>
+      <meta itemprop="position" content="4" />
+    </li>
+    {% else %}
     <li class="breadcrumbs__item breadcrumbs__item--active" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
       <span itemprop="name">{{ page.title | truncatewords: 6 }}</span>
       <meta itemprop="position" content="3" />
     </li>
+    {% endif %}
 
     {% elsif page.layout == 'education' %}
     <li class="breadcrumbs__item" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">

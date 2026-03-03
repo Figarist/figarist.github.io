@@ -121,3 +121,10 @@ search_close_label: "Закрыть поиск"
 search_select_hint: "Enter чтобы выбрать"
 search_close_hint: "Esc чтобы закрыть"
 search_no_results: "Ничего не найдено по запросу"
+
+# ── Archives ──
+category_label: "Категория"
+posts_count: "публикаций"
+all_categories: "Все категории"
+all_tags: "Все теги"
+filed_under: "РАЗДЕЛ:"

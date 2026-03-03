@@ -94,7 +94,7 @@ exclude_from_localization:
   - sw.js
   - sw-register.js
   - redirects.json
-parallel_localization: true
+parallel_localization: false
 
 # ── Defaults ─────────────────────────────────────────────────
 defaults:

@@ -121,3 +121,10 @@ search_close_label: "검색 닫기"
 search_select_hint: "Enter 키로 선택"
 search_close_hint: "Esc 키로 닫기"
 search_no_results: "다음에 대한 결과를 찾을 수 없습니다:"
+
+# ── Archives ──
+category_label: "카테고리"
+posts_count: "개의 게시물"
+all_categories: "모든 카테고리"
+all_tags: "모든 태그"
+filed_under: "분류:"

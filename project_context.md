@@ -1,6 +1,6 @@
 > Цей файл — ПОВНИЙ КОНТЕКСТ проекту для передачі іншому ШІ.
 > Автор: Ihor Sivochka — Indie Game Developer, Зміїв, UA.
-> Оновлено: 2026-03-01
+> Оновлено: 2026-03-03
 
 ---
 
@@ -49,12 +49,14 @@ graph TD
 ## 🔧 ТЕХНІЧНЕ ЯДРО
 
 - **Jekyll 4.4** — Static Site Generator
-- **Polyglot** — Квадрилінгвальна збірка (EN, UK, RU, KO). DRY: один `index.html`, текст в `_data/[lang]/strings.yml`
+- **Polyglot** — Квадрилінгвальна збірка (EN, UK, RU, KO). DRY: один `index.html», текст в `\_data/[lang]/strings.yml`
 - **PWA (Workbox)** — Service Worker + `manifest.json`. Офлайн-перший підхід
 - **Spaceship** — Mermaid діаграми, MathJax формули, YouTube/Spotify embeds
 - **jekyll-toc** — Автоматичний зміст (включається `toc: true` у front matter)
+- **Hierarchical Breadcrumbs** — Система навігації за замовчуванням (Hub → Section → Category → Article). Замінила кнопки "Назад"
 - **jekyll-archives** — Автосторінки `/blog/category/:name/` та `/blog/tag/:name/`
 - **jekyll-last-modified-at** — `dateModified` з git log (показується тільки якщо ≠ `datePublished`)
+- **CGM Header Style** — Мінімалістичні заголовки статтей (Header | Date | Read Time). Без декоративних емодзі
 - **GoatCounter** — Privacy-first analytics (Zero cookies, no GDPR)
 - **Performance Budget** — JS < 20KB, CSS < 30KB (перевіряється в CI)
 
@@ -94,18 +96,18 @@ styles.scss imports:
 
 ## 📜 script.js МОДУЛІ
 
-| §   | Назва            | Що робить                                     |
-| --- | ---------------- | --------------------------------------------- |
-| 1   | Scroll Fade-In   | `IntersectionObserver` для `.fade-in` карток  |
-| 2   | WebGL Overlay    | Click-to-load iframe для Unity демо           |
-| 3   | Card Tilt        | 3D перспектива на hover (`hub-card`)          |
-| 4   | Reading Progress | Scroll-based прогрес-бар                      |
-| 5   | Copy Code        | Click-to-copy на блоках коду                  |
-| 6   | Navbar Scroll    | Show/hide навбар по напрямку скролу           |
-| 7   | View Transitions | Client-side `startViewTransition()`           |
-| 8   | Search           | Повнотекстовий пошук з `search.json`          |
-| 9   | Lang Switch      | Збереження `preferred_lang` в localStorage    |
-| —   | SW               | Service Worker реєстрація (поза IIFE)         |
+| §   | Назва            | Що робить                                    |
+| --- | ---------------- | -------------------------------------------- |
+| 1   | Scroll Fade-In   | `IntersectionObserver` для `.fade-in` карток |
+| 2   | WebGL Overlay    | Click-to-load iframe для Unity демо          |
+| 3   | Card Tilt        | 3D перспектива на hover (`hub-card`)         |
+| 4   | Reading Progress | Scroll-based прогрес-бар                     |
+| 5   | Copy Code        | Click-to-copy на блоках коду                 |
+| 6   | Navbar Scroll    | Show/hide навбар по напрямку скролу          |
+| 7   | View Transitions | Client-side `startViewTransition()`          |
+| 8   | Search           | Повнотекстовий пошук з `search.json`         |
+| 9   | Lang Switch      | Збереження `preferred_lang` в localStorage   |
+| —   | SW               | Service Worker реєстрація (поза IIFE)        |
 
 ---
 
@@ -113,7 +115,7 @@ styles.scss imports:
 
 - **BlogPosting JSON-LD** — на кожному пості: `headline`, `datePublished`, `dateModified`, `author`, `url`
 - **Article JSON-LD** — на education: те саме
-- **BreadcrumbList JSON-LD** — на постах, education, archives: Hub → Section → Page
+- **BreadcrumbList JSON-LD** — на постах, education, archives: Hub → Section → Category → Page
 - **hreflang** — автоматично через `jekyll-polyglot` (4 мови)
 - **Sitemap** — `/sitemap.xml` через `jekyll-sitemap`
 - **RSS** — через `jekyll-feed`
@@ -127,10 +129,11 @@ styles.scss imports:
 
 1. **Прочитай `gemini3rules.md`** — це "Конституція". Не порушуй
 2. **Перевір `strings.yml`** — перед додаванням UI ключів перевір всі 4 словники
-3. **JS тільки в `script.js`** — всередині IIFE, ES5 синтаксис (`function()`, не `=>`)
+3. **JS тільки в `script.js`** — всередині IIFE, ES5 синтаксис
 4. **CSS тільки в `_sass/`** — через `@use` в `styles.scss`. Жодних inline стилів
 5. **Пости × 4 мови** — кожен пост має 4 мовні версії з **однаковим** `permalink`
 6. **`category` + `tags`** — кожен пост = archive pages через `jekyll-archives`
+7. **CGM Style Guide** — Статті без кнопок "Назад" та емодзі-префіксів. Тільки чистий текст та ієрархічні крихти
 
 ---
 

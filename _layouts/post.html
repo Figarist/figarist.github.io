@@ -85,62 +85,71 @@ layout: default
 </script>
 
 <!-- RELATED POSTS BENTO -->
-{% assign maxRelated = 3 %}
+{% assign maxRelated = 4 %}
 {% assign minCommonTags = 1 %}
 {% assign relatedCount = 0 %}
 
-{% capture related_posts_html %}
+{% comment %} Collect URLs of related posts to avoid duplication in fallback {% endcomment %}
 {% assign related_candidates = site.posts | where: 'lang', site.active_lang %}
+
+{% comment %} Pass 1: tag/category-matched posts {% endcomment %}
+{% capture related_posts_html %}
 {% for post in related_candidates %}
-{% comment %} 1. Filter out exact same post {% endcomment %}
 {% if post.url != page.url %}
 {% assign sameTagCount = 0 %}
-
-{% comment %} 2. Check for matching categories {% endcomment %}
 {% for category in post.categories %}
-{% if page.categories contains category %}
-{% assign sameTagCount = sameTagCount | plus: 1 %}
-{% endif %}
+{% if page.categories contains category %}{% assign sameTagCount = sameTagCount | plus: 1 %}{% endif %}
 {% endfor %}
-
-{% comment %} 3. Check for matching tags (failsafe for flexibility) {% endcomment %}
 {% for tag in post.tags %}
-{% if page.tags contains tag %}
-{% assign sameTagCount = sameTagCount | plus: 1 %}
+{% if page.tags contains tag %}{% assign sameTagCount = sameTagCount | plus: 1 %}{% endif %}
+{% endfor %}
+{% if sameTagCount >= minCommonTags and relatedCount < maxRelated %}
+<a class="related-bento__card hub-card" href="{{ post.url | relative_url }}" data-related-url="{{ post.url }}">
+  {% assign main_tag = post.categories.first | default: post.tags.first %}
+  {% if main_tag %}<span class="related-bento__badge">{{ main_tag }}</span>{% endif %}
+  <h3 class="related-bento__title">{{ post.title }}</h3>
+  <time class="related-bento__date" datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: "%d %B %Y" }}</time>
+</a>
+{% assign relatedCount = relatedCount | plus: 1 %}
+{% endif %}
 {% endif %}
 {% endfor %}
 
-{% comment %} 4. Print if condition is met {% endcomment %}
-{% if sameTagCount >= minCommonTags %}
+{% comment %} Pass 2: fill remaining slots with recent posts {% endcomment %}
+{% if relatedCount < maxRelated %}
+{% assign needed = maxRelated | minus: relatedCount %}
+{% assign fallback_count = 0 %}
+{% for post in related_candidates %}
+{% if fallback_count >= needed %}{% break %}{% endif %}
+{% if post.url == page.url %}{% continue %}{% endif %}
+{% comment %} Check this post was NOT already included (no shared tags/categories) {% endcomment %}
+{% assign sameTagCount = 0 %}
+{% for category in post.categories %}
+{% if page.categories contains category %}{% assign sameTagCount = sameTagCount | plus: 1 %}{% endif %}
+{% endfor %}
+{% for tag in post.tags %}
+{% if page.tags contains tag %}{% assign sameTagCount = sameTagCount | plus: 1 %}{% endif %}
+{% endfor %}
+{% if sameTagCount < minCommonTags %}
 <a class="related-bento__card hub-card" href="{{ post.url | relative_url }}">
   {% assign main_tag = post.categories.first | default: post.tags.first %}
-  {% if main_tag %}
-  <span class="related-bento__badge">{{ main_tag }}</span>
-  {% endif %}
+  {% if main_tag %}<span class="related-bento__badge">{{ main_tag }}</span>{% endif %}
   <h3 class="related-bento__title">{{ post.title }}</h3>
-  <time class="related-bento__date" datetime="{{ post.date | date_to_xmlschema }}">
-    {{ post.date | date: "%d %B %Y" }}
-  </time>
+  <time class="related-bento__date" datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: "%d %B %Y" }}</time>
 </a>
-
-{% assign relatedCount = relatedCount | plus: 1 %}
-{% if relatedCount >= maxRelated %}
-{% break %}
-{% endif %}
-{% endif %}
+{% assign fallback_count = fallback_count | plus: 1 %}
 {% endif %}
 {% endfor %}
+{% endif %}
 {% endcapture %}
 
-{% comment %} Only display the wrapper if related posts were actually found {% endcomment %}
-{% if relatedCount > 0 %}
+{% comment %} Always show the section (there will always be posts) {% endcomment %}
 <section class="related-bento">
   <h3 class="related-bento__heading">
     <span>{{ site.data[site.active_lang].strings.related_posts }}</span>
   </h3>
-
   <div class="related-bento__grid">
     {{ related_posts_html }}
   </div>
 </section>
-{% endif %}
+

@@ -4,9 +4,8 @@ title: "The Shrine — Figarist"
 ---
 
 <div class="post-container shrine-hub">
-    <a href="{{ '/' | relative_url }}" class="btn-back">
-        {{ site.data[site.active_lang].strings.back_to_hub }}
-    </a>
+
+    {% include breadcrumbs.html %}
 
     <h1 class="hub-page-title">
         {{ site.data[site.active_lang].strings.shrine_title }}

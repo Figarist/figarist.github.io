@@ -28,6 +28,17 @@ layout: default
   </div>
   <hr class="post-header-rule">
 
+
+  {% if page.lang != site.active_lang %}
+  <div class="banner--translation-warning">
+    {{ site.data[site.active_lang].strings.translation_fallback_warning }}
+  </div>
+  {% endif %}
+
+  <div class="edu-body" itemprop="articleBody">
+    {{ content }}
+  </div>
+
   {% if page.tags.size > 0 or page.category %}
   <div class="post-tags-inline">
     <span class="post-tags-label">{{ site.data[site.active_lang].strings.filed_under | default: "FILE UNDER:" }}</span>
@@ -39,16 +50,6 @@ layout: default
     {% endfor %}
   </div>
   {% endif %}
-
-  {% if page.lang != site.active_lang %}
-  <div class="banner--translation-warning">
-    {{ site.data[site.active_lang].strings.translation_fallback_warning }}
-  </div>
-  {% endif %}
-
-  <div class="edu-body" itemprop="articleBody">
-    {{ content }}
-  </div>
 
   {% include author_box.html %}
 

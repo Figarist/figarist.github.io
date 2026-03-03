@@ -86,15 +86,15 @@ figarist.github.io/
 │
 ├── _layouts/
 │   ├── default.html           # Shell: head → header → main → footer → search
-│   ├── post.html              # Blog posts: TOC, breadcrumbs, JSON-LD, related
-│   ├── education.html         # Tutorials: level badge, tags, JSON-LD
-│   └── archive.html           # Auto-generated category/tag pages
+│   ├── post.html              # Blog posts: TOC, hierarchical breadcrumbs, JSON-LD, related
+│   ├── education.html         # Tutorials: level badge, hierarchical breadcrumbs, tags, JSON-LD
+│   └── archive.html           # Auto-generated category/tag pages with breadcrumb nav
 │
 ├── _includes/
 │   ├── head.html              # <head>: meta, fonts, SEO, analytics, PWA
 │   ├── header.html            # Sticky nav: sections, search trigger, lang-switch
 │   ├── footer.html            # 3-col footer: brand, explore, connect
-│   ├── breadcrumbs.html       # BreadcrumbList JSON-LD (post/education/archive)
+│   ├── breadcrumbs.html       # BreadcrumbList (Hub → Section → Category → Article)
 │   ├── lang-redirect.html     # Auto-redirect based on browser/localStorage lang
 │   ├── search-modal.html      # Full-text search modal (Cmd+K)
 │   └── author_box.html        # Post author card
@@ -165,18 +165,18 @@ figarist.github.io/
 
 ### script.js Modules (IIFE)
 
-| §   | Module           | Purpose                                       |
-| --- | ---------------- | --------------------------------------------- |
-| 1   | Scroll Fade-In   | `IntersectionObserver` for `.fade-in` cards   |
-| 2   | WebGL Overlay    | Click-to-load iframe for Unity demos          |
-| 3   | Card Tilt        | 3D perspective on hover (`hub-card`)          |
-| 4   | Reading Progress | Scroll-based progress bar                     |
-| 5   | Copy Code        | Click-to-copy on code blocks                  |
-| 6   | Navbar Scroll    | Show/hide on scroll direction                 |
-| 7   | View Transitions | Client-side `startViewTransition()`           |
-| 8   | Search           | Full-text search with `search.json`           |
-| 9   | Lang Switch      | Save `preferred_lang` to localStorage         |
-| —   | SW Registration  | Service Worker (`/sw.js`) registration        |
+| §   | Module           | Purpose                                     |
+| --- | ---------------- | ------------------------------------------- |
+| 1   | Scroll Fade-In   | `IntersectionObserver` for `.fade-in` cards |
+| 2   | WebGL Overlay    | Click-to-load iframe for Unity demos        |
+| 3   | Card Tilt        | 3D perspective on hover (`hub-card`)        |
+| 4   | Reading Progress | Scroll-based progress bar                   |
+| 5   | Copy Code        | Click-to-copy on code blocks                |
+| 6   | Navbar Scroll    | Show/hide on scroll direction               |
+| 7   | View Transitions | Client-side `startViewTransition()`         |
+| 8   | Search           | Full-text search with `search.json`         |
+| 9   | Lang Switch      | Save `preferred_lang` to localStorage       |
+| —   | SW Registration  | Service Worker (`/sw.js`) registration      |
 
 ---
 
@@ -210,7 +210,7 @@ Every page has:
 Post/Education pages additionally have:
 
 - **BlogPosting / Article JSON-LD**: `datePublished`, `dateModified`, author, publisher
-- **BreadcrumbList JSON-LD**: Hub → Section → Article
+- **BreadcrumbList JSON-LD**: Hub → Section → Category → Article
 - **`apple-touch-icon`**: For iOS PWA
 
 ---
@@ -240,7 +240,7 @@ Hardened checks:
 3. **Quad-Sync**: Every post needs 4 language siblings sharing exact `permalink`.
 4. **Performance Budget**: JS < 20KB, CSS < 30KB (gzipped).
 5. **Zero Inline Styles**: All styling in `_sass/` partials. Only `view-transition-name` allowed inline (Liquid-dependent).
-6. **ES5 Syntax**: No arrow functions outside the IIFE. `function()` for compatibility.
+6. **CGM Layout**: Minimalist article headers. No "Back" buttons (use breadcrumbs). No decorative emojis (folder icons, date icons). Standardized meta line: `AUTHOR | DATE | READ TIME`.
 7. **Semantics**: `<article>`, `<section>`, `<nav>`, `<time>`. `aria-label` on icon-only buttons.
 
 See [gemini3rules.md](.agents/rules/gemini3rules.md) for full rules.

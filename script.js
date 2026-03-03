@@ -338,6 +338,20 @@
           this.pipeline.remove(lunr.stemmer);
           this.searchPipeline.remove(lunr.stemmer);
 
+          // Replace default trimmer (Latin-only \w) with Unicode-aware version
+          // Fixes search for Cyrillic (UK, RU) and Korean (KO) text
+          this.pipeline.remove(lunr.trimmer);
+          this.searchPipeline.remove(lunr.trimmer);
+          var unicodeTrimmer = function (token) {
+            return token.update(function (s) {
+              return s.replace(/^[^\p{L}\p{N}]+|[^\p{L}\p{N}]+$/gu, '');
+            });
+          };
+          unicodeTrimmer.label = 'unicodeTrimmer';
+          lunr.Pipeline.registerFunction(unicodeTrimmer, 'unicodeTrimmer');
+          this.pipeline.add(unicodeTrimmer);
+          this.searchPipeline.add(unicodeTrimmer);
+
           this.ref("id");
           this.field("title", { boost: 10 });
           this.field("tags", { boost: 5 });

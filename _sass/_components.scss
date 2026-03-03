@@ -52,30 +52,6 @@
   );
 }
 
-/* ======================== BUTTONS ======================== */
-
-/* ── Back button ────────────────────────────────────────── */
-.btn-back {
-  display: inline-flex;
-  margin-bottom: 2rem;
-  padding: 8px 20px;
-  border-radius: 100px;
-  border: 1.5px solid var(--accent-cyan);
-  color: var(--accent-cyan);
-  font-size: 0.85rem;
-  font-weight: 600;
-  text-decoration: none;
-  transition: background var(--t-fast), color var(--t-fast), box-shadow var(--t-fast);
-}
-
-@media (hover: hover) {
-  .btn-back:hover {
-    background: var(--accent-cyan);
-    color: #0f0e17;
-    box-shadow: 0 4px 16px rgba(78, 205, 196, 0.3);
-  }
-}
-
 /* ── Read-more CTA ───────────────────────────────────────── */
 .btn-read-more {
   display: inline-block;

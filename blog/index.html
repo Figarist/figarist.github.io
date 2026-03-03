@@ -27,14 +27,6 @@ pagination:
       {% endfor %}
     </div>
 
-    <h3 class="archive-hub__nav-heading">{{ site.data[site.active_lang].strings.all_tags | default: "All Tags" }}</h3>
-    <div class="archive-hub__pill-row">
-      {% for tag in site.tags %}
-      <a href="{{ '/blog/tag/' | append: tag[0] | append: '/' | relative_url }}" class="archive-hub__pill archive-hub__pill--tag">
-        #{{ tag[0] }} <span class="archive-hub__count">{{ tag[1].size }}</span>
-      </a>
-      {% endfor %}
-    </div>
   </div>
 
   <!-- ── PAGINATED FEED ── -->

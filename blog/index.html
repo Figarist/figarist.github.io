@@ -6,9 +6,8 @@ pagination:
 ---
 
 <div class="post-container blog-hub">
-  <a href="{{ '/' | relative_url }}" class="btn-back">
-    {{ site.data[site.active_lang].strings.back_to_hub }}
-  </a>
+
+  {% include breadcrumbs.html %}
 
   <h1 class="hub-page-title">
     {{ site.data[site.active_lang].strings.blog_hub_title }}
@@ -23,7 +22,7 @@ pagination:
     <div class="archive-hub__pill-row">
       {% for cat in site.categories %}
       <a href="{{ '/blog/category/' | append: cat[0] | append: '/' | relative_url }}" class="archive-hub__pill archive-hub__pill--category">
-        📂 {{ cat[0] | capitalize }} <span class="archive-hub__count">{{ cat[1].size }}</span>
+        {{ cat[0] | capitalize }} <span class="archive-hub__count">{{ cat[1].size }}</span>
       </a>
       {% endfor %}
     </div>

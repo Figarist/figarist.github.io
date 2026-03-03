@@ -53,9 +53,24 @@
       <meta itemprop="position" content="2" />
     </li>
     <li class="breadcrumbs__item breadcrumbs__item--active" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
-      <span itemprop="name">{{ page.title | capitalize }}</span>
+      <span itemprop="name">{{ page.title | upcase }}</span>
       <meta itemprop="position" content="3" />
     </li>
+
+    {% else %}
+    {%- assign page_path = page.url | remove: '/index.html' | remove: '.html' -%}
+    {%- if page_path == '/blog' or page_path == '/blog/' -%}
+    <li class="breadcrumbs__item breadcrumbs__item--active" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+      <span itemprop="name">{{ site.data[site.active_lang].strings.workshop_label }}</span>
+      <meta itemprop="position" content="2" />
+    </li>
+    {%- elsif page_path == '/education' or page_path == '/education/' -%}
+    <li class="breadcrumbs__item breadcrumbs__item--active" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+      <span itemprop="name">{{ site.data[site.active_lang].strings.education_label }}</span>
+      <meta itemprop="position" content="2" />
+    </li>
+    {%- endif -%}
     {% endif %}
   </ol>
 </nav>
+

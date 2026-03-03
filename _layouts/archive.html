@@ -7,13 +7,7 @@ layout: default
   {% include breadcrumbs.html %}
 
   <div class="archive-hub__header">
-    {% if page.type == 'category' %}
-    <span class="archive-hub__badge archive-hub__badge--category">{{ site.data[site.active_lang].strings.category_label | default: "Category" }}</span>
-    {% else %}
-    <span class="archive-hub__badge archive-hub__badge--tag">#{{ page.title }}</span>
-    {% endif %}
-
-    <h1 class="hub-page-title">{{ page.title | capitalize }}</h1>
+    <h1 class="hub-page-title">{{ page.title | upcase }}</h1>
     <p class="hub-page-subtitle">
       {{ page.posts | size }} {{ site.data[site.active_lang].strings.posts_count | default: "posts" }}
     </p>

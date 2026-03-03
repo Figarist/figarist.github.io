@@ -6,48 +6,36 @@ layout: default
 
 <article class="post-container education-article" itemscope itemtype="https://schema.org/Article">
 
-  <a href="{{ '/' | relative_url }}" class="btn-back" id="back-to-hub">
-    <span>{{ site.data[site.active_lang].strings.back_to_hub }}</span>
-  </a>
-
   {% include breadcrumbs.html %}
 
   <div class="edu-meta">
     {% if page.level %}
     <span class="edu-level edu-level--{{ page.level }}">{{ page.level }}</span>
     {% endif %}
-    {% assign words = content | strip_html | number_of_words %}
-    {% assign read_time = words | divided_by: 160 %}
-    {% if read_time == 0 %}{% assign read_time = 1 %}{% endif %}
-    <span class="badge badge--reading-time">⏳ {{ read_time }} {{ site.data[site.active_lang].strings.min_read }}</span>
-    {% if page.last_modified_at %}
-      {% assign pub_date = page.date | date: "%Y-%m-%d" %}
-      {% assign mod_date = page.last_modified_at | date: "%Y-%m-%d" %}
-      {% if mod_date != pub_date %}
-      <time class="badge badge--updated" datetime="{{ page.last_modified_at | date_to_xmlschema }}">
-        🔄 {{ page.last_modified_at | date: "%B %d, %Y" }}
-      </time>
-      {% endif %}
-    {% endif %}
   </div>
 
   <h1 itemprop="headline" style="view-transition-name: post-{{ page.slug }};">{{ page.title }}</h1>
 
-  <div class="post-meta">
-    ✍️ {{ site.data[site.active_lang].strings.author_name }} &bull; 📅 {{ page.date | date: "%B %d, %Y" }}
+  <div class="post-header-meta">
+    <span class="post-meta-author">{{ site.data[site.active_lang].strings.author_name }}</span>
+    <span class="post-meta-sep">|</span>
+    <time class="post-meta-date" datetime="{{ page.date | date_to_xmlschema }}">{{ page.date | date: "%B %d, %Y" }}</time>
+    {% assign words = content | strip_html | number_of_words %}
+    {% assign read_time = words | divided_by: 160 %}
+    {% if read_time == 0 %}{% assign read_time = 1 %}{% endif %}
+    <span class="post-meta-sep">|</span>
+    <span class="post-meta-reading">{{ read_time }} {{ site.data[site.active_lang].strings.min_read }}</span>
   </div>
+  <hr class="post-header-rule">
 
   {% if page.tags.size > 0 or page.category %}
-  <div class="post-tags">
+  <div class="post-tags-inline">
+    <span class="post-tags-label">{{ site.data[site.active_lang].strings.filed_under | default: "FILE UNDER:" }}</span>
     {% if page.category %}
-    <a href="{{ '/blog/category/' | append: page.category | append: '/' | relative_url }}" class="post-tag post-tag--category">
-      📂 {{ page.category }}
-    </a>
-    {% endif %}
-    {% for tag in page.tags %}
-    <span class="post-tag">
-      #{{ tag }}
-    </span>
+    <a href="{{ '/blog/category/' | append: page.category | append: '/' | relative_url }}" class="post-tag-link">{{ page.category | upcase }}</a>{% assign filtered_tags = page.tags | where_exp: "t", "t != page.category" %}{% if filtered_tags.size > 0 %},{% endif %}
+    {% else %}{% assign filtered_tags = page.tags %}{% endif %}
+    {% for tag in filtered_tags %}
+    <span class="post-tag-link">{{ tag | upcase }}</span>{% unless forloop.last %},{% endunless %}
     {% endfor %}
   </div>
   {% endif %}

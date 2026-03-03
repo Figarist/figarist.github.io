@@ -369,6 +369,22 @@
       });
   }
 
+  // Utility: Debounce function for performance optimization
+  // Reduces the frequency of expensive function calls (e.g., search indexing)
+  function debounce(func, wait) {
+    var timeout;
+    return function() {
+      var context = this;
+      var args = arguments;
+      var later = function() {
+        timeout = null;
+        func.apply(context, args);
+      };
+      clearTimeout(timeout);
+      timeout = setTimeout(later, wait);
+    };
+  }
+
   function executeSearch(query) {
     if (!lunrIndex || !query) {
       searchResults.innerHTML = "";
@@ -423,8 +439,14 @@
 
   // Event Listeners
   if (searchInput) {
+    // ⚡ Bolt: Debounce search input to reduce main-thread blocking during typing
+    // Expected impact: Prevents lunr.js from executing search on every single keystroke.
+    var debouncedSearch = debounce(function (val) {
+      executeSearch(val);
+    }, 200);
+
     searchInput.addEventListener("input", function (e) {
-      executeSearch(e.target.value);
+      debouncedSearch(e.target.value);
     });
   }
 

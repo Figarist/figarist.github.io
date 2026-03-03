@@ -44,6 +44,21 @@ a {
 }
 
 /* ======================== ACCESSIBILITY ======================== */
+.skip-link {
+  position: absolute;
+  top: -50px;
+  left: 0;
+  background: var(--accent-blue-d);
+  color: #fff;
+  padding: 8px 16px;
+  z-index: 9999;
+  transition: top 0.2s;
+
+  &:focus {
+    top: 0;
+  }
+}
+
 a:focus-visible,
 button:focus-visible,
 [role="button"]:focus-visible {

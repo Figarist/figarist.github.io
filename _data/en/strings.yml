@@ -55,6 +55,7 @@ edu_cta: "All articles →"
 contact_intro: "Find me across the web"
 
 # GLOBAL UI
+skip_to_content: "Skip to main content"
 nav_brand: "HUB"
 main_nav_aria: "Main navigation"
 nav_studio: "Studio"

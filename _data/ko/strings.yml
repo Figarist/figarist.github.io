@@ -55,6 +55,7 @@ edu_cta: "모든 기사 →"
 contact_intro: "웹에서 저를 찾아보세요"
 
 # GLOBAL UI
+skip_to_content: "본문으로 건너뛰기"
 nav_brand: "HUB"
 main_nav_aria: "기본 네비게이션"
 nav_studio: "스튜디오"

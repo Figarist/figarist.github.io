@@ -69,6 +69,11 @@
       <span itemprop="name">{{ site.data[site.active_lang].strings.education_label }}</span>
       <meta itemprop="position" content="2" />
     </li>
+    {%- elsif page_path == '/collection' or page_path == '/collection/' -%}
+    <li class="breadcrumbs__item breadcrumbs__item--active" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+      <span itemprop="name">{{ site.data[site.active_lang].strings.shrine_title }}</span>
+      <meta itemprop="position" content="2" />
+    </li>
     {%- endif -%}
     {% endif %}
   </ol>

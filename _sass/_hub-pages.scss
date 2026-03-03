@@ -22,6 +22,8 @@
 
 .blog-list {
   margin-top: 0;
+  padding-left: 0;
+  list-style: none;
 }
 
 .blog-list__item {
@@ -50,16 +52,15 @@
 .blog-list__meta .post-meta {
   font-size: 0.8rem;
   color: var(--text-muted);
+  font-family: var(--font-mono);
 }
 
 .blog-list__category {
-  font-size: 0.7rem;
+  font-size: 0.72rem;
   text-transform: uppercase;
-  letter-spacing: 0.05em;
-  padding: 2px 8px;
-  border-radius: 4px;
-  background: var(--bg-color);
-  color: var(--text-secondary);
+  letter-spacing: 0.08em;
+  color: var(--text-muted);
+  font-family: var(--font-mono);
 }
 
 .blog-list__item li {

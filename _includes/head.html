@@ -14,14 +14,13 @@
     <!-- PWA Manifest -->
     <link rel="manifest" href="{{ '/manifest.json' | relative_url }}">
 
+    <!-- Localized Meta Description for Homepage (prevents duplicates) -->
+    {% if page.is_home %}
+    {% assign page.description = site.data[site.active_lang].strings.bio_tagline | default: site.description %}
+    {% endif %}
+
     <!-- Jekyll SEO Tag (Generates Title, OG, Twitter, JSON-LD, Canonical) -->
     {% seo %}
-
-    <!-- Localized Meta Description Fallback for Homepage -->
-    {% if page.is_home %}
-    <meta name="description" content="{{ site.data[site.active_lang].strings.bio_tagline }}">
-    <meta property="og:description" content="{{ site.data[site.active_lang].strings.bio_tagline }}">
-    {% endif %}
 
     <!-- Polyglot: Generates Hreflang logic perfectly -->
     {% I18n_Headers %}

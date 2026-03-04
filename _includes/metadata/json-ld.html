@@ -5,7 +5,8 @@ Expects Layout to provide context if needed, but uses standard page/site vars.
 {%- assign author_name = site.data[site.active_lang].strings.author_name | default: 'Ihor Sivochka' -%}
 {%- assign author_url = 'https://figarist.github.io' -%}
 {%- assign site_logo = '/assets/images/figaristgithub.png' | absolute_url -%}
-{%- assign page_image = page.image | default: site.default_social_image | default: '/assets/images/figaristgithub.png' | absolute_url -%}
+{%- assign page_image = page.image | default: site.default_social_image | default: '/assets/images/figaristgithub.png' |
+absolute_url -%}
 
 <script type="application/ld+json">
 {
@@ -57,13 +58,30 @@ Expects Layout to provide context if needed, but uses standard page/site vars.
           "position": 2,
           "name": "{% if page.layout == 'post' %}{{ site.data[site.active_lang].strings.workshop_label }}{% else %}{{ site.data[site.active_lang].strings.education_label }}{% endif %}",
           "item": "{{ site.url | absolute_url }}/{% if page.layout == 'post' %}blog/{% else %}education/{% endif %}"
+        }
+        {%- if page.category -%}
+        ,
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": {{ page.category | upcase | jsonify }},
+          "item": "{{ site.url | absolute_url }}/blog/category/{{ page.category | slugify }}/"
         },
+        {
+          "@type": "ListItem",
+          "position": 4,
+          "name": {{ page.title | jsonify }},
+          "item": "{{ page.url | absolute_url }}"
+        }
+        {%- else -%}
+        ,
         {
           "@type": "ListItem",
           "position": 3,
           "name": {{ page.title | jsonify }},
           "item": "{{ page.url | absolute_url }}"
         }
+        {%- endif -%}
         {%- endif -%}
       ]
     }

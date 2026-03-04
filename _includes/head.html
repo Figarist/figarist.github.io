@@ -19,8 +19,21 @@
     {% assign page.description = site.data[site.active_lang].strings.bio_tagline | default: site.description %}
     {% endif %}
 
-    <!-- Jekyll SEO Tag (Generates Title, OG, Twitter, JSON-LD, Canonical) -->
+    <!-- Jekyll SEO Tag (Generates Title, OG, Twitter, Canonical) 
+         We block its default JSON-LD on the home page using a custom liquid workaround 
+         because we already explicitly generate superior E-E-A-T schemas manually. -->
     {% seo %}
+    {% if page.is_home %}
+    <script>
+        // Quick clean up of duplicate unneeded jekyll-seo-tag JSON-LD.
+        // Liquid jekyll-seo-tag doesn't allow disabling JSON-LD per page natively.
+        var ldscripts = document.querySelectorAll('script[type="application/ld+json"]');
+        if (ldscripts.length > 1) {
+            // Remove the first generic schema that jekyll-seo-tag generates without Person/E-E-A-T data
+            ldscripts[0].remove();
+        }
+    </script>
+    {% endif %}
 
     <!-- Polyglot: Generates Hreflang logic perfectly -->
     {% I18n_Headers %}

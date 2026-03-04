@@ -333,13 +333,13 @@
   function toggleSearch(show) {
     if (!searchModal) return;
     if (show) {
-      searchModal.removeAttribute("hidden");
-      searchInput.focus();
-      document.body.style.overflow = "hidden"; // Prevent scroll
-      if (!lunrIndex) initSearch();
+      if (!searchModal.open) {
+        searchModal.showModal();
+        searchInput.focus();
+        if (!lunrIndex) initSearch();
+      }
     } else {
-      searchModal.setAttribute("hidden", "");
-      document.body.style.overflow = "";
+      searchModal.close();
     }
   }
 
@@ -464,12 +464,6 @@
     });
   }
 
-  if (searchTrigger) {
-    searchTrigger.addEventListener("click", function () {
-      toggleSearch(searchModal.hasAttribute("hidden"));
-    });
-  }
-
   // Keyboard Shortcuts
   window.addEventListener("keydown", function (e) {
     var isMac = navigator.platform.toUpperCase().indexOf("MAC") >= 0;
@@ -477,23 +471,21 @@
 
     if (metaKey && e.key === "k") {
       e.preventDefault();
-      toggleSearch(searchModal.hasAttribute("hidden"));
-    }
-
-    if (e.key === "Escape" && !searchModal.hasAttribute("hidden")) {
-      toggleSearch(false);
+      toggleSearch(!searchModal.open);
     }
   });
 
-  // Close on backdrop click
+  // Close on backdrop click (native dialog behavior)
   if (searchModal) {
     searchModal.addEventListener("click", function (e) {
-      if (
-        e.target === searchModal ||
-        e.target.classList.contains("search-modal-container")
-      ) {
+      if (e.target === searchModal) {
         toggleSearch(false);
       }
+    });
+
+    // Handle trigger state update via trigger logic directly above
+    searchTrigger.addEventListener("click", function () {
+      toggleSearch(!searchModal.open);
     });
   }
 

@@ -1,59 +1,33 @@
 <!-- Ultimate Search Modal -->
 {% if site.active_lang == site.default_lang %}
-  {% assign search_index_url = '/search.json' | relative_url %}
+{% assign search_index_url = '/search.json' | relative_url %}
 {% else %}
-  {% assign search_index_url = '/' | append: site.active_lang | append: '/search.json' | relative_url %}
+{% assign search_index_url = '/' | append: site.active_lang | append: '/search.json' | relative_url %}
 {% endif %}
 
-<div
-  id="search-modal"
-  class="search-modal"
-  hidden
-  role="dialog"
-  aria-modal="true"
-  aria-labelledby="search-input-label"
-  data-index-url="{{ search_index_url }}"
->
-  <div class="search-modal-container">
-    <div class="search-box hub-card">
-      <div class="search-header">
-        <label
-          id="search-input-label"
-          for="search-input"
-          class="visually-hidden"
-          >{{ site.data[site.active_lang].strings.search_label }}</label
-        >
-        <input
-          type="text"
-          id="search-input"
-          placeholder="{{ site.data[site.active_lang].strings.search_placeholder }}"
-          autocomplete="off"
-        />
-        <button
-          id="close-search"
-          class="btn-close-search"
-          aria-label="{{ site.data[site.active_lang].strings.search_close_label }}"
-        >
-          ×
-        </button>
-      </div>
-      <div 
-        id="search-results" 
-        class="search-results"
-        data-no-results="{{ site.data[site.active_lang].strings.search_no_results }}"
-      >
-        <!-- Results will be injected here -->
-      </div>
-      <div class="search-footer">
-        <span class="search-hint"><kbd>Enter</kbd> {{ site.data[site.active_lang].strings.search_select_hint }}</span>
-        <span class="search-hint"><kbd>Esc</kbd> {{ site.data[site.active_lang].strings.search_close_hint }}</span>
-      </div>
+<dialog id="search-modal" class="search-modal" aria-labelledby="search-input-label"
+  data-index-url="{{ search_index_url }}">
+  <div class="search-box hub-card">
+    <div class="search-header">
+      <label id="search-input-label" for="search-input" class="visually-hidden">{{
+        site.data[site.active_lang].strings.search_label }}</label>
+      <input type="text" id="search-input" placeholder="{{ site.data[site.active_lang].strings.search_placeholder }}"
+        autocomplete="off" />
+      <button id="close-search" class="btn-close-search"
+        aria-label="{{ site.data[site.active_lang].strings.search_close_label }}">
+        ×
+      </button>
+    </div>
+    <div id="search-results" class="search-results"
+      data-no-results="{{ site.data[site.active_lang].strings.search_no_results }}">
+      <!-- Results will be injected here -->
+    </div>
+    <div class="search-footer">
+      <span class="search-hint"><kbd>Enter</kbd> {{ site.data[site.active_lang].strings.search_select_hint }}</span>
+      <span class="search-hint"><kbd>Esc</kbd> {{ site.data[site.active_lang].strings.search_close_hint }}</span>
     </div>
   </div>
-</div>
+</dialog>
 
 <!-- Lunr Engine -->
-<script
-  src="https://cdnjs.cloudflare.com/ajax/libs/lunr.js/2.3.9/lunr.min.js"
-  defer
-></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/lunr.js/2.3.9/lunr.min.js" defer></script>

@@ -95,6 +95,9 @@ figarist.github.io/
 │   ├── header.html            # Sticky nav: sections, search trigger, lang-switch
 │   ├── footer.html            # 3-col footer: brand, explore, connect
 │   ├── breadcrumbs.html       # BreadcrumbList (Hub → Section → Category → Article)
+│   ├── related-bento.html     # Circular related posts logic (Atomic)
+│   ├── metadata/              # Structured data modules:
+│   │   └── json-ld.html       # Unified BlogPosting/Article schema
 │   ├── lang-redirect.html     # Auto-redirect based on browser/localStorage lang
 │   ├── search-modal.html      # Full-text search modal (Cmd+K)
 │   └── author_box.html        # Post author card
@@ -176,6 +179,7 @@ figarist.github.io/
 | 7   | View Transitions | Client-side `startViewTransition()`         |
 | 8   | Search           | Full-text search with `search.json`         |
 | 9   | Lang Switch      | Save `preferred_lang` to localStorage       |
+| 10  | Rect Caching     | Zero-layout thrashing for 120Hz+ displays   |
 | —   | SW Registration  | Service Worker (`/sw.js`) registration      |
 
 ---
@@ -209,8 +213,9 @@ Every page has:
 
 Post/Education pages additionally have:
 
-- **BlogPosting / Article JSON-LD**: `datePublished`, `dateModified`, author, publisher
-- **BreadcrumbList JSON-LD**: Hub → Section → Category → Article
+- **Modular JSON-LD**: Unified schema logic via `_includes/metadata/json-ld.html`
+- **Related Posts**: Decoupled bento logic in `_includes/related-bento.html`
+- **Safe-Area Hygiene**: Dynamic `env(safe-area-inset)` support in SCSS
 - **`apple-touch-icon`**: For iOS PWA
 
 ---

@@ -12,6 +12,30 @@ absolute_url -%}
 {
   "@context": "https://schema.org",
   "@graph": [
+    {%- if page.url == '/' or page.url == '/uk/' or page.url == '/ru/' or page.url == '/ko/' -%}
+    {
+      "@type": "Person",
+      "@id": "{{ author_url }}#person",
+      "name": "{{ author_name }}",
+      "url": "{{ author_url }}",
+      "image": "{{ site_logo }}",
+      "jobTitle": {{ site.data[site.active_lang].strings.bio_roles | default: 'Developer' | jsonify }},
+      "sameAs": [
+        {% for link in site.social.links %}"{{ link }}"{% unless forloop.last %},{% endunless %}{% endfor %}
+      ]
+    },
+    {
+      "@type": "WebSite",
+      "@id": "{{ site.url | absolute_url }}#website",
+      "url": "{{ site.url | absolute_url }}/",
+      "name": {{ site.title | jsonify }},
+      "description": {{ site.data[site.active_lang].strings.bio_tagline | default: site.description | strip_html | strip_newlines | truncate: 160 | jsonify }},
+      "publisher": {
+        "@id": "{{ author_url }}#person"
+      },
+      "inLanguage": "{{ site.active_lang }}"
+    },
+    {%- else -%}
     {
       "@type": "{{ include.type | default: 'BlogPosting' }}",
       "@id": "{{ page.url | absolute_url }}#article",
@@ -41,6 +65,7 @@ absolute_url -%}
         "@id": "{{ page.url | absolute_url }}"
       }
     },
+    {%- endif -%}
     {
       "@type": "BreadcrumbList",
       "@id": "{{ page.url | absolute_url }}#breadcrumb",

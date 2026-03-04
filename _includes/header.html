@@ -36,7 +36,7 @@
                     </svg>
                 </button>
 
-                <div class="lang-switch-wrapper" translate="no">
+                <div class="lang-switch-wrapper" translate="no" role="group" aria-label="Language selection">
                     {% for lang in site.languages %}
                     {% if lang == site.active_lang %}
                     <span class="lang-switch active" data-lang="{{ lang }}">{{ lang }}</span>

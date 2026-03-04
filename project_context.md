@@ -58,7 +58,8 @@ graph TD
 - **jekyll-last-modified-at** — `dateModified` з git log (показується тільки якщо ≠ `datePublished`)
 - **CGM Header Style** — Мінімалістичні заголовки статтей (Header | Date | Read Time). Без декоративних емодзі
 - **GoatCounter** — Privacy-first analytics (Zero cookies, no GDPR)
-- **Performance Budget** — JS < 20KB, CSS < 30KB (перевіряється в CI)
+- **Performance Budget** — JS < 20KB, CSS < 30KB. **Rect Caching** for zero layout thrashing
+- **Modern A11y & UX** — Responsive safe-area hygiene via dynamic SCSS tokens
 
 ---
 
@@ -89,7 +90,8 @@ styles.scss imports:
 
 - Один партіал = один компонент. Без перетинання відповідальності
 - Всі кольори/розміри через CSS custom properties з `_variables.scss`
-- **Жодних inline стилів** (окрім `view-transition-name` які залежать від Liquid)
+- Жодних inline стилів (окрім `view-transition-name` які залежать від Liquid)
+- **Safe-Area Hygiene** — Всі відступи базуються на `env(safe-area-inset-top)` через змінні в `_variables.scss`
 - Grid лейаут тільки через `grid-template-areas` в `_grid.scss`
 
 ---
@@ -100,13 +102,14 @@ styles.scss imports:
 | --- | ---------------- | -------------------------------------------- |
 | 1   | Scroll Fade-In   | `IntersectionObserver` для `.fade-in` карток |
 | 2   | WebGL Overlay    | Click-to-load iframe для Unity демо          |
-| 3   | Card Tilt        | 3D перспектива на hover (`hub-card`)         |
+| 3   | Card Tilt        | 3D перспектива на hover (Rect Caching, Zero-GC) |
 | 4   | Reading Progress | Scroll-based прогрес-бар                     |
 | 5   | Copy Code        | Click-to-copy на блоках коду                 |
 | 6   | Navbar Scroll    | Show/hide навбар по напрямку скролу          |
 | 7   | View Transitions | Client-side `startViewTransition()`          |
 | 8   | Search           | Повнотекстовий пошук з `search.json`         |
 | 9   | Lang Switch      | Збереження `preferred_lang` в localStorage   |
+| 10  | Performance      | Throttled scroll & resize (Rect Caching)     |
 | —   | SW               | Service Worker реєстрація (поза IIFE)        |
 
 ---
@@ -115,6 +118,7 @@ styles.scss imports:
 
 - **BlogPosting JSON-LD** — на кожному пості: `headline`, `datePublished`, `dateModified`, `author`, `url`
 - **Article JSON-LD** — на education: те саме
+- **Modular Meta** — Структуровані дані через `_includes/metadata/json-ld.html`
 - **BreadcrumbList JSON-LD** — на постах, education, archives: Hub → Section → Category → Page
 - **hreflang** — автоматично через `jekyll-polyglot` (4 мови)
 - **Sitemap** — `/sitemap.xml` через `jekyll-sitemap`

@@ -95,10 +95,17 @@
     var ticking = false;
     var rafId = null;
 
+    var rect = null; // Cached rect
+
+    function handleMouseEnter() {
+      rect = el.getBoundingClientRect();
+      el.style.transition = "transform 0.1s ease-out";
+    }
+
     function handleMouseMove(e) {
-      if (!ticking) {
+      if (!ticking && rect) {
         rafId = window.requestAnimationFrame(function () {
-          updateCallback(e);
+          updateCallback(e, rect);
           ticking = false;
         });
         ticking = true;
@@ -111,9 +118,11 @@
         rafId = null;
       }
       ticking = false;
+      rect = null;
       if (resetCallback) resetCallback();
     }
 
+    el.addEventListener("mouseenter", handleMouseEnter);
     el.addEventListener("mousemove", handleMouseMove);
     el.addEventListener("mouseleave", handleMouseLeave);
   }
@@ -146,8 +155,7 @@
     tiltCards.forEach(function (card) {
       createThrottledMouseMove(
         card,
-        function (e) {
-          var rect = card.getBoundingClientRect();
+        function (e, rect) {
           var x = e.clientX - rect.left;
           var y = e.clientY - rect.top;
           var cw = rect.width;
@@ -169,11 +177,6 @@
           card.style.transform = "";
         },
       );
-
-      // Re-enable snappy transition when entering
-      card.addEventListener("mouseenter", function () {
-        card.style.transition = "transform 0.1s ease-out";
-      });
     });
   }
 
@@ -186,8 +189,7 @@
   if (bioCard && doodles.length && !prefersReducedMotion) {
     createThrottledMouseMove(
       bioCard,
-      function (e) {
-        var rect = bioCard.getBoundingClientRect();
+      function (e, rect) {
         var x = (e.clientX - rect.left) / rect.width - 0.5;
         var y = (e.clientY - rect.top) / rect.height - 0.5;
 
@@ -242,19 +244,30 @@
   var pb = document.getElementById("reading-progress-bar");
   if (pb) {
     var ticking = false;
+    var scrollableHeight = 0;
+
+    function updateScrollHeight() {
+      var h = document.documentElement;
+      scrollableHeight = h.scrollHeight - h.clientHeight;
+    }
+
+    // Initial calculation
+    updateScrollHeight();
+    window.addEventListener("resize", debounce(updateScrollHeight, 150), { passive: true });
 
     window.addEventListener(
       "scroll",
       function () {
         if (!ticking) {
           window.requestAnimationFrame(function () {
-            var h = document.documentElement;
-            var scrollableHeight = h.scrollHeight - h.clientHeight;
-            var scrollTop = h.scrollTop || document.body.scrollTop;
+            var scrollTop = window.scrollY || document.documentElement.scrollTop;
             var percent = 0;
 
             if (scrollableHeight > 0) {
               percent = (scrollTop / scrollableHeight) * 100;
+              // Clamp percent
+              if (percent > 100) percent = 100;
+              if (percent < 0) percent = 0;
             }
 
             pb.style.width = percent + "%";

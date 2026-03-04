@@ -1,81 +1,68 @@
-<!-- Breadcrumbs with BreadcrumbList JSON-LD -->
+<!-- Breadcrumbs (Structured Data moved to JSON-LD) -->
 <nav class="breadcrumbs" aria-label="Breadcrumb">
-  <ol class="breadcrumbs__list" itemscope itemtype="https://schema.org/BreadcrumbList">
-    <li class="breadcrumbs__item" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
-      <a href="{{ '/' | relative_url }}" itemprop="item">
-        <span itemprop="name">{{ site.data[site.active_lang].strings.nav_brand }}</span>
+  <ol class="breadcrumbs__list">
+    <li class="breadcrumbs__item">
+      <a href="{{ '/' | relative_url }}">
+        <span>{{ site.data[site.active_lang].strings.nav_brand }}</span>
       </a>
-      <meta itemprop="position" content="1" />
     </li>
 
     {% if page.layout == 'post' %}
-    <li class="breadcrumbs__item" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
-      <a href="{{ '/blog/' | relative_url }}" itemprop="item">
-        <span itemprop="name">{{ site.data[site.active_lang].strings.workshop_label }}</span>
+    <li class="breadcrumbs__item">
+      <a href="{{ '/blog/' | relative_url }}">
+        <span>{{ site.data[site.active_lang].strings.workshop_label }}</span>
       </a>
-      <meta itemprop="position" content="2" />
     </li>
     {% if page.category %}
-    <li class="breadcrumbs__item" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
-      <a href="{{ '/blog/category/' | append: page.category | append: '/' | relative_url }}" itemprop="item">
-        <span itemprop="name">{{ page.category | upcase }}</span>
+    <li class="breadcrumbs__item">
+      <a href="{{ '/blog/category/' | append: page.category | append: '/' | relative_url }}">
+        <span>{{ page.category | upcase }}</span>
       </a>
-      <meta itemprop="position" content="3" />
     </li>
-    <li class="breadcrumbs__item breadcrumbs__item--active" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
-      <span itemprop="name">{{ page.title | truncatewords: 6 }}</span>
-      <meta itemprop="position" content="4" />
+    <li class="breadcrumbs__item breadcrumbs__item--active">
+      <span>{{ page.title | truncatewords: 6 }}</span>
     </li>
     {% else %}
-    <li class="breadcrumbs__item breadcrumbs__item--active" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
-      <span itemprop="name">{{ page.title | truncatewords: 6 }}</span>
-      <meta itemprop="position" content="3" />
+    <li class="breadcrumbs__item breadcrumbs__item--active">
+      <span>{{ page.title | truncatewords: 6 }}</span>
     </li>
     {% endif %}
 
     {% elsif page.layout == 'education' %}
-    <li class="breadcrumbs__item" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
-      <a href="{{ '/education/' | relative_url }}" itemprop="item">
-        <span itemprop="name">{{ site.data[site.active_lang].strings.education_label }}</span>
+    <li class="breadcrumbs__item">
+      <a href="{{ '/education/' | relative_url }}">
+        <span>{{ site.data[site.active_lang].strings.education_label }}</span>
       </a>
-      <meta itemprop="position" content="2" />
     </li>
-    <li class="breadcrumbs__item breadcrumbs__item--active" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
-      <span itemprop="name">{{ page.title | truncatewords: 6 }}</span>
-      <meta itemprop="position" content="3" />
+    <li class="breadcrumbs__item breadcrumbs__item--active">
+      <span>{{ page.title | truncatewords: 6 }}</span>
     </li>
 
     {% elsif page.layout == 'archive' %}
-    <li class="breadcrumbs__item" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
-      <a href="{{ '/blog/' | relative_url }}" itemprop="item">
-        <span itemprop="name">{{ site.data[site.active_lang].strings.workshop_label }}</span>
+    <li class="breadcrumbs__item">
+      <a href="{{ '/blog/' | relative_url }}">
+        <span>{{ site.data[site.active_lang].strings.workshop_label }}</span>
       </a>
-      <meta itemprop="position" content="2" />
     </li>
-    <li class="breadcrumbs__item breadcrumbs__item--active" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
-      <span itemprop="name">{{ page.title | upcase }}</span>
-      <meta itemprop="position" content="3" />
+    <li class="breadcrumbs__item breadcrumbs__item--active">
+      <span>{{ page.title | upcase }}</span>
     </li>
 
     {% else %}
     {%- assign page_path = page.url | remove: '/index.html' | remove: '.html' -%}
     {%- if page_path == '/blog' or page_path == '/blog/' -%}
-    <li class="breadcrumbs__item breadcrumbs__item--active" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
-      <span itemprop="name">{{ site.data[site.active_lang].strings.workshop_label }}</span>
-      <meta itemprop="position" content="2" />
+    <li class="breadcrumbs__item breadcrumbs__item--active">
+      <span>{{ site.data[site.active_lang].strings.workshop_label }}</span>
     </li>
     {%- elsif page_path == '/education' or page_path == '/education/' -%}
-    <li class="breadcrumbs__item breadcrumbs__item--active" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
-      <span itemprop="name">{{ site.data[site.active_lang].strings.education_label }}</span>
-      <meta itemprop="position" content="2" />
+    <li class="breadcrumbs__item breadcrumbs__item--active">
+      <span>{{ site.data[site.active_lang].strings.education_label }}</span>
     </li>
     {%- elsif page_path == '/collection' or page_path == '/collection/' -%}
-    <li class="breadcrumbs__item breadcrumbs__item--active" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
-      <span itemprop="name">{{ site.data[site.active_lang].strings.shrine_title }}</span>
-      <meta itemprop="position" content="2" />
+    <li class="breadcrumbs__item breadcrumbs__item--active">
+      <span>{{ site.data[site.active_lang].strings.shrine_title }}</span>
     </li>
     {%- endif -%}
     {% endif %}
   </ol>
 </nav>
-

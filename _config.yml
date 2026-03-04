@@ -128,7 +128,7 @@ feed:
 # ── Spaceship Settings ──────────────────────────────────────
 jekyll-spaceship:
   mathjax:
-    src: "/assets/vendor/mathjax/MathJax.js?config=TeX-MML-AM_CHTML"
+    src: "/assets/vendor/mathjax/tex-mml-chtml.js"
     config:
       tex2jax:
         inlineMath: [["$", "$"], ['\\(', '\\)']]

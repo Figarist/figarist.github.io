@@ -2,13 +2,22 @@
 <div class="post-tags-inline">
     <span class="post-tags-label">{{ site.data[site.active_lang].strings.filed_under | default: "FILE UNDER:" }}</span>
     {% if page.category %}
+    {% if page.layout == "education" %}
+    <span class="post-tag-link">{{ page.category | upcase }}</span>{% assign filtered_tags = page.tags | where_exp: "t",
+    "t != page.category" %}{% if filtered_tags.size > 0 %},{% endif %}
+    {% else %}
     <a href="{{ '/blog/category/' | append: page.category | append: '/' | relative_url }}" class="post-tag-link">{{
         page.category | upcase }}</a>{% assign filtered_tags = page.tags | where_exp: "t", "t != page.category" %}{% if
     filtered_tags.size > 0 %},{% endif %}
+    {% endif %}
     {% else %}{% assign filtered_tags = page.tags %}{% endif %}
     {% for tag in filtered_tags %}
+    {% if page.layout == "education" %}
+    <span class="post-tag-link">{{ tag | upcase }}</span>{% unless forloop.last %},{% endunless %}
+    {% else %}
     <a href="{{ '/blog/tag/' | append: tag | append: '/' | relative_url }}" class="post-tag-link">{{ tag | upcase
         }}</a>{% unless forloop.last %},{% endunless %}
+    {% endif %}
     {% endfor %}
 </div>
 {% endif %}

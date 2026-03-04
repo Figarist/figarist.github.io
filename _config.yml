@@ -144,11 +144,12 @@ jekyll-spaceship:
   table:
 
 # ── Minifier Settings ────────────────────────────────────────
-jekyll_minifier:
+jekyll-minifier:
   exclude:
     - "node_modules/**/*"
     - "vendor/**/*"
     - "assets/vendor/**/*"
+    - "assets/**/*.json"
   uglifier_args:
     harmony: true
 

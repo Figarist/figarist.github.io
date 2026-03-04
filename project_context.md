@@ -114,16 +114,19 @@ styles.scss imports:
 
 ---
 
-## 🔍 SEO & STRUCTURED DATA
+## 🔍 SEO, E-E-A-T & STRUCTURED DATA
 
-- **BlogPosting JSON-LD** — на кожному пості: `headline`, `datePublished`, `dateModified`, `author`, `url`
-- **Article JSON-LD** — на education: те саме
-- **Modular Meta** — Структуровані дані через `_includes/metadata/json-ld.html`
-- **BreadcrumbList JSON-LD** — на постах, education, archives: Hub → Section → Category → Page
-- **hreflang** — автоматично через `jekyll-polyglot` (4 мови)
-- **Sitemap** — `/sitemap.xml` через `jekyll-sitemap`
-- **RSS** — через `jekyll-feed`
-- **apple-touch-icon** — для iOS PWA
+- **E-E-A-T (Досвід, Експертність, Авторитетність, Достовірність):**
+  - Головна сторінка (`is_home: true`) рендерить розширені JSON-LD схеми `@type: Person` (з `jobTitle`, `sameAs` лінками на соц. мережі) та `@type: WebSite` для посилення авторського авторитету (Knowledge Graph).
+- **BlogPosting & Article JSON-LD** — на кожному пості та tutorials: `headline`, `datePublished`, `dateModified`, `author`, `url`. Уніфіковано через `_includes/metadata/json-ld.html`.
+- **BreadcrumbList JSON-LD** — на всіх сторінках (Hub → Section → Category → Page) для ієрархічної навігації.
+- **Локалізовані Meta Descriptions (Polyglot + SEO Tag):** `jekyll-seo-tag` генерує метатеги англійською за замовчуванням. Щоб уникнути дублювання, ми динамічно присвоюємо `{% assign page.description = ... %}` у `head.html` *перед* викликом `{% seo %}`.
+- **Home Page Detection:** Через генерацію шляхів плагіном Polyglot (`/uk/index.html`), перевірка URL (`page.url == '/'`) ненадійна. Використовуємо кастомний front matter `is_home: true` у `index.html` для інжекції схем.
+- **Semantic HTML & CLS Prevention:**
+  - Головна сторінка: незалежний контент загорнуто в `<article>`, а секції (Stack, Shrine, WebGL) — в `<section>`.
+  - Усі `<img>` (особливо ліниво завантажені, `loading="lazy"`) мають явно задані `width` та `height`, щоб зарезервувати місце і запобігти Cumulative Layout Shift (CLS).
+- **hreflang** — автоматично через `jekyll-polyglot` для правильного розподілу 4 мов у Google Search.
+- **Sitemap & RSS** — через `jekyll-sitemap` та `jekyll-feed`.
 
 ---
 

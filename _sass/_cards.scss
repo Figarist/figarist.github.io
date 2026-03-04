@@ -15,7 +15,6 @@
   overflow: hidden;
   position: relative;
   transition: transform var(--t-med), box-shadow var(--t-med);
-  will-change: transform;
   transform-style: preserve-3d;
   backface-visibility: hidden;
 }

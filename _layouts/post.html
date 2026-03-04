@@ -23,11 +23,7 @@ layout: default
   </div>
   <hr class="post-header-rule">
 
-  {% if page.lang != site.active_lang %}
-  <div class="banner--translation-warning">
-    {{ site.data[site.active_lang].strings.translation_fallback_warning }}
-  </div>
-  {% endif %}
+  {% include translation-banner.html %}
 
   {% if page.toc %}
   <nav class="toc" aria-label="Table of Contents">
@@ -41,22 +37,7 @@ layout: default
     {{ content | toc | replace: '<img', '<img loading="lazy"' }} {% else %} {{ content | replace: '<img'
       , '<img loading="lazy"' }} {% endif %} </div>
 
-      <!-- Tags & Category -->
-      {% if page.tags.size > 0 or page.category %}
-      <div class="post-tags-inline">
-        <span class="post-tags-label">{{ site.data[site.active_lang].strings.filed_under | default: "FILE UNDER:"
-          }}</span>
-        {% if page.category %}
-        <a href="{{ '/blog/category/' | append: page.category | append: '/' | relative_url }}" class="post-tag-link">{{
-          page.category | upcase }}</a>{% assign filtered_tags = page.tags | where_exp: "t", "t != page.category" %}{%
-        if filtered_tags.size > 0 %},{% endif %}
-        {% else %}{% assign filtered_tags = page.tags %}{% endif %}
-        {% for tag in filtered_tags %}
-        <a href="{{ '/blog/tag/' | append: tag | append: '/' | relative_url }}" class="post-tag-link">{{ tag | upcase
-          }}</a>{% unless forloop.last %},{% endunless %}
-        {% endfor %}
-      </div>
-      {% endif %}
+      {% include post-labels.html %}
 
       {% include author_box.html %}
 

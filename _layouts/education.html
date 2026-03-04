@@ -30,29 +30,13 @@ layout: default
   <hr class="post-header-rule">
 
 
-  {% if page.lang != site.active_lang %}
-  <div class="banner--translation-warning">
-    {{ site.data[site.active_lang].strings.translation_fallback_warning }}
-  </div>
-  {% endif %}
+  {% include translation-banner.html %}
 
   <div class="edu-body" itemprop="articleBody">
     {{ content }}
   </div>
 
-  {% if page.tags.size > 0 or page.category %}
-  <div class="post-tags-inline">
-    <span class="post-tags-label">{{ site.data[site.active_lang].strings.filed_under | default: "FILE UNDER:" }}</span>
-    {% if page.category %}
-    <a href="{{ '/blog/category/' | append: page.category | append: '/' | relative_url }}" class="post-tag-link">{{
-      page.category | upcase }}</a>{% assign filtered_tags = page.tags | where_exp: "t", "t != page.category" %}{% if
-    filtered_tags.size > 0 %},{% endif %}
-    {% else %}{% assign filtered_tags = page.tags %}{% endif %}
-    {% for tag in filtered_tags %}
-    <span class="post-tag-link">{{ tag | upcase }}</span>{% unless forloop.last %},{% endunless %}
-    {% endfor %}
-  </div>
-  {% endif %}
+  {% include post-labels.html %}
 
   {% include author_box.html %}
 

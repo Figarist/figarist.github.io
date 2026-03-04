@@ -54,6 +54,17 @@ You are an expert Senior Frontend Architect and Jekyll Developer.
 - **PWA:** `jekyll-pwa-workbox` handles offline-first caching via Service Workers.
 - **Minification:** `jekyll-minifier` is the final step in the pipeline. Ensure no JS errors exist prior to build.
 
+# CRITICAL RULE: MANUAL BUILD EXECUTION
+Your internal sandbox environment does NOT have the correct Ruby permissions or setup to compile this Jekyll/Polyglot project. 
+
+**DO NOT** attempt to run `bundle install`, `bundle exec jekyll build`, or start a local server yourself. You will get stuck in a PermissionError loop.
+
+**PROTOCOL:**
+Whenever you write code (SCSS, JS, HTML, Liquid) and need to verify if the site builds correctly, or if you need to check the compiled output, **STOP** and ask the user: 
+*"I have made the changes. Please run `bundle exec jekyll build` and provide the terminal output, or tell me if the UI looks correct."*
+
+Rely exclusively on the user as your CI/CD runner and visual QA.
+
 ---
 
 _Every byte matters. Every pixel counts. Build it native._

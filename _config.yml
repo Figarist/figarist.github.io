@@ -148,6 +148,7 @@ jekyll_minifier:
   exclude:
     - "node_modules/**/*"
     - "vendor/**/*"
+    - "assets/vendor/**/*"
   uglifier_args:
     harmony: true
 

@@ -19,7 +19,8 @@ layout: default
   <div class="post-header-meta">
     <span class="post-meta-author">{{ site.data[site.active_lang].strings.author_name }}</span>
     <span class="post-meta-sep">|</span>
-    <time class="post-meta-date" datetime="{{ page.date | date_to_xmlschema }}">{{ page.date | date: "%B %d, %Y" }}</time>
+    <time class="post-meta-date" datetime="{{ page.date | date_to_xmlschema }}">{{ page.date | date: "%B %d, %Y"
+      }}</time>
     {% assign words = content | strip_html | number_of_words %}
     {% assign read_time = words | divided_by: 160 %}
     {% if read_time == 0 %}{% assign read_time = 1 %}{% endif %}
@@ -43,7 +44,9 @@ layout: default
   <div class="post-tags-inline">
     <span class="post-tags-label">{{ site.data[site.active_lang].strings.filed_under | default: "FILE UNDER:" }}</span>
     {% if page.category %}
-    <a href="{{ '/blog/category/' | append: page.category | append: '/' | relative_url }}" class="post-tag-link">{{ page.category | upcase }}</a>{% assign filtered_tags = page.tags | where_exp: "t", "t != page.category" %}{% if filtered_tags.size > 0 %},{% endif %}
+    <a href="{{ '/blog/category/' | append: page.category | append: '/' | relative_url }}" class="post-tag-link">{{
+      page.category | upcase }}</a>{% assign filtered_tags = page.tags | where_exp: "t", "t != page.category" %}{% if
+    filtered_tags.size > 0 %},{% endif %}
     {% else %}{% assign filtered_tags = page.tags %}{% endif %}
     {% for tag in filtered_tags %}
     <span class="post-tag-link">{{ tag | upcase }}</span>{% unless forloop.last %},{% endunless %}
@@ -55,26 +58,4 @@ layout: default
 
 </article>
 
-<!-- JSON-LD: EducationalArticle -->
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "Article",
-  "headline": {{ page.title | jsonify }},
-  "inLanguage": "{{ site.active_lang }}",
-  "datePublished": "{{ page.date | date_to_xmlschema }}",
-  {% if page.last_modified_at %}"dateModified": "{{ page.last_modified_at | date_to_xmlschema }}",{% endif %}
-  "author": {
-    "@type": "Person",
-    "name": "{{ site.data[site.active_lang].strings.author_name | default: 'Ihor Sivochka' }}",
-    "url": "https://figarist.github.io"
-  },
-  "publisher": {
-    "@type": "Person",
-    "name": "{{ site.data[site.active_lang].strings.author_name | default: 'Ihor Sivochka' }}",
-    "url": "https://figarist.github.io"
-  },
-  "url": "{{ page.url | absolute_url }}",
-  "description": {{ page.description | default: page.excerpt | strip_html | jsonify }}
-}
-</script>
+{% include metadata/json-ld.html type="Article" %}

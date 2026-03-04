@@ -5,40 +5,42 @@
 /* ======================== NAV ======================== */
 .site-nav {
   position: fixed;
-  top: 16px; /* Floating from the top */
+  top: var(--nav-floating-top);
+  /* Floating from the top (safe area aware) */
   left: 50%;
   transform: translateX(-50%);
   width: calc(100% - 32px);
   max-width: 1200px;
   margin: 0 auto;
   z-index: 1000;
-  
+
   /* Liquid Glass Core */
   background: rgba(255, 255, 255, 0.45);
   backdrop-filter: blur(28px) saturate(160%);
   -webkit-backdrop-filter: blur(28px) saturate(160%);
-  
+
   /* The "Liquid" Surface - high gloss reflection */
-  background-image: linear-gradient(
-    135deg,
-    rgba(255, 255, 255, 0.4) 0%,
-    rgba(255, 255, 255, 0.1) 40%,
-    rgba(255, 255, 255, 0) 51%,
-    rgba(255, 255, 255, 0.05) 100%
-  );
-  
+  background-image: linear-gradient(135deg,
+      rgba(255, 255, 255, 0.4) 0%,
+      rgba(255, 255, 255, 0.1) 40%,
+      rgba(255, 255, 255, 0) 51%,
+      rgba(255, 255, 255, 0.05) 100%);
+
   /* Inner Glow & Border */
   border: 1px solid rgba(255, 255, 255, 0.5);
   border-radius: 24px;
-  
+
   /* Layered Shadows for Depth */
-  box-shadow: 
+  box-shadow:
     0 4px 24px -1px rgba(0, 0, 0, 0.08),
     0 2px 8px -1px rgba(0, 0, 0, 0.04),
-    inset 0 1px 1px rgba(255, 255, 255, 0.6), /* Edge highlight */
-    inset 0 -1px 2px rgba(0, 0, 0, 0.02);      /* Soft bottom edge */
-    
-  transition: width var(--t-med), background var(--t-med); /* Removed top transition to prevent shift */
+    inset 0 1px 1px rgba(255, 255, 255, 0.6),
+    /* Edge highlight */
+    inset 0 -1px 2px rgba(0, 0, 0, 0.02);
+  /* Soft bottom edge */
+
+  transition: width var(--t-med), background var(--t-med);
+  /* Removed top transition to prevent shift */
 }
 
 .nav-inner {
@@ -89,38 +91,36 @@
    ============================================================ */
 .floating-nav {
   position: sticky;
-  top: 16px;
+  top: var(--nav-floating-top);
   z-index: 1000;
   display: flex;
   align-items: center;
   justify-content: space-between;
   max-width: 700px;
-  margin: 16px auto 0;
+  margin: var(--nav-floating-top) auto 0;
   padding: 12px 24px;
   border-radius: 100px;
-  
+
   /* Liquid Glass Core */
   background: rgba(255, 255, 255, 0.45);
   backdrop-filter: blur(24px) saturate(150%);
   -webkit-backdrop-filter: blur(24px) saturate(150%);
-  
+
   /* High Gloss Reflection */
-  background-image: linear-gradient(
-    145deg,
-    rgba(255, 255, 255, 0.3) 0%,
-    rgba(255, 255, 255, 0) 50%,
-    rgba(255, 255, 255, 0.05) 100%
-  );
-  
+  background-image: linear-gradient(145deg,
+      rgba(255, 255, 255, 0.3) 0%,
+      rgba(255, 255, 255, 0) 50%,
+      rgba(255, 255, 255, 0.05) 100%);
+
   /* Inner Glow & Border */
   border: 1px solid rgba(255, 255, 255, 0.4);
-  
+
   /* Organic Depth Shadows */
-  box-shadow: 
+  box-shadow:
     0 10px 40px -10px rgba(0, 0, 0, 0.1),
     0 4px 12px -2px rgba(0, 0, 0, 0.05),
     inset 0 1px 1px rgba(255, 255, 255, 0.7);
-    
+
   transition: transform var(--t-med), box-shadow var(--t-med);
 }
 
@@ -161,7 +161,7 @@
    ============================================================ */
 .jekyll-main {
   max-width: 720px;
-  
+
   margin: 0 auto 80px;
   padding: 0 24px;
 }
@@ -198,7 +198,7 @@
   }
 
   .jekyll-main:not(.hub-page) {
-    margin-top: 28px;
+    margin-top: calc(var(--nav-floating-top) + 12px);
     padding: 0 16px;
   }
 }

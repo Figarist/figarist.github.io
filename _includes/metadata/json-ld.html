@@ -1,0 +1,26 @@
+{% comment %}
+Unified JSON-LD for BlogPosting and Article.
+Expects Layout to provide context if needed, but uses standard page/site vars.
+{% endcomment %}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "{{ include.type | default: 'BlogPosting' }}",
+  "headline": {{ page.title | jsonify }},
+  "inLanguage": "{{ site.active_lang }}",
+  "datePublished": "{{ page.date | date_to_xmlschema }}",
+  {% if page.last_modified_at %}"dateModified": "{{ page.last_modified_at | date_to_xmlschema }}",{% endif %}
+  "author": {
+    "@type": "Person",
+    "name": "{{ site.data[site.active_lang].strings.author_name | default: 'Ihor Sivochka' }}",
+    "url": "https://figarist.github.io"
+  },
+  "publisher": {
+    "@type": "Person",
+    "name": "{{ site.data[site.active_lang].strings.author_name | default: 'Ihor Sivochka' }}",
+    "url": "https://figarist.github.io"
+  },
+  "url": "{{ page.url | absolute_url }}",
+  "description": {{ page.description | default: page.excerpt | strip_html | jsonify }}
+}
+</script>

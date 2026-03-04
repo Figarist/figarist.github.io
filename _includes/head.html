@@ -18,7 +18,7 @@
     {% seo %}
 
     <!-- Localized Meta Description Fallback for Homepage -->
-    {% if page.url == '/' or page.url == '/uk/' or page.url == '/ru/' or page.url == '/ko/' %}
+    {% if page.is_home %}
     <meta name="description" content="{{ site.data[site.active_lang].strings.bio_tagline }}">
     <meta property="og:description" content="{{ site.data[site.active_lang].strings.bio_tagline }}">
     {% endif %}

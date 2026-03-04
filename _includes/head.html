@@ -1,47 +1,33 @@
 <head>
-<meta charset="utf-8">
+    <meta charset="utf-8">
 
-<!-- Viewport & Meta Base -->
-<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
-<meta name="theme-color" content="#f2f0eb">
-<meta name="robots" content="index, follow">
-<meta name="google-site-verification" content="Whr2bJTggESM1pyCXLfqwodNQu6cNqk_XKdZ0ix2Tyk" />
+    <!-- Viewport & Meta Base -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+    <meta name="theme-color" content="#f2f0eb">
+    <meta name="robots" content="index, follow">
+    <meta name="google-site-verification" content="Whr2bJTggESM1pyCXLfqwodNQu6cNqk_XKdZ0ix2Tyk" />
 
-<!-- Favicon -->
-<link rel="shortcut icon" type="image/png" href="{{ '/assets/images/figaristgithub.png' | relative_url }}">
-<link rel="apple-touch-icon" href="{{ '/assets/images/figaristgithub.png' | relative_url }}">
+    <!-- Favicon -->
+    <link rel="shortcut icon" type="image/png" href="{{ '/assets/images/figaristgithub.png' | relative_url }}">
+    <link rel="apple-touch-icon" href="{{ '/assets/images/figaristgithub.png' | relative_url }}">
 
-<!-- PWA Manifest -->
-<link rel="manifest" href="{{ '/manifest.json' | relative_url }}">
+    <!-- PWA Manifest -->
+    <link rel="manifest" href="{{ '/manifest.json' | relative_url }}">
 
-<!-- Jekyll SEO Tag (Generates Title, OG, Twitter, JSON-LD, Canonical) -->
-{% seo %}
+    <!-- Jekyll SEO Tag (Generates Title, OG, Twitter, JSON-LD, Canonical) -->
+    {% seo %}
 
-<!-- Polyglot: Generates Hreflang logic perfectly -->
-{% I18n_Headers %}
+    <!-- Polyglot: Generates Hreflang logic perfectly -->
+    {% I18n_Headers %}
 
-<!-- RSS Feeds -->
-{% feed_meta %}
+    <!-- RSS Feeds -->
+    {% feed_meta %}
+    <link rel="stylesheet" href="{{ '/assets/css/styles.css' | relative_url }}">
 
-<!-- Fonts -->
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="preload" as="style"
-    href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700&family=Fira+Code:wght@400&display=swap">
-<link rel="stylesheet"
-    href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700&family=Fira+Code:wght@400&display=swap"
-    media="print" onload="this.media='all'">
-<noscript>
-    <link rel="stylesheet"
-        href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700&family=Fira+Code:wght@400&display=swap">
-</noscript>
+    <!-- Analytics (Local Proxy) -->
+    <script data-goatcounter="https://figarist.goatcounter.com/count" async
+        src="{{ '/assets/vendor/count.js' | relative_url }}"></script>
 
-<link rel="stylesheet" href="{{ '/assets/css/styles.css' | relative_url }}">
-
-<!-- Privacy-First Analytics (Zero cookies, no GDPR banner required) -->
-<script data-goatcounter="https://figarist.goatcounter.com/count"
-    async src="https://gc.zgo.at/count.js"></script>
-
-{% include lang-redirect.html %}
+    {% include lang-redirect.html %}
 
 </head>

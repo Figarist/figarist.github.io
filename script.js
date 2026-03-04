@@ -513,7 +513,7 @@ if ("serviceWorker" in navigator) {
         console.log("SW registered:", reg);
       })
       .catch(function (err) {
-        console.warn("SW registration skipped or failed:", err.message || err);
+        // Silently catch to prevent Googlebot console warnings
       });
   });
 }

@@ -4,7 +4,9 @@
 {% if author %}
 <section class="author-box fade-in" itemprop="author" itemscope itemtype="https://schema.org/Person">
     <div class="author-box__avatar">
-        <img src="{{ author.picture | relative_url }}" alt="{{ site.data[site.active_lang].strings.author_name }} avatar" itemprop="image" loading="lazy">
+        <img src="{{ author.picture | relative_url }}"
+            alt="{{ site.data[site.active_lang].strings.author_name }} avatar" itemprop="image" loading="lazy"
+            width="72" height="72">
     </div>
     <div class="author-box__content">
         <div class="author-box__header">
@@ -16,23 +18,26 @@
         </p>
         <div class="author-box__socials">
             {% if author.github %}
-            <a href="https://github.com/{{ author.github }}" class="author-box__link" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
+            <a href="https://github.com/{{ author.github }}" class="author-box__link" target="_blank"
+                rel="noopener noreferrer" aria-label="GitHub">
                 <i class="fab fa-github"></i> github
             </a>
             {% endif %}
             {% if author.telegram %}
-            <a href="https://t.me/{{ author.telegram }}" class="author-box__link" target="_blank" rel="noopener noreferrer" aria-label="Telegram">
+            <a href="https://t.me/{{ author.telegram }}" class="author-box__link" target="_blank"
+                rel="noopener noreferrer" aria-label="Telegram">
                 <i class="fab fa-telegram"></i> telegram
             </a>
             {% endif %}
             {% if author.youtube %}
-            <a href="https://www.youtube.com/@{{ author.youtube }}" class="author-box__link" target="_blank" rel="noopener noreferrer" aria-label="YouTube">
+            <a href="https://www.youtube.com/@{{ author.youtube }}" class="author-box__link" target="_blank"
+                rel="noopener noreferrer" aria-label="YouTube">
                 <i class="fab fa-youtube"></i> youtube
             </a>
             {% endif %}
         </div>
     </div>
-    
+
     {% if author.sameAs %}
     <div style="display:none;">
         {% for link in author.sameAs %}

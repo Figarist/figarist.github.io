@@ -15,7 +15,8 @@ layout: default
       <span class="doodle doodle--watch">⌚</span>
     </div>
     <div class="bio__content">
-      <img src="{{ '/assets/images/figaristgithub.png' | relative_url }}" alt="{{ site.data[site.active_lang].strings.author_name }} avatar" class="bio__avatar" width="72" height="72"
+      <img src="{{ '/assets/images/figaristgithub.png' | relative_url }}"
+        alt="{{ site.data[site.active_lang].strings.author_name }} avatar" class="bio__avatar" width="72" height="72"
         fetchpriority="high">
       <div class="bio__text">
         <h1 class="bio__name">{{ site.data[site.active_lang].strings.author_name }}</h1>
@@ -45,7 +46,7 @@ layout: default
     </div>
 
     <div class="studio__watches" aria-hidden="true">
-      <!-- Watch 1: WearOS Racer -->
+      <!-- Watch 1: Wear OS Racer -->
       <div class="watch-mockup" id="watch-racer">
         <div class="watch-bezel">
           <div class="watch-screen">
@@ -57,7 +58,7 @@ layout: default
             </div>
           </div>
         </div>
-        <p class="watch-label">WearOS Racer</p>
+        <p class="watch-label">Wear OS Racer</p>
       </div>
 
       <!-- Watch 2: Micro Puzzle Lab -->
@@ -140,7 +141,7 @@ layout: default
   <!-- ══════════════════════════════════════════
            CARD 4 — TECH STACK (1 col × 1 row)
            ══════════════════════════════════════════ -->
-  <article class="hub-card card--stack fade-in" id="stack">
+  <section class="hub-card card--stack fade-in" id="stack">
     <div class="card-label">{{ site.data[site.active_lang].strings.tech_stack_label }}</div>
     <div class="blueprint-grid" aria-hidden="true"></div>
     <div class="stack__icons">
@@ -161,12 +162,12 @@ layout: default
         <span class="stack__name">Wear OS</span>
       </div>
     </div>
-  </article>
+  </section>
 
   <!-- ══════════════════════════════════════════
            CARD 5 — NINTENDO SHRINE (1 col × 2 row)
            ══════════════════════════════════════════ -->
-  <article class="hub-card card--shrine fade-in" id="shrine">
+  <section class="hub-card card--shrine fade-in" id="shrine">
     <h2 class="shrine__title">{{ site.data[site.active_lang].strings.shrine_title }}</h2>
     <p class="shrine__desc">
       {{ site.data[site.active_lang].strings.shrine_desc }}
@@ -174,13 +175,13 @@ layout: default
     <a href="{{ '/collection/' | relative_url }}" class="btn-read-more btn-read-more--bottom">
       {{ site.data[site.active_lang].strings.shrine_cta }}
     </a>
-  </article>
+  </section>
 
 
   <!-- ══════════════════════════════════════════
            CARD 7 — PYTHON LO-FI (1 col × 1 row)
            ══════════════════════════════════════════ -->
-  <article class="hub-card card--python fade-in" id="python">
+  <section class="hub-card card--python fade-in" id="python">
     <div class="card-label">{{ site.data[site.active_lang].strings.utility_core_label }}</div>
     <div class="python__terminal">
       <div class="terminal__bar">
@@ -199,7 +200,7 @@ layout: default
     <p class="python__desc">
       {{ site.data[site.active_lang].strings.python_desc }}
     </p>
-  </article>
+  </section>
 
   <!-- ══════════════════════════════════════════
            CARD 8 — VR NEWS & LIFE FEED (2 col × 1 row)

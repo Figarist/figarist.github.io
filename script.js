@@ -270,7 +270,9 @@
               if (percent < 0) percent = 0;
             }
 
-            pb.style.width = percent + "%";
+            // ⚡ Bolt: Update transform instead of width to bypass layout recalculation.
+            // Impact: Eliminates forced reflows during scroll, improving FPS.
+            pb.style.transform = "scaleX(" + (percent / 100) + ")";
             ticking = false;
           });
           ticking = true;

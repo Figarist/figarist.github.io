@@ -176,11 +176,14 @@
   position: fixed;
   top: 0;
   left: 0;
-  width: 0%;
+  width: 100%;
   height: 4px;
   background: linear-gradient(to right, var(--accent-blue), var(--accent-pink-d));
   z-index: 9999;
-  transition: width 0.1s ease-out;
+  /* ⚡ Bolt: Using scaleX instead of width to prevent layout thrashing on scroll. */
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.1s ease-out;
 }
 
 

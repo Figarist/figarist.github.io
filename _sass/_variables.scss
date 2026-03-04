@@ -55,6 +55,12 @@
   --font-sans: 'Outfit', system-ui, -apple-system, sans-serif;
   --font-mono: 'Fira Code', 'Courier New', monospace;
 
+  /* Safe Area System (2026 Mobile Hygiene) */
+  --safe-area-top: env(safe-area-inset-top, 0px);
+  --safe-area-bottom: env(safe-area-inset-bottom, 0px);
+  --nav-floating-top: calc(max(16px, var(--safe-area-top) + 8px));
+  --main-top-spacing: calc(var(--nav-floating-top) + 60px);
+
   /* Transitions */
   --t-fast: 0.18s ease;
   --t-med: 0.28s ease;

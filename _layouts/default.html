@@ -4,13 +4,14 @@
 {% include head.html %}
 
 <body>
+    <a href="#main-content" class="skip-link">{{ site.data[site.active_lang].strings.skip_to_content }}</a>
 
     {% include header.html %}
 
     <!-- ============================================================
        CONTENT
        ============================================================ -->
-    <main class="jekyll-main hub-page">
+    <main class="jekyll-main hub-page" id="main-content">
         {{ content }}
     </main>
 

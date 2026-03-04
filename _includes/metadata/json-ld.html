@@ -12,7 +12,7 @@ absolute_url -%}
 {
   "@context": "https://schema.org",
   "@graph": [
-    {%- if page.url == '/' or page.url == '/uk/' or page.url == '/ru/' or page.url == '/ko/' -%}
+    {%- if page.is_home -%}
     {
       "@type": "Person",
       "@id": "{{ author_url }}#person",

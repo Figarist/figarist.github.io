@@ -118,6 +118,20 @@
     el.addEventListener("mouseleave", handleMouseLeave);
   }
 
+  function debounce(func, wait) {
+    var timeout;
+    return function () {
+      var context = this;
+      var args = arguments;
+      var later = function () {
+        timeout = null;
+        func.apply(context, args);
+      };
+      clearTimeout(timeout);
+      timeout = setTimeout(later, wait);
+    };
+  }
+
   /* ——————————————————————————————————————————
      3. CARD SUBTLE TILT (on mouse move)
      Applies a gentle perspective tilt to hovered cards.
@@ -423,9 +437,12 @@
 
   // Event Listeners
   if (searchInput) {
-    searchInput.addEventListener("input", function (e) {
-      executeSearch(e.target.value);
-    });
+    searchInput.addEventListener(
+      "input",
+      debounce(function (e) {
+        executeSearch(e.target.value);
+      }, 200),
+    );
   }
 
   if (closeSearch) {

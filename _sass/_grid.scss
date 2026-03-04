@@ -4,7 +4,8 @@
 
 /* ======================== BENTO PAGE ======================== */
 .jekyll-main.hub-page {
-  padding-top: 85px !important; /* Forces override against global .jekyll-main shorthand */
+  padding-top: 85px !important;
+  /* Forces override against global .jekyll-main shorthand */
 }
 
 /* ======================== BENTO GRID ======================== */
@@ -84,12 +85,13 @@
     /* Звужуємо для акуратного вигляду 2-х колонок */
     grid-template-columns: repeat(2, 1fr);
     grid-template-areas:
-      "bio     bio"
-      "studio  studio"
-      "webgl   webgl"
-      "feed-vr feed-gamedev"
-      "stack   python"
-      "shrine  shrine";
+      "bio           bio"
+      "studio        studio"
+      "webgl         webgl"
+      "feed-vr       feed-gamedev"
+      "feed-personal feed-edu"
+      "stack         python"
+      "shrine        shrine";
   }
 
   /* Hide text links before they squash on iPad profiles */

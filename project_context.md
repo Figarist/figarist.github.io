@@ -1,6 +1,6 @@
 > Цей файл — ПОВНИЙ КОНТЕКСТ проекту для передачі іншому ШІ.
 > Автор: Ihor Sivochka — Indie Game Developer, Зміїв, UA.
-> Оновлено: 2026-03-03
+> Оновлено: 2026-03-04
 
 ---
 
@@ -14,7 +14,7 @@ graph TD
         E["_education/*.md (×4 langs)"]
         D["_data/{en,uk,ru,ko}/strings.yml"]
         S["_sass/ (20 partials)"]
-        JS["script.js (IIFE, 9 modules)"]
+        JS["script.js (IIFE, 10 modules)"]
     end
 
     subgraph Plugins
@@ -33,6 +33,7 @@ graph TD
         DirKO["/ko/"]
         CatPages["/blog/category/:name/"]
         TagPages["/blog/tag/:name/"]
+        Sitemap["/sitemap.xml (custom, hreflang)"]
     end
 
     H & P & E & D --> Poly
@@ -49,7 +50,7 @@ graph TD
 ## 🔧 ТЕХНІЧНЕ ЯДРО
 
 - **Jekyll 4.4** — Static Site Generator
-- **Polyglot** — Квадрилінгвальна збірка (EN, UK, RU, KO). DRY: один `index.html», текст в `\_data/[lang]/strings.yml`
+- **Polyglot** — Квадрилінгвальна збірка (EN, UK, RU, KO). DRY: один `index.html`, текст в `_data/[lang]/strings.yml`
 - **PWA (Workbox)** — Service Worker + `manifest.json`. Офлайн-перший підхід
 - **Spaceship** — Mermaid діаграми, MathJax формули, YouTube/Spotify embeds
 - **jekyll-toc** — Автоматичний зміст (включається `toc: true` у front matter)
@@ -59,7 +60,7 @@ graph TD
 - **CGM Header Style** — Мінімалістичні заголовки статтей (Header | Date | Read Time). Без декоративних емодзі
 - **GoatCounter** — Privacy-first analytics (Zero cookies, no GDPR)
 - **Performance Budget** — JS < 20KB, CSS < 30KB. **Rect Caching** for zero layout thrashing
-- **Modern A11y & UX** — Responsive safe-area hygiene via dynamic SCSS tokens
+- **Modern A11y & UX** — Responsive safe-area hygiene via dynamic SCSS tokens + skip-link
 
 ---
 
@@ -69,8 +70,9 @@ graph TD
 | ------------------------------ | ---------------------------------------------------- |
 | `_config.yml`                  | Plugins, polyglot, pagination, TOC, archives config  |
 | `_config_dev.yml`              | Dev overlay: без мінімізації, без PWA                |
-| `script.js`                    | Єдиний JS файл (IIFE з 9 модулями + SW registration) |
+| `script.js`                    | Єдиний JS файл (IIFE з 10 модулями + SW registration) |
 | `assets/css/styles.scss`       | SCSS manifest: 20 партіалів через `@use`             |
+| `sitemap.xml`                  | Кастомний XML сайтмап з hreflang для 4 мов           |
 | `manifest.json`                | PWA Web App Manifest                                 |
 | `.github/workflows/jekyll.yml` | CI: build → HTML Proofer → Bundle Check → deploy     |
 
@@ -98,19 +100,19 @@ styles.scss imports:
 
 ## 📜 script.js МОДУЛІ
 
-| §   | Назва            | Що робить                                    |
-| --- | ---------------- | -------------------------------------------- |
-| 1   | Scroll Fade-In   | `IntersectionObserver` для `.fade-in` карток |
-| 2   | WebGL Overlay    | Click-to-load iframe для Unity демо          |
+| §   | Назва            | Що робить                                       |
+| --- | ---------------- | ----------------------------------------------- |
+| 1   | Scroll Fade-In   | `IntersectionObserver` для `.fade-in` карток    |
+| 2   | WebGL Overlay    | Click-to-load iframe для Unity демо             |
 | 3   | Card Tilt        | 3D перспектива на hover (Rect Caching, Zero-GC) |
-| 4   | Reading Progress | Scroll-based прогрес-бар                     |
-| 5   | Copy Code        | Click-to-copy на блоках коду                 |
-| 6   | Navbar Scroll    | Show/hide навбар по напрямку скролу          |
-| 7   | View Transitions | Client-side `startViewTransition()`          |
-| 8   | Search           | Повнотекстовий пошук з `search.json`         |
-| 9   | Lang Switch      | Збереження `preferred_lang` в localStorage   |
-| 10  | Performance      | Throttled scroll & resize (Rect Caching)     |
-| —   | SW               | Service Worker реєстрація (поза IIFE)        |
+| 4   | Reading Progress | Throttled scroll-based прогрес-бар              |
+| 5   | Copy Code        | Click-to-copy на блоках коду                    |
+| 6   | Navbar Scroll    | Show/hide навбар по напрямку скролу             |
+| 7   | View Transitions | Client-side `startViewTransition()`             |
+| 8   | Search           | Повнотекстовий пошук з `search.json`            |
+| 9   | Lang Switch      | Збереження `preferred_lang` в localStorage      |
+| 10  | Rect Caching     | Zero-GC layout thrashing prevention (120Hz+)    |
+| —   | SW               | Service Worker реєстрація (поза IIFE)           |
 
 ---
 
@@ -126,7 +128,9 @@ styles.scss imports:
   - Головна сторінка: незалежний контент загорнуто в `<article>`, а секції (Stack, Shrine, WebGL) — в `<section>`.
   - Усі `<img>` (особливо ліниво завантажені, `loading="lazy"`) мають явно задані `width` та `height`, щоб зарезервувати місце і запобігти Cumulative Layout Shift (CLS).
 - **hreflang** — автоматично через `jekyll-polyglot` для правильного розподілу 4 мов у Google Search.
-- **Sitemap & RSS** — через `jekyll-sitemap` та `jekyll-feed`.
+- **Кастомний Sitemap** — `sitemap.xml` (не `jekyll-sitemap`!) генерує XML з `<xhtml:link hreflang>` для всіх 4 мов. Виключений з мінімізації в `jekyll-minifier`.
+- **RSS Feed** — через `jekyll-feed` (`feed.xml`). Виключений з мінімізації.
+- **Accessibility** — Skip-link "Перейти до основного вмісту" (visually hidden, focus-visible) з підтримкою `prefers-reduced-motion`.
 
 ---
 
@@ -141,6 +145,7 @@ styles.scss imports:
 5. **Пости × 4 мови** — кожен пост має 4 мовні версії з **однаковим** `permalink`
 6. **`category` + `tags`** — кожен пост = archive pages через `jekyll-archives`
 7. **CGM Style Guide** — Статті без кнопок "Назад" та емодзі-префіксів. Тільки чистий текст та ієрархічні крихти
+8. **Sitemap** — НЕ використовуй `jekyll-sitemap`. Кастомний `sitemap.xml` вже є та виключений з мінімізації
 
 ---
 
@@ -151,7 +156,9 @@ styles.scss imports:
 3. **Performance** — JS < 20KB, CSS < 30KB (CI перевіряє)
 4. **Hub Parity** — `index.html` єдине джерело структури головної
 5. **No `jekyll-webp`** — Ламає все. Виключено per user request
+6. **No `jekyll-sitemap`** — Конфліктує з кастомним `sitemap.xml`. Виключено
+7. **jekyll-minifier виключення** — `sitemap.xml` і `feed.xml` **обов'язково** в списку `exclude` мінімізатора, інакше Google не зможе прочитати XML
 
 ---
 
-_Every line of code is a design decision. Keep it lean._
+_Every byte matters. Every pixel counts. Build it native._

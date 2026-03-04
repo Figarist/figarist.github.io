@@ -55,7 +55,6 @@ exclude:
 # ── Plugins ──────────────────────────────────────────────────
 plugins:
   - jekyll-seo-tag
-  - jekyll-sitemap
   - jekyll-feed
   - jekyll-polyglot
   - jekyll-paginate-v2
@@ -150,6 +149,8 @@ jekyll-minifier:
     - "vendor/**/*"
     - "assets/vendor/**/*"
     - "assets/**/*.json"
+    - "sitemap.xml"
+    - "feed.xml"
   uglifier_args:
     harmony: true
 

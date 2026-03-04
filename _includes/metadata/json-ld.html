@@ -2,25 +2,71 @@
 Unified JSON-LD for BlogPosting and Article.
 Expects Layout to provide context if needed, but uses standard page/site vars.
 {% endcomment %}
+{%- assign author_name = site.data[site.active_lang].strings.author_name | default: 'Ihor Sivochka' -%}
+{%- assign author_url = 'https://figarist.github.io' -%}
+{%- assign site_logo = '/assets/images/figaristgithub.png' | absolute_url -%}
+{%- assign page_image = page.image | default: site.default_social_image | default: '/assets/images/figaristgithub.png' | absolute_url -%}
+
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": "{{ include.type | default: 'BlogPosting' }}",
-  "headline": {{ page.title | jsonify }},
-  "inLanguage": "{{ site.active_lang }}",
-  "datePublished": "{{ page.date | date_to_xmlschema }}",
-  {% if page.last_modified_at %}"dateModified": "{{ page.last_modified_at | date_to_xmlschema }}",{% endif %}
-  "author": {
-    "@type": "Person",
-    "name": "{{ site.data[site.active_lang].strings.author_name | default: 'Ihor Sivochka' }}",
-    "url": "https://figarist.github.io"
-  },
-  "publisher": {
-    "@type": "Person",
-    "name": "{{ site.data[site.active_lang].strings.author_name | default: 'Ihor Sivochka' }}",
-    "url": "https://figarist.github.io"
-  },
-  "url": "{{ page.url | absolute_url }}",
-  "description": {{ page.description | default: page.excerpt | strip_html | jsonify }}
+  "@graph": [
+    {
+      "@type": "{{ include.type | default: 'BlogPosting' }}",
+      "@id": "{{ page.url | absolute_url }}#article",
+      "headline": {{ page.title | jsonify }},
+      "description": {{ page.description | default: page.excerpt | strip_html | strip_newlines | truncate: 160 | jsonify }},
+      "image": "{{ page_image }}",
+      "datePublished": "{{ page.date | date_to_xmlschema }}",
+      {% if page.last_modified_at %}"dateModified": "{{ page.last_modified_at | date_to_xmlschema }}",{% endif %}
+      "inLanguage": "{{ site.active_lang }}",
+      "author": {
+        "@type": "Person",
+        "@id": "{{ author_url }}#person",
+        "name": "{{ author_name }}",
+        "url": "{{ author_url }}"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "@id": "{{ site.url }}#organization",
+        "name": "Figarist",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "{{ site_logo }}"
+        }
+      },
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "{{ page.url | absolute_url }}"
+      }
+    },
+    {
+      "@type": "BreadcrumbList",
+      "@id": "{{ page.url | absolute_url }}#breadcrumb",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "{{ site.data[site.active_lang].strings.nav_brand | default: 'Figarist' }}",
+          "item": "{{ site.url | absolute_url }}/"
+        }
+        {%- if page.layout == 'post' or page.layout == 'education' -%}
+        ,
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "{% if page.layout == 'post' %}{{ site.data[site.active_lang].strings.workshop_label }}{% else %}{{ site.data[site.active_lang].strings.education_label }}{% endif %}",
+          "item": "{{ site.url | absolute_url }}/{% if page.layout == 'post' %}blog/{% else %}education/{% endif %}"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": {{ page.title | jsonify }},
+          "item": "{{ page.url | absolute_url }}"
+        }
+        {%- endif -%}
+      ]
+    }
+  ]
 }
 </script>

@@ -1,0 +1,14 @@
+{% if page.tags.size > 0 or page.category %}
+<div class="post-tags-inline">
+    <span class="post-tags-label">{{ site.data[site.active_lang].strings.filed_under | default: "FILE UNDER:" }}</span>
+    {% if page.category %}
+    <a href="{{ '/blog/category/' | append: page.category | append: '/' | relative_url }}" class="post-tag-link">{{
+        page.category | upcase }}</a>{% assign filtered_tags = page.tags | where_exp: "t", "t != page.category" %}{% if
+    filtered_tags.size > 0 %},{% endif %}
+    {% else %}{% assign filtered_tags = page.tags %}{% endif %}
+    {% for tag in filtered_tags %}
+    <a href="{{ '/blog/tag/' | append: tag | append: '/' | relative_url }}" class="post-tag-link">{{ tag | upcase
+        }}</a>{% unless forloop.last %},{% endunless %}
+    {% endfor %}
+</div>
+{% endif %}

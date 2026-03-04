@@ -24,17 +24,6 @@ absolute_url -%}
         {% for link in site.social.links %}"{{ link }}"{% unless forloop.last %},{% endunless %}{% endfor %}
       ]
     },
-    {
-      "@type": "WebSite",
-      "@id": "{{ site.url | absolute_url }}#website",
-      "url": "{{ site.url | absolute_url }}/",
-      "name": {{ site.title | jsonify }},
-      "description": {{ site.data[site.active_lang].strings.bio_tagline | default: site.description | strip_html | strip_newlines | truncate: 160 | jsonify }},
-      "publisher": {
-        "@id": "{{ author_url }}#person"
-      },
-      "inLanguage": "{{ site.active_lang }}"
-    },
     {%- else -%}
     {
       "@type": "{{ include.type | default: 'BlogPosting' }}",

@@ -122,6 +122,7 @@ search_close_label: "Close search"
 search_select_hint: "Enter to select"
 search_close_hint: "Esc to close"
 search_no_results: "No matches found for"
+lang_switch_label: "Language selection"
 
 # ── Archives ──
 category_label: "Category"

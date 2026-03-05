@@ -122,6 +122,7 @@ search_close_label: "Закрити пошук"
 search_select_hint: "Enter щоб вибрати"
 search_close_hint: "Esc щоб закрити"
 search_no_results: "Нічого не знайдено за запитом"
+lang_switch_label: "Вибір мови"
 
 # ── Archives ──
 category_label: "Категорія"

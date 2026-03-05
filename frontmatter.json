@@ -263,39 +263,6 @@
       }
     }
   ],
-  "frontMatter.taxonomy.categories": [
-    "life",
-    "gamedev",
-    "unity",
-    "wearos",
-    "education",
-    "jekyll",
-    "web",
-    "tutorial",
-    "devlog"
-  ],
-  "frontMatter.taxonomy.tags": [
-    "life",
-    "wearos",
-    "unity",
-    "gamedev",
-    "blackout",
-    "ukraine",
-    "kharkiv",
-    "static-site",
-    "jekyll",
-    "web",
-    "tutorial",
-    "python",
-    "minecraft",
-    "vr",
-    "beginner",
-    "intermediate",
-    "advanced",
-    "zero-gc",
-    "mermaid",
-    "mathjax"
-  ],
   "frontMatter.custom.snippets": {
     "Spaceship: YouTube Video": {
       "description": "Embed a YouTube video via jekyll-spaceship syntax",
@@ -337,14 +304,14 @@
     "Polyglot: Translation Note": {
       "description": "Add a note that this article has translations",
       "body": [
-        "> \ud83c\udf10 **This article is available in:** [EN](/blog/[[slug]]/) \u00b7 [UK](/uk/blog/[[slug]]/) \u00b7 [RU](/ru/blog/[[slug]]/) \u00b7 [KO](/ko/blog/[[slug]]/) "
+        "> 🌐 **This article is available in:** [EN](/blog/[[slug]]/) · [UK](/uk/blog/[[slug]]/) · [RU](/ru/blog/[[slug]]/) · [KO](/ko/blog/[[slug]]/) "
       ]
     },
     "Callout: Info": {
       "description": "Insert an info callout block",
       "body": [
         "<div class=\"callout callout--info\">",
-        "  <strong>\ud83d\udca1 Note:</strong> [[content]]",
+        "  <strong>💡 Note:</strong> [[content]]",
         "</div>"
       ]
     },
@@ -352,7 +319,7 @@
       "description": "Insert a warning callout block",
       "body": [
         "<div class=\"callout callout--warning\">",
-        "  <strong>\u26a0\ufe0f Warning:</strong> [[content]]",
+        "  <strong>⚠️ Warning:</strong> [[content]]",
         "</div>"
       ]
     },
@@ -407,7 +374,7 @@
   "frontMatter.custom.scripts": [
     {
       "id": "new-translation",
-      "title": "\ud83c\udf10 Create Missing Translations",
+      "title": "🌐 Create Missing Translations",
       "script": ".frontmatter/scripts/create-translations.js",
       "command": "node",
       "type": "content",
@@ -415,7 +382,7 @@
     },
     {
       "id": "check-images",
-      "title": "\ud83d\uddbc List Unoptimized Images",
+      "title": "🖼 List Unoptimized Images",
       "script": ".frontmatter/scripts/check-images.js",
       "command": "node",
       "type": "mediaFolder",
@@ -437,7 +404,7 @@
       "type": "date"
     },
     {
-      "title": "Title A\u2192Z",
+      "title": "Title A→Z",
       "name": "title",
       "order": "asc",
       "type": "string"

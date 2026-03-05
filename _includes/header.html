@@ -1,7 +1,8 @@
 <header>
     <nav class="site-nav" aria-label="{{ site.data[site.active_lang].strings.main_nav_aria }}">
         <div class="nav-inner">
-            <a href="{{ '/' | relative_url }}" class="site-nav__brand" id="site-logo">{{ site.data[site.active_lang].strings.nav_brand }}</a>
+            <a href="{{ '/' | relative_url }}" class="site-nav__brand" id="site-logo">{{
+                site.data[site.active_lang].strings.nav_brand }}</a>
             <div class="site-nav__links">
                 {% if page.url == '/' or page.url == '/uk/' or page.url == '/ru/' or page.url == '/ko/' %}
                 <a href="{{ '/' | relative_url }}#studio">
@@ -28,22 +29,26 @@
                 {% endif %}
                 {% endfor %}
                 {% if bare_url == '' %}{% assign bare_url = '/' %}{% endif %}
-                
-                <button id="search-trigger" class="site-nav__search-trigger" aria-label="{{ site.data[site.active_lang].strings.search_label | default: 'Search' }}" title="Search (Cmd+K)">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+
+                <button id="search-trigger" class="site-nav__search-trigger"
+                    aria-label="{{ site.data[site.active_lang].strings.search_label | default: 'Search' }}"
+                    title="Search (Cmd+K)">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
                         <circle cx="11" cy="11" r="8"></circle>
                         <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
                     </svg>
                 </button>
 
-                <div class="lang-switch-wrapper" translate="no">
+                <div class="lang-switch-wrapper" translate="no" role="group"
+                    aria-label="{{ site.data[site.active_lang].strings.lang_switch_label | default: 'Language selection' }}">
                     {% for lang in site.languages %}
                     {% if lang == site.active_lang %}
                     <span class="lang-switch active" data-lang="{{ lang }}">{{ lang }}</span>
                     {% else %}
                     {% if lang == site.default_lang %}
-                    <a {% static_href %}href="{{ site.baseurl }}{{ bare_url }}" {% endstatic_href %} 
-                        class="lang-switch" data-lang="{{ lang }}">{{ lang }}</a>
+                    <a {% static_href %}href="{{ site.baseurl }}{{ bare_url }}" {% endstatic_href %} class="lang-switch"
+                        data-lang="{{ lang }}">{{ lang }}</a>
                     {% else %}
                     <a {% static_href %}href="{{ site.baseurl }}/{{ lang }}{{ bare_url }}" {% endstatic_href %}
                         class="lang-switch" data-lang="{{ lang }}">{{ lang }}</a>

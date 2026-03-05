@@ -122,6 +122,7 @@ search_close_label: "Закрыть поиск"
 search_select_hint: "Enter чтобы выбрать"
 search_close_hint: "Esc чтобы закрыть"
 search_no_results: "Ничего не найдено по запросу"
+lang_switch_label: "Выбор языка"
 
 # ── Archives ──
 category_label: "Категория"

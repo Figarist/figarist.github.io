@@ -1,58 +1,109 @@
 {
   "$schema": "https://beta.frontmatter.codes/frontmatter.schema.json",
+  "frontMatter.framework.id": "jekyll",
+  "frontMatter.preview.host": "http://localhost:4000",
+  "frontMatter.content.publicFolder": "/assets/images/",
+  "frontMatter.assets.defaultFolderPath": "assets/images",
+  "frontMatter.content.pageFolders": [
+    {
+      "title": "_posts",
+      "path": "[[workspace]]/_posts",
+      "filePrefix": "yyyy-MM-dd"
+    },
+    {
+      "title": "_education",
+      "path": "[[workspace]]/_education"
+    }
+  ],
   "frontMatter.taxonomy.contentTypes": [
     {
-      "name": "default",
+      "name": "Post",
       "pageBundle": false,
       "previewPath": null,
       "fields": [
         {
           "title": "Title",
           "name": "title",
-          "type": "string"
+          "type": "string",
+          "required": true
         },
         {
-          "title": "Description",
-          "name": "description",
-          "type": "string"
-        },
-        {
-          "title": "Publishing date",
+          "title": "Date",
           "name": "date",
           "type": "datetime",
           "default": "{{now}}",
-          "isPublishDate": true
+          "required": true
         },
         {
-          "title": "Content preview",
-          "name": "preview",
-          "type": "image"
+          "title": "Language",
+          "name": "lang",
+          "type": "choice",
+          "choices": [
+            "en",
+            "uk",
+            "ru",
+            "ko"
+          ],
+          "required": true
         },
         {
-          "title": "Is in draft",
-          "name": "draft",
-          "type": "draft"
+          "title": "Layout",
+          "name": "layout",
+          "type": "string",
+          "default": "post",
+          "hidden": true,
+          "required": true
         },
         {
-          "title": "Tags",
-          "name": "tags",
-          "type": "tags"
+          "title": "Permalink",
+          "name": "permalink",
+          "type": "string",
+          "required": true
         },
         {
           "title": "Categories",
           "name": "categories",
-          "type": "categories"
+          "type": "categories",
+          "required": true
+        },
+        {
+          "title": "Tags",
+          "name": "tags",
+          "type": "tags",
+          "required": true
         }
       ]
     }
   ],
-  "frontMatter.framework.id": "jekyll",
-  "frontMatter.content.publicFolder": "assets",
-  "frontMatter.preview.host": "http://localhost:4000",
-  "frontMatter.content.pageFolders": [
-    {
-      "title": "posts",
-      "path": "[[workspace]]/_posts"
+  "frontMatter.custom.snippets": {
+    "Spaceship: YouTube Video": {
+      "description": "Insert a YouTube video using jekyll-spaceship",
+      "body": "!(https://www.youtube.com/watch?v=[[id]])"
+    },
+    "Spaceship: Local Video": {
+      "description": "Insert a local video using jekyll-spaceship",
+      "body": "!(/assets/images/[[filename]].mp4)"
+    },
+    "Spaceship: Grid/Table": {
+      "description": "Insert a basic Markdown table",
+      "body": [
+        "| Header 1 | Header 2 |",
+        "| -------- | -------- |",
+        "| Cell 1   | Cell 2   |",
+        "| Cell 3   | Cell 4   |"
+      ]
+    },
+    "Spaceship: Mermaid Diagram": {
+      "description": "Insert a basic Mermaid diagram",
+      "body": [
+        "```mermaid",
+        "graph TD;",
+        "    A-->B;",
+        "    A-->C;",
+        "    B-->D;",
+        "    C-->D;",
+        "```"
+      ]
     }
-  ]
+  }
 }

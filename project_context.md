@@ -1,10 +1,10 @@
-> Цей файл — ПОВНИЙ КОНТЕКСТ проекту для передачі іншому ШІ.
-> Автор: Ihor Sivochka — Indie Game Developer, Зміїв, UA.
-> Оновлено: 2026-03-05
+> This file is the FULL CONTEXT of the project for handover to another AI.
+> Author: Ihor Sivochka — Indie Game Developer, Zmiiv, UA.
+> Updated: 2026-03-05
 
 ---
 
-## 🏗️ СИСТЕМНА АРХІТЕКТУРА
+## 🏗️ SYSTEM ARCHITECTURE
 
 ```mermaid
 graph TD
@@ -56,18 +56,18 @@ graph TD
 
 ---
 
-## 🔧 ТЕХНІЧНЕ ЯДРО
+## 🔧 TECHNICAL CORE
 
 - **Jekyll 4.4** — Static Site Generator
-- **Frontmatter CMS** — VS Code extension як headless CMS. Керує front matter, контентом, зображеннями та Git прямо з редактора. Файл конфігурації: `frontmatter.json`
-- **Polyglot** — Квадрилінгвальна збірка (EN, UK, RU, KO). DRY: один `index.html`, текст в `_data/[lang]/strings.yml`
-- **PWA (Workbox)** — Service Worker + `manifest.json`. Офлайн-перший підхід
-- **Spaceship** — Mermaid діаграми, MathJax формули, YouTube/Spotify embeds
-- **jekyll-toc** — Автоматичний зміст (включається `toc: true` у front matter)
-- **Hierarchical Breadcrumbs** — Система навігації за замовчуванням (Hub → Section → Category → Article). Замінила кнопки "Назад"
-- **jekyll-archives** — Автосторінки `/blog/category/:name/` та `/blog/tag/:name/`
-- **jekyll-last-modified-at** — `dateModified` з git log (показується тільки якщо ≠ `datePublished`)
-- **CGM Header Style** — Мінімалістичні заголовки статтей (Header | Date | Read Time). Без декоративних емодзі
+- **Frontmatter CMS** — VS Code extension as a headless CMS. Manages front matter, content, images, and Git directly from the editor. Configuration file: `frontmatter.json`
+- **Polyglot** — Quadrilingual build (EN, UK, RU, KO). DRY: one `index.html`, text in `_data/[lang]/strings.yml`
+- **PWA (Workbox)** — Service Worker + `manifest.json`. Offline-first approach
+- **Spaceship** — Mermaid diagrams, MathJax formulas, YouTube/Spotify embeds
+- **jekyll-toc** — Automatic Table of Contents (enabled by `toc: true` in front matter)
+- **Hierarchical Breadcrumbs** — Default navigation system (Hub → Section → Category → Article). Replaced "Back" buttons
+- **jekyll-archives** — Auto-generated pages for `/blog/category/:name/` and `/blog/tag/:name/`
+- **jekyll-last-modified-at** — `dateModified` from git log (shown only if ≠ `datePublished`)
+- **CGM Header Style** — Minimalist article headers (Author | Date | Read Time). No decorative emojis
 - **GoatCounter** — Privacy-first analytics (Zero cookies, no GDPR)
 - **Performance Budget** — JS < 20KB, CSS < 30KB. **Rect Caching** for zero layout thrashing
 - **Modern A11y & UX** — Responsive safe-area hygiene via dynamic SCSS tokens + skip-link
@@ -76,32 +76,32 @@ graph TD
 
 ## 🌐 QUADRILINGUAL SYNC (EN · UK · RU · KO)
 
-> Повний workflow: `.agents/workflows/i18n-sync.md` (команда `/i18n-sync`)
+> Full workflow: `.agents/workflows/i18n-sync.md` (command `/i18n-sync`)
 
-### Золоте правило
+### Golden Rule
 
-**Один permalink. Чотири файли. Всі в синхроні.**
-EN — завжди джерело правди. `permalink` — ОДНАКОВИЙ у всіх 4 файлах.
+**One permalink. Four files. All in sync.**
+EN is always the source of truth. `permalink` is IDENTICAL in all 4 files.
 
 ### Quick Reference
 
-| Суфікс файлу | `lang:` | URL-префікс | Strings file           |
-| ------------ | ------- | ----------- | ---------------------- |
-| `-en.md`     | `en`    | _(немає)_   | `_data/en/strings.yml` |
-| `-uk.md`     | `uk`    | `/uk/`      | `_data/uk/strings.yml` |
-| `-ru.md`     | `ru`    | `/ru/`      | `_data/ru/strings.yml` |
-| `-ko.md`     | `ko`    | `/ko/`      | `_data/ko/strings.yml` |
+| File Suffix | `lang:` | URL Prefix | Strings file           |
+| ----------- | ------- | ---------- | ---------------------- |
+| `-en.md`    | `en`    | _(none)_   | `_data/en/strings.yml` |
+| `-uk.md`    | `uk`    | `/uk/`     | `_data/uk/strings.yml` |
+| `-ru.md`    | `ru`    | `/ru/`     | `_data/ru/strings.yml` |
+| `-ko.md`    | `ko`    | `/ko/`     | `_data/ko/strings.yml` |
 
-### Структура файлу посту (обов'язково для всіх 4)
+### Post File Structure (mandatory for all 4)
 
 ```yaml
 ---
 layout: post
-title: "Назва"
-description: "SEO опис ~160 chars."  # обов'язково!
+title: "Title"
+description: "SEO description ~160 chars."  # mandatory!
 date: YYYY-MM-DD
 lang: en          # en / uk / ru / ko
-permalink: /blog/my-post/           # ОДНАКОВИЙ у всіх 4!
+permalink: /blog/my-post/           # IDENTICAL in all 4!
 author: ihor
 categories: gamedev
 tags: [unity, csharp]
@@ -109,24 +109,24 @@ published: true
 ---
 ```
 
-### UI Strings — як додати новий ключ
+### UI Strings — how to add a new key
 
-1. Додати ключ у `_data/en/strings.yml` (EN-значення)
-2. Скопіювати ключ у `uk`, `ru`, `ko` strings.yml → перекласти
-3. Використати у Liquid: `{{ site.data[page.lang].strings.my_key }}`
+1. Add key to `_data/en/strings.yml` (EN value)
+2. Copy key to `uk`, `ru`, `ko` strings.yml → translate
+3. Use in Liquid: `{{ site.data[page.lang].strings.my_key }}`
 
-> ⚠️ Відсутній ключ у будь-якому strings.yml = **пусте місце** на тій мові. Завжди синхронізуй всі 4 файли.
+> ⚠️ Missing key in any strings.yml = **empty space** for that language. Always sync all 4 files.
 
-### Checklist перед пушем
+### Pre-push Checklist
 
-- [ ] Всі 4 файли мають **однаковий `permalink`**
-- [ ] Всі 4 файли мають `published: true`
-- [ ] Всі нові UI ключі додані у всі 4 `strings.yml`
-- [ ] `description` є у кожному файлі
-- [ ] `author: ihor` виставлено
-- [ ] `categories` з pre-seeded списку (`frontmatter.json`)
+- [ ] All 4 files have the **same `permalink`**
+- [ ] All 4 files have `published: true`
+- [ ] All new UI keys added to all 4 `strings.yml`
+- [ ] `description` is present in every file
+- [ ] `author: ihor` is set
+- [ ] `categories` from the pre-seeded list (`frontmatter.json`)
 
-### Як polyglot генерує URL
+### How Polyglot Generates URLs
 
 ```
 jekyll-polyglot:
@@ -134,52 +134,52 @@ jekyll-polyglot:
   /uk/blog/my-post/  ← UK
   /ru/blog/my-post/  ← RU
   /ko/blog/my-post/  ← KO
-hreflang auto-inject: на основі збігу permalink значень
+hreflang auto-inject: based on matching permalink values
 ```
 
 ---
 
-## 📂 КЛЮЧОВІ ФАЙЛИ
+## 📂 KEY FILES
 
-| Файл                                      | Призначення                                                  |
+| File                                      | Purpose                                                      |
 | ----------------------------------------- | ------------------------------------------------------------ |
 | `_config.yml`                             | Plugins, polyglot, pagination, TOC, archives config          |
-| `_config_dev.yml`                         | Dev overlay: без мінімізації, без PWA                        |
+| `_config_dev.yml`                         | Dev overlay: no minification, no PWA                        |
 | `frontmatter.json`                        | Frontmatter CMS: content types, snippets, scripts, sorting   |
 | `.frontmatter/scripts/create-translations.js` | CMS action: auto-stub uk/ru/ko translation files         |
 | `.frontmatter/scripts/check-images.js`    | CMS action: report non-WebP images in assets/images/         |
-| `script.js`                               | Єдиний JS файл (IIFE з 10 модулями + SW registration)        |
-| `assets/css/styles.scss`                  | SCSS manifest: 20 партіалів через `@use`                     |
-| `sitemap.xml`                             | Кастомний XML сайтмап з hreflang для 4 мов                   |
+| `script.js`                               | Single JS file (IIFE with 10 modules + SW registration)        |
+| `assets/css/styles.scss`                  | SCSS manifest: 20 partials via `@use`                     |
+| `sitemap.xml`                             | Custom XML sitemap with hreflang for 4 languages             |
 | `manifest.json`                           | PWA Web App Manifest                                         |
-| `_data/authors.yml`                       | Профілі авторів (читається Frontmatter CMS data file picker) |
+| `_data/authors.yml`                       | Author profiles (read by Frontmatter CMS data file picker) |
 | `.github/workflows/jekyll.yml`            | CI: build → HTML Proofer → Bundle Check → deploy             |
 
 ---
 
 ## ✏️ FRONTMATTER CMS
 
-**Розширення VS Code:** [Front Matter CMS](https://frontmatter.codes/) — headless CMS без сервера.
+**VS Code Extension:** [Front Matter CMS](https://frontmatter.codes/) — headless CMS without a server.
 
 ### Content Types
 
-| Type          | Folder        | Обов'язкові поля                                                |
+| Type          | Folder        | Required Fields                                                |
 | ------------- | ------------- | --------------------------------------------------------------- |
 | **Post**      | `_posts/`     | layout(hidden), title, description, date, lang, permalink, author, image, categories, tags, published |
-| **Post**      | `_drafts/`    | Ті самі поля. `published: false` → не збирається Jekyll        |
+| **Post**      | `_drafts/`    | Same fields. `published: false` → not built by Jekyll        |
 | **Education** | `_education/` | title, description, excerpt, author, lang, permalink, level, sort_order, tags, image, published |
 
-- **`author`** — data file picker з `_data/authors.yml`. Не вводити вручну
-- **`image`** — visual picker з `assets/images/`
-- **`published`** — draft toggle (Jekyll `published: false` виключає файл зі збірки)
-- **`level`** — `beginner | intermediate | advanced` (для Education)
+- **`author`** — data file picker from `_data/authors.yml`. Do not enter manually.
+- **`image`** — visual picker from `assets/images/`
+- **`published`** — draft toggle (Jekyll `published: false` excludes file from build)
+- **`level`** — `beginner | intermediate | advanced` (for Education)
 
-### Snippets у редакторі (14 шт.)
+### Editor Snippets (14 total)
 
-| Категорія  | Назви                                                         |
+| Category  | Names                                                         |
 | ---------- | ------------------------------------------------------------- |
 | Spaceship  | YouTube embed, Local video, Mermaid diagram, MathJax block, Markdown table |
-| Polyglot   | Translation note (посилання на всі 4 мови)                    |
+| Polyglot   | Translation note (links to all 4 languages)                    |
 | Callouts   | Info, Warning                                                 |
 | Code       | Liquid raw block, Rouge highlight (linenos)                   |
 | Media      | WebP `<figure>` (lazy, width, height, figcaption)             |
@@ -188,23 +188,23 @@ hreflang auto-inject: на основі збігу permalink значень
 
 ### Custom Scripts (CMS Actions)
 
-| Скрипт                     | Тип         | Дія                                                     |
+| Script                     | Type         | Action                                                     |
 | -------------------------- | ----------- | ------------------------------------------------------- |
-| `create-translations.js`   | content     | Кнопка у панелі → stub-файли для uk/ru/ko зі збереженням slug/permalink |
-| `check-images.js`          | mediaFolder | Сканує assets/images/ → список non-WebP файлів         |
+| `create-translations.js`   | content     | Panel button → stub files for uk/ru/ko preserving slug/permalink |
+| `check-images.js`          | mediaFolder | Scans assets/images/ → list of non-WebP files         |
 
-### Workflow: новий пост
+### Workflow: New Post
 
-1. VS Code → Front Matter panel → **New content** → Post або Education
-2. Заповнити поля (title, lang=en, permalink, categories, tags)
-3. Написати контент, вставляти blocks через **Snippets**
-4. Кнопка **🌐 Create Missing Translations** → стаби uk/ru/ko
-5. Перекласти, виставити `published: true` у всіх 4 файлах
-6. Git commit — автоформат `content: {{title}} [{{date}}]`
+1. VS Code → Front Matter panel → **New content** → Post or Education
+2. Fill fields (title, lang=en, permalink, categories, tags)
+3. Write content, insert blocks via **Snippets**
+4. Click **🌐 Create Missing Translations** → uk/ru/ko stubs
+5. Translate, set `published: true` in all 4 files
+6. Git commit — auto-format `content: {{title}} [{{date}}]`
 
 ---
 
-## 🧩 SCSS АРХІТЕКТУРА (20 партіалів)
+## 🧩 SCSS ARCHITECTURE (20 partials)
 
 ```
 styles.scss imports:
@@ -214,79 +214,79 @@ styles.scss imports:
   → spaceship → footer → toc → archive
 ```
 
-**Правила:**
+**Rules:**
 
-- Один партіал = один компонент. Без перетинання відповідальності
-- Всі кольори/розміри через CSS custom properties з `_variables.scss`
-- Жодних inline стилів (окрім `view-transition-name` які залежать від Liquid)
-- **Safe-Area Hygiene** — Всі відступи базуються на `env(safe-area-inset-top)` через змінні в `_variables.scss`
-- Grid лейаут тільки через `grid-template-areas` в `_grid.scss`
+- One partial = one component. No overlapping responsibilities.
+- All colors/sizes via CSS custom properties from `_variables.scss`.
+- No inline styles (except `view-transition-name` which depends on Liquid).
+- **Safe-Area Hygiene** — All offsets based on `env(safe-area-inset-top)` via variables in `_variables.scss`.
+- Grid layout only via `grid-template-areas` in `_grid.scss`.
 
 ---
 
-## 📜 script.js МОДУЛІ
+## 📜 script.js MODULES
 
-| §   | Назва            | Що робить                                       |
+| §   | Name             | What it does                                    |
 | --- | ---------------- | ----------------------------------------------- |
-| 1   | Scroll Fade-In   | `IntersectionObserver` для `.fade-in` карток    |
-| 2   | WebGL Overlay    | Click-to-load iframe для Unity демо             |
-| 3   | Card Tilt        | 3D перспектива на hover (Rect Caching, Zero-GC) |
-| 4   | Reading Progress | Throttled scroll-based прогрес-бар              |
-| 5   | Copy Code        | Click-to-copy на блоках коду                    |
-| 6   | Navbar Scroll    | Show/hide навбар по напрямку скролу             |
+| 1   | Scroll Fade-In   | `IntersectionObserver` for `.fade-in` cards     |
+| 2   | WebGL Overlay    | Click-to-load iframe for Unity demos            |
+| 3   | Card Tilt        | 3D perspective on hover (Rect Caching, Zero-GC) |
+| 4   | Reading Progress | Throttled scroll-based progress bar             |
+| 5   | Copy Code        | Click-to-copy on code blocks                    |
+| 6   | Navbar Scroll    | Show/hide navbar based on scroll direction      |
 | 7   | View Transitions | Client-side `startViewTransition()`             |
-| 8   | Search           | Повнотекстовий пошук з `search.json`            |
-| 9   | Lang Switch      | Збереження `preferred_lang` в localStorage      |
+| 8   | Search           | Full-text search with `search.json`             |
+| 9   | Lang Switch      | Save `preferred_lang` in localStorage           |
 | 10  | Rect Caching     | Zero-GC layout thrashing prevention (120Hz+)    |
-| —   | SW               | Service Worker реєстрація (поза IIFE)           |
+| —   | SW               | Service Worker registration (outside IIFE)      |
 
 ---
 
 ## 🔍 SEO, E-E-A-T & STRUCTURED DATA
 
-- **E-E-A-T (Досвід, Експертність, Авторитетність, Достовірність):**
-  - Головна сторінка (`is_home: true`) рендерить розширені JSON-LD схеми `@type: Person` (з `jobTitle`, `sameAs` лінками на соц. мережі) та `@type: WebSite` для посилення авторського авторитету (Knowledge Graph).
-- **BlogPosting & Article JSON-LD** — на кожному пості та tutorials: `headline`, `datePublished`, `dateModified`, `author`, `url`. Уніфіковано через `_includes/metadata/json-ld.html`.
-- **BreadcrumbList JSON-LD** — на всіх сторінках (Hub → Section → Category → Page) для ієрархічної навігації.
-- **Локалізовані Meta Descriptions (Polyglot + SEO Tag):** `jekyll-seo-tag` генерує метатеги англійською за замовчуванням. Щоб уникнути дублювання, ми динамічно присвоюємо `{% assign page.description = ... %}` у `head.html` *перед* викликом `{% seo %}`.
-- **Home Page Detection:** Через генерацію шляхів плагіном Polyglot (`/uk/index.html`), перевірка URL (`page.url == '/'`) ненадійна. Використовуємо кастомний front matter `is_home: true` у `index.html` для інжекції схем.
+- **E-E-A-T (Experience, Expertise, Authoritativeness, Trustworthiness):**
+  - Home page (`is_home: true`) renders extended JSON-LD schemas `@type: Person` (with `jobTitle`, `sameAs` social links) and `@type: WebSite` to strengthen author authority (Knowledge Graph).
+- **BlogPosting & Article JSON-LD** — on every post and tutorial: `headline`, `datePublished`, `dateModified`, `author`, `url`. Unified via `_includes/metadata/json-ld.html`.
+- **BreadcrumbList JSON-LD** — on all pages (Hub → Section → Category → Page) for hierarchical navigation.
+- **Localized Meta Descriptions (Polyglot + SEO Tag):** `jekyll-seo-tag` generates meta tags in English by default. To avoid duplication, we dynamically assign `{% assign page.description = ... %}` in `head.html` *before* calling `{% seo %}`.
+- **Home Page Detection:** Due to path generation by the Polyglot plugin (`/uk/index.html`), checking the URL (`page.url == '/'`) is unreliable. We use custom front matter `is_home: true` in `index.html` for schema injection.
 - **Semantic HTML & CLS Prevention:**
-  - Головна сторінка: незалежний контент загорнуто в `<article>`, а секції (Stack, Shrine, WebGL) — в `<section>`.
-  - Усі `<img>` (особливо ліниво завантажені, `loading="lazy"`) мають явно задані `width` та `height`, щоб зарезервувати місце і запобігти Cumulative Layout Shift (CLS).
-- **hreflang** — автоматично через `jekyll-polyglot` для правильного розподілу 4 мов у Google Search.
-- **Кастомний Sitemap** — `sitemap.xml` (не `jekyll-sitemap`!) генерує XML з `<xhtml:link hreflang>` для всіх 4 мов. Виключений з мінімізації в `jekyll-minifier`.
-- **RSS Feed** — через `jekyll-feed` (`feed.xml`). Виключений з мінімізації.
-- **Accessibility** — Skip-link "Перейти до основного вмісту" (visually hidden, focus-visible) з підтримкою `prefers-reduced-motion`.
+  - Home page: independent content wrapped in `<article>`, and sections (Stack, Shrine, WebGL) in `<section>`.
+  - All `<img>` (especially lazy-loaded ones, `loading="lazy"`) have explicitly set `width` and `height` to reserve space and prevent Cumulative Layout Shift (CLS).
+- **hreflang** — automatic via `jekyll-polyglot` for proper distribution of 4 languages in Google Search.
+- **Custom Sitemap** — `sitemap.xml` (not `jekyll-sitemap`!) generates XML with `<xhtml:link hreflang>` for all 4 languages. Excluded from minification in `jekyll-minifier`.
+- **RSS Feed** — via `jekyll-feed` (`feed.xml`). Excluded from minification.
+- **Accessibility** — Skip-link "Skip to main content" (visually hidden, focus-visible) with support for `prefers-reduced-motion`.
 
 ---
 
 ## 🤖 AI-TO-AI HANDOFF
 
-Щоб швидко увійти в проект:
+To quickly enter the project:
 
-1. **Прочитай `gemini3rules.md`** — це "Конституція". Не порушуй
-2. **CMS-First підхід** — новий контент через Frontmatter CMS (VS Code). Поле `author` береться з `_data/authors.yml` через data file picker
-3. **Переклади** — використовуй `.frontmatter/scripts/create-translations.js` (CMS action) для авто-генерації stub-файлів
-4. **Перевір `strings.yml`** — перед додаванням UI ключів перевір всі 4 словники
-5. **JS тільки в `script.js`** — всередині IIFE, ES5 синтаксис
-6. **CSS тільки в `_sass/`** — через `@use` в `styles.scss`. Жодних inline стилів
-7. **Пости × 4 мови** — кожен пост має 4 мовні версії з **однаковим** `permalink`
-8. **`category` + `tags`** — кожен пост = archive pages через `jekyll-archives`
-9. **CGM Style Guide** — Статті без кнопок "Назад" та емодзі-префіксів. Тільки чистий текст та ієрархічні крихти
-10. **Sitemap** — НЕ використовуй `jekyll-sitemap`. Кастомний `sitemap.xml` вже є та виключений з мінімізації
+1. **Read `gemini3rules.md`** — this is the "Constitution". Do not violate it.
+2. **CMS-First approach** — new content via Frontmatter CMS (VS Code). The `author` field is taken from `_data/authors.yml` via data file picker.
+3. **Translations** — use `.frontmatter/scripts/create-translations.js` (CMS action) for auto-generation of stub files.
+4. **Check `strings.yml`** — before adding UI keys, check all 4 dictionaries.
+5. **JS only in `script.js`** — inside IIFE, ES5 syntax.
+6. **CSS only in `_sass/`** — via `@use` in `styles.scss`. No inline styles.
+7. **Posts × 4 languages** — each post has 4 language versions with the **same** `permalink`.
+8. **`category` + `tags`** — each post = archive pages via `jekyll-archives`.
+9. **CGM Style Guide** — Articles without "Back" buttons and emoji prefixes. Only clean text and hierarchical breadcrumbs.
+10. **Sitemap** — DO NOT use `jekyll-sitemap`. Custom `sitemap.xml` already exists and is excluded from minification.
 
 ---
 
-## ⚠️ ОБМЕЖЕННЯ
+## ⚠️ LIMITATIONS
 
-1. **DRY 100%** — Жодного дубляжу. Liquid + Dictionaries
-2. **Zero Frameworks** — Тільки Vanilla JS + Pure CSS + Liquid
-3. **Performance** — JS < 20KB, CSS < 30KB (CI перевіряє)
-4. **Hub Parity** — `index.html` єдине джерело структури головної
-5. **No `jekyll-webp`** — Ламає все. Виключено per user request
-6. **No `jekyll-sitemap`** — Конфліктує з кастомним `sitemap.xml`. Виключено
-7. **jekyll-minifier виключення** — `sitemap.xml` і `feed.xml` **обов'язково** в списку `exclude` мінімізатора, інакше Google не зможе прочитати XML
-8. **Node.js required** — для `.frontmatter/scripts/` (CMS custom actions)
+1. **DRY 100%** — No duplication. Liquid + Dictionaries.
+2. **Zero Frameworks** — Only Vanilla JS + Pure CSS + Liquid.
+3. **Performance** — JS < 20KB, CSS < 30KB (CI checked).
+4. **Hub Parity** — `index.html` is the single source of structure for the home page.
+5. **No `jekyll-webp`** — Breaks everything. Excluded per user request.
+6. **No `jekyll-sitemap`** — Conflicts with custom `sitemap.xml`. Excluded.
+7. **jekyll-minifier exclusion** — `sitemap.xml` and `feed.xml` **must** be in the minifier's `exclude` list, otherwise Google won't be able to read the XML.
+8. **Node.js required** — for `.frontmatter/scripts/` (CMS custom actions).
 
 ---
 

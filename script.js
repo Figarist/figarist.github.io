@@ -270,7 +270,7 @@
               if (percent < 0) percent = 0;
             }
 
-            pb.style.width = percent + "%";
+            pb.style.transform = "scaleX(" + (percent / 100) + ")";
             ticking = false;
           });
           ticking = true;

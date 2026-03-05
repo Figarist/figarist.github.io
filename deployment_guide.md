@@ -71,7 +71,43 @@ Push → bundle install → jekyll build → HTML Proofer → JS Bundle Check �
 
 ---
 
+## ✏️ FRONTMATTER CMS SETUP
+
+The site uses [Front Matter CMS](https://frontmatter.codes/) (VS Code extension). Install it once, then the `frontmatter.json` config handles everything.
+
+```bash
+# In VS Code Extensions Marketplace search:
+Front Matter CMS
+# Extension ID: eliostruyf.vscode-front-matter
+```
+
+Open the dashboard: `Ctrl+Shift+P` → `Front Matter: Open Dashboard`
+
+### CMS Local Preview
+
+Frontmatter CMS requires Jekyll running locally to render previews:
+
+```bash
+bundle exec jekyll serve --config _config.yml,_config_dev.yml
+```
+
+Then click **Open Preview** in the Front Matter panel — it opens `http://localhost:4000` for the current file.
+
+---
+
 ## 📝 ADDING NEW POSTS
+
+> ⚡ **Preferred method: use Frontmatter CMS.** It enforces required fields, auto-fills date/author, and generates translation stubs automatically.
+
+### Via CMS (recommended)
+
+1. Open **Front Matter** panel → **New content** → `Post`
+2. Fill: title, lang (`en`), permalink (`/blog/my-slug/`), categories, tags, description
+3. Write content. Use **Snippets** panel for Mermaid/YouTube/callouts
+4. Click **🌐 Create Missing Translations** → auto-generates `-uk.md`, `-ru.md`, `-ko.md`
+5. Translate each stub, toggle `published: true` on all 4
+
+### Via manual file (fallback)
 
 Every post needs **4 language versions** with **identical `permalink`**:
 
@@ -80,19 +116,21 @@ Every post needs **4 language versions** with **identical `permalink`**:
 ---
 layout: post
 title: "My Post Title"
+description: "Short description for SEO (~160 chars)."
 date: 2026-03-15
 lang: en
 permalink: /blog/my-post/
-category: gamedev
+author: ihor
+categories: gamedev
 tags: [unity, csharp]
-description: "Short description for SEO."
+published: true
 # toc: true  ← optional, enables Table of Contents
 ---
 ```
 
 Repeat for `-uk.md`, `-ru.md`, `-ko.md` with same `permalink`.
 
-**Archives auto-generate:** Adding `category: gamedev` and `tags: [unity]` creates pages at `/blog/category/gamedev/` and `/blog/tag/unity/` automatically.
+**Archives auto-generate:** Adding `categories: gamedev` and `tags: [unity]` creates pages at `/blog/category/gamedev/` and `/blog/tag/unity/` automatically.
 
 ---
 

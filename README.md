@@ -329,13 +329,13 @@ hreflang injected automatically based on matching permalinks
 | `jekyll-archives`         | Category/tag archive pages   | `/blog/category/:name/`, `/blog/tag/:name/` |
 
 
-> ⚠️ **`jekyll-sitemap` ВИЛУЧЕНО** — конфліктував з кастомним `sitemap.xml`, генерував XML без `hreflang` і перезаписував правильний файл.
+> ⚠️ **`jekyll-sitemap` REMOVED** — conflicted with custom `sitemap.xml`, generated XML without `hreflang`, and overwrote the correct file.
 
 ---
 
 ## 🗺️ SITEMAP ARCHITECTURE
 
-Кастомний `sitemap.xml` (НЕ плагін) генерує повноцінний XML:
+Custom `sitemap.xml` (NOT a plugin) generates a full XML:
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
@@ -354,9 +354,9 @@ hreflang injected automatically based on matching permalinks
 ```
 
 - `Content-Type: application/xml` ✅
-- Виключений з `jekyll-minifier` → XML декларація зберігається ✅
-- Виключений з `jekyll-polyglot` → тільки один файл, не `/uk/sitemap.xml` ✅
-- Верифікований Google Search Console ✅
+- Excluded from `jekyll-minifier` → XML declaration preserved ✅
+- Excluded from `jekyll-polyglot` → only one file, not `/uk/sitemap.xml` ✅
+- Verified by Google Search Console ✅
 
 ---
 
@@ -409,9 +409,9 @@ Hardened checks:
 5. **Zero Inline Styles**: All styling in `_sass/` partials. Only `view-transition-name` allowed inline (Liquid-dependent).
 6. **CGM Layout**: Minimalist article headers. No "Back" buttons (use breadcrumbs). No decorative emojis. Standardized meta line: `AUTHOR | DATE | READ TIME`.
 7. **Semantics**: `<article>`, `<section>`, `<nav>`, `<time>`. `aria-label` on icon-only buttons.
-8. **Sitemap Rule**: НЕ додавай `jekyll-sitemap` до plugins. Кастомний `sitemap.xml` вже є і правильно налаштований.
-9. **Minifier Exclusions**: `sitemap.xml` і `feed.xml` **ЗАВЖДИ** в списку `exclude` `jekyll-minifier`.
-10. **CMS-First Content**: Новий контент створюється через Frontmatter CMS (VS Code panel). Скрипти `.frontmatter/scripts/` автоматизують переклади та перевірку зображень.
+8. **Sitemap Rule**: DO NOT add `jekyll-sitemap` to plugins. Custom `sitemap.xml` already exists and is correctly configured.
+9. **Minifier Exclusions**: `sitemap.xml` and `feed.xml` **ALWAYS** in the `exclude` list of `jekyll-minifier`.
+10. **CMS-First Content**: New content is created via Frontmatter CMS (VS Code panel). Scripts in `.frontmatter/scripts/` automate translations and image checks.
 
 See [gemini3rules.md](.agents/rules/gemini3rules.md) for full rules.
 

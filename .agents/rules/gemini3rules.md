@@ -48,7 +48,18 @@ You are an expert Senior Frontend Architect and Jekyll Developer.
 - **Mapping:** All localized posts/articles MUST share the **EXACT** same `permalink` for `hreflang` to sync.
 - **Detection:** `head.html` (Auto) vs `header.html` (Manual). Preference stored in `localStorage` as `preferred_lang`.
 
-## 5. PLUGINS & EXTENSIONS
+## 5. FRONTMATTER CMS (VS CODE)
+
+- **CMS-First:** All new content (posts, education) MUST be created via [Front Matter CMS](https://frontmatter.codes/) in VS Code — NOT by manually creating `.md` files from scratch.
+- **Config:** `frontmatter.json` at project root. Never edit content types or snippets outside this file.
+- **Author field:** Always select `ihor` from the data file picker (reads `_data/authors.yml`). Do NOT hardcode `author: ihor` manually when using CMS.
+- **Translations:** Use the **🌐 Create Missing Translations** CMS action (`.frontmatter/scripts/create-translations.js`) to auto-generate stub files for uk/ru/ko from an en source. Never copy-paste manually.
+- **Drafts:** Use `_drafts/` folder + `published: false` toggle in CMS panel for WIP content.
+- **Images:** Use CMS image picker — it enforces the `assets/images/` path. All images must be `.webp`.
+- **Snippets:** Use the 14 built-in CMS snippets for Mermaid, YouTube, callouts, WebP figures etc. Do not write these blocks manually.
+- **Scripts:** `.frontmatter/scripts/` contains Node.js automation scripts. Node.js is required to run them.
+
+## 6. PLUGINS & EXTENSIONS
 
 - **Spaceship:** Rule technical posts via `jekyll-spaceship` (Mermaid/MathJax).
 - **PWA:** `jekyll-pwa-workbox` handles offline-first caching via Service Workers.

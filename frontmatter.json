@@ -4,28 +4,66 @@
   "frontMatter.preview.host": "http://localhost:4000",
   "frontMatter.content.publicFolder": "/assets/images/",
   "frontMatter.assets.defaultFolderPath": "assets/images",
+  "frontMatter.media.supportedFieldName": "image",
   "frontMatter.content.pageFolders": [
     {
-      "title": "_posts",
+      "title": "Posts",
       "path": "[[workspace]]/_posts",
-      "filePrefix": "yyyy-MM-dd"
+      "filePrefix": "yyyy-MM-dd",
+      "contentTypes": [
+        "Post"
+      ]
     },
     {
-      "title": "_education",
-      "path": "[[workspace]]/_education"
+      "title": "Education",
+      "path": "[[workspace]]/_education",
+      "contentTypes": [
+        "Education"
+      ]
+    },
+    {
+      "title": "Drafts",
+      "path": "[[workspace]]/_drafts",
+      "filePrefix": "yyyy-MM-dd",
+      "contentTypes": [
+        "Post"
+      ]
     }
   ],
+  "frontMatter.content.draftField": {
+    "name": "published",
+    "type": "boolean",
+    "invert": true
+  },
+  "frontMatter.content.autoUpdateDate": true,
+  "frontMatter.taxonomy.slugTemplate": "{{slug}}",
+  "frontMatter.taxonomy.slugExcludeStop": false,
   "frontMatter.taxonomy.contentTypes": [
     {
       "name": "Post",
       "pageBundle": false,
-      "previewPath": null,
+      "previewPath": "/blog",
       "fields": [
+        {
+          "title": "Layout",
+          "name": "layout",
+          "type": "string",
+          "default": "post",
+          "hidden": true,
+          "required": true
+        },
         {
           "title": "Title",
           "name": "title",
           "type": "string",
           "required": true
+        },
+        {
+          "title": "Description",
+          "name": "description",
+          "type": "string",
+          "required": true,
+          "description": "SEO meta description (~160 chars)"
         },
         {
           "title": "Date",
@@ -47,18 +85,27 @@
           "required": true
         },
         {
-          "title": "Layout",
-          "name": "layout",
-          "type": "string",
-          "default": "post",
-          "hidden": true,
-          "required": true
-        },
-        {
           "title": "Permalink",
           "name": "permalink",
           "type": "string",
+          "required": true,
+          "description": "E.g. /blog/my-post-slug/"
+        },
+        {
+          "title": "Author",
+          "name": "author",
+          "type": "dataFile",
+          "dataFileId": "authors",
+          "dataFileKey": "slug",
+          "dataFileValue": "name",
+          "default": "ihor",
           "required": true
+        },
+        {
+          "title": "Cover Image",
+          "name": "image",
+          "type": "image",
+          "isPreviewImage": true
         },
         {
           "title": "Categories",
@@ -71,30 +118,195 @@
           "name": "tags",
           "type": "tags",
           "required": true
+        },
+        {
+          "title": "Published",
+          "name": "published",
+          "type": "draft",
+          "default": true
+        }
+      ]
+    },
+    {
+      "name": "Education",
+      "pageBundle": false,
+      "previewPath": "/education",
+      "fields": [
+        {
+          "title": "Title",
+          "name": "title",
+          "type": "string",
+          "required": true
+        },
+        {
+          "title": "Description",
+          "name": "description",
+          "type": "string",
+          "required": true,
+          "description": "SEO meta description (~160 chars)"
+        },
+        {
+          "title": "Excerpt",
+          "name": "excerpt",
+          "type": "string",
+          "description": "Short teaser shown on listings"
+        },
+        {
+          "title": "Author",
+          "name": "author",
+          "type": "dataFile",
+          "dataFileId": "authors",
+          "dataFileKey": "slug",
+          "dataFileValue": "name",
+          "default": "ihor",
+          "required": true
+        },
+        {
+          "title": "Language",
+          "name": "lang",
+          "type": "choice",
+          "choices": [
+            "en",
+            "uk",
+            "ru",
+            "ko"
+          ],
+          "required": true
+        },
+        {
+          "title": "Permalink",
+          "name": "permalink",
+          "type": "string",
+          "required": true,
+          "description": "E.g. /education/my-topic/"
+        },
+        {
+          "title": "Level",
+          "name": "level",
+          "type": "choice",
+          "choices": [
+            "beginner",
+            "intermediate",
+            "advanced"
+          ],
+          "required": true
+        },
+        {
+          "title": "Sort Order",
+          "name": "sort_order",
+          "type": "number"
+        },
+        {
+          "title": "Tags",
+          "name": "tags",
+          "type": "tags",
+          "required": true
+        },
+        {
+          "title": "Cover Image",
+          "name": "image",
+          "type": "image",
+          "isPreviewImage": true
+        },
+        {
+          "title": "Published",
+          "name": "published",
+          "type": "draft",
+          "default": true
         }
       ]
     }
   ],
+  "frontMatter.data.files": [
+    {
+      "id": "authors",
+      "title": "Authors",
+      "file": "[[workspace]]/_data/authors.yml",
+      "fileType": "yaml",
+      "labelField": "name",
+      "schema": {
+        "title": "Author",
+        "type": "object",
+        "required": [
+          "name"
+        ],
+        "properties": {
+          "name": {
+            "type": "string",
+            "title": "Full Name"
+          },
+          "picture": {
+            "type": "string",
+            "title": "Avatar path"
+          },
+          "jobTitle": {
+            "type": "string",
+            "title": "Job Title"
+          },
+          "url": {
+            "type": "string",
+            "title": "Profile URL"
+          },
+          "github": {
+            "type": "string",
+            "title": "GitHub username"
+          },
+          "youtube": {
+            "type": "string",
+            "title": "YouTube handle"
+          },
+          "telegram": {
+            "type": "string",
+            "title": "Telegram handle"
+          }
+        }
+      }
+    }
+  ],
+  "frontMatter.taxonomy.categories": [
+    "life",
+    "gamedev",
+    "unity",
+    "wearos",
+    "education",
+    "jekyll",
+    "web",
+    "tutorial",
+    "devlog"
+  ],
+  "frontMatter.taxonomy.tags": [
+    "life",
+    "wearos",
+    "unity",
+    "gamedev",
+    "blackout",
+    "ukraine",
+    "kharkiv",
+    "static-site",
+    "jekyll",
+    "web",
+    "tutorial",
+    "python",
+    "minecraft",
+    "vr",
+    "beginner",
+    "intermediate",
+    "advanced",
+    "zero-gc",
+    "mermaid",
+    "mathjax"
+  ],
   "frontMatter.custom.snippets": {
     "Spaceship: YouTube Video": {
-      "description": "Insert a YouTube video using jekyll-spaceship",
+      "description": "Embed a YouTube video via jekyll-spaceship syntax",
       "body": "!(https://www.youtube.com/watch?v=[[id]])"
     },
     "Spaceship: Local Video": {
-      "description": "Insert a local video using jekyll-spaceship",
+      "description": "Embed a local .mp4 from /assets/images/",
       "body": "!(/assets/images/[[filename]].mp4)"
     },
-    "Spaceship: Grid/Table": {
-      "description": "Insert a basic Markdown table",
-      "body": [
-        "| Header 1 | Header 2 |",
-        "| -------- | -------- |",
-        "| Cell 1   | Cell 2   |",
-        "| Cell 3   | Cell 4   |"
-      ]
-    },
     "Spaceship: Mermaid Diagram": {
-      "description": "Insert a basic Mermaid diagram",
+      "description": "Insert a Mermaid flowchart block",
       "body": [
         "```mermaid",
         "graph TD;",
@@ -104,6 +316,135 @@
         "    C-->D;",
         "```"
       ]
+    },
+    "Spaceship: Math Block": {
+      "description": "Insert a MathJax display block (jekyll-spaceship)",
+      "body": [
+        "$$",
+        "[[expression]]",
+        "$$"
+      ]
+    },
+    "Spaceship: Markdown Table": {
+      "description": "Insert a basic 2-column Markdown table",
+      "body": [
+        "| [[Header 1]] | [[Header 2]] |",
+        "| ------------ | ------------ |",
+        "| Cell 1       | Cell 2       |",
+        "| Cell 3       | Cell 4       |"
+      ]
+    },
+    "Polyglot: Translation Note": {
+      "description": "Add a note that this article has translations",
+      "body": [
+        "> \ud83c\udf10 **This article is available in:** [EN](/blog/[[slug]]/) \u00b7 [UK](/uk/blog/[[slug]]/) \u00b7 [RU](/ru/blog/[[slug]]/) \u00b7 [KO](/ko/blog/[[slug]]/) "
+      ]
+    },
+    "Callout: Info": {
+      "description": "Insert an info callout block",
+      "body": [
+        "<div class=\"callout callout--info\">",
+        "  <strong>\ud83d\udca1 Note:</strong> [[content]]",
+        "</div>"
+      ]
+    },
+    "Callout: Warning": {
+      "description": "Insert a warning callout block",
+      "body": [
+        "<div class=\"callout callout--warning\">",
+        "  <strong>\u26a0\ufe0f Warning:</strong> [[content]]",
+        "</div>"
+      ]
+    },
+    "Code: Liquid Raw Block": {
+      "description": "Wrap code in Liquid raw tags to prevent template parsing",
+      "body": [
+        "{% raw %}",
+        "[[code]]",
+        "{% endraw %}"
+      ]
+    },
+    "Code: Rouge Highlight": {
+      "description": "Jekyll Rouge highlight block with line numbers",
+      "body": [
+        "{% highlight [[language]] linenos %}",
+        "[[code]]",
+        "{% endhighlight %}"
+      ]
+    },
+    "Image: WebP with caption": {
+      "description": "Accessible WebP image with figure/figcaption",
+      "body": [
+        "<figure>",
+        "  <img src=\"/assets/images/[[filename]].webp\" alt=\"[[alt]]\" loading=\"lazy\" width=\"[[width]]\" height=\"[[height]]\">",
+        "  <figcaption>[[caption]]</figcaption>",
+        "</figure>"
+      ]
+    },
+    "Link: Internal post": {
+      "description": "Link to another post by its permalink",
+      "body": "[[[title]]]({{ '[[permalink]]' | relative_url }})"
+    },
+    "Jekyll: Include partial": {
+      "description": "Insert a Jekyll include tag",
+      "body": "{% include [[partial]].html %}"
+    },
+    "SEO: Article Schema": {
+      "description": "Minimal JSON-LD Article schema block",
+      "body": [
+        "<script type=\"application/ld+json\">",
+        "{",
+        "  \"@context\": \"https://schema.org\",",
+        "  \"@type\": \"Article\",",
+        "  \"headline\": \"[[title]]\",",
+        "  \"datePublished\": \"[[date]]\",",
+        "  \"author\": { \"@type\": \"Person\", \"name\": \"Ihor Sivochka\" }",
+        "}",
+        "</script>"
+      ]
     }
-  }
+  },
+  "frontMatter.custom.scripts": [
+    {
+      "id": "new-translation",
+      "title": "\ud83c\udf10 Create Missing Translations",
+      "script": ".frontmatter/scripts/create-translations.js",
+      "command": "node",
+      "type": "content",
+      "output": "notification"
+    },
+    {
+      "id": "check-images",
+      "title": "\ud83d\uddbc List Unoptimized Images",
+      "script": ".frontmatter/scripts/check-images.js",
+      "command": "node",
+      "type": "mediaFolder",
+      "output": "notification"
+    }
+  ],
+  "frontMatter.dashboard.openOnStart": false,
+  "frontMatter.content.sorting": [
+    {
+      "title": "Date (newest first)",
+      "name": "date",
+      "order": "desc",
+      "type": "date"
+    },
+    {
+      "title": "Date (oldest first)",
+      "name": "date",
+      "order": "asc",
+      "type": "date"
+    },
+    {
+      "title": "Title A\u2192Z",
+      "name": "title",
+      "order": "asc",
+      "type": "string"
+    }
+  ],
+  "frontMatter.panel.freeform": true,
+  "frontMatter.global.notifications": true,
+  "frontMatter.git.enabled": true,
+  "frontMatter.git.commitMessage": "content: {{title}} [{{date}}]"
 }

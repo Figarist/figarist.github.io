@@ -85,6 +85,12 @@
           "required": true
         },
         {
+          "title": "Page ID",
+          "name": "page_id",
+          "type": "string",
+          "description": "Unique ID to link translated versions. Use the same ID for all translations of this post."
+        },
+        {
           "title": "Permalink",
           "name": "permalink",
           "type": "string",
@@ -92,16 +98,35 @@
           "description": "Auto-generated via 🔗 button. Or manual: /blog/my-slug/"
         },
         {
-          "title": "Excerpt",
-          "name": "excerpt",
-          "type": "string",
-          "description": "Short teaser for listings & SEO (~100 chars)"
-        },
-        {
-          "title": "Category",
-          "name": "category",
-          "type": "string",
-          "description": "Main category slug (gamedev, personal, tutorial...)"
+          "title": "Excerpts & Categories",
+          "type": "block",
+          "name": "categorization",
+          "fields": [
+            {
+              "title": "Excerpt",
+              "name": "excerpt",
+              "type": "string",
+              "description": "Short teaser for listings & SEO (~100 chars)"
+            },
+            {
+              "title": "Category",
+              "name": "category",
+              "type": "string",
+              "description": "Main category slug (gamedev, personal, tutorial...)"
+            },
+            {
+              "title": "Categories",
+              "name": "categories",
+              "type": "categories",
+              "required": true
+            },
+            {
+              "title": "Tags",
+              "name": "tags",
+              "type": "tags",
+              "required": true
+            }
+          ]
         },
         {
           "title": "Author",
@@ -114,45 +139,98 @@
           "required": true
         },
         {
-          "title": "Cover Image",
-          "name": "image",
-          "type": "image",
-          "isPreviewImage": true
+          "title": "Media",
+          "type": "block",
+          "name": "media",
+          "fields": [
+            {
+              "title": "Cover Image",
+              "name": "image",
+              "type": "image",
+              "isPreviewImage": true
+            },
+            {
+              "title": "Image Alt",
+              "name": "image_alt",
+              "type": "string",
+              "description": "Alt text for the cover image (A11Y/SEO)"
+            }
+          ]
         },
         {
-          "title": "Categories",
-          "name": "categories",
-          "type": "categories",
-          "required": true
+          "title": "SEO & Indexing",
+          "type": "block",
+          "name": "seo_group",
+          "fields": [
+            {
+              "title": "SEO Title",
+              "name": "seo_title",
+              "type": "string",
+              "description": "Override the meta title tag for search engines"
+            },
+            {
+              "title": "SEO Type",
+              "name": "seo_type",
+              "type": "choice",
+              "choices": [
+                "Article",
+                "BlogPosting",
+                "NewsArticle",
+                "TechArticle"
+              ],
+              "default": "BlogPosting"
+            },
+            {
+              "title": "Canonical URL",
+              "name": "canonical_url",
+              "type": "string",
+              "description": "Specify a canonical URL if this content exists elsewhere"
+            },
+            {
+              "title": "No Index",
+              "name": "noindex",
+              "type": "boolean",
+              "description": "Tell search engines NOT to index this page"
+            },
+            {
+              "title": "Sitemap",
+              "name": "sitemap",
+              "type": "boolean",
+              "default": true,
+              "description": "Include this page in sitemap.xml"
+            }
+          ]
         },
         {
-          "title": "Tags",
-          "name": "tags",
-          "type": "tags",
-          "required": true
-        },
-        {
-          "title": "Published",
-          "name": "published",
-          "type": "draft",
-          "default": true
-        },
-        {
-          "title": "Last Modified",
-          "name": "lastmod",
-          "type": "datetime",
-          "hidden": true
+          "title": "Advanced",
+          "type": "block",
+          "name": "advanced",
+          "fields": [
+            {
+              "title": "Redirect From",
+              "name": "redirect_from",
+              "type": "list",
+              "description": "Previous URLs for SEO 301 redirects (e.g. /old-url/)"
+            },
+            {
+              "title": "Table of Contents",
+              "name": "toc",
+              "type": "boolean",
+              "default": true
+            },
+            {
+              "title": "Published",
+              "name": "published",
+              "type": "draft",
+              "default": true
+            }
+          ]
         },
         {
           "title": "Content Type",
           "name": "fmContentType",
           "type": "string",
           "hidden": true
-        },
-        {
-          "title": "toc",
-          "name": "toc",
-          "type": "boolean"
         }
       ]
     },
@@ -204,6 +282,12 @@
           "required": true
         },
         {
+          "title": "Page ID",
+          "name": "page_id",
+          "type": "string",
+          "description": "Unique ID to link translated versions."
+        },
+        {
           "title": "Permalink",
           "name": "permalink",
           "type": "string",
@@ -211,38 +295,117 @@
           "description": "Auto-generated via 🔗 button. Or manual: /education/my-topic/"
         },
         {
-          "title": "Level",
-          "name": "level",
-          "type": "choice",
-          "choices": [
-            "beginner",
-            "intermediate",
-            "advanced"
-          ],
-          "required": true
+          "title": "Sort Info",
+          "type": "block",
+          "name": "sort_info",
+          "fields": [
+            {
+              "title": "Level",
+              "name": "level",
+              "type": "choice",
+              "choices": [
+                "beginner",
+                "intermediate",
+                "advanced"
+              ],
+              "required": true
+            },
+            {
+              "title": "Sort Order",
+              "name": "sort_order",
+              "type": "number"
+            }
+          ]
         },
         {
-          "title": "Sort Order",
-          "name": "sort_order",
-          "type": "number"
+          "title": "Categorization",
+          "type": "block",
+          "name": "categorization",
+          "fields": [
+            {
+              "title": "Excerpt",
+              "name": "excerpt",
+              "type": "string",
+              "description": "Short teaser shown on listings"
+            },
+            {
+              "title": "Tags",
+              "name": "tags",
+              "type": "tags",
+              "required": true
+            }
+          ]
         },
         {
-          "title": "Tags",
-          "name": "tags",
-          "type": "tags",
-          "required": true
+          "title": "Media",
+          "type": "block",
+          "name": "media",
+          "fields": [
+            {
+              "title": "Cover Image",
+              "name": "image",
+              "type": "image",
+              "isPreviewImage": true
+            },
+            {
+              "title": "Image Alt",
+              "name": "image_alt",
+              "type": "string",
+              "description": "Alt text for the cover image"
+            }
+          ]
         },
         {
-          "title": "Cover Image",
-          "name": "image",
-          "type": "image",
-          "isPreviewImage": true
+          "title": "SEO & Indexing",
+          "type": "block",
+          "name": "seo_group",
+          "fields": [
+            {
+              "title": "SEO Title",
+              "name": "seo_title",
+              "type": "string",
+              "description": "Override the meta title tag for search engines"
+            },
+            {
+              "title": "No Index",
+              "name": "noindex",
+              "type": "boolean",
+              "description": "Tell search engines NOT to index this page"
+            },
+            {
+              "title": "Sitemap",
+              "name": "sitemap",
+              "type": "boolean",
+              "default": true,
+              "description": "Include this page in sitemap.xml"
+            }
+          ]
         },
         {
-          "title": "Published",
-          "name": "published",
-          "type": "draft",
-          "default": true
+          "title": "Advanced",
+          "type": "block",
+          "name": "advanced",
+          "fields": [
+            {
+              "title": "Redirect From",
+              "name": "redirect_from",
+              "type": "list",
+              "description": "Previous URLs for SEO 301 redirects (e.g. /old-url/)"
+            },
+            {
+              "title": "Table of Contents",
+              "name": "toc",
+              "type": "boolean",
+              "default": true,
+              "description": "Generate TOC automatically"
+            },
+            {
+              "title": "Published",
+              "name": "published",
+              "type": "draft",
+              "default": true
+            }
+          ]
         }
       ]
     }
@@ -297,6 +460,14 @@
     "Spaceship: YouTube Video": {
       "description": "Embed a YouTube video via jekyll-spaceship syntax",
       "body": "!(https://www.youtube.com/watch?v=[[id]])"
+    },
+    "Spaceship: Vimeo Video": {
+      "description": "Embed a Vimeo video via jekyll-spaceship syntax",
+      "body": "!(https://vimeo.com/[[id]])"
+    },
+    "Spaceship: Figma Embed": {
+      "description": "Embed a Figma design via jekyll-spaceship",
+      "body": "!(https://www.figma.com/file/[[id]])"
     },
     "Spaceship: Local Video": {
       "description": "Embed a local .mp4 from /assets/images/",
@@ -399,6 +570,14 @@
         "}",
         "</script>"
       ]
+    },
+    "Jekyll: Asset URL": {
+      "description": "Generate relative URL for an asset",
+      "body": "{{ '[[path]]' | relative_url }}"
+    },
+    "Jekyll: Site String": {
+      "description": "Insert localized string from _data",
+      "body": "{{ site.data[page.lang].strings.[[key]] }}"
     }
   },
   "frontMatter.custom.scripts": [
@@ -406,6 +585,22 @@
       "id": "auto-permalink",
       "title": "🔗 Auto Permalink",
       "script": ".frontmatter/scripts/auto-permalink.js",
+      "command": "node",
+      "type": "content",
+      "output": "notification"
+    },
+    {
+      "id": "sync-languages",
+      "title": "🔄 Sync All Languages",
+      "script": ".frontmatter/scripts/sync-languages.js",
+      "command": "node",
+      "type": "content",
+      "output": "notification"
+    },
+    {
+      "id": "build-manual",
+      "title": "🏗️ Build Site (Manual)",
+      "script": ".frontmatter/scripts/build-manual.js",
       "command": "node",
       "type": "content",
       "output": "notification"
@@ -449,7 +644,7 @@
     }
   ],
   "frontMatter.panel.freeform": true,
-  "frontMatter.global.notifications": true,
+  "frontMatter.global.notifications": [],
   "frontMatter.git.enabled": true,
   "frontMatter.git.commitMessage": "content: {{title}} [{{date}}]"
 }

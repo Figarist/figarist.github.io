@@ -98,10 +98,10 @@ EN is always the source of truth. `permalink` is IDENTICAL in all 4 files.
 ---
 layout: post
 title: "Title"
-description: "SEO description ~160 chars."  # mandatory!
+description: "SEO description ~160 chars." # mandatory!
 date: YYYY-MM-DD
-lang: en          # en / uk / ru / ko
-permalink: /blog/my-post/           # IDENTICAL in all 4!
+lang: en # en / uk / ru / ko
+permalink: /blog/my-post/ # IDENTICAL in all 4!
 author: ihor
 categories: gamedev
 tags: [unity, csharp]
@@ -141,21 +141,21 @@ hreflang auto-inject: based on matching permalink values
 
 ## 📂 KEY FILES
 
-| File                                      | Purpose                                                      |
-| ----------------------------------------- | ------------------------------------------------------------ |
-| `_config.yml`                             | Plugins, polyglot, pagination, TOC, archives config          |
-| `_config_dev.yml`                         | Dev overlay: no minification, no PWA                        |
-| `frontmatter.json`                        | Frontmatter CMS: content types, snippets, scripts, sorting   |
-| `.frontmatter/scripts/sync-languages.js`  | **CMS action:** Sync translations + Page ID (Primary)       |
-| `.frontmatter/scripts/create-translations.js` | (Legacy) CMS action: auto-stub uk/ru/ko translation files |
-| `.frontmatter/scripts/check-images.js`    | CMS action: report non-WebP images in assets/images/         |
-| `.frontmatter/scripts/build-manual.js`    | CMS action: Provides manual build command                    |
-| `script.js`                               | Single JS file (IIFE with 10 modules + SW registration)        |
-| `assets/css/styles.scss`                  | SCSS manifest: 20 partials via `@use`                     |
-| `sitemap.xml`                             | Custom XML sitemap with hreflang for 4 languages             |
-| `manifest.json`                           | PWA Web App Manifest                                         |
-| `_data/authors.yml`                       | Author profiles (read by Frontmatter CMS data file picker) |
-| `.github/workflows/jekyll.yml`            | CI: build → HTML Proofer → Bundle Check → deploy             |
+| File                                          | Purpose                                                    |
+| --------------------------------------------- | ---------------------------------------------------------- |
+| `_config.yml`                                 | Plugins, polyglot, pagination, TOC, archives config        |
+| `_config_dev.yml`                             | Dev overlay: no minification, no PWA                       |
+| `frontmatter.json`                            | Frontmatter CMS: content types, snippets, scripts, sorting |
+| `.frontmatter/scripts/sync-languages.js`      | **CMS action:** Sync translations + Page ID (Primary)      |
+| `.frontmatter/scripts/create-translations.js` | (Legacy) CMS action: auto-stub uk/ru/ko translation files  |
+| `.frontmatter/scripts/check-images.js`        | CMS action: report non-WebP images in assets/images/       |
+| `.frontmatter/scripts/build-manual.js`        | CMS action: Provides manual build command                  |
+| `script.js`                                   | Single JS file (IIFE with 10 modules + SW registration)    |
+| `assets/css/styles.scss`                      | SCSS manifest: 20 partials via `@use`                      |
+| `sitemap.xml`                                 | Custom XML sitemap with hreflang for 4 languages           |
+| `manifest.json`                               | PWA Web App Manifest                                       |
+| `_data/authors.yml`                           | Author profiles (read by Frontmatter CMS data file picker) |
+| `.github/workflows/jekyll.yml`                | CI: build → HTML Proofer → Bundle Check → deploy           |
 
 ---
 
@@ -165,11 +165,11 @@ hreflang auto-inject: based on matching permalink values
 
 ### Content Types
 
-| Type          | Folder        | Required/Important Fields                                       |
-| ------------- | ------------- | --------------------------------------------------------------- |
-| **Post**      | `_posts/`     | layout, title, description, date, lang, **page_id**, permalink, author, **image_alt**, image, categories, tags, published, **focus_keyword, seo_title, seo_type, canonical_url, robots, noindex, sitemap**, *related_posts, featured, hidden, last_modified_at* |
-| **Post**      | `_drafts/`    | Same fields. `published: false` → not built by Jekyll        |
-| **Education** | `_education/` | title, description, excerpt, **page_id**, author, lang, permalink, level, sort_order, tags, **image_alt**, image, published, **focus_keyword, seo_title, robots, noindex, sitemap**, *related_posts, featured, hidden, last_modified_at* |
+| Type          | Folder        | Required/Important Fields                                                                                                                                                                                                                                       |
+| ------------- | ------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Post**      | `_posts/`     | layout, title, description, date, lang, **page_id**, permalink, author, **image_alt**, image, categories, tags, published, **focus_keyword, seo_title, seo_type, canonical_url, robots, noindex, sitemap**, _related_posts, featured, hidden, last_modified_at_ |
+| **Post**      | `_drafts/`    | Same fields. `published: false` → not built by Jekyll                                                                                                                                                                                                           |
+| **Education** | `_education/` | title, description, excerpt, **page_id**, author, lang, permalink, level, sort*order, tags, **image_alt**, image, published, **focus_keyword, seo_title, robots, noindex, sitemap**, \_related_posts, featured, hidden, last_modified_at*                       |
 
 - **`author`** — data file picker from `_data/authors.yml`. Do not enter manually.
 - **`image`** — visual picker from `assets/images/`
@@ -178,25 +178,25 @@ hreflang auto-inject: based on matching permalink values
 
 ### Editor Snippets (16 total)
 
-| Category  | Names                                                         |
-| ---------- | ------------------------------------------------------------- |
-| Spaceship  | YouTube embed, Local video, Mermaid diagram, MathJax block, Markdown table |
-| Polyglot   | Translation note (links to all 4 languages)                    |
-| Callouts   | Info, Warning                                                 |
-| Code       | Liquid raw block, Rouge highlight (linenos)                   |
-| Media      | WebP `<figure>` (lazy, width, height, figcaption)             |
-| Links      | Internal post (relative_url), Jekyll include tag, **Asset URL** |
-| SEO        | Article JSON-LD schema, **Localized Site String**            |
+| Category  | Names                                                                      |
+| --------- | -------------------------------------------------------------------------- |
+| Spaceship | YouTube embed, Local video, Mermaid diagram, MathJax block, Markdown table |
+| Polyglot  | Translation note (links to all 4 languages)                                |
+| Callouts  | Info, Warning                                                              |
+| Code      | Liquid raw block, Rouge highlight (linenos)                                |
+| Media     | WebP `<figure>` (lazy, width, height, figcaption)                          |
+| Links     | Internal post (relative_url), Jekyll include tag, **Asset URL**            |
+| SEO       | Article JSON-LD schema, **Localized Site String**                          |
 
 ### Custom Scripts (CMS Actions)
 
-| Script                     | Type         | Action                                                     |
-| -------------------------- | ----------- | ------------------------------------------------------- |
-| `check-seo.js`             | content     | **Panel button:** Validates SEO meta limits and focus keyword |
-| `sync-languages.js`        | content     | **Panel button:** Primary sync (stubs + page_id + permalink) |
-| `create-translations.js`   | content     | (Legacy) Panel button → stub files for uk/ru/ko          |
-| `check-images.js`          | mediaFolder | Scans assets/images/ → list of non-WebP files         |
-| `build-manual.js`          | content     | Panel button → Provides manual build command             |
+| Script                   | Type        | Action                                                        |
+| ------------------------ | ----------- | ------------------------------------------------------------- |
+| `check-seo.js`           | content     | **Panel button:** Validates SEO meta limits and focus keyword |
+| `sync-languages.js`      | content     | **Panel button:** Primary sync (stubs + page_id + permalink)  |
+| `create-translations.js` | content     | (Legacy) Panel button → stub files for uk/ru/ko               |
+| `check-images.js`        | mediaFolder | Scans assets/images/ → list of non-WebP files                 |
+| `build-manual.js`        | content     | Panel button → Provides manual build command                  |
 
 ### Workflow: New Post
 
@@ -253,7 +253,7 @@ styles.scss imports:
   - Home page (`is_home: true`) renders extended JSON-LD schemas `@type: Person` (with `jobTitle`, `sameAs` social links) and `@type: WebSite` to strengthen author authority (Knowledge Graph).
 - **BlogPosting & Article JSON-LD** — on every post and tutorial: `headline`, `datePublished`, `dateModified`, `author`, `url`. Unified via `_includes/metadata/json-ld.html`.
 - **BreadcrumbList JSON-LD** — on all pages (Hub → Section → Category → Page) for hierarchical navigation.
-- **Localized Meta Descriptions (Polyglot + SEO Tag):** `jekyll-seo-tag` generates meta tags in English by default. To avoid duplication, we dynamically assign `{% assign page.description = ... %}` in `head.html` *before* calling `{% seo %}`.
+- **Localized Meta Descriptions (Polyglot + SEO Tag):** `jekyll-seo-tag` generates meta tags in English by default. To avoid duplication, we dynamically assign `{% assign page.description = ... %}` in `head.html` _before_ calling `{% seo %}`.
 - **Home Page Detection:** Due to path generation by the Polyglot plugin (`/uk/index.html`), checking the URL (`page.url == '/'`) is unreliable. We use custom front matter `is_home: true` in `index.html` for schema injection.
 - **Semantic HTML & CLS Prevention:**
   - Home page: independent content wrapped in `<article>`, and sections (Stack, Shrine, WebGL) in `<section>`.

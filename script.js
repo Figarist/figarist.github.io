@@ -291,6 +291,7 @@
     button.className = "btn-copy-code";
     button.type = "button";
     button.innerText = "Copy";
+    button.setAttribute("aria-label", "Copy Code");
 
     button.addEventListener("click", function () {
       var codeEl = block.querySelector("code");

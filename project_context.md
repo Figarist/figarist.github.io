@@ -167,9 +167,9 @@ hreflang auto-inject: based on matching permalink values
 
 | Type          | Folder        | Required/Important Fields                                       |
 | ------------- | ------------- | --------------------------------------------------------------- |
-| **Post**      | `_posts/`     | layout, title, description, date, lang, **page_id**, permalink, author, **image_alt**, image, categories, tags, published, **seo_title, seo_type, canonical_url, noindex, sitemap** |
+| **Post**      | `_posts/`     | layout, title, description, date, lang, **page_id**, permalink, author, **image_alt**, image, categories, tags, published, **focus_keyword, seo_title, seo_type, canonical_url, robots, noindex, sitemap**, *related_posts, featured, hidden, last_modified_at* |
 | **Post**      | `_drafts/`    | Same fields. `published: false` → not built by Jekyll        |
-| **Education** | `_education/` | title, description, excerpt, **page_id**, author, lang, permalink, level, sort_order, tags, **image_alt**, image, published, **seo_title, noindex, sitemap** |
+| **Education** | `_education/` | title, description, excerpt, **page_id**, author, lang, permalink, level, sort_order, tags, **image_alt**, image, published, **focus_keyword, seo_title, robots, noindex, sitemap**, *related_posts, featured, hidden, last_modified_at* |
 
 - **`author`** — data file picker from `_data/authors.yml`. Do not enter manually.
 - **`image`** — visual picker from `assets/images/`
@@ -192,6 +192,7 @@ hreflang auto-inject: based on matching permalink values
 
 | Script                     | Type         | Action                                                     |
 | -------------------------- | ----------- | ------------------------------------------------------- |
+| `check-seo.js`             | content     | **Panel button:** Validates SEO meta limits and focus keyword |
 | `sync-languages.js`        | content     | **Panel button:** Primary sync (stubs + page_id + permalink) |
 | `create-translations.js`   | content     | (Legacy) Panel button → stub files for uk/ru/ko          |
 | `check-images.js`          | mediaFolder | Scans assets/images/ → list of non-WebP files         |

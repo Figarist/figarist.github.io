@@ -146,8 +146,10 @@ hreflang auto-inject: based on matching permalink values
 | `_config.yml`                             | Plugins, polyglot, pagination, TOC, archives config          |
 | `_config_dev.yml`                         | Dev overlay: no minification, no PWA                        |
 | `frontmatter.json`                        | Frontmatter CMS: content types, snippets, scripts, sorting   |
-| `.frontmatter/scripts/create-translations.js` | CMS action: auto-stub uk/ru/ko translation files         |
+| `.frontmatter/scripts/sync-languages.js`  | **CMS action:** Sync translations + Page ID (Primary)       |
+| `.frontmatter/scripts/create-translations.js` | (Legacy) CMS action: auto-stub uk/ru/ko translation files |
 | `.frontmatter/scripts/check-images.js`    | CMS action: report non-WebP images in assets/images/         |
+| `.frontmatter/scripts/build-manual.js`    | CMS action: Provides manual build command                    |
 | `script.js`                               | Single JS file (IIFE with 10 modules + SW registration)        |
 | `assets/css/styles.scss`                  | SCSS manifest: 20 partials via `@use`                     |
 | `sitemap.xml`                             | Custom XML sitemap with hreflang for 4 languages             |
@@ -163,18 +165,18 @@ hreflang auto-inject: based on matching permalink values
 
 ### Content Types
 
-| Type          | Folder        | Required Fields                                                |
+| Type          | Folder        | Required/Important Fields                                       |
 | ------------- | ------------- | --------------------------------------------------------------- |
-| **Post**      | `_posts/`     | layout(hidden), title, description, date, lang, permalink, author, image, categories, tags, published |
+| **Post**      | `_posts/`     | layout, title, description, date, lang, **page_id**, permalink, author, **image_alt**, image, categories, tags, published, **seo_title, seo_type, canonical_url, noindex, sitemap** |
 | **Post**      | `_drafts/`    | Same fields. `published: false` → not built by Jekyll        |
-| **Education** | `_education/` | title, description, excerpt, author, lang, permalink, level, sort_order, tags, image, published |
+| **Education** | `_education/` | title, description, excerpt, **page_id**, author, lang, permalink, level, sort_order, tags, **image_alt**, image, published, **seo_title, noindex, sitemap** |
 
 - **`author`** — data file picker from `_data/authors.yml`. Do not enter manually.
 - **`image`** — visual picker from `assets/images/`
 - **`published`** — draft toggle (Jekyll `published: false` excludes file from build)
 - **`level`** — `beginner | intermediate | advanced` (for Education)
 
-### Editor Snippets (14 total)
+### Editor Snippets (16 total)
 
 | Category  | Names                                                         |
 | ---------- | ------------------------------------------------------------- |
@@ -183,22 +185,24 @@ hreflang auto-inject: based on matching permalink values
 | Callouts   | Info, Warning                                                 |
 | Code       | Liquid raw block, Rouge highlight (linenos)                   |
 | Media      | WebP `<figure>` (lazy, width, height, figcaption)             |
-| Links      | Internal post (relative_url), Jekyll include tag              |
-| SEO        | Article JSON-LD schema                                        |
+| Links      | Internal post (relative_url), Jekyll include tag, **Asset URL** |
+| SEO        | Article JSON-LD schema, **Localized Site String**            |
 
 ### Custom Scripts (CMS Actions)
 
 | Script                     | Type         | Action                                                     |
 | -------------------------- | ----------- | ------------------------------------------------------- |
-| `create-translations.js`   | content     | Panel button → stub files for uk/ru/ko preserving slug/permalink |
+| `sync-languages.js`        | content     | **Panel button:** Primary sync (stubs + page_id + permalink) |
+| `create-translations.js`   | content     | (Legacy) Panel button → stub files for uk/ru/ko          |
 | `check-images.js`          | mediaFolder | Scans assets/images/ → list of non-WebP files         |
+| `build-manual.js`          | content     | Panel button → Provides manual build command             |
 
 ### Workflow: New Post
 
 1. VS Code → Front Matter panel → **New content** → Post or Education
 2. Fill fields (title, lang=en, permalink, categories, tags)
 3. Write content, insert blocks via **Snippets**
-4. Click **🌐 Create Missing Translations** → uk/ru/ko stubs
+4. Click **🔄 Sync All Languages** → stubs + `page_id` synced
 5. Translate, set `published: true` in all 4 files
 6. Git commit — auto-format `content: {{title}} [{{date}}]`
 

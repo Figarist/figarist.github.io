@@ -32,8 +32,17 @@ layout: default
 
   {% include translation-banner.html %}
 
+  {% if page.toc %}
+  <nav class="toc" aria-label="Table of Contents">
+    <h3 class="toc__heading">Contents</h3>
+    {{ content | toc_only }}
+  </nav>
+  {% endif %}
+
   <div class="edu-body" itemprop="articleBody">
-    {{ content }}
+    {% if page.toc %}
+    {{ content | toc | replace: '<img', '<img loading="lazy"' }} {% else %} {{ content | replace: '<img'
+      , '<img loading="lazy"' }} {% endif %}
   </div>
 
   {% include post-labels.html %}

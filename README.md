@@ -211,42 +211,45 @@ The site uses [Front Matter CMS](https://frontmatter.codes/) — a VS Code exten
 
 | Type        | Folder        | Key Fields                                           |
 | ----------- | ------------- | ---------------------------------------------------- |
-| **Post**    | `_posts/`     | title, description, date, lang, permalink, author, image, categories, tags, published |
+| **Post**    | `_posts/`     | title, description, date, lang, **page_id**, permalink, author, **image_alt**, image, categories, tags, published, **seo_title, seo_type, canonical_url, noindex, sitemap** |
 | **Post**    | `_drafts/`    | Same as Post — draft toggle hides from build         |
-| **Education** | `_education/` | title, description, excerpt, level, sort_order, author, image, tags, published |
+| **Education** | `_education/` | title, description, excerpt, **page_id**, level, sort_order, author, **image_alt**, image, tags, published, **seo_title, noindex, sitemap** |
 
 - `author` field is a **data file picker** reading `_data/authors.yml` directly — no manual input
 - `image` field links to `assets/images/` with a visual picker
 - `published: false` = Jekyll draft (excluded from build via `_config.yml` defaults)
 
-### Content Snippets (14 total)
+### Content Snippets (16 total)
 
 | Category      | Snippets                                                      |
 | ------------- | ------------------------------------------------------------- |
-| Spaceship     | YouTube embed, Local video, Mermaid diagram, MathJax block, Markdown table |
+| Spaceship     | YouTube embed, **Vimeo embed, Figma embed**, Local video, Mermaid diagram, MathJax block, Markdown table |
 | Polyglot      | Translation note (links to all 4 langs)                       |
 | Callouts      | Info, Warning                                                 |
 | Code          | Liquid raw block, Rouge highlight with line numbers           |
 | Media         | WebP `<figure>` with `figcaption`, `loading="lazy"`, `width/height` |
-| Links         | Internal post link (relative_url), Jekyll include tag        |
-| SEO           | Article JSON-LD schema block                                  |
+| Links         | Internal post link (relative_url), Jekyll include tag, **Asset URL** |
+| SEO           | Article JSON-LD schema block, **Localized Site String**      |
 
 ### Custom CMS Scripts
 
 | Script                       | Trigger      | What it does                                              |
 | ---------------------------- | ------------ | --------------------------------------------------------- |
-| `create-translations.js`     | Content panel button | Auto-generates uk/ru/ko stub files from EN source, copies front matter, adjusts `lang` + `permalink` |
-| `check-images.js`            | Media folder button  | Scans `assets/images/` and reports all non-WebP files that need converting |
+| **`sync-languages.js`**      | Content panel button | **Primary sync action:** auto-generates stubs + syncs `page_id` + `permalink` |
+| `create-translations.js`     | Content panel button | (Legacy) Auto-generates uk/ru/ko stub files from EN source |
+| `check-images.js`            | Media folder button  | Scans `assets/images/` and reports all non-WebP files     |
+| **`build-manual.js`**        | Content panel button | Provides `bundle exec jekyll build` command for quick copy-paste |
 
 ### CMS Workflow: New Post
 
 1. Open **Front Matter** panel in VS Code (`Ctrl+Shift+P → Front Matter: Open Dashboard`)
 2. Click **New content** → select **Post** or **Education**
 3. Fill required fields (title, lang, permalink, categories, tags)
-4. Write content — use **Snippets** panel for Mermaid/YouTube/callouts
-5. Run **🌐 Create Missing Translations** action → stubs for all 3 other langs generated instantly
+4. Write content — use **Snippets** panel for Mermaid/YouTube/Vimeo/Figma/callouts
+5. Run **🔄 Sync All Languages** action → stubs generated + `page_id` synced instantly
 6. Translate stubs, set `published: true` on all 4 files
-7. Git commit — message auto-filled as `content: {{title}} [{{date}}]`
+7. (Optional) Run **🏗️ Build Site (Manual)** to verify before pushing
+8. Git commit — message auto-filled as `content: {{title}} [{{date}}]`
 
 ---
 

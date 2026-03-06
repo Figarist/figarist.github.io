@@ -101,11 +101,12 @@ Then click **Open Preview** in the Front Matter panel — it opens `http://local
 
 ### Via CMS (recommended)
 
-1. Open **Front Matter** panel → **New content** → `Post`
+1. Open **Front Matter** panel → **New content** → `Post` or `Education`
 2. Fill: title, lang (`en`), permalink (`/blog/my-slug/`), categories, tags, description
-3. Write content. Use **Snippets** panel for Mermaid/YouTube/callouts
-4. Click **🌐 Create Missing Translations** → auto-generates `-uk.md`, `-ru.md`, `-ko.md`
+3. Write content. Use **Snippets** panel for Mermaid/YouTube/Vimeo/Figma/callouts
+4. Click **🔄 Sync All Languages** → auto-generates `-uk.md`, `-ru.md`, `-ko.md` AND syncs **`page_id`**
 5. Translate each stub, toggle `published: true` on all 4
+6. Run **🏗️ Build Site (Manual)** to get a quick copy-paste command for verification
 
 ### Via manual file (fallback)
 

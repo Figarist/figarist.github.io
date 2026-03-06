@@ -163,6 +163,12 @@
           "name": "seo_group",
           "fields": [
             {
+              "title": "Focus Keyword",
+              "name": "focus_keyword",
+              "type": "string",
+              "description": "Primary SEO keyword for content optimization"
+            },
+            {
               "title": "SEO Title",
               "name": "seo_title",
               "type": "string",
@@ -187,6 +193,12 @@
               "description": "Specify a canonical URL if this content exists elsewhere"
             },
             {
+              "title": "Robots Directives",
+              "name": "robots",
+              "type": "string",
+              "description": "Advanced robots directives (e.g., 'noimageindex, noarchive')"
+            },
+            {
               "title": "No Index",
               "name": "noindex",
               "type": "boolean",
@@ -206,6 +218,30 @@
           "type": "block",
           "name": "advanced",
           "fields": [
+            {
+              "title": "Related Posts",
+              "name": "related_posts",
+              "type": "list",
+              "description": "Manual related posts overrides (permalinks or IDs)"
+            },
+            {
+              "title": "Featured",
+              "name": "featured",
+              "type": "boolean",
+              "description": "Pin or highlight this content on lists"
+            },
+            {
+              "title": "Hidden",
+              "name": "hidden",
+              "type": "boolean",
+              "description": "Hide from lists (accessible via URL only)"
+            },
+            {
+              "title": "Last Modified At",
+              "name": "last_modified_at",
+              "type": "datetime",
+              "description": "Override Git modification date manually"
+            },
             {
               "title": "Redirect From",
               "name": "redirect_from",
@@ -361,10 +397,22 @@
           "name": "seo_group",
           "fields": [
             {
+              "title": "Focus Keyword",
+              "name": "focus_keyword",
+              "type": "string",
+              "description": "Primary SEO keyword for content optimization"
+            },
+            {
               "title": "SEO Title",
               "name": "seo_title",
               "type": "string",
               "description": "Override the meta title tag for search engines"
+            },
+            {
+              "title": "Robots Directives",
+              "name": "robots",
+              "type": "string",
+              "description": "Advanced robots directives (e.g., 'noimageindex, noarchive')"
             },
             {
               "title": "No Index",
@@ -386,6 +434,30 @@
           "type": "block",
           "name": "advanced",
           "fields": [
+            {
+              "title": "Related Posts",
+              "name": "related_posts",
+              "type": "list",
+              "description": "Manual related posts overrides (permalinks or IDs)"
+            },
+            {
+              "title": "Featured",
+              "name": "featured",
+              "type": "boolean",
+              "description": "Pin or highlight this content on lists"
+            },
+            {
+              "title": "Hidden",
+              "name": "hidden",
+              "type": "boolean",
+              "description": "Hide from lists (accessible via URL only)"
+            },
+            {
+              "title": "Last Modified At",
+              "name": "last_modified_at",
+              "type": "datetime",
+              "description": "Override Git modification date manually"
+            },
             {
               "title": "Redirect From",
               "name": "redirect_from",
@@ -581,6 +653,14 @@
     }
   },
   "frontMatter.custom.scripts": [
+    {
+      "id": "check-seo",
+      "title": "📊 Validate SEO Meta",
+      "script": ".frontmatter/scripts/check-seo.js",
+      "command": "node",
+      "type": "content",
+      "output": "notification"
+    },
     {
       "id": "auto-permalink",
       "title": "🔗 Auto Permalink",

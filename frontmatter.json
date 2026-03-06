@@ -9,7 +9,7 @@
     {
       "title": "Posts",
       "path": "[[workspace]]/_posts",
-      "filePrefix": "yyyy-MM-dd",
+      "filePrefix": "{{date|yyyy-MM-dd}}",
       "contentTypes": [
         "Post"
       ]
@@ -24,7 +24,7 @@
     {
       "title": "Drafts",
       "path": "[[workspace]]/_drafts",
-      "filePrefix": "yyyy-MM-dd",
+      "filePrefix": "{{date|yyyy-MM-dd}}",
       "contentTypes": [
         "Post"
       ]
@@ -82,14 +82,28 @@
             "ru",
             "ko"
           ],
+          "default": "uk",
           "required": true
         },
         {
           "title": "Permalink",
           "name": "permalink",
           "type": "string",
-          "required": true,
-          "description": "E.g. /blog/my-post-slug/"
+          "required": false,
+          "description": "Auto-generated via 🔗 button. Or manual: /blog/my-slug/"
+        },
+        {
+          "title": "Excerpt",
+          "name": "excerpt",
+          "type": "string",
+          "description": "Short teaser for listings & SEO (~100 chars)"
+        },
+        {
+          "title": "Category",
+          "name": "category",
+          "type": "categories",
+          "single": true,
+          "description": "Main category (gamedev, personal, tutorial...)"
         },
         {
           "title": "Author",
@@ -171,14 +185,15 @@
             "ru",
             "ko"
           ],
+          "default": "uk",
           "required": true
         },
         {
           "title": "Permalink",
           "name": "permalink",
           "type": "string",
-          "required": true,
-          "description": "E.g. /education/my-topic/"
+          "required": false,
+          "description": "Auto-generated via 🔗 button. Or manual: /education/my-topic/"
         },
         {
           "title": "Level",
@@ -372,6 +387,14 @@
     }
   },
   "frontMatter.custom.scripts": [
+    {
+      "id": "auto-permalink",
+      "title": "🔗 Auto Permalink",
+      "script": ".frontmatter/scripts/auto-permalink.js",
+      "command": "node",
+      "type": "content",
+      "output": "notification"
+    },
     {
       "id": "new-translation",
       "title": "🌐 Create Missing Translations",

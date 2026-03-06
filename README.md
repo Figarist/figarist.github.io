@@ -211,9 +211,9 @@ The site uses [Front Matter CMS](https://frontmatter.codes/) — a VS Code exten
 
 | Type        | Folder        | Key Fields                                           |
 | ----------- | ------------- | ---------------------------------------------------- |
-| **Post**    | `_posts/`     | title, description, date, lang, **page_id**, permalink, author, **image_alt**, image, categories, tags, published, **seo_title, seo_type, canonical_url, noindex, sitemap** |
+| **Post**    | `_posts/`     | title, description, date, lang, **page_id**, permalink, author, **image_alt**, image, categories, tags, published, **focus_keyword, seo_title, seo_type, canonical_url, robots, noindex, sitemap**, *related_posts, featured, hidden, last_modified_at* |
 | **Post**    | `_drafts/`    | Same as Post — draft toggle hides from build         |
-| **Education** | `_education/` | title, description, excerpt, **page_id**, level, sort_order, author, **image_alt**, image, tags, published, **seo_title, noindex, sitemap** |
+| **Education** | `_education/` | title, description, excerpt, **page_id**, level, sort_order, author, **image_alt**, image, tags, published, **focus_keyword, seo_title, robots, noindex, sitemap**, *related_posts, featured, hidden, last_modified_at* |
 
 - `author` field is a **data file picker** reading `_data/authors.yml` directly — no manual input
 - `image` field links to `assets/images/` with a visual picker
@@ -235,6 +235,7 @@ The site uses [Front Matter CMS](https://frontmatter.codes/) — a VS Code exten
 
 | Script                       | Trigger      | What it does                                              |
 | ---------------------------- | ------------ | --------------------------------------------------------- |
+| **`check-seo.js`**           | Content panel button | **Validates** SEO meta limits and focus keyword           |
 | **`sync-languages.js`**      | Content panel button | **Primary sync action:** auto-generates stubs + syncs `page_id` + `permalink` |
 | `create-translations.js`     | Content panel button | (Legacy) Auto-generates uk/ru/ko stub files from EN source |
 | `check-images.js`            | Media folder button  | Scans `assets/images/` and reports all non-WebP files     |

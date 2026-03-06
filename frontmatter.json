@@ -36,8 +36,7 @@
     "invert": true
   },
   "frontMatter.content.autoUpdateDate": true,
-  "frontMatter.taxonomy.slugTemplate": "{{slug}}",
-  "frontMatter.taxonomy.slugExcludeStop": false,
+  "frontMatter.taxonomy.slugPrefix": "{{date|yyyy-MM-dd}}",
   "frontMatter.taxonomy.contentTypes": [
     {
       "name": "Post",
@@ -101,9 +100,8 @@
         {
           "title": "Category",
           "name": "category",
-          "type": "categories",
-          "single": true,
-          "description": "Main category (gamedev, personal, tutorial...)"
+          "type": "string",
+          "description": "Main category slug (gamedev, personal, tutorial...)"
         },
         {
           "title": "Author",
@@ -138,6 +136,23 @@
           "name": "published",
           "type": "draft",
           "default": true
+        },
+        {
+          "title": "Last Modified",
+          "name": "lastmod",
+          "type": "datetime",
+          "hidden": true
+        },
+        {
+          "title": "Content Type",
+          "name": "fmContentType",
+          "type": "string",
+          "hidden": true
+        },
+        {
+          "title": "toc",
+          "name": "toc",
+          "type": "boolean"
         }
       ]
     },

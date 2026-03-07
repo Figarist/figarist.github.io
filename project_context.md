@@ -176,7 +176,7 @@ hreflang auto-inject: based on matching permalink values
 - **`published`** — draft toggle (Jekyll `published: false` excludes file from build)
 - **`level`** — `beginner | intermediate | advanced` (for Education)
 
-### Editor Snippets (16 total)
+### Editor Snippets (18 total)
 
 | Category  | Names                                                                      |
 | --------- | -------------------------------------------------------------------------- |

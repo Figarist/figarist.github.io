@@ -44,7 +44,7 @@
                     aria-label="{{ site.data[site.active_lang].strings.lang_switch_label | default: 'Language selection' }}">
                     {% for lang in site.languages %}
                     {% if lang == site.active_lang %}
-                    <span class="lang-switch active" data-lang="{{ lang }}">{{ lang }}</span>
+                    <span class="lang-switch active" data-lang="{{ lang }}" aria-current="true">{{ lang }}</span>
                     {% else %}
                     {% if lang == site.default_lang %}
                     <a {% static_href %}href="{{ site.baseurl }}{{ bare_url }}" {% endstatic_href %} class="lang-switch"

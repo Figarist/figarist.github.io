@@ -137,10 +137,8 @@
         {
           "title": "Author",
           "name": "author",
-          "type": "dataFile",
-          "dataFileId": "authors",
-          "dataFileKey": null,
-          "dataFileValue": "name",
+          "type": "choice",
+          "choices": ["ihor"],
           "default": "ihor",
           "required": true
         },
@@ -303,10 +301,8 @@
         {
           "title": "Author",
           "name": "author",
-          "type": "dataFile",
-          "dataFileId": "authors",
-          "dataFileKey": null,
-          "dataFileValue": "name",
+          "type": "choice",
+          "choices": ["ihor"],
           "default": "ihor",
           "required": true
         },
@@ -487,7 +483,17 @@
       "id": "authors",
       "title": "Authors",
       "file": "[[workspace]]/_data/authors.yml",
-      "fileType": "yaml"
+      "fileType": "yaml",
+      "schema": {
+        "title": "Author",
+        "type": "object",
+        "properties": {
+          "slug": { "type": "string" },
+          "name": { "type": "string" },
+          "picture": { "type": "string" },
+          "jobTitle": { "type": "string" }
+        }
+      }
     }
   ],
   "frontMatter.custom.snippets": {
@@ -625,7 +631,7 @@
     },
     {
       "id": "check-seo",
-      "title": "рџ“Љ Validate SEO Meta",
+      "title": "📊 Validate SEO Meta",
       "script": ".frontmatter/scripts/check-seo.js",
       "command": "node",
       "type": "content",
@@ -633,7 +639,7 @@
     },
     {
       "id": "auto-permalink",
-      "title": "рџ”— Auto Permalink",
+      "title": "🔗 Auto Permalink",
       "script": ".frontmatter/scripts/auto-permalink.js",
       "command": "node",
       "type": "content",
@@ -641,7 +647,7 @@
     },
     {
       "id": "sync-languages",
-      "title": "рџ”„ Sync All Languages",
+      "title": "🔄 Sync All Languages",
       "script": ".frontmatter/scripts/sync-languages.js",
       "command": "node",
       "type": "content",
@@ -649,7 +655,7 @@
     },
     {
       "id": "build-manual",
-      "title": "рџЏ—пёЏ Build Site (Manual)",
+      "title": "🏗️ Build Site (Manual)",
       "script": ".frontmatter/scripts/build-manual.js",
       "command": "node",
       "type": "content",
@@ -657,7 +663,7 @@
     },
     {
       "id": "new-translation",
-      "title": "рџЊђ Create Missing Translations",
+      "title": "🌐 Create Missing Translations",
       "script": ".frontmatter/scripts/create-translations.js",
       "command": "node",
       "type": "content",
@@ -665,7 +671,7 @@
     },
     {
       "id": "check-images",
-      "title": "рџ–ј List Unoptimized Images",
+      "title": "🖼️ List Unoptimized Images",
       "script": ".frontmatter/scripts/check-images.js",
       "command": "node",
       "type": "mediaFolder",
@@ -687,7 +693,7 @@
       "type": "date"
     },
     {
-      "title": "Title Aв†’Z",
+      "title": "Title A→Z",
       "name": "title",
       "order": "asc",
       "type": "string"

@@ -6,7 +6,7 @@ last_modified_at: null
 date: 2026-02-26 10:15:00 +0200
 lang: "uk"
 page_id: null
-permalink: "/uk/blog/minecraft-python/"
+permalink: "/blog/minecraft-python/"
 categorization:
   excerpt: null
   category: null
@@ -18,6 +18,7 @@ media:
   image_alt: null
 seo_group:
   focus_keyword: null
+  seo_title: null
   seo_title: null
   seo_type: "BlogPosting"
   canonical_url: null

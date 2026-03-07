@@ -6,7 +6,7 @@ last_modified_at: null
 date: 2026-03-09T08:47:35.000Z
 lang: "uk"
 page_id: null
-permalink: "/uk/blog/testpost/"
+permalink: "/blog/testpost/"
 categorization:
   excerpt: null
   category: null

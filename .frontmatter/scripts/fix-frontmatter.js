@@ -138,7 +138,16 @@ function extractValues(fields, yamlBlock, indentLevel = 0) {
       const match = yamlBlock.match(valRegex);
       if (match) {
         let val = match[1].trim();
-        val = val.replace(/^["']|["']$/g, '').trim();
+        const quoteMatch = val.match(/^(["'])(.*?)\1\s*(?:#.*)?$/);
+        if (quoteMatch) {
+          val = quoteMatch[2];
+        } else {
+          const commentIdx = val.indexOf(' #');
+          if (commentIdx !== -1) {
+            val = val.substring(0, commentIdx).trim();
+          }
+          val = val.replace(/^["']|["']$/g, '').trim();
+        }
         if (val === 'null') val = null;
         else if (val === 'true') val = true;
         else if (val === 'false') val = false;

@@ -166,14 +166,7 @@
           "title": "SEO Title",
           "name": "seo_title",
           "type": "string",
-          "description": "Override the meta title tag for search engines",
-          "panel": "SEO & Indexing"
-        },
-        {
-          "title": "SEO Type",
-          "name": "seo_title",
-          "type": "string",
-          "panel": "SEO & Indexing"
+          "description": "Override the meta title tag for search engines"
         },
         {
           "title": "SEO Type",
@@ -351,13 +344,6 @@
           "name": "sort_order",
           "type": "number",
           "panel": "Sort Info"
-        },
-        {
-          "title": "Excerpt",
-          "name": "excerpt",
-          "type": "string",
-          "description": "Short teaser shown on listings",
-          "panel": "Categorization"
         },
         {
           "title": "Tags",

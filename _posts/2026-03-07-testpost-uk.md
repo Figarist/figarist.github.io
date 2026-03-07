@@ -3,7 +3,7 @@ layout: "post"
 title: "testPost"
 description: "justFunTest"
 last_modified_at: null
-date: 2026-03-09T08:47:35.000Z
+date: "2026-03-09T08:47:35.000Z"
 lang: "uk"
 page_id: null
 permalink: "/blog/testpost/"

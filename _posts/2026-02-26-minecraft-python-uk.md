@@ -3,7 +3,7 @@ layout: "post"
 title: "Навчання школярів основ програмування за допомогою середовища Minecraft"
 description: "Як використовувати Minecraft для навчання школярів основам програмування мовою Python."
 last_modified_at: null
-date: 2026-02-26 10:15:00 +0200
+date: "2026-02-26 10:15:00 +0200"
 lang: "uk"
 page_id: null
 permalink: "/blog/minecraft-python/"
@@ -15,7 +15,6 @@ author: "ihor"
 image: null
 image_alt: null
 focus_keyword: null
-seo_title: null
 seo_title: null
 seo_type: "BlogPosting"
 canonical_url: null

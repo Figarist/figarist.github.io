@@ -29,7 +29,9 @@ for (let i = 0; i < rawArgs.length; i++) {
       if (parsed.path || parsed.filePath) {
         filePath = parsed.path || parsed.filePath;
       }
-    } catch (_) {}
+    } catch (e) {
+      console.error("JSON parse error:", e.message);
+    }
   }
 }
 
@@ -167,14 +169,11 @@ function toYamlValue(val) {
   if (typeof val === 'boolean' || typeof val === 'number') return String(val);
   
   if (typeof val === 'string') {
-    if (/^\d{4}-\d{2}-\d{2}(\s|T)\d{2}:\d{2}:\d{2}/.test(val)) {
-      return val;
-    }
     return JSON.stringify(val);
   }
   
   if (val instanceof Date) {
-    return val.toISOString();
+    return `"${val.toISOString()}"`;
   }
 
   return JSON.stringify(val);

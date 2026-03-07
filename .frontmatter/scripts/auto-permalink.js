@@ -90,10 +90,6 @@ if (!fmMatch) {
 
 var fmBlock = fmMatch[1];
 
-/**
- * Extract a scalar value from a YAML front matter block.
- * Uses line-by-line search to avoid regex escaping issues.
- */
 function getFmValue(block, key) {
   var lines = block.split(/\r?\n/);
   var prefix = key + ':';
@@ -101,7 +97,14 @@ function getFmValue(block, key) {
     var line = lines[i];
     if (line.substring(0, prefix.length) === prefix) {
       var val = line.substring(prefix.length).trim();
-      val = val.replace(/^["']|["']$/g, '').trim();
+      var quoteMatch = val.match(/^(["'])(.*?)\1\s*(?:#.*)?$/);
+      if (quoteMatch) {
+        val = quoteMatch[2];
+      } else {
+        var commentIdx = val.indexOf(' #');
+        if (commentIdx !== -1) val = val.substring(0, commentIdx).trim();
+        val = val.replace(/^["']|["']$/g, '').trim();
+      }
       return val.length > 0 ? val : null;
     }
   }
@@ -129,9 +132,8 @@ var basePath = TYPE_TO_PATH[rawType.toLowerCase()] || '/blog';
 var lang = getFmValue(fmBlock, 'lang') || DEFAULT_LANG;
 
 // -- Build permalink ---
-var permalink = lang === DEFAULT_LANG
-  ? basePath + '/' + slugRaw + '/'
-  : '/' + lang + basePath + '/' + slugRaw + '/';
+// Polyglot handles language prefixes automatically. Permalink MUST be universal.
+var permalink = basePath + '/' + slugRaw + '/';
 
 // -- Write back ---
 var PERMALINK_RE = /^permalink:\s*.*$/m;

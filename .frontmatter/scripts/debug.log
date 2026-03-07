@@ -47,3 +47,31 @@ d:\GitHub\figarist.github.io
 d:\GitHub\figarist.github.io\_posts\2026-03-07-testpost.md
 {"layout":"post","title":"testPost","description":"justFunTest","last_modified_at":null,"date":"2026-03-09T08:47:35.000Z","lang":"uk","page_id":null,"permalink":"/uk/blog/testpost/","categorization":{"excerpt":null,"category":null,"categories":null,"tags":null},"author":"ihor","media":{"image":null,"image_alt":null},"seo_group":{"focus_keyword":null,"seo_title":null,"seo_type":"BlogPosting","canonical_url":null,"robots":null,"noindex":null,"sitemap":true},"advanced":{"related_posts":null,"featured":null,"hidden":null,"redirect_from":null,"toc":true,"published":true},"fmContentType":"Post"}
 
+--- RUN 2026-03-07T09:11:38.487Z ---
+C:\Program Files\nodejs\node.exe
+d:\GitHub\figarist.github.io\.frontmatter\scripts\auto-permalink.js
+d:\GitHub\figarist.github.io
+d:\GitHub\figarist.github.io\_education\2026-03-07-testedu.md
+{"title":"testEdu","description":null,"last_modified_at":null,"excerpt":null,"author":"ihor","lang":"uk","page_id":null,"permalink":null,"sort_info":{"level":null,"sort_order":null},"categorization":{"excerpt":null,"tags":null},"media":{"image":null,"image_alt":null},"seo_group":{"focus_keyword":null,"seo_title":null,"robots":null,"noindex":null,"sitemap":true},"advanced":{"related_posts":null,"featured":null,"hidden":null,"redirect_from":null,"toc":true,"published":true},"fmContentType":"Education"}
+
+--- RUN 2026-03-07T09:11:42.023Z ---
+C:\Program Files\nodejs\node.exe
+d:\GitHub\figarist.github.io\.frontmatter\scripts\auto-permalink.js
+d:\GitHub\figarist.github.io
+d:\GitHub\figarist.github.io\_education\jekyll-collections-vs-posts-uk.md
+{"title":"Колекції Jekyll проти Постів: Коли що використовувати","description":"Практичний посібник для розуміння різниці між постами та колекціями Jekyll — і вибору правильного інструменту для вашого контенту.","last_modified_at":null,"excerpt":"Пости хронологічні. Колекції вічнозелені. Ось як вибрати — і як використовувати обидва варіанти.","author":"ihor","lang":"uk","page_id":null,"permalink":"/education/jekyll-collections-vs-posts/","sort_info":{"level":null,"sort_order":null},"categorization":{"excerpt":null,"tags":null},"media":{"image":null,"image_alt":null},"seo_group":{"focus_keyword":null,"seo_title":null,"robots":null,"noindex":null,"sitemap":true},"advanced":{"related_posts":null,"featured":null,"hidden":null,"redirect_from":null,"toc":true,"published":true},"fmContentType":"Education"}
+
+--- RUN 2026-03-07T09:11:46.653Z ---
+C:\Program Files\nodejs\node.exe
+d:\GitHub\figarist.github.io\.frontmatter\scripts\auto-permalink.js
+d:\GitHub\figarist.github.io
+d:\GitHub\figarist.github.io\_education\unity-physics-beginner-guide-uk.md
+{"title":"Фізика Unity з нуля: Повний посібник для початківців","description":"Все, що вам потрібно знати, щоб зрозуміти фізичний рушій Unity — Rigidbody, Colliders, сили та де помиляються новачки.","last_modified_at":null,"excerpt":"Rigidbodies, Colliders, сили та типові пастки — все в одному місці.","author":"ihor","lang":"uk","page_id":null,"permalink":"/education/unity-physics-beginner-guide/","sort_info":{"level":null,"sort_order":null},"categorization":{"excerpt":null,"tags":null},"media":{"image":null,"image_alt":null},"seo_group":{"focus_keyword":null,"seo_title":null,"robots":null,"noindex":null,"sitemap":true},"advanced":{"related_posts":null,"featured":null,"hidden":null,"redirect_from":null,"toc":true,"published":true},"fmContentType":"Education"}
+
+--- RUN 2026-03-07T09:11:53.437Z ---
+C:\Program Files\nodejs\node.exe
+d:\GitHub\figarist.github.io\.frontmatter\scripts\auto-permalink.js
+d:\GitHub\figarist.github.io
+d:\GitHub\figarist.github.io\_education\wearos-zero-gc-mindset-uk.md
+{"title":"Розробка під Wear OS: Мислення Zero-GC","description":"Як створювати ігри для Wear OS без виклику стрибків Garbage Collection (збору сміття), які знищують частоту кадрів на обмеженому апаратному забезпеченні смарт-годинників.","last_modified_at":null,"excerpt":"512 МБ оперативної пам'яті, нульова толерантність до пауз GC. Ось мислення, яке змушує ігри на Wear OS працювати плавно.","author":"ihor","lang":"uk","page_id":null,"permalink":"/education/wearos-zero-gc-mindset/","sort_info":{"level":null,"sort_order":null},"categorization":{"excerpt":null,"tags":null},"media":{"image":null,"image_alt":null},"seo_group":{"focus_keyword":null,"seo_title":null,"robots":null,"noindex":null,"sitemap":true},"advanced":{"related_posts":null,"featured":null,"hidden":null,"redirect_from":null,"toc":true,"published":true},"fmContentType":"Education"}
+

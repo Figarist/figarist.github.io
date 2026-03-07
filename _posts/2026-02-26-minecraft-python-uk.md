@@ -1,12 +1,37 @@
 ---
-layout: post
+layout: "post"
 title: "Навчання школярів основ програмування за допомогою середовища Minecraft"
-date: 2026-02-26 10:15:00 +0200
-lang: uk
-permalink: /blog/minecraft-python-education/
-categories: teaching
-tags: [education, teaching, python, minecraft]
 description: "Як використовувати Minecraft для навчання школярів основам програмування мовою Python."
+last_modified_at: null
+date: 2026-02-26 10:15:00 +0200
+lang: "uk"
+page_id: null
+permalink: "/uk/blog/minecraft-python/"
+categorization:
+  excerpt: null
+  category: null
+  categories: null
+  tags: null
+author: "ihor"
+media:
+  image: null
+  image_alt: null
+seo_group:
+  focus_keyword: null
+  seo_title: null
+  seo_type: "BlogPosting"
+  canonical_url: null
+  robots: null
+  noindex: null
+  sitemap: true
+advanced:
+  related_posts: null
+  featured: null
+  hidden: null
+  redirect_from: null
+  toc: true
+  published: true
+fmContentType: "Post"
 ---
 
 Для сучасної молоді все більш актуальним стає вивчення мов програмування для подальшого працевлаштування або як хобі. Тому дуже важливо розвивати інтерес дітей до цієї галузі. Це можна робити за допомогою ігор.

@@ -616,6 +616,14 @@
   },
   "frontMatter.custom.scripts": [
     {
+      "id": "fix-frontmatter",
+      "title": "🧹 Нормалізувати теги (Fix)",
+      "script": ".frontmatter/scripts/fix-frontmatter.js",
+      "command": "node",
+      "type": "content",
+      "output": "notification"
+    },
+    {
       "id": "check-seo",
       "title": "рџ“Љ Validate SEO Meta",
       "script": ".frontmatter/scripts/check-seo.js",

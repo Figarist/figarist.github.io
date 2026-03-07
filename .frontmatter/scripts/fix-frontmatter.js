@@ -73,12 +73,20 @@ const fmBlock = fmMatch[1];
 
 // Extract layout/type to pick schema
 let cTypeStr = 'post';
-const layoutMatch = fmBlock.match(/^layout:\s*(.*)$/m);
-const fmContentTypeMatch = fmBlock.match(/^fmContentType:\s*(.*)$/m);
-if (fmContentTypeMatch) {
-    cTypeStr = fmContentTypeMatch[1].replace(/^["']|["']$/g, '').trim();
-} else if (layoutMatch) {
-    cTypeStr = layoutMatch[1].replace(/^["']|["']$/g, '').trim();
+
+// Reliable method 1: Check the folder path
+if (filePath.includes('/_education/') || filePath.includes('\\_education\\')) {
+    cTypeStr = 'education';
+} else {
+    // Fallback: Check fmContentType or layout in the file
+    const fmContentTypeMatch = fmBlock.match(/^fmContentType:\s*(.*)$/m);
+    const layoutMatch = fmBlock.match(/^layout:\s*(.*)$/m);
+    
+    if (fmContentTypeMatch) {
+        cTypeStr = fmContentTypeMatch[1].replace(/^["']|["']$/g, '').trim();
+    } else if (layoutMatch) {
+        cTypeStr = layoutMatch[1].replace(/^["']|["']$/g, '').trim();
+    }
 }
 
 let schema = contentTypes.find(c => c.name.toLowerCase() === cTypeStr.toLowerCase());

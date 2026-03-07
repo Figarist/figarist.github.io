@@ -107,6 +107,7 @@
           "title": "Excerpts & Categories",
           "type": "block",
           "name": "categorization",
+          "default": {},
           "fields": [
             {
               "title": "Excerpt",
@@ -146,6 +147,7 @@
           "title": "Media",
           "type": "block",
           "name": "media",
+          "default": {},
           "fields": [
             {
               "title": "Cover Image",
@@ -165,6 +167,7 @@
           "title": "SEO & Indexing",
           "type": "block",
           "name": "seo_group",
+          "default": {},
           "fields": [
             {
               "title": "Focus Keyword",
@@ -177,6 +180,11 @@
               "name": "seo_title",
               "type": "string",
               "description": "Override the meta title tag for search engines"
+            },
+            {
+              "title": "SEO Type",
+              "name": "seo_title",
+              "type": "string"
             },
             {
               "title": "SEO Type",
@@ -221,6 +229,7 @@
           "title": "Advanced",
           "type": "block",
           "name": "advanced",
+          "default": {},
           "fields": [
             {
               "title": "Related Posts",
@@ -264,7 +273,8 @@
           "title": "Content Type",
           "name": "fmContentType",
           "type": "string",
-          "hidden": true
+          "hidden": true,
+          "default": "Post"
         }
       ]
     },
@@ -336,6 +346,7 @@
           "title": "Sort Info",
           "type": "block",
           "name": "sort_info",
+          "default": {},
           "fields": [
             {
               "title": "Level",
@@ -359,6 +370,7 @@
           "title": "Categorization",
           "type": "block",
           "name": "categorization",
+          "default": {},
           "fields": [
             {
               "title": "Excerpt",
@@ -378,6 +390,7 @@
           "title": "Media",
           "type": "block",
           "name": "media",
+          "default": {},
           "fields": [
             {
               "title": "Cover Image",
@@ -397,6 +410,7 @@
           "title": "SEO & Indexing",
           "type": "block",
           "name": "seo_group",
+          "default": {},
           "fields": [
             {
               "title": "Focus Keyword",
@@ -435,6 +449,7 @@
           "title": "Advanced",
           "type": "block",
           "name": "advanced",
+          "default": {},
           "fields": [
             {
               "title": "Related Posts",
@@ -474,6 +489,13 @@
               "default": true
             }
           ]
+        },
+        {
+          "title": "Content Type",
+          "name": "fmContentType",
+          "type": "string",
+          "hidden": true,
+          "default": "Education"
         }
       ]
     }

@@ -245,10 +245,10 @@
   if (pb) {
     var ticking = false;
     var scrollableHeight = 0;
+    var docEl = document.documentElement; // Cache for performance
 
     function updateScrollHeight() {
-      var h = document.documentElement;
-      scrollableHeight = h.scrollHeight - h.clientHeight;
+      scrollableHeight = docEl.scrollHeight - docEl.clientHeight;
     }
 
     // Initial calculation
@@ -260,7 +260,7 @@
       function () {
         if (!ticking) {
           window.requestAnimationFrame(function () {
-            var scrollTop = window.scrollY || document.documentElement.scrollTop;
+            var scrollTop = window.scrollY || docEl.scrollTop;
             var percent = 0;
 
             if (scrollableHeight > 0) {
@@ -290,24 +290,24 @@
     var button = document.createElement("button");
     button.className = "btn-copy-code";
     button.type = "button";
-    button.innerText = "Copy";
+    button.textContent = "Copy";
     button.setAttribute("aria-label", "Copy Code");
 
     button.addEventListener("click", function () {
       var codeEl = block.querySelector("code");
       if (!codeEl) return;
 
-      var code = codeEl.innerText;
+      var code = codeEl.textContent;
 
       if (navigator.clipboard && window.isSecureContext) {
         navigator.clipboard
           .writeText(code)
           .then(function () {
-            button.innerText = "Copied! ✔️";
+            button.textContent = "Copied! ✔️";
             button.classList.add("copied");
 
             setTimeout(function () {
-              button.innerText = "Copy";
+              button.textContent = "Copy";
               button.classList.remove("copied");
             }, 2000);
           })

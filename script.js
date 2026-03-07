@@ -245,7 +245,7 @@
   if (pb) {
     var ticking = false;
     var scrollableHeight = 0;
-    var docEl = document.documentElement; // Cache for performance
+const docEl = document.documentElement; // Cache for performance
 
     function updateScrollHeight() {
       scrollableHeight = docEl.scrollHeight - docEl.clientHeight;
@@ -297,7 +297,7 @@
       var codeEl = block.querySelector("code");
       if (!codeEl) return;
 
-      var code = codeEl.textContent;
+const code = codeEl.textContent;
 
       if (navigator.clipboard && window.isSecureContext) {
         navigator.clipboard

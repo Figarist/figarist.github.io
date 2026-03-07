@@ -219,7 +219,7 @@ The site uses [Front Matter CMS](https://frontmatter.codes/) — a VS Code exten
 - `image` field links to `assets/images/` with a visual picker
 - `published: false` = Jekyll draft (excluded from build via `_config.yml` defaults)
 
-### Content Snippets (16 total)
+### Content Snippets (18 total)
 
 | Category      | Snippets                                                      |
 | ------------- | ------------------------------------------------------------- |

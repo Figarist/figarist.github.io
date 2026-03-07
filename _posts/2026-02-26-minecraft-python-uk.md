@@ -7,31 +7,27 @@ date: 2026-02-26 10:15:00 +0200
 lang: "uk"
 page_id: null
 permalink: "/blog/minecraft-python/"
-categorization:
-  excerpt: null
-  category: null
-  categories: null
-  tags: null
+excerpt: null
+category: null
+categories: null
+tags: null
 author: "ihor"
-media:
-  image: null
-  image_alt: null
-seo_group:
-  focus_keyword: null
-  seo_title: null
-  seo_title: null
-  seo_type: "BlogPosting"
-  canonical_url: null
-  robots: null
-  noindex: null
-  sitemap: true
-advanced:
-  related_posts: null
-  featured: null
-  hidden: null
-  redirect_from: null
-  toc: true
-  published: true
+image: null
+image_alt: null
+focus_keyword: null
+seo_title: null
+seo_title: null
+seo_type: "BlogPosting"
+canonical_url: null
+robots: null
+noindex: null
+sitemap: true
+related_posts: null
+featured: null
+hidden: null
+redirect_from: null
+toc: true
+published: true
 fmContentType: "Post"
 ---
 

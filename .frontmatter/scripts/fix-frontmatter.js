@@ -228,10 +228,40 @@ const newFmString = '---\n' + newYamlLines.join('\n') + '\n---';
 const body = content.slice(fmMatch[0].length);
 const finalFileContent = newFmString + body;
 
+// Count stats
+const existingKeys = new Set();
+fmBlock.split(/\r?\n/).forEach(line => {
+  const m = line.match(/^([a-z_]+):/);
+  if (m) existingKeys.add(m[1]);
+});
+
+const schemaKeys = new Set();
+function collectKeys(fields) {
+  for (const f of fields) {
+    schemaKeys.add(f.name);
+    if (f.fields) collectKeys(f.fields);
+  }
+}
+collectKeys(schema.fields);
+
+const kept = [...existingKeys].filter(k => schemaKeys.has(k)).length;
+const removed = [...existingKeys].filter(k => !schemaKeys.has(k));
+const added = [...schemaKeys].filter(k => !existingKeys.has(k));
+
 try {
   fs.writeFileSync(filePath, finalFileContent, 'utf-8');
-  console.log(`✅ Front matter is fixed and normalized to '${schema.name}' schema!`);
+  let summary = `✅ Normalized to '${schema.name}' schema!\n`;
+  summary += `   📋 ${schemaKeys.size} fields in schema\n`;
+  summary += `   ✓ ${kept} fields preserved\n`;
+  if (added.length > 0) {
+    summary += `   + ${added.length} defaults added: ${added.join(', ')}\n`;
+  }
+  if (removed.length > 0) {
+    summary += `   ✗ ${removed.length} unknown fields removed: ${removed.join(', ')}\n`;
+  }
+  console.log(summary);
 } catch (e) {
   console.error('Failed to write file: ' + e.message);
   process.exit(1);
 }
+

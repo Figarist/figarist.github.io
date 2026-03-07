@@ -101,7 +101,7 @@
           "name": "permalink",
           "type": "string",
           "required": false,
-          "description": "Auto-generated via рџ”— button. Or manual: /blog/my-slug/"
+          "description": "Auto-generated via 🔗 button. Or manual: /blog/my-slug/"
         },
         {
           "title": "Excerpts & Categories",

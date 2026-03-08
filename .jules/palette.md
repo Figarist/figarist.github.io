@@ -1,0 +1,3 @@
+## 2024-05-18 - Dialog Trigger Accessibility
+**Learning:** Even when using native HTML5 `<dialog>` elements for modals (like the search overlay), the trigger element (e.g., the search button) still needs explicit ARIA attributes (`aria-haspopup="dialog"`, `aria-controls="dialog-id"`, and dynamic `aria-expanded="true/false"`) to properly inform screen readers about the control's purpose and the modal's current state. Native `<dialog>` handles focus and role for the modal itself, but does not automatically wire up the trigger button.
+**Action:** Always manually add `aria-haspopup`, `aria-controls`, and dynamically update `aria-expanded` on any button that toggles a modal or dialog, regardless of whether a native `<dialog>` element is used.

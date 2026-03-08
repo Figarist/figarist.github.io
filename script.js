@@ -345,6 +345,15 @@ const code = codeEl.textContent;
   }
 
   function initSearch() {
+    // Lazy load lunr.js to save initial bundle size and parse time
+    if (typeof lunr === "undefined") {
+      var script = document.createElement("script");
+      script.src = "https://cdnjs.cloudflare.com/ajax/libs/lunr.js/2.3.9/lunr.min.js";
+      script.onload = initSearch;
+      document.head.appendChild(script);
+      return;
+    }
+
     // Get localized path from modal's data attribute (passed from Liquid)
     var indexUrl = searchModal
       ? searchModal.getAttribute("data-index-url")
@@ -391,6 +400,11 @@ const code = codeEl.textContent;
             self.add(doc);
           });
         });
+
+        // Re-trigger search if user typed while loading
+        if (searchInput && searchInput.value) {
+          executeSearch(searchInput.value);
+        }
       })
       .catch(function (err) {
         console.error("Search index failed to load:", err);

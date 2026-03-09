@@ -32,6 +32,8 @@
 
                 <button id="search-trigger" class="site-nav__search-trigger"
                     aria-label="{{ site.data[site.active_lang].strings.search_label | default: 'Search' }}"
+                    aria-expanded="false"
+                    aria-controls="search-modal"
                     title="Search (Cmd+K)">
                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
                         stroke-linejoin="round">

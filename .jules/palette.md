@@ -1,0 +1,3 @@
+## 2024-05-18 - Reliable `aria-expanded` syncing for `<dialog>` modals
+**Learning:** Native HTML5 `<dialog>` elements inherently handle closing interactions like pressing the Escape key or form submission. Relying only on click listeners or custom `toggle()` functions to manage the `aria-expanded` state of the modal's trigger button is error-prone because it misses these native close events, leading to a desynced accessibility tree.
+**Action:** When using a native `<dialog>`, always attach a `'close'` event listener directly to the `<dialog>` element to reliably sync `aria-expanded="false"` on the associated trigger button, ensuring screen reader users have an accurate representation of the UI state regardless of how the modal was dismissed.

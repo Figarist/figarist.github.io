@@ -345,56 +345,73 @@ const code = codeEl.textContent;
   }
 
   function initSearch() {
-    // Get localized path from modal's data attribute (passed from Liquid)
-    var indexUrl = searchModal
-      ? searchModal.getAttribute("data-index-url")
-      : "search.json";
+    if (document.querySelector('script[src*="lunr.min.js"]')) return;
 
-    fetch(indexUrl)
-      .then(function (response) {
-        return response.json();
-      })
-      .then(function (data) {
-        // Construct a map for O(1) lookups during search
-        searchMap = Object.create(null);
-        data.forEach(function (item) {
-          searchMap[item.id] = item;
-        });
+    // 1. Load the lunr script dynamically first
+    var script = document.createElement("script");
+    script.src = "https://cdnjs.cloudflare.com/ajax/libs/lunr.js/2.3.9/lunr.min.js";
+    script.onload = function () {
+      // 2. Fetch data and build index
+      // Get localized path from modal's data attribute (passed from Liquid)
+      var indexUrl = searchModal
+        ? searchModal.getAttribute("data-index-url")
+        : "search.json";
 
-        lunrIndex = lunr(function () {
-          // Disable stemming to ensure technical terms (Unity, C#, etc.) match exactly
-          this.pipeline.remove(lunr.stemmer);
-          this.searchPipeline.remove(lunr.stemmer);
-
-          // Replace default trimmer (Latin-only \w) with Unicode-aware version
-          // Fixes search for Cyrillic (UK, RU) and Korean (KO) text
-          this.pipeline.remove(lunr.trimmer);
-          this.searchPipeline.remove(lunr.trimmer);
-          var unicodeTrimmer = function (token) {
-            return token.update(function (s) {
-              return s.replace(/^[^\p{L}\p{N}]+|[^\p{L}\p{N}]+$/gu, '');
-            });
-          };
-          unicodeTrimmer.label = 'unicodeTrimmer';
-          lunr.Pipeline.registerFunction(unicodeTrimmer, 'unicodeTrimmer');
-          this.pipeline.add(unicodeTrimmer);
-          this.searchPipeline.add(unicodeTrimmer);
-
-          this.ref("id");
-          this.field("title", { boost: 10 });
-          this.field("tags", { boost: 5 });
-          this.field("description", { boost: 3 });
-          this.field("content");
-
-          var self = this;
-          data.forEach(function (doc) {
-            self.add(doc);
+      fetch(indexUrl)
+        .then(function (response) {
+          return response.json();
+        })
+        .then(function (data) {
+          // Construct a map for O(1) lookups during search
+          searchMap = Object.create(null);
+          data.forEach(function (item) {
+            searchMap[item.id] = item;
           });
+
+          lunrIndex = lunr(function () {
+            // Disable stemming to ensure technical terms (Unity, C#, etc.) match exactly
+            this.pipeline.remove(lunr.stemmer);
+            this.searchPipeline.remove(lunr.stemmer);
+
+            // Replace default trimmer (Latin-only \w) with Unicode-aware version
+            // Fixes search for Cyrillic (UK, RU) and Korean (KO) text
+            this.pipeline.remove(lunr.trimmer);
+            this.searchPipeline.remove(lunr.trimmer);
+            var unicodeTrimmer = function (token) {
+              return token.update(function (s) {
+                return s.replace(/^[^\p{L}\p{N}]+|[^\p{L}\p{N}]+$/gu, '');
+              });
+            };
+            unicodeTrimmer.label = 'unicodeTrimmer';
+            lunr.Pipeline.registerFunction(unicodeTrimmer, 'unicodeTrimmer');
+            this.pipeline.add(unicodeTrimmer);
+            this.searchPipeline.add(unicodeTrimmer);
+
+            this.ref("id");
+            this.field("title", { boost: 10 });
+            this.field("tags", { boost: 5 });
+            this.field("description", { boost: 3 });
+            this.field("content");
+
+            var self = this;
+            data.forEach(function (doc) {
+              self.add(doc);
+            });
+          });
+
+          // If the user already typed something while loading, execute the search
+          if (searchInput && searchInput.value) {
+            executeSearch(searchInput.value);
+          }
+        })
+        .catch(function (err) {
+          console.error("Search index failed to load:", err);
         });
-      })
-      .catch(function (err) {
-        console.error("Search index failed to load:", err);
-      });
+    };
+    script.onerror = function() {
+      console.error("Failed to load lunr.js");
+    };
+    document.head.appendChild(script);
   }
 
   function executeSearch(query) {

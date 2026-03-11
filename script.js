@@ -245,7 +245,7 @@
   if (pb) {
     var ticking = false;
     var scrollableHeight = 0;
-const docEl = document.documentElement; // Cache for performance
+    const docEl = document.documentElement; // Cache for performance
 
     function updateScrollHeight() {
       scrollableHeight = docEl.scrollHeight - docEl.clientHeight;
@@ -253,7 +253,9 @@ const docEl = document.documentElement; // Cache for performance
 
     // Initial calculation
     updateScrollHeight();
-    window.addEventListener("resize", debounce(updateScrollHeight, 150), { passive: true });
+    window.addEventListener("resize", debounce(updateScrollHeight, 150), {
+      passive: true,
+    });
 
     window.addEventListener(
       "scroll",
@@ -270,7 +272,7 @@ const docEl = document.documentElement; // Cache for performance
               if (percent < 0) percent = 0;
             }
 
-            pb.style.transform = "scaleX(" + (percent / 100) + ")";
+            pb.style.transform = "scaleX(" + percent / 100 + ")";
             ticking = false;
           });
           ticking = true;
@@ -297,7 +299,7 @@ const docEl = document.documentElement; // Cache for performance
       var codeEl = block.querySelector("code");
       if (!codeEl) return;
 
-const code = codeEl.textContent;
+      const code = codeEl.textContent;
 
       if (navigator.clipboard && window.isSecureContext) {
         navigator.clipboard
@@ -372,11 +374,11 @@ const code = codeEl.textContent;
           this.searchPipeline.remove(lunr.trimmer);
           var unicodeTrimmer = function (token) {
             return token.update(function (s) {
-              return s.replace(/^[^\p{L}\p{N}]+|[^\p{L}\p{N}]+$/gu, '');
+              return s.replace(/^[^\p{L}\p{N}]+|[^\p{L}\p{N}]+$/gu, "");
             });
           };
-          unicodeTrimmer.label = 'unicodeTrimmer';
-          lunr.Pipeline.registerFunction(unicodeTrimmer, 'unicodeTrimmer');
+          unicodeTrimmer.label = "unicodeTrimmer";
+          lunr.Pipeline.registerFunction(unicodeTrimmer, "unicodeTrimmer");
           this.pipeline.add(unicodeTrimmer);
           this.searchPipeline.add(unicodeTrimmer);
 
@@ -466,8 +468,8 @@ const code = codeEl.textContent;
   }
 
   // Keyboard Shortcuts
+  var isMac = navigator.platform.toUpperCase().indexOf("MAC") >= 0;
   window.addEventListener("keydown", function (e) {
-    var isMac = navigator.platform.toUpperCase().indexOf("MAC") >= 0;
     var metaKey = isMac ? e.metaKey : e.ctrlKey;
 
     if (metaKey && e.key === "k") {
@@ -493,16 +495,15 @@ const code = codeEl.textContent;
   /* ——————————————————————————————————————————
      9. LANGUAGE SWITCH — Save Preference
   —————————————————————————————————————————— */
-  var langLinks = document.querySelectorAll('.lang-switch[data-lang]');
+  var langLinks = document.querySelectorAll(".lang-switch[data-lang]");
   langLinks.forEach(function (link) {
-    link.addEventListener('click', function () {
-      var selectedLang = this.getAttribute('data-lang');
+    link.addEventListener("click", function () {
+      var selectedLang = this.getAttribute("data-lang");
       if (selectedLang) {
-        localStorage.setItem('preferred_lang', selectedLang.toLowerCase());
+        localStorage.setItem("preferred_lang", selectedLang.toLowerCase());
       }
     });
   });
-
 })();
 
 // Service Worker Registration

@@ -466,8 +466,8 @@ const code = codeEl.textContent;
   }
 
   // Keyboard Shortcuts
+  var isMac = navigator.platform.toUpperCase().indexOf("MAC") >= 0;
   window.addEventListener("keydown", function (e) {
-    var isMac = navigator.platform.toUpperCase().indexOf("MAC") >= 0;
     var metaKey = isMac ? e.metaKey : e.ctrlKey;
 
     if (metaKey && e.key === "k") {

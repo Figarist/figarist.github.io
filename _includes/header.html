@@ -31,6 +31,8 @@
                 {% if bare_url == '' %}{% assign bare_url = '/' %}{% endif %}
 
                 <button id="search-trigger" class="site-nav__search-trigger"
+                    aria-haspopup="dialog"
+                    aria-expanded="false"
                     aria-label="{{ site.data[site.active_lang].strings.search_label | default: 'Search' }}"
                     title="Search (Cmd+K)">
                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"

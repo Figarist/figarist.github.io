@@ -1,3 +1,6 @@
 ## 2024-06-25 - Cache Repetitive Global/DOM Object Lookups in High-Frequency Events
 **Learning:** Repetitive access to properties like `document.documentElement` inside a `scroll` event handler's `requestAnimationFrame` loop forces the JavaScript engine to resolve the reference continuously. While minor in isolation, in a 60FPS scrolling path, these lookups accumulate, causing small performance drags.
 **Action:** Always cache stable references (e.g., `document.documentElement`) outside of high-frequency event loops like `scroll` or `mousemove` to avoid redundant property resolutions.
+## 2025-01-26 - Pre-computing Static HTML Strings in High-Frequency Loops
+**Learning:** String allocations and functional transformations (like `split`, `map`, `join`) within high-frequency render loops (e.g., executing search queries) introduce significant CPU and memory overhead. By shifting these operations to the data fetching/initialization phase, we avoid recalculating static data during render cycles.
+**Action:** Always pre-compute static or semi-static HTML strings (e.g., parsing arrays into formatted strings) during data initialization before they are utilized in loops or repeatedly called rendering functions.

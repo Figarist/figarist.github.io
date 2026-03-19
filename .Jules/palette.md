@@ -1,0 +1,3 @@
+## 2024-05-24 - Syncing `aria-expanded` with native `<dialog>`
+**Learning:** When using the native HTML5 `<dialog>` element, keyboard dismissals (like the Escape key) natively close the dialog without triggering custom close logic unless handled. Therefore, UI state attributes like `aria-expanded` on the trigger button can easily fall out of sync.
+**Action:** Always listen to the native `close` event on the `<dialog>` element to reliably reset `aria-expanded="false"` and other related states, ensuring keyboard accessibility and screen reader accuracy regardless of how the dialog was dismissed.

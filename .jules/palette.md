@@ -1,0 +1,3 @@
+## 2024-06-25 - Reliable `aria-expanded` Synchronization with Native `<dialog>`
+**Learning:** When using a native HTML5 `<dialog>` element, managing `aria-expanded` state on the trigger button is tricky because the dialog can be closed natively (e.g., via the Escape key) without triggering custom UI 'close' button event listeners.
+**Action:** Always listen for the native `'close'` event on the `<dialog>` element itself to reliably reset accessibility attributes (like `aria-expanded="false"`) on the trigger element, ensuring accurate state for screen reader users. Additionally, always use `aria-current="true"` (or `page`, `step`, etc.) alongside `.active` CSS classes to announce active UI state.

@@ -336,6 +336,7 @@ const code = codeEl.textContent;
     if (show) {
       if (!searchModal.open) {
         searchModal.showModal();
+        if (searchTrigger) searchTrigger.setAttribute("aria-expanded", "true");
         searchInput.focus();
         if (!lunrIndex) initSearch();
       }
@@ -478,6 +479,10 @@ const code = codeEl.textContent;
 
   // Close on backdrop click (native dialog behavior)
   if (searchModal) {
+    searchModal.addEventListener("close", function () {
+      if (searchTrigger) searchTrigger.setAttribute("aria-expanded", "false");
+    });
+
     searchModal.addEventListener("click", function (e) {
       if (e.target === searchModal) {
         toggleSearch(false);

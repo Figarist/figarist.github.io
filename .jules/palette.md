@@ -1,0 +1,3 @@
+## 2024-05-24 - Search Modal & Language Switcher Accessibility
+ **Learning:** Native HTML5 `<dialog>` elements trigger a "close" event when dismissed natively via the `Esc` key or programmatic `.close()` calls. This is the most reliable event to hook into for resetting `aria-expanded` attributes on external trigger buttons (like `#search-trigger`). Manually resetting it within keyboard handlers or programmatic functions often leads to desynced state.
+ **Action:** Always use the `<dialog>` element's `close` event listener to reset associated accessibility attributes (like `aria-expanded` on triggers) rather than relying on disparate toggle functions or specific keydown events. Also, remember to use `aria-current="true"` on the active items in language switchers.

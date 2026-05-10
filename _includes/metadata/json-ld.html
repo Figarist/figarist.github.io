@@ -21,7 +21,8 @@ absolute_url -%}
       "image": "{{ site_logo }}",
       "jobTitle": {{ site.data[site.active_lang].strings.bio_roles | default: 'Developer' | jsonify }},
       "sameAs": [
-        {% for link in site.social.links %}"{{ link }}"{% unless forloop.last %},{% endunless %}{% endfor %}
+        {% for link in site.social.links %}"{{ link }}"{% unless forloop.last %},{% endunless %}{% endfor %},
+        "https://figarist.github.io/lego-catalog/"
       ]
     },
     {%- else -%}

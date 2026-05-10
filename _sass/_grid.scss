@@ -27,7 +27,8 @@
     "webgl        webgl        shrine"
     "feed-vr      feed-vr      feed-gamedev"
     "feed-vr      feed-vr      feed-gamedev"
-    "feed-personal feed-edu   python";
+    "feed-personal feed-edu   python"
+    "lego-catalog lego-catalog lego-catalog";
 }
 
 #bio {
@@ -78,6 +79,10 @@
   grid-area: feed-edu;
 }
 
+#lego-catalog {
+  grid-area: lego-catalog;
+}
+
 /* ======================== ПЛАНШЕТ (ПЕРЕХІДНИЙ СТАН) ======================== */
 @media (max-width: 1080px) {
   .hub-grid {
@@ -91,7 +96,8 @@
       "feed-vr       feed-gamedev"
       "feed-personal feed-edu"
       "stack         python"
-      "shrine        shrine";
+      "shrine        shrine"
+      "lego-catalog  lego-catalog";
   }
 
   /* Hide text links before they squash on iPad profiles */
@@ -140,7 +146,8 @@
       "feed-gamedev"
       "feed-personal"
       "feed-edu"
-      "python";
+      "python"
+      "lego-catalog";
     grid-template-columns: 1fr;
   }
 }

@@ -124,9 +124,21 @@ search_close_hint: "Esc щоб закрити"
 search_no_results: "Нічого не знайдено за запитом"
 lang_switch_label: "Вибір мови"
 
-# ── Archives ──
+# ── Архів ──
 category_label: "Категорія"
 posts_count: "публікацій"
 all_categories: "Усі категорії"
 all_tags: "Усі теги"
 filed_under: "РОЗДІЛ:"
+
+# ── LEGO WeDo Каталог ──
+lego_label: "ОСВІТНІЙ_РЕСУРС"
+lego_title: "Каталог інструкцій"
+lego_desc: "Некомерційний освітній каталог інструкцій для збірки моделей LEGO WeDo 2.0 для уроків робототехніки. Відкритий ресурс для вчителів та учнів."
+lego_stat_models: "500+ МОДЕЛЕЙ"
+lego_stat_lang: "УК · EN · RU · PL"
+lego_stat_type: "НЕКОМЕРЦІЙНИЙ"
+lego_cta: "Відкрити каталог"
+aria_visit_lego: "Відкрити LEGO WeDo 2.0 Каталог — освітній ресурс Ігоря Сівочки"
+nav_lego_catalog: "LEGO WeDo Каталог"
+head_keywords: "Ігор Сівочка, Figarist, інді розробник, Unity розробник, вчитель інформатики, Wear OS, C#, розробка ігор, Україна, Wrist and Pocket Studio, LEGO WeDo 2.0, робототехніка, каталог лего"

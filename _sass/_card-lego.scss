@@ -1,0 +1,119 @@
+/* ============================================================
+   CARD: LEGO WEDO CATALOG (1×1) — Educational Resource
+   ============================================================ */
+
+.card--lego {
+  background: linear-gradient(145deg, #0f1923 0%, #162032 60%, #1a2a42 100%);
+  color: var(--text-on-dark);
+  text-decoration: none;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+
+  &::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse at 70% 20%, rgba(255, 193, 18, 0.08) 0%, transparent 60%);
+    pointer-events: none;
+  }
+}
+
+.card--lego .card-label {
+  color: rgba(255, 193, 18, 0.5);
+}
+
+/* LEGO dot pattern (decorative) */
+.lego__dots-deco {
+  display: flex;
+  gap: 5px;
+  margin-bottom: 14px;
+
+  span {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    display: inline-block;
+    transition: transform var(--t-med), box-shadow var(--t-med);
+  }
+
+  .dot-r { background: #ff4757; }
+  .dot-y { background: #ffc312; box-shadow: 0 0 8px rgba(255, 195, 18, 0.4); }
+  .dot-g { background: #00d26a; }
+  .dot-b { background: #1e90ff; }
+}
+
+@media (hover: hover) {
+  .card--lego:hover .lego__dots-deco span {
+    transform: translateY(-3px);
+    box-shadow: 0 4px 12px rgba(255, 195, 18, 0.3);
+  }
+}
+
+.lego__title {
+  font-size: 1.15rem;
+  font-weight: 800;
+  color: #fff;
+  margin-bottom: 6px;
+  line-height: 1.2;
+  letter-spacing: -0.01em;
+}
+
+.lego__desc {
+  font-size: 0.8rem;
+  color: rgba(255, 255, 255, 0.5);
+  line-height: 1.55;
+  margin-bottom: 16px;
+  flex: 1;
+}
+
+.lego__stats {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin-bottom: 14px;
+}
+
+.lego__stat {
+  font-family: var(--font-mono);
+  font-size: 0.62rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  color: rgba(255, 193, 18, 0.85);
+  background: rgba(255, 193, 18, 0.1);
+  border: 1px solid rgba(255, 193, 18, 0.2);
+  border-radius: 6px;
+  padding: 3px 8px;
+}
+
+.lego__cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: auto;
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: #ffc312;
+  padding: 7px 16px;
+  border: 1.5px solid rgba(255, 195, 18, 0.35);
+  border-radius: 99px;
+  transition: background var(--t-fast), border-color var(--t-fast), box-shadow var(--t-fast);
+  align-self: flex-start;
+  text-decoration: none;
+
+  .arrow {
+    transition: transform var(--t-fast);
+  }
+}
+
+@media (hover: hover) {
+  .card--lego:hover .lego__cta {
+    background: rgba(255, 195, 18, 0.12);
+    border-color: rgba(255, 195, 18, 0.6);
+    box-shadow: 0 0 16px rgba(255, 195, 18, 0.15);
+
+    .arrow {
+      transform: translateX(4px);
+    }
+  }
+}

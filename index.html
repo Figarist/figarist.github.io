@@ -181,28 +181,28 @@ seo_jsonld_fallback: false
 
 
   <!-- ══════════════════════════════════════════
-           CARD 7 — PYTHON LO-FI (1 col × 1 row)
+           CARD 7 — OGCRUNCHER (1 col × 1 row)
            ══════════════════════════════════════════ -->
-  <section class="hub-card card--python fade-in" id="python">
+  <a href="https://figarist.github.io/OGCruncher/" target="_blank" rel="noopener" class="hub-card card--cruncher fade-in" id="cruncher" aria-label="{{ site.data[site.active_lang].strings.aria_visit_cruncher }}">
     <div class="card-label">{{ site.data[site.active_lang].strings.utility_core_label }}</div>
-    <div class="python__terminal">
+    <div class="cruncher__terminal">
       <div class="terminal__bar">
         <span class="terminal__dot dot--red"></span>
         <span class="terminal__dot dot--yellow"></span>
         <span class="terminal__dot dot--green"></span>
       </div>
       <div class="terminal__body">
-        <code class="terminal__line"><span class="t-comment"># lo-fi converter</span></code>
-        <code class="terminal__line"><span class="t-kw">import</span> audio_tools</code>
-        <code class="terminal__line"><span class="t-fn">apply_vinyl</span>(src)</code>
+        <code class="terminal__line"><span class="t-comment">// og-cruncher engine</span></code>
+        <code class="terminal__line"><span class="t-kw">const</span> ctx = <span class="t-fn">new</span> OfflineContext()</code>
+        <code class="terminal__line"><span class="t-fn">crunch</span>(buffer, <span class="t-val">8</span>)</code>
         <code class="terminal__line terminal__line--cursor">_</code>
       </div>
     </div>
-    <h3 class="python__title">{{ site.data[site.active_lang].strings.python_title }}</h3>
-    <p class="python__desc">
-      {{ site.data[site.active_lang].strings.python_desc }}
+    <h2 class="cruncher__title">{{ site.data[site.active_lang].strings.cruncher_title }}</h2>
+    <p class="cruncher__desc">
+      {{ site.data[site.active_lang].strings.cruncher_desc }}
     </p>
-  </section>
+  </a>
 
   <!-- ══════════════════════════════════════════
            CARD 8 — VR NEWS & LIFE FEED (2 col × 1 row)

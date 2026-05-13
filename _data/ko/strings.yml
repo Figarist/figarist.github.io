@@ -26,8 +26,8 @@ webgl_caption: "인터랙티브 Unity 미니 게임의 보금자리입니다."
 shrine_desc: "닌텐도 DS 아카이브, 스위치 및 심케이드 장비."
 shrine_cta: "저장소 잠금 해제 →"
 
-# PYTHON CARD
-python_desc: "오디오를 바이닐 잡음이 섞인 아늑한 로파이로 변환합니다."
+# OGCRUNCHER CARD
+cruncher_desc: "브라우저 기반 오디오 비트 크러셔 및 OGG 압축기입니다. OfflineAudioContext를 기반으로 작동합니다."
 
 # VR FEED
 vr_heading: "VR 뉴스 & 라이프"
@@ -97,7 +97,8 @@ education_label: "교육"
 aria_visit_studio: "Wrist & Pocket Studio 방문하기"
 aria_load_webgl: "클릭하여 WebGL 데모 로드"
 webgl_iframe_title: "Unity WebGL 데모"
-python_title: "Python 로파이 도구"
+aria_visit_cruncher: "OGCruncher 열기 — 오디오 비트 크러셔 도구"
+cruncher_title: "OGCruncher"
 error_404_title: "404 — 찾을 수 없음"
 error_404_h2: "파일을 찾을 수 없습니다"
 error_404_text: "찾으시는 페이지가 존재하지 않거나 이동되었습니다."

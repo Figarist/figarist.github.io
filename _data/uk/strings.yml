@@ -26,8 +26,8 @@ webgl_caption: "Майбутня домівка інтерактивних мі�
 shrine_desc: "Архів Nintendo DS, Switch та Simcade ріг."
 shrine_cta: "Відкрити сховище →"
 
-# PYTHON CARD
-python_desc: "Перетворює аудіо на затишний lo-fi з вініловим тріском."
+# OGCRUNCHER CARD
+cruncher_desc: "Браузерний біт-крашер та OGG компресор. Працює на базі OfflineAudioContext."
 
 # VR FEED
 vr_heading: "VR Новини та Життя"
@@ -97,7 +97,8 @@ education_label: "ОСВІТА"
 aria_visit_studio: "Відвідати Wrist & Pocket Studio"
 aria_load_webgl: "Натисніть, щоб завантажити демо WebGL"
 webgl_iframe_title: "Демо Unity WebGL"
-python_title: "Інструмент Python Lo-Fi"
+aria_visit_cruncher: "Відкрити OGCruncher — інструмент для обробки аудіо"
+cruncher_title: "OGCruncher"
 error_404_title: "404 — Не знайдено"
 error_404_h2: "Файл не знайдено"
 error_404_text: "Сторінка, яку ви шукаєте, не існує або була перенесена."

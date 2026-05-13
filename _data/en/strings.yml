@@ -26,8 +26,8 @@ webgl_caption: "Future home of interactive Unity mini-games."
 shrine_desc: "Nintendo DS archive, Switch & Simcade rig."
 shrine_cta: "Unlock the vault →"
 
-# PYTHON CARD
-python_desc: "Transforms audio into cozy lo-fi with vinyl crackle."
+# OGCRUNCHER CARD
+cruncher_desc: "High-performance in-browser audio bit-crusher and OGG compressor."
 
 # VR FEED
 vr_heading: "VR News & Life"
@@ -97,7 +97,8 @@ education_label: "EDUCATION"
 aria_visit_studio: "Visit Wrist & Pocket Studio"
 aria_load_webgl: "Click to load WebGL demo"
 webgl_iframe_title: "Unity WebGL Demo"
-python_title: "Python Lo-Fi Tool"
+aria_visit_cruncher: "Open OGCruncher — audio bit-crusher tool"
+cruncher_title: "OGCruncher"
 error_404_title: "404 — Not Found"
 error_404_h2: "File Not Found"
 error_404_text: "The page you looking for doesn't exist or has been moved."

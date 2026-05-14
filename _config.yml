@@ -94,6 +94,7 @@ exclude_from_localization:
   - sw-register.js
   - redirects.json
   - lego-catalog
+  - OGCruncher
 parallel_localization: false
 
 # ── Defaults ─────────────────────────────────────────────────

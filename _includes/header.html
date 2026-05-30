@@ -31,6 +31,8 @@
                 {% if bare_url == '' %}{% assign bare_url = '/' %}{% endif %}
 
                 <button id="search-trigger" class="site-nav__search-trigger"
+                    aria-haspopup="dialog"
+                    aria-expanded="false"
                     aria-label="{{ site.data[site.active_lang].strings.search_label | default: 'Search' }}"
                     title="Search (Cmd+K)">
                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
@@ -44,7 +46,7 @@
                     aria-label="{{ site.data[site.active_lang].strings.lang_switch_label | default: 'Language selection' }}">
                     {% for lang in site.languages %}
                     {% if lang == site.active_lang %}
-                    <span class="lang-switch active" data-lang="{{ lang }}">{{ lang }}</span>
+                    <span class="lang-switch active" aria-current="true" data-lang="{{ lang }}">{{ lang }}</span>
                     {% else %}
                     {% if lang == site.default_lang %}
                     <a {% static_href %}href="{{ site.baseurl }}{{ bare_url }}" {% endstatic_href %} class="lang-switch"

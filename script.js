@@ -466,8 +466,10 @@ const code = codeEl.textContent;
   }
 
   // Keyboard Shortcuts
+  // Cache static environment check outside the high-frequency event listener
+  var isMac = navigator.platform.toUpperCase().indexOf("MAC") >= 0;
+
   window.addEventListener("keydown", function (e) {
-    var isMac = navigator.platform.toUpperCase().indexOf("MAC") >= 0;
     var metaKey = isMac ? e.metaKey : e.ctrlKey;
 
     if (metaKey && e.key === "k") {

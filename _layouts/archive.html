@@ -45,7 +45,7 @@ layout: default
     <h3 class="archive-hub__nav-heading">{{ site.data[site.active_lang].strings.all_categories | default: "All Categories" }}</h3>
     <div class="archive-hub__pill-row">
       {% for cat in site.categories %}
-      <a href="{{ '/blog/category/' | append: cat[0] | append: '/' | relative_url }}" class="archive-hub__pill archive-hub__pill--category {% if page.title == cat[0] %}active{% endif %}">
+      <a href="{{ '/blog/category/' | append: cat[0] | append: '/' | relative_url }}" class="archive-hub__pill archive-hub__pill--category {% if page.title == cat[0] %}active{% endif %}" {% if page.title == cat[0] %}aria-current="page"{% endif %}>
         {{ cat[0] | capitalize }} <span class="archive-hub__count">{{ cat[1].size }}</span>
       </a>
       {% endfor %}
@@ -54,7 +54,7 @@ layout: default
     <h3 class="archive-hub__nav-heading">{{ site.data[site.active_lang].strings.all_tags | default: "All Tags" }}</h3>
     <div class="archive-hub__pill-row">
       {% for tag in site.tags %}
-      <a href="{{ '/blog/tag/' | append: tag[0] | append: '/' | relative_url }}" class="archive-hub__pill archive-hub__pill--tag {% if page.title == tag[0] %}active{% endif %}">
+      <a href="{{ '/blog/tag/' | append: tag[0] | append: '/' | relative_url }}" class="archive-hub__pill archive-hub__pill--tag {% if page.title == tag[0] %}active{% endif %}" {% if page.title == tag[0] %}aria-current="page"{% endif %}>
         #{{ tag[0] }} <span class="archive-hub__count">{{ tag[1].size }}</span>
       </a>
       {% endfor %}

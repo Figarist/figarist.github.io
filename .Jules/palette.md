@@ -1,0 +1,3 @@
+## 2024-03-12 - Reliable ARIA State Management for Native Dialogs
+**Learning:** When using the native HTML5 `<dialog>` element (e.g., `#search-modal`), managing `aria-expanded` on the trigger button can be tricky because the dialog can be closed via the native Escape key. Attempting to manually catch the Esc keydown event can be brittle. Instead, listening to the native `close` event on the dialog itself is a robust, clean way to ensure the accessibility state of the trigger element is reliably reset to `aria-expanded="false"`.
+**Action:** Always bind cleanup logic (like resetting ARIA states or focus management) to the dialog's `close` event rather than relying on multiple manual triggers (button clicks + keyboard handlers).

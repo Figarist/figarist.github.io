@@ -336,6 +336,7 @@ const code = codeEl.textContent;
     if (show) {
       if (!searchModal.open) {
         searchModal.showModal();
+        if (searchTrigger) searchTrigger.setAttribute("aria-expanded", "true");
         searchInput.focus();
         if (!lunrIndex) initSearch();
       }
@@ -482,6 +483,11 @@ const code = codeEl.textContent;
       if (e.target === searchModal) {
         toggleSearch(false);
       }
+    });
+
+    // Reset aria-expanded when dialog is closed (e.g. via Escape key or close button)
+    searchModal.addEventListener("close", function () {
+      if (searchTrigger) searchTrigger.setAttribute("aria-expanded", "false");
     });
 
     // Handle trigger state update via trigger logic directly above

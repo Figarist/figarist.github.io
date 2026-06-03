@@ -1,0 +1,3 @@
+## 2024-03-15 - Synchronizing ARIA State with Native Dialogs
+**Learning:** When using the native HTML `<dialog>` element, it can be dismissed natively via the `Escape` key. If a trigger button's `aria-expanded` state relies on custom JS functions to close the dialog, native dismissals will cause the `aria-expanded` state to fall out of sync.
+**Action:** Always attach an event listener for the native `'close'` event on the `<dialog>` element to ensure ARIA states on associated trigger buttons are reliably reset to `false`.

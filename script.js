@@ -336,11 +336,13 @@ const code = codeEl.textContent;
     if (show) {
       if (!searchModal.open) {
         searchModal.showModal();
+        if (searchTrigger) searchTrigger.setAttribute("aria-expanded", "true");
         searchInput.focus();
         if (!lunrIndex) initSearch();
       }
     } else {
       searchModal.close();
+      if (searchTrigger) searchTrigger.setAttribute("aria-expanded", "false");
     }
   }
 
@@ -482,6 +484,11 @@ const code = codeEl.textContent;
       if (e.target === searchModal) {
         toggleSearch(false);
       }
+    });
+
+    // Native close event (handles Escape key)
+    searchModal.addEventListener("close", function () {
+      if (searchTrigger) searchTrigger.setAttribute("aria-expanded", "false");
     });
 
     // Handle trigger state update via trigger logic directly above

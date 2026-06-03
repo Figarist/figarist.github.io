@@ -336,6 +336,7 @@ const code = codeEl.textContent;
     if (show) {
       if (!searchModal.open) {
         searchModal.showModal();
+        if (searchTrigger) searchTrigger.setAttribute("aria-expanded", "true");
         searchInput.focus();
         if (!lunrIndex) initSearch();
       }
@@ -484,10 +485,17 @@ const code = codeEl.textContent;
       }
     });
 
-    // Handle trigger state update via trigger logic directly above
-    searchTrigger.addEventListener("click", function () {
-      toggleSearch(!searchModal.open);
+    // Handle native close event (Esc key or searchModal.close())
+    searchModal.addEventListener("close", function () {
+      if (searchTrigger) searchTrigger.setAttribute("aria-expanded", "false");
     });
+
+    // Handle trigger state update via trigger logic directly above
+    if (searchTrigger) {
+      searchTrigger.addEventListener("click", function () {
+        toggleSearch(!searchModal.open);
+      });
+    }
   }
 
   /* ——————————————————————————————————————————

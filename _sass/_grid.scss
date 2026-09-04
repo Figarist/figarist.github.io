@@ -27,7 +27,7 @@
     "webgl        webgl        shrine"
     "feed-vr      feed-vr      feed-gamedev"
     "feed-vr      feed-vr      feed-gamedev"
-    "feed-personal feed-edu   python"
+    "feed-personal feed-edu   cruncher"
     "lego-catalog lego-catalog lego-catalog";
 }
 
@@ -51,16 +51,8 @@
   grid-area: shrine;
 }
 
-#teaching {
-  grid-area: teach;
-}
-
-#python {
-  grid-area: python;
-}
-
-#contact {
-  grid-area: contact;
+#cruncher {
+  grid-area: cruncher;
 }
 
 #feed-vr {
@@ -95,7 +87,7 @@
       "webgl         webgl"
       "feed-vr       feed-gamedev"
       "feed-personal feed-edu"
-      "stack         python"
+      "stack         cruncher"
       "shrine        shrine"
       "lego-catalog  lego-catalog";
   }
@@ -146,7 +138,7 @@
       "feed-gamedev"
       "feed-personal"
       "feed-edu"
-      "python"
+      "cruncher"
       "lego-catalog";
     grid-template-columns: 1fr;
   }

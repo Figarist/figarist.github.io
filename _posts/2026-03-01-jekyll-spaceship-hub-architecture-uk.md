@@ -6,7 +6,7 @@ last_modified_at: 2026-03-05T22:00:00.000Z
 date: 2026-03-01 11:15:00 +0200
 lang: "uk"
 page_id: "spaceship-longread"
-permalink: "/blog/test/"
+permalink: "/blog/jekyll-spaceship-hub-architecture/"
 excerpt: "Глибоке занурення в можливості jekyll-spaceship для технічного блогу на Unity: Mermaid, MathJax, складні таблиці та медіа-контент."
 category: "gamedev"
 categories:
@@ -30,13 +30,12 @@ sitemap: true
 related_posts: null
 featured: false
 hidden: false
-redirect_from: null
+redirect_from:
+  - "/blog/test/"
 toc: true
 published: true
 fmContentType: "Post"
 ---
-
-# 🚀 Ультимативний Технічний Лонгрід
 
 Створення якісного технічного контенту вимагає не лише гарного тексту, а й потужних інструментів візуалізації. У цьому детальному огляді ми зануримося у можливості плагіна `jekyll-spaceship`, інтегрованого у нашу дизайн-систему **Hub Architecture**.
 

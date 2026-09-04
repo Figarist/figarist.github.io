@@ -6,7 +6,7 @@ sitemap: false
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
   {%- assign collections = site.pages | concat: site.posts | concat: site.education -%}
-  {%- assign docs = collections | where: "sitemap", true | default: collections -%}
+  {%- assign docs = collections | where_exp: "doc", "doc.sitemap != false and doc.published != false" -%}
   {%- assign processed_urls = "" -%}
   {%- for doc in docs -%}
     {%- if doc.url -%}

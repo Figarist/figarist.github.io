@@ -124,12 +124,12 @@ var basePath = TYPE_TO_PATH[rawType.toLowerCase()] || '/blog';
 var sourceLang = getFmValue(fmBlock, 'lang') || DEFAULT_LANG;
 var title      = getFmValue(fmBlock, 'title') || 'Untitled';
 
-/** Build the correct permalink for a given language. */
+/** Build the correct permalink for a given language.
+ * Polyglot handles language prefixes automatically.
+ * Permalink MUST be universal across all translations for hreflang matching.
+ */
 function makePermalink(lang) {
-  if (lang === DEFAULT_LANG) {
-    return basePath + '/' + slug + '/';
-  }
-  return '/' + lang + basePath + '/' + slug + '/';
+  return basePath + '/' + slug + '/';
 }
 
 // -- Fix source file permalink if missing or empty ---

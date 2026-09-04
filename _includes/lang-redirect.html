@@ -6,35 +6,18 @@
             var preferredLang = localStorage.getItem('preferred_lang');
             var targetLang = null;
 
-            // 1. Check if preference exists and is valid
+            // 1. Check if explicit user preference exists in localStorage
             var supportedLangs = ['en', 'uk', 'ru', 'ko'];
             if (preferredLang) {
                 if (!supportedLangs.includes(preferredLang)) {
-                    // Fail-safe: if localStorage has junk (like Google Translate strings), clear it
                     localStorage.removeItem('preferred_lang');
                     preferredLang = null;
                 } else if (preferredLang !== activeLang) {
                     targetLang = preferredLang;
                 }
-            } else {
-                // 3. First time visitor: Detect browser language
-                var browserLang = navigator.language || navigator.userLanguage;
-                var languages = navigator.languages || [browserLang];
-                var detectedLang = 'en'; // default
-
-                if (languages.some(function(l) { return l.startsWith('uk'); })) {
-                    detectedLang = 'uk';
-                } else if (languages.some(function(l) { return l.startsWith('ru'); })) {
-                    detectedLang = 'ru';
-                } else if (languages.some(function(l) { return l.startsWith('ko'); })) {
-                    detectedLang = 'ko';
-                }
-
-                localStorage.setItem('preferred_lang', detectedLang);
-                if (activeLang !== detectedLang) {
-                    targetLang = detectedLang;
-                }
             }
+            // Do not forcefully redirect first-time visitors or search crawlers (Googlebot)
+            // Explicit URL requested by the visitor or crawler is respected.
 
             // Execute Redirect
             if (targetLang && targetLang !== activeLang) {

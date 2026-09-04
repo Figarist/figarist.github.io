@@ -1,6 +1,9 @@
 ---
 layout: default
+title: "The Workshop / Blog — Figarist"
 title_key: blog_hub_title
+description: "Dev logs, indie game development tutorials, Wear OS mechanics, and technical longreads by Ihor Sivochka."
+sitemap: true
 pagination:
   enabled: true
 ---
@@ -31,23 +34,28 @@ pagination:
 
   <!-- ── PAGINATED FEED ── -->
   <ul class="post-list blog-list">
-    {% for post in paginator.posts %} {% if post.lang == site.active_lang %}
-    <li>
-      <a href="{{ post.url | relative_url }}" class="blog-list__item">
-        <span class="post-title blog-list__title">{{ post.title }}</span>
-        <div class="blog-list__meta">
-          <time class="post-meta" datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: "%B %d, %Y" }}</time>
-          {% if post.category %}
-          <span class="blog-list__category">{{ post.category }}</span>
-          {% endif %}
-        </div>
-      </a>
-    </li>
-    {% endif %} {% else %}
+    {% assign matched_posts = 0 %}
+    {% for post in paginator.posts %}
+      {% if post.lang == site.active_lang or post.lang == nil and site.active_lang == site.default_lang %}
+      {% assign matched_posts = matched_posts | plus: 1 %}
+      <li>
+        <a href="{{ post.url | relative_url }}" class="blog-list__item">
+          <span class="post-title blog-list__title">{{ post.title }}</span>
+          <div class="blog-list__meta">
+            <time class="post-meta" datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: "%B %d, %Y" }}</time>
+            {% if post.category %}
+            <span class="blog-list__category">{{ post.category }}</span>
+            {% endif %}
+          </div>
+        </a>
+      </li>
+      {% endif %}
+    {% endfor %}
+    {% if matched_posts == 0 %}
     <li class="post-list__empty">
       {{ site.data[site.active_lang].strings.no_posts_found }}
     </li>
-    {% endfor %}
+    {% endif %}
   </ul>
 
   <!-- ── PAGINATION UI ── -->

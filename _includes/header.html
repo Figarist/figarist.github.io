@@ -22,9 +22,14 @@
                 <!-- Language Switcher (Polyglot) -->
                 {% assign bare_url = page.url %}
                 {% for lang in site.languages %}
-                {% capture prefix %}/{{ lang }}{% endcapture %}
-                {% if page.url contains prefix %}
-                {% assign bare_url = page.url | replace_first: prefix, '' %}
+                {% capture prefix_with_slash %}/{{ lang }}/{% endcapture %}
+                {% capture prefix_exact %}/{{ lang }}{% endcapture %}
+                {% assign test_slice = page.url | slice: 0, prefix_with_slash.size %}
+                {% if test_slice == prefix_with_slash %}
+                {% assign bare_url = page.url | replace_first: prefix_exact, '' %}
+                {% break %}
+                {% elsif page.url == prefix_exact %}
+                {% assign bare_url = '/' %}
                 {% break %}
                 {% endif %}
                 {% endfor %}

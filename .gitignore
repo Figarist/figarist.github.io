@@ -5,7 +5,7 @@ _site/
 .jekyll-metadata
 
 # Bundler
-vendor/
+/vendor/
 .bundle/
 
 # Editor/OS specific

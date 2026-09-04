@@ -208,9 +208,15 @@ sitemap: true
       </li>
       {% endfor %}
     </ul>
+    {% if site.categories['vr'].size > 0 %}
     <a href="{{ '/blog/category/vr/' | relative_url }}" class="btn-read-more">
       {{ site.data[site.active_lang].strings.vr_cta | default: site.data[site.active_lang].strings.view_all_posts }}
     </a>
+    {% else %}
+    <a href="{{ '/blog/' | relative_url }}" class="btn-read-more">
+      {{ site.data[site.active_lang].strings.view_all_posts }}
+    </a>
+    {% endif %}
   </article>
 
   <!-- ══════════════════════════════════════════
@@ -238,9 +244,15 @@ sitemap: true
       </li>
       {% endfor %}
     </ul>
+    {% if site.categories['gamedev'].size > 0 %}
     <a href="{{ '/blog/category/gamedev/' | relative_url }}" class="btn-read-more">
       {{ site.data[site.active_lang].strings.gamedev_cta | default: site.data[site.active_lang].strings.view_all_posts }}
     </a>
+    {% else %}
+    <a href="{{ '/blog/' | relative_url }}" class="btn-read-more">
+      {{ site.data[site.active_lang].strings.view_all_posts }}
+    </a>
+    {% endif %}
   </article>
 
   <!-- ══════════════════════════════════════════
@@ -270,9 +282,15 @@ sitemap: true
       </li>
       {% endfor %}
     </ul>
+    {% if site.categories['personal'].size > 0 %}
     <a href="{{ '/blog/category/personal/' | relative_url }}" class="btn-read-more">
       {{ site.data[site.active_lang].strings.personal_cta | default: site.data[site.active_lang].strings.view_all_posts }}
     </a>
+    {% else %}
+    <a href="{{ '/blog/' | relative_url }}" class="btn-read-more">
+      {{ site.data[site.active_lang].strings.view_all_posts }}
+    </a>
+    {% endif %}
   </article>
 
   <!-- ══════════════════════════════════════════

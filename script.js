@@ -51,57 +51,10 @@
   }
 
   /* ——————————————————————————————————————————
-     2. WEBGL CLICK-TO-PLAY OVERLAY
+     2. VR PLAYGROUND
+     (Game tiles now link to dedicated pages.
+      WebGL player logic is inline on each game page.)
   —————————————————————————————————————————— */
-  var overlay = document.getElementById("webgl-overlay");
-  var iframe = document.getElementById("webgl-iframe");
-  var status = document.getElementById("webgl-status");
-
-  function activateWebGL() {
-    if (!overlay || !iframe) return;
-
-    var targetSrc = iframe.getAttribute("data-src");
-    if (!targetSrc || targetSrc === "about:blank") {
-      if (status) {
-        status.textContent = "● Lab Preview";
-        status.style.color = "#4ecdc4";
-      }
-      iframe.srcdoc = '<!DOCTYPE html><html><head><style>body{margin:0;background:#0d1117;color:#f2f0eb;font-family:-apple-system,sans-serif;display:flex;flex-direction:column;align-items:center;justify-content:center;height:100vh;text-align:center;padding:16px;box-sizing:border-box;}h3{margin:0 0 6px;font-size:1.1rem;color:#f7e04a;}p{margin:0;color:rgba(255,255,255,0.65);font-size:0.8rem;max-width:300px;line-height:1.45;}a{color:#4ecdc4;text-decoration:none;font-weight:600;margin-top:10px;display:inline-block;border:1px solid rgba(78,205,196,0.35);padding:6px 14px;border-radius:99px;font-size:0.75rem;transition:0.2s;}a:hover{background:rgba(78,205,196,0.15);}</style></head><body><h3>⚡ Wear OS &amp; Unity Lab</h3><p>Interactive WebGL demos are compiling for the next release.</p><a href="https://wristandpocket.github.io" target="_blank" rel="noopener">Wrist &amp; Pocket Studio &rarr;</a></body></html>';
-    } else {
-      iframe.src = targetSrc;
-      if (status) {
-        status.textContent = "● Loading…";
-        status.style.color = "#f7e04a";
-      }
-      iframe.onload = function () {
-        if (status) {
-          status.textContent = "● Running";
-          status.style.color = "#28c840";
-        }
-      };
-    }
-
-    // Fade the overlay out
-    overlay.style.transition = "opacity 0.4s ease";
-    overlay.style.opacity = "0";
-    overlay.style.pointerEvents = "none";
-
-    setTimeout(function () {
-      overlay.style.display = "none";
-      // Activate the iframe
-      iframe.classList.add("active");
-    }, 400);
-  }
-
-  if (overlay) {
-    overlay.addEventListener("click", activateWebGL);
-    overlay.addEventListener("keydown", function (e) {
-      if (e.key === "Enter" || e.key === " ") {
-        e.preventDefault();
-        activateWebGL();
-      }
-    });
-  }
 
   /* ——————————————————————————————————————————
      UTILITIES: Throttled MouseMove

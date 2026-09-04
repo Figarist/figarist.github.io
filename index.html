@@ -104,39 +104,52 @@ sitemap: true
            ══════════════════════════════════════════ -->
   <article class="hub-card card--webgl fade-in" id="webgl">
     <div class="webgl__header">
-      <span class="webgl__icon">⚡</span>
-      <h2 class="webgl__title">WebGL Playground</h2>
+      <span class="webgl__icon">🎮</span>
+      <h2 class="webgl__title">{{ site.data[site.active_lang].strings.playground_heading }}</h2>
       <p class="webgl__sub">
-        {{ site.data[site.active_lang].strings.webgl_sub }}
+        {{ site.data[site.active_lang].strings.playground_sub }}
       </p>
     </div>
 
-    <div class="webgl__frame-wrap" id="webgl-wrap">
-      <!-- Click-to-play overlay -->
-      <div class="webgl__overlay" id="webgl-overlay" role="button" tabindex="0"
-        aria-label="{{ site.data[site.active_lang].strings.aria_load_webgl }}">
-        <div class="webgl__play-btn" aria-hidden="true">
-          <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <circle cx="12" cy="12" r="11" stroke="currentColor" stroke-width="1.5" />
-            <path d="M10 8.5L16 12L10 15.5V8.5Z" fill="currentColor" />
-          </svg>
+    <div class="webgl__games-grid">
+      <!-- Tile 1: Dish of Chaos -->
+      <a href="{{ '/games/dish-of-chaos/' | relative_url }}" class="game-tile" aria-label="{{ site.data[site.active_lang].strings.dish_of_chaos_title }}">
+        <img src="{{ '/assets/images/games/dish-of-chaos-cover.png' | relative_url }}"
+          alt="Dish of Chaos — pixel art cover with ingredients on a wooden tray"
+          class="game-tile__cover" loading="lazy" width="480" height="300">
+        <div class="game-tile__body">
+          <div class="game-tile__badges">
+            <span class="game-tile__badge game-tile__badge--jam">{{ site.data[site.active_lang].strings.dish_of_chaos_badge }}</span>
+            <span class="game-tile__badge game-tile__badge--engine">{{ site.data[site.active_lang].strings.dish_of_chaos_engine }}</span>
+          </div>
+          <h3 class="game-tile__name">{{ site.data[site.active_lang].strings.dish_of_chaos_title }}</h3>
+          <p class="game-tile__tagline">{{ site.data[site.active_lang].strings.dish_of_chaos_tagline }}</p>
+          <span class="game-tile__cta">
+            {{ site.data[site.active_lang].strings.dish_of_chaos_play_cta }}
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+          </span>
         </div>
-        <p class="webgl__overlay-text">
-          {{ site.data[site.active_lang].strings.webgl_overlay_text }}
-        </p>
-        <p class="webgl__overlay-note">
-          {{ site.data[site.active_lang].strings.webgl_overlay_note }}
-        </p>
-      </div>
-      <!-- The actual iframe — activated on click -->
-      <iframe id="webgl-iframe" class="webgl__iframe" src="about:blank"
-        title="{{ site.data[site.active_lang].strings.webgl_iframe_title }}" allowfullscreen></iframe>
+      </a>
+
+      <!-- Tile 2: Wear OS Lab / Coming Soon -->
+      <a href="https://wristandpocket.github.io" target="_blank" rel="noopener"
+        class="game-tile game-tile--teaser" aria-label="{{ site.data[site.active_lang].strings.teaser_game_title }}">
+        <div class="game-tile__body">
+          <span class="game-tile__teaser-icon">⌚</span>
+          <div class="game-tile__badges">
+            <span class="game-tile__badge game-tile__badge--dev">{{ site.data[site.active_lang].strings.teaser_game_badge }}</span>
+          </div>
+          <h3 class="game-tile__name">{{ site.data[site.active_lang].strings.teaser_game_title }}</h3>
+          <p class="game-tile__tagline">{{ site.data[site.active_lang].strings.teaser_game_tagline }}</p>
+          <span class="game-tile__cta">
+            {{ site.data[site.active_lang].strings.teaser_game_cta }}
+          </span>
+        </div>
+      </a>
     </div>
 
     <p class="webgl__caption">
-      <span class="webgl__status" id="webgl-status">
-        {{ site.data[site.active_lang].strings.webgl_status }}
-      </span>
+      <span class="webgl__status">● Live</span>
       {{ site.data[site.active_lang].strings.webgl_caption }}
     </p>
   </article>

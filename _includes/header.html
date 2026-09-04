@@ -1,20 +1,20 @@
 <header>
     <nav class="site-nav" aria-label="{{ site.data[site.active_lang].strings.main_nav_aria }}">
         <div class="nav-inner">
-            <a href="{{ '/' | relative_url }}" class="site-nav__brand" id="site-logo">{{
+            <a href="{% if site.active_lang == site.default_lang %}{{ '/' | relative_url }}{% else %}{{ '/' | append: site.active_lang | append: '/' | relative_url }}{% endif %}" class="site-nav__brand" id="site-logo">{{
                 site.data[site.active_lang].strings.nav_brand }}</a>
             <div class="site-nav__links">
                 {% if page.url == '/' or page.url == '/uk/' or page.url == '/ru/' or page.url == '/ko/' %}
-                <a href="{{ '/' | relative_url }}#studio">
+                <a href="#studio">
                     {{ site.data[site.active_lang].strings.nav_studio }}
                 </a>
-                <a href="{{ '/' | relative_url }}#webgl">
+                <a href="#webgl">
                     {{ site.data[site.active_lang].strings.nav_playground }}
                 </a>
-                <a href="{{ '/' | relative_url }}#stack">
+                <a href="#stack">
                     {{ site.data[site.active_lang].strings.nav_stack }}
                 </a>
-                <a href="{{ '/' | relative_url }}#shrine">
+                <a href="#shrine">
                     {{ site.data[site.active_lang].strings.nav_shrine }}
                 </a>
                 {% endif %}

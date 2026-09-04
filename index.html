@@ -182,30 +182,6 @@ sitemap: true
 
 
   <!-- ══════════════════════════════════════════
-           CARD 7 — OGCRUNCHER (1 col × 1 row)
-           ══════════════════════════════════════════ -->
-  <a href="https://figarist.github.io/OGCruncher/" target="_blank" rel="noopener" class="hub-card card--cruncher fade-in" id="cruncher" aria-label="{{ site.data[site.active_lang].strings.aria_visit_cruncher }}">
-    <div class="card-label">{{ site.data[site.active_lang].strings.utility_core_label }}</div>
-    <div class="cruncher__terminal">
-      <div class="terminal__bar">
-        <span class="terminal__dot dot--red"></span>
-        <span class="terminal__dot dot--yellow"></span>
-        <span class="terminal__dot dot--green"></span>
-      </div>
-      <div class="terminal__body">
-        <code class="terminal__line"><span class="t-comment">// og-cruncher engine</span></code>
-        <code class="terminal__line"><span class="t-kw">const</span> ctx = <span class="t-fn">new</span> OfflineContext()</code>
-        <code class="terminal__line"><span class="t-fn">crunch</span>(buffer, <span class="t-val">8</span>)</code>
-        <code class="terminal__line terminal__line--cursor">_</code>
-      </div>
-    </div>
-    <h2 class="cruncher__title">{{ site.data[site.active_lang].strings.cruncher_title }}</h2>
-    <p class="cruncher__desc">
-      {{ site.data[site.active_lang].strings.cruncher_desc }}
-    </p>
-  </a>
-
-  <!-- ══════════════════════════════════════════
            CARD 8 — VR NEWS & LIFE FEED (2 col × 1 row)
            ══════════════════════════════════════════ -->
   <article class="hub-card card--feed card--feed-vr fade-in" id="feed-vr">
@@ -232,8 +208,8 @@ sitemap: true
       </li>
       {% endfor %}
     </ul>
-    <a href="{{ '/blog/' | relative_url }}" class="btn-read-more">
-      {{ site.data[site.active_lang].strings.view_all_posts }}
+    <a href="{{ '/blog/category/vr/' | relative_url }}" class="btn-read-more">
+      {{ site.data[site.active_lang].strings.vr_cta | default: site.data[site.active_lang].strings.view_all_posts }}
     </a>
   </article>
 
@@ -262,8 +238,8 @@ sitemap: true
       </li>
       {% endfor %}
     </ul>
-    <a href="{{ '/blog/' | relative_url }}" class="btn-read-more">
-      {{ site.data[site.active_lang].strings.view_all_posts }}
+    <a href="{{ '/blog/category/gamedev/' | relative_url }}" class="btn-read-more">
+      {{ site.data[site.active_lang].strings.gamedev_cta | default: site.data[site.active_lang].strings.view_all_posts }}
     </a>
   </article>
 
@@ -294,8 +270,8 @@ sitemap: true
       </li>
       {% endfor %}
     </ul>
-    <a href="{{ '/blog/' | relative_url }}" class="btn-read-more">
-      {{ site.data[site.active_lang].strings.view_all_posts }}
+    <a href="{{ '/blog/category/personal/' | relative_url }}" class="btn-read-more">
+      {{ site.data[site.active_lang].strings.personal_cta | default: site.data[site.active_lang].strings.view_all_posts }}
     </a>
   </article>
 
@@ -329,6 +305,30 @@ sitemap: true
       {{ site.data[site.active_lang].strings.edu_cta }}
     </a>
   </article>
+
+  <!-- ══════════════════════════════════════════
+           CARD 7 — OGCRUNCHER (1 col × 1 row)
+           ══════════════════════════════════════════ -->
+  <a href="https://figarist.github.io/OGCruncher/" target="_blank" rel="noopener" class="hub-card card--cruncher fade-in" id="cruncher" aria-label="{{ site.data[site.active_lang].strings.aria_visit_cruncher }}">
+    <div class="card-label">{{ site.data[site.active_lang].strings.utility_core_label }}</div>
+    <div class="cruncher__terminal">
+      <div class="terminal__bar">
+        <span class="terminal__dot dot--red"></span>
+        <span class="terminal__dot dot--yellow"></span>
+        <span class="terminal__dot dot--green"></span>
+      </div>
+      <div class="terminal__body">
+        <code class="terminal__line"><span class="t-comment">// og-cruncher engine</span></code>
+        <code class="terminal__line"><span class="t-kw">const</span> ctx = <span class="t-fn">new</span> OfflineContext()</code>
+        <code class="terminal__line"><span class="t-fn">crunch</span>(buffer, <span class="t-val">8</span>)</code>
+        <code class="terminal__line terminal__line--cursor">_</code>
+      </div>
+    </div>
+    <h2 class="cruncher__title">{{ site.data[site.active_lang].strings.cruncher_title }}</h2>
+    <p class="cruncher__desc">
+      {{ site.data[site.active_lang].strings.cruncher_desc }}
+    </p>
+  </a>
 
   <!-- ══════════════════════════════════════════
            CARD 12 — LEGO WEDO CATALOG (3 col × 1 row)

@@ -101,8 +101,8 @@ LANGS.forEach(function(lang) {
       // But based on project rules, we prefer suffixes for clarity or follow Polyglot patterns.
   }
   
-  var targetPath = path.join(dir, targetName);
-  var permalink = (lang === DEFAULT_LANG) ? (basePath + '/' + slug + '/') : ('/' + lang + basePath + '/' + slug + '/');
+  // Polyglot handles language prefixes automatically. Permalink MUST be identical across all translations.
+  var permalink = basePath + '/' + slug + '/';
 
   if (fs.existsSync(targetPath)) {
     // Update existing file

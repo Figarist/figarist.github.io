@@ -66,7 +66,7 @@ nav_shrine: "Святиня"
 # HEAD META
 head_title_suffix: " — Indie розробник та вчитель"
 head_desc: "Персональний сайт Ігоря Сівочки. Unity розробник, засновник Wrist & Pocket Studio та вчитель інформатики з України."
-head_keywords: "Ігор Сівочка, Figarist, інді розробник, Unity розробник, вчитель інформатики, Wear OS, C#, розробка ігор, Україна, Wrist and Pocket Studio, OGCruncher, біт-крашер, ogg компресор"
+head_keywords: "Ігор Сівочка, Figarist, інді розробник, Unity розробник, вчитель інформатики, Wear OS, C#, розробка ігор, Україна, Wrist and Pocket Studio, LEGO WeDo 2.0, робототехніка, каталог лего, OGCruncher, аудіо компресор"
 head_author: "Ігор Сівочка"
 head_og_desc: "Unity розробник, засновник Wrist & Pocket Studio та вчитель інформатики. Створюю ігри для Wear OS."
 
@@ -142,4 +142,3 @@ lego_stat_type: "НЕКОМЕРЦІЙНИЙ"
 lego_cta: "Відкрити каталог"
 aria_visit_lego: "Відкрити LEGO WeDo 2.0 Каталог — освітній ресурс Ігоря Сівочки"
 nav_lego_catalog: "LEGO WeDo Каталог"
-head_keywords: "Ігор Сівочка, Figarist, інді розробник, Unity розробник, вчитель інформатики, Wear OS, C#, розробка ігор, Україна, Wrist and Pocket Studio, LEGO WeDo 2.0, робототехніка, каталог лего, OGCruncher, аудіо компресор"

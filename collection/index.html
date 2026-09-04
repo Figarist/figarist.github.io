@@ -1,6 +1,8 @@
 ---
 layout: default
 title: "The Shrine — Figarist"
+title_key: shrine_title
+sitemap: true
 ---
 
 <div class="post-container shrine-hub">
@@ -17,24 +19,40 @@ title: "The Shrine — Figarist"
     <h2 class="shrine-hub__section-title">
         {{ site.data[site.active_lang].strings.shrine_section_handhelds }}
     </h2>
-    <div class="photo-grid">
+    <div class="photo-grid" id="shrine-handhelds-grid">
         <div class="photo-card">
-            <div class="photo-placeholder">DS Collection Photo 1</div>
+            <div class="photo-placeholder">
+                <span class="shrine__badge">VAULT</span>
+                <strong>Nintendo DS Lite</strong>
+                <small>Polar White · ARM9 + ARM7</small>
+            </div>
         </div>
         <div class="photo-card">
-            <div class="photo-placeholder">DS Collection Photo 2</div>
+            <div class="photo-placeholder">
+                <span class="shrine__badge">VAULT</span>
+                <strong>Nintendo DSi XL</strong>
+                <small>Bronze · Dual IPS Panels</small>
+            </div>
         </div>
         <div class="photo-card">
-            <div class="photo-placeholder">Switch Setup</div>
+            <div class="photo-placeholder">
+                <span class="shrine__badge">VAULT</span>
+                <strong>Nintendo Switch</strong>
+                <small>Custom Joy-Cons · Portable Rig</small>
+            </div>
         </div>
     </div>
 
     <h2 class="shrine-hub__section-title shrine-hub__section-title--spaced">
         {{ site.data[site.active_lang].strings.shrine_section_simracing }}
     </h2>
-    <div class="photo-grid">
-        <div class="photo-card span-wide">
-            <div class="photo-placeholder">Steering Wheel &amp; Setup View</div>
+    <div class="photo-grid" id="shrine-simracing-grid">
+        <div class="photo-card photo-card--featured">
+            <div class="photo-placeholder">
+                <span class="shrine__badge">SIMRIG</span>
+                <strong>Sim Racing Cockpit &amp; Telemetry</strong>
+                <small>Force Feedback Wheel, Load-Cell Pedals &amp; Simcade Station</small>
+            </div>
         </div>
     </div>
 </div>

@@ -5,12 +5,17 @@ description: "Як використовувати Minecraft для навчан�
 last_modified_at: null
 date: "2026-02-26 10:15:00 +0200"
 lang: "uk"
-page_id: null
+page_id: "minecraft-python-edu"
 permalink: "/blog/minecraft-python/"
-excerpt: null
-category: null
-categories: null
-tags: null
+excerpt: "Як використовувати Minecraft для навчання школярів основам програмування мовою Python."
+category: "education"
+categories:
+  - "education"
+tags:
+  - "python"
+  - "minecraft"
+  - "education"
+  - "coding"
 author: "ihor"
 image: null
 image_alt: null

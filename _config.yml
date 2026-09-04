@@ -51,6 +51,9 @@ exclude:
   - build_verbose.txt
   - deployment_guide.md
   - project_context.md
+  - .frontmatter/
+  - schema.json
+  - _drafts/
 
 # ── Plugins ──────────────────────────────────────────────────
 plugins:

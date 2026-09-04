@@ -20,12 +20,12 @@ seo_type: "BlogPosting"
 canonical_url: null
 robots: null
 noindex: null
-sitemap: true
+sitemap: false
 related_posts: null
 featured: null
 hidden: null
 redirect_from: null
 toc: true
-published: true
+published: false
 fmContentType: "Post"
 ---

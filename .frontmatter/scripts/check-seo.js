@@ -225,12 +225,13 @@ if (!author) {
 }
 
 // ────── HEADING STRUCTURE ──────
-var h1Count = (body.match(/^#\s+/gm) || []).length;
+var bodyWithoutCode = body.replace(/```[\s\S]*?```/g, '');
+var h1Count = (bodyWithoutCode.match(/^#\s+/gm) || []).length;
 if (h1Count > 0) {
   warnings.push('Found ' + h1Count + ' x H1 (# ) in body. Use ## (H2) for sections — H1 is the title.');
 }
 
-var hasH2 = /^##\s+/m.test(body);
+var hasH2 = /^##\s+/m.test(bodyWithoutCode);
 if (body.trim().length > 500 && !hasH2) {
   tips.push('Long article with no H2 headings. Consider adding section structure.');
 }

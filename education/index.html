@@ -1,6 +1,9 @@
 ---
 layout: default
+title: "Education Hub — Figarist"
 title_key: education_hub_title
+description: "Evergreen computer science tutorials, robotics lessons, and programming guides by Ihor Sivochka."
+sitemap: true
 ---
 
 <div class="post-container edu-hub">
@@ -15,7 +18,7 @@ title_key: education_hub_title
     </p>
 
     <div class="edu-hub__list">
-        {% assign sorted_edu = site.education | where: "lang", site.active_lang | sort: "sort_order" %}
+        {% assign sorted_edu = site.education | where: "lang", site.active_lang | where_exp: "item", "item.published != false" | sort: "sort_order" %}
         {% for item in sorted_edu %}
         <a href="{{ item.url | relative_url }}" class="hub-card edu-hub__card fade-in">
 
@@ -34,6 +37,10 @@ title_key: education_hub_title
             </div>
             {% endif %}
         </a>
+        {% else %}
+        <div class="hub-card edu-hub__card" style="text-align: center; color: var(--text-muted);">
+            <p>{{ site.data[site.active_lang].strings.edu_empty }}</p>
+        </div>
         {% endfor %}
     </div>
 </div>

@@ -1,19 +1,14 @@
-back_to_hub: "← На Главную"
-read_more: "Читать далее"
 skip_to_content: "Перейти к основному контенту"
 related_posts: "Смотрите также"
 
 # BIO CARD
 bio_roles: "Unity Разработчик · Преподаватель · Ретро Энтузиаст"
-bio_location: "Змиев, Украина"
 bio_tagline: "Создаю маленькие миры для маленьких экранов — инди-разработчик и преподаватель."
 author_name: "Ігор Сівочка"
 author_bio: "Разработчик инди-игр, энтузиаст Wear OS и учитель информатики. Основатель Wrist & Pocket Studio. Увлекаюсь ретро-железом и созданием интерактивного цифрового опыта."
 
 # STUDIO CARD
 studio_sub: "Строим будущее игр для Wear OS"
-visit_studio: "Посетить Студию"
-studio_site: "⌚ Сайт Студии →"
 
 # WEBGL CARD
 webgl_sub: "Интерактивные демо Unity в вашем браузере"
@@ -52,9 +47,6 @@ edu_subtitle: "Вечнозеленые туториалы и гайды"
 edu_empty: "Туториалы уже на подходе — следите за обновлениями."
 edu_cta: "Все статьи →"
 
-# CONTACT CARD
-contact_intro: "Найдите меня в сети"
-
 # GLOBAL UI
 nav_brand: "ХАБ"
 main_nav_aria: "Главная навигация"
@@ -63,13 +55,6 @@ nav_playground: "Площадка"
 nav_stack: "Стек"
 nav_shrine: "Святилище"
 
-# HEAD META
-head_title_suffix: " — Indie разработчик и учитель"
-head_desc: "Персональный сайт Игоря Сивочки. Unity разработчик, основатель Wrist & Pocket Studio и учитель информатики из Украины."
-head_keywords: "Игорь Сивочка, Figarist, разработчик инди-игр, Unity developer, учитель информатики, Wear OS, C#, game dev, Украина, Wrist and Pocket Studio, OGCruncher, бит-крашер, ogg компрессор"
-head_author: "Игорь Сивочка"
-head_og_desc: "Unity разработчик, основатель Wrist & Pocket Studio и учитель информатики. Создаю игры для Wear OS."
-
 # FOOTER
 footer_compiled: "Собрано"
 footer_explore: "Исследовать"
@@ -77,11 +62,8 @@ footer_connect: "Связь"
 footer_handmade: "Сделано с любовью и кодом в Украине."
 footer_rights: "Все права защищены."
 
-# OG LOCALES
-head_og_locale: ru_RU
-head_og_locale_alternates: ["en_US", "uk_UA", "ko_KR"]
-
 # ADDITIONAL UI KEYS
+toc_heading: "Содержание"
 min_read: "мин чтения"
 bio_location_full: "Змиев, Украина"
 studio_badge: "ФЛАГМАН"
@@ -99,7 +81,6 @@ aria_load_webgl: "Нажмите, чтобы загрузить демо WebGL"
 webgl_iframe_title: "Демо Unity WebGL"
 aria_visit_cruncher: "Открыть OGCruncher — инструмент для обработки аудио"
 cruncher_title: "OGCruncher"
-error_404_title: "404 — Не найдено"
 error_404_h2: "Файл не найден"
 error_404_text: "Страница, которую вы ищете, не существует или была перенесена."
 error_404_back: "← Вернуться на базу"
@@ -111,7 +92,6 @@ education_hub_subtitle: "Актуальные туториалы, руковод
 blog_hub_title: "Мастерская / Блог"
 blog_hub_subtitle: "Последние заметки и девлоги."
 no_posts_found: "Публикаций не найдено."
-blog_archive_heading: "Архив"
 prev_page: "← Предыдущая"
 next_page: "Следующая →"
 page_count: "Страница"
@@ -126,7 +106,6 @@ search_no_results: "Ничего не найдено по запросу"
 lang_switch_label: "Выбор языка"
 
 # ── Archives ──
-category_label: "Категория"
 posts_count: "публикаций"
 all_categories: "Все категории"
 all_tags: "Все теги"
@@ -142,4 +121,3 @@ lego_stat_type: "НЕКОММЕРЧЕСКИЙ"
 lego_cta: "Открыть каталог"
 aria_visit_lego: "Открыть LEGO WeDo 2.0 Каталог — образовательный ресурс Игоря Сивочки"
 nav_lego_catalog: "LEGO WeDo Каталог"
-head_keywords: "Игорь Сивочка, Figarist, инди-разработчик, Unity разработчик, учитель информатики, Wear OS, C#, разработка игр, Украина, Wrist and Pocket Studio, LEGO WeDo 2.0, робототехника, каталог лего, OGCruncher, аудио компрессор"

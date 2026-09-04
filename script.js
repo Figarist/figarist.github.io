@@ -473,6 +473,16 @@ const code = codeEl.textContent;
         executeSearch(e.target.value);
       }, 200),
     );
+
+    searchInput.addEventListener("keydown", function (e) {
+      if (e.key === "Enter") {
+        var firstResult = searchResults ? searchResults.querySelector(".search-result-item") : null;
+        if (firstResult && firstResult.href) {
+          e.preventDefault();
+          window.location.href = firstResult.href;
+        }
+      }
+    });
   }
 
   if (closeSearch) {
@@ -501,9 +511,11 @@ const code = codeEl.textContent;
     });
 
     // Handle trigger state update via trigger logic directly above
-    searchTrigger.addEventListener("click", function () {
-      toggleSearch(!searchModal.open);
-    });
+    if (searchTrigger) {
+      searchTrigger.addEventListener("click", function () {
+        toggleSearch(!searchModal.open);
+      });
+    }
   }
 
   /* ——————————————————————————————————————————

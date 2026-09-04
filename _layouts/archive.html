@@ -8,8 +8,9 @@ layout: default
 
   <div class="archive-hub__header">
     <h1 class="hub-page-title">{{ page.title | upcase }}</h1>
+    {% assign lang_posts = page.posts | where: "lang", site.active_lang %}
     <p class="hub-page-subtitle">
-      {{ page.posts | size }} {{ site.data[site.active_lang].strings.posts_count | default: "posts" }}
+      {{ lang_posts.size }} {{ site.data[site.active_lang].strings.posts_count | default: "posts" }}
     </p>
   </div>
 

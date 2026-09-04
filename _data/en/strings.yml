@@ -1,19 +1,14 @@
-back_to_hub: "← Back to Hub"
-read_more: "Read More"
 skip_to_content: "Skip to main content"
 related_posts: "Keep Reading"
 
 # BIO CARD
 bio_roles: "Unity Dev · Educator · Retro Enthusiast"
-bio_location: "Zmiiv, Ukraine"
 bio_tagline: "Building tiny worlds for tiny screens — indie gamedev and educator."
 author_name: "Ihor Sivochka"
 author_bio: "Indie Game Developer, Wear OS enthusiast, and CS Teacher. Founder of Wrist & Pocket Studio. Passionate about retro hardware and building interactive digital experiences."
 
 # STUDIO CARD
 studio_sub: "Building the future of Wear OS gaming"
-visit_studio: "Visit Studio"
-studio_site: "⌚ Studio Site →"
 
 # WEBGL CARD
 webgl_sub: "Interactive Unity demos in your browser"
@@ -52,9 +47,6 @@ edu_subtitle: "Evergreen tutorials & guides"
 edu_empty: "Tutorials incoming — stay tuned."
 edu_cta: "All articles →"
 
-# CONTACT CARD
-contact_intro: "Find me across the web"
-
 # GLOBAL UI
 nav_brand: "HUB"
 main_nav_aria: "Main navigation"
@@ -63,13 +55,6 @@ nav_playground: "Playground"
 nav_stack: "Stack"
 nav_shrine: "Shrine"
 
-# HEAD META
-head_title_suffix: " — Indie Dev & Tech Educator"
-head_desc: "Personal site of Ihor Sivochka. Unity developer, founder of Wrist & Pocket Studio, and computer science teacher based in Ukraine."
-head_keywords: "Ihor Sivochka, Figarist, indie game developer, Unity developer, computer science teacher, Wear OS, C#, game dev, Ukraine, Wrist and Pocket Studio, LEGO WeDo 2.0, robotics, lego catalog, OGCruncher, audio compressor"
-head_author: "Ihor Sivochka"
-head_og_desc: "Unity developer, founder of Wrist & Pocket Studio, and computer science teacher. Building games for Wear OS."
-
 # FOOTER
 footer_compiled: "Compiled by"
 footer_explore: "Explore"
@@ -77,11 +62,8 @@ footer_connect: "Connect"
 footer_handmade: "Built with heart & code in Ukraine."
 footer_rights: "All rights reserved."
 
-# OG LOCALES
-head_og_locale: en_US
-head_og_locale_alternates: ["uk_UA", "ru_RU", "ko_KR"]
-
 # ADDITIONAL UI KEYS
+toc_heading: "Contents"
 min_read: "min read"
 bio_location_full: "Zmiiv, Ukraine"
 studio_badge: "FLAGSHIP"
@@ -99,7 +81,6 @@ aria_load_webgl: "Click to load WebGL demo"
 webgl_iframe_title: "Unity WebGL Demo"
 aria_visit_cruncher: "Open OGCruncher — audio bit-crusher tool"
 cruncher_title: "OGCruncher"
-error_404_title: "404 — Not Found"
 error_404_h2: "File Not Found"
 error_404_text: "The page you looking for doesn't exist or has been moved."
 error_404_back: "← Back to Base"
@@ -111,7 +92,6 @@ education_hub_subtitle: "Evergreen tutorials, guides, and lesson plans."
 blog_hub_title: "The Workshop / Blog"
 blog_hub_subtitle: "Latest notes & dev logs."
 no_posts_found: "No posts found."
-blog_archive_heading: "Archive"
 prev_page: "← Previous"
 next_page: "Next →"
 page_count: "Page"
@@ -126,7 +106,6 @@ search_no_results: "No matches found for"
 lang_switch_label: "Language selection"
 
 # ── Archives ──
-category_label: "Category"
 posts_count: "posts"
 all_categories: "All Categories"
 all_tags: "All Tags"

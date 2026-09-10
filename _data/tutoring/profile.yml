@@ -1,0 +1,31 @@
+# Optional public profile evidence. Do not store identity documents here.
+status: draft
+portrait:
+  path: null
+  aspect_ratio: "4 / 5"
+  object_position: "center"
+translations:
+  en:
+    ready: false
+    short_description: null
+    long_description: null
+    portrait_alt: null
+  uk:
+    ready: false
+    short_description: null
+    long_description: null
+    portrait_alt: null
+  ru:
+    ready: false
+    short_description: null
+    long_description: null
+    portrait_alt: null
+  ko:
+    ready: false
+    short_description: null
+    long_description: null
+    portrait_alt: null
+verified_facts:
+  experience: []
+  education: []
+  certifications: []

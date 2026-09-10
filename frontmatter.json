@@ -28,6 +28,13 @@
       "contentTypes": [
         "Post"
       ]
+    },
+    {
+      "title": "Tutoring cases",
+      "path": "[[workspace]]/_data/tutoring/cases",
+      "contentTypes": [
+        "Student Case"
+      ]
     }
   ],
   "frontMatter.content.draftField": {
@@ -453,6 +460,98 @@
           "default": "Education"
         }
       ]
+    },
+    {
+      "name": "Student Case",
+      "pageBundle": false,
+      "previewPath": "/tutoring/",
+      "fields": [
+        {
+          "title": "Stable ID",
+          "name": "id",
+          "type": "string",
+          "required": true,
+          "description": "Permanent identifier; do not change after publishing."
+        },
+        {
+          "title": "Slug",
+          "name": "slug",
+          "type": "string",
+          "required": true,
+          "description": "Stable record slug used for maintenance, not a public route."
+        },
+        {
+          "title": "Direction",
+          "name": "direction",
+          "type": "choice",
+          "choices": [
+            "unity",
+            "python",
+            "scratch"
+          ],
+          "required": true
+        },
+        {
+          "title": "Display order",
+          "name": "order",
+          "type": "number",
+          "description": "Lower numbers appear first."
+        },
+        {
+          "title": "Featured on home",
+          "name": "featured",
+          "type": "boolean",
+          "default": false
+        },
+        {
+          "title": "Publication status",
+          "name": "status",
+          "type": "choice",
+          "choices": [
+            "draft",
+            "published"
+          ],
+          "default": "draft",
+          "required": true
+        },
+        {
+          "title": "Permission confirmed",
+          "name": "permission",
+          "type": "boolean",
+          "default": false,
+          "description": "Set true only when publication permission is confirmed."
+        },
+        {
+          "title": "Student name",
+          "name": "student_name",
+          "type": "string",
+          "description": "Optional; anonymous cases are supported."
+        },
+        {
+          "title": "Age or grade",
+          "name": "age_or_grade",
+          "type": "string",
+          "description": "Optional; use only when allowed to publish."
+        },
+        {
+          "title": "Actual duration",
+          "name": "duration",
+          "type": "string",
+          "description": "Optional factual duration for this case only."
+        },
+        {
+          "title": "Translations",
+          "name": "translations",
+          "type": "string",
+          "description": "Edit the language blocks in the case template; each ready language is published separately."
+        },
+        {
+          "title": "Media",
+          "name": "media",
+          "type": "string",
+          "description": "Optional cover, gallery, video and playable links; use the documented YAML structure."
+        }
+      ]
     }
   ],
   "frontMatter.data.files": [
@@ -478,6 +577,36 @@
             "type": "string"
           }
         }
+      }
+    },
+    {
+      "id": "tutoring-settings",
+      "title": "Tutoring settings (shared facts)",
+      "file": "[[workspace]]/_data/tutoring/settings.yml",
+      "fileType": "yaml",
+      "schema": {
+        "title": "Shared tutoring settings",
+        "type": "object"
+      }
+    },
+    {
+      "id": "tutoring-profile",
+      "title": "Tutoring profile",
+      "file": "[[workspace]]/_data/tutoring/profile.yml",
+      "fileType": "yaml",
+      "schema": {
+        "title": "Optional public profile",
+        "type": "object"
+      }
+    },
+    {
+      "id": "tutoring-testimonials",
+      "title": "Tutoring testimonials",
+      "file": "[[workspace]]/_data/tutoring/testimonials.yml",
+      "fileType": "yaml",
+      "schema": {
+        "title": "Permissioned testimonials",
+        "type": "object"
       }
     }
   ],

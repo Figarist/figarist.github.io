@@ -11,7 +11,7 @@
     <!-- ============================================================
        CONTENT
        ============================================================ -->
-    <main class="jekyll-main hub-page" id="main-content">
+    <main class="jekyll-main{% if page.is_home %} hub-page{% endif %}{% if page.tutoring %} tutoring-main{% endif %}" id="main-content">
         {{ content }}
     </main>
 

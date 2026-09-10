@@ -38,7 +38,7 @@
                 if (nextPath === '') nextPath = '/';
 
                 if (currentPath !== nextPath) {
-                    window.location.replace(nextPath + window.location.hash);
+                    window.location.replace(nextPath + window.location.search + window.location.hash);
                 }
             }
         } catch (e) {

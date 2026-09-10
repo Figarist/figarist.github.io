@@ -1,0 +1,22 @@
+# Empty Unity case draft. Fill it without editing HTML, Ruby or SCSS.
+id: unity-case-1
+slug: unity-case-1
+direction: unity
+order: 1
+featured: false
+status: draft
+permission: false
+student_name: null
+age_or_grade: null
+duration: null
+media:
+  cover:
+    path: null
+  additional_images: []
+  video_url: null
+  playable_url: null
+translations:
+  en: {ready: false, title: null, card_description: null, full_description: null, starting_level: null, goal: null, created: null, student_work: null, tutor_help: null, skills: [], evidence: null, cover_alt: null}
+  uk: {ready: false, title: null, card_description: null, full_description: null, starting_level: null, goal: null, created: null, student_work: null, tutor_help: null, skills: [], evidence: null, cover_alt: null}
+  ru: {ready: false, title: null, card_description: null, full_description: null, starting_level: null, goal: null, created: null, student_work: null, tutor_help: null, skills: [], evidence: null, cover_alt: null}
+  ko: {ready: false, title: null, card_description: null, full_description: null, starting_level: null, goal: null, created: null, student_work: null, tutor_help: null, skills: [], evidence: null, cover_alt: null}

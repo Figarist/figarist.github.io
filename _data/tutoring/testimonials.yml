@@ -1,0 +1,15 @@
+# Published testimonials need the owner's permission and a ready status.
+# mode: exact_text keeps the source text unchanged; source_only shows only a link.
+template:
+  id: null
+  mode: exact_text
+  status: draft
+  ready: false
+  permission: false
+  language: null
+  text: null
+  signature: null
+  source_url: null
+  date: null
+  direction: null
+items: []

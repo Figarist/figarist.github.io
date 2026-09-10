@@ -1,0 +1,140 @@
+---
+layout: default
+---
+{% assign t = site.data[site.active_lang].tutoring %}
+{% assign s = site.data[site.active_lang].strings %}
+{% assign tutoring_settings = site.data.tutoring.settings %}
+{% assign course = t.courses | where: 'slug', page.course | first %}
+
+<article class="tutoring-page">
+  <nav class="breadcrumbs" aria-label="{{ t.nav | escape }}">
+    <a href="{{ '/' | relative_url }}">Figarist</a>
+    <span aria-hidden="true">/</span>
+    <a href="{{ '/tutoring/' | relative_url }}">{{ t.nav }}</a>
+    {% if course %}<span aria-hidden="true">/</span><span>{{ course.heading }}</span>{% endif %}
+  </nav>
+
+  <section class="tutoring-hero" aria-labelledby="tutoring-title">
+    <div class="tutoring-hero__copy">
+      <p class="tutoring-eyebrow">Figarist · {{ t.name }}</p>
+      <h1 id="tutoring-title">{{ course.title | default: t.heading }}</h1>
+      <p class="tutoring-lead">{{ course.intro | default: t.intro }}</p>
+      <div class="tutoring-hero__facts">
+        <span>{{ t.language }}</span>
+        <strong>{% if s.price_unit_before %}{{ s.price_unit }} {{ tutoring_settings.price.amount }} {{ tutoring_settings.price.currency }}{% elsif s.price_currency_before %}{{ tutoring_settings.price.currency }} {{ tutoring_settings.price.amount }} {{ s.price_unit }}{% else %}{{ tutoring_settings.price.amount }} {{ s.price_currency_label }} {{ s.price_unit }}{% endif %}</strong>
+      </div>
+      <div class="tutoring-hero__actions">
+        {% include tutoring-contact.html %}
+        <a class="button button--quiet" href="#conditions">{{ s.tutoring_details_cta }} <span aria-hidden="true">↓</span></a>
+      </div>
+      <p class="tutoring-note tutoring-adult-note">{{ s.tutoring_adult_note }}</p>
+    </div>
+    {% if course and course.slug != 'unity' %}
+    <aside class="tutoring-hero__aside tutoring-hero__aside--course" aria-label="{{ s.tutoring_course_label }}">
+      <div class="tutoring-hero__aside-label">{{ t.projects }}</div>
+      <div class="tutoring-hero__course-note">
+        <ul class="check-list">{% for example in course.examples %}<li>{{ example }}</li>{% endfor %}</ul>
+        <p>{{ t.project_note }}</p>
+      </div>
+    </aside>
+    {% else %}
+    <div class="tutoring-hero__aside">
+      <div class="tutoring-hero__aside-label">{{ s.home_practice_label }}</div>
+      <img src="{{ tutoring_settings.proof.own_project.image | relative_url }}" alt="{{ s.home_project_image_alt }}" width="480" height="300">
+      <div>
+        <strong>{{ tutoring_settings.proof.own_project.title }}</strong>
+        <p>{{ s.tutoring_project_proof }}</p>
+        <a class="text-link text-link--light" href="{{ tutoring_settings.proof.own_project.url | relative_url }}">{{ s.home_project_cta }} <span aria-hidden="true">→</span></a>
+      </div>
+    </div>
+    {% endif %}
+  </section>
+
+  {% if course %}
+  <section class="tutoring-section tutoring-section--course" id="course-details" aria-labelledby="course-title">
+    <div class="section-heading section-heading--compact">
+      <div><p class="section-kicker">{{ s.tutoring_course_label }}</p><h2 id="course-title">{{ t.learn }}</h2></div>
+    </div>
+    <div class="course-detail-grid">
+      <div><h3>{{ s.tutoring_topics_label }}</h3><ul class="check-list">{% for topic in course.topics %}<li>{{ topic }}</li>{% endfor %}</ul></div>
+      {% if course.slug == 'unity' %}<div><h3>{{ t.projects }}</h3><ul class="check-list">{% for example in course.examples %}<li>{{ example }}</li>{% endfor %}</ul><p class="tutoring-note">{{ t.project_note }}</p></div>{% endif %}
+    </div>
+  </section>
+
+  <section class="tutoring-section tutoring-section--process" aria-labelledby="process-title">
+    <div class="section-heading section-heading--compact">
+      <div><p class="section-kicker">{{ s.tutoring_process_label }}</p><h2 id="process-title">{{ t.approach }}</h2></div>
+      <p>{{ s.tutoring_process_intro }}</p>
+    </div>
+    <ol class="process-list">{% for step in t.steps %}<li><span>0{{ forloop.index }}</span><p>{{ step }}</p></li>{% endfor %}</ol>
+  </section>
+  {% endif %}
+
+  <section class="tutoring-section tutoring-section--directions{% if course %} tutoring-section--related{% endif %}" id="details" aria-labelledby="directions-title">
+    <div class="section-heading section-heading--compact">
+      <div><p class="section-kicker">{{ s.home_learning_label }}</p><h2 id="directions-title">{% if course %}{{ s.tutoring_related_title }}{% else %}{{ t.choose }}{% endif %}</h2></div>
+      <p>{% if course %}{{ s.tutoring_related_intro }}{% else %}{{ s.tutoring_directions_intro }}{% endif %}</p>
+    </div>
+    <div class="tutoring-options">
+      {% for option in t.courses %}
+      {% unless course and course.slug == option.slug %}
+      <a class="tutoring-option" href="{{ '/tutoring/' | append: option.slug | append: '/' | relative_url }}"{% if course.slug == option.slug %} aria-current="page"{% endif %}>
+        <span class="tutoring-option__number">0{{ forloop.index }}</span>
+        <div><h3>{{ option.heading }}</h3>{% unless course %}<p>{{ option.intro }}</p>{% endunless %}</div>
+        <span class="tutoring-option__arrow" aria-hidden="true">→</span>
+      </a>
+      {% endunless %}
+      {% endfor %}
+    </div>
+  </section>
+
+  <section class="tutoring-section tutoring-section--trust" aria-labelledby="trust-title">
+    <div class="trust-copy"><p class="section-kicker">{{ s.home_trust_label }}</p><h2 id="trust-title">{{ t.proof }}</h2><p>{{ t.proof_text }}</p></div>
+    <div class="trust-links">
+      <a href="{{ tutoring_settings.proof.studio_url }}" target="_blank" rel="noopener"><span aria-hidden="true">✦</span><span><strong>{{ s.nav_studio }}</strong><small>{{ s.home_studio_detail }}</small></span><span aria-hidden="true">↗</span></a>
+      <a href="{{ tutoring_settings.proof.buki_url }}" target="_blank" rel="noopener"><span aria-hidden="true">↗</span><span><strong>{{ t.reviews }}</strong><small>{{ s.tutoring_buki_detail }}</small></span><span aria-hidden="true">↗</span></a>
+    </div>
+  </section>
+
+  <section class="tutoring-section tutoring-section--conditions" id="conditions" aria-labelledby="conditions-title">
+    <div class="section-heading section-heading--compact"><div><p class="section-kicker">{{ s.tutoring_conditions_label }}</p><h2 id="conditions-title">{{ s.tutoring_conditions_title }}</h2></div><p>{{ s.tutoring_conditions_intro }}</p></div>
+    <div class="conditions-grid">
+      <div class="condition-card"><span aria-hidden="true">01</span><h3>{{ s.tutoring_format_title }}</h3><p>{{ t.language }}</p></div>
+      <div class="condition-card"><span aria-hidden="true">02</span><h3>{{ s.tutoring_price_title }}</h3><p>{% if s.price_unit_before %}{{ s.price_unit }} {{ tutoring_settings.price.amount }} {{ tutoring_settings.price.currency }}{% elsif s.price_currency_before %}{{ tutoring_settings.price.currency }} {{ tutoring_settings.price.amount }} {{ s.price_unit }}{% else %}{{ tutoring_settings.price.amount }} {{ s.price_currency_label }} {{ s.price_unit }}{% endif %}<br>{% include tutoring-payment.html %}</p></div>
+      <div class="condition-card"><span aria-hidden="true">03</span><h3>{{ s.tutoring_contact_title }}</h3><p>{{ t.availability }}</p></div>
+    </div>
+    {% assign optional_conditions = tutoring_settings.conditions %}
+    {% assign technical_requirements = optional_conditions.technical_requirements %}
+    {% if optional_conditions.duration or optional_conditions.first_lesson or optional_conditions.rescheduling or optional_conditions.cancellation or optional_conditions.payment_order or optional_conditions.platform or technical_requirements.unity or technical_requirements.python or technical_requirements.scratch or optional_conditions.homework or optional_conditions.progress %}
+    <dl class="conditions-extra">
+      {% if optional_conditions.duration %}<div><dt>{{ s.duration_label }}</dt><dd>{{ optional_conditions.duration }}</dd></div>{% endif %}
+      {% if optional_conditions.first_lesson %}<div><dt>{{ s.first_lesson_label }}</dt><dd>{{ optional_conditions.first_lesson }}</dd></div>{% endif %}
+      {% if optional_conditions.rescheduling %}<div><dt>{{ s.rescheduling_label }}</dt><dd>{{ optional_conditions.rescheduling }}</dd></div>{% endif %}
+      {% if optional_conditions.cancellation %}<div><dt>{{ s.cancellation_label }}</dt><dd>{{ optional_conditions.cancellation }}</dd></div>{% endif %}
+      {% if optional_conditions.payment_order %}<div><dt>{{ s.payment_order_label }}</dt><dd>{{ optional_conditions.payment_order }}</dd></div>{% endif %}
+      {% if optional_conditions.platform %}<div><dt>{{ s.platform_label }}</dt><dd>{{ optional_conditions.platform }}</dd></div>{% endif %}
+      {% if technical_requirements.unity %}<div><dt>{{ s.technical_requirements_label }} · Unity</dt><dd>{{ technical_requirements.unity }}</dd></div>{% endif %}
+      {% if technical_requirements.python %}<div><dt>{{ s.technical_requirements_label }} · Python</dt><dd>{{ technical_requirements.python }}</dd></div>{% endif %}
+      {% if technical_requirements.scratch %}<div><dt>{{ s.technical_requirements_label }} · Scratch</dt><dd>{{ technical_requirements.scratch }}</dd></div>{% endif %}
+      {% if optional_conditions.homework %}<div><dt>{{ s.homework_label }}</dt><dd>{{ optional_conditions.homework }}</dd></div>{% endif %}
+      {% if optional_conditions.progress %}<div><dt>{{ s.progress_label }}</dt><dd>{{ optional_conditions.progress }}</dd></div>{% endif %}
+    </dl>
+    {% endif %}
+  </section>
+
+  {% include tutoring-cases.html %}
+  {% include tutoring-profile.html %}
+  {% include tutoring-testimonials.html %}
+
+  <section class="tutoring-section tutoring-section--faq" aria-labelledby="faq-title">
+    <div class="section-heading section-heading--compact"><div><p class="section-kicker">{{ s.tutoring_faq_label }}</p><h2 id="faq-title">{{ t.faq }}</h2></div><p>{{ s.tutoring_faq_intro }}</p></div>
+    <div class="faq-list">{% for question in t.questions %}<details class="tutoring-faq"><summary>{{ question[0] }}</summary><p>{% if question[0] == t.payment_question %}{% include tutoring-payment.html %}{% else %}{{ question[1] }}{% endif %}</p></details>{% endfor %}</div>
+  </section>
+
+  <section class="tutoring-contact-panel" aria-labelledby="contact-title">
+    <div><p class="section-kicker">{{ s.tutoring_contact_label }}</p><h2 id="contact-title">{{ t.contact }}</h2><p>{{ t.contact_text }}</p></div>
+    <div><p class="tutoring-price">{% if s.price_unit_before %}{{ s.price_unit }} {{ tutoring_settings.price.amount }} {{ tutoring_settings.price.currency }}{% elsif s.price_currency_before %}{{ tutoring_settings.price.currency }} {{ tutoring_settings.price.amount }} {{ s.price_unit }}{% else %}{{ tutoring_settings.price.amount }} {{ s.price_currency_label }} {{ s.price_unit }}{% endif %}</p>{% include tutoring-contact.html %}</div>
+  </section>
+</article>
+
+{% include metadata/tutoring.html %}

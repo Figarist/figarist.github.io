@@ -1,0 +1,35 @@
+{% assign tutoring_profile = site.data.tutoring.profile %}
+{% assign profile_translation = tutoring_profile.translations[site.active_lang] %}
+{% if tutoring_profile.status == 'published' and profile_translation.ready == true %}
+<section class="tutoring-section tutoring-section--profile" aria-labelledby="profile-title">
+  <div class="profile-copy">
+    <p class="section-kicker">{{ site.data[site.active_lang].strings.home_trust_label }}</p>
+    <h2 id="profile-title">{{ tutoring_profile.name | default: site.data[site.active_lang].tutoring.name }}</h2>
+    <p>{{ profile_translation.short_description }}</p>
+    <p>{{ profile_translation.long_description }}</p>
+  </div>
+  {% if tutoring_profile.portrait.path %}
+  {% assign portrait_class = 'profile-portrait--4x5' %}
+  {% if tutoring_profile.portrait.aspect_ratio == '1 / 1' %}{% assign portrait_class = 'profile-portrait--square' %}{% elsif tutoring_profile.portrait.aspect_ratio == '3 / 2' %}{% assign portrait_class = 'profile-portrait--3x2' %}{% endif %}
+  {% assign portrait_position_class = 'profile-portrait--center' %}
+  {% if tutoring_profile.portrait.object_position == 'top' %}{% assign portrait_position_class = 'profile-portrait--top' %}{% elsif tutoring_profile.portrait.object_position == 'bottom' %}{% assign portrait_position_class = 'profile-portrait--bottom' %}{% endif %}
+  <img class="profile-portrait {{ portrait_class }} {{ portrait_position_class }}" src="{{ tutoring_profile.portrait.path | relative_url }}" alt="{{ profile_translation.portrait_alt | escape }}" loading="lazy" width="480" height="600">
+  {% endif %}
+  {% assign published_fact_count = 0 %}
+  {% for group in tutoring_profile.verified_facts %}
+    {% for fact in group[1] %}{% if fact.status == 'published' %}{% assign published_fact_count = published_fact_count | plus: 1 %}{% endif %}{% endfor %}
+  {% endfor %}
+  {% if published_fact_count > 0 %}
+  <div class="profile-facts">
+    <h3>{{ site.data[site.active_lang].strings.profile_facts_title }}</h3>
+    <ul>
+      {% for group in tutoring_profile.verified_facts %}
+        {% for fact in group[1] %}
+          {% if fact.status == 'published' %}<li><strong>{{ fact.title }}</strong>{% if fact.date %}<span>{{ fact.date }}</span>{% endif %}{% if fact.url %}<a href="{{ fact.url }}" target="_blank" rel="noopener">{{ site.data[site.active_lang].strings.profile_source_cta }} <span aria-hidden="true">↗</span></a>{% endif %}</li>{% endif %}
+        {% endfor %}
+      {% endfor %}
+    </ul>
+  </div>
+  {% endif %}
+</section>
+{% endif %}

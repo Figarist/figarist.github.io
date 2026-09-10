@@ -484,6 +484,48 @@ const code = codeEl.textContent;
     });
   });
 
+  /* ——————————————————————————————————————————
+     10. MOBILE NAVIGATION
+     Native <details> remains the no-JS fallback. JS only adds the
+     expected Escape, outside-click and focus-return behavior.
+  —————————————————————————————————————————— */
+  var mobileMenus = document.querySelectorAll(".mobile-menu");
+
+  mobileMenus.forEach(function (menu) {
+    var summary = menu.querySelector("summary");
+    var menuLinks = menu.querySelectorAll(".mobile-menu__panel a");
+
+    if (!summary) return;
+
+    function syncExpandedState() {
+      summary.setAttribute("aria-expanded", menu.open ? "true" : "false");
+    }
+
+    menu.addEventListener("toggle", syncExpandedState);
+
+    menu.addEventListener("keydown", function (e) {
+      if (e.key !== "Escape" || !menu.open) return;
+      e.preventDefault();
+      e.stopPropagation();
+      menu.removeAttribute("open");
+      summary.focus();
+    });
+
+    menuLinks.forEach(function (link) {
+      link.addEventListener("click", function () {
+        menu.removeAttribute("open");
+      });
+    });
+
+    document.addEventListener("pointerdown", function (e) {
+      if (menu.open && !menu.contains(e.target)) {
+        menu.removeAttribute("open");
+      }
+    });
+
+    syncExpandedState();
+  });
+
 })();
 
 // Service Worker Registration

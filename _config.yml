@@ -54,8 +54,14 @@ exclude:
   - build_trace.txt
   - build_verbose.txt
   - deployment_guide.md
+  - docs/
   - project_context.md
   - .frontmatter/
+  - scripts/
+  - test/
+  - frontmatter.json
+  - qa-screenshots
+  - qa-screenshots/**
   - schema.json
   - _drafts/
 
@@ -100,6 +106,7 @@ exclude_from_localization:
   - sw.js
   - sw-register.js
   - redirects.json
+  - qa-screenshots
   - lego-catalog
   - OGCruncher
   - feed.xml

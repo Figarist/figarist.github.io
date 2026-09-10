@@ -5,400 +5,125 @@ seo_jsonld_fallback: false
 sitemap: true
 ---
 
-<div class="hub-grid" id="hub-grid">
+{% assign t = site.data[site.active_lang].tutoring %}
+{% assign s = site.data[site.active_lang].strings %}
+{% assign tutoring_settings = site.data.tutoring.settings %}
 
-  <!-- ══════════════════════════════════════════
-           CARD 1 — BIO (2 col × 1 row)
-           ══════════════════════════════════════════ -->
-  <article class="hub-card card--bio fade-in" id="bio">
-    <div class="bio__doodles" aria-hidden="true">
-      <span class="doodle doodle--star">✦</span>
-      <span class="doodle doodle--bracket">{ }</span>
-      <span class="doodle doodle--heart">♥</span>
-      <span class="doodle doodle--watch">⌚</span>
-    </div>
-    <div class="bio__content">
-      <img src="{{ '/assets/images/figaristgithub.png' | relative_url }}"
-        alt="{{ site.data[site.active_lang].strings.author_name }} avatar" class="bio__avatar" width="72" height="72"
-        fetchpriority="high">
-      <div class="bio__text">
-        <h1 class="bio__name">{{ site.data[site.active_lang].strings.author_name }}</h1>
-        <p class="bio__roles">
-          {{ site.data[site.active_lang].strings.bio_roles }}
-        </p>
-        <p class="bio__location">📍 {{ site.data[site.active_lang].strings.bio_location_full }} 🇺🇦</p>
+<div class="home-shell">
+  <section class="home-hero" id="bio" aria-labelledby="home-title">
+    <div class="home-hero__copy">
+      <p class="home-eyebrow"><span class="home-mark" aria-hidden="true">F</span> Figarist · {{ t.name }}</p>
+      <h1 id="home-title">{{ t.heading }}</h1>
+      <p class="home-hero__lead">{{ t.intro }}</p>
+      <div class="home-hero__facts" aria-label="{{ s.home_facts_label }}">
+        <span>{{ s.home_online_fact }}</span>
+        <strong>{% if s.price_unit_before %}{{ s.price_unit }} {{ tutoring_settings.price.amount }} {{ tutoring_settings.price.currency }}{% elsif s.price_currency_before %}{{ tutoring_settings.price.currency }} {{ tutoring_settings.price.amount }} {{ s.price_unit }}{% else %}{{ tutoring_settings.price.amount }} {{ s.price_currency_label }} {{ s.price_unit }}{% endif %}</strong>
       </div>
-    </div>
-    <p class="bio__tagline">
-      {{ site.data[site.active_lang].strings.bio_tagline }}
-    </p>
-  </article>
-
-  <!-- ══════════════════════════════════════════
-           CARD 2 — WRIST & POCKET STUDIO (2 col × 2 row)
-           ══════════════════════════════════════════ -->
-  <a href="https://wristandpocket.github.io" target="_blank" rel="noopener" class="hub-card card--studio fade-in"
-    id="studio" aria-label="{{ site.data[site.active_lang].strings.aria_visit_studio }}">
-
-    <div class="studio__header">
-      <span class="studio__badge">{{ site.data[site.active_lang].strings.studio_badge }}</span>
-      <h2 class="studio__title">Wrist &amp; Pocket Studio</h2>
-      <p class="studio__sub">
-        {{ site.data[site.active_lang].strings.studio_sub }}
-      </p>
-    </div>
-
-    <div class="studio__watches" aria-hidden="true">
-      <!-- Watch 1: Wear OS Racer -->
-      <div class="watch-mockup" id="watch-racer">
-        <div class="watch-bezel">
-          <div class="watch-screen">
-            <div class="watch-game watch-game--racer">
-              <div class="road"></div>
-              <div class="car car--1">🚗</div>
-              <div class="car car--2">🏎️</div>
-              <div class="road-line"></div>
-            </div>
-          </div>
-        </div>
-        <p class="watch-label">Wear OS Racer</p>
+      <div class="home-hero__actions">
+        <a class="button button--primary" href="{{ tutoring_settings.contact.telegram_url }}" data-goatcounter-click="home-telegram-{{ site.active_lang }}">{{ t.cta }} <span aria-hidden="true">↗</span></a>
+        <a class="button button--quiet" href="#learning">{{ t.choose }} <span aria-hidden="true">↓</span></a>
       </div>
+      <p class="home-hero__note">{{ t.availability }}</p>
+    </div>
 
-      <!-- Watch 2: Micro Puzzle Lab -->
-      <div class="watch-mockup" id="watch-puzzle">
-        <div class="watch-bezel">
-          <div class="watch-screen">
-            <div class="watch-game watch-game--puzzle">
-              <div class="puzzle-grid">
-                <div class="puzzle-tile tile--red">♦</div>
-                <div class="puzzle-tile tile--blue">■</div>
-                <div class="puzzle-tile tile--yellow">▲</div>
-                <div class="puzzle-tile tile--green">●</div>
-                <div class="puzzle-tile tile--yellow">▲</div>
-                <div class="puzzle-tile tile--red">♦</div>
-                <div class="puzzle-tile tile--green">●</div>
-                <div class="puzzle-tile tile--blue">■</div>
-                <div class="puzzle-tile tile--red">♦</div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <p class="watch-label">Micro Puzzle Lab</p>
+    <aside class="home-project-card" aria-labelledby="home-project-title">
+      <span id="webgl" class="anchor-target" aria-hidden="true"></span>
+      <div class="home-project-card__topline">
+        <span class="section-kicker">{{ s.home_practice_label }}</span>
+        <span class="project-status"><span aria-hidden="true"></span>{{ s.home_project_status }}</span>
       </div>
-    </div>
+      <img src="{{ tutoring_settings.proof.own_project.image | relative_url }}" alt="{{ s.home_project_image_alt }}" width="480" height="300" fetchpriority="high">
+      <div class="home-project-card__body">
+        <p class="home-project-card__meta">{{ s.home_project_meta }}</p>
+        <h2 id="home-project-title">{{ tutoring_settings.proof.own_project.title }}</h2>
+        <p>{{ s.home_practice_description }}</p>
+        <a class="text-link text-link--light" href="{{ tutoring_settings.proof.own_project.url | relative_url }}">{{ s.home_project_cta }} <span aria-hidden="true">→</span></a>
+      </div>
+    </aside>
+  </section>
 
-    <div class="studio__footer">
-      <span class="studio__tags">
-        <span class="studio__tag">Unity</span>
-        <span class="studio__tag">C#</span>
-        <span class="studio__tag">Wear OS</span>
-      </span>
-      <span class="studio__cta">
-        {{ site.data[site.active_lang].strings.studio_cta_text }} <span class="arrow">→</span>
-      </span>
-    </div>
-  </a>
+  <section class="home-audience" aria-label="{{ s.home_audience_label }}">
+    <p>{{ t.audience }}</p>
+    <span class="home-audience__rule" aria-hidden="true"></span>
+    <p>{{ t.language }}</p>
+  </section>
 
-  <!-- ══════════════════════════════════════════
-           CARD 3 — WEBGl PLAYGROUND (2 col × 2 row)
-           ══════════════════════════════════════════ -->
-  <article class="hub-card card--webgl fade-in" id="webgl">
-    <div class="webgl__header">
-      <span class="webgl__icon">🎮</span>
-      <h2 class="webgl__title">{{ site.data[site.active_lang].strings.playground_heading }}</h2>
-      <p class="webgl__sub">
-        {{ site.data[site.active_lang].strings.playground_sub }}
-      </p>
+  <section class="home-section" id="learning" aria-labelledby="learning-title">
+    <span id="stack" class="anchor-target" aria-hidden="true"></span>
+    <div class="section-heading">
+      <div>
+        <p class="section-kicker">{{ s.home_learning_label }}</p>
+        <h2 id="learning-title">{{ s.home_learning_title }}</h2>
+      </div>
+      <p>{{ s.home_learning_intro }}</p>
     </div>
-
-    <div class="webgl__games-grid">
-      <!-- Tile 1: Dish of Chaos -->
-      <a href="{{ '/games/dish-of-chaos/' | relative_url }}" class="game-tile" aria-label="{{ site.data[site.active_lang].strings.dish_of_chaos_title }}">
-        <img src="{{ '/assets/images/games/dish-of-chaos-cover.png' | relative_url }}"
-          alt="Dish of Chaos — pixel art cover with ingredients on a wooden tray"
-          class="game-tile__cover" loading="lazy" width="480" height="300">
-        <div class="game-tile__body">
-          <div class="game-tile__badges">
-            <span class="game-tile__badge game-tile__badge--jam">{{ site.data[site.active_lang].strings.dish_of_chaos_badge }}</span>
-            <span class="game-tile__badge game-tile__badge--engine">{{ site.data[site.active_lang].strings.dish_of_chaos_engine }}</span>
-          </div>
-          <h3 class="game-tile__name">{{ site.data[site.active_lang].strings.dish_of_chaos_title }}</h3>
-          <p class="game-tile__tagline">{{ site.data[site.active_lang].strings.dish_of_chaos_tagline }}</p>
-          <span class="game-tile__cta">
-            {{ site.data[site.active_lang].strings.dish_of_chaos_play_cta }}
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
-          </span>
-        </div>
+    <div class="learning-grid">
+      {% for course in t.courses %}
+      <a class="learning-card" href="{{ '/tutoring/' | append: course.slug | append: '/' | relative_url }}">
+        <span class="learning-card__number">0{{ forloop.index }}</span>
+        <h3>{{ course.heading }}</h3>
+        <p>{{ course.intro }}</p>
+        <span class="text-link">{{ s.home_open_direction }} <span aria-hidden="true">→</span></span>
       </a>
-
-      <!-- Tile 2: Wear OS Lab / Coming Soon -->
-      <a href="https://wristandpocket.github.io" target="_blank" rel="noopener"
-        class="game-tile game-tile--teaser" aria-label="{{ site.data[site.active_lang].strings.teaser_game_title }}">
-        <div class="game-tile__body">
-          <span class="game-tile__teaser-icon">⌚</span>
-          <div class="game-tile__badges">
-            <span class="game-tile__badge game-tile__badge--dev">{{ site.data[site.active_lang].strings.teaser_game_badge }}</span>
-          </div>
-          <h3 class="game-tile__name">{{ site.data[site.active_lang].strings.teaser_game_title }}</h3>
-          <p class="game-tile__tagline">{{ site.data[site.active_lang].strings.teaser_game_tagline }}</p>
-          <span class="game-tile__cta">
-            {{ site.data[site.active_lang].strings.teaser_game_cta }}
-          </span>
-        </div>
-      </a>
-    </div>
-
-    <p class="webgl__caption">
-      <span class="webgl__status">● Live</span>
-      {{ site.data[site.active_lang].strings.webgl_caption }}
-    </p>
-  </article>
-
-  <!-- ══════════════════════════════════════════
-           CARD 4 — TECH STACK (1 col × 1 row)
-           ══════════════════════════════════════════ -->
-  <section class="hub-card card--stack fade-in" id="stack">
-    <div class="card-label">{{ site.data[site.active_lang].strings.tech_stack_label }}</div>
-    <div class="blueprint-grid" aria-hidden="true"></div>
-    <div class="stack__icons">
-      <div class="stack__item" title="Unity">
-        <span class="stack__icon">◈</span>
-        <span class="stack__name">Unity</span>
-      </div>
-      <div class="stack__item" title="C#">
-        <span class="stack__icon">#</span>
-        <span class="stack__name">C#</span>
-      </div>
-      <div class="stack__item" title="Python">
-        <span class="stack__icon">🐍</span>
-        <span class="stack__name">Python</span>
-      </div>
-      <div class="stack__item" title="Wear OS">
-        <span class="stack__icon">⌚</span>
-        <span class="stack__name">Wear OS</span>
-      </div>
+      {% endfor %}
     </div>
   </section>
 
-  <!-- ══════════════════════════════════════════
-           CARD 5 — NINTENDO SHRINE (1 col × 2 row)
-           ══════════════════════════════════════════ -->
-  <section class="hub-card card--shrine fade-in" id="shrine">
-    <h2 class="shrine__title">{{ site.data[site.active_lang].strings.shrine_title }}</h2>
-    <p class="shrine__desc">
-      {{ site.data[site.active_lang].strings.shrine_desc }}
-    </p>
-    <a href="{{ '/collection/' | relative_url }}" class="btn-read-more btn-read-more--bottom">
-      {{ site.data[site.active_lang].strings.shrine_cta }}
-    </a>
+  <section class="home-trust" aria-labelledby="trust-title">
+    <div class="home-trust__intro">
+      <p class="section-kicker">{{ s.home_trust_label }}</p>
+      <h2 id="trust-title">{{ t.proof }}</h2>
+      <p>{{ t.proof_text }}</p>
+    </div>
+    <div class="home-trust__links">
+      <a class="trust-link" href="{{ tutoring_settings.proof.studio_url }}" target="_blank" rel="noopener">
+        <span class="trust-link__icon" aria-hidden="true">✦</span>
+        <span><strong>{{ s.nav_studio }}</strong><small>{{ s.home_studio_detail }}</small></span>
+        <span aria-hidden="true">↗</span>
+      </a>
+      <a class="trust-link" href="{{ tutoring_settings.proof.buki_url }}" target="_blank" rel="noopener">
+        <span class="trust-link__icon" aria-hidden="true">↗</span>
+        <span><strong>{{ t.reviews }}</strong><small>{{ s.home_buki_detail }}</small></span>
+        <span aria-hidden="true">↗</span>
+      </a>
+    </div>
   </section>
 
+  {% include tutoring-cases.html context="home" %}
+  {% include tutoring-profile.html %}
+  {% include tutoring-testimonials.html %}
 
-  <!-- ══════════════════════════════════════════
-           CARD 8 — VR NEWS & LIFE FEED (2 col × 1 row)
-           ══════════════════════════════════════════ -->
-  <article class="hub-card card--feed card--feed-vr fade-in" id="feed-vr">
-    <div class="card-label">{{ site.data[site.active_lang].strings.vr_life_label }}</div>
-    <h2 class="feed__heading">
-      {{ site.data[site.active_lang].strings.vr_heading }}
-    </h2>
-    <p class="feed__subtitle">
-      {{ site.data[site.active_lang].strings.vr_subtitle }}
-    </p>
-    <ul class="post-list">
-      {% assign vr_posts = site.posts | where: "lang", site.active_lang | where: "category", "vr" %}
-      {% for post in vr_posts limit:3 %}
-      <li>
-        <a href="{{ post.url | relative_url }}" style="view-transition-name: post-{{ post.slug }};">
-          <span class="post-title">{{ post.title }}</span>
-          <time class="post-meta" datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: "%B %d, %Y"
-            }}</time>
-        </a>
-      </li>
-      {% else %}
-      <li class="post-list__empty">
-        {{ site.data[site.active_lang].strings.vr_empty }}
-      </li>
-      {% endfor %}
-    </ul>
-    {% if site.categories['vr'].size > 0 %}
-    <a href="{{ '/blog/category/vr/' | relative_url }}" class="btn-read-more">
-      {{ site.data[site.active_lang].strings.vr_cta | default: site.data[site.active_lang].strings.view_all_posts }}
-    </a>
-    {% else %}
-    <a href="{{ '/blog/' | relative_url }}" class="btn-read-more">
-      {{ site.data[site.active_lang].strings.view_all_posts }}
-    </a>
-    {% endif %}
-  </article>
-
-  <!-- ══════════════════════════════════════════
-           CARD 9 — UNITY & GAMEDEV FEED (2 col × 1 row)
-           ══════════════════════════════════════════ -->
-  <article class="hub-card card--feed card--feed-gamedev fade-in" id="feed-gamedev">
-    <div class="card-label">{{ site.data[site.active_lang].strings.workshop_label }}</div>
-    <h2 class="feed__heading">{{ site.data[site.active_lang].strings.gamedev_heading }}</h2>
-    <p class="feed__subtitle">
-      {{ site.data[site.active_lang].strings.gamedev_subtitle }}
-    </p>
-    <ul class="post-list">
-      {% assign gamedev_posts = site.posts | where: "lang", site.active_lang | where: "category", "gamedev" %}
-      {% for post in gamedev_posts limit:3 %}
-      <li>
-        <a href="{{ post.url | relative_url }}" style="view-transition-name: post-{{ post.slug }};">
-          <span class="post-title">{{ post.title }}</span>
-          <time class="post-meta" datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: "%B %d, %Y"
-            }}</time>
-        </a>
-      </li>
-      {% else %}
-      <li class="post-list__empty">
-        {{ site.data[site.active_lang].strings.gamedev_empty }}
-      </li>
-      {% endfor %}
-    </ul>
-    {% if site.categories['gamedev'].size > 0 %}
-    <a href="{{ '/blog/category/gamedev/' | relative_url }}" class="btn-read-more">
-      {{ site.data[site.active_lang].strings.gamedev_cta | default: site.data[site.active_lang].strings.view_all_posts }}
-    </a>
-    {% else %}
-    <a href="{{ '/blog/' | relative_url }}" class="btn-read-more">
-      {{ site.data[site.active_lang].strings.view_all_posts }}
-    </a>
-    {% endif %}
-  </article>
-
-  <!-- ══════════════════════════════════════════
-           CARD 10 — PERSONAL / VLOG FEED (1 col × 1 row)
-           ══════════════════════════════════════════ -->
-  <article class="hub-card card--feed card--feed-personal fade-in" id="feed-personal">
-    <div class="card-label">{{ site.data[site.active_lang].strings.vlog_label }}</div>
-    <h2 class="feed__heading">
-      {{ site.data[site.active_lang].strings.personal_heading }}
-    </h2>
-    <p class="feed__subtitle">
-      {{ site.data[site.active_lang].strings.personal_subtitle }}
-    </p>
-    <ul class="post-list">
-      {% assign personal_posts = site.posts | where: "lang", site.active_lang | where: "category", "personal" %}
-      {% for post in personal_posts limit:3 %}
-      <li>
-        <a href="{{ post.url | relative_url }}" style="view-transition-name: post-{{ post.slug }};">
-          <span class="post-title">{{ post.title }}</span>
-          <time class="post-meta" datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: "%B %d, %Y"
-            }}</time>
-        </a>
-      </li>
-      {% else %}
-      <li class="post-list__empty">
-        {{ site.data[site.active_lang].strings.personal_empty }}
-      </li>
-      {% endfor %}
-    </ul>
-    {% if site.categories['personal'].size > 0 %}
-    <a href="{{ '/blog/category/personal/' | relative_url }}" class="btn-read-more">
-      {{ site.data[site.active_lang].strings.personal_cta | default: site.data[site.active_lang].strings.view_all_posts }}
-    </a>
-    {% else %}
-    <a href="{{ '/blog/' | relative_url }}" class="btn-read-more">
-      {{ site.data[site.active_lang].strings.view_all_posts }}
-    </a>
-    {% endif %}
-  </article>
-
-  <!-- ══════════════════════════════════════════
-           CARD 11 — EDUCATION COLLECTION (1 col × 1 row)
-           ══════════════════════════════════════════ -->
-  <article class="hub-card card--feed card--feed-edu fade-in" id="feed-edu">
-    <div class="card-label">{{ site.data[site.active_lang].strings.education_label }}</div>
-    <h2 class="feed__heading">
-      {{ site.data[site.active_lang].strings.edu_heading }}
-    </h2>
-    <p class="feed__subtitle">
-      {{ site.data[site.active_lang].strings.edu_subtitle }}
-    </p>
-    <ul class="post-list">
-      {% assign edu_items = site.education | where: "lang", site.active_lang | sort: "sort_order" %}
-      {% for item in edu_items limit:3 %}
-      <li>
-        <a href="{{ item.url | relative_url }}" style="view-transition-name: post-{{ item.slug }};">
-          <span class="post-title">{{ item.title }}</span>
-          {% if item.level %}<span class="post-meta edu-level">{{ item.level }}</span>{% endif %}
-        </a>
-      </li>
-      {% else %}
-      <li class="post-list__empty">
-        {{ site.data[site.active_lang].strings.edu_empty }}
-      </li>
-      {% endfor %}
-    </ul>
-    <a href="{{ '/education/' | relative_url }}" class="btn-read-more">
-      {{ site.data[site.active_lang].strings.edu_cta }}
-    </a>
-  </article>
-
-  <!-- ══════════════════════════════════════════
-           CARD 7 — OGCRUNCHER (1 col × 1 row)
-           ══════════════════════════════════════════ -->
-  <a href="https://figarist.github.io/OGCruncher/" target="_blank" rel="noopener" class="hub-card card--cruncher fade-in" id="cruncher" aria-label="{{ site.data[site.active_lang].strings.aria_visit_cruncher }}">
-    <div class="card-label">{{ site.data[site.active_lang].strings.utility_core_label }}</div>
-    <div class="cruncher__terminal">
-      <div class="terminal__bar">
-        <span class="terminal__dot dot--red"></span>
-        <span class="terminal__dot dot--yellow"></span>
-        <span class="terminal__dot dot--green"></span>
+  <section class="home-explore" aria-labelledby="explore-title">
+    <div class="section-heading">
+      <div>
+        <p class="section-kicker">{{ s.home_explore_label }}</p>
+        <h2 id="explore-title">{{ s.home_explore_title }}</h2>
       </div>
-      <div class="terminal__body">
-        <code class="terminal__line"><span class="t-comment">// og-cruncher engine</span></code>
-        <code class="terminal__line"><span class="t-kw">const</span> ctx = <span class="t-fn">new</span> OfflineContext()</code>
-        <code class="terminal__line"><span class="t-fn">crunch</span>(buffer, <span class="t-val">8</span>)</code>
-        <code class="terminal__line terminal__line--cursor">_</code>
-      </div>
+      <p>{{ s.home_explore_intro }}</p>
     </div>
-    <h2 class="cruncher__title">{{ site.data[site.active_lang].strings.cruncher_title }}</h2>
-    <p class="cruncher__desc">
-      {{ site.data[site.active_lang].strings.cruncher_desc }}
-    </p>
-  </a>
-
-  <!-- ══════════════════════════════════════════
-           CARD 12 — LEGO WEDO CATALOG (3 col × 1 row)
-           ══════════════════════════════════════════ -->
-  <a href="https://figarist.github.io/lego-catalog/"
-     target="_blank"
-     rel="noopener noreferrer"
-     class="hub-card card--lego fade-in"
-     id="lego-catalog"
-     aria-label="{{ site.data[site.active_lang].strings.aria_visit_lego | default: 'Open LEGO WeDo 2.0 Catalog' }}">
-
-    <div class="card-label">{{ site.data[site.active_lang].strings.lego_label | default: 'EDU_RESOURCE' }}</div>
-
-    <div class="lego__dots-deco" aria-hidden="true">
-      <span class="dot-r"></span>
-      <span class="dot-y"></span>
-      <span class="dot-g"></span>
-      <span class="dot-b"></span>
+    <div class="explore-grid">
+      <a href="{{ tutoring_settings.proof.studio_url }}" target="_blank" rel="noopener" class="explore-card explore-card--dark" id="studio">
+        <span>{{ s.nav_studio }}</span><strong>Wrist &amp; Pocket Studio</strong><small>{{ s.home_studio_detail }}</small><b aria-hidden="true">↗</b>
+      </a>
+      <a href="{{ '/blog/' | relative_url }}" class="explore-card" id="feed-gamedev">
+        <span id="feed-vr" class="legacy-anchor" aria-hidden="true"></span>
+        <span>{{ s.home_blog_label }}</span><strong>{{ s.gamedev_heading }}</strong><small>{{ s.home_blog_detail }}</small><b aria-hidden="true">→</b>
+      </a>
+      <a href="{{ '/education/' | relative_url }}" class="explore-card" id="feed-edu">
+        <span>{{ s.education_label }}</span><strong>{{ s.edu_heading }}</strong><small>{{ s.edu_subtitle }}</small><b aria-hidden="true">→</b>
+      </a>
+      <a href="{{ '/collection/' | relative_url }}" class="explore-card" id="shrine">
+        <span id="feed-personal" class="legacy-anchor" aria-hidden="true"></span>
+        <span>{{ s.home_hobbies_label }}</span><strong>{{ s.home_hobbies_title }}</strong><small>{{ s.home_hobbies_detail }}</small><b aria-hidden="true">→</b>
+      </a>
+      <a href="https://figarist.github.io/OGCruncher/" target="_blank" rel="noopener" class="explore-card" id="cruncher" aria-label="{{ s.aria_visit_cruncher }}">
+        <span>{{ s.cruncher_title }}</span><strong>{{ s.cruncher_title }}</strong><small>{{ s.cruncher_desc }}</small><b aria-hidden="true">↗</b>
+      </a>
+      <a href="https://figarist.github.io/lego-catalog/" target="_blank" rel="noopener" class="explore-card" id="lego-catalog" aria-label="{{ s.aria_visit_lego }}">
+        <span>{{ s.education_label }}</span><strong>LEGO WeDo 2.0</strong><small>{{ s.lego_desc }}</small><b aria-hidden="true">↗</b>
+      </a>
     </div>
-
-    <h2 class="lego__title">🧱 LEGO WeDo 2.0 — {{ site.data[site.active_lang].strings.lego_title | default: 'Instructions Catalog' }}</h2>
-
-    <p class="lego__desc">{{ site.data[site.active_lang].strings.lego_desc | default: 'A non-commercial educational catalog of building instructions for LEGO WeDo 2.0 robotics lessons. Open-access resource for teachers and students.' }}</p>
-
-    <div class="lego__stats">
-      <span class="lego__stat">{{ site.data[site.active_lang].strings.lego_stat_models | default: '500+ MODELS' }}</span>
-      <span class="lego__stat">{{ site.data[site.active_lang].strings.lego_stat_lang | default: 'UK · EN · RU · PL' }}</span>
-      <span class="lego__stat">{{ site.data[site.active_lang].strings.lego_stat_type | default: 'NON-COMMERCIAL' }}</span>
-      <span class="lego__stat">PWA · OFFLINE</span>
-    </div>
-
-    <span class="lego__cta">
-      {{ site.data[site.active_lang].strings.lego_cta | default: 'Open Catalog' }}
-      <span class="arrow">→</span>
-    </span>
-
-  </a>
-
-
-</div><!-- /.hub-grid -->
+  </section>
+</div>
 
 {% include metadata/json-ld.html %}

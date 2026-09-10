@@ -1,0 +1,109 @@
+{
+  "nav": "Lessons",
+  "title": "Online programming tutor for children — Ihor Sivochka",
+  "description": "Individual Unity and C#, Python and Scratch lessons for children with game developer Ihor Sivochka. Lessons in Ukrainian or Russian.",
+  "heading": "Online programming lessons for children and teenagers",
+  "intro": "I am Ihor Sivochka, a teacher and game developer. I teach children programming through their own projects. My main focus is Unity and C#, with Scratch and Python as additional starting points.",
+  "audience": "I work with children and teenagers, adapting lessons to each student’s experience, interests and goals.",
+  "language": "Individual online lessons in Ukrainian or Russian, for students in Ukraine and abroad.",
+  "cta": "Discuss lessons on Telegram",
+  "availability": "Message me to discuss the format and a convenient schedule.",
+  "choose": "Choose a direction",
+  "learn": "What we explore",
+  "projects": "Possible learning projects",
+  "project_note": "These are examples of possible tasks. Difficulty and pace depend on the student’s experience and interests.",
+  "approach": "How we learn",
+  "steps": [
+    "Discuss the student’s age, experience and what they would like to create.",
+    "Choose tasks that fit their level, from first steps to an individual project.",
+    "Explore how the code works, test the result and learn to debug."
+  ],
+  "proof": "Learn with a practising game developer",
+  "proof_text": "Explore my own projects on this website for examples of my development work. Teaching reviews are available on my BUKI profile.",
+  "game": "Play my game Dish of Chaos",
+  "reviews": "View my BUKI profile and reviews",
+  "faq": "Before starting",
+  "questions": [
+    [
+      "Is programming experience required?",
+      "Beginners are welcome. Tell me the child’s age and interests so we can choose a starting point."
+    ],
+    [
+      "Can students join from abroad?",
+      "Yes, lessons are online. Include your country or time zone and preferred times in your message."
+    ],
+    [
+      "What computer is needed?",
+      "Requirements depend on the subject and project. We will discuss your computer and the software needed before starting."
+    ],
+    [
+      "How do I enquire?",
+      "Message @Figarist on Telegram with the student’s age, subject, experience and preferred times. I will reply about availability."
+    ],
+    [
+      "How do I pay for lessons?",
+      "Payment details are listed in the conditions above."
+    ]
+  ],
+  "contact": "Start with your goal",
+  "contact_text": "Tell me the learner’s age or your level, what you want to create and when lessons would suit you.",
+  "all": "All lesson options",
+  "courses": [
+    {
+      "slug": "unity",
+      "title": "Online Unity and C# tutor for children",
+      "heading": "Create games with Unity and C#",
+      "description": "Individual online Unity lessons for children: 2D/3D games, game logic and C#. Taught in Ukrainian or Russian by Ihor Sivochka.",
+      "intro": "For children curious about how games work. We build a Unity project and gradually learn C# through its mechanics.",
+      "topics": [
+        "Unity editor, scenes and game objects",
+        "C# variables, conditions, loops and methods",
+        "Movement, collisions, physics and game logic",
+        "Interfaces, animation and building a playable game"
+      ],
+      "examples": [
+        "A 2D game with character movement, obstacles and a score",
+        "A 3D scene with controls and object interaction"
+      ]
+    },
+    {
+      "slug": "python",
+      "title": "Online Python tutor for children",
+      "heading": "Learn Python through projects",
+      "description": "Individual online Python lessons for children with Ihor Sivochka: programming basics, algorithms and projects. Ukrainian or Russian.",
+      "intro": "For students who want to write text-based code and create programs. We break problems into steps and test our solutions.",
+      "topics": [
+        "Variables, data types, conditions and loops",
+        "Functions, lists and data processing",
+        "Algorithms and debugging",
+        "Libraries for small projects"
+      ],
+      "examples": [
+        "Drawings and animation with Turtle",
+        "A text adventure or quiz with custom rules"
+      ]
+    },
+    {
+      "slug": "scratch",
+      "title": "Online Scratch tutor for children",
+      "heading": "First games and animations with Scratch",
+      "description": "Individual online Scratch lessons for children with Ihor Sivochka. Learn through games and animation in Ukrainian or Russian.",
+      "intro": "An introduction to programming through visual blocks. Children see how commands change characters’ behaviour and learn to build their own logic.",
+      "topics": [
+        "Sprites, stages and events",
+        "Conditions, loops and variables",
+        "Movement, interaction and messages",
+        "Testing and improving a game"
+      ],
+      "examples": [
+        "A game with a character, goals and scoring",
+        "An interactive animated story with choices"
+      ]
+    }
+  ],
+  "payment_question": "How do I pay for lessons?",
+  "name": "Ihor Sivochka",
+  "role": "Programming tutor and game developer",
+  "home_title": "Ihor Sivochka — Unity tutor and game developer",
+  "home_description": "Figarist: online Unity, C#, Python and Scratch lessons for children and teenagers in Ukrainian or Russian. Game projects by Ihor Sivochka."
+}

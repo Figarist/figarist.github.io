@@ -52,6 +52,12 @@
   );
 }
 
+@media (max-width: 900px) {
+  .site-nav__search-trigger { margin-right: 0; padding: 6px; }
+  .lang-switch-wrapper { flex-shrink: 1; gap: 1px; }
+  .lang-switch { padding: 5px 6px; font-size: .62rem; }
+}
+
 /* ── Read-more CTA ───────────────────────────────────────── */
 .btn-read-more {
   display: inline-block;

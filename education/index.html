@@ -17,6 +17,8 @@ sitemap: true
         {{ site.data[site.active_lang].strings.education_hub_subtitle }}
     </p>
 
+    {% include tutoring-promo.html %}
+
     <div class="edu-hub__list">
         {% assign sorted_edu = site.education | where: "lang", site.active_lang | where_exp: "item", "item.published != false" | sort: "sort_order" %}
         {% for item in sorted_edu %}

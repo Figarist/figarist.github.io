@@ -39,10 +39,19 @@ jobs:
       - name: Setup Pages
         uses: actions/configure-pages@v5
 
+      - name: Validate tutoring content rules
+        run: bundle exec ruby scripts/test_tutoring_content.rb
+
+      - name: Validate tutoring build guards
+        run: bundle exec ruby scripts/test_tutoring_build.rb
+
       - name: Build with Jekyll
         run: bundle exec jekyll build --destination ./_site
         env:
           JEKYLL_ENV: production
+
+      - name: Validate production metadata and budgets
+        run: bundle exec ruby scripts/test_site.rb
 
       - name: Test with HTML Proofer
         run: |
@@ -57,6 +66,23 @@ jobs:
           echo "JS size: $JS_SIZE bytes"
           if [ $JS_SIZE -gt 20480 ]; then
             echo "::error::JS exceeds 20KB budget ($JS_SIZE bytes)"
+            exit 1
+          fi
+
+      - name: Check gzipped CSS bundle size
+        run: |
+          CSS_SIZE=$(gzip -c _site/assets/css/styles.css | wc -c)
+          echo "Gzipped CSS size: $CSS_SIZE bytes"
+          if [ $CSS_SIZE -gt 30720 ]; then
+            echo "::error::Gzipped CSS exceeds 30KB budget ($CSS_SIZE bytes)"
+            exit 1
+          fi
+
+      - name: Check tutoring drafts stay out of public output
+        run: |
+          test ! -e _site/docs/tutoring-content-guide.md
+          if rg -n "case-template|synthetic-build-bad|student_cases" _site; then
+            echo "::error::Draft or synthetic tutoring content leaked into _site"
             exit 1
           fi
 

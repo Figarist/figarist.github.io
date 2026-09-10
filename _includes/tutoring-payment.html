@@ -1,0 +1,2 @@
+{%- assign account_label = 'payment_account_' | append: tutoring_settings.payment.account_type -%}
+{{- s.payment_prefix }} {{ s[account_label] | default: tutoring_settings.payment.account_type }} {{ s.payment_in }} {% for currency in tutoring_settings.payment.currencies %}{% assign currency_label = 'payment_currency_' | append: currency %}{{ s[currency_label] | default: currency }}{% unless forloop.last %}{% assign next_index = forloop.index | plus: 1 %}{% if next_index == forloop.length %} {{ s.payment_or }} {% else %}, {% endif %}{% endunless %}{% endfor %}.

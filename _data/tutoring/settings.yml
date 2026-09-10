@@ -1,0 +1,37 @@
+# Shared, confirmed tutoring facts. Keep amounts, URLs and media paths here.
+# Translated labels and sentences live in _data/{lang}/tutoring.json.
+format: online
+price:
+  amount: 1000
+  currency: UAH
+contact:
+  telegram_url: https://t.me/Figarist
+payment:
+  account_type: FOP
+  currencies:
+    - UAH
+    - EUR
+    - USD
+teaching_languages:
+  - uk
+  - ru
+proof:
+  own_project:
+    title: Dish of Chaos
+    url: /games/dish-of-chaos/
+    image: /assets/images/games/dish-of-chaos-cover.png
+  studio_url: https://wristandpocket.github.io
+  buki_url: https://buki.com.ua/user-82505/
+conditions:
+  duration: null
+  first_lesson: null
+  rescheduling: null
+  cancellation: null
+  payment_order: null
+  platform: null
+  technical_requirements:
+    unity: null
+    python: null
+    scratch: null
+  homework: null
+  progress: null

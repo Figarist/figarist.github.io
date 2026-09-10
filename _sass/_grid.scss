@@ -31,47 +31,47 @@
     "lego-catalog lego-catalog lego-catalog";
 }
 
-#bio {
+.hub-grid > #bio {
   grid-area: bio;
 }
 
-#studio {
+.hub-grid > #studio {
   grid-area: studio;
 }
 
-#webgl {
+.hub-grid > #webgl {
   grid-area: webgl;
 }
 
-#stack {
+.hub-grid > #stack {
   grid-area: stack;
 }
 
-#shrine {
+.hub-grid > #shrine {
   grid-area: shrine;
 }
 
-#cruncher {
+.hub-grid > #cruncher {
   grid-area: cruncher;
 }
 
-#feed-vr {
+.hub-grid > #feed-vr {
   grid-area: feed-vr;
 }
 
-#feed-gamedev {
+.hub-grid > #feed-gamedev {
   grid-area: feed-gamedev;
 }
 
-#feed-personal {
+.hub-grid > #feed-personal {
   grid-area: feed-personal;
 }
 
-#feed-edu {
+.hub-grid > #feed-edu {
   grid-area: feed-edu;
 }
 
-#lego-catalog {
+.hub-grid > #lego-catalog {
   grid-area: lego-catalog;
 }
 
@@ -92,10 +92,6 @@
       "lego-catalog  lego-catalog";
   }
 
-  /* Hide text links before they squash on iPad profiles */
-  .site-nav__links a:not(.lang-switch) {
-    display: none;
-  }
 }
 
 /* ======================== МОБІЛКА (ПРАВИЛЬНИЙ СТЕК) ======================== */
@@ -117,14 +113,6 @@
   .site-nav {
     top: calc(16px + env(safe-area-inset-top));
     width: calc(100% - 32px);
-  }
-
-  .site-nav__links a:not(.lang-switch) {
-    display: none;
-  }
-
-  .site-nav__links .lang-switch {
-    display: inline-flex;
   }
 
   .hub-grid {

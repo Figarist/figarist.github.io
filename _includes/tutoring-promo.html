@@ -1,0 +1,10 @@
+{% assign t = site.data[site.active_lang].tutoring %}
+{% assign tutoring_settings = site.data.tutoring.settings %}
+<section class="tutoring-promo" aria-labelledby="tutoring-promo-title">
+  <div>
+    <p class="tutoring-eyebrow">{% if site.data[site.active_lang].strings.price_unit_before %}{{ site.data[site.active_lang].strings.price_unit }} {{ tutoring_settings.price.amount }} {{ tutoring_settings.price.currency }}{% elsif site.data[site.active_lang].strings.price_currency_before %}{{ tutoring_settings.price.currency }} {{ tutoring_settings.price.amount }} {{ site.data[site.active_lang].strings.price_unit }}{% else %}{{ tutoring_settings.price.amount }} {{ site.data[site.active_lang].strings.price_currency_label }} {{ site.data[site.active_lang].strings.price_unit }}{% endif %}</p>
+    <h2 id="tutoring-promo-title">{{ t.courses[0].title }}</h2>
+    <p>{{ t.language }}</p>
+  </div>
+  <a class="tutoring-button" href="{{ '/tutoring/' | relative_url }}">{{ t.all }} →</a>
+</section>

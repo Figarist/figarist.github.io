@@ -1,0 +1,31 @@
+{% assign tutoring_testimonials = site.data.tutoring.testimonial_records %}
+{% assign visible_testimonial_count = 0 %}
+{% for item in tutoring_testimonials %}
+  {% if item.status == 'published' and item.ready == true and item.permission == true and item.language == site.active_lang %}{% assign visible_testimonial_count = visible_testimonial_count | plus: 1 %}{% endif %}
+{% endfor %}
+
+{% if visible_testimonial_count > 0 %}
+<section class="tutoring-section tutoring-section--testimonials" aria-labelledby="testimonials-title">
+  <div class="section-heading section-heading--compact">
+    <div>
+      <p class="section-kicker">{{ site.data[site.active_lang].strings.tutoring_cases_label }}</p>
+      <h2 id="testimonials-title">{{ site.data[site.active_lang].strings.testimonial_quote_label }}</h2>
+    </div>
+  </div>
+  <div class="testimonial-grid">
+    {% for item in tutoring_testimonials %}
+      {% if item.status == 'published' and item.ready == true and item.permission == true and item.language == site.active_lang %}
+      <article class="testimonial-card">
+        {% if item.mode == 'source_only' %}
+          <p>{{ site.data[site.active_lang].strings.testimonial_source_only }}</p>
+        {% else %}
+          <blockquote>{{ item.text }}</blockquote>
+        {% endif %}
+        <p class="testimonial-card__signature">{{ item.signature }}{% if item.direction %} · {{ item.direction }}{% endif %}</p>
+        {% if item.source_url %}<a class="text-link" href="{{ item.source_url }}" target="_blank" rel="noopener">{{ site.data[site.active_lang].strings.testimonial_source_cta }} <span aria-hidden="true">↗</span></a>{% endif %}
+      </article>
+      {% endif %}
+    {% endfor %}
+  </div>
+</section>
+{% endif %}

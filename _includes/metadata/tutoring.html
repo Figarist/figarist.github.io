@@ -1,0 +1,49 @@
+{%- assign localized_page_path = page.url -%}
+{%- if site.active_lang != site.default_lang -%}
+  {%- assign localized_page_path = site.active_lang | prepend: '/' | append: page.url -%}
+{%- endif -%}
+{%- assign service_url = localized_page_path | absolute_url -%}
+{%- assign person_id = site.url | append: '#person' -%}
+{%- assign tutoring_settings = site.data.tutoring.settings -%}
+{%- assign s = site.data[site.active_lang].strings -%}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Person",
+      "@id": {{ person_id | jsonify }},
+      "name": {{ t.name | jsonify }},
+      "alternateName": "Figarist",
+      "jobTitle": {{ t.role | jsonify }},
+      "url": {{ '/' | absolute_url | jsonify }},
+      "sameAs": [{{ tutoring_settings.contact.telegram_url | jsonify }}, "https://github.com/Figarist", {{ tutoring_settings.proof.buki_url | jsonify }}]
+    },
+    {
+      "@type": "Service",
+      "@id": {{ service_url | append: '#service' | jsonify }},
+      "name": {{ page.title | jsonify }},
+      "description": {{ page.description | jsonify }},
+      "url": {{ service_url | jsonify }},
+      "provider": {"@id": {{ person_id | jsonify }}},
+      "offers": {
+        "@type": "Offer",
+        "price": {{ tutoring_settings.price.amount | jsonify }},
+        "priceCurrency": {{ tutoring_settings.price.currency | jsonify }},
+        "description": {{ s.tutoring_price_title | append: ': ' | append: tutoring_settings.price.amount | append: ' ' | append: tutoring_settings.price.currency | jsonify }},
+        "url": {{ service_url | jsonify }}
+      }
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {"@type": "ListItem", "position": 1, "name": "Figarist", "item": {{ '/' | absolute_url | jsonify }}},
+        {"@type": "ListItem", "position": 2, "name": {{ t.nav | jsonify }}, "item": {{ '/tutoring/' | absolute_url | jsonify }}}
+        {% if course %},
+        {"@type": "ListItem", "position": 3, "name": {{ course.heading | jsonify }}, "item": {{ service_url | jsonify }}}
+        {% endif %}
+      ]
+    }
+  ]
+}
+</script>

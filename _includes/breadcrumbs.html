@@ -19,11 +19,11 @@
         <span>{{ page.category | upcase }}</span>
       </a>
     </li>
-    <li class="breadcrumbs__item breadcrumbs__item--active">
+    <li class="breadcrumbs__item breadcrumbs__item--active" aria-current="page">
       <span>{{ page.title | truncatewords: 6 }}</span>
     </li>
     {% else %}
-    <li class="breadcrumbs__item breadcrumbs__item--active">
+    <li class="breadcrumbs__item breadcrumbs__item--active" aria-current="page">
       <span>{{ page.title | truncatewords: 6 }}</span>
     </li>
     {% endif %}
@@ -34,7 +34,7 @@
         <span>{{ site.data[site.active_lang].strings.education_label }}</span>
       </a>
     </li>
-    <li class="breadcrumbs__item breadcrumbs__item--active">
+    <li class="breadcrumbs__item breadcrumbs__item--active" aria-current="page">
       <span>{{ page.title | truncatewords: 6 }}</span>
     </li>
 
@@ -44,22 +44,22 @@
         <span>{{ site.data[site.active_lang].strings.workshop_label }}</span>
       </a>
     </li>
-    <li class="breadcrumbs__item breadcrumbs__item--active">
+    <li class="breadcrumbs__item breadcrumbs__item--active" aria-current="page">
       <span>{{ page.title | upcase }}</span>
     </li>
 
     {% else %}
     {%- assign page_path = page.url | remove: '/index.html' | remove: '.html' -%}
     {%- if page_path == '/blog' or page_path == '/blog/' -%}
-    <li class="breadcrumbs__item breadcrumbs__item--active">
+    <li class="breadcrumbs__item breadcrumbs__item--active" aria-current="page">
       <span>{{ site.data[site.active_lang].strings.workshop_label }}</span>
     </li>
     {%- elsif page_path == '/education' or page_path == '/education/' -%}
-    <li class="breadcrumbs__item breadcrumbs__item--active">
+    <li class="breadcrumbs__item breadcrumbs__item--active" aria-current="page">
       <span>{{ site.data[site.active_lang].strings.education_label }}</span>
     </li>
     {%- elsif page_path == '/collection' or page_path == '/collection/' -%}
-    <li class="breadcrumbs__item breadcrumbs__item--active">
+    <li class="breadcrumbs__item breadcrumbs__item--active" aria-current="page">
       <span>{{ site.data[site.active_lang].strings.shrine_title }}</span>
     </li>
     {%- endif -%}

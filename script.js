@@ -327,6 +327,12 @@ const code = codeEl.textContent;
         // Construct a map for O(1) lookups during search
         searchMap = Object.create(null);
         data.forEach(function (item) {
+          item.tagsHtml = (item.tags || "")
+            .split(" ")
+            .map(function (t) {
+              return t ? '<span class="search-tag">' + t + "</span>" : "";
+            })
+            .join("");
           searchMap[item.id] = item;
         });
 
@@ -379,13 +385,6 @@ const code = codeEl.textContent;
       results.forEach(function (result) {
         var item = searchMap[result.ref];
         if (item) {
-          var tagsHtml = item.tags
-            .split(" ")
-            .map(function (t) {
-              return t ? '<span class="search-tag">' + t + "</span>" : "";
-            })
-            .join("");
-
           html +=
             '<a href="' +
             item.url +
@@ -398,7 +397,7 @@ const code = codeEl.textContent;
             (item.description || "") +
             "</p>" +
             '<div class="search-result-tags">' +
-            tagsHtml +
+            item.tagsHtml +
             "</div>" +
             "</div>" +
             "</a>";

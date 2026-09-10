@@ -1,0 +1,3 @@
+## 2024-05-28 - Dialog Trigger Accessibility
+**Learning:** Native HTML `<dialog>` elements often have trigger buttons that open them, but the native API doesn't automatically manage the `aria-expanded` state on the trigger button. When the dialog is closed natively (e.g. via `ESC` key), the toggle function might not be called.
+**Action:** Always manually sync the `aria-expanded` attribute on the trigger button (e.g., `#search-trigger`) when programmatically opening or closing a modal via a toggle function. Additionally, add a `close` event listener to the `<dialog>` element itself to ensure the attribute is reset when the dialog is natively closed.

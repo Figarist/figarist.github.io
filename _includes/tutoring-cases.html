@@ -1,0 +1,67 @@
+{% assign tutoring_cases = site.data.tutoring.case_records | sort: 'order' %}
+{% assign visible_case_count = 0 %}
+{% for item in tutoring_cases %}
+  {% assign localized_case = item.translations[site.active_lang] %}
+  {% assign show_case = false %}
+  {% if item.status == 'published' and item.permission == true and localized_case.ready == true %}
+    {% if include.context == 'home' and item.featured == true %}
+      {% assign show_case = true %}
+    {% elsif include.context != 'home' and page.course == item.direction %}
+      {% assign show_case = true %}
+    {% endif %}
+  {% endif %}
+  {% if show_case %}{% assign visible_case_count = visible_case_count | plus: 1 %}{% endif %}
+{% endfor %}
+
+{% if visible_case_count > 0 %}
+<section class="tutoring-section tutoring-section--cases" aria-labelledby="cases-title">
+  <div class="section-heading section-heading--compact">
+    <div>
+      <p class="section-kicker">{{ site.data[site.active_lang].strings.tutoring_cases_label }}</p>
+      <h2 id="cases-title">{{ site.data[site.active_lang].strings.case_projects_title }}</h2>
+    </div>
+    <p>{{ site.data[site.active_lang].strings.case_projects_intro }}</p>
+  </div>
+  <div class="case-grid">
+    {% for item in tutoring_cases %}
+      {% assign localized_case = item.translations[site.active_lang] %}
+      {% assign show_case = false %}
+      {% if item.status == 'published' and item.permission == true and localized_case.ready == true %}
+        {% if include.context == 'home' and item.featured == true %}
+          {% assign show_case = true %}
+        {% elsif include.context != 'home' and page.course == item.direction %}
+          {% assign show_case = true %}
+        {% endif %}
+      {% endif %}
+      {% if show_case %}
+      <article class="case-card">
+        {% if item.media.cover.path %}
+        <img class="case-card__cover" src="{{ item.media.cover.path | relative_url }}" alt="{{ localized_case.cover_alt | escape }}" loading="lazy" width="640" height="400">
+        {% endif %}
+        <div class="case-card__body">
+          <p class="case-card__direction">{{ item.direction | upcase }}</p>
+          <h3>{{ localized_case.title }}</h3>
+          <p class="case-card__summary">{{ localized_case.card_description }}</p>
+          <p class="case-card__detail">{{ localized_case.full_description }}</p>
+          {% if item.student_name %}<p class="testimonial-card__signature">{{ item.student_name | escape }}</p>{% endif %}
+          <dl class="case-card__facts">
+            <div><dt>{{ site.data[site.active_lang].strings.case_goal_label }}</dt><dd>{{ localized_case.goal }}</dd></div>
+            <div><dt>{{ site.data[site.active_lang].strings.case_starting_level_label }}</dt><dd>{{ localized_case.starting_level }}</dd></div>
+            {% if item.age_or_grade %}<div><dt>{{ site.data[site.active_lang].strings.case_age_label }}</dt><dd>{{ item.age_or_grade }}</dd></div>{% endif %}
+            <div><dt>{{ site.data[site.active_lang].strings.case_created_label }}</dt><dd>{{ localized_case.created }}</dd></div>
+            <div><dt>{{ site.data[site.active_lang].strings.case_student_work_label }}</dt><dd>{{ localized_case.student_work }}</dd></div>
+            <div><dt>{{ site.data[site.active_lang].strings.case_tutor_help_label }}</dt><dd>{{ localized_case.tutor_help }}</dd></div>
+            <div><dt>{{ site.data[site.active_lang].strings.case_skills_label }}</dt><dd><ul>{% for skill in localized_case.skills %}<li>{{ skill }}</li>{% endfor %}</ul></dd></div>
+            <div><dt>{{ site.data[site.active_lang].strings.case_evidence_label }}</dt><dd>{{ localized_case.evidence }}</dd></div>
+            {% if item.duration %}<div><dt>{{ site.data[site.active_lang].strings.case_duration_label }}</dt><dd>{{ item.duration }}</dd></div>{% endif %}
+          </dl>
+          {% if item.media.additional_images.size > 0 %}<div class="case-gallery">{% for image in item.media.additional_images %}{% if image.path %}<img src="{{ image.path | relative_url }}" alt="{{ image.alt[site.active_lang] | default: image.alt | escape }}" loading="lazy" width="640" height="400">{% endif %}{% endfor %}</div>{% endif %}
+          {% if item.media.video_url %}<a class="text-link" href="{{ item.media.video_url }}" target="_blank" rel="noopener">{{ site.data[site.active_lang].strings.case_video_cta }} <span aria-hidden="true">↗</span></a>{% endif %}
+          {% if item.media.playable_url %}<a class="text-link" href="{{ item.media.playable_url }}" target="_blank" rel="noopener">{{ site.data[site.active_lang].strings.case_playable_cta }} <span aria-hidden="true">↗</span></a>{% endif %}
+        </div>
+      </article>
+      {% endif %}
+    {% endfor %}
+  </div>
+</section>
+{% endif %}

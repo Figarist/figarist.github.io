@@ -29,3 +29,6 @@ test.yml
 .agents/
 .agent/
 brain/
+
+# Local visual QA
+qa-screenshots/

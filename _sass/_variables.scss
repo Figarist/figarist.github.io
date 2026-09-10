@@ -63,6 +63,8 @@
   /* Wasabi — teaching card */
   --accent-green-d: #7ab824;
   /* Deep wasabi */
+  --accent-green-text: #3f6518;
+  /* Accessible accent text for light surfaces */
   --accent-plum: #6b3fa0;
   /* Plum Noir — shrine */
   --accent-persimmon: #e8603c;
@@ -87,7 +89,9 @@
   --shadow-hover: 0 8px 32px rgba(0, 0, 0, 0.12), 0 2px 8px rgba(0, 0, 0, 0.06);
 
   /* Typography */
-  --font-sans: 'Outfit', system-ui, -apple-system, sans-serif;
+  /* System UI keeps Ukrainian and Russian Cyrillic on a complete local font
+     instead of mixing an English-only webfont with a browser fallback. */
+  --font-sans: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Noto Sans', sans-serif;
   --font-mono: 'Fira Code', 'Courier New', monospace;
 
   /* Safe Area System (2026 Mobile Hygiene) */

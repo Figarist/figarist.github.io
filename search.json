@@ -1,20 +1,42 @@
 ---
 layout: null
+sitemap: false
 ---
 [
+  {% assign search_prefix = '' %}{% if site.active_lang != site.default_lang %}{% assign search_prefix = site.active_lang | prepend: '/' %}{% endif %}
   {% assign docs = site.posts | concat: site.education %}
   {% assign first = true %}
   {% for doc in docs %}
     {% if doc.lang == site.active_lang %}
       {% if first %}{% assign first = false %}{% else %},{% endif %}
       {
-        "id": {{ doc.url | relative_url | jsonify }},
+        "id": {{ doc.url | prepend: search_prefix | relative_url | jsonify }},
         "title": {{ doc.title | jsonify }},
-        "url": {{ doc.url | relative_url | jsonify }},
+        "url": {{ doc.url | prepend: search_prefix | relative_url | jsonify }},
         "tags": {{ doc.tags | join: " " | jsonify }},
         "description": {{ doc.description | default: doc.excerpt | strip_html | normalize_whitespace | jsonify }},
         "content": {{ doc.content | strip_html | truncatewords: 50 | jsonify }}
       }
     {% endif %}
+  {% endfor %}
+  {% assign tutoring_search = site.data[site.active_lang].tutoring %}
+  {% unless first %},{% endunless %}
+  {
+    "id": {{ '/tutoring/' | prepend: search_prefix | relative_url | jsonify }},
+    "title": {{ tutoring_search.title | jsonify }},
+    "url": {{ '/tutoring/' | prepend: search_prefix | relative_url | jsonify }},
+    "tags": "Unity C# Python Scratch",
+    "description": {{ tutoring_search.description | jsonify }},
+    "content": {{ tutoring_search.intro | jsonify }}
+  }
+  {% for course in tutoring_search.courses %},
+  {
+    "id": {{ '/tutoring/' | append: course.slug | append: '/' | prepend: search_prefix | relative_url | jsonify }},
+    "title": {{ course.title | jsonify }},
+    "url": {{ '/tutoring/' | append: course.slug | append: '/' | prepend: search_prefix | relative_url | jsonify }},
+    "tags": {{ course.slug | jsonify }},
+    "description": {{ course.description | jsonify }},
+    "content": {{ course.intro | jsonify }}
+  }
   {% endfor %}
 ]

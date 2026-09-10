@@ -41,6 +41,10 @@ layout: default
 
       {% include author_box.html %}
 
+      {% if page.tags contains 'python' or page.tags contains 'unity' or page.tags contains 'scratch' or page.tags contains 'csharp' %}
+      {% include tutoring-promo.html %}
+      {% endif %}
+
 </article>
 
 {% include metadata/json-ld.html type="BlogPosting" %}

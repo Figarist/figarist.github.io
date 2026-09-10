@@ -16,8 +16,9 @@
 }
 
 .home-shell {
-  padding: 24px 0 72px;
+  padding: 24px 0 32px;
 }
+.jekyll-main.tutoring-main:has(.home-shell) { margin-bottom: 20px; }
 
 .home-hero,
 .tutoring-hero {
@@ -184,6 +185,14 @@
 }
 
 .anchor-target { scroll-margin-top: 120px; }
+.home-hero__proof { display: flex; flex-wrap: wrap; gap: 6px 10px; align-items: center; max-width: 58ch; margin-top: 18px; color: var(--text-muted); font-size: .76rem; line-height: 1.35; }
+.home-hero__proof-label { flex: 0 0 100%; color: var(--accent-green-text); font-size: .68rem; font-weight: 800; letter-spacing: .08em; text-transform: uppercase; }
+.home-hero__proof a { display: inline-flex; min-height: 32px; align-items: center; gap: 4px; padding: 5px 9px; border: 1px solid rgba(83, 125, 32, .2); border-radius: 999px; background: rgba(240, 248, 226, .72); color: #36531e; font-weight: 600; text-decoration: none; }
+.home-hero__proof a:hover { background: #fff; }
+.home-hero__proof a > span { color: #5b8d23; letter-spacing: .06em; }
+.home-hero__proof a strong { font-weight: 800; }
+.home-hero__proof-note { color: var(--text-muted); font-size: .72rem; }
+.hero-heading__mobile { display: none; }
 .home-section[id], .tutoring-section[id] { scroll-margin-top: 120px; }
 .legacy-anchor { position: absolute; top: -120px; width: 1px; height: 1px; }
 
@@ -309,8 +318,8 @@
 
 .home-audience__rule { width: 1px; height: 42px; background: var(--border-light); }
 
-.home-section,
-.home-explore { padding: 20px 0 64px; }
+.home-section { padding: 20px 0 64px; }
+.home-explore { padding: 20px 0 36px; }
 
 .section-heading {
   display: flex;
@@ -431,10 +440,27 @@
 .trust-link:hover,
 .trust-links a:hover { background: #fff; }
 .trust-link__icon { color: #5b8d23; font-size: 1.15rem; }
-.trust-link strong { display: block; font-size: .86rem; line-height: 1.3; }
-.trust-link small { display: block; margin-top: 3px; color: #66805a; font-size: .72rem; }
+.trust-link strong { display: block; font-size: .92rem; line-height: 1.3; }
+.trust-link small { display: block; margin-top: 3px; color: #66805a; font-size: .8rem; line-height: 1.4; }
 
-.explore-grid { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+.trust-link--reviews {
+  grid-template-columns: auto minmax(0, 1fr) auto;
+  border-color: rgba(91, 141, 35, .34);
+  background: linear-gradient(135deg, rgba(255, 255, 255, .92), rgba(240, 248, 226, .78));
+}
+.trust-link__rating {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  align-items: center;
+  margin-top: 8px;
+  line-height: 1;
+}
+.trust-link__rating > span:first-child { color: #5b8d23; font-size: .94rem; letter-spacing: .1em; }
+.trust-link__rating > strong { display: inline; color: #36531e; font-size: .78rem; }
+.trust-link__rating > span:last-child { padding: 5px 8px; border-radius: 999px; background: #d9edb5; color: #36531e; font-size: .78rem; font-weight: 800; white-space: nowrap; }
+.trust-link__arrow { color: #36531e; }
+
 .explore-card { min-height: 182px; padding: 20px; }
 .explore-card > span { margin-bottom: 28px; color: var(--accent-green-text); font-size: .7rem; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; }
 .explore-card small { margin-bottom: 0; }
@@ -444,6 +470,12 @@
 .explore-card--dark > span { color: #b8d986; }
 .explore-card--dark small { color: rgba(255, 255, 255, .62); }
 .explore-card--dark b { color: #d0ec9f; }
+.home-booking-cta { display: flex; align-items: center; justify-content: space-between; gap: 28px; margin: 0 0 18px; padding: clamp(24px, 4vw, 38px); border-radius: 22px; background: var(--text-primary); color: #fff; }
+.home-booking-cta .section-kicker { margin-bottom: 12px; color: #b8d986; }
+.home-booking-cta h2 { margin: 0; color: #fff; font-size: clamp(1.75rem, 3vw, 2.6rem); letter-spacing: -.04em; line-height: 1.05; }
+.home-booking-cta p:not(.section-kicker) { max-width: 50ch; margin: 14px 0 0; color: rgba(255, 255, 255, .68); line-height: 1.55; }
+.home-booking-cta .button { flex: 0 0 auto; background: #d0ec9f; color: #19201d; }
+.home-booking-cta .button:hover { background: #fff; color: #19201d; }
 
 /* Tutoring detail pages */
 .tutoring-page { padding: 24px 0 72px; }
@@ -562,22 +594,38 @@
   .jekyll-main.tutoring-main { padding: 92px 16px 0; }
   .home-shell { padding: 12px 0 48px; }
   .home-hero, .tutoring-hero { gap: 26px; padding: 24px 20px; border-radius: 20px; }
-  .home-hero h1, .tutoring-hero h1 { font-size: clamp(2.25rem, 12vw, 3.6rem); letter-spacing: -.06em; }
+  .home-hero h1, .tutoring-hero h1 { font-size: clamp(2rem, 11vw, 3.6rem); letter-spacing: -.06em; }
+  .hero-heading__full { display: none; }
+  .hero-heading__mobile { display: inline; }
   .home-hero__lead, .tutoring-lead { margin-bottom: 18px; font-size: .98rem; }
   .home-hero__facts, .tutoring-hero__facts { margin-bottom: 20px; }
   .home-hero__facts span, .tutoring-hero__facts span, .home-hero__facts strong, .tutoring-hero__facts strong { font-size: .73rem; }
   .home-hero__actions, .tutoring-hero__actions { align-items: stretch; width: 100%; }
   .home-hero__actions .button, .tutoring-hero__actions .button, .tutoring-hero__actions .tutoring-button { flex: 1 1 180px; }
+  .home-hero__proof { margin-top: 14px; }
+  .home-hero__proof a { max-width: 100%; }
+  .home-hero__proof-note { flex: 0 0 100%; }
+  .home-project-card > img { max-height: 150px; aspect-ratio: 16 / 7; }
   .home-project-card__topline, .tutoring-hero__aside-label { padding: 18px 18px 12px; }
-  .home-project-card__body, .tutoring-hero__aside > div:last-child { padding: 18px; }
-  .home-audience { grid-template-columns: 1fr; gap: 14px; padding: 24px 2px 38px; }
+  .home-project-card__body { padding: 14px 18px 16px; }
+  .tutoring-hero__aside > div:last-child { padding: 18px; }
+  .home-project-card h2 { font-size: 1.25rem; }
+  .home-project-card__body > p:not(.home-project-card__meta) { margin-bottom: 12px; font-size: .82rem; line-height: 1.4; }
+  .home-audience { grid-template-columns: 1fr; gap: 10px; padding: 16px 2px 24px; }
+  .home-audience p:first-child { display: none; }
+  .home-audience p:last-child { font-size: .8rem; line-height: 1.45; }
   .home-audience__rule { width: 42px; height: 1px; }
-  .home-section, .home-explore { padding: 14px 0 40px; }
+  .home-section, .home-explore { padding: 14px 0 28px; }
   .section-heading { display: block; margin-bottom: 18px; }
   .section-heading h2, .home-trust h2, .tutoring-contact-panel h2 { max-width: none; font-size: 2rem; }
   .section-heading > p { margin-top: 14px; }
   .explore-grid { grid-template-columns: 1fr; }
   .home-trust { gap: 22px; margin-bottom: 40px; padding: 24px 20px; }
+  .trust-link--reviews { grid-template-columns: auto minmax(0, 1fr) auto; }
+  .trust-link--reviews .trust-link__arrow { grid-column: 3; grid-row: 1 / span 2; }
+  .trust-link small { font-size: .78rem; }
+  .home-booking-cta { display: block; margin-bottom: 10px; padding: 24px 20px; }
+  .home-booking-cta .button { width: 100%; margin-top: 22px; }
   .tutoring-page { padding: 12px 0 50px; }
   .tutoring-section { padding: 24px 20px; border-radius: 18px; }
   .tutoring-option { grid-template-columns: 28px 1fr auto; gap: 10px; padding: 15px 12px; }
@@ -612,5 +660,5 @@
 .case-gallery { display: grid; gap: 12px; margin-top: 16px; }
 .case-gallery img { width: 100%; height: auto; border-radius: 10px; }
 
-.home-hero h1, .tutoring-hero h1 { max-width: 100%; overflow-wrap: anywhere; hyphens: auto; }
+.home-hero h1, .tutoring-hero h1 { max-width: 100%; overflow-wrap: normal; word-break: normal; hyphens: none; }
 @media (min-width: 901px) { .home-hero h1 { font-size: clamp(2.35rem, 4.6vw, 4rem); } }

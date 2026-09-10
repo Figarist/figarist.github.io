@@ -13,7 +13,7 @@ sitemap: true
   <section class="home-hero" id="bio" aria-labelledby="home-title">
     <div class="home-hero__copy">
       <p class="home-eyebrow"><span class="home-mark" aria-hidden="true">F</span> Figarist · {{ t.name }}</p>
-      <h1 id="home-title">{{ t.heading }}</h1>
+      <h1 id="home-title"><span class="hero-heading__full">{{ t.heading }}</span><span class="hero-heading__mobile">{{ t.mobile_heading }}</span></h1>
       <p class="home-hero__lead">{{ t.intro }}</p>
       <div class="home-hero__facts" aria-label="{{ s.home_facts_label }}">
         <span>{{ s.home_online_fact }}</span>
@@ -22,6 +22,12 @@ sitemap: true
       <div class="home-hero__actions">
         <a class="button button--primary" href="{{ tutoring_settings.contact.telegram_url }}" data-goatcounter-click="home-telegram-{{ site.active_lang }}">{{ t.cta }} <span aria-hidden="true">↗</span></a>
         <a class="button button--quiet" href="#learning">{{ t.choose }} <span aria-hidden="true">↓</span></a>
+      </div>
+      <div class="home-hero__proof" aria-label="{{ s.home_reviews_label }}. {{ s.tutoring_reviews_snapshot }}">
+        <span class="home-hero__proof-label">{{ s.home_reviews_label }}</span>
+        <a href="{{ tutoring_settings.proof.buki_url }}" target="_blank" rel="noopener"><span aria-hidden="true">★★★★★</span> <strong>BUKI</strong> · {{ tutoring_settings.proof.buki_review_count }} {{ s.tutor_association_reviews }}</a>
+        <a href="{{ tutoring_settings.proof.tutor_association_url }}" target="_blank" rel="noopener"><span aria-hidden="true">★★★★★</span> <strong>{{ s.tutor_association_short_title }}</strong> · {{ tutoring_settings.proof.tutor_association_review_count }} {{ s.tutor_association_reviews }}</a>
+        <span class="home-hero__proof-note">{{ s.tutoring_reviews_snapshot }}</span>
       </div>
       <p class="home-hero__note">{{ t.availability }}</p>
     </div>
@@ -81,12 +87,26 @@ sitemap: true
         <span><strong>{{ s.nav_studio }}</strong><small>{{ s.home_studio_detail }}</small></span>
         <span aria-hidden="true">↗</span>
       </a>
-      <a class="trust-link" href="{{ tutoring_settings.proof.buki_url }}" target="_blank" rel="noopener">
+      <a class="trust-link trust-link--reviews" href="{{ tutoring_settings.proof.buki_url }}" target="_blank" rel="noopener">
         <span class="trust-link__icon" aria-hidden="true">↗</span>
-        <span><strong>{{ t.reviews }}</strong><small>{{ s.home_buki_detail }}</small></span>
-        <span aria-hidden="true">↗</span>
+        <span><strong>{{ t.reviews }}</strong><small>{{ s.home_buki_detail }}</small><span class="trust-link__rating" aria-label="5 / 5, {{ tutoring_settings.proof.buki_review_count }} {{ s.tutor_association_reviews }}"><span aria-hidden="true">★★★★★</span><strong aria-hidden="true">5/5</strong><span>{{ tutoring_settings.proof.buki_review_count }} {{ s.tutor_association_reviews }}</span></span></span>
+        <span class="trust-link__arrow" aria-hidden="true">↗</span>
+      </a>
+      <a class="trust-link trust-link--reviews" href="{{ tutoring_settings.proof.tutor_association_url }}" target="_blank" rel="noopener">
+        <span class="trust-link__icon" aria-hidden="true">↗</span>
+        <span><strong>{{ s.tutor_association_title }}</strong><small>{{ s.tutor_association_detail }}</small><span class="trust-link__rating" aria-label="5 / 5, {{ tutoring_settings.proof.tutor_association_review_count }} {{ s.tutor_association_reviews }}"><span aria-hidden="true">★★★★★</span><strong aria-hidden="true">5/5</strong><span>{{ tutoring_settings.proof.tutor_association_review_count }} {{ s.tutor_association_reviews }}</span></span></span>
+        <span class="trust-link__arrow" aria-hidden="true">↗</span>
       </a>
     </div>
+  </section>
+
+  <section class="home-booking-cta" aria-labelledby="home-booking-title">
+    <div>
+      <p class="section-kicker">{{ s.tutoring_contact_label }}</p>
+      <h2 id="home-booking-title">{{ t.contact }}</h2>
+      <p>{{ t.contact_text }}</p>
+    </div>
+    <a class="button button--primary" href="{{ tutoring_settings.contact.telegram_url }}" data-goatcounter-click="home-booking-telegram-{{ site.active_lang }}">{{ t.cta }} <span aria-hidden="true">↗</span></a>
   </section>
 
   {% include tutoring-cases.html context="home" %}

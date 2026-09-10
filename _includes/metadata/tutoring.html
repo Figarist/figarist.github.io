@@ -17,7 +17,7 @@
       "alternateName": "Figarist",
       "jobTitle": {{ t.role | jsonify }},
       "url": {{ '/' | absolute_url | jsonify }},
-      "sameAs": [{{ tutoring_settings.contact.telegram_url | jsonify }}, "https://github.com/Figarist", {{ tutoring_settings.proof.buki_url | jsonify }}]
+      "sameAs": [{{ tutoring_settings.contact.telegram_url | jsonify }}, "https://github.com/Figarist", {{ tutoring_settings.proof.buki_url | jsonify }}, {{ tutoring_settings.proof.tutor_association_url | jsonify }}]
     },
     {
       "@type": "Service",

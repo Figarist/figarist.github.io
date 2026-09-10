@@ -3,6 +3,7 @@
   "title": "Online programming tutor for children — Ihor Sivochka",
   "description": "Individual Unity and C#, Python and Scratch lessons for children with game developer Ihor Sivochka. Lessons in Ukrainian or Russian.",
   "heading": "Online programming lessons for children and teenagers",
+  "mobile_heading": "Programming for children",
   "intro": "I am Ihor Sivochka, a teacher and game developer. I teach children programming through their own projects. My main focus is Unity and C#, with Scratch and Python as additional starting points.",
   "audience": "I work with children and teenagers, adapting lessons to each student’s experience, interests and goals.",
   "language": "Individual online lessons in Ukrainian or Russian, for students in Ukraine and abroad.",
@@ -19,9 +20,9 @@
     "Explore how the code works, test the result and learn to debug."
   ],
   "proof": "Learn with a practising game developer",
-  "proof_text": "Explore my own projects on this website for examples of my development work. Teaching reviews are available on my BUKI profile.",
+  "proof_text": "Explore my own projects on this website for examples of my development work. Teaching reviews are available on BUKI and the Ukrainian Tutors Association.",
   "game": "Play my game Dish of Chaos",
-  "reviews": "View my BUKI profile and reviews",
+  "reviews": "BUKI reviews",
   "faq": "Before starting",
   "questions": [
     [

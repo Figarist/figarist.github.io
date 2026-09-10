@@ -20,8 +20,11 @@ proof:
     title: Dish of Chaos
     url: /games/dish-of-chaos/
     image: /assets/images/games/dish-of-chaos-cover.png
-  studio_url: https://wristandpocket.github.io
+  studio_url: https://wristandpocket.dev
   buki_url: https://buki.com.ua/user-82505/
+  buki_review_count: 11
+  tutor_association_url: https://repetitor.org.ua/id13882
+  tutor_association_review_count: 7
 conditions:
   duration: null
   first_lesson: null

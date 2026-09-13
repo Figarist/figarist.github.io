@@ -3,15 +3,10 @@ format: online
 price:
   amount: 1000
   currency: UAH
-  weekend_amount: 1200
 contact:
   telegram_url: https://t.me/Figarist
 payment:
   account_type: FOP
-  currencies:
-  - UAH
-  - EUR
-  - USD
 proof:
   own_project:
     title: Dish of Chaos
@@ -47,13 +42,10 @@ conditions:
       предупреждении стоимость занятия списывается.
     ko: 취소나 일정 변경은 최소 한 시간 전에 알려 주세요. 그보다 늦게 알리면 수업료가 차감됩니다.
   cancellation:
-    uk: Непередбачені обставини в Україні обговорюємо індивідуально. Якщо заняття
-      не може відбутися з мого боку, переносимо або скасовуємо його без оплати.
-    en: Unforeseen circumstances in Ukraine are discussed individually. If I cannot
-      hold a lesson, we reschedule or cancel it without charge.
-    ru: Непредвиденные обстоятельства в Украине обсуждаем индивидуально. Если занятие
-      не может состояться с моей стороны, переносим или отменяем его без оплаты.
-    ko: 우크라이나의 예기치 못한 상황은 개별적으로 논의합니다. 제가 수업을 진행할 수 없으면 비용 없이 일정을 변경하거나 취소합니다.
+    uk: "Непередбачені обставини в Україні обговорюємо індивідуально. Якщо я не можу провести заняття, домовляємося про перенесення або скасування. За заняття, яке не відбулося з мого боку, кошти не списуються."
+    en: "Unforeseen circumstances in Ukraine are discussed individually. If I cannot teach a lesson, we agree to reschedule or cancel it. No payment is deducted for a lesson that did not take place because I was unavailable."
+    ru: "Непредвиденные обстоятельства в Украине обсуждаем индивидуально. Если я не могу провести занятие, договариваемся о переносе или отмене. За занятие, которое не состоялось с моей стороны, деньги не списываются."
+    ko: "우크라이나의 예기치 못한 상황은 개별적으로 논의합니다. 제가 수업을 진행할 수 없으면 일정 변경이나 취소를 협의합니다. 제 사정으로 진행하지 못한 수업의 비용은 차감되지 않습니다."
   payment_order:
     uk: Можна оплачувати по одному заняттю або кілька наперед — як зручно батькам.
       Кошти за невикористані майбутні заняття повертаються, якщо вирішили припинити

@@ -65,6 +65,11 @@
       "examples": [
         "A 2D game with character movement, obstacles and a score",
         "A 3D scene with controls and object interaction"
+      ],
+      "steps": [
+        "We discuss interests and explore example projects. Start from scratch or bring a game you are already making.",
+        "We begin with something manageable, such as a Flappy Bird-style game or walking around a 3D world. Complex games take time; we work through things step by step.",
+        "I explain the logic and help students experiment and debug. If their interests change, we can switch projects or directions."
       ]
     },
     {
@@ -82,6 +87,11 @@
       "examples": [
         "Drawings and animation with Turtle",
         "A text adventure or quiz with custom rules"
+      ],
+      "steps": [
+        "We discuss interests and explore example projects. Start from scratch or bring a game you are already making.",
+        "Start small with a Turtle drawing or a text quiz. We explain the code step by step and add new features.",
+        "I explain the logic and help students experiment and debug. If their interests change, we can switch projects or directions."
       ]
     },
     {
@@ -99,6 +109,11 @@
       "examples": [
         "A game with a character, goals and scoring",
         "An interactive animated story with choices"
+      ],
+      "steps": [
+        "We discuss interests and explore example projects. Start from scratch or bring a game you are already making.",
+        "Start small with a character animation or a simple score-based game. We gradually combine blocks and add our own rules.",
+        "I explain the logic and help students experiment and debug. If their interests change, we can switch projects or directions."
       ]
     }
   ],
@@ -110,5 +125,5 @@
   "video_title": "Meet me on video",
   "video_text": "An earlier introduction to me and my lessons.",
   "video_cta": "Watch on YouTube",
-  "weekend_note": "Weekends by arrangement: 1200 UAH for 60 minutes."
+  "payment_text": "Payment to a sole proprietor account in hryvnias and foreign currency."
 }

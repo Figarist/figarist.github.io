@@ -77,20 +77,22 @@ titles = []; descriptions = []
     visible_reviews = reviews.count { |item| item['status'] == 'published' && item['permission'] == true && item['ready'] == true && item['language'] == lang }
     check(doc.css('.testimonial-card').size == visible_reviews, "#{path}: testimonial publication gate")
     doc.css('script[type="application/ld+json"]').each { |block| JSON.parse(block.text) }
+    check(doc.css('iframe[src="https://www.youtube-nocookie.com/embed/3CxXkJ8ANbQ"]').size == 1, "#{path}: embedded video missing")
+    check(doc.css(".tutoring-adult-note").empty?, "#{path}: adult aside leaked")
     next if route.empty?
     contact = doc.at_css('.tutoring-hero [data-goatcounter-click]')
     direction = route.split('/')[2] || 'overview'
     check(contact && contact['data-goatcounter-click'] == "tutoring-telegram-#{direction}-#{lang}", "#{path}: Telegram event identity")
     check(!html.include?('Unity Certified Programmer'), "#{path}: fictional credentials leaked")
     check(doc.text.include?('Unity Junior Programmer') && doc.text.include?('Unity Essentials'), "#{path}: approved credentials missing")
-    check(doc.text.include?('1200'), "#{path}: weekend price missing")
+    check(!doc.text.include?('1200'), "#{path}: private weekend price leaked")
     check(doc.css('a[href="https://youtu.be/3CxXkJ8ANbQ"]').size == 1, "#{path}: video link missing")
     check(search.any? { |entry| entry['url'] == path }, "#{path}: search")
     graph = doc.css('script[type="application/ld+json"]').map { |b| JSON.parse(b.text) }.find { |b| b['@graph'] }['@graph']
     service = graph.find { |item| item['@type'] == 'Service' }
     check(service['url'] == url && service['offers']['price'].to_s == '1000' && service['offers']['priceCurrency'] == 'UAH', "#{path}: service offer")
     if lang == 'uk'
-      check(doc.text.include?('Оплата на рахунок ФОП у гривнях, євро або доларах.'), "#{path}: localized payment")
+      check(doc.text.include?('Оплата на рахунок ФОП у гривні та іноземній валюті.'), "#{path}: localized payment")
     end
   end
 end

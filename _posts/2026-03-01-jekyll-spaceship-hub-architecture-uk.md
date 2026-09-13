@@ -1,4 +1,5 @@
 ---
+mermaid: true
 layout: "post"
 title: "Ультимативний Технічний Лонгрід: Jekyll Spaceship + Hub Architecture"
 description: "Глибоке занурення в можливості jekyll-spaceship для технічного блогу на Unity: Mermaid, MathJax, складні таблиці та медіа-контент."
@@ -120,7 +121,7 @@ $$
 
 Для Unity розробки це критично:
 
-```mermaid!
+```mermaid
 stateDiagram-v2
     [*] --> Idle
     Idle --> Walking: Move Input
@@ -134,7 +135,7 @@ stateDiagram-v2
 
 Планування релізу Wear OS додатка:
 
-```mermaid!
+```mermaid
 gantt
     title Розробка Wear OS Циферблата
     dateFormat  YYYY-MM-DD
@@ -150,7 +151,7 @@ gantt
 
 ### Класова Діаграма
 
-```mermaid!
+```mermaid
 classDiagram
     class PlayerController {
         +float speed

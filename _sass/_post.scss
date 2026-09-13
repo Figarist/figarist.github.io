@@ -358,3 +358,8 @@
   font-weight: 500;
 }
 
+
+/* Render diagrams on a readable canvas instead of the code-block theme. */
+pre.mermaid { display: block; background: #fff; color: #19192e; padding: 20px; overflow-x: auto; white-space: normal; }
+pre.mermaid svg { display: block; margin: 0 auto; height: auto; }
+pre.mermaid svg[aria-roledescription="gantt"] { min-width: 900px; }

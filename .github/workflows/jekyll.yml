@@ -59,6 +59,9 @@ jobs:
       - name: Validate production metadata and budgets
         run: bundle exec ruby scripts/test_site.rb
 
+      - name: Validate all local links and preserve published routes
+        run: bundle exec ruby scripts/audit_links.rb
+
       - name: Test with HTML Proofer
         run: |
           bundle exec htmlproofer ./_site \

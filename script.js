@@ -571,6 +571,43 @@ const code = codeEl.textContent;
     });
   });
 
+  document.querySelectorAll(".review-carousel").forEach(function (carousel) {
+    var track = carousel.querySelector(".review-track");
+    var cards = Array.from(track.children);
+    var previous = carousel.querySelector("[data-review-prev]");
+    var next = carousel.querySelector("[data-review-next]");
+    var position = carousel.querySelector(".review-position");
+    var index = 0;
+    carousel.querySelector(".review-controls").hidden = false;
+    function update() {
+      var left = track.getBoundingClientRect().left;
+      var distance = Infinity;
+      cards.forEach(function (card, i) {
+        var delta = Math.abs(card.getBoundingClientRect().left - left);
+        if (delta < distance) { distance = delta; index = i; }
+      });
+      track.style.height = (cards[index].offsetHeight + 24) + "px";
+      position.textContent = (index + 1) + " / " + cards.length;
+      previous.disabled = index === 0;
+      next.disabled = index === cards.length - 1;
+    }
+    function move(delta) {
+      var target = Math.max(0, Math.min(cards.length - 1, index + delta));
+      track.scrollBy({left: cards[target].getBoundingClientRect().left - track.getBoundingClientRect().left, behavior: window.matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth"});
+    }
+    previous.addEventListener("click", function () { move(-1); });
+    next.addEventListener("click", function () { move(1); });
+    track.addEventListener("keydown", function (event) {
+      if (event.target !== track) return;
+      if (event.key === "ArrowRight" || event.key === "ArrowLeft") { event.preventDefault(); move(event.key === "ArrowRight" ? 1 : -1); }
+    });
+    var timer;
+    track.addEventListener("scroll", function () { clearTimeout(timer); timer = setTimeout(update, 100); }, {passive:true});
+    window.addEventListener("resize", update);
+    if (window.ResizeObserver) { var observer = new ResizeObserver(update); cards.forEach(function (card) { observer.observe(card); }); }
+    update();
+  });
+
 })();
 
 // Service Worker Registration

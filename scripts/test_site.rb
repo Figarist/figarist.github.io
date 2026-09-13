@@ -74,7 +74,7 @@ titles = []; descriptions = []
     check(doc.css('.case-card').size == visible_cases, "#{path}: case publication gate")
     visible_profile = profile['status'] == 'published' && profile.dig('translations', lang, 'ready') == true
     check(!doc.css('.tutoring-section--profile').empty? == visible_profile, "#{path}: profile publication gate")
-    visible_reviews = reviews.count { |item| item['status'] == 'published' && item['permission'] == true && item['ready'] == true && item['language'] == lang }
+    visible_reviews = reviews.count { |item| item['status'] == 'published' && item['permission'] == true && item['ready'] == true }
     check(doc.css('.testimonial-card').size == visible_reviews, "#{path}: testimonial publication gate")
     doc.css('script[type="application/ld+json"]').each { |block| JSON.parse(block.text) }
     check(doc.css('iframe[src="https://www.youtube-nocookie.com/embed/3CxXkJ8ANbQ"]').size == 1, "#{path}: embedded video missing")

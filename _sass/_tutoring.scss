@@ -1077,3 +1077,21 @@
 
 .tutoring-video { display: block; width: 100%; aspect-ratio: 16 / 9; height: auto; margin: 24px 0 16px; border: 0; border-radius: 14px; background: #19201d; }
 @media (max-width: 680px) { .condition-card { flex-direction: column; gap: 8px; } .condition-card h3 { flex-basis: auto; margin-bottom: 0; } .profile-facts li { flex-direction: column; gap: 8px; } }
+
+/* Source-attributed reviews: native scrolling remains usable without JavaScript. */
+.review-carousel { background: #e9f1de; overflow: hidden; }
+.review-controls { display: flex; align-items: center; justify-content: flex-end; gap: 16px; margin: 0 0 18px; }
+.review-controls[hidden] { display: none; }
+.review-controls button { width: 48px; height: 48px; border: 1px solid #b9c8aa; border-radius: 50%; background: #fff; color: #19201d; font-size: 1.4rem; cursor: pointer; }
+.review-controls button:disabled { opacity: .35; cursor: default; }
+.review-position { font-variant-numeric: tabular-nums; color: #36531e; }
+.review-track { display: flex; align-items: flex-start; gap: 20px; overflow-x: auto; overflow-y: hidden; scroll-snap-type: x mandatory; scrollbar-width: thin; padding-bottom: 16px; }
+.review-slide { flex: 0 0 88%; min-width: 0; box-sizing: border-box; scroll-snap-align: start; display: flex; flex-direction: column; padding: clamp(22px, 4vw, 42px); border-radius: 20px; background: #fff; }
+.review-meta { display: flex; flex-wrap: wrap; align-items: center; gap: 12px; font-size: .85rem; color: #526147; }
+.review-meta > span { padding: 6px 10px; background: #eff7df; border-radius: 20px; }
+.review-meta time { margin-left: auto; }
+.review-slide blockquote { margin: 26px 0 32px; padding: 0; border: 0; background: none; color: var(--text-primary); font-size: clamp(1.08rem, 1.8vw, 1.45rem); line-height: 1.65; font-style: normal; }
+.review-signature { display: flex; align-items: center; flex-wrap: wrap; gap: 12px; margin-top: auto; }
+.review-avatar { display: inline-flex; align-items: center; justify-content: center; width: 42px; height: 42px; border-radius: 50%; background: #e9e1f3; color: #653b94; font-weight: 700; }
+.review-signature a { margin-left: auto; color: #653b94; font-size: .85rem; }
+@media (max-width: 680px) { .review-slide { flex-basis: 96%; } .review-signature a { flex-basis: 100%; margin-left: 54px; } }

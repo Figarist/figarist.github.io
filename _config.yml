@@ -143,15 +143,13 @@ feed:
 
 # ── Spaceship Settings ──────────────────────────────────────
 jekyll-spaceship:
-  mathjax:
+  mathjax-processor:
     src: "/assets/vendor/mathjax/tex-mml-chtml.js"
     config:
       tex2jax:
         inlineMath: [["$", "$"], ['\\(', '\\)']]
         displayMath: [["$$", "$$"], ['\\[', '\\]']]
         processEscapes: true
-  mermaid:
-    src: "/assets/vendor/mermaid.min.js"
   video:
     youtube:
       width: 100%

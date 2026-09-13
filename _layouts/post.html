@@ -50,3 +50,8 @@ layout: default
 {% include metadata/json-ld.html type="BlogPosting" %}
 
 {% include related-bento.html %}
+
+{% if page.mermaid %}
+<script defer src="{{ '/assets/vendor/mermaid.min.js' | relative_url }}"></script>
+<script defer src="{{ '/assets/js/diagrams.js' | relative_url }}"></script>
+{% endif %}

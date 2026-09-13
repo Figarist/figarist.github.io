@@ -26,9 +26,18 @@
     {% seo %}
     {% endif %}
 
-    <!-- Polyglot: Generates Hreflang logic perfectly -->
-    {% I18n_Headers %}
-    <link rel="alternate" hreflang="x-default" {% static_href %}href="{{ site.url }}{{ site.baseurl }}{{ page.url }}"{% endstatic_href %}>
+    {% assign alternate_path = page.url | default: '/' %}
+    {% for language in site.languages %}
+      {% assign language_prefix = language | prepend: '/' | append: '/' %}
+      {% assign path_start = alternate_path | slice: 0, language_prefix.size %}
+      {% if path_start == language_prefix %}{% assign prefix_only = language | prepend: '/' %}{% assign alternate_path = alternate_path | remove_first: prefix_only %}{% break %}{% endif %}
+    {% endfor %}
+    {% for language in site.languages %}
+      {% assign alternate_prefix = '' %}
+      {% unless language == site.default_lang %}{% assign alternate_prefix = language | prepend: '/' %}{% endunless %}
+      <link rel="alternate" {% static_href %}href="{{ site.url }}{{ site.baseurl }}{{ alternate_prefix }}{{ alternate_path }}"{% endstatic_href %} hreflang="{{ language }}">
+    {% endfor %}
+    <link rel="alternate" hreflang="x-default" {% static_href %}href="{{ site.url }}{{ site.baseurl }}{{ alternate_path }}"{% endstatic_href %}>
 
     <!-- RSS Feeds -->
     {% feed_meta %}

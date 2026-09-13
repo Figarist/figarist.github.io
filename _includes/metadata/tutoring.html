@@ -66,12 +66,12 @@
         "url": {{ service_url | jsonify }}
       }
     },
-    {% if t.questions.size > 0 %}
+    {% if faq_questions.size > 0 %}
     {
       "@type": "FAQPage",
       "@id": {{ service_url | append: '#faq' | jsonify }},
       "mainEntity": [
-        {% for question in t.questions %}
+        {% for question in faq_questions %}
         {
           "@type": "Question",
           "name": {{ question[0] | jsonify }},

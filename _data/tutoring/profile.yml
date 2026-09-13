@@ -78,3 +78,12 @@ verified_facts:
     date: '2021-04-20'
     url: https://www.credly.com/badges/98a97882-cfc9-4509-85ca-663c31989ef4
     status: published
+  awards:
+  - title:
+      uk: "II місце — Всеукраїнський конкурс студентських наукових робіт, Середня освіта (Інформатика)"
+      en: "Second place — All-Ukrainian student research competition, Secondary Education (Computer Science)"
+      ru: "II место — Всеукраинский конкурс студенческих научных работ, Среднее образование (Информатика)"
+      ko: "우크라이나 전국 학생 연구 경진대회 2위 — 중등교육(정보과학)"
+    date: '2021'
+    url: /assets/images/credentials/research-award-2021.png
+    status: published

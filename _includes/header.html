@@ -9,7 +9,7 @@
 
             <div class="site-nav__links">
                 <a href="{{ '/tutoring/' | relative_url }}">{{ site.data[site.active_lang].tutoring.nav }}</a>
-                <a href="{{ '/' | relative_url }}#learning">{{ site.data[site.active_lang].strings.home_learning_label }}</a>
+                <a href="{{ '/collection/' | relative_url }}">{{ site.data[site.active_lang].strings.home_hobbies_label }}</a>
                 <a href="{{ '/education/' | relative_url }}">{{ site.data[site.active_lang].strings.education_label }}</a>
                 <a href="{{ '/blog/' | relative_url }}">{{ site.data[site.active_lang].strings.home_blog_label }}</a>
 
@@ -29,7 +29,7 @@
                             {% include language-switcher.html location="mobile" %}
                         </div>
                         <a href="{{ '/tutoring/' | relative_url }}">{{ site.data[site.active_lang].tutoring.nav }}</a>
-                        <a href="{{ '/' | relative_url }}#learning">{{ site.data[site.active_lang].strings.home_learning_label }}</a>
+                        <a href="{{ '/collection/' | relative_url }}">{{ site.data[site.active_lang].strings.home_hobbies_label }}</a>
                         <a href="{{ '/education/' | relative_url }}">{{ site.data[site.active_lang].strings.education_label }}</a>
                         <a href="{{ '/blog/' | relative_url }}">{{ site.data[site.active_lang].strings.home_blog_label }}</a>
                         <a href="{{ tutoring_settings.proof.studio_url }}" target="_blank" rel="noopener">{{ site.data[site.active_lang].strings.nav_studio }}</a>

@@ -29,7 +29,7 @@
           {% if fact.status == 'published' %}
             {% assign fact_title = fact.title[site.active_lang] | default: fact.title.en | default: fact.title.uk | default: fact.title.first[1] | default: fact.title %}
             {% assign fact_date = fact.date[site.active_lang] | default: fact.date.en | default: fact.date.uk | default: fact.date.first[1] | default: fact.date %}
-            <li><strong>{{ fact_title }}</strong>{% if fact_date %}<span>{{ fact_date }}</span>{% endif %}{% if fact.url %}<a href="{{ fact.url }}" target="_blank" rel="noopener">{{ site.data[site.active_lang].strings.profile_source_cta }} <span aria-hidden="true">↗</span></a>{% endif %}</li>
+            <li><strong>{{ fact_title }}</strong>{% if fact_date %}<span>{{ fact_date }}</span>{% endif %}{% if fact.url %}<a href="{{ fact.url | relative_url }}" target="_blank" rel="noopener">{{ site.data[site.active_lang].strings.profile_source_cta }} <span aria-hidden="true">↗</span></a>{% endif %}</li>
           {% endif %}
         {% endfor %}
       {% endfor %}

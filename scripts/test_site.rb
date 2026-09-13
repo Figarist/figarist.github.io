@@ -20,7 +20,7 @@ titles = []; descriptions = []
 %w[en uk ru ko].each do |lang|
   prefix = lang == 'en' ? '' : "/#{lang}"
   search = JSON.parse(File.read("#{root}#{prefix}/search.json"))
-  ['', '/tutoring', '/tutoring/unity', '/tutoring/python', '/tutoring/scratch'].each do |route|
+  ['', '/tutoring', '/tutoring/unity', '/tutoring/python', '/tutoring/scratch', '/tutoring/informatics', '/tutoring/minecraft'].each do |route|
     path = "#{prefix}#{route}/"
     html = File.read("#{root}#{path}index.html")
     doc = Nokogiri::HTML(html)
@@ -75,7 +75,7 @@ titles = []; descriptions = []
     visible_profile = profile['status'] == 'published' && profile.dig('translations', lang, 'ready') == true
     check(!doc.css('.tutoring-section--profile').empty? == visible_profile, "#{path}: profile publication gate")
     visible_reviews = reviews.count { |item| item['status'] == 'published' && item['permission'] == true && item['ready'] == true }
-    check(doc.css('.testimonial-card').size == visible_reviews, "#{path}: testimonial publication gate")
+    check(doc.css('.testimonial-card').size == (route.empty? ? 0 : visible_reviews), "#{path}: testimonial publication gate")
     doc.css('script[type="application/ld+json"]').each { |block| JSON.parse(block.text) }
     check(doc.css('iframe[src="https://www.youtube-nocookie.com/embed/3CxXkJ8ANbQ"]').size == 1, "#{path}: embedded video missing")
     check(doc.css(".tutoring-adult-note").empty?, "#{path}: adult aside leaked")
@@ -89,6 +89,11 @@ titles = []; descriptions = []
     check(doc.css('a[href="https://youtu.be/3CxXkJ8ANbQ"]').size == 1, "#{path}: video link missing")
     check(search.any? { |entry| entry['url'] == path }, "#{path}: search")
     graph = doc.css('script[type="application/ld+json"]').map { |b| JSON.parse(b.text) }.find { |b| b['@graph'] }['@graph']
+    faq = graph.find { |item| item['@type'] == 'FAQPage' }
+    visible_faq = doc.css('.tutoring-faq').map { |item| [item.at_css('summary').text.strip, item.at_css('p').text.strip] }
+    schema_faq = faq.fetch('mainEntity').map { |item| [item['name'], item.dig('acceptedAnswer', 'text')] }
+    check(visible_faq == schema_faq, "#{path}: visible FAQ differs from schema")
+    check(!doc.at_css('meta[name="robots"]')&.[]('content').to_s.include?('noindex'), "#{path}: unexpectedly noindex")
     service = graph.find { |item| item['@type'] == 'Service' }
     check(service['url'] == url && service['offers']['price'].to_s == '1000' && service['offers']['priceCurrency'] == 'UAH', "#{path}: service offer")
     if lang == 'uk'
@@ -119,7 +124,7 @@ if File.exist?(sw_file)
   manifest = JSON.parse(sw_content.match(/self\.__precacheManifest = (\[.*?\]);/m)[1])
   %w[en uk ru ko].each do |lang|
     prefix = lang == 'en' ? '' : "/#{lang}"
-    ['', '/unity', '/python', '/scratch'].each do |course_path|
+    ['', '/unity', '/python', '/scratch', '/informatics', '/minecraft'].each do |course_path|
       expected = "#{prefix}/tutoring#{course_path}/index.html"
       check(manifest.any? { |entry| entry['url'] == expected }, "sw.js: missing #{expected}")
     end
@@ -131,4 +136,4 @@ styles_css = File.read("#{root}/assets/css/styles.css")
 check(styles_css.include?('scroll-margin-top:120px') || styles_css.include?('scroll-margin-top: 120px'), 'styles.css: missing scroll-margin-top: 120px')
 check(styles_css.include?('@media print'), 'styles.css: missing @media print')
 check(File.read("#{root}/robots.txt").include?(origin + '/sitemap.xml'), 'robots sitemap')
-puts 'PASS: 20 pages, 16 tutoring routes, metadata, hreflang, search, sitemap, JSON-LD, draft exclusion and budgets'
+puts 'PASS: 28 pages, 24 tutoring routes, metadata, hreflang, search, sitemap, JSON-LD, draft exclusion and budgets'

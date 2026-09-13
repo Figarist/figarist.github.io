@@ -128,5 +128,10 @@
   "payment_text": "개인사업자 계좌로 흐리우냐 및 외화 결제가 가능합니다.",
   "phone_show": "전화번호 보기",
   "phone_copied": "복사됨",
-  "phone_fallback": "번호를 직접 복사해 주세요"
+  "phone_fallback": "번호를 직접 복사해 주세요",
+  "reviews_heading": "학생과 학부모의 이야기",
+  "reviews_kicker": "18개의 수업 경험",
+  "reviews_intro": "BUKI와 우크라이나 튜터 협회의 후기를 원문 그대로 소개합니다.",
+  "reviews_prev": "이전 후기",
+  "reviews_next": "다음 후기"
 }

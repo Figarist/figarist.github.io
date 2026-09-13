@@ -1,133 +1,275 @@
-# UNVERIFIED AI-GENERATED EXAMPLES. Author confirmed these are fictional.
-# Replace with real material before enabling publication, permission or readiness.
-# Published testimonials need the owner's permission and a ready status.
-# mode: exact_text keeps the source text unchanged; source_only shows only a link.
-template:
-  id: null
-  mode: exact_text
-  status: draft
-  ready: false
-  permission: false
-  language: null
-  text: null
-  signature: null
-  source_url: null
-  date: null
-  direction: null
-items:
-  - id: buki-yevgen-uk
-    mode: exact_text
-    status: draft
-    ready: false
-    permission: false
-    language: uk
-    signature: "Євген (навчається разом із двома дітьми)"
-    source_url: "https://buki.com.ua/user-82505/"
-    date: "2026-07-28"
-    direction: "Unity та C#"
-    text: >-
-      Ігор відкрив для мене цілий світ розробки ігор у Unity. Навчатися з ним було не лише корисно, а й дуже приємно: він чудовий співрозмовник, усе пояснює зрозуміло, цікаво й доступно. Зараз у Ігоря навчаються ще й двоє моїх дітей, вони також із задоволенням відвідують заняття та дуже ними захоплені. Окрім Unity, діти розвивають загальну комп’ютерну грамотність, що особливо цінно. Це неймовірний досвід як для дітей, так і для дорослих. Щиро й наполегливо рекомендую Ігоря всім, хто хоче опанувати Unity та впевненіше почуватися у світі сучасних технологій. Максимальна оцінка!
-
-  - id: buki-filip-uk
-    mode: exact_text
-    status: draft
-    ready: false
-    permission: false
-    language: uk
-    signature: "Філіп (батько учня 5–6 класу)"
-    source_url: "https://buki.com.ua/user-82505/"
-    date: "2024-01-25"
-    direction: "Програмування для дітей"
-    text: >-
-      Нашому сину дуже подобаються заняття! В нас є з чим порівнювати, то відповідально можемо сказати: Ігор — ТОП! Відповідальний і вміє знайти підхід до учня. Старається розвивати самостійність і мислення! Ми задоволені, як і наш син.
-
-  - id: buki-oleksandr-uk
-    mode: exact_text
-    status: draft
-    ready: false
-    permission: false
-    language: uk
-    signature: "Олександр (Естонія, син навчається онлайн понад рік)"
-    source_url: "https://buki.com.ua/user-82505/"
-    date: "2022-08-25"
-    direction: "Створення ігор онлайн"
-    text: >-
-      Мій син працює з репетитором Ігорем вже протягом року і дуже задоволений. Ми самі з Естонії і заняття проходять онлайн. У сина лише позитивні враження та результати співробітництва та просування за матеріалом. Ігор — дуже уважний та чуйний репетитор! Всім рекомендуємо!
-
-  - id: buki-anzhela-uk
-    mode: exact_text
-    status: draft
-    ready: false
-    permission: false
-    language: uk
-    signature: "Анжела (мама підлітка)"
-    source_url: "https://buki.com.ua/user-82505/"
-    date: "2026-08-27"
-    direction: "C# програмування"
-    text: >-
-      Ігор Глібович сподобався своєю невимушеною манерою вести уроки, докладно відповідав на всі супутні запитання. Для учня-підлітка це було те, що потрібно. Син швидко включився у процес і був зацікавлений у ньому.
-
-  - id: buki-nadiia-uk
-    mode: exact_text
-    status: draft
-    ready: false
-    permission: false
-    language: uk
-    signature: "Надія (мама учня)"
-    source_url: "https://buki.com.ua/user-82505/"
-    date: "2026-08-27"
-    direction: "Програмування для дітей"
-    text: >-
-      Сину сподобались уроки, мені сподобались швидкі домовленості щодо організації уроків, гнучкість, терплячість, підлаштування під рівень учня. Займатися було зручно і цікаво.
-
-  - id: buki-nataliia-uk
-    mode: exact_text
-    status: draft
-    ready: false
-    permission: false
-    language: uk
-    signature: "Наталія (мама учня)"
-    source_url: "https://buki.com.ua/user-82505/"
-    date: "2024-11-09"
-    direction: "Unity 3D"
-    text: >-
-      Рекомендую Ігоря, як талановитого викладача, який вміє почути та зацікавити дитину. Син вивчає Unity 3D.
-
-  - id: buki-yevgen-en
-    mode: exact_text
-    status: draft
-    ready: false
-    permission: false
-    language: en
-    signature: "Yevgen (learning alongside his two children)"
-    source_url: "https://buki.com.ua/user-82505/"
-    date: "2026-07-28"
-    direction: "Unity & C#"
-    text: >-
-      Ihor opened up a whole world of game development in Unity for me. Learning with him was not only useful, but also very enjoyable: he explains everything clearly, interestingly, and accessibly. Now two of my children are also studying with Ihor, and they attend classes with great enthusiasm. Besides Unity, the kids are developing general computer literacy, which is especially valuable. A truly incredible experience for both kids and adults!
-
-  - id: buki-filip-en
-    mode: exact_text
-    status: draft
-    ready: false
-    permission: false
-    language: en
-    signature: "Philip (father of a 5th-6th grade student)"
-    source_url: "https://buki.com.ua/user-82505/"
-    date: "2024-01-25"
-    direction: "Coding for Kids"
-    text: >-
-      Our son really enjoys the lessons! Having tried other options to compare with, we can responsibly say: Ihor is TOP! Responsible and genuinely knows how to connect with the student. He actively fosters independence and problem-solving mindset. Both we and our son are very happy.
-
-  - id: buki-oleksandr-en
-    mode: exact_text
-    status: draft
-    ready: false
-    permission: false
-    language: en
-    signature: "Oleksandr (Estonia, son learning online for over a year)"
-    source_url: "https://buki.com.ua/user-82505/"
-    date: "2022-08-25"
-    direction: "Game Development Online"
-    text: >-
-      My son has been working with tutor Ihor for over a year and is very pleased. We are from Estonia and the lessons take place online. My son has only positive impressions and great progress with the material. Ihor is a very attentive and responsive tutor! Highly recommended!
+# Exact source text supplied and publication authorized by the site owner.
+{
+  "items": [
+    {
+      "id": "review-1",
+      "mode": "exact_text",
+      "status": "published",
+      "ready": true,
+      "permission": true,
+      "permission_basis": "Site owner supplied and explicitly requested publication in chat on 2026-09-13.",
+      "language": "uk",
+      "signature": "Надія",
+      "date": "2026-08-27",
+      "rating": "5+",
+      "text": "Сину сподобались уроки, мені сподобались швидкі домовленості щодо організації уроків, гнучкість, терплячість, підлаштування під рівень учня. Займатися було зручно і цікаво.",
+      "source_name": "BUKI",
+      "source_url": "https://buki.com.ua/user-82505/"
+    },
+    {
+      "id": "review-2",
+      "mode": "exact_text",
+      "status": "published",
+      "ready": true,
+      "permission": true,
+      "permission_basis": "Site owner supplied and explicitly requested publication in chat on 2026-09-13.",
+      "language": "uk",
+      "signature": "Анжела",
+      "date": "2026-08-27",
+      "rating": "5+",
+      "text": "Ігор Глібович сподобався своєю невимушеною манерою вести уроки, докладно відповідав на всі супутні запитання. Для учня-підлітка це було те, що потрібно. Син швидко включився у процес і був зацікавлений у ньому.",
+      "source_name": "BUKI",
+      "source_url": "https://buki.com.ua/user-82505/"
+    },
+    {
+      "id": "review-3",
+      "mode": "exact_text",
+      "status": "published",
+      "ready": true,
+      "permission": true,
+      "permission_basis": "Site owner supplied and explicitly requested publication in chat on 2026-09-13.",
+      "language": "uk",
+      "signature": "Yevgen",
+      "date": "2026-07-28",
+      "rating": "5+",
+      "text": "Ігор відкрив для мене цілий світ розробки ігор у Unity. Навчатися з ним було не лише корисно, а й дуже приємно: він чудовий співрозмовник, усе пояснює зрозуміло, цікаво й доступно. Зараз у Ігоря навчаються ще й двоє моїх дітей, вони також із задоволенням відвідують заняття та дуже ними захоплені. Окрім Unity, діти розвивають загальну комп’ютерну грамотність, що особливо цінно. Це неймовірний досвід як для дітей, так і для дорослих. Щиро й наполегливо рекомендую Ігоря всім, хто хоче опанувати Unity та впевненіше почуватися у світі сучасних технологій. Максимальна оцінка!",
+      "source_name": "BUKI",
+      "source_url": "https://buki.com.ua/user-82505/"
+    },
+    {
+      "id": "review-4",
+      "mode": "exact_text",
+      "status": "published",
+      "ready": true,
+      "permission": true,
+      "permission_basis": "Site owner supplied and explicitly requested publication in chat on 2026-09-13.",
+      "language": "uk",
+      "signature": "Наталия",
+      "date": "2024-11-09",
+      "rating": "5+",
+      "text": "Рекомендую Ігоря, як талановитого викладача, який вміє почути та зацікавити дитину. Син вивчає Unity 3D.",
+      "source_name": "BUKI",
+      "source_url": "https://buki.com.ua/user-82505/"
+    },
+    {
+      "id": "review-5",
+      "mode": "exact_text",
+      "status": "published",
+      "ready": true,
+      "permission": true,
+      "permission_basis": "Site owner supplied and explicitly requested publication in chat on 2026-09-13.",
+      "language": "uk",
+      "signature": "Андрій",
+      "date": "2024-06-13",
+      "rating": "5+",
+      "text": "Топ репетитор, дуже багато чого знає по своєму предмету. Однозначно рекомендую!",
+      "source_name": "BUKI",
+      "source_url": "https://buki.com.ua/user-82505/"
+    },
+    {
+      "id": "review-6",
+      "mode": "exact_text",
+      "status": "published",
+      "ready": true,
+      "permission": true,
+      "permission_basis": "Site owner supplied and explicitly requested publication in chat on 2026-09-13.",
+      "language": "uk",
+      "signature": "Філіп",
+      "date": "2024-01-25",
+      "rating": "5+",
+      "text": "Нашому сину дуже подобається заняття!!! В нас є з чим порівнювати, то відповідально можемо скзати Ігор - ТОП!!! Відповідальний і вміє найти підхід до учня. Старається розвивати самостійність і мислення! Ми задоволені, як і наш син.",
+      "source_name": "BUKI",
+      "source_url": "https://buki.com.ua/user-82505/"
+    },
+    {
+      "id": "review-7",
+      "mode": "exact_text",
+      "status": "published",
+      "ready": true,
+      "permission": true,
+      "permission_basis": "Site owner supplied and explicitly requested publication in chat on 2026-09-13.",
+      "language": "uk",
+      "signature": "Микола",
+      "date": "2024-01-19",
+      "rating": "5+",
+      "text": "Чудовий викладач, дякую!",
+      "source_name": "BUKI",
+      "source_url": "https://buki.com.ua/user-82505/"
+    },
+    {
+      "id": "review-8",
+      "mode": "exact_text",
+      "status": "published",
+      "ready": true,
+      "permission": true,
+      "permission_basis": "Site owner supplied and explicitly requested publication in chat on 2026-09-13.",
+      "language": "uk",
+      "signature": "Mariana",
+      "date": "2023-06-08",
+      "rating": "5",
+      "text": "Хороший викладач. Учень із задоволенням ходить на заняття. Рекомендую!",
+      "source_name": "BUKI",
+      "source_url": "https://buki.com.ua/user-82505/"
+    },
+    {
+      "id": "review-9",
+      "mode": "exact_text",
+      "status": "published",
+      "ready": true,
+      "permission": true,
+      "permission_basis": "Site owner supplied and explicitly requested publication in chat on 2026-09-13.",
+      "language": "uk",
+      "signature": "Сергій",
+      "date": "2022-11-14",
+      "rating": "5+",
+      "text": "Ігор - чудовий викладач. Моєму сину дуже подобалося з ним навчатися.",
+      "source_name": "BUKI",
+      "source_url": "https://buki.com.ua/user-82505/"
+    },
+    {
+      "id": "review-10",
+      "mode": "exact_text",
+      "status": "published",
+      "ready": true,
+      "permission": true,
+      "permission_basis": "Site owner supplied and explicitly requested publication in chat on 2026-09-13.",
+      "language": "uk",
+      "signature": "Роман",
+      "date": "2022-08-25",
+      "rating": "5+",
+      "text": "Більше місяця займається син із Ігорем. За цей час покращилися знання з програмування. Ігор знайшов відразу підхід до дитини, тож на заняття йде із задоволенням. Легко пояснює новий матеріал. Рекомендуємо :)",
+      "source_name": "BUKI",
+      "source_url": "https://buki.com.ua/user-82505/"
+    },
+    {
+      "id": "review-11",
+      "mode": "exact_text",
+      "status": "published",
+      "ready": true,
+      "permission": true,
+      "permission_basis": "Site owner supplied and explicitly requested publication in chat on 2026-09-13.",
+      "language": "uk",
+      "signature": "Олександр",
+      "date": "2022-08-25",
+      "rating": "5+",
+      "text": "Мій син працює з репетитором Ігорем вже протягом року і дуже задоволений. Ми самі з Естонії і заняття проходять онлайн. У сина лише позитивні враження та результати співробітництва та просування за матеріалом. Ігор – дуже уважний та чуйний репетитор! Всім рекомендуємо!",
+      "source_name": "BUKI",
+      "source_url": "https://buki.com.ua/user-82505/"
+    },
+    {
+      "id": "review-12",
+      "mode": "exact_text",
+      "status": "published",
+      "ready": true,
+      "permission": true,
+      "permission_basis": "Site owner supplied and explicitly requested publication in chat on 2026-09-13.",
+      "language": "uk",
+      "signature": "Єгор ( мама )",
+      "date": "2025-03-11",
+      "rating": null,
+      "text": "Сподобався підхід до занять. Терпляче пояснює матеріал. Працює на результат.",
+      "source_name": "repetitor.org.ua",
+      "source_url": "https://repetitor.org.ua/id13882"
+    },
+    {
+      "id": "review-13",
+      "mode": "exact_text",
+      "status": "published",
+      "ready": true,
+      "permission": true,
+      "permission_basis": "Site owner supplied and explicitly requested publication in chat on 2026-09-13.",
+      "language": "uk",
+      "signature": "Алла (мама)",
+      "date": "2024-10-31",
+      "rating": null,
+      "text": "Пояснює гарно, зрозуміло. Спільну мову знайшли. Оцінка 5 з 5.",
+      "source_name": "repetitor.org.ua",
+      "source_url": "https://repetitor.org.ua/id13882"
+    },
+    {
+      "id": "review-14",
+      "mode": "exact_text",
+      "status": "published",
+      "ready": true,
+      "permission": true,
+      "permission_basis": "Site owner supplied and explicitly requested publication in chat on 2026-09-13.",
+      "language": "uk",
+      "signature": "Алена",
+      "date": "2022-06-21",
+      "rating": null,
+      "text": "Чудовий репетитор для дитини! Дякуючи заняттям у дитини появилась цікавість до предмету, його розуміння, чого не було раніше. Дуже детально пояснює матеріал.",
+      "source_name": "repetitor.org.ua",
+      "source_url": "https://repetitor.org.ua/id13882"
+    },
+    {
+      "id": "review-15",
+      "mode": "exact_text",
+      "status": "published",
+      "ready": true,
+      "permission": true,
+      "permission_basis": "Site owner supplied and explicitly requested publication in chat on 2026-09-13.",
+      "language": "ru",
+      "signature": "Виталина",
+      "date": "2021-07-19",
+      "rating": null,
+      "text": "Ответственный и внимательный. Знаток своего дела. У репетитора хорошо организована схема урока, подача метариала, выстраивает уроки последовательно и интересно, постоянно контролирует процесс обучения.",
+      "source_name": "repetitor.org.ua",
+      "source_url": "https://repetitor.org.ua/id13882"
+    },
+    {
+      "id": "review-16",
+      "mode": "exact_text",
+      "status": "published",
+      "ready": true,
+      "permission": true,
+      "permission_basis": "Site owner supplied and explicitly requested publication in chat on 2026-09-13.",
+      "language": "ru",
+      "signature": "Богдан (мама)",
+      "date": "2021-06-30",
+      "rating": null,
+      "text": "Очень грамотный специалист, приятный и тактичный. Очень доступно объясняет темы, всё очень понравилось. Очень насыщенное занятие, большое количество информации. Мы очень довольны. Советуем всем!.",
+      "source_name": "repetitor.org.ua",
+      "source_url": "https://repetitor.org.ua/id13882"
+    },
+    {
+      "id": "review-17",
+      "mode": "exact_text",
+      "status": "published",
+      "ready": true,
+      "permission": true,
+      "permission_basis": "Site owner supplied and explicitly requested publication in chat on 2026-09-13.",
+      "language": "ru",
+      "signature": "Виктор",
+      "date": "2021-06-16",
+      "rating": null,
+      "text": "Занятиями с репетитором мы довольны! Хорошая методика преподавания, интересная подача материала. Каждое занятие очень результативное, каждого следующего ребёнок ждёт с нетерпением!",
+      "source_name": "repetitor.org.ua",
+      "source_url": "https://repetitor.org.ua/id13882"
+    },
+    {
+      "id": "review-18",
+      "mode": "exact_text",
+      "status": "published",
+      "ready": true,
+      "permission": true,
+      "permission_basis": "Site owner supplied and explicitly requested publication in chat on 2026-09-13.",
+      "language": "ru",
+      "signature": "Владислав",
+      "date": "2021-01-15",
+      "rating": null,
+      "text": "Очень опытный и грамотный преподаватель. Достаточно хорошо знает свое направление. Репетитор доходчиво объяснил мне все непонятные моменты. Цель, которая была поставлена перед началом занятий, выполнена. Рекомендую.",
+      "source_name": "repetitor.org.ua",
+      "source_url": "https://repetitor.org.ua/id13882"
+    }
+  ]
+}

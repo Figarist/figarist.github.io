@@ -128,5 +128,10 @@
   "payment_text": "Payment to a sole proprietor account in hryvnias and foreign currency.",
   "phone_show": "Show phone number",
   "phone_copied": "Copied",
-  "phone_fallback": "Copy the number manually"
+  "phone_fallback": "Copy the number manually",
+  "reviews_heading": "Students and parents say",
+  "reviews_kicker": "18 experiences of learning",
+  "reviews_intro": "Reviews from BUKI and the Ukrainian Tutors Association, in their original language.",
+  "reviews_prev": "Previous review",
+  "reviews_next": "Next review"
 }

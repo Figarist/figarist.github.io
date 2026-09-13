@@ -65,16 +65,12 @@ You are an expert Senior Frontend Architect and Jekyll Developer.
 - **PWA:** `jekyll-pwa-workbox` handles offline-first caching via Service Workers.
 - **Minification:** `jekyll-minifier` is the final step in the pipeline. Ensure no JS errors exist prior to build.
 
-# CRITICAL RULE: MANUAL BUILD EXECUTION
-Your internal sandbox environment does NOT have the correct Ruby permissions or setup to compile this Jekyll/Polyglot project. 
+## 7. AUTOMATED BUILD EXECUTION & BROWSER VERIFICATION (PERMITTED)
 
-**DO NOT** attempt to run `bundle install`, `bundle exec jekyll build`, or start a local server yourself. You will get stuck in a PermissionError loop.
-
-**PROTOCOL:**
-Whenever you write code (SCSS, JS, HTML, Liquid) and need to verify if the site builds correctly, or if you need to check the compiled output, **STOP** and ask the user: 
-*"I have made the changes. Please run `bundle exec jekyll build` and provide the terminal output, or tell me if the UI looks correct."*
-
-Rely exclusively on the user as your CI/CD runner and visual QA.
+- **Verification Protocol:** You ARE explicitly permitted and encouraged to run `bundle exec jekyll build` (and test scripts like `ruby scripts/test_tutoring_content.rb`) to verify that all content, plugins, and SCSS compile cleanly whenever changes are made.
+- **Browser QA & Local Inspection:** You ARE permitted to inspect compiled HTML in `_site/`, launch local preview servers if needed, and verify rendering, metadata, and functionality directly.
+- **Mandatory Screenshots:** ALWAYS provide actual visual screenshots (saved to brain artifacts or `qa-screenshots/` and embedded directly into your response with standard markdown image syntax) after making UI, styling, or content changes, so the user can immediately inspect the visual result without having to ask.
+- **Self-Healing:** If any build or validation error occurs, diagnose the cause and fix it immediately in the codebase.
 
 ---
 

@@ -1,4 +1,4 @@
-# Jekyll
+# Jekyll & Build
 _site/
 .sass-cache/
 .jekyll-cache/
@@ -8,16 +8,31 @@ _site/
 /vendor/
 .bundle/
 
-# Editor/OS specific
+# Operating System Service Files
 .DS_Store
+._*
 Thumbs.db
+ehthumbs.db
+Desktop.ini
+
+# Editors & IDEs
 .vscode/
 .idea/
 *.swp
+*.sublime-workspace
+*.sublime-project
 
-# Debug / temp artifacts
-build.log
-build_error.txt
+# Browser Temp Profiles & Test Automation
+*chrome_qa*
+*TEMP*
+puppeteer_dev_*
+.chrome-user-data/
+chrome-profile*
+*chrome_profile*
+
+# Debug & Temporary Build Logs
+build*.log
+build*.txt
 env_vars.txt
 git_status.txt
 ls_out.txt
@@ -25,10 +40,10 @@ path.txt
 hello.txt
 test.yml
 
-# AI Agent Artifacts (Keep only if needed, usually ignored in production)
+# AI Agent Artifacts
 .agents/
 .agent/
 brain/
 
-# Local visual QA
+# Local visual QA Screenshots
 qa-screenshots/

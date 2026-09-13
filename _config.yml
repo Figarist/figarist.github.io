@@ -3,14 +3,14 @@
 # ============================================================
 
 title: "Figarist — Indie Game Dev, Wear OS & Tech Educator"
-description: "Personal hub of Ihor Sivochka (Figarist). Indie game developer specializing in Wear OS, computer science teacher, and retro tech enthusiast. Building tiny worlds for tiny screens."
+description: "Personal hub of Sivochka Ihor (Figarist). Indie game developer specializing in Wear OS, computer science teacher, and retro tech enthusiast. Building tiny worlds for tiny screens."
 url: "https://figarist.github.io"
 baseurl: ""
 
 lang: "en"
 email: "igorsivoch@gmail.com"
 author:
-  name: "Ihor Sivochka"
+  name: "Sivochka Ihor"
   twitter: "figarist"
   url: "https://figarist.github.io"
 
@@ -19,7 +19,7 @@ twitter:
   card: "summary_large_image"
 
 social:
-  name: "Ihor Sivochka"
+  name: "Sivochka Ihor"
   links:
     - "https://www.youtube.com/@proVR_ua"
     - "https://t.me/proVR_ua"

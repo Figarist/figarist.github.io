@@ -9,7 +9,7 @@ require 'psych'
 module Figarist
   module TutoringContent
     LANGUAGES = %w[en uk ru ko].freeze
-    DIRECTIONS = %w[unity python scratch].freeze
+    DIRECTIONS = %w[unity python scratch informatics minecraft].freeze
     REQUIRED_TRANSLATION_FIELDS = %w[
       title card_description full_description starting_level goal created
       student_work tutor_help skills evidence
@@ -179,7 +179,7 @@ module Figarist
         end
         add_error(errors, relative_path(source, path), "translations.#{lang}.portrait_alt", 'is required when a portrait is supplied') if !blank?(portrait) && blank?(translation['portrait_alt'])
       end
-      %w[experience education certifications].each do |group|
+      %w[experience education certifications awards].each do |group|
         Array(data.dig('verified_facts', group)).each_with_index do |item, index|
           next unless item.is_a?(Hash) && item['status'] == 'published'
 

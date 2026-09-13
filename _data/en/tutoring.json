@@ -4,7 +4,7 @@
   "description": "Individual Unity and C#, Python and Scratch lessons for children with game developer Sivochka Ihor. Online, project-based learning.",
   "heading": "Online programming lessons for children and teenagers",
   "mobile_heading": "Programming for children",
-  "intro": "I am Sivochka Ihor, a teacher and game developer. I teach children programming through their own projects. My main focus is Unity and C#, with Scratch and Python as additional starting points.",
+  "intro": "I am Sivochka Ihor, a teacher and game developer. Unity and C# are my main focus. I also teach Python, including through Minecraft, Scratch and computer science. Individual lessons combine clear tasks with personal projects.",
   "audience": "Ages 6+. Basic mouse or touchscreen skills are enough to start.",
   "language": "Individual Zoom lessons · 60 minutes · ages 6+",
   "cta": "Discuss lessons on Telegram",
@@ -70,6 +70,32 @@
         "We discuss interests and explore example projects. Start from scratch or bring a game you are already making.",
         "We begin with something manageable, such as a Flappy Bird-style game or walking around a 3D world. Complex games take time; we work through things step by step.",
         "I explain the logic and help students experiment and debug. If their interests change, we can switch projects or directions."
+      ],
+      "questions": [
+        [
+          "Can I start Unity without knowing C#?",
+          "Yes. We begin with the editor and simple game actions, then introduce C# variables, conditions, loops and methods through the project. The aim is to understand the code, not just run it."
+        ],
+        [
+          "Can I bring an existing game?",
+          "Yes. We look at the project and choose a manageable next step. Complex games take time, so I do not promise completion in a fixed number of lessons."
+        ],
+        [
+          "Can students join from abroad?",
+          "Yes, lessons are online. Include your country or time zone and preferred times in your message."
+        ],
+        [
+          "What computer is needed?",
+          "A computer or laptop with Zoom, screen sharing and the software for the chosen subject. A computer or tablet with Scratch, Zoom and screen sharing."
+        ],
+        [
+          "How do I enquire?",
+          "Message @Figarist on Telegram with the student’s age, subject, experience and preferred times. I will reply about availability."
+        ],
+        [
+          "How do I pay for lessons?",
+          "Payment details are listed in the conditions above."
+        ]
       ]
     },
     {
@@ -92,6 +118,80 @@
         "We discuss interests and explore example projects. Start from scratch or bring a game you are already making.",
         "Start small with a Turtle drawing or a text quiz. We explain the code step by step and add new features.",
         "I explain the logic and help students experiment and debug. If their interests change, we can switch projects or directions."
+      ],
+      "questions": [
+        [
+          "Can Python be a first programming language?",
+          "We can start from short commands, variables and simple tasks. Scratch may be a better starting point for a younger child. We set the pace around understanding and practice."
+        ],
+        [
+          "Can we learn Python through Minecraft?",
+          "Yes. In a separate Minescript-based direction, coordinates, conditions and loops connect to actions in Minecraft. We discuss the computer and game setup beforehand."
+        ],
+        [
+          "Can students join from abroad?",
+          "Yes, lessons are online. Include your country or time zone and preferred times in your message."
+        ],
+        [
+          "What computer is needed?",
+          "A computer or laptop with Zoom, screen sharing and the software for the chosen subject. A computer or tablet with Scratch, Zoom and screen sharing."
+        ],
+        [
+          "How do I enquire?",
+          "Message @Figarist on Telegram with the student’s age, subject, experience and preferred times. I will reply about availability."
+        ],
+        [
+          "How do I pay for lessons?",
+          "Payment details are listed in the conditions above."
+        ]
+      ]
+    },
+    {
+      "slug": "informatics",
+      "title": "Online computer science tutor for children",
+      "heading": "Computer science: understand and work independently",
+      "description": "Individual online computer science lessons with Sivochka Ihor: programming foundations, algorithms and computer literacy for school students. 60 minutes, 1000 UAH.",
+      "intro": "I help school students understand computer science, from using a computer to algorithms and programming. We start with a specific topic, task or difficulty and choose manageable practice.",
+      "topics": [
+        "Files, folders and learning applications",
+        "Algorithms: sequences, conditions and repetition",
+        "Scratch or Python fundamentals suited to the student's level",
+        "Explaining school tasks and checking the student's own solution"
+      ],
+      "examples": [
+        "Build an algorithm and test it with several examples",
+        "Create a small program and explain how it works"
+      ],
+      "steps": [
+        "Discuss the difficulty; a topic or task can be shared before the lesson.",
+        "Explore a simple example, then let the student try a similar task independently.",
+        "Check the solution, explain mistakes and decide what to practise next."
+      ],
+      "questions": [
+        [
+          "Can you help with school computer science?",
+          "Send the topic or a sample task so we can identify what needs explaining. I guide the student through the steps and help them build their own solution. Lessons follow the specific need."
+        ],
+        [
+          "Should we choose computer science, Unity or Python?",
+          "Computer science supports school topics and basic skills. Unity focuses on making games; Python focuses on text-based programming. We can change direction as interests develop."
+        ],
+        [
+          "Can students join from abroad?",
+          "Yes, lessons are online. Include your country or time zone and preferred times in your message."
+        ],
+        [
+          "What computer is needed?",
+          "A computer or laptop with Zoom, screen sharing and the software for the chosen subject. A computer or tablet with Scratch, Zoom and screen sharing."
+        ],
+        [
+          "How do I enquire?",
+          "Message @Figarist on Telegram with the student’s age, subject, experience and preferred times. I will reply about availability."
+        ],
+        [
+          "How do I pay for lessons?",
+          "Payment details are listed in the conditions above."
+        ]
       ]
     },
     {
@@ -114,14 +214,85 @@
         "We discuss interests and explore example projects. Start from scratch or bring a game you are already making.",
         "Start small with a character animation or a simple score-based game. We gradually combine blocks and add our own rules.",
         "I explain the logic and help students experiment and debug. If their interests change, we can switch projects or directions."
+      ],
+      "questions": [
+        [
+          "Is programming experience required?",
+          "Ages 6+. Basic mouse or touchscreen skills are enough to start."
+        ],
+        [
+          "Can students join from abroad?",
+          "Yes, lessons are online. Include your country or time zone and preferred times in your message."
+        ],
+        [
+          "What computer is needed?",
+          "A computer or laptop with Zoom, screen sharing and the software for the chosen subject. A computer or tablet with Scratch, Zoom and screen sharing."
+        ],
+        [
+          "How do I enquire?",
+          "Message @Figarist on Telegram with the student’s age, subject, experience and preferred times. I will reply about availability."
+        ],
+        [
+          "How do I pay for lessons?",
+          "Payment details are listed in the conditions above."
+        ]
+      ]
+    },
+    {
+      "slug": "minecraft",
+      "title": "Learn Python through Minecraft — online lessons",
+      "heading": "Python foundations through Minecraft",
+      "description": "Individual Python lessons through Minecraft with course author Sivochka Ihor. Learn coordinates, loops, conditions and building with code online.",
+      "intro": "Minecraft becomes a place to experiment with Python: write commands and see the game world change. I developed a course on programming foundations through Minecraft; I now use Minescript for lessons.",
+      "topics": [
+        "Player and block coordinates",
+        "Python variables, conditions, loops and functions",
+        "Automating repeated actions in the game",
+        "Debugging and checking results in Minecraft"
+      ],
+      "examples": [
+        "Teleport the player to random coordinates",
+        "Build a fortress or lay rails with code",
+        "Check blocks below the player and react to lava"
+      ],
+      "steps": [
+        "Check the Minecraft version, Minescript setup and Zoom screen sharing. A computer is required; we discuss the setup before the lesson.",
+        "Start with coordinates and short commands, connecting changes in the game to Python concepts.",
+        "Combine commands into a program, adding conditions, loops and individual rules at a suitable pace."
+      ],
+      "questions": [
+        [
+          "Is Minecraft on a tablet enough?",
+          "This direction needs a computer with Minecraft, a compatible Minescript setup and Zoom screen sharing. We check the game version and installation options before starting."
+        ],
+        [
+          "How is this different from simply playing?",
+          "Students write Python, predict the result and test it in Minecraft. The game makes coordinates, conditions and loops visible; understanding programming is the goal."
+        ],
+        [
+          "Can students join from abroad?",
+          "Yes, lessons are online. Include your country or time zone and preferred times in your message."
+        ],
+        [
+          "What computer is needed?",
+          "A computer or laptop with Zoom, screen sharing and the software for the chosen subject. A computer or tablet with Scratch, Zoom and screen sharing."
+        ],
+        [
+          "How do I enquire?",
+          "Message @Figarist on Telegram with the student’s age, subject, experience and preferred times. I will reply about availability."
+        ],
+        [
+          "How do I pay for lessons?",
+          "Payment details are listed in the conditions above."
+        ]
       ]
     }
   ],
   "payment_question": "How do I pay for lessons?",
   "name": "Sivochka Ihor",
   "role": "Programming tutor and game developer",
-  "home_title": "Sivochka Ihor — Unity tutor and game developer",
-  "home_description": "Figarist: online Unity, C#, Python and Scratch lessons for children and teenagers in Game projects by Sivochka Ihor.",
+  "home_title": "Sivochka Ihor — games, teaching and collecting",
+  "home_description": "The personal website of Sivochka Ihor (Figarist): game development, projects, blog and collection. Individual online Unity, Python and computer science lessons.",
   "video_title": "Meet me on video",
   "video_text": "An earlier introduction to me and my lessons.",
   "video_cta": "Watch on YouTube",
@@ -133,5 +304,12 @@
   "reviews_kicker": "18 experiences of learning",
   "reviews_intro": "Reviews from BUKI and the Ukrainian Tutors Association, in their original language.",
   "reviews_prev": "Previous review",
-  "reviews_next": "Next review"
+  "reviews_next": "Next review",
+  "minecraft_evidence": {
+    "title": "The course behind my Minecraft lessons",
+    "text": "In 2021 I received second place in the All-Ukrainian student research competition in Secondary Education (Computer Science). My work explored teaching programming foundations through Minecraft. Tasks included teleportation, building a fortress and laying rails with code.",
+    "note": "The public materials from that course use mcpi. They are historical examples; current Minescript lessons require a different setup.",
+    "award": "Second-place diploma · 2021",
+    "code": "View Python examples on GitHub"
+  }
 }

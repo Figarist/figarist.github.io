@@ -1095,3 +1095,12 @@
 .review-avatar { display: inline-flex; align-items: center; justify-content: center; width: 42px; height: 42px; border-radius: 50%; background: #e9e1f3; color: #653b94; font-weight: 700; }
 .review-signature a { margin-left: auto; color: #653b94; font-size: .85rem; }
 @media (max-width: 680px) { .review-slide { flex-basis: 96%; } .review-signature a { flex-basis: 100%; margin-left: 54px; } }
+
+/* Personal homepage: projects first, with crawlable teaching links. */
+.home-personal-links { display: flex; flex-wrap: wrap; gap: 12px 24px; margin-top: 24px; }
+.home-personal-links a { color: var(--text-secondary); text-underline-offset: 4px; font-size: .9rem; line-height: 1.6; }
+.home-course-links { display: flex; flex-direction: column; }
+.home-course-link { display: flex; align-items: center; justify-content: space-between; gap: 20px; padding: 20px 0; border-bottom: 1px solid var(--border-light); color: var(--text-primary); text-decoration: none; }
+.home-course-link h3 { margin: 0; font-size: clamp(1rem, 2vw, 1.3rem); }
+.home-course-link:hover { color: var(--accent-plum); }
+.course-evidence p { max-width: 72ch; line-height: 1.7; }

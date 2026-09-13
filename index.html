@@ -7,6 +7,7 @@ priority: 1.0
 changefreq: weekly
 ---
 
+{% assign h = site.data[site.active_lang].home %}
 {% assign t = site.data[site.active_lang].tutoring %}
 {% assign s = site.data[site.active_lang].strings %}
 {% assign tutoring_settings = site.data.tutoring.settings %}
@@ -15,29 +16,22 @@ changefreq: weekly
   <section class="home-hero" id="bio" aria-labelledby="home-title">
     <div class="home-hero__copy">
       <p class="home-eyebrow"><span class="home-mark" aria-hidden="true">F</span> Figarist · {{ t.name }}</p>
-      <h1 id="home-title"><span class="hero-heading__full">{{ t.heading }}</span><span class="hero-heading__mobile">{{ t.mobile_heading }}</span></h1>
-      <p class="home-hero__lead">{{ t.intro }}</p>
-      <div class="home-hero__facts" aria-label="{{ s.home_facts_label }}">
-        <span>{{ s.home_online_fact }}</span>
-        <strong>{% if s.price_unit_before %}{{ s.price_unit }} {{ tutoring_settings.price.amount }} {{ tutoring_settings.price.currency }}{% elsif s.price_currency_before %}{{ tutoring_settings.price.currency }} {{ tutoring_settings.price.amount }} {{ s.price_unit }}{% else %}{{ tutoring_settings.price.amount }} {{ s.price_currency_label }} {{ s.price_unit }}{% endif %}</strong>
-      </div>
+      <h1 id="home-title">{{ h.heading }}</h1>
+      <p class="home-hero__lead">{{ h.intro }}</p>
       <div class="home-hero__actions">
-        <a class="button button--primary" href="{{ tutoring_settings.contact.telegram_url }}" data-goatcounter-click="home-telegram-{{ site.active_lang }}">{{ t.cta }} <span aria-hidden="true">↗</span></a>
-        <a class="button button--quiet" href="#learning">{{ t.choose }} <span aria-hidden="true">↓</span></a>
+        <a class="button button--primary" href="#explore-title">{{ h.projects }} <span aria-hidden="true">↓</span></a>
+        <a class="button button--quiet" href="{{ '/tutoring/' | relative_url }}">{{ h.teaching }} <span aria-hidden="true">→</span></a>
       </div>
-      <div class="home-hero__proof" aria-label="{{ s.home_reviews_label }}. {{ s.tutoring_reviews_snapshot }}">
-        <span class="home-hero__proof-label">{{ s.home_reviews_label }}</span>
-        <a href="{{ tutoring_settings.proof.buki_url }}" target="_blank" rel="noopener"><span aria-hidden="true">★★★★★</span> <strong>BUKI</strong> · {{ tutoring_settings.proof.buki_review_count }} {{ s.tutor_association_reviews }}</a>
-        <a href="{{ tutoring_settings.proof.tutor_association_url }}" target="_blank" rel="noopener"><span aria-hidden="true">★★★★★</span> <strong>{{ s.tutor_association_short_title }}</strong> · {{ tutoring_settings.proof.tutor_association_review_count }} {{ s.tutor_association_reviews }}</a>
-        <span class="home-hero__proof-note">{{ s.tutoring_reviews_snapshot }}</span>
-      </div>
-      <p class="home-hero__note">{{ t.availability }}</p>
+      <nav class="home-personal-links" aria-label="{{ h.links }}">
+        <a href="https://github.com/Figarist" target="_blank" rel="noopener">{{ h.github }} ↗</a>
+        <a href="https://www.youtube.com/@proVR_ua" target="_blank" rel="noopener">{{ h.video }} ↗</a>
+      </nav>
     </div>
 
     <aside class="home-project-card" aria-labelledby="home-project-title">
       <span id="webgl" class="anchor-target" aria-hidden="true"></span>
       <div class="home-project-card__topline">
-        <span class="section-kicker">{{ s.home_practice_label }}</span>
+        <span class="section-kicker">{{ h.project }}</span>
         <span class="project-status"><span aria-hidden="true"></span>{{ s.home_project_status }}</span>
       </div>
       <img src="{{ tutoring_settings.proof.own_project.image | relative_url }}" alt="{{ s.home_project_image_alt }}" width="480" height="300" fetchpriority="high">
@@ -50,78 +44,14 @@ changefreq: weekly
     </aside>
   </section>
 
-  <section class="home-audience" aria-label="{{ s.home_audience_label }}">
-    <p>{{ t.audience }}</p>
-    <span class="home-audience__rule" aria-hidden="true"></span>
-    <p>{{ t.language }}</p>
-  </section>
-
-  <section class="home-section" id="learning" aria-labelledby="learning-title">
-    <span id="stack" class="anchor-target" aria-hidden="true"></span>
-    <div class="section-heading">
-      <div>
-        <p class="section-kicker">{{ s.home_learning_label }}</p>
-        <h2 id="learning-title">{{ s.home_learning_title }}</h2>
-      </div>
-      <p>{{ s.home_learning_intro }}</p>
-    </div>
-    <div class="learning-grid">
-      {% for course in t.courses %}
-      <a class="learning-card" href="{{ '/tutoring/' | append: course.slug | append: '/' | relative_url }}">
-        <span class="learning-card__number">0{{ forloop.index }}</span>
-        <h3>{{ course.heading }}</h3>
-        <p>{{ course.intro }}</p>
-        <span class="text-link">{{ s.home_open_direction }} <span aria-hidden="true">→</span></span>
-      </a>
-      {% endfor %}
-    </div>
-  </section>
-
-  <section class="home-trust" aria-labelledby="trust-title">
-    <div class="home-trust__intro">
-      <p class="section-kicker">{{ s.home_trust_label }}</p>
-      <h2 id="trust-title">{{ t.proof }}</h2>
-      <p>{{ t.proof_text }}</p>
-    </div>
-    <div class="home-trust__links">
-      <a class="trust-link" href="{{ tutoring_settings.proof.studio_url }}" target="_blank" rel="noopener">
-        <span class="trust-link__icon" aria-hidden="true">✦</span>
-        <span><strong>{{ s.nav_studio }}</strong><small>{{ s.home_studio_detail }}</small></span>
-        <span aria-hidden="true">↗</span>
-      </a>
-      <a class="trust-link trust-link--reviews" href="{{ tutoring_settings.proof.buki_url }}" target="_blank" rel="noopener">
-        <span class="trust-link__icon" aria-hidden="true">↗</span>
-        <span><strong>{{ t.reviews }}</strong><small>{{ s.home_buki_detail }}</small><span class="trust-link__rating" aria-label="5 / 5, {{ tutoring_settings.proof.buki_review_count }} {{ s.tutor_association_reviews }}"><span aria-hidden="true">★★★★★</span><strong aria-hidden="true">5/5</strong><span>{{ tutoring_settings.proof.buki_review_count }} {{ s.tutor_association_reviews }}</span></span></span>
-        <span class="trust-link__arrow" aria-hidden="true">↗</span>
-      </a>
-      <a class="trust-link trust-link--reviews" href="{{ tutoring_settings.proof.tutor_association_url }}" target="_blank" rel="noopener">
-        <span class="trust-link__icon" aria-hidden="true">↗</span>
-        <span><strong>{{ s.tutor_association_title }}</strong><small>{{ s.tutor_association_detail }}</small><span class="trust-link__rating" aria-label="5 / 5, {{ tutoring_settings.proof.tutor_association_review_count }} {{ s.tutor_association_reviews }}"><span aria-hidden="true">★★★★★</span><strong aria-hidden="true">5/5</strong><span>{{ tutoring_settings.proof.tutor_association_review_count }} {{ s.tutor_association_reviews }}</span></span></span>
-        <span class="trust-link__arrow" aria-hidden="true">↗</span>
-      </a>
-    </div>
-  </section>
-
-  <section class="home-booking-cta" aria-labelledby="home-booking-title">
-    <div>
-      <p class="section-kicker">{{ s.tutoring_contact_label }}</p>
-      <h2 id="home-booking-title">{{ t.contact }}</h2>
-      <p>{{ t.contact_text }}</p>
-    </div>
-    <a class="button button--primary" href="{{ tutoring_settings.contact.telegram_url }}" data-goatcounter-click="home-booking-telegram-{{ site.active_lang }}">{{ t.cta }} <span aria-hidden="true">↗</span></a>
-  </section>
-
-  {% include tutoring-cases.html context="home" %}
-  {% include tutoring-profile.html %}
-  {% include tutoring-testimonials.html %}
 
   <section class="home-explore" aria-labelledby="explore-title">
     <div class="section-heading">
       <div>
-        <p class="section-kicker">{{ s.home_explore_label }}</p>
-        <h2 id="explore-title">{{ s.home_explore_title }}</h2>
+        <p class="section-kicker">{{ h.kicker }}</p>
+        <h2 id="explore-title">{{ h.explore }}</h2>
       </div>
-      <p>{{ s.home_explore_intro }}</p>
+      <p>{{ h.explore_intro }}</p>
     </div>
     <div class="explore-grid">
       <a href="{{ tutoring_settings.proof.studio_url }}" target="_blank" rel="noopener" class="explore-card explore-card--dark" id="studio">
@@ -136,7 +66,7 @@ changefreq: weekly
       </a>
       <a href="{{ '/collection/' | relative_url }}" class="explore-card" id="shrine">
         <span id="feed-personal" class="legacy-anchor" aria-hidden="true"></span>
-        <span>{{ s.home_hobbies_label }}</span><strong>{{ s.home_hobbies_title }}</strong><small>{{ s.home_hobbies_detail }}</small><b aria-hidden="true">→</b>
+        <span>{{ s.home_hobbies_label }}</span><strong>{{ s.home_hobbies_title }}</strong><small>{{ h.collection }}</small><b aria-hidden="true">→</b>
       </a>
       <a href="https://figarist.github.io/OGCruncher/" target="_blank" rel="noopener" class="explore-card" id="cruncher" aria-label="{{ s.aria_visit_cruncher }}">
         <span>{{ s.cruncher_title }}</span><strong>{{ s.cruncher_title }}</strong><small>{{ s.cruncher_desc }}</small><b aria-hidden="true">↗</b>
@@ -146,6 +76,31 @@ changefreq: weekly
       </a>
     </div>
   </section>
+
+  <section class="home-section" id="learning" aria-labelledby="learning-title">
+    <span id="stack" class="anchor-target" aria-hidden="true"></span>
+    <div class="section-heading">
+      <div>
+        <p class="section-kicker">{{ s.home_learning_label }}</p>
+        <h2 id="learning-title">{{ h.teaching }}</h2>
+      </div>
+      <p>{{ h.teaching_intro }}</p>
+    </div>
+    <p><a class="text-link" href="{{ '/tutoring/' | relative_url }}">{{ t.all }} →</a></p>
+    <div class="home-course-links">
+      {% for course in t.courses %}
+      <a class="home-course-link" href="{{ '/tutoring/' | append: course.slug | append: '/' | relative_url }}">
+        <h3>{{ course.title }}</h3>
+        <span aria-hidden="true">→</span>
+      </a>
+      {% endfor %}
+    </div>
+  </section>
+
+
+  {% include tutoring-profile.html %}
+
+
 {% include tutoring-video.html %}
 </div>
 

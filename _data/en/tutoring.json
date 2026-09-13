@@ -125,5 +125,8 @@
   "video_title": "Meet me on video",
   "video_text": "An earlier introduction to me and my lessons.",
   "video_cta": "Watch on YouTube",
-  "payment_text": "Payment to a sole proprietor account in hryvnias and foreign currency."
+  "payment_text": "Payment to a sole proprietor account in hryvnias and foreign currency.",
+  "phone_show": "Show phone number",
+  "phone_copied": "Copied",
+  "phone_fallback": "Copy the number manually"
 }

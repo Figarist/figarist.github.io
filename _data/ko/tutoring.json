@@ -125,5 +125,8 @@
   "video_title": "영상으로 만나는 선생님",
   "video_text": "저와 수업을 소개하는 이전에 촬영한 영상입니다.",
   "video_cta": "YouTube에서 보기",
-  "payment_text": "개인사업자 계좌로 흐리우냐 및 외화 결제가 가능합니다."
+  "payment_text": "개인사업자 계좌로 흐리우냐 및 외화 결제가 가능합니다.",
+  "phone_show": "전화번호 보기",
+  "phone_copied": "복사됨",
+  "phone_fallback": "번호를 직접 복사해 주세요"
 }

@@ -4,6 +4,7 @@ price:
   amount: 1000
   currency: UAH
 contact:
+  phone: "+380661326026"
   telegram_url: https://t.me/Figarist
 payment:
   account_type: FOP

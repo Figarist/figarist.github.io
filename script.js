@@ -547,43 +547,27 @@ const code = codeEl.textContent;
   /* ——————————————————————————————————————————
      12. TUTORING TELEGRAM USERNAME COPY
   —————————————————————————————————————————— */
-  var copyNickButtons = document.querySelectorAll(".tutoring-copy-btn");
-
-  copyNickButtons.forEach(function (btn) {
-    var resetCopyTimer;
-    var originalCopyText = btn.querySelector(".tutoring-copy-btn__text").textContent;
-    if (!navigator.clipboard || !window.isSecureContext) { btn.hidden = true; return; }
+  document.querySelectorAll("[data-copy-phone]").forEach(function (btn) {
+    var timer;
     btn.addEventListener("click", function () {
-      var nick = this.getAttribute("data-copy-nick") || "@Figarist";
-      var copiedText = this.getAttribute("data-copied-text") || "Copied! ✔️";
-      var textEl = this.querySelector(".tutoring-copy-btn__text");
-      var originalText = originalCopyText;
-
-      if (navigator.clipboard && window.isSecureContext) {
-        navigator.clipboard
-          .writeText(nick)
-          .then(function () {
-            if (textEl) {
-              textEl.textContent = copiedText;
-            } else {
-              btn.textContent = copiedText;
-            }
-            btn.classList.add("copied");
-
-            clearTimeout(resetCopyTimer);
-            resetCopyTimer = setTimeout(function () {
-              if (textEl) {
-                textEl.textContent = originalText;
-              } else {
-                btn.textContent = originalText;
-              }
-              btn.classList.remove("copied");
-            }, 2000);
-          })
-          .catch(function (err) {
-            window.prompt(btn.getAttribute("aria-label"), nick);
-          });
+      var phone = btn.getAttribute("data-copy-phone");
+      var label = btn.querySelector(".tutoring-copy-btn__text");
+      clearTimeout(timer);
+      label.textContent = phone;
+      btn.setAttribute("aria-label", phone);
+      btn.classList.remove("copied");
+      function fallback() {
+        label.textContent = phone + " · " + btn.getAttribute("data-fallback-text");
       }
+      if (!navigator.clipboard || !window.isSecureContext) { fallback(); return; }
+      navigator.clipboard.writeText(phone).then(function () {
+        label.textContent = phone + " · " + btn.getAttribute("data-copied-text");
+        btn.classList.add("copied");
+        timer = setTimeout(function () {
+          label.textContent = phone;
+          btn.classList.remove("copied");
+        }, 2500);
+      }).catch(fallback);
     });
   });
 

@@ -45,6 +45,12 @@ jobs:
       - name: Validate tutoring build guards
         run: bundle exec ruby scripts/test_tutoring_build.rb
 
+      - name: Validate service worker routing
+        run: node scripts/test_service_worker.cjs
+
+      - name: Audit author readiness status
+        run: bundle exec ruby scripts/verify_author_ready.rb
+
       - name: Build with Jekyll
         run: bundle exec jekyll build --destination ./_site
         env:

@@ -21,7 +21,10 @@ layout: default
       <p class="tutoring-lead">{{ course.intro | default: t.intro }}</p>
       <div class="tutoring-hero__facts">
         <span>{{ t.language }}</span>
-        <strong>{% if s.price_unit_before %}{{ s.price_unit }} {{ tutoring_settings.price.amount }} {{ tutoring_settings.price.currency }}{% elsif s.price_currency_before %}{{ tutoring_settings.price.currency }} {{ tutoring_settings.price.amount }} {{ s.price_unit }}{% else %}{{ tutoring_settings.price.amount }} {{ s.price_currency_label }} {{ s.price_unit }}{% endif %}</strong>
+        <strong>{% if s.price_usd_prefix and tutoring_settings.price.usd_amount %}{{ s.price_usd_prefix }}{{ tutoring_settings.price.usd_amount }} / {{ tutoring_settings.price.amount }} {{ tutoring_settings.price.currency }} {{ s.price_unit }}{% elsif s.price_unit_before %}{{ s.price_unit }} {{ tutoring_settings.price.amount }} {{ tutoring_settings.price.currency }}{% elsif s.price_currency_before %}{{ tutoring_settings.price.currency }} {{ tutoring_settings.price.amount }} {{ s.price_unit }}{% else %}{{ tutoring_settings.price.amount }} {{ s.price_currency_label }} {{ s.price_unit }}{% endif %}</strong>
+        {% if tutoring_settings.price.equivalents %}
+        <span class="tutoring-hero__equivalents" title="{{ s.price_equivalents_label }}">${{ tutoring_settings.price.equivalents.usd }} · €{{ tutoring_settings.price.equivalents.eur }} · {{ tutoring_settings.price.equivalents.pln }} zł · £{{ tutoring_settings.price.equivalents.gbp }} ({{ tutoring_settings.price.amount }} {{ tutoring_settings.price.currency }})</span>
+        {% endif %}
       </div>
       <div class="tutoring-hero__actions">
         {% include tutoring-contact.html %}
@@ -40,11 +43,11 @@ layout: default
     {% else %}
     <div class="tutoring-hero__aside">
       <div class="tutoring-hero__aside-label">{{ s.home_practice_label }}</div>
-      <img src="{{ tutoring_settings.proof.own_project.image | relative_url }}" alt="{{ s.home_project_image_alt }}" width="480" height="300">
+      <img src="{{ tutoring_settings.proof.own_project.image | relative_url }}" alt="{{ s.home_project_image_alt }}" width="480" height="300" fetchpriority="high">
       <div>
         <strong>{{ tutoring_settings.proof.own_project.title }}</strong>
         <p>{{ s.tutoring_project_proof }}</p>
-        <a class="text-link text-link--light" href="{{ tutoring_settings.proof.own_project.url | relative_url }}">{{ s.home_project_cta }} <span aria-hidden="true">→</span></a>
+        <a class="text-link text-link--light" href="{{ tutoring_settings.proof.own_project.url | relative_url }}" data-goatcounter-click="tutoring-dish-of-chaos">{{ s.home_project_cta }} <span aria-hidden="true">→</span></a>
       </div>
     </div>
     {% endif %}
@@ -71,6 +74,7 @@ layout: default
   {% endif %}
 
   <section class="tutoring-section tutoring-section--directions{% if course %} tutoring-section--related{% endif %}" id="details" aria-labelledby="directions-title">
+    <span id="learning" class="anchor-target" aria-hidden="true"></span>
     <div class="section-heading section-heading--compact">
       <div><p class="section-kicker">{{ s.home_learning_label }}</p><h2 id="directions-title">{% if course %}{{ s.tutoring_related_title }}{% else %}{{ t.choose }}{% endif %}</h2></div>
       <p>{% if course %}{{ s.tutoring_related_intro }}{% else %}{{ s.tutoring_directions_intro }}{% endif %}</p>
@@ -92,7 +96,7 @@ layout: default
     <div class="trust-copy"><p class="section-kicker">{{ s.home_trust_label }}</p><h2 id="trust-title">{{ t.proof }}</h2><p>{{ t.proof_text }}</p></div>
     <div class="trust-links">
       <a href="{{ tutoring_settings.proof.studio_url }}" target="_blank" rel="noopener"><span aria-hidden="true">✦</span><span><strong>{{ s.nav_studio }}</strong><small>{{ s.home_studio_detail }}</small></span><span aria-hidden="true">↗</span></a>
-      <a class="trust-link trust-link--reviews" href="{{ tutoring_settings.proof.buki_url }}" target="_blank" rel="noopener"><span class="trust-link__icon" aria-hidden="true">↗</span><span><strong>{{ t.reviews }}</strong><small>{{ s.tutoring_buki_detail }}</small><span class="trust-link__rating" aria-label="5 / 5, {{ tutoring_settings.proof.buki_review_count }} {{ s.tutor_association_reviews }}"><span aria-hidden="true">★★★★★</span><strong aria-hidden="true">5/5</strong><span>{{ tutoring_settings.proof.buki_review_count }} {{ s.tutor_association_reviews }}</span></span></span><span class="trust-link__arrow" aria-hidden="true">↗</span></a>
+      <a class="trust-link trust-link--reviews" href="{{ tutoring_settings.proof.buki_url }}" target="_blank" rel="noopener" data-goatcounter-click="tutoring-trust-buki"><span class="trust-link__icon" aria-hidden="true">↗</span><span><strong>{{ t.reviews }}</strong><small>{{ s.tutoring_buki_detail }}</small><span class="trust-link__rating" aria-label="5 / 5, {{ tutoring_settings.proof.buki_review_count }} {{ s.tutor_association_reviews }}"><span aria-hidden="true">★★★★★</span><strong aria-hidden="true">5/5</strong><span>{{ tutoring_settings.proof.buki_review_count }} {{ s.tutor_association_reviews }}</span></span></span><span class="trust-link__arrow" aria-hidden="true">↗</span></a>
       <a class="trust-link trust-link--reviews" href="{{ tutoring_settings.proof.tutor_association_url }}" target="_blank" rel="noopener"><span class="trust-link__icon" aria-hidden="true">↗</span><span><strong>{{ s.tutor_association_title }}</strong><small>{{ s.tutor_association_detail }}</small><span class="trust-link__rating" aria-label="5 / 5, {{ tutoring_settings.proof.tutor_association_review_count }} {{ s.tutor_association_reviews }}"><span aria-hidden="true">★★★★★</span><strong aria-hidden="true">5/5</strong><span>{{ tutoring_settings.proof.tutor_association_review_count }} {{ s.tutor_association_reviews }}</span></span></span><span class="trust-link__arrow" aria-hidden="true">↗</span></a>
     </div>
   </section>
@@ -101,24 +105,24 @@ layout: default
     <div class="section-heading section-heading--compact"><div><p class="section-kicker">{{ s.tutoring_conditions_label }}</p><h2 id="conditions-title">{{ s.tutoring_conditions_title }}</h2></div><p>{{ s.tutoring_conditions_intro }}</p></div>
     <div class="conditions-grid">
       <div class="condition-card"><span aria-hidden="true">01</span><h3>{{ s.tutoring_format_title }}</h3><p>{{ t.language }}</p></div>
-      <div class="condition-card"><span aria-hidden="true">02</span><h3>{{ s.tutoring_price_title }}</h3><p>{% if s.price_unit_before %}{{ s.price_unit }} {{ tutoring_settings.price.amount }} {{ tutoring_settings.price.currency }}{% elsif s.price_currency_before %}{{ tutoring_settings.price.currency }} {{ tutoring_settings.price.amount }} {{ s.price_unit }}{% else %}{{ tutoring_settings.price.amount }} {{ s.price_currency_label }} {{ s.price_unit }}{% endif %}<br>{% include tutoring-payment.html %}</p></div>
+      <div class="condition-card"><span aria-hidden="true">02</span><h3>{{ s.tutoring_price_title }}</h3><p>{% if s.price_usd_prefix and tutoring_settings.price.usd_amount %}{{ s.price_usd_prefix }}{{ tutoring_settings.price.usd_amount }} / {{ tutoring_settings.price.amount }} {{ tutoring_settings.price.currency }} {{ s.price_unit }}{% elsif s.price_unit_before %}{{ s.price_unit }} {{ tutoring_settings.price.amount }} {{ tutoring_settings.price.currency }}{% elsif s.price_currency_before %}{{ tutoring_settings.price.currency }} {{ tutoring_settings.price.amount }} {{ s.price_unit }}{% else %}{{ tutoring_settings.price.amount }} {{ s.price_currency_label }} {{ s.price_unit }}{% endif %}<br>{% include tutoring-payment.html %}</p><p>{{ t.weekend_note }}</p>{% if tutoring_settings.price.equivalents %}<div class="condition-card__equivalents">${{ tutoring_settings.price.equivalents.usd }} · €{{ tutoring_settings.price.equivalents.eur }} · {{ tutoring_settings.price.equivalents.pln }} zł · £{{ tutoring_settings.price.equivalents.gbp }} ({{ tutoring_settings.price.amount }} {{ tutoring_settings.price.currency }})</div>{% endif %}</div>
       <div class="condition-card"><span aria-hidden="true">03</span><h3>{{ s.tutoring_contact_title }}</h3><p>{{ t.availability }}</p></div>
     </div>
     {% assign optional_conditions = tutoring_settings.conditions %}
     {% assign technical_requirements = optional_conditions.technical_requirements %}
     {% if optional_conditions.duration or optional_conditions.first_lesson or optional_conditions.rescheduling or optional_conditions.cancellation or optional_conditions.payment_order or optional_conditions.platform or technical_requirements.unity or technical_requirements.python or technical_requirements.scratch or optional_conditions.homework or optional_conditions.progress %}
     <dl class="conditions-extra">
-      {% if optional_conditions.duration %}<div><dt>{{ s.duration_label }}</dt><dd>{{ optional_conditions.duration }}</dd></div>{% endif %}
-      {% if optional_conditions.first_lesson %}<div><dt>{{ s.first_lesson_label }}</dt><dd>{{ optional_conditions.first_lesson }}</dd></div>{% endif %}
-      {% if optional_conditions.rescheduling %}<div><dt>{{ s.rescheduling_label }}</dt><dd>{{ optional_conditions.rescheduling }}</dd></div>{% endif %}
-      {% if optional_conditions.cancellation %}<div><dt>{{ s.cancellation_label }}</dt><dd>{{ optional_conditions.cancellation }}</dd></div>{% endif %}
-      {% if optional_conditions.payment_order %}<div><dt>{{ s.payment_order_label }}</dt><dd>{{ optional_conditions.payment_order }}</dd></div>{% endif %}
-      {% if optional_conditions.platform %}<div><dt>{{ s.platform_label }}</dt><dd>{{ optional_conditions.platform }}</dd></div>{% endif %}
-      {% if technical_requirements.unity %}<div><dt>{{ s.technical_requirements_label }} · Unity</dt><dd>{{ technical_requirements.unity }}</dd></div>{% endif %}
-      {% if technical_requirements.python %}<div><dt>{{ s.technical_requirements_label }} · Python</dt><dd>{{ technical_requirements.python }}</dd></div>{% endif %}
-      {% if technical_requirements.scratch %}<div><dt>{{ s.technical_requirements_label }} · Scratch</dt><dd>{{ technical_requirements.scratch }}</dd></div>{% endif %}
-      {% if optional_conditions.homework %}<div><dt>{{ s.homework_label }}</dt><dd>{{ optional_conditions.homework }}</dd></div>{% endif %}
-      {% if optional_conditions.progress %}<div><dt>{{ s.progress_label }}</dt><dd>{{ optional_conditions.progress }}</dd></div>{% endif %}
+      {% if optional_conditions.duration %}<div><dt>{{ s.duration_label }}</dt><dd>{{ optional_conditions.duration[site.active_lang] | default: optional_conditions.duration.en | default: optional_conditions.duration.uk | default: optional_conditions.duration.first[1] | default: optional_conditions.duration }}</dd></div>{% endif %}
+      {% if optional_conditions.first_lesson %}<div><dt>{{ s.first_lesson_label }}</dt><dd>{{ optional_conditions.first_lesson[site.active_lang] | default: optional_conditions.first_lesson.en | default: optional_conditions.first_lesson.uk | default: optional_conditions.first_lesson.first[1] | default: optional_conditions.first_lesson }}</dd></div>{% endif %}
+      {% if optional_conditions.rescheduling %}<div><dt>{{ s.rescheduling_label }}</dt><dd>{{ optional_conditions.rescheduling[site.active_lang] | default: optional_conditions.rescheduling.en | default: optional_conditions.rescheduling.uk | default: optional_conditions.rescheduling.first[1] | default: optional_conditions.rescheduling }}</dd></div>{% endif %}
+      {% if optional_conditions.cancellation %}<div><dt>{{ s.cancellation_label }}</dt><dd>{{ optional_conditions.cancellation[site.active_lang] | default: optional_conditions.cancellation.en | default: optional_conditions.cancellation.uk | default: optional_conditions.cancellation.first[1] | default: optional_conditions.cancellation }}</dd></div>{% endif %}
+      {% if optional_conditions.payment_order %}<div><dt>{{ s.payment_order_label }}</dt><dd>{{ optional_conditions.payment_order[site.active_lang] | default: optional_conditions.payment_order.en | default: optional_conditions.payment_order.uk | default: optional_conditions.payment_order.first[1] | default: optional_conditions.payment_order }}</dd></div>{% endif %}
+      {% if optional_conditions.platform %}<div><dt>{{ s.platform_label }}</dt><dd>{{ optional_conditions.platform[site.active_lang] | default: optional_conditions.platform.en | default: optional_conditions.platform.uk | default: optional_conditions.platform.first[1] | default: optional_conditions.platform }}</dd></div>{% endif %}
+      {% if technical_requirements.unity %}<div><dt>{{ s.technical_requirements_label }} · Unity</dt><dd>{{ technical_requirements.unity[site.active_lang] | default: technical_requirements.unity.en | default: technical_requirements.unity.uk | default: technical_requirements.unity.first[1] | default: technical_requirements.unity }}</dd></div>{% endif %}
+      {% if technical_requirements.python %}<div><dt>{{ s.technical_requirements_label }} · Python</dt><dd>{{ technical_requirements.python[site.active_lang] | default: technical_requirements.python.en | default: technical_requirements.python.uk | default: technical_requirements.python.first[1] | default: technical_requirements.python }}</dd></div>{% endif %}
+      {% if technical_requirements.scratch %}<div><dt>{{ s.technical_requirements_label }} · Scratch</dt><dd>{{ technical_requirements.scratch[site.active_lang] | default: technical_requirements.scratch.en | default: technical_requirements.scratch.uk | default: technical_requirements.scratch.first[1] | default: technical_requirements.scratch }}</dd></div>{% endif %}
+      {% if optional_conditions.homework %}<div><dt>{{ s.homework_label }}</dt><dd>{{ optional_conditions.homework[site.active_lang] | default: optional_conditions.homework.en | default: optional_conditions.homework.uk | default: optional_conditions.homework.first[1] | default: optional_conditions.homework }}</dd></div>{% endif %}
+      {% if optional_conditions.progress %}<div><dt>{{ s.progress_label }}</dt><dd>{{ optional_conditions.progress[site.active_lang] | default: optional_conditions.progress.en | default: optional_conditions.progress.uk | default: optional_conditions.progress.first[1] | default: optional_conditions.progress }}</dd></div>{% endif %}
     </dl>
     {% endif %}
   </section>
@@ -129,13 +133,29 @@ layout: default
 
   <section class="tutoring-section tutoring-section--faq" aria-labelledby="faq-title">
     <div class="section-heading section-heading--compact"><div><p class="section-kicker">{{ s.tutoring_faq_label }}</p><h2 id="faq-title">{{ t.faq }}</h2></div><p>{{ s.tutoring_faq_intro }}</p></div>
-    <div class="faq-list">{% for question in t.questions %}<details class="tutoring-faq"><summary>{{ question[0] }}</summary><p>{% if question[0] == t.payment_question %}{% include tutoring-payment.html %}{% else %}{{ question[1] }}{% endif %}</p></details>{% endfor %}</div>
+    <div class="faq-list">{% for question in t.questions %}<details class="tutoring-faq"><summary data-goatcounter-click="tutoring-faq-toggle">{{ question[0] }}</summary><p>{% if question[0] == t.payment_question %}{% include tutoring-payment.html %}{% else %}{{ question[1] }}{% endif %}</p></details>{% endfor %}</div>
   </section>
 
-  <section class="tutoring-contact-panel" aria-labelledby="contact-title">
+  <section class="tutoring-section tutoring-section--video" aria-labelledby="video-title">
+    <h2 id="video-title">{{ t.video_title }}</h2>
+    <p>{{ t.video_text }}</p>
+    <a class="text-link" href="https://youtu.be/3CxXkJ8ANbQ" target="_blank" rel="noopener" data-goatcounter-click="tutoring-intro-video">{{ t.video_cta }} <span aria-hidden="true">↗</span></a>
+  </section>
+
+  <section class="tutoring-contact-panel" id="contact" aria-labelledby="contact-title">
     <div><p class="section-kicker">{{ s.tutoring_contact_label }}</p><h2 id="contact-title">{{ t.contact }}</h2><p>{{ t.contact_text }}</p></div>
-    <div><p class="tutoring-price">{% if s.price_unit_before %}{{ s.price_unit }} {{ tutoring_settings.price.amount }} {{ tutoring_settings.price.currency }}{% elsif s.price_currency_before %}{{ tutoring_settings.price.currency }} {{ tutoring_settings.price.amount }} {{ s.price_unit }}{% else %}{{ tutoring_settings.price.amount }} {{ s.price_currency_label }} {{ s.price_unit }}{% endif %}</p>{% include tutoring-contact.html %}</div>
+    <div><p class="tutoring-price">{% if s.price_usd_prefix and tutoring_settings.price.usd_amount %}{{ s.price_usd_prefix }}{{ tutoring_settings.price.usd_amount }} / {{ tutoring_settings.price.amount }} {{ tutoring_settings.price.currency }} {{ s.price_unit }}{% elsif s.price_unit_before %}{{ s.price_unit }} {{ tutoring_settings.price.amount }} {{ tutoring_settings.price.currency }}{% elsif s.price_currency_before %}{{ tutoring_settings.price.currency }} {{ tutoring_settings.price.amount }} {{ s.price_unit }}{% else %}{{ tutoring_settings.price.amount }} {{ s.price_currency_label }} {{ s.price_unit }}{% endif %}</p>{% include tutoring-contact.html %}</div>
   </section>
 </article>
+
+<aside class="tutoring-mobile-bar" aria-label="{{ t.cta | escape }}">
+  <div class="tutoring-mobile-bar__inner">
+    <div class="tutoring-mobile-bar__price">
+      <strong>{% if s.price_usd_prefix and tutoring_settings.price.usd_amount %}{{ s.price_usd_prefix }}{{ tutoring_settings.price.usd_amount }} / {{ tutoring_settings.price.amount }} {{ tutoring_settings.price.currency }}{% elsif s.price_unit_before %}{{ s.price_unit }} {{ tutoring_settings.price.amount }} {{ tutoring_settings.price.currency }}{% elsif s.price_currency_before %}{{ tutoring_settings.price.currency }} {{ tutoring_settings.price.amount }} {{ s.price_unit }}{% else %}{{ tutoring_settings.price.amount }} {{ s.price_currency_label }}{% endif %}</strong>
+      <small>{{ s.price_unit }}</small>
+    </div>
+    {% include tutoring-contact.html is_sticky=true compact=true %}
+  </div>
+</aside>
 
 {% include metadata/tutoring.html %}

@@ -1,3 +1,5 @@
+# UNVERIFIED AI-GENERATED EXAMPLES. Author confirmed these are fictional.
+# Replace with real material before enabling publication, permission or readiness.
 # Published testimonials need the owner's permission and a ready status.
 # mode: exact_text keeps the source text unchanged; source_only shows only a link.
 template:
@@ -12,4 +14,120 @@ template:
   source_url: null
   date: null
   direction: null
-items: []
+items:
+  - id: buki-yevgen-uk
+    mode: exact_text
+    status: draft
+    ready: false
+    permission: false
+    language: uk
+    signature: "Євген (навчається разом із двома дітьми)"
+    source_url: "https://buki.com.ua/user-82505/"
+    date: "2026-07-28"
+    direction: "Unity та C#"
+    text: >-
+      Ігор відкрив для мене цілий світ розробки ігор у Unity. Навчатися з ним було не лише корисно, а й дуже приємно: він чудовий співрозмовник, усе пояснює зрозуміло, цікаво й доступно. Зараз у Ігоря навчаються ще й двоє моїх дітей, вони також із задоволенням відвідують заняття та дуже ними захоплені. Окрім Unity, діти розвивають загальну комп’ютерну грамотність, що особливо цінно. Це неймовірний досвід як для дітей, так і для дорослих. Щиро й наполегливо рекомендую Ігоря всім, хто хоче опанувати Unity та впевненіше почуватися у світі сучасних технологій. Максимальна оцінка!
+
+  - id: buki-filip-uk
+    mode: exact_text
+    status: draft
+    ready: false
+    permission: false
+    language: uk
+    signature: "Філіп (батько учня 5–6 класу)"
+    source_url: "https://buki.com.ua/user-82505/"
+    date: "2024-01-25"
+    direction: "Програмування для дітей"
+    text: >-
+      Нашому сину дуже подобаються заняття! В нас є з чим порівнювати, то відповідально можемо сказати: Ігор — ТОП! Відповідальний і вміє знайти підхід до учня. Старається розвивати самостійність і мислення! Ми задоволені, як і наш син.
+
+  - id: buki-oleksandr-uk
+    mode: exact_text
+    status: draft
+    ready: false
+    permission: false
+    language: uk
+    signature: "Олександр (Естонія, син навчається онлайн понад рік)"
+    source_url: "https://buki.com.ua/user-82505/"
+    date: "2022-08-25"
+    direction: "Створення ігор онлайн"
+    text: >-
+      Мій син працює з репетитором Ігорем вже протягом року і дуже задоволений. Ми самі з Естонії і заняття проходять онлайн. У сина лише позитивні враження та результати співробітництва та просування за матеріалом. Ігор — дуже уважний та чуйний репетитор! Всім рекомендуємо!
+
+  - id: buki-anzhela-uk
+    mode: exact_text
+    status: draft
+    ready: false
+    permission: false
+    language: uk
+    signature: "Анжела (мама підлітка)"
+    source_url: "https://buki.com.ua/user-82505/"
+    date: "2026-08-27"
+    direction: "C# програмування"
+    text: >-
+      Ігор Глібович сподобався своєю невимушеною манерою вести уроки, докладно відповідав на всі супутні запитання. Для учня-підлітка це було те, що потрібно. Син швидко включився у процес і був зацікавлений у ньому.
+
+  - id: buki-nadiia-uk
+    mode: exact_text
+    status: draft
+    ready: false
+    permission: false
+    language: uk
+    signature: "Надія (мама учня)"
+    source_url: "https://buki.com.ua/user-82505/"
+    date: "2026-08-27"
+    direction: "Програмування для дітей"
+    text: >-
+      Сину сподобались уроки, мені сподобались швидкі домовленості щодо організації уроків, гнучкість, терплячість, підлаштування під рівень учня. Займатися було зручно і цікаво.
+
+  - id: buki-nataliia-uk
+    mode: exact_text
+    status: draft
+    ready: false
+    permission: false
+    language: uk
+    signature: "Наталія (мама учня)"
+    source_url: "https://buki.com.ua/user-82505/"
+    date: "2024-11-09"
+    direction: "Unity 3D"
+    text: >-
+      Рекомендую Ігоря, як талановитого викладача, який вміє почути та зацікавити дитину. Син вивчає Unity 3D.
+
+  - id: buki-yevgen-en
+    mode: exact_text
+    status: draft
+    ready: false
+    permission: false
+    language: en
+    signature: "Yevgen (learning alongside his two children)"
+    source_url: "https://buki.com.ua/user-82505/"
+    date: "2026-07-28"
+    direction: "Unity & C#"
+    text: >-
+      Ihor opened up a whole world of game development in Unity for me. Learning with him was not only useful, but also very enjoyable: he explains everything clearly, interestingly, and accessibly. Now two of my children are also studying with Ihor, and they attend classes with great enthusiasm. Besides Unity, the kids are developing general computer literacy, which is especially valuable. A truly incredible experience for both kids and adults!
+
+  - id: buki-filip-en
+    mode: exact_text
+    status: draft
+    ready: false
+    permission: false
+    language: en
+    signature: "Philip (father of a 5th-6th grade student)"
+    source_url: "https://buki.com.ua/user-82505/"
+    date: "2024-01-25"
+    direction: "Coding for Kids"
+    text: >-
+      Our son really enjoys the lessons! Having tried other options to compare with, we can responsibly say: Ihor is TOP! Responsible and genuinely knows how to connect with the student. He actively fosters independence and problem-solving mindset. Both we and our son are very happy.
+
+  - id: buki-oleksandr-en
+    mode: exact_text
+    status: draft
+    ready: false
+    permission: false
+    language: en
+    signature: "Oleksandr (Estonia, son learning online for over a year)"
+    source_url: "https://buki.com.ua/user-82505/"
+    date: "2022-08-25"
+    direction: "Game Development Online"
+    text: >-
+      My son has been working with tutor Ihor for over a year and is very pleased. We are from Estonia and the lessons take place online. My son has only positive impressions and great progress with the material. Ihor is a very attentive and responsive tutor! Highly recommended!

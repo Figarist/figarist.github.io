@@ -1,40 +1,110 @@
-# Shared, confirmed tutoring facts. Keep amounts, URLs and media paths here.
-# Translated labels and sentences live in _data/{lang}/tutoring.json.
+---
 format: online
 price:
   amount: 1000
   currency: UAH
+  weekend_amount: 1200
 contact:
   telegram_url: https://t.me/Figarist
 payment:
   account_type: FOP
   currencies:
-    - UAH
-    - EUR
-    - USD
-teaching_languages:
-  - uk
-  - ru
+  - UAH
+  - EUR
+  - USD
 proof:
   own_project:
     title: Dish of Chaos
-    url: /games/dish-of-chaos/
-    image: /assets/images/games/dish-of-chaos-cover.png
+    url: "/games/dish-of-chaos/"
+    image: "/assets/images/games/dish-of-chaos-cover.png"
   studio_url: https://wristandpocket.dev
   buki_url: https://buki.com.ua/user-82505/
   buki_review_count: 11
   tutor_association_url: https://repetitor.org.ua/id13882
   tutor_association_review_count: 7
 conditions:
-  duration: null
-  first_lesson: null
-  rescheduling: null
-  cancellation: null
-  payment_order: null
-  platform: null
+  duration:
+    uk: 60 хвилин для всіх учнів. Заняття проходять у закріплений за вами час і завершуються
+      за розкладом.
+    en: 60 minutes for every student. Lessons take place in your reserved time slot
+      and finish on schedule.
+    ru: 60 минут для всех учеников. Занятия проходят в закреплённое за вами время
+      и заканчиваются по расписанию.
+    ko: 모든 학생의 수업은 60분입니다. 예약된 고정 시간에 진행하며 예정된 시간에 마칩니다.
+  first_lesson:
+    uk: Спочатку розмова з батьками, за потреби — з дитиною. Перше заняття платне.
+    en: We start with a conversation with parents and, if needed, the child. The first
+      lesson is paid.
+    ru: Сначала разговор с родителями, при необходимости — с ребёнком. Первое занятие
+      платное.
+    ko: 먼저 부모님과 대화하고 필요한 경우 학생도 함께합니다. 첫 수업은 유료입니다.
+  rescheduling:
+    uk: Про скасування або перенесення потрібно попередити щонайменше за годину. За
+      пізнішого попередження вартість заняття списується.
+    en: Please give at least one hour's notice to cancel or reschedule. With less
+      notice, the lesson is charged.
+    ru: Об отмене или переносе нужно предупредить минимум за час. При более позднем
+      предупреждении стоимость занятия списывается.
+    ko: 취소나 일정 변경은 최소 한 시간 전에 알려 주세요. 그보다 늦게 알리면 수업료가 차감됩니다.
+  cancellation:
+    uk: Непередбачені обставини в Україні обговорюємо індивідуально. Якщо заняття
+      не може відбутися з мого боку, переносимо або скасовуємо його без оплати.
+    en: Unforeseen circumstances in Ukraine are discussed individually. If I cannot
+      hold a lesson, we reschedule or cancel it without charge.
+    ru: Непредвиденные обстоятельства в Украине обсуждаем индивидуально. Если занятие
+      не может состояться с моей стороны, переносим или отменяем его без оплаты.
+    ko: 우크라이나의 예기치 못한 상황은 개별적으로 논의합니다. 제가 수업을 진행할 수 없으면 비용 없이 일정을 변경하거나 취소합니다.
+  payment_order:
+    uk: Можна оплачувати по одному заняттю або кілька наперед — як зручно батькам.
+      Кошти за невикористані майбутні заняття повертаються, якщо вирішили припинити
+      навчання.
+    en: Pay for one lesson or several in advance, whichever suits the family. Unused
+      future lessons are refundable if you decide to stop.
+    ru: Можно оплачивать по одному занятию или несколько заранее — как удобно родителям.
+      Деньги за неиспользованные будущие занятия возвращаются, если вы решили прекратить
+      обучение.
+    ko: 한 회씩 또는 여러 회를 미리 결제할 수 있습니다. 수업을 중단하면 사용하지 않은 향후 수업료를 환불받을 수 있습니다.
+  platform:
+    uk: Zoom із демонстрацією екрана. Камера — за бажанням.
+    en: Zoom with screen sharing. A camera is optional.
+    ru: Zoom с демонстрацией экрана. Камера — по желанию.
+    ko: Zoom 화면 공유로 진행합니다. 카메라 사용은 선택 사항입니다.
   technical_requirements:
-    unity: null
-    python: null
-    scratch: null
-  homework: null
-  progress: null
+    unity:
+      uk: Комп’ютер або ноутбук із Zoom, демонстрацією екрана та програмами для обраного
+        напряму.
+      en: A computer or laptop with Zoom, screen sharing and the software for the
+        chosen subject.
+      ru: Компьютер или ноутбук с Zoom, демонстрацией экрана и программами для выбранного
+        направления.
+      ko: Zoom, 화면 공유 및 선택한 분야의 프로그램을 실행할 수 있는 컴퓨터나 노트북이 필요합니다.
+    python:
+      uk: Комп’ютер або ноутбук із Zoom, демонстрацією екрана та програмами для обраного
+        напряму.
+      en: A computer or laptop with Zoom, screen sharing and the software for the
+        chosen subject.
+      ru: Компьютер или ноутбук с Zoom, демонстрацией экрана и программами для выбранного
+        направления.
+      ko: Zoom, 화면 공유 및 선택한 분야의 프로그램을 실행할 수 있는 컴퓨터나 노트북이 필요합니다.
+    scratch:
+      uk: Комп’ютер або планшет зі Scratch, Zoom і демонстрацією екрана.
+      en: A computer or tablet with Scratch, Zoom and screen sharing.
+      ru: Компьютер или планшет со Scratch, Zoom и демонстрацией экрана.
+      ko: Scratch, Zoom 및 화면 공유를 사용할 수 있는 컴퓨터나 태블릿이 필요합니다.
+  homework:
+    uk: Домашні завдання не обов’язкові — за бажанням учня та батьків.
+    en: Homework is optional, according to the student's and parents' preferences.
+    ru: Домашние задания необязательны — по желанию ученика и родителей.
+    ko: 숙제는 학생과 부모님의 희망에 따라 선택할 수 있습니다.
+  progress:
+    uk: Проєкти й темп підбираємо індивідуально, без обіцянок однакового результату
+      за визначений строк. Учні та батьки можуть звертатися із запитаннями між заняттями.
+    en: Projects and pace are individual, without a promise of a fixed result within
+      a set number of lessons. Students and parents can send questions between lessons.
+    ru: Проекты и темп подбираем индивидуально, без обещаний одинакового результата
+      за определённый срок. Ученики и родители могут обращаться с вопросами между
+      занятиями.
+    ko: 프로젝트와 속도를 개별적으로 정하며, 정해진 기간 안에 동일한 결과를 약속하지 않습니다. 학생과 부모님은 수업 사이에도 질문을 보낼
+      수 있습니다.
+lesson_minutes: 60
+minimum_age: 6

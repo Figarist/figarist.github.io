@@ -27,6 +27,7 @@ html {
   scroll-padding-top: 100px;
   /* Offset for floating navbar */
   font-size: 16px;
+  overflow-x: clip;
 }
 
 body {
@@ -36,7 +37,14 @@ body {
   line-height: 1.65;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  overflow-x: hidden;
+  overflow-x: clip;
+}
+
+a,
+button,
+summary,
+[role="button"] {
+  touch-action: manipulation;
 }
 
 a {
@@ -64,12 +72,15 @@ a {
 }
 
 /* ======================== ACCESSIBILITY ======================== */
+:focus-visible,
 a:focus-visible,
 button:focus-visible,
+summary:focus-visible,
+.lang-switch:focus-visible,
 [role="button"]:focus-visible {
-  outline: 2px solid var(--accent-blue-d);
+  outline: 2px solid var(--accent-plum);
   outline-offset: 3px;
-  border-radius: 6px;
+  border-radius: inherit;
 }
 
 /* ======================== SELECTION ======================== */

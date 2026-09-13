@@ -7,6 +7,7 @@
     <h2 id="profile-title">{{ tutoring_profile.name | default: site.data[site.active_lang].tutoring.name }}</h2>
     <p>{{ profile_translation.short_description }}</p>
     <p>{{ profile_translation.long_description }}</p>
+    {% if profile_translation.approach %}<p>{{ profile_translation.approach }}</p>{% endif %}
   </div>
   {% if tutoring_profile.portrait.path %}
   {% assign portrait_class = 'profile-portrait--4x5' %}
@@ -25,7 +26,11 @@
     <ul>
       {% for group in tutoring_profile.verified_facts %}
         {% for fact in group[1] %}
-          {% if fact.status == 'published' %}<li><strong>{{ fact.title }}</strong>{% if fact.date %}<span>{{ fact.date }}</span>{% endif %}{% if fact.url %}<a href="{{ fact.url }}" target="_blank" rel="noopener">{{ site.data[site.active_lang].strings.profile_source_cta }} <span aria-hidden="true">↗</span></a>{% endif %}</li>{% endif %}
+          {% if fact.status == 'published' %}
+            {% assign fact_title = fact.title[site.active_lang] | default: fact.title.en | default: fact.title.uk | default: fact.title.first[1] | default: fact.title %}
+            {% assign fact_date = fact.date[site.active_lang] | default: fact.date.en | default: fact.date.uk | default: fact.date.first[1] | default: fact.date %}
+            <li><strong>{{ fact_title }}</strong>{% if fact_date %}<span>{{ fact_date }}</span>{% endif %}{% if fact.url %}<a href="{{ fact.url }}" target="_blank" rel="noopener">{{ site.data[site.active_lang].strings.profile_source_cta }} <span aria-hidden="true">↗</span></a>{% endif %}</li>
+          {% endif %}
         {% endfor %}
       {% endfor %}
     </ul>

@@ -1,31 +1,80 @@
-# Optional public profile evidence. Do not store identity documents here.
-status: draft
+---
+status: published
 portrait:
-  path: null
-  aspect_ratio: "4 / 5"
-  object_position: "center"
+  path:
+  aspect_ratio: 4 / 5
+  object_position: center
 translations:
-  en:
-    ready: false
-    short_description: null
-    long_description: null
-    portrait_alt: null
   uk:
-    ready: false
-    short_description: null
-    long_description: null
-    portrait_alt: null
+    ready: true
+    short_description: Я викладач і розробник ігор. Граю змалечку, а з Unity працюю
+      з 2020 року й продовжую вчитися досі. Мені подобається створювати ігри та допомагати
+      іншим втілювати власні ідеї.
+    long_description: Перші заняття з математики я проводив ще на першому курсі педагогічного
+      університету. Згодом працював у STEM-школі, а під час карантину поступово перейшов
+      до онлайн-занять. Зараз працюю вчителем у Харкові та індивідуально навчаю дітей
+      і підлітків онлайн.
+    approach: Мені важливо, щоб учень зрозумів, що йому подобається створювати. Для
+      когось розробка ігор стає хобі, для когось — майбутньою професією. А хтось після
+      занять усвідомлює, що хоче спробувати іншу сферу. Я теж вважаю це цінним результатом.
+    portrait_alt:
+  en:
+    ready: true
+    short_description: I am a teacher and game developer. I have played games since
+      childhood and have been learning and working with Unity since 2020. I enjoy
+      creating games and helping others bring their ideas to life.
+    long_description: I began tutoring mathematics in my first year at a pedagogical
+      university. Later I worked at a STEM school and gradually moved to online lessons
+      during the pandemic. Today I teach at a school in Kharkiv and tutor children
+      and teenagers online.
+    approach: I want students to discover what they enjoy creating. Game development
+      becomes a hobby for some and a future career for others. Some discover that
+      they would rather explore a different field. I consider that a valuable outcome
+      too.
+    portrait_alt:
   ru:
-    ready: false
-    short_description: null
-    long_description: null
-    portrait_alt: null
+    ready: true
+    short_description: Я преподаватель и разработчик игр. Играю с детства, а с Unity
+      работаю с 2020 года и продолжаю учиться. Мне нравится создавать игры и помогать
+      другим воплощать собственные идеи.
+    long_description: Первые занятия по математике я проводил ещё на первом курсе
+      педагогического университета. Позже работал в STEM-школе, а во время карантина
+      постепенно перешёл к онлайн-занятиям. Сейчас работаю учителем в Харькове и индивидуально
+      занимаюсь с детьми и подростками онлайн.
+    approach: Мне важно, чтобы ученик понял, что ему нравится создавать. Для кого-то
+      разработка игр становится хобби, для кого-то — будущей профессией. А кто-то
+      после занятий понимает, что хочет попробовать другую сферу. Я тоже считаю это
+      ценным результатом.
+    portrait_alt:
   ko:
-    ready: false
-    short_description: null
-    long_description: null
-    portrait_alt: null
+    ready: true
+    short_description: 저는 교사이자 게임 개발자입니다. 어릴 때부터 게임을 즐겼고, 2020년부터 Unity를 배우고 사용하며
+      지금도 계속 공부하고 있습니다. 게임을 만들고 다른 사람의 아이디어가 실현되도록 돕는 일을 좋아합니다.
+    long_description: 사범대학교 1학년 때 수학 개인 지도를 시작했습니다. 이후 STEM 학교에서 일했고, 팬데믹 기간에 점차 온라인
+      수업으로 전환했습니다. 현재 하르키우의 학교에서 가르치며 어린이와 청소년에게 온라인 개인 지도를 하고 있습니다.
+    approach: 학생이 무엇을 만드는 것을 좋아하는지 발견하는 것이 중요합니다. 어떤 학생에게 게임 개발은 취미가 되고, 다른 학생에게는
+      미래의 직업이 됩니다. 다른 분야를 탐색하고 싶다는 것을 깨닫는 학생도 있습니다. 그것 역시 가치 있는 결과라고 생각합니다.
+    portrait_alt:
 verified_facts:
   experience: []
-  education: []
-  certifications: []
+  education:
+  - title:
+      uk: Харківський національний педагогічний університет ім. Сковороди — магістр,
+        Середня освіта (Інформатика, Математика)
+      en: H.S. Skovoroda Kharkiv National Pedagogical University — Master's degree,
+        Secondary Education (Computer Science and Mathematics)
+      ru: Харьковский национальный педагогический университет им. Сковороды — магистр,
+        Среднее образование (Информатика, Математика)
+      ko: H.S. 스코보로다 하르키우 국립사범대학교 — 중등교육 석사 (정보과학 및 수학)
+    date: '2022'
+    url: https://buki.com.ua/user-82505/
+    status: published
+  certifications:
+  - title: Unity Junior Programmer
+    date: '2021-06-11'
+    url: https://www.credly.com/badges/d224022a-58d0-4f18-be4d-5a13521335a4
+    status: published
+  - title: Unity Essentials
+    date: '2021-04-20'
+    url: https://www.credly.com/badges/98a97882-cfc9-4509-85ca-663c31989ef4
+    status: published

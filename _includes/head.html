@@ -14,6 +14,10 @@
     <!-- PWA Manifest -->
     <link rel="manifest" href="{{ '/manifest.json' | relative_url }}">
 
+    <!-- Preconnect for Instant CTA Messenger Transition -->
+    <link rel="preconnect" href="https://t.me">
+    <link rel="dns-prefetch" href="https://t.me">
+
     <!-- Jekyll SEO Tag (Generates Title, OG, Twitter, JSON-LD, Canonical) -->
     {% if page.tutoring or page.is_home %}
     <title>{{ page.title | escape }} | Figarist</title>

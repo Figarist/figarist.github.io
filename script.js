@@ -526,6 +526,67 @@ const code = codeEl.textContent;
     syncExpandedState();
   });
 
+  /* ——————————————————————————————————————————
+     11. TUTORING MOBILE STICKY BAR
+     Observes the hero element. Shows floating bar when
+     scrolled past hero on mobile screens.
+  —————————————————————————————————————————— */
+  var tutoringMobileBar = document.querySelector(".tutoring-mobile-bar");
+  var tutoringHero = document.querySelector(".tutoring-hero");
+
+  if (tutoringMobileBar && tutoringHero && "IntersectionObserver" in window) {
+    var barObserver = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        tutoringMobileBar.classList.toggle("is-visible",
+          !entry.isIntersecting && entry.boundingClientRect.top < 0);
+      });
+    }, { threshold: 0 });
+    barObserver.observe(tutoringHero);
+  }
+
+  /* ——————————————————————————————————————————
+     12. TUTORING TELEGRAM USERNAME COPY
+  —————————————————————————————————————————— */
+  var copyNickButtons = document.querySelectorAll(".tutoring-copy-btn");
+
+  copyNickButtons.forEach(function (btn) {
+    var resetCopyTimer;
+    var originalCopyText = btn.querySelector(".tutoring-copy-btn__text").textContent;
+    if (!navigator.clipboard || !window.isSecureContext) { btn.hidden = true; return; }
+    btn.addEventListener("click", function () {
+      var nick = this.getAttribute("data-copy-nick") || "@Figarist";
+      var copiedText = this.getAttribute("data-copied-text") || "Copied! ✔️";
+      var textEl = this.querySelector(".tutoring-copy-btn__text");
+      var originalText = originalCopyText;
+
+      if (navigator.clipboard && window.isSecureContext) {
+        navigator.clipboard
+          .writeText(nick)
+          .then(function () {
+            if (textEl) {
+              textEl.textContent = copiedText;
+            } else {
+              btn.textContent = copiedText;
+            }
+            btn.classList.add("copied");
+
+            clearTimeout(resetCopyTimer);
+            resetCopyTimer = setTimeout(function () {
+              if (textEl) {
+                textEl.textContent = originalText;
+              } else {
+                btn.textContent = originalText;
+              }
+              btn.classList.remove("copied");
+            }, 2000);
+          })
+          .catch(function (err) {
+            window.prompt(btn.getAttribute("aria-label"), nick);
+          });
+      }
+    });
+  });
+
 })();
 
 // Service Worker Registration

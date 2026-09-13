@@ -183,7 +183,13 @@ module Figarist
         Array(data.dig('verified_facts', group)).each_with_index do |item, index|
           next unless item.is_a?(Hash) && item['status'] == 'published'
 
-          add_error(errors, relative_path(source, path), "verified_facts.#{group}[#{index}].title", 'is required') if blank?(item['title'])
+          title = item['title']
+          has_title = if title.is_a?(Hash)
+            title.values.any? { |v| !blank?(v) }
+          else
+            !blank?(title)
+          end
+          add_error(errors, relative_path(source, path), "verified_facts.#{group}[#{index}].title", 'is required') unless has_title
         end
       end
       errors

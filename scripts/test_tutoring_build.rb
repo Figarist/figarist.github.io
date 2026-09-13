@@ -53,6 +53,8 @@ Dir.mktmpdir('figarist-tutoring-build-test') do |tmp|
   broken_case['translations']['uk']['title'] = 'QA-UK-ONLY-CASE'
   File.write(File.join(cases_dir, 'synthetic-build-bad.yml'), YAML.dump(broken_case))
   FileUtils.cp_r(File.join(source, '_includes'), tmp)
+  File.write(File.join(tmp, '_data', 'tutoring', 'profile.yml'), YAML.dump({'status' => 'draft'}))
+  File.write(File.join(tmp, '_data', 'tutoring', 'testimonials.yml'), YAML.dump({'items' => []}))
   File.write(File.join(tmp, 'index.html'), <<~LIQUID)
     ---
     layout: null
@@ -69,7 +71,68 @@ Dir.mktmpdir('figarist-tutoring-build-test') do |tmp|
     html = File.read(File.join(destination, prefix, 'index.html'))
     raise "Incorrect case localization: #{lang}" unless html.include?('QA-UK-ONLY-CASE') == (lang == 'uk')
     raise "Empty evidence section rendered: #{lang}" if html.include?('profile-title') || html.include?('testimonials-title')
+    raise "Raw Ruby Hash leak detected: #{lang}" if html.match?(/\{["'](?:uk|en|ru|ko)["']\s*=>/) || html.include?('=&gt;')
   end
+
+  # Test multilingual profile facts and case metadata rendering without Cyrillic leaks in EN
+  profile_data = {
+    'status' => 'published',
+    'translations' => {
+      'uk' => {'ready' => true, 'short_description' => 'Короткий опис', 'long_description' => 'Довгий опис', 'portrait_alt' => nil},
+      'en' => {'ready' => true, 'short_description' => 'Short description', 'long_description' => 'Long description', 'portrait_alt' => nil}
+    },
+    'verified_facts' => {
+      'experience' => [
+        {
+          'title' => {'uk' => 'Досвід 7 років', 'en' => '7+ years experience'},
+          'date' => {'uk' => '2019 — дотепер', 'en' => '2019 — present'},
+          'status' => 'published'
+        }
+      ],
+      'education' => [],
+      'certifications' => []
+    }
+  }
+  File.write(File.join(tmp, '_data', 'tutoring', 'profile.yml'), YAML.dump(profile_data))
+
+  broken_case['translations']['en'] = {
+    'ready' => true,
+    'title' => 'QA-EN-CASE-TITLE',
+    'student_name' => 'QA Student (12 yo)',
+    'age_or_grade' => '12 years old',
+    'duration' => '8 lessons',
+    'card_description' => 'QA Desc',
+    'full_description' => 'QA Full',
+    'starting_level' => 'QA Level',
+    'goal' => 'QA Goal',
+    'created' => 'QA Result',
+    'student_work' => 'QA Work',
+    'tutor_help' => 'QA Help',
+    'skills' => ['QA Skill'],
+    'evidence' => 'QA Evidence'
+  }
+  broken_case['translations']['uk']['student_name'] = 'Учень (12 років)'
+  broken_case['translations']['uk']['age_or_grade'] = '12 років'
+  broken_case['translations']['uk']['duration'] = '8 занять'
+  File.write(File.join(cases_dir, 'synthetic-build-bad.yml'), YAML.dump(broken_case))
+
+  stdout, stderr, status = Open3.capture3('bundle', 'exec', 'jekyll', 'build', '--source', tmp, '--destination', destination, '--disable-disk-cache', chdir: source)
+  raise "Multilingual isolated build failed: #{stdout}\n#{stderr}" unless status.success?
+
+  en_html = File.read(File.join(destination, 'index.html'))
+  uk_html = File.read(File.join(destination, 'uk', 'index.html'))
+
+  [en_html, uk_html].each do |h|
+    raise 'Raw Ruby Hash leak detected in HTML' if h.match?(/\{["'](?:uk|en|ru|ko)["']\s*=>/) || h.include?('=&gt;')
+  end
+
+  raise 'Cyrillic leaked into EN profile facts' if en_html.include?('Досвід 7 років') || en_html.include?('дотепер')
+  raise 'EN profile facts missing translated text' unless en_html.include?('7+ years experience') && en_html.include?('2019 — present')
+  raise 'Cyrillic leaked into EN case metadata' if en_html.include?('12 років') || en_html.include?('8 занять')
+  raise 'EN case metadata missing translated text' unless en_html.include?('QA Student (12 yo)') && en_html.include?('12 years old') && en_html.include?('8 lessons')
+
+  raise 'UK profile facts missing Ukrainian text' unless uk_html.include?('Досвід 7 років') && uk_html.include?('2019 — дотепер')
+  raise 'UK case metadata missing Ukrainian text' unless uk_html.include?('Учень (12 років)') && uk_html.include?('12 років') && uk_html.include?('8 занять')
 end
 
-puts 'Tutoring build validation test: PASS (isolated invalid build rejected; valid UK-only case renders only in UK; absent profile/testimonials stay hidden)'
+puts 'Tutoring build validation test: PASS (isolated invalid build rejected; valid UK-only case renders only in UK; absent profile/testimonials stay hidden; no Ruby Hash leaks; no Cyrillic leaks in EN)'

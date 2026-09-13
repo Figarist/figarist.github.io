@@ -1,12 +1,12 @@
 {
   "nav": "Lessons",
-  "title": "Online programming tutor for children — Ihor Sivochka",
-  "description": "Individual Unity and C#, Python and Scratch lessons for children with game developer Ihor Sivochka. Lessons in Ukrainian or Russian.",
+  "title": "Online programming tutor for children — Sivochka Ihor",
+  "description": "Individual Unity and C#, Python and Scratch lessons for children with game developer Sivochka Ihor. Online, project-based learning.",
   "heading": "Online programming lessons for children and teenagers",
   "mobile_heading": "Programming for children",
-  "intro": "I am Ihor Sivochka, a teacher and game developer. I teach children programming through their own projects. My main focus is Unity and C#, with Scratch and Python as additional starting points.",
-  "audience": "I work with children and teenagers, adapting lessons to each student’s experience, interests and goals.",
-  "language": "Individual online lessons in Ukrainian or Russian, for students in Ukraine and abroad.",
+  "intro": "I am Sivochka Ihor, a teacher and game developer. I teach children programming through their own projects. My main focus is Unity and C#, with Scratch and Python as additional starting points.",
+  "audience": "Ages 6+. Basic mouse or touchscreen skills are enough to start.",
+  "language": "Individual Zoom lessons · 60 minutes · ages 6+",
   "cta": "Discuss lessons on Telegram",
   "availability": "Message me to discuss the format and a convenient schedule.",
   "choose": "Choose a direction",
@@ -15,9 +15,9 @@
   "project_note": "These are examples of possible tasks. Difficulty and pace depend on the student’s experience and interests.",
   "approach": "How we learn",
   "steps": [
-    "Discuss the student’s age, experience and what they would like to create.",
-    "Choose tasks that fit their level, from first steps to an individual project.",
-    "Explore how the code works, test the result and learn to debug."
+    "We discuss interests and explore example projects. Start from scratch or bring a game you are already making.",
+    "We begin with something manageable, such as a Flappy Bird-style game or walking around a 3D world. Complex games take time; we work through things step by step.",
+    "I explain the logic and help students experiment and debug. If their interests change, we can switch projects or directions."
   ],
   "proof": "Learn with a practising game developer",
   "proof_text": "Explore my own projects on this website for examples of my development work. Teaching reviews are available on BUKI and the Ukrainian Tutors Association.",
@@ -27,7 +27,7 @@
   "questions": [
     [
       "Is programming experience required?",
-      "Beginners are welcome. Tell me the child’s age and interests so we can choose a starting point."
+      "Ages 6+. Basic mouse or touchscreen skills are enough to start."
     ],
     [
       "Can students join from abroad?",
@@ -35,7 +35,7 @@
     ],
     [
       "What computer is needed?",
-      "Requirements depend on the subject and project. We will discuss your computer and the software needed before starting."
+      "A computer or laptop with Zoom, screen sharing and the software for the chosen subject. A computer or tablet with Scratch, Zoom and screen sharing."
     ],
     [
       "How do I enquire?",
@@ -54,7 +54,7 @@
       "slug": "unity",
       "title": "Online Unity and C# tutor for children",
       "heading": "Create games with Unity and C#",
-      "description": "Individual online Unity lessons for children: 2D/3D games, game logic and C#. Taught in Ukrainian or Russian by Ihor Sivochka.",
+      "description": "Individual online Unity lessons for children: 2D/3D games, game logic and C#. With Sivochka Ihor.",
       "intro": "For children curious about how games work. We build a Unity project and gradually learn C# through its mechanics.",
       "topics": [
         "Unity editor, scenes and game objects",
@@ -71,7 +71,7 @@
       "slug": "python",
       "title": "Online Python tutor for children",
       "heading": "Learn Python through projects",
-      "description": "Individual online Python lessons for children with Ihor Sivochka: programming basics, algorithms and projects. Ukrainian or Russian.",
+      "description": "Individual online Python lessons for children with Sivochka Ihor: programming basics, algorithms and projects.",
       "intro": "For students who want to write text-based code and create programs. We break problems into steps and test our solutions.",
       "topics": [
         "Variables, data types, conditions and loops",
@@ -88,7 +88,7 @@
       "slug": "scratch",
       "title": "Online Scratch tutor for children",
       "heading": "First games and animations with Scratch",
-      "description": "Individual online Scratch lessons for children with Ihor Sivochka. Learn through games and animation in Ukrainian or Russian.",
+      "description": "Individual online Scratch lessons for children with Sivochka Ihor. Learn through games and animation in",
       "intro": "An introduction to programming through visual blocks. Children see how commands change characters’ behaviour and learn to build their own logic.",
       "topics": [
         "Sprites, stages and events",
@@ -103,8 +103,12 @@
     }
   ],
   "payment_question": "How do I pay for lessons?",
-  "name": "Ihor Sivochka",
+  "name": "Sivochka Ihor",
   "role": "Programming tutor and game developer",
-  "home_title": "Ihor Sivochka — Unity tutor and game developer",
-  "home_description": "Figarist: online Unity, C#, Python and Scratch lessons for children and teenagers in Ukrainian or Russian. Game projects by Ihor Sivochka."
+  "home_title": "Sivochka Ihor — Unity tutor and game developer",
+  "home_description": "Figarist: online Unity, C#, Python and Scratch lessons for children and teenagers in Game projects by Sivochka Ihor.",
+  "video_title": "Meet me on video",
+  "video_text": "An earlier introduction to me and my lessons.",
+  "video_cta": "Watch on YouTube",
+  "weekend_note": "Weekends by arrangement: 1200 UAH for 60 minutes."
 }

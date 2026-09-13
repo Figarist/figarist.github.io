@@ -1,5 +1,6 @@
 {% assign switch_location = include.location | default: 'desktop' %}
 <div class="lang-switch-wrapper lang-switch-wrapper--{{ switch_location }}" translate="no" role="group" aria-label="{{ site.data[site.active_lang].strings.lang_switch_label | default: 'Language selection' }}">
+  <span class="lang-switch-indicator" aria-hidden="true"></span>
   {% assign bare_url = page.url %}
   {% for lang in site.languages %}
     {% capture prefix_with_slash %}/{{ lang }}/{% endcapture %}

@@ -21,6 +21,15 @@ Jekyll::Hooks.register :pages, :pre_render do |page, payload|
              end
   page.data['title'] = metadata.fetch('title')
   page.data['description'] = metadata.fetch('description')
+  if page.data['tutoring']
+    image_path = page.data['tutoring_image'] ||
+                 (page.data['image'] unless page.data['image'] == '/assets/images/default-social-card.webp') ||
+                 'assets/images/games/dish-of-chaos-cover.png'
+    page.data['image'] = image_path
+    page.data['og_type'] = 'website'
+    payload['page']['image'] = image_path
+    payload['page']['og_type'] = 'website'
+  end
   localized_path = page.url
   localized_path = "/#{language}#{page.url}" unless language == page.site.default_lang
   page.data['canonical_url'] = "#{page.site.config['url']}#{page.site.config['baseurl']}#{localized_path}"

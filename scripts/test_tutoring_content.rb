@@ -84,14 +84,38 @@ Dir.mktmpdir('figarist-tutoring-profile-test') do |tmp|
         long_description: "Тестовий розгорнутий опис."
         portrait_alt: null
     verified_facts:
-      experience: []
+      experience:
+        - title:
+            uk: "Досвід викладання"
+            en: "Teaching experience"
+          date: "2020"
+          status: "published"
       education: []
       certifications: []
   YAML
-  assert(validate_profile(tmp).empty?, 'a published profile without a portrait is valid')
+  assert(validate_profile(tmp).empty?, 'a published profile with multilingual verified facts is valid')
+
+  File.write(File.join(profile_dir, 'profile.yml'), <<~YAML)
+    status: published
+    portrait:
+      path: null
+    translations:
+      uk:
+        ready: true
+        short_description: "Тестовий короткий опис."
+        long_description: "Тестовий розгорнутий опис."
+        portrait_alt: null
+    verified_facts:
+      experience:
+        - title: null
+          status: "published"
+      education: []
+      certifications: []
+  YAML
+  assert(validate_profile(tmp).any? { |e| e.include?('verified_facts.experience[0].title') }, 'verified fact without title fails')
 end
 
-puts 'Tutoring content tests: PASS (empty base, draft, permission gate, required fields, missing media, anonymous UK-only case, ready translation and missing portrait)'
+puts 'Tutoring content tests: PASS (empty base, draft, permission gate, required fields, missing media, anonymous UK-only case, ready translation, multilingual profile facts and missing portrait)'
 
 review = {'_source_file' => 'synthetic-review.yml', 'id' => 'qa', 'signature' => 'Anonymous', 'status' => 'published', 'permission' => true, 'ready' => true, 'mode' => 'exact_text', 'text' => 'QA only', 'language' => 'uk'}
 assert(validate_testimonials(Dir.pwd, [review]).empty?, 'valid language-scoped testimonial')

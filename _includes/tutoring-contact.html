@@ -1,2 +1,32 @@
 {% assign tutoring_settings = site.data.tutoring.settings %}
-<a class="tutoring-button" href="{{ tutoring_settings.contact.telegram_url }}" data-goatcounter-click="tutoring-telegram-{{ page.course | default: 'overview' }}-{{ site.active_lang }}">{{ t.cta }}</a>
+{%- capture tg_msg -%}
+{%- if site.active_lang == 'uk' -%}
+Вітаю, Ігоре! Хочу дізнатися про індивідуальні заняття{% if page.course %} (напрям {{ page.course | upcase }}){% endif %}. Вік учня:
+{%- elsif site.active_lang == 'ru' -%}
+Здравствуйте, Игорь! Хочу узнать об индивидуальных занятиях{% if page.course %} (направление {{ page.course | upcase }}){% endif %}. Возраст ученика:
+{%- else -%}
+Hi Ihor! I would like to inquire about private tutoring lessons{% if page.course %} ({{ page.course | upcase }}){% endif %}. Student's age:
+{%- endif -%}
+{%- endcapture -%}
+{%- assign encoded_msg = tg_msg | strip | url_encode -%}
+{%- assign click_event = include.click_event -%}
+{%- unless click_event -%}
+  {%- if include.is_sticky -%}
+    {%- assign click_event = "tutoring-telegram-sticky" -%}
+  {%- else -%}
+    {%- assign contact_course = page.course | default: "overview" -%}
+    {%- assign click_event = "tutoring-telegram-" | append: contact_course | append: "-" | append: site.active_lang -%}
+  {%- endif -%}
+{%- endunless -%}
+{%- assign copy_label = site.data[site.active_lang].strings.copy_telegram_nick | default: "Copy @Figarist" -%}
+{%- assign copied_label = site.data[site.active_lang].strings.copied_tooltip | default: "Copied! ✔️" -%}
+<div class="tutoring-contact-action{% if include.compact %} tutoring-contact-action--compact{% endif %}">
+  <a class="tutoring-button" href="{{ tutoring_settings.contact.telegram_url }}?text={{ encoded_msg }}" target="_blank" rel="noopener" data-goatcounter-click="{{ click_event }}">{{ t.cta }}</a>
+  {% unless include.compact %}
+  <button type="button" class="tutoring-copy-btn" data-copy-nick="@Figarist" data-copied-text="{{ copied_label }}" aria-label="{{ copy_label }}" title="{{ copy_label }}" data-goatcounter-click="tutoring-copy-telegram">
+    <svg class="tutoring-copy-btn__icon" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+    <span class="tutoring-copy-btn__text" role="status" aria-live="polite">@Figarist</span>
+  </button>
+  <p class="tutoring-print-contact" aria-hidden="true">Telegram: @Figarist | https://t.me/Figarist</p>
+  {% endunless %}
+</div>

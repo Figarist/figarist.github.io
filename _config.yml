@@ -175,12 +175,19 @@ jekyll-minifier:
 pwa:
   sw_src_filepath: "service-worker.js"
   sw_dest_filename: "sw.js"
-  precache_glob_directory: "_site"
+  precache_glob_directory: "/"
   precache_glob_patterns:
-    - "assets/**/*.{js,css,webp,svg,woff2}"
-    - "search.json"
+    - "assets/css/*.css"
+    - "assets/fonts/*.woff2"
+    - "assets/images/**/*.{webp,png,svg}"
+    - "script.js"
+    - "**/search.json"
     - "manifest.json"
     - "index.html"
+    - "tutoring/**/*.html"
+    - "uk/tutoring/**/*.html"
+    - "ru/tutoring/**/*.html"
+    - "ko/tutoring/**/*.html"
 
 # ── TOC Settings ──────────────────────────────────────────────
 toc:

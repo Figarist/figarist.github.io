@@ -43,21 +43,24 @@
           <h3>{{ localized_case.title }}</h3>
           <p class="case-card__summary">{{ localized_case.card_description }}</p>
           <p class="case-card__detail">{{ localized_case.full_description }}</p>
-          {% if item.student_name %}<p class="testimonial-card__signature">{{ item.student_name | escape }}</p>{% endif %}
+          {% assign case_student = localized_case.student_name | default: localized_case.student_label | default: item.student_name[site.active_lang] | default: item.student_name.en | default: item.student_name.uk | default: item.student_name.first[1] | default: item.student_name %}
+          {% assign case_age = localized_case.age_or_grade | default: localized_case.age_label | default: item.age_or_grade[site.active_lang] | default: item.age_or_grade.en | default: item.age_or_grade.uk | default: item.age_or_grade.first[1] | default: item.age_or_grade %}
+          {% assign case_duration = localized_case.duration | default: localized_case.duration_label | default: item.duration[site.active_lang] | default: item.duration.en | default: item.duration.uk | default: item.duration.first[1] | default: item.duration %}
+          {% if case_student %}<p class="testimonial-card__signature">{{ case_student | escape }}</p>{% endif %}
           <dl class="case-card__facts">
             <div><dt>{{ site.data[site.active_lang].strings.case_goal_label }}</dt><dd>{{ localized_case.goal }}</dd></div>
             <div><dt>{{ site.data[site.active_lang].strings.case_starting_level_label }}</dt><dd>{{ localized_case.starting_level }}</dd></div>
-            {% if item.age_or_grade %}<div><dt>{{ site.data[site.active_lang].strings.case_age_label }}</dt><dd>{{ item.age_or_grade }}</dd></div>{% endif %}
+            {% if case_age %}<div><dt>{{ site.data[site.active_lang].strings.case_age_label }}</dt><dd>{{ case_age }}</dd></div>{% endif %}
             <div><dt>{{ site.data[site.active_lang].strings.case_created_label }}</dt><dd>{{ localized_case.created }}</dd></div>
             <div><dt>{{ site.data[site.active_lang].strings.case_student_work_label }}</dt><dd>{{ localized_case.student_work }}</dd></div>
             <div><dt>{{ site.data[site.active_lang].strings.case_tutor_help_label }}</dt><dd>{{ localized_case.tutor_help }}</dd></div>
             <div><dt>{{ site.data[site.active_lang].strings.case_skills_label }}</dt><dd><ul>{% for skill in localized_case.skills %}<li>{{ skill }}</li>{% endfor %}</ul></dd></div>
             <div><dt>{{ site.data[site.active_lang].strings.case_evidence_label }}</dt><dd>{{ localized_case.evidence }}</dd></div>
-            {% if item.duration %}<div><dt>{{ site.data[site.active_lang].strings.case_duration_label }}</dt><dd>{{ item.duration }}</dd></div>{% endif %}
+            {% if case_duration %}<div><dt>{{ site.data[site.active_lang].strings.case_duration_label }}</dt><dd>{{ case_duration }}</dd></div>{% endif %}
           </dl>
           {% if item.media.additional_images.size > 0 %}<div class="case-gallery">{% for image in item.media.additional_images %}{% if image.path %}<img src="{{ image.path | relative_url }}" alt="{{ image.alt[site.active_lang] | default: image.alt | escape }}" loading="lazy" width="640" height="400">{% endif %}{% endfor %}</div>{% endif %}
-          {% if item.media.video_url %}<a class="text-link" href="{{ item.media.video_url }}" target="_blank" rel="noopener">{{ site.data[site.active_lang].strings.case_video_cta }} <span aria-hidden="true">↗</span></a>{% endif %}
-          {% if item.media.playable_url %}<a class="text-link" href="{{ item.media.playable_url }}" target="_blank" rel="noopener">{{ site.data[site.active_lang].strings.case_playable_cta }} <span aria-hidden="true">↗</span></a>{% endif %}
+          {% if item.media.video_url %}<a class="text-link" href="{{ item.media.video_url }}" target="_blank" rel="noopener" data-goatcounter-click="tutoring-case-video-{{ item.direction }}">{{ site.data[site.active_lang].strings.case_video_cta }} <span aria-hidden="true">↗</span></a>{% endif %}
+          {% if item.media.playable_url %}<a class="text-link" href="{{ item.media.playable_url }}" target="_blank" rel="noopener" data-goatcounter-click="tutoring-case-demo-{{ item.direction }}">{{ site.data[site.active_lang].strings.case_playable_cta }} <span aria-hidden="true">↗</span></a>{% endif %}
         </div>
       </article>
       {% endif %}

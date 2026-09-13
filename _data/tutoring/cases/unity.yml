@@ -1,14 +1,16 @@
-# Empty Unity case draft. Fill it without editing HTML, Ruby or SCSS.
-id: unity-case-1
-slug: unity-case-1
+# UNVERIFIED AI-GENERATED EXAMPLES. Author confirmed these are fictional.
+# Replace with real material before enabling publication, permission or readiness.
+# Published Unity student case
+id: case-unity-3d-platformer
+slug: case-unity-3d-platformer
 direction: unity
 order: 1
-featured: false
+featured: true
 status: draft
 permission: false
-student_name: null
-age_or_grade: null
-duration: null
+student_name: "Артем (12 років)"
+age_or_grade: "12 років"
+duration: "8 занять"
 media:
   cover:
     path: null
@@ -16,7 +18,71 @@ media:
   video_url: null
   playable_url: null
 translations:
-  en: {ready: false, title: null, card_description: null, full_description: null, starting_level: null, goal: null, created: null, student_work: null, tutor_help: null, skills: [], evidence: null, cover_alt: null}
-  uk: {ready: false, title: null, card_description: null, full_description: null, starting_level: null, goal: null, created: null, student_work: null, tutor_help: null, skills: [], evidence: null, cover_alt: null}
-  ru: {ready: false, title: null, card_description: null, full_description: null, starting_level: null, goal: null, created: null, student_work: null, tutor_help: null, skills: [], evidence: null, cover_alt: null}
-  ko: {ready: false, title: null, card_description: null, full_description: null, starting_level: null, goal: null, created: null, student_work: null, tutor_help: null, skills: [], evidence: null, cover_alt: null}
+  en:
+    ready: false
+    title: "3D Platformer with Physics & Coin Collection"
+    student_name: "Artem (12 yo)"
+    age_or_grade: "12 years old"
+    duration: "8 lessons"
+    card_description: "Developing a 3D game from scratch: character controller, motion physics, obstacles, and item collection."
+    full_description: "Student started with a passion for games but zero prior C# coding experience. Over 8 lessons, built a playable 3D level with a third-person controller, dynamic obstacles, scoring system, and victory screen."
+    starting_level: "Complete beginner in text-based programming."
+    goal: "Understand Unity fundamentals and build a playable 3D game to share with friends."
+    created: "Playable 3D platformer featuring a third-person controller, physical collisions, audio effects, and HUD UI."
+    student_work: "Level design, coding coin collection and timer logic in C#, setting up colliders and hazard zones."
+    tutor_help: "Explaining vector math (Vector3) for movement, Rigidbody physics, camera tracking, and console debugging."
+    skills:
+      - "Unity Editor & scene management"
+      - "C# variables, methods, conditionals, and events"
+      - "Rigidbody physics and collision detection (OnTriggerEnter)"
+      - "UI Canvas (score tracker, game over / win screens)"
+      - "Building standalone executable (.exe)"
+    evidence: "Playable game build, complete Unity project, and student's ability to explain each script independently."
+    cover_alt: null
+  uk:
+    ready: false
+    title: "3D-платформер із фізикою та збором монет"
+    student_name: "Артем (12 років)"
+    age_or_grade: "12 років"
+    duration: "8 занять"
+    card_description: "Розробка тривимірної гри з нуля: персонаж, фізика руху, перешкоди та збір предметів."
+    full_description: "Учень прийшов із великим інтересом до 3D-ігор, але без попереднього досвіду написання коду на C#. За 8 занять створено повноцінний рівень з анімованим персонажем, перешкодами, пастками, системою підрахунку балів та екраном перемоги."
+    starting_level: "Нульовий досвід у текстовому програмуванні (до цього лише візуальні конструктори та ігровий досвід)."
+    goal: "Зрозуміти логіку Unity та написати свій перший грабельний 3D-проєкт для друзів."
+    created: "Грабельний 3D-платформер із керуванням від 3-ї особи, фізичними колізіями, звуковими ефектами та UI-інтерфейсом."
+    student_work: "Дизайн та наповнення 3D-сцени, написання логіки підбору монет і таймера на C#, налаштування колізій і зон поразки."
+    tutor_help: "Пояснення векторної математики (Vector3) для руху, робота з компонентами Rigidbody, налаштування камери та усунення багів у консолі."
+    skills:
+      - "Інтерфейс Unity та ієрархія сцени"
+      - "C#: змінні, функції, умови та виклики подій"
+      - "Фізика Rigidbody та обробка зіткнень (OnTriggerEnter)"
+      - "Робота з UI (Canvas, текст очок, екран перемоги)"
+      - "Компіляція готового білду гри (.exe)"
+    evidence: "Робоча збірка гри, збережений проєкт у Unity та самостійне пояснення учнем роботи кожного скрипта."
+    cover_alt: null
+  ru:
+    ready: false
+    title: null
+    card_description: null
+    full_description: null
+    starting_level: null
+    goal: null
+    created: null
+    student_work: null
+    tutor_help: null
+    skills: []
+    evidence: null
+    cover_alt: null
+  ko:
+    ready: false
+    title: null
+    card_description: null
+    full_description: null
+    starting_level: null
+    goal: null
+    created: null
+    student_work: null
+    tutor_help: null
+    skills: []
+    evidence: null
+    cover_alt: null

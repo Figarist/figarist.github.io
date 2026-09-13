@@ -1,14 +1,16 @@
-# Empty Scratch case draft. Fill it without editing HTML, Ruby or SCSS.
-id: scratch-case-1
-slug: scratch-case-1
+# UNVERIFIED AI-GENERATED EXAMPLES. Author confirmed these are fictional.
+# Replace with real material before enabling publication, permission or readiness.
+# Published Scratch student case
+id: case-scratch-catch-arcade
+slug: case-scratch-catch-arcade
 direction: scratch
 order: 3
 featured: false
 status: draft
 permission: false
-student_name: null
-age_or_grade: null
-duration: null
+student_name: "Данило (9 років)"
+age_or_grade: "9 років"
+duration: "5 занять"
 media:
   cover:
     path: null
@@ -16,7 +18,71 @@ media:
   video_url: null
   playable_url: null
 translations:
-  en: {ready: false, title: null, card_description: null, full_description: null, starting_level: null, goal: null, created: null, student_work: null, tutor_help: null, skills: [], evidence: null, cover_alt: null}
-  uk: {ready: false, title: null, card_description: null, full_description: null, starting_level: null, goal: null, created: null, student_work: null, tutor_help: null, skills: [], evidence: null, cover_alt: null}
-  ru: {ready: false, title: null, card_description: null, full_description: null, starting_level: null, goal: null, created: null, student_work: null, tutor_help: null, skills: [], evidence: null, cover_alt: null}
-  ko: {ready: false, title: null, card_description: null, full_description: null, starting_level: null, goal: null, created: null, student_work: null, tutor_help: null, skills: [], evidence: null, cover_alt: null}
+  en:
+    ready: false
+    title: "Arcade Catching Game with Levels & Timer"
+    student_name: "Danylo (9 yo)"
+    age_or_grade: "9 years old"
+    duration: "5 lessons"
+    card_description: "Building a colorful Scratch arcade game: character movement, falling stars, and obstacles."
+    full_description: "A gentle introduction to programming concepts for a 9-year-old. Across 5 lessons, created a dynamic game where the player catches stars, dodges hazards, earns points, and progresses through faster difficulty stages."
+    starting_level: "Total beginner with tablet gaming background."
+    goal: "Learn how games work and create an original playable project."
+    created: "Playable Scratch arcade with custom sprites, sounds, life counter, and win/loss states."
+    student_work: "Choosing sprite assets, assembling movement blocks, creating scoring and collision logic."
+    tutor_help: "Explaining X/Y coordinate plane, variable state tracking, cloning falling objects, and sprite broadcast messages."
+    skills:
+      - "X and Y coordinate plane & sensing"
+      - "Variables (Score, Lives) and timers"
+      - "Loops (forever, repeat) and conditional branching (if-then)"
+      - "Event broadcasts between sprites"
+      - "Costume animation and sound effects"
+    evidence: "Working Scratch project that the student plays and proudly showcases to family and friends."
+    cover_alt: null
+  uk:
+    ready: false
+    title: "Аркадна гра-ловилка з рівнями та таймером"
+    student_name: "Данило (9 років)"
+    age_or_grade: "9 років"
+    duration: "5 занять"
+    card_description: "Створення барвистої аркади у Scratch: керування персонажем, падаючі бонуси та перешкоди."
+    full_description: "Перше знайомство учня з логікою програмування. За 5 занять створили інтерактивну аркаду, де персонаж ловить зірки, уникає блискавок, набирає бали і переходить на складніший рівень із прискоренням таймера."
+    starting_level: "Початківець, досвід лише як гравця на планшеті."
+    goal: "Навчитися створювати власні мультфільми та ігри, зрозуміти принцип роботи алгоритмів."
+    created: "Грабельна аркада на Scratch з декількома спрайтами, звуковими ефектами, рахунком життів та фінальним екраном перемоги."
+    student_work: "Вибір персонажів та фонів, складання блоків переміщення стрілками, налаштування логіки нарахування очок та втрати життів."
+    tutor_help: "Пояснення координатної сітки (X, Y), поняття змінних (бали, життя), клонування падаючих об'єктів та повідомлень (broadcast) між спрайтами."
+    skills:
+      - "Координати X та Y, сенсори дотику"
+      - "Змінні (Score, Lives) та таймер"
+      - "Цикли (завжди, повторити) та умови (якщо-то)"
+      - "Події та передача повідомлень між спрайтами"
+      - "Анімація костюмів та звукове оформлення"
+    evidence: "Опублікований проєкт на платформі Scratch, дитина із захопленням грає сама і показує батькам."
+    cover_alt: null
+  ru:
+    ready: false
+    title: null
+    card_description: null
+    full_description: null
+    starting_level: null
+    goal: null
+    created: null
+    student_work: null
+    tutor_help: null
+    skills: []
+    evidence: null
+    cover_alt: null
+  ko:
+    ready: false
+    title: null
+    card_description: null
+    full_description: null
+    starting_level: null
+    goal: null
+    created: null
+    student_work: null
+    tutor_help: null
+    skills: []
+    evidence: null
+    cover_alt: null

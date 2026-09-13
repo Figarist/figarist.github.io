@@ -6,6 +6,7 @@
 {%- assign person_id = site.url | append: '#person' -%}
 {%- assign tutoring_settings = site.data.tutoring.settings -%}
 {%- assign s = site.data[site.active_lang].strings -%}
+{%- assign total_reviews = tutoring_settings.proof.buki_review_count | plus: tutoring_settings.proof.tutor_association_review_count -%}
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -17,13 +18,29 @@
       "alternateName": "Figarist",
       "jobTitle": {{ t.role | jsonify }},
       "url": {{ '/' | absolute_url | jsonify }},
-      "sameAs": [{{ tutoring_settings.contact.telegram_url | jsonify }}, "https://github.com/Figarist", {{ tutoring_settings.proof.buki_url | jsonify }}, {{ tutoring_settings.proof.tutor_association_url | jsonify }}]
+      "image": {{ '/assets/images/figaristgithub.png' | absolute_url | jsonify }},
+      "knowsAbout": [
+        "Game Development",
+        "Unity",
+        "C#",
+        "Python",
+        "Scratch",
+        "Computer Science"
+      ],
+      "sameAs": [
+        {{ tutoring_settings.contact.telegram_url | jsonify }},
+        "https://github.com/Figarist",
+        "https://www.youtube.com/@proVR_ua",
+        {{ tutoring_settings.proof.buki_url | jsonify }},
+        {{ tutoring_settings.proof.tutor_association_url | jsonify }},
+        {{ tutoring_settings.proof.studio_url | jsonify }}
+      ]
     },
     {
       "@type": "Service",
       "@id": {{ service_url | append: '#service' | jsonify }},
-      "name": {{ page.title | jsonify }},
-      "description": {{ page.description | jsonify }},
+      "name": {{ page.title | default: t.title | jsonify }},
+      "description": {{ page.description | default: t.description | jsonify }},
       "url": {{ service_url | jsonify }},
       "provider": {"@id": {{ person_id | jsonify }}},
       "offers": {
@@ -34,6 +51,39 @@
         "url": {{ service_url | jsonify }}
       }
     },
+    {
+      "@type": "Course",
+      "@id": {{ service_url | append: '#course' | jsonify }},
+      "name": {{ page.title | default: t.title | jsonify }},
+      "description": {{ page.description | default: t.description | jsonify }},
+      "url": {{ service_url | jsonify }},
+      "provider": {"@id": {{ person_id | jsonify }}},
+      "hasCourseInstance": {"@type": "CourseInstance", "courseMode": "Online"},
+      "offers": {
+        "@type": "Offer",
+        "price": {{ tutoring_settings.price.amount | jsonify }},
+        "priceCurrency": {{ tutoring_settings.price.currency | jsonify }},
+        "url": {{ service_url | jsonify }}
+      }
+    },
+    {% if t.questions.size > 0 %}
+    {
+      "@type": "FAQPage",
+      "@id": {{ service_url | append: '#faq' | jsonify }},
+      "mainEntity": [
+        {% for question in t.questions %}
+        {
+          "@type": "Question",
+          "name": {{ question[0] | jsonify }},
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": {% if question[0] == t.payment_question %}{% capture payment_answer %}{% include tutoring-payment.html %}{% endcapture %}{{ payment_answer | strip_html | strip | jsonify }}{% else %}{{ question[1] | jsonify }}{% endif %}
+          }
+        }{% unless forloop.last %},{% endunless %}
+        {% endfor %}
+      ]
+    },
+    {% endif %}
     {
       "@type": "BreadcrumbList",
       "itemListElement": [

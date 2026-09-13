@@ -1,14 +1,16 @@
-# Empty Python case draft. Fill it without editing HTML, Ruby or SCSS.
-id: python-case-1
-slug: python-case-1
+# UNVERIFIED AI-GENERATED EXAMPLES. Author confirmed these are fictional.
+# Replace with real material before enabling publication, permission or readiness.
+# Published Python student case
+id: case-python-interactive-quest
+slug: case-python-interactive-quest
 direction: python
 order: 2
 featured: false
 status: draft
 permission: false
-student_name: null
-age_or_grade: null
-duration: null
+student_name: "Максим (13 років)"
+age_or_grade: "13 років"
+duration: "6 занять"
 media:
   cover:
     path: null
@@ -16,7 +18,71 @@ media:
   video_url: null
   playable_url: null
 translations:
-  en: {ready: false, title: null, card_description: null, full_description: null, starting_level: null, goal: null, created: null, student_work: null, tutor_help: null, skills: [], evidence: null, cover_alt: null}
-  uk: {ready: false, title: null, card_description: null, full_description: null, starting_level: null, goal: null, created: null, student_work: null, tutor_help: null, skills: [], evidence: null, cover_alt: null}
-  ru: {ready: false, title: null, card_description: null, full_description: null, starting_level: null, goal: null, created: null, student_work: null, tutor_help: null, skills: [], evidence: null, cover_alt: null}
-  ko: {ready: false, title: null, card_description: null, full_description: null, starting_level: null, goal: null, created: null, student_work: null, tutor_help: null, skills: [], evidence: null, cover_alt: null}
+  en:
+    ready: false
+    title: "Text-Based RPG Game with Combat System & Inventory"
+    student_name: "Maksym (13 yo)"
+    age_or_grade: "13 years old"
+    duration: "6 lessons"
+    card_description: "Developing a console game in Python: procedural enemy encounters, inventory, and combat logic."
+    full_description: "The student wanted to create computer programs but didn't know where to begin. Instead of solving dry textbook exercises, we built an interactive RPG adventure featuring branching storylines, random events, and character progression."
+    starting_level: "Basic computer skills, zero coding experience."
+    goal: "Master Python syntax, functions, and data structures through game creation."
+    created: "Modular console RPG game with random events, item inventory, and score tracking."
+    student_work: "Writing the game narrative, designing combat calculation formulas, managing user choices, and structuring the inventory."
+    tutor_help: "Teaching lists and dictionaries, modular function design, using the random module, and exception handling (try/except)."
+    skills:
+      - "Python fundamentals (variables, while/for loops, if/else conditions)"
+      - "Data structures: lists and dictionaries"
+      - "Defining and calling functions with parameters"
+      - "Standard library modules (random, time)"
+      - "Input validation and error handling"
+    evidence: "Complete working Python source code and the student's ability to extend game mechanics independently."
+    cover_alt: null
+  uk:
+    ready: false
+    title: "Текстова RPG-гра з бойовою системою та інвентарем"
+    student_name: "Максим (13 років)"
+    age_or_grade: "13 років"
+    duration: "6 занять"
+    card_description: "Розробка консольної гри на Python: процедурна генерація ворогів, інвентар та система бою."
+    full_description: "Учень хотів створювати власні комп'ютерні програми, але не знав з чого почати. Замість сухого розв'язання математичних завдань ми розробили повноцінну текстову RPG-гру з розгалуженими діалогами, випадковими зустрічами та системою прокачки героя."
+    starting_level: "Базове знання ПК, без досвіду написання програмного коду."
+    goal: "Опанувати синтаксис Python, функції та структури даних через створення захоплюючої гри."
+    created: "Модульна консольна RPG-гра з випадковими подіями, інвентарем предметів та збереженням результату."
+    student_work: "Написання сценарію гри, створення логіки вибору дій користувача, розробка формули розрахунку урону та структури інвентарю."
+    tutor_help: "Пояснення роботи списків і словників, структурування коду на окремі функції, робота з модулем random та обробка помилок вводу (try/except)."
+    skills:
+      - "Синтаксис Python (змінні, цикли while/for, розгалуження if/else)"
+      - "Структури даних: списки (lists) та словники (dictionaries)"
+      - "Функціональне програмування та передача параметрів"
+      - "Модулі стандартної бібліотеки (random, time)"
+      - "Обробка винятків та валідація введених користувачем даних"
+    evidence: "Працюючий вихідний код гри на Python, здатність учня самостійно додавати нових персонажів та механіки."
+    cover_alt: null
+  ru:
+    ready: false
+    title: null
+    card_description: null
+    full_description: null
+    starting_level: null
+    goal: null
+    created: null
+    student_work: null
+    tutor_help: null
+    skills: []
+    evidence: null
+    cover_alt: null
+  ko:
+    ready: false
+    title: null
+    card_description: null
+    full_description: null
+    starting_level: null
+    goal: null
+    created: null
+    student_work: null
+    tutor_help: null
+    skills: []
+    evidence: null
+    cover_alt: null

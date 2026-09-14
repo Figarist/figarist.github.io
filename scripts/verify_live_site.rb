@@ -48,8 +48,11 @@ workers = 8.times.map do
     loop do
       url = queue.pop(true)
       response = fetch(url)
-      errors << "#{url}: canonical does not match the sitemap URL" unless response.body.include?(%(<link rel="canonical" href="#{url}">))
-      errors << "#{url}: og:url does not match the sitemap URL" unless response.body.include?(%(<meta property="og:url" content="#{url}">))
+      escaped_url = Regexp.escape(url)
+      canonical_pattern = %r{<link\s+rel="canonical"\s+href="#{escaped_url}"\s*/?>}
+      og_url_pattern = %r{<meta\s+property="og:url"\s+content="#{escaped_url}"\s*/?>}
+      errors << "#{url}: canonical does not match the sitemap URL" unless response.body.match?(canonical_pattern)
+      errors << "#{url}: og:url does not match the sitemap URL" unless response.body.match?(og_url_pattern)
       errors << "#{url}: retired origin is present" if response.body.include?('https://figarist.github.io')
       errors << "#{url}: sitemap page is noindex" if response.body.match?(%r{<meta name="robots" content="[^"]*noindex}i)
     rescue ThreadError

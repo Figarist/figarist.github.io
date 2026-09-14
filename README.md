@@ -346,7 +346,7 @@ Custom `sitemap.xml` (NOT a plugin) generates a full XML:
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
         xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>https://figarist.github.io/education/</loc>
+    <loc>https://sivochka.com/education/</loc>
     <lastmod>2026-03-04T14:18:27+00:00</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="..." />
     <xhtml:link rel="alternate" hreflang="uk" href="..." />

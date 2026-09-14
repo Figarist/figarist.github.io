@@ -3,6 +3,8 @@ require 'nokogiri'
 require 'json'
 require 'uri'
 base = File.expand_path(ARGV.fetch(0, '_site'))
+canonical_origin = 'https://sivochka.com'
+retired_origin = 'https://figarist.github.io'
 records = []
 errors = []
 files = Dir["#{base}/**/*.html"].select { |f| File.file?(f) }
@@ -12,12 +14,27 @@ external_projects = %w[/OGCruncher/ /lego-catalog/]
 files.each do |file|
   route = file.delete_prefix(base).sub(/index\.html$/, '')
   doc = documents[file]
+  errors << {source: route, error: 'retired GitHub Pages origin in production HTML'} if File.read(file).include?(retired_origin)
+  canonical = doc.at_css('link[rel="canonical"]')&.[]('href')
+  if canonical
+    canonical_uri = URI.parse(canonical)
+    unless canonical_uri.scheme == 'https' && canonical_uri.host == 'sivochka.com'
+      errors << {source: route, url: canonical, error: 'canonical URL is outside the production origin'}
+    end
+  end
+  og_url = doc.at_css('meta[property="og:url"]')&.[]('content')
+  if og_url
+    og_uri = URI.parse(og_url)
+    unless og_uri.scheme == 'https' && og_uri.host == 'sivochka.com'
+      errors << {source: route, url: og_url, error: 'og:url is outside the production origin'}
+    end
+  end
   alternates = doc.css('link[hreflang]')
   unless alternates.empty?
     bare_route = route.sub(%r{^/(uk|ru|ko)/}, '/')
     %w[en uk ru ko x-default].each do |lang|
       prefix = %w[en x-default].include?(lang) ? '' : "/#{lang}"
-      expected = "https://sivochka.com#{prefix}#{bare_route}"
+      expected = "#{canonical_origin}#{prefix}#{bare_route}"
       matches = alternates.select { |link| link['hreflang'] == lang }
       errors << {source: route, error: "incorrect hreflang #{lang}"} unless matches.size == 1 && matches.first['href'].to_s.sub(/index\.html$/, '') == expected
     end
@@ -27,7 +44,7 @@ files.each do |file|
     value = node['href'] || node['src']
     next if value.nil? || value.empty? || value.match?(/^(mailto:|tel:|data:|about:)/)
     begin
-      url = URI.join('https://sivochka.com' + route, value)
+      url = URI.join(canonical_origin + route, value)
       records << {source: route, tag: node.name, url: url.to_s}
       errors << {source: route, url: url.to_s, error: 'retired external rendering dependency'} if %w[polyfill.io mermaid.ink].include?(url.host)
       next unless url.host == 'sivochka.com'

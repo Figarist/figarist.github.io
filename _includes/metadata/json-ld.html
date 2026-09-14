@@ -7,6 +7,14 @@ Expects Layout to provide context if needed, but uses standard page/site vars.
 {%- assign site_logo = '/assets/images/figaristgithub.png' | absolute_url -%}
 {%- assign page_image = page.image | default: site.default_social_image | default: '/assets/images/figaristgithub.png' |
 absolute_url -%}
+{%- assign language_prefix = '' -%}
+{%- unless site.active_lang == site.default_lang -%}
+  {%- assign language_prefix = site.active_lang | prepend: '/' -%}
+{%- endunless -%}
+{%- assign localized_home_url = site.url | append: site.baseurl | append: language_prefix | append: '/' -%}
+{%- assign localized_blog_url = site.url | append: site.baseurl | append: language_prefix | append: '/blog/' -%}
+{%- assign localized_education_url = site.url | append: site.baseurl | append: language_prefix | append: '/education/' -%}
+{%- assign canonical_page_url = page.canonical_url | default: page.url | absolute_url -%}
 
 <script type="application/ld+json">
 {
@@ -22,13 +30,13 @@ absolute_url -%}
       "jobTitle": {{ site.data[site.active_lang].strings.bio_roles | default: 'Developer' | jsonify }},
       "sameAs": [
         {% for link in site.social.links %}"{{ link }}"{% unless forloop.last %},{% endunless %}{% endfor %},
-        "https://figarist.github.io/lego-catalog/"
+        "https://sivochka.com/lego-catalog/"
       ]
     },
     {%- else -%}
     {
       "@type": "{{ include.type | default: 'BlogPosting' }}",
-      "@id": "{{ page.url | absolute_url }}#article",
+      "@id": "{{ canonical_page_url }}#article",
       "headline": {{ page.title | jsonify }},
       "description": {{ page.description | default: page.excerpt | strip_html | strip_newlines | truncate: 160 | jsonify }},
       "image": "{{ page_image }}",
@@ -52,19 +60,19 @@ absolute_url -%}
       },
       "mainEntityOfPage": {
         "@type": "WebPage",
-        "@id": "{{ page.url | absolute_url }}"
+        "@id": "{{ canonical_page_url }}"
       }
     },
     {%- endif -%}
     {
       "@type": "BreadcrumbList",
-      "@id": "{{ page.url | absolute_url }}#breadcrumb",
+      "@id": "{{ canonical_page_url }}#breadcrumb",
       "itemListElement": [
         {
           "@type": "ListItem",
           "position": 1,
           "name": "{{ site.data[site.active_lang].strings.nav_brand | default: 'Figarist' }}",
-          "item": "{{ '/' | absolute_url }}"
+          "item": "{{ localized_home_url }}"
         }
         {%- if page.layout == 'post' or page.layout == 'education' -%}
         ,
@@ -72,7 +80,7 @@ absolute_url -%}
           "@type": "ListItem",
           "position": 2,
           "name": "{% if page.layout == 'post' %}{{ site.data[site.active_lang].strings.workshop_label }}{% else %}{{ site.data[site.active_lang].strings.education_label }}{% endif %}",
-          "item": "{% if page.layout == 'post' %}{{ '/blog/' | absolute_url }}{% else %}{{ '/education/' | absolute_url }}{% endif %}"
+          "item": "{% if page.layout == 'post' %}{{ localized_blog_url }}{% else %}{{ localized_education_url }}{% endif %}"
         }
         {%- if page.category -%}
         ,
@@ -80,13 +88,15 @@ absolute_url -%}
           "@type": "ListItem",
           "position": 3,
           "name": {{ page.category | upcase | jsonify }},
-          "item": "{{ '/blog/category/' | append: (page.category | slugify) | append: '/' | absolute_url }}"
+          {%- assign category_slug = page.category | slugify -%}
+          {%- assign category_path = '/blog/category/' | append: category_slug | append: '/' -%}
+          "item": "{{ site.url }}{{ site.baseurl }}{{ language_prefix }}{{ category_path }}"
         },
         {
           "@type": "ListItem",
           "position": 4,
           "name": {{ page.title | jsonify }},
-          "item": "{{ page.url | absolute_url }}"
+          "item": "{{ canonical_page_url }}"
         }
         {%- else -%}
         ,
@@ -94,7 +104,7 @@ absolute_url -%}
           "@type": "ListItem",
           "position": 3,
           "name": {{ page.title | jsonify }},
-          "item": "{{ page.url | absolute_url }}"
+          "item": "{{ canonical_page_url }}"
         }
         {%- endif -%}
         {%- endif -%}

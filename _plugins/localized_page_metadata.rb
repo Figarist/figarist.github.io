@@ -1,8 +1,28 @@
 # Set real page data before jekyll-seo-tag reads it. Liquid assignments to
 # page.title create a separate variable and do not update Jekyll's PageDrop.
-Jekyll::Hooks.register :pages, :pre_render do |page, payload|
+source_canonical_key = '_figarist_source_canonical_url'
+localize_metadata = lambda do |page, payload|
   language = page.site.active_lang
   localized = page.site.data.fetch(language, {})
+
+  unless page.data.key?(source_canonical_key)
+    page.data[source_canonical_key] = page.data['canonical_url']
+  end
+  clean_path = page.url.sub(%r{index\.html$}, '')
+  localized_path = clean_path
+  localized_path = "/#{language}#{clean_path}" unless language == page.site.default_lang
+  canonical_url = page.data[source_canonical_key] ||
+                  "#{page.site.config['url']}#{page.site.config['baseurl']}#{localized_path}"
+  locale = {
+    'en' => 'en_US',
+    'uk' => 'uk_UA',
+    'ru' => 'ru_RU',
+    'ko' => 'ko_KR'
+  }.fetch(language, language)
+  page.data['canonical_url'] = canonical_url
+  page.data['locale'] = locale
+  payload['page']['canonical_url'] = canonical_url
+  payload['page']['locale'] = locale
 
   if page.data['title_key']
     title = localized.fetch('strings', {})[page.data['title_key']]
@@ -30,17 +50,9 @@ Jekyll::Hooks.register :pages, :pre_render do |page, payload|
     payload['page']['image'] = image_path
     payload['page']['og_type'] = 'website'
   end
-  localized_path = page.url
-  localized_path = "/#{language}#{page.url}" unless language == page.site.default_lang
-  page.data['canonical_url'] = "#{page.site.config['url']}#{page.site.config['baseurl']}#{localized_path}"
-  page.data['locale'] = {
-    'en' => 'en_US',
-    'uk' => 'uk_UA',
-    'ru' => 'ru_RU',
-    'ko' => 'ko_KR'
-  }.fetch(language, language)
   payload['page']['title'] = page.data['title']
   payload['page']['description'] = page.data['description']
-  payload['page']['canonical_url'] = page.data['canonical_url']
-  payload['page']['locale'] = page.data['locale']
 end
+
+Jekyll::Hooks.register :pages, :pre_render, &localize_metadata
+Jekyll::Hooks.register :documents, :pre_render, &localize_metadata

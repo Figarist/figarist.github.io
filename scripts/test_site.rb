@@ -4,15 +4,42 @@ require 'yaml'
 require 'nokogiri'
 require 'zlib'
 require 'stringio'
+require 'uri'
 root = ARGV.fetch(0, '_site')
 origin = 'https://sivochka.com'
+retired_origin = 'https://figarist.github.io'
 def check(value, message)
   raise message unless value
 end
 sitemap = Nokogiri::XML(File.read("#{root}/sitemap.xml"))
 urls = sitemap.xpath('//*[local-name()="loc"]').map(&:text)
 check(urls.uniq == urls, 'Duplicate sitemap URLs')
+check(urls.all? { |url| url.start_with?(origin + '/') }, 'Sitemap contains a URL outside the canonical origin')
+check(urls.none? { |url| url.start_with?(retired_origin) }, 'Sitemap contains the retired GitHub Pages origin')
 check(urls.none? { |u| u.include?('/docs/') || u.include?('/drafts/') || u.include?('testedu') || u.include?('testpost') }, 'sitemap leaks docs or drafts')
+urls.each do |url|
+  path = URI(url).path
+  file = path.end_with?('/') ? "#{root}#{path}index.html" : "#{root}#{path}"
+  check(File.file?(file), "Sitemap target is missing: #{path}")
+  doc = Nokogiri::HTML(File.read(file))
+  check(doc.at_css('link[rel="canonical"]')&.[]('href') == url, "#{path}: sitemap page canonical")
+  check(doc.at_css('meta[property="og:url"]')&.[]('content') == url, "#{path}: sitemap page og:url")
+  check(!doc.at_css('meta[name="robots"]')&.[]('content').to_s.include?('noindex'), "#{path}: noindex page in sitemap")
+  structured_data = doc.css('script[type="application/ld+json"]').map { |block| JSON.parse(block.text) }
+  seo_schema = structured_data.find { |schema| schema['url'] }
+  check(!seo_schema || seo_schema['url'] == url, "#{path}: SEO JSON-LD URL")
+  graph = structured_data.find { |schema| schema['@graph'] }&.fetch('@graph', nil)
+  if graph
+    breadcrumb = graph.find { |item| item['@type'] == 'BreadcrumbList' }
+    check(breadcrumb && breadcrumb['@id'] == "#{url}#breadcrumb", "#{path}: breadcrumb JSON-LD ID")
+    article = graph.find { |item| %w[Article BlogPosting].include?(item['@type']) }
+    if article
+      check(article['@id'] == "#{url}#article", "#{path}: article JSON-LD ID")
+      check(article.dig('mainEntityOfPage', '@id') == url, "#{path}: article JSON-LD mainEntityOfPage")
+      check(breadcrumb.fetch('itemListElement').last['item'] == url, "#{path}: breadcrumb current-page URL")
+    end
+  end
+end
 cases = Dir['_data/tutoring/cases/*.yml'].map { |file| YAML.safe_load(File.read(file)) }
 profile = YAML.safe_load(File.read('_data/tutoring/profile.yml'))
 reviews = YAML.safe_load(File.read('_data/tutoring/testimonials.yml')).fetch('items')
@@ -105,6 +132,9 @@ check(titles.uniq == titles, 'Duplicate page titles')
 check(descriptions.uniq == descriptions, 'Duplicate descriptions')
 %w[docs scripts test .agents qa-screenshots frontmatter.json].each do |path|
   check(!File.exist?("#{root}/#{path}"), "Private development artifact in output: #{path}")
+end
+Dir["#{root}/**/*.html"].each do |path|
+  check(!File.read(path).include?(retired_origin), "Retired GitHub Pages origin in #{path.delete_prefix(root)}")
 end
 {'script.js' => 20_480, 'assets/css/styles.css' => 30_720}.each do |path, budget|
   buffer = StringIO.new

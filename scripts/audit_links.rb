@@ -17,7 +17,7 @@ files.each do |file|
     bare_route = route.sub(%r{^/(uk|ru|ko)/}, '/')
     %w[en uk ru ko x-default].each do |lang|
       prefix = %w[en x-default].include?(lang) ? '' : "/#{lang}"
-      expected = "https://figarist.github.io#{prefix}#{bare_route}"
+      expected = "https://sivochka.com#{prefix}#{bare_route}"
       matches = alternates.select { |link| link['hreflang'] == lang }
       errors << {source: route, error: "incorrect hreflang #{lang}"} unless matches.size == 1 && matches.first['href'].to_s.sub(/index\.html$/, '') == expected
     end
@@ -27,10 +27,10 @@ files.each do |file|
     value = node['href'] || node['src']
     next if value.nil? || value.empty? || value.match?(/^(mailto:|tel:|data:|about:)/)
     begin
-      url = URI.join('https://figarist.github.io' + route, value)
+      url = URI.join('https://sivochka.com' + route, value)
       records << {source: route, tag: node.name, url: url.to_s}
       errors << {source: route, url: url.to_s, error: 'retired external rendering dependency'} if %w[polyfill.io mermaid.ink].include?(url.host)
-      next unless url.host == 'figarist.github.io'
+      next unless url.host == 'sivochka.com'
       next if external_projects.any? { |prefix| url.path.start_with?(prefix) }
       target = File.join(base, URI::DEFAULT_PARSER.unescape(url.path))
       target = File.join(target, 'index.html') if File.directory?(target)

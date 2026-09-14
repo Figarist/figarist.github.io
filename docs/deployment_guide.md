@@ -149,7 +149,7 @@ Repeat for `-uk.md`, `-ru.md`, `-ko.md` with same `permalink`.
 After deploy, verify hreflang:
 
 ```bash
-curl -sL https://figarist.github.io/uk/ | grep "hreflang"
+curl -sL https://sivochka.com/uk/ | grep "hreflang"
 ```
 
 Expected: `en`, `uk`, `ru`, `ko`, `x-default`
@@ -157,7 +157,7 @@ Expected: `en`, `uk`, `ru`, `ko`, `x-default`
 Verify JSON-LD:
 
 ```bash
-curl -sL https://figarist.github.io/blog/unity-charge-mechanic/ | grep "BlogPosting"
+curl -sL https://sivochka.com/blog/unity-charge-mechanic/ | grep "BlogPosting"
 ```
 
 Expected: `"@type": "BlogPosting"` with `datePublished`, `dateModified`

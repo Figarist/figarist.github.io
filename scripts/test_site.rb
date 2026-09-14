@@ -5,7 +5,7 @@ require 'nokogiri'
 require 'zlib'
 require 'stringio'
 root = ARGV.fetch(0, '_site')
-origin = 'https://figarist.github.io'
+origin = 'https://sivochka.com'
 def check(value, message)
   raise message unless value
 end

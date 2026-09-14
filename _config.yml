@@ -4,7 +4,7 @@
 
 title: "Figarist — Indie Game Dev, Wear OS & Tech Educator"
 description: "Personal hub of Sivochka Ihor (Figarist). Indie game developer specializing in Wear OS, computer science teacher, and retro tech enthusiast. Building tiny worlds for tiny screens."
-url: "https://figarist.github.io"
+url: "https://sivochka.com"
 baseurl: ""
 
 lang: "en"
@@ -12,7 +12,7 @@ email: "igorsivoch@gmail.com"
 author:
   name: "Sivochka Ihor"
   twitter: "figarist"
-  url: "https://figarist.github.io"
+  url: "https://sivochka.com"
 
 twitter:
   username: "figarist"

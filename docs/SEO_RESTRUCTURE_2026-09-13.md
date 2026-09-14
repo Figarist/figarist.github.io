@@ -23,7 +23,7 @@ The supplied indexing CSV contains aggregate counts only: 4 not found, 4 redirec
 Need the URL export for each reason before proposing URL-specific repairs. No Search Console indexing submission has been performed.
 
 ## Observation plan
-After deployment, inspect the three primary URLs in Search Console and request indexing if appropriate; submit/verify https://figarist.github.io/sitemap.xml.
+After deployment, inspect the three primary URLs in Search Console and request indexing if appropriate; submit/verify https://sivochka.com/sitemap.xml.
 At one week, check discovery, selected canonical and crawl errors.
 At four weeks, compare impressions/clicks for the three pages and relevant queries against the preceding equal period. Also inspect existing Telegram and phone click events; these indicate intent, not confirmed students or sales.
 Avoid weekly URL/title rewrites merely because traffic is sparse. Fix actual crawl failures immediately. Add useful author material as available.

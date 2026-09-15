@@ -31,6 +31,7 @@ chrome-profile*
 *chrome_profile*
 
 # Debug & Temporary Build Logs
+*.log
 build*.log
 build*.txt
 env_vars.txt

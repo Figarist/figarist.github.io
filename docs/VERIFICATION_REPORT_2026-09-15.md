@@ -1,247 +1,64 @@
-# Верифікація UX/CRO аудиту — 2026-09-15
+# Baseline and verification record
 
-Звірка рекомендацій із UX_CRO_DEEP_ANALYSIS.md та TUTORING_REARRANGEMENT_PLAN.md
-проти живого сайту sivochka.com та поточного коду в main.
+Date: 2026-09-15. Source: `1350ff7e1334a00306403a4f1190ce2e60ba27cf`.
+Scope: repository and local checks.
 
-## Метод
+## Implemented baseline
 
-Перевірені: живий HTML sivochka.com/uk/tutoring/, шаблон _layouts/tutoring.html,
-_includes/tutoring-*.html, _data/tutoring/*.yml, _data/uk/tutoring.json,
-_data/uk/strings.yml. Скріншоти в qa-screenshots/ та артефактах розмови.
+- `65f0213`: homepage restructuring and expanded tutoring destinations.
+- `1e8c13a`: archive alternates and link integrity.
+- `049c001`, `ddd05d7`, `756694b`: custom domain, metadata, deployment checks.
+- `0962efd`, `4d6c2c2`: planning documents, not CRO implementation.
+- `6b22c31`, `667f10b`, `1350ff7`: draft, vendor and artifact cleanup.
 
----
+| Area | Source observation |
+| --- | --- |
+| Domain | sivochka.com in CNAME/config |
+| Tutoring | Overview + five directions; four locale datasets |
+| Order | Conditions before cases/profile/reviews in tutoring layout |
+| Reviews | Carousel with published/ready/permission filters |
+| Counts | settings.yml: 11 BUKI + 7 Association |
+| Profile | Published; four translations; degree, two named badges, award |
+| Experience | verified_facts.experience has no published numeric entry |
+| Policies | 1000 UAH, 60 minutes, paid first lesson, Zoom |
+| Ages | Shared minimum 6; recommendations need author input |
+| Optional material | No portrait or published student case |
+| Hero project | Image and project link in tutoring layout |
 
-## 1. Документи в проєкті
+Task statuses live only in [the backlog](IMPLEMENTATION_CHECKLIST.md).
 
-| Документ | Шлях | Статус |
-| :--- | :--- | :--- |
-| UX/CRO глибокий аналіз | docs/UX_CRO_DEEP_ANALYSIS.md | Присутній, 12.6 KB |
-| План реструктуризації Tutoring | docs/TUTORING_REARRANGEMENT_PLAN.md | Присутній, 16.7 KB |
-| Author Action Guide | docs/AUTHOR_ACTION_GUIDE.md | Присутній, 2.1 KB |
-| SEO Restructure | docs/SEO_RESTRUCTURE_2026-09-13.md | Присутній, 3.1 KB |
-| Link Audit | docs/LINK_AUDIT_2026-09-13.md | Присутній, 1.9 KB |
-| Worktree Audit | docs/WORKTREE_AUDIT_2026-09-13.md | Присутній, 5.4 KB |
-| Ця верифікація | docs/VERIFICATION_REPORT_2026-09-15.md | Новий |
-| Чекліст впровадження | docs/IMPLEMENTATION_CHECKLIST.md | Новий |
+## Local checks earlier in this conversation
 
----
+After a clean build at the baseline:
+- Site checks: PASS, 28 checked pages, 24 tutoring routes.
+- Link audit: 105 HTML files, 6240 references, zero errors.
+- Gzip sizes reported: script 5818 bytes, CSS 17112 bytes.
+- Readiness: zero structural errors; portrait and cases pending.
 
-## 2. Семь вузлів аудиту: статус
+An initial build retained an obsolete generated testpost and failed an old-origin
+check. Cleaning generated output and rebuilding resolved it. Counts and sizes are
+snapshots, not fixed targets. These are local results, not deployed verification.
 
-### Вузол 1: Hero та Trust Strip
+## Limits
 
-Рекомендація: додати під Hero компактну плашку авторитету
-(7+ років, 18 відгуків ★ 5.0, Unity Certified, Магістр освіти).
+No new live browser review, deployment verification, accessibility certification
+or conversion measurement was performed for this documentation work. The previous
+report mixed source findings with unsourced behavior/market claims; these are
+removed from active guidance.
 
-Поточний стан: Hero містить eyebrow, заголовок, intro, ціну і CTA.
-Trust Strip відсутній. Ціна 1000 грн з'являється до будь-яких доказів
-компетенції.
+Local main matched the stored origin/main at review time. No remote fetch was
+performed; this does not establish the current remote head.
 
-Статус: НЕ ВПРОВАДЖЕНО. Готові текстові блоки є в
-TUTORING_REARRANGEMENT_PLAN.md (Блок 1). Зміни потрібні в
-_layouts/tutoring.html (рядки 28–33) та _sass/_tutoring.scss.
+## Documentation consolidation
 
-### Вузол 2: Вікова сегментація
+Validate Markdown links, diff whitespace and source-only scope. Earlier prose is
+recoverable from Git at `4d6c2c2`. Append future evidence with task IDs, date,
+revision (or uncommitted), command/browser steps, result and limitations.
+Do not mark a local implementation as deployed.
 
-Рекомендація: замість загального «від 6 років» — чесна розбивка за
-інструментом (Scratch 6–8, Minecraft/Python 8–11, Unity 10–14+,
-Інформатика — шкільний вік).
-
-Поточний стан: settings.yml містить `minimum_age: 6` для всіх напрямів.
-Текст FAQ: «Від 6 років. Достатньо базового вміння керувати мишкою».
-Окремих вікових міток у курсах немає.
-
-Статус: НЕ ВПРОВАДЖЕНО. Зміни потрібні в _data/uk/tutoring.json
-(та en/ru/ko аналоги) — додати поле recommended_age або age_range
-до кожного course. Готовий текст є в TUTORING_REARRANGEMENT_PLAN.md (Блок 2).
-
-### Вузол 3: Карусель відгуків (1 із 18)
-
-Рекомендація: замінити одиночний слайдер на статичну сітку з 3 найсильніших
-відгуків (Yevgen, Анжела, Надія) + кнопка «Читати всі 18 на BUKI».
-
-Поточний стан: tutoring-testimonials.html рендерить review-track з
-review-slide для кожного з 18 записів. JS керує прокруткою.
-Позиція: «1 / 18». Більшість не гортає далі.
-
-Статус: НЕ ВПРОВАДЖЕНО. Готовий HTML є в TUTORING_REARRANGEMENT_PLAN.md
-(Блок 3). Зміни потрібні в _includes/tutoring-testimonials.html та
-_sass/_tutoring.scss.
-
-### Вузол 4: Учнівські роботи
-
-Рекомендація: 2–3 реальних дитячих проєкти зі скріншотами/GIF
-(«Артем, 13 років, 6 занять»).
-
-Поточний стан: інфраструктура повністю готова. tutoring-cases.html фільтрує
-за status=published + permission=true + ready=true. Шаблон підтримує
-обкладинку, опис, навички, доказ, галерею, відео.
-Але в _data/tutoring/cases/ немає жодного файлу, який проходить всі три
-фільтри одночасно — блок залишається порожнім на сайті.
-
-Статус: ІНФРАСТРУКТУРА ГОТОВА, КОНТЕНТ ВІДСУТНІЙ.
-Потребує: реальні скріншоти/відео учнівських робіт із дозволом на публікацію.
-
-### Вузол 5: Порядок секцій (Умови vs Довіра)
-
-Рекомендація: перемістити блок суворих умов (скасування, оплата, ПК)
-нижче за кейси, профіль та відгуки.
-
-Поточний стан у _layouts/tutoring.html:
-- Рядки 87–104: Напрями (directions)
-- Рядки 106–113: Trust links (BUKI, Асоціація)
-- Рядки 115–139: УМОВИ (conditions) ← зараз ТУТ
-- Рядок 141: Cases
-- Рядок 142: Profile
-- Рядок 143: Testimonials
-- Рядки 145–148: FAQ
-- Рядок 150: Video
-- Рядки 152–155: Фінальний CTA
-
-Рекомендований порядок за планом реструктуризації:
-- Trust links
-- Cases (учнівські роботи)
-- Profile (викладач)
-- Testimonials (відгуки батьків)
-- УМОВИ (тепер тут — після довіри)
-- FAQ
-- Video
-- Фінальний CTA
-
-Статус: НЕ ВПРОВАДЖЕНО. Потрібно переставити 3 include рядки
-(cases, profile, testimonials) з 141–143 на позицію перед рядком 115.
-
-### Вузол 6: Doubt Removers (зняття страху)
-
-Рекомендація: мікрокопія під CTA кнопкою Telegram —
-«Напишіть вік дитини та чим вона захоплюється — я підкажу,
-з чого краще почати, без жодних зобов'язань».
-
-Поточний стан: CTA використовує prefilled Telegram text
-(«Вітаю, Ігоре! Хочу дізнатися про індивідуальні заняття. Вік учня:»),
-що вже знижує бар'єр. Але видимої мікрокопії під кнопкою немає.
-
-Статус: ЧАСТКОВО. Pre-filled URL працює добре.
-Потрібно додати візуальну підказку в _includes/tutoring-contact.html
-або _layouts/tutoring.html (рядки 30–33). Готовий текст у плані (Блок 1).
-
-### Вузол 7: Трафік і мовні URL
-
-Рекомендація: завжди давати прямі посадкові URL
-(sivochka.com/uk/tutoring/) замість кореня домену.
-
-Поточний стан:
-- hreflang синхронізація: працює (head.html, lang-redirect.html)
-- language-switcher: працює (4 мови)
-- Автоматичний редірект: працює (localStorage preferred_lang)
-
-Статус: ВПРОВАДЖЕНО на рівні коду. Зовнішні профілі (BUKI, соцмережі) —
-вимагають ручного оновлення автором.
-
----
-
-## 3. Що працює добре
-
-- 18 реальних відгуків із published + ready + permission — усі на місці
-- Профіль з 4 верифікованими фактами (Магістр ХНПУ, 2× Unity Credly,
-  наукова нагорода II місця)
-- 5 навчальних напрямів із повними описами на 4 мовах
-- Mobile sticky bar з ціною і CTA
-- SEO: title, OG description, breadcrumbs, structured data — правильні
-- FAQ з практичними питаннями батьків
-- YouTube відео-візитка
-- Фінальний теплий CTA з ціною
-- Компресовані бандли: JS 2.7 KB, CSS 16.5 KB (в межах бюджету правил)
-
----
-
-## 4. Цілісність даних
-
-| Файл | Що перевірено | Результат |
-| :--- | :--- | :--- |
-| _data/tutoring/testimonials.yml | 18 записів, status/ready/permission | Усі published |
-| _data/tutoring/profile.yml | Статус, переклади uk/en/ru/ko | published, ready |
-| _data/tutoring/settings.yml | Ціна, review counts, умови | 1000 UAH, 11+7=18 |
-| _includes/tutoring-cases.html | Фільтри publication gates | Шаблон правильний |
-| _layouts/tutoring.html | 169 рядків, усі секції | Рендерить коректно |
-| scripts/verify_live_site.rb | Структурні перевірки | Існує |
-| scripts/audit_links.rb | Link integrity gate | Існує |
-
----
-
-## 5. Відкриті питання для автора
-
-1. Підтвердити рекомендований вік для Unity (10+ чи інший).
-2. Обрати 2–3 реальних учнівських проєкти для блоку Cases.
-3. Підтвердити, що зовнішні профілі (BUKI, Асоціація) мають посилатися
-   на /uk/tutoring/ замість кореня sivochka.com.
-4. Обрати фото для профілю або підтвердити відсутність (не блокує релізу).
-
----
-
-## 6. Незалежний погляд: Авторські інсайти, неочевидні бар'єри та точки росту
-
-*Цей розділ є незалежним доповненням до аудиту «іншого ШІ». Нижче — стратегічні та інженерні висновки з огляду на реальну поведінку батьків в Україні та за кордоном, педагогічну етику та обмеження веб-продуктивності.*
-
-### 6.1. Суперсила BUKI: Чому 18 відгуків на 5.0 — це золото, яке зараз виглядає «підозріло тихо»
-- **Парадокс сприйняття**: Коли відвідувач бачить бейдж «18 відгуків ★ 5.0» на власному персональному сайті викладача, перша підсвідома реакція сучасної людини — *«Сам собі написав»*.
-- **Фактична реальність**: Будь-хто, хто працював з платформою BUKI, знає: модерація BUKI **особисто обдзвонює кожного клієнта** після завершення курсу або циклу занять, щоб взяти верифікований усний відгук. Отримати 18 максимальних оцінок 5.0 без жодної четвірки чи трійки на BUKI — це екстраординарний показник (входить у топ-1% репетиторів України).
-- **Як продати це батькам без хвастощів**:
-  > **Формулювання для сайту**: *«18 перевірених відгуків із найвищим балом 5.0 на BUKI. Кожен відгук підтверджений модераторами сервісу через прямий телефонний дзвінок батькам»*.
-  > Це знімає 100% цинізму та підозр в один рядок.
-
-### 6.2. Ціновий якір 1000 грн (~$24 / €22) і невикористаний важіль діаспори
-- Для внутрішнього ринку України (Київ, Харків, Львів) 1000 грн/год — це впевнений high-middle/premium сегмент (середній ринок репетиторів інформатики коливається в районі 400–600 грн).
-- Проте для **українських сімей за кордоном** (Польща, Німеччина, Чехія, Велика Британія, США, Канада), які шукають викладача з програмування рідною українською мовою для збереження мовного середовища та якісної освіти дитини:
-  - Місцевий приватний репетитор у Німеччині чи Британії коштує **€45–80 / $60–100 за годину**.
-  - 1000 грн (~€22 / $24) за сертифікованого розробника Unity з магістерським педагогічним дипломом — це **неймовірна, майже казкова знахідка**.
-- **Стратегічна дія**:
-  - На сторінці обов'язково треба дати мікро-рядок:
-    > *«Працюю з учнями з України та з-за кордону (Польща, Німеччина, Британія, США тощо). Гнучко підбираємо комфортний час з урахуванням часових поясів»*.
-  - Це працює подвійно: для українців вдома це доводить високий міжнародний рівень викладача, а для діаспори — знімає сумнів «чи працює він із закордонними часовими поясами».
-
-### 6.3. Головний страх батьків: не 1000 гривень, а «раптом дитині не зайде»
-- Батьки бояться не витратити 1000 грн. Вони бояться:
-  1. Що дитина посоромиться або викладач почне тиснути.
-  2. Що старенький домашній ноутбук «задимиться» від Unity.
-  3. Що дитина розчарується на першому ж уроці й скаже: *«Я більше ніколи не хочу кодити»*.
-- **Ліки проти страху — "15-хвилинне знайомство (Test-Drive)"**:
-  - Замість жорсткого «Купуй або йди» запропонувати передплатну мікро-сходинку:
-    > *«Сумніваєтеся, чи потягне комп'ютер і чи сподобається дитині? Напишіть мені в Telegram — ми зробимо коротке 15-хвилинне відеознайомство в Google Meet. Дитина познайомиться зі мною, я гляну характеристики ПК і ми разом визначимо напрям. Безкоштовно та без жодних зобов'язань»*.
-  - Це підвищує конверсію з холодного відвідувача в перший контакт у Telegram у 2.5–3 рази.
-
-### 6.4. Dish of Chaos у Hero: Комп'ютерний шедевр vs Мобільна пастка
-- **На десктопі**: Жива гра в шапці — це блискучий хід. Підліток клікає, бачить справжній геймплей і сам тягне маму за рукав: *«Мамо, дивись, він сам це зробив, я теж так хочу!»*.
-- **На мобільному (де 70%+ переглядів від батьків)**:
-  - Інтерактивний canvas чи iframe часто «перехоплює» палець (touch scroll-hijack), зупиняє скрол сторінки, гріє телефон та споживає батарею.
-  - Мама на ходу в телефоні не буде грати в Dish of Chaos двома віртуальними стіками.
-- **Архітектурне рішення (Embedded-First / Zero-Bloat)**:
-  - На мобільних (`@media (max-width: 768px)`): показувати надзвичайно легку WebP-анімацію або чистий скріншот гри з бейджем: *«Гра Dish of Chaos — створена викладачем на Unity»*.
-  - На десктопі (`@media (min-width: 1024px)`): залишати живий інтерактивний блок.
-
-### 6.5. «Зламане дзеркало»: Сторінка `/education/` як прихована загроза довірі
-- На живому сайті пункт меню або посилання на `/education/` існує, але веде на малоінформативну, фрагментарну сторінку, де немає цілісного освітнього маршруту.
-- Коли скептична мама хоче перевірити розділ «Освіта», сподіваючись побачити план уроків чи методику, і потрапляє на пустий або незавершений шаблон — рівень довіри різко падає («сайт закинутий чи недороблений?»).
-- **Рішення**:
-  - Або тимчасово налаштувати 301 редирект з `/education/` на `/tutoring/` (де зібрана вся реальна освітня інформація).
-  - Або наповнити `/education/` чітким описом авторської методики (Game-Based Learning, принцип поступового ускладнення від блоків до архітектури).
-
-### 6.6. Педагогічна чесність: Маніфест «Чому не кожен 8-річний готовий до Unity»
-- Усі комерційні курси кричать: *«Навчимо вашу дитину писати 3D-ігри на Unity з 6 років!»*. Професійні розробники знають, що це брехня й профанація. Дитина у 6–7 років ще тільки вчиться читати й не володіє сліпим набором, а Unity вимагає складної ієрархії GameObject, компонентної моделі та C#-типізації.
-- Якщо Ігор на сайті прямо й відкрито напише:
-  > *«Чому я не беру дітей молодше 10 років на Unity? Тому що для мене важливо зберегти дитячу цікавість до творчості, а не загнати дитину в стрес від синтаксичних помилок коду. У 6–8 років ми вчимося мислити алгоритмами у Scratch. У 8–10 — автоматизуємо світ у Minecraft. А до дорослого рушія Unity підходимо тоді, коли дитина готова створювати власні світи впевнено та усвідомлено»*.
-- **Ефект**: Цей блок миттєво відрізняє Ігоря від 99% інфо-шкіл. Батьки відчувають турботу педагога-професіонала, а не жадібність продавця курсів.
-
-### 6.7. Чому особисте фото викладача на сторінці — це не марнославство, а базова безпека дитини
-- Навчання відбувається сам-на-сам онлайн через веб-камеру. Мама віддає свою неповнолітню дитину на 60 хвилин один-на-один з незнайомою людиною з інтернету.
-- Коли на сайті немає жодного теплого, відкритого фото викладача в обличчя (тільки логотип або технічні іконки) — у батьків спрацьовує базовий тривожний тригер.
-- **Вимога**: Одне якісне, спокійне, привітне фото Ігоря біля робочого місця (без пафосних піджаків, у комфортному повсякденному стилі) додає +40% до готовності написати в Telegram.
-
-### 6.8. Інженерна чистота: Як реалізувати весь CRO-функціонал із 0 КБ додаткового JS
-- Згідно з правилами проєкту (`gemini3rules.md`), бюджет JS — до 20 KB.
-- **Жодної зовнішньої бібліотеки для CRO не потрібно**:
-  - Акордеони Умов та FAQ: реалізуються через нативний семантичний тег `<details>` та `<summary>` (0 КБ JS, повна доступність клавіатурою, збереження стану).
-  - Слайдер відгуків: замінюється на адаптивний CSS Grid (`grid-template-columns: repeat(auto-fit, minmax(300px, 1fr))`), що повністю усуває JS-код каруселі.
-  - Sticky-бар: чистий CSS `position: sticky; bottom: 0; backdrop-filter: blur(8px);` із підтримкою `env(safe-area-inset-bottom)`.
-  - Модальні вікна (за потреби): нативний HTML5 `<dialog>`.
-- **Підсумок**: Швидкість завантаження залишиться блискавичною (99-100 балів у Google PageSpeed), а конверсія зросте в рази.
+Documentation validation on 2026-09-15 (uncommitted): all 9 docs Markdown files
+checked; 21 relative Markdown links resolve; git diff --check passes. Scope is
+Markdown only (9 modified files and 2 new documents), with no runtime/source-data
+changes. No build rerun was needed for excluded documentation. The content guide
+was corrected against the current schema and review component, including all five
+case directions, cross-locale original reviews and the source_only display limit.

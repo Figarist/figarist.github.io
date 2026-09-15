@@ -1,5 +1,13 @@
 # figarist.github.io (EXTREME EDITION)
 
+## Current work and handoff
+
+Start with [docs/README.md](docs/README.md) for current evidence, the canonical
+backlog and the next implementation prompt. Operational commands live in
+[the build and release guide](docs/deployment_guide.md). The architecture overview
+below is historical reference; current source and CI take precedence over its
+feature labels and counts.
+
 <div align="center">
   <img src="https://readme-typing-svg.herokuapp.com?font=Fira+Code&size=36&duration=3000&pause=1000&color=9D4EDD&center=true&vCenter=true&width=800&lines=figarist.github.io+%F0%9F%8E%AE;Performance+First+%E2%9A%A1;Hub+Architecture+%F0%9F%A7%B1;Quadrilingual+Sync+%F0%9F%8C%8E" alt="Typing SVG" />
 </div>
@@ -53,7 +61,8 @@ cd figarist.github.io
 bundle install
 
 # Production (full optimization + PWA + minification)
-JEKYLL_ENV=production bundle exec jekyll serve
+$env:JEKYLL_ENV = 'production'
+bundle exec jekyll serve
 
 # Development (fast builds, no minification, no PWA)
 bundle exec jekyll serve --config _config.yml,_config_dev.yml
@@ -77,7 +86,7 @@ bundle exec jekyll serve --config _config.yml,_config_dev.yml
 | **Technical Visuals** | `jekyll-spaceship` (Mermaid/MathJax)         | 📊 Active     |
 | **SEO**               | JSON-LD (Person + WebSite + BlogPosting + BreadcrumbList) | 🔍 Full |
 | **Sitemap**           | Custom `sitemap.xml` with hreflang (4 langs) | 🗺️ Verified   |
-| **Accessibility**     | Skip-link, ARIA labels, focus states         | ♿ Compliant  |
+| **Accessibility**     | Skip-link, ARIA labels, focus states         | Features present; full audit pending |
 | **Analytics**         | GoatCounter (Privacy-first)                  | 📈 Integrated |
 | **CI/CD**             | GitHub Actions + HTML Proofer + Bundle Check | 🛡️ Hardened   |
 

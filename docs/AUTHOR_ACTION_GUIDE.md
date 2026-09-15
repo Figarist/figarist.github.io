@@ -1,92 +1,41 @@
-# Author content and release checklist
+# Author decisions and remaining material
 
-The approved author profile and lesson conditions are now supplied by the author.
-The profile includes two verified Credly badges and confirmed education.
-Student case examples and testimonial selections remain unpublished.
-Photo and student work are deferred and are not release blockers.
+Updated: 2026-09-15. [Task register](IMPLEMENTATION_CHECKLIST.md).
 
-## Supply remaining real material
+Profile, degree, named badges, reviews and lesson policies are already supplied.
+Do not request them again merely because an old guide did.
 
-1. Write a short first-person introduction: whom you teach, how lessons work,
-   what you enjoy teaching and what makes your approach yours.
-2. Confirm the actual price, duration, payment methods, scheduling, cancellation,
-   lesson tools and homework policy.
-3. Supply an optional real portrait in WebP and descriptive alt text.
-4. Start with one real student project: initial level, goal, student's work,
-   your help, actual result and duration. Supply a screenshot or playable link.
-5. Supply the original review and source. A translation or shortened paraphrase
-   must not be presented as an exact original quotation.
-6. Record permission only after receiving it for the actual public material.
-   Keep private correspondence and identity documents outside this public repo.
-7. Confirm qualifications and experience. Do not rename a course completion
-   badge as a professional certification.
+| ID | Needed for | Author input | Default meanwhile |
+| --- | --- | --- | --- |
+| DEC-01 | UX-05 | Starting ages for all five directions and readiness exceptions | Keep current policy |
+| DEC-02 | UX-06 | One real project, contributions, result, evidence and permission | Keep cases hidden |
+| DEC-03 | NAV-01 | Populate education, hide navigation, or approve specific routing | Preserve current navigation/routes |
+| DEC-04 | EXP-01 | Whether to offer a call; actual length, price and platform | Paid first lesson and Zoom remain |
+| DEC-05 | EXP-01 | Cross-border availability and time-zone wording | No new service promise |
+| DEC-06 | TRAFFIC-01 / SEO-01 | Accounts, target URLs, authorization/access | Prepare list locally |
+| DEC-07 | CONTENT-01 | Optional actual portrait/video and permission | No portrait; not a release blocker |
 
-Edit profile, cases and testimonials in _data/tutoring. Replace the fictional
-text entirely before setting status: published, ready: true or permission: true.
-Missing optional sections stay hidden. Images require alt text for every ready
-translation.
+UX-01–04 and UX-07 can proceed independently. Answers and authorization already
+provided in the active conversation count; do not ask again.
 
-## UX/CRO audit additions (2026-09-15)
+## Case intake
 
-The deep UX/CRO audit identified specific content gaps that only the author
-can fill. These are listed by priority.
+Use [the content guide](tutoring-content-guide.md) and actual template.
+Supply allowed public signature (anonymous is valid), optional age/grade, direction,
+duration, starting point, goal, student's work, teacher help, skills and inspectable
+result. Add an actual screenshot or playable link if available.
 
-### High priority (P1 — direct conversion impact)
+Set permission only after approval for that material. Keep private correspondence
+outside Git. Mark each translation ready independently. Never publish synthetic cases.
 
-8. Confirm recommended age ranges for each direction:
-   - Scratch: author to confirm 6–8 or adjust
-   - Minecraft / Python: author to confirm 8–11 or adjust
-   - Unity: author to confirm 10–14+ or adjust
-   - Informatics: author to confirm school age range
-   These will replace the current blanket «від 6 років» on all pages.
+## Review selection
 
-9. Select 2–3 real student projects for the Cases section:
-   - Each case needs: student first name (with permission), age or grade,
-     direction (unity/python/scratch/minecraft), a screenshot or short video
-     of the finished project, what the student built, how many lessons it took.
-   - Template infrastructure (tutoring-cases.html) is ready; cases only need
-     data files in _data/tutoring/cases/ and images in assets/images/tutoring/cases/.
-   - Priority: one Unity case, one Python/Minecraft case.
+Candidates are review-3, review-2 and review-1; inspect IDs and sources before use.
+Alternative selection is welcome but does not block a reversible layout change.
+Preserve remaining reviews and exact quotations. Platform counts are snapshots.
 
-10. Choose top 3 testimonials for prominent display:
-    Current recommendation from the audit: Yevgen (review-3), Анжела (review-2),
-    Надія (review-1). These would appear as static cards instead of a carousel.
-    Author may substitute different reviews if preferred.
+## Release authority
 
-### Medium priority (P2 — external traffic)
-
-11. Update external profile URLs to point to /uk/tutoring/ instead of
-    the domain root:
-    - BUKI profile link
-    - Асоціація репетиторів profile link
-    - Social media bios and signatures
-    - Email signatures
-
-12. Decide on /education/ page status:
-    A) Fill with real tutorial content (long-term)
-    B) Hide from navigation until content exists
-    C) Redirect to /blog/ as temporary solution
-
-### Low priority (P3 — polish)
-
-13. Optional portrait photo for profile section (WebP, alt text in 4 languages).
-14. Optional short video clips of lesson process (30 seconds, with permission).
-
-## Verify and prepare commits
-
-Run content tests, isolated build tests, a production build, site tests and
-scripts/verify_author_ready.rb. The readiness command checks structure;
---strict also fails on missing author material. Neither proves consent or
-guarantees deployment readiness.
-
-Review the exact diff and stage named files. Separate technical funnel fixes,
-fictional-content quarantine and later genuine author material where practical.
-Do not use git add . for this mixed working tree. Commit and push require the
-author's separate instruction.
-
-## Related documentation
-
-- UX_CRO_DEEP_ANALYSIS.md — strategic analysis and 7 friction nodes
-- TUTORING_REARRANGEMENT_PLAN.md — section reordering and copywriting
-- IMPLEMENTATION_CHECKLIST.md — step-by-step technical tasks
-- VERIFICATION_REPORT_2026-09-15.md — cross-reference against live site
+Local work proceeds within the active request. Commit, push, deployment and
+external account writes require authorization from the active conversation.
+Preparing this package alone does not authorize publication.

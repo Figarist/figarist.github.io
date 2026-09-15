@@ -1,4 +1,8 @@
-> This file is the FULL CONTEXT of the project for handover to another AI.
+> Historical architecture reference, last maintained 2026-03-05.
+> Start with [docs/README.md](docs/README.md) and
+> [the next work prompt](docs/NEXT_WORK_PROMPT.md) for the current handoff.
+> Current source, CI and the canonical backlog supersede old commands, counts,
+> policy statements and completion claims below.
 > Author: Ihor Sivochka — Indie Game Developer, Zmiiv, UA.
 > Updated: 2026-03-05
 

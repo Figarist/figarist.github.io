@@ -4,7 +4,7 @@
     <!-- Viewport & Meta Base -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
     <meta name="theme-color" content="#f2f0eb">
-    <meta name="robots" content="{% if page.noindex %}noindex, follow{% else %}{{ page.robots | default: 'index, follow' | escape }}{% endif %}">
+    <meta name="robots" content="{% if page.noindex or page.layout == 'archive' %}noindex, follow{% else %}{{ page.robots | default: 'index, follow' | escape }}{% endif %}">
     <meta name="google-site-verification" content="Whr2bJTggESM1pyCXLfqwodNQu6cNqk_XKdZ0ix2Tyk" />
 
     <!-- Favicon -->

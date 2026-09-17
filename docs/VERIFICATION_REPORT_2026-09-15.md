@@ -127,3 +127,30 @@ case directions, cross-locale original reviews and the source_only display limit
   - Dead carousel code (~35 lines) removed from `script.js`, reducing bundle size without breaking any selectors.
   - Author decisions (portrait, genuine student cases, direction age recommendations) remain open as documented in `AUTHOR_ACTION_GUIDE.md` and do not affect this completed package.
   - Local verification only; no push or deployment performed.
+
+## BLOG-01 Quadrilingual Technical Blog Content Sync & Verification
+
+- Task: BLOG-01
+- Date: 2026-09-17
+- Revision: uncommitted
+- Changed files:
+  - `_posts/2026-03-01-jekyll-spaceship-hub-architecture-en.md` (NEW)
+  - `_posts/2026-03-01-jekyll-spaceship-hub-architecture-ru.md` (NEW)
+  - `_posts/2026-03-01-jekyll-spaceship-hub-architecture-ko.md` (NEW)
+  - `_posts/2026-02-26-minecraft-python-ru.md` (NEW)
+  - `_posts/2026-02-26-minecraft-python-ko.md` (NEW)
+  - `docs/IMPLEMENTATION_CHECKLIST.md`
+  - `docs/VERIFICATION_REPORT_2026-09-15.md`
+- Executed automated commands:
+  - `$env:JEKYLL_ENV = 'production'; bundle exec jekyll build --destination _site` (PASS in 7.69s)
+  - `bundle exec ruby scripts/test_site.rb` (PASS: 28 pages, 24 routes, canonicals, hreflang alternates)
+  - `bundle exec ruby scripts/audit_links.rb` (PASS: 105 HTML pages, 6398 link references, 0 errors)
+  - `node scripts/test_service_worker.cjs` (PASS: service worker routing & cache)
+  - `bundle exec ruby scripts/test_tutoring_content.rb` (PASS)
+  - `git diff --check` (PASS: 0 whitespace/syntax errors)
+- Observations:
+  - All 8 localized post URLs (`/blog/`, `/uk/blog/`, `/ru/blog/`, `/ko/blog/` for both Spaceship and Minecraft) render with native localized headings and text.
+  - Warning banner (`banner--translation-warning`) eliminated across all 4 languages.
+  - All 4 blog index feeds display 2 published cards in native language without empty fallback states.
+  - `search.json` across all 4 locales includes both articles with localized title and excerpt.
+  - Legacy redirect route `/blog/test/` preserved across all 4 locales.

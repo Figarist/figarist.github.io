@@ -31,6 +31,29 @@ layout: default
         {% include tutoring-contact.html %}
         <a class="button button--quiet" href="#conditions">{{ s.tutoring_details_cta }} <span aria-hidden="true">↓</span></a>
       </div>
+      <p class="tutoring-hero__contact-hint">{{ s.tutoring_contact_hint }}</p>
+      {% assign tutoring_profile = site.data.tutoring.profile %}
+      <div class="tutoring-hero__proof" aria-label="{{ s.home_trust_label }}. {{ s.tutoring_reviews_snapshot }}">
+        <span class="tutoring-hero__proof-label">{{ s.home_trust_label }}</span>
+        {% for edu in tutoring_profile.verified_facts.education %}
+          {% if edu.status == 'published' %}
+            {% assign edu_title = edu.title[site.active_lang] | default: edu.title.en | default: edu.title.uk | default: edu.title.first[1] | default: edu.title %}
+            <a href="{{ edu.url }}" target="_blank" rel="noopener" title="{{ edu_title | escape }}" data-goatcounter-click="tutoring-hero-education"><span aria-hidden="true">🎓</span> <strong>{{ s.tutoring_proof_degree }}</strong> <span aria-hidden="true">↗</span></a>
+          {% endif %}
+        {% endfor %}
+        {% for cert in tutoring_profile.verified_facts.certifications %}
+          {% if cert.status == 'published' %}
+            <a href="{{ cert.url }}" target="_blank" rel="noopener" data-goatcounter-click="tutoring-hero-cert-{{ forloop.index }}"><span aria-hidden="true">✦</span> <strong>{{ cert.title }}</strong> <span aria-hidden="true">↗</span></a>
+          {% endif %}
+        {% endfor %}
+        {% if tutoring_settings.proof.buki_url and tutoring_settings.proof.buki_review_count %}
+        <a href="{{ tutoring_settings.proof.buki_url }}" target="_blank" rel="noopener" data-goatcounter-click="tutoring-hero-reviews-buki"><span aria-hidden="true">★★★★★</span> <strong>BUKI</strong> · {{ tutoring_settings.proof.buki_review_count }} {{ s.tutor_association_reviews }} <span aria-hidden="true">↗</span></a>
+        {% endif %}
+        {% if tutoring_settings.proof.tutor_association_url and tutoring_settings.proof.tutor_association_review_count %}
+        <a href="{{ tutoring_settings.proof.tutor_association_url }}" target="_blank" rel="noopener" data-goatcounter-click="tutoring-hero-reviews-association"><span aria-hidden="true">★★★★★</span> <strong>{{ s.tutor_association_short_title }}</strong> · {{ tutoring_settings.proof.tutor_association_review_count }} {{ s.tutor_association_reviews }} <span aria-hidden="true">↗</span></a>
+        {% endif %}
+        <span class="tutoring-hero__proof-note">{{ s.tutoring_reviews_snapshot }}</span>
+      </div>
     </div>
     {% if course and course.slug != 'unity' %}
     <aside class="tutoring-hero__aside tutoring-hero__aside--course" aria-label="{{ s.tutoring_course_label }}">
@@ -112,35 +135,64 @@ layout: default
     </div>
   </section>
 
-  <section class="tutoring-section tutoring-section--conditions" id="conditions" aria-labelledby="conditions-title">
-    <div class="section-heading section-heading--compact"><div><p class="section-kicker">{{ s.tutoring_conditions_label }}</p><h2 id="conditions-title">{{ s.tutoring_conditions_title }}</h2></div><p>{{ s.tutoring_conditions_intro }}</p></div>
-    <div class="conditions-grid">
-      <div class="condition-card"><h3>{{ s.tutoring_format_title }}</h3><p>{{ t.language }}</p></div>
-      <div class="condition-card"><h3>{{ s.tutoring_price_title }}</h3><p>{% if s.price_usd_prefix and tutoring_settings.price.usd_amount %}{{ s.price_usd_prefix }}{{ tutoring_settings.price.usd_amount }} / {{ tutoring_settings.price.amount }} {{ tutoring_settings.price.currency }} {{ s.price_unit }}{% elsif s.price_unit_before %}{{ s.price_unit }} {{ tutoring_settings.price.amount }} {{ tutoring_settings.price.currency }}{% elsif s.price_currency_before %}{{ tutoring_settings.price.currency }} {{ tutoring_settings.price.amount }} {{ s.price_unit }}{% else %}{{ tutoring_settings.price.amount }} {{ s.price_currency_label }} {{ s.price_unit }}{% endif %}<br>{% include tutoring-payment.html %}</p>{% if tutoring_settings.price.equivalents %}<div class="condition-card__equivalents">${{ tutoring_settings.price.equivalents.usd }} · €{{ tutoring_settings.price.equivalents.eur }} · {{ tutoring_settings.price.equivalents.pln }} zł · £{{ tutoring_settings.price.equivalents.gbp }} ({{ tutoring_settings.price.amount }} {{ tutoring_settings.price.currency }})</div>{% endif %}</div>
-      <div class="condition-card"><h3>{{ s.tutoring_contact_title }}</h3><p>{{ t.availability }}</p></div>
-    </div>
-    {% assign optional_conditions = tutoring_settings.conditions %}
-    {% assign technical_requirements = optional_conditions.technical_requirements %}
-    {% if optional_conditions.duration or optional_conditions.first_lesson or optional_conditions.rescheduling or optional_conditions.cancellation or optional_conditions.payment_order or optional_conditions.platform or technical_requirements.unity or technical_requirements.python or technical_requirements.scratch or optional_conditions.homework or optional_conditions.progress %}
-    <dl class="conditions-extra">
-      {% if optional_conditions.duration %}<div><dt>{{ s.duration_label }}</dt><dd>{{ optional_conditions.duration[site.active_lang] | default: optional_conditions.duration.en | default: optional_conditions.duration.uk | default: optional_conditions.duration.first[1] | default: optional_conditions.duration }}</dd></div>{% endif %}
-      {% if optional_conditions.first_lesson %}<div><dt>{{ s.first_lesson_label }}</dt><dd>{{ optional_conditions.first_lesson[site.active_lang] | default: optional_conditions.first_lesson.en | default: optional_conditions.first_lesson.uk | default: optional_conditions.first_lesson.first[1] | default: optional_conditions.first_lesson }}</dd></div>{% endif %}
-      {% if optional_conditions.rescheduling %}<div><dt>{{ s.rescheduling_label }}</dt><dd>{{ optional_conditions.rescheduling[site.active_lang] | default: optional_conditions.rescheduling.en | default: optional_conditions.rescheduling.uk | default: optional_conditions.rescheduling.first[1] | default: optional_conditions.rescheduling }}</dd></div>{% endif %}
-      {% if optional_conditions.cancellation %}<div><dt>{{ s.cancellation_label }}</dt><dd>{{ optional_conditions.cancellation[site.active_lang] | default: optional_conditions.cancellation.en | default: optional_conditions.cancellation.uk | default: optional_conditions.cancellation.first[1] | default: optional_conditions.cancellation }}</dd></div>{% endif %}
-      {% if optional_conditions.payment_order %}<div><dt>{{ s.payment_order_label }}</dt><dd>{{ optional_conditions.payment_order[site.active_lang] | default: optional_conditions.payment_order.en | default: optional_conditions.payment_order.uk | default: optional_conditions.payment_order.first[1] | default: optional_conditions.payment_order }}</dd></div>{% endif %}
-      {% if optional_conditions.platform %}<div><dt>{{ s.platform_label }}</dt><dd>{{ optional_conditions.platform[site.active_lang] | default: optional_conditions.platform.en | default: optional_conditions.platform.uk | default: optional_conditions.platform.first[1] | default: optional_conditions.platform }}</dd></div>{% endif %}
-      {% if technical_requirements.unity %}<div><dt>{{ s.technical_requirements_label }} · Unity</dt><dd>{{ technical_requirements.unity[site.active_lang] | default: technical_requirements.unity.en | default: technical_requirements.unity.uk | default: technical_requirements.unity.first[1] | default: technical_requirements.unity }}</dd></div>{% endif %}
-      {% if technical_requirements.python %}<div><dt>{{ s.technical_requirements_label }} · Python</dt><dd>{{ technical_requirements.python[site.active_lang] | default: technical_requirements.python.en | default: technical_requirements.python.uk | default: technical_requirements.python.first[1] | default: technical_requirements.python }}</dd></div>{% endif %}
-      {% if technical_requirements.scratch %}<div><dt>{{ s.technical_requirements_label }} · Scratch</dt><dd>{{ technical_requirements.scratch[site.active_lang] | default: technical_requirements.scratch.en | default: technical_requirements.scratch.uk | default: technical_requirements.scratch.first[1] | default: technical_requirements.scratch }}</dd></div>{% endif %}
-      {% if optional_conditions.homework %}<div><dt>{{ s.homework_label }}</dt><dd>{{ optional_conditions.homework[site.active_lang] | default: optional_conditions.homework.en | default: optional_conditions.homework.uk | default: optional_conditions.homework.first[1] | default: optional_conditions.homework }}</dd></div>{% endif %}
-      {% if optional_conditions.progress %}<div><dt>{{ s.progress_label }}</dt><dd>{{ optional_conditions.progress[site.active_lang] | default: optional_conditions.progress.en | default: optional_conditions.progress.uk | default: optional_conditions.progress.first[1] | default: optional_conditions.progress }}</dd></div>{% endif %}
-    </dl>
-    {% endif %}
-  </section>
-
   {% include tutoring-cases.html %}
   {% include tutoring-profile.html %}
   {% include tutoring-testimonials.html %}
+
+  <section class="tutoring-section tutoring-section--conditions" id="conditions" aria-labelledby="conditions-title">
+    <div class="section-heading section-heading--compact"><div><p class="section-kicker">{{ s.tutoring_conditions_label }}</p><h2 id="conditions-title">{{ s.tutoring_conditions_title }}</h2></div><p>{{ s.tutoring_conditions_intro }}</p></div>
+
+    {% assign optional_conditions = tutoring_settings.conditions %}
+    {% assign technical_requirements = optional_conditions.technical_requirements %}
+
+    <div class="conditions-grid">
+      <div class="condition-card">
+        <h3>{{ s.tutoring_format_title }}</h3>
+        <p>{{ t.language }}</p>
+        {% if optional_conditions.duration %}
+        <p class="condition-card__sub"><strong>{{ s.duration_label }}:</strong> {{ optional_conditions.duration[site.active_lang] | default: optional_conditions.duration.en | default: optional_conditions.duration.uk | default: optional_conditions.duration.first[1] | default: optional_conditions.duration }}</p>
+        {% endif %}
+      </div>
+
+      <div class="condition-card">
+        <h3>{{ s.tutoring_price_title }}</h3>
+        <p><strong>{% if s.price_usd_prefix and tutoring_settings.price.usd_amount %}{{ s.price_usd_prefix }}{{ tutoring_settings.price.usd_amount }} / {{ tutoring_settings.price.amount }} {{ tutoring_settings.price.currency }} {{ s.price_unit }}{% elsif s.price_unit_before %}{{ s.price_unit }} {{ tutoring_settings.price.amount }} {{ tutoring_settings.price.currency }}{% elsif s.price_currency_before %}{{ tutoring_settings.price.currency }} {{ tutoring_settings.price.amount }} {{ s.price_unit }}{% else %}{{ tutoring_settings.price.amount }} {{ s.price_currency_label }} {{ s.price_unit }}{% endif %}</strong><br>{% include tutoring-payment.html %}</p>
+        {% if optional_conditions.payment_order %}
+        <p class="condition-card__sub">{{ optional_conditions.payment_order[site.active_lang] | default: optional_conditions.payment_order.en | default: optional_conditions.payment_order.uk | default: optional_conditions.payment_order.first[1] | default: optional_conditions.payment_order }}</p>
+        {% endif %}
+        {% if tutoring_settings.price.equivalents %}
+        <div class="condition-card__equivalents">${{ tutoring_settings.price.equivalents.usd }} · €{{ tutoring_settings.price.equivalents.eur }} · {{ tutoring_settings.price.equivalents.pln }} zł · £{{ tutoring_settings.price.equivalents.gbp }} ({{ tutoring_settings.price.amount }} {{ tutoring_settings.price.currency }})</div>
+        {% endif %}
+      </div>
+
+      <div class="condition-card">
+        <h3>{{ s.tutoring_cancellation_title | default: s.rescheduling_label }}</h3>
+        {% if optional_conditions.rescheduling %}
+        <p><strong>{{ s.rescheduling_label }}:</strong> {{ optional_conditions.rescheduling[site.active_lang] | default: optional_conditions.rescheduling.en | default: optional_conditions.rescheduling.uk | default: optional_conditions.rescheduling.first[1] | default: optional_conditions.rescheduling }}</p>
+        {% endif %}
+        {% if optional_conditions.cancellation %}
+        <p class="condition-card__sub">{{ optional_conditions.cancellation[site.active_lang] | default: optional_conditions.cancellation.en | default: optional_conditions.cancellation.uk | default: optional_conditions.cancellation.first[1] | default: optional_conditions.cancellation }}</p>
+        {% endif %}
+      </div>
+    </div>
+
+    {% if optional_conditions.first_lesson or optional_conditions.platform or technical_requirements.unity or technical_requirements.python or technical_requirements.scratch or optional_conditions.homework or optional_conditions.progress %}
+    <details class="conditions-details">
+      <summary data-goatcounter-click="tutoring-conditions-details">
+        <span>{{ s.conditions_details_summary }}</span>
+      </summary>
+      <dl class="conditions-extra">
+        {% if optional_conditions.platform %}<div><dt>{{ s.platform_label }}</dt><dd>{{ optional_conditions.platform[site.active_lang] | default: optional_conditions.platform.en | default: optional_conditions.platform.uk | default: optional_conditions.platform.first[1] | default: optional_conditions.platform }}</dd></div>{% endif %}
+        {% if optional_conditions.first_lesson %}<div><dt>{{ s.first_lesson_label }}</dt><dd>{{ optional_conditions.first_lesson[site.active_lang] | default: optional_conditions.first_lesson.en | default: optional_conditions.first_lesson.uk | default: optional_conditions.first_lesson.first[1] | default: optional_conditions.first_lesson }}</dd></div>{% endif %}
+        {% if technical_requirements.unity %}<div><dt>{{ s.technical_requirements_label }} · Unity</dt><dd>{{ technical_requirements.unity[site.active_lang] | default: technical_requirements.unity.en | default: technical_requirements.unity.uk | default: technical_requirements.unity.first[1] | default: technical_requirements.unity }}</dd></div>{% endif %}
+        {% if technical_requirements.python %}<div><dt>{{ s.technical_requirements_label }} · Python</dt><dd>{{ technical_requirements.python[site.active_lang] | default: technical_requirements.python.en | default: technical_requirements.python.uk | default: technical_requirements.python.first[1] | default: technical_requirements.python }}</dd></div>{% endif %}
+        {% if technical_requirements.scratch %}<div><dt>{{ s.technical_requirements_label }} · Scratch</dt><dd>{{ technical_requirements.scratch[site.active_lang] | default: technical_requirements.scratch.en | default: technical_requirements.scratch.uk | default: technical_requirements.scratch.first[1] | default: technical_requirements.scratch }}</dd></div>{% endif %}
+        {% if optional_conditions.homework %}<div><dt>{{ s.homework_label }}</dt><dd>{{ optional_conditions.homework[site.active_lang] | default: optional_conditions.homework.en | default: optional_conditions.homework.uk | default: optional_conditions.homework.first[1] | default: optional_conditions.homework }}</dd></div>{% endif %}
+        {% if optional_conditions.progress %}<div><dt>{{ s.progress_label }}</dt><dd>{{ optional_conditions.progress[site.active_lang] | default: optional_conditions.progress.en | default: optional_conditions.progress.uk | default: optional_conditions.progress.first[1] | default: optional_conditions.progress }}</dd></div>{% endif %}
+      </dl>
+    </details>
+    {% endif %}
+  </section>
 
   <section class="tutoring-section tutoring-section--faq" aria-labelledby="faq-title">
     <div class="section-heading section-heading--compact"><div><p class="section-kicker">{{ s.tutoring_faq_label }}</p><h2 id="faq-title">{{ t.faq }}</h2></div><p>{{ s.tutoring_faq_intro }}</p></div>

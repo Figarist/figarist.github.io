@@ -1,20 +1,60 @@
 {% assign reviews = site.data.tutoring.testimonial_records | where: 'status', 'published' | where: 'ready', true | where: 'permission', true %}
 {% if reviews.size > 0 %}
-<section class="tutoring-section review-carousel" aria-labelledby="testimonials-title">
+<section class="tutoring-section tutoring-section--testimonials" aria-labelledby="testimonials-title">
   <div class="section-heading"><div><p class="section-kicker">{{ t.reviews_kicker }}</p><h2 id="testimonials-title">{{ t.reviews_heading }}</h2></div><p>{{ t.reviews_intro }}</p></div>
-  <div class="review-controls" hidden>
-    <button type="button" data-review-prev aria-label="{{ t.reviews_prev }}">←</button>
-    <span class="review-position" role="status" aria-live="polite">1 / {{ reviews.size }}</span>
-    <button type="button" data-review-next aria-label="{{ t.reviews_next }}">→</button>
-  </div>
-  <div class="review-track" tabindex="0" aria-label="{{ t.reviews_heading }}">
-  {% for item in reviews %}
-    <article class="testimonial-card review-slide" lang="{{ item.language }}" aria-label="{{ forloop.index }} / {{ reviews.size }}">
+
+  {% assign candidate_ids = "review-3,review-2,review-1" | split: "," %}
+  {% assign featured_reviews = "" | split: "" %}
+  {% for cid in candidate_ids %}
+    {% for item in reviews %}
+      {% if item.id == cid %}
+        {% assign featured_reviews = featured_reviews | push: item %}
+      {% endif %}
+    {% endfor %}
+  {% endfor %}
+
+  {% if featured_reviews.size < 3 %}
+    {% for item in reviews %}
+      {% unless featured_reviews contains item %}
+        {% if featured_reviews.size < 3 %}
+          {% assign featured_reviews = featured_reviews | push: item %}
+        {% endif %}
+      {% endunless %}
+    {% endfor %}
+  {% endif %}
+
+  <div class="testimonials-grid">
+  {% for item in featured_reviews %}
+    <article class="testimonial-card" lang="{{ item.language }}">
       <div class="review-meta"><span>{{ item.source_name | escape }}</span>{% if item.rating %}<strong>★ {{ item.rating | escape }}</strong>{% endif %}<time datetime="{{ item.date }}">{{ item.date | date: "%d.%m.%Y" }}</time></div>
       <blockquote>{{ item.text | escape }}</blockquote>
       <footer class="review-signature"><span class="review-avatar" aria-hidden="true">{{ item.signature | slice: 0 }}</span><strong>{{ item.signature | escape }}</strong><a href="{{ item.source_url }}" target="_blank" rel="noopener">{{ site.data[site.active_lang].strings.testimonial_source_cta }} ↗</a></footer>
     </article>
   {% endfor %}
   </div>
+
+  {% assign other_reviews = "" | split: "" %}
+  {% for item in reviews %}
+    {% unless featured_reviews contains item %}
+      {% assign other_reviews = other_reviews | push: item %}
+    {% endunless %}
+  {% endfor %}
+
+  {% if other_reviews.size > 0 %}
+  <details class="testimonials-more">
+    <summary data-goatcounter-click="tutoring-testimonials-more">
+      <span>{{ s.testimonials_show_more | default: "Показати більше відгуків" }} ({{ other_reviews.size }})</span>
+    </summary>
+    <div class="testimonials-grid testimonials-grid--more">
+    {% for item in other_reviews %}
+      <article class="testimonial-card" lang="{{ item.language }}">
+        <div class="review-meta"><span>{{ item.source_name | escape }}</span>{% if item.rating %}<strong>★ {{ item.rating | escape }}</strong>{% endif %}<time datetime="{{ item.date }}">{{ item.date | date: "%d.%m.%Y" }}</time></div>
+        <blockquote>{{ item.text | escape }}</blockquote>
+        <footer class="review-signature"><span class="review-avatar" aria-hidden="true">{{ item.signature | slice: 0 }}</span><strong>{{ item.signature | escape }}</strong><a href="{{ item.source_url }}" target="_blank" rel="noopener">{{ site.data[site.active_lang].strings.testimonial_source_cta }} ↗</a></footer>
+      </article>
+    {% endfor %}
+    </div>
+  </details>
+  {% endif %}
 </section>
 {% endif %}

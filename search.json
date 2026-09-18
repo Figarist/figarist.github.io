@@ -4,7 +4,7 @@ sitemap: false
 ---
 [
   {% assign search_prefix = '' %}{% if site.active_lang != site.default_lang %}{% assign search_prefix = site.active_lang | prepend: '/' %}{% endif %}
-  {% assign docs = site.posts | concat: site.education %}
+  {% assign docs = site.posts %}
   {% assign first = true %}
   {% for doc in docs %}
     {% if doc.lang == site.active_lang %}

@@ -20,7 +20,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v4
+        uses: actions/checkout@v7
         with:
           # jekyll-last-modified-at derives published timestamps from Git.
           fetch-depth: 0
@@ -46,7 +46,7 @@ jobs:
             ${{ runner.os }}-jekyll-
 
       - name: Setup Pages
-        uses: actions/configure-pages@v5
+        uses: actions/configure-pages@v6
 
       - name: Validate tutoring content rules
         run: bundle exec ruby scripts/test_tutoring_content.rb
@@ -108,7 +108,7 @@ jobs:
           fi
 
       - name: Upload artifact
-        uses: actions/upload-pages-artifact@v3
+        uses: actions/upload-pages-artifact@v5
         with:
           path: ./_site
 
@@ -121,7 +121,7 @@ jobs:
     steps:
       - name: Deploy to GitHub Pages
         id: deployment
-        uses: actions/deploy-pages@v4
+        uses: actions/deploy-pages@v5
 
   verify:
     name: Verify live domain
@@ -129,7 +129,7 @@ jobs:
     needs: deploy
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v4
+        uses: actions/checkout@v7
 
       - name: Verify sitemap URLs and domain redirects
         run: ruby scripts/verify_live_site.rb

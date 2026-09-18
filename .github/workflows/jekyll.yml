@@ -86,12 +86,22 @@ jobs:
       - name: Validate all local links and preserve published routes
         run: bundle exec ruby scripts/audit_links.rb
 
-      - name: Test with HTML Proofer
+      - name: Test generated site with HTML Proofer
         run: |
           bundle exec htmlproofer ./_site \
             --allow-hash-href \
             --ignore-empty-alt \
-            --ignore-urls "/^https:\/\/(sivochka\.com|figarist\.com|fonts\.googleapis\.com|fonts\.gstatic\.com|mermaid\.ink|polyfill\.io)/"
+            --disable-external
+
+      # Third-party availability and bot policies are outside the deploy
+      # contract. Report regressions here without blocking a valid site build.
+      - name: Probe external links (advisory)
+        continue-on-error: true
+        run: |
+          bundle exec htmlproofer ./_site \
+            --allow-hash-href \
+            --ignore-empty-alt \
+            --ignore-urls "/^https:\/\/(sivochka\.com|figarist\.com|fonts\.googleapis\.com|fonts\.gstatic\.com|mermaid\.ink|polyfill\.io)/,/^https:\/\/buki\.com\.ua\/user-82505\/$/"
 
       - name: Check JS bundle size
         run: |

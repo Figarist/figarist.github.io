@@ -6,7 +6,7 @@ gem "jekyll", "~> 4.3"
 # Plugins
 group :jekyll_plugins do
   gem "jekyll-feed", "~> 0.12"
-  gem "jekyll-seo-tag"
+  gem "jekyll-seo-tag", "~> 2.9"
   # Upgrade deliberately with multilingual routing and pagination regression gates.
   gem "jekyll-polyglot", "= 1.14.0"
   gem "jekyll-paginate-v2"

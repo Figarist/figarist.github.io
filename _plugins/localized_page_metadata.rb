@@ -50,7 +50,7 @@ localize_metadata = lambda do |page, payload|
   if page.data['tutoring']
     image_path = page.data['tutoring_image'] ||
                  (page.data['image'] unless page.data['image'] == '/assets/images/default-social-card.webp') ||
-                 'assets/images/games/dish-of-chaos-cover.png'
+                 '/assets/images/games/dish-of-chaos-cover.png'
     page.data['image'] = image_path
     page.data['og_type'] = 'website'
     payload['page']['image'] = image_path

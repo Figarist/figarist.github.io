@@ -82,10 +82,12 @@ exposed to an untrusted network.
 The accepted hardening commits align Ruby 3.4.x across local policy and CI,
 preserve Git history for content timestamps, remove dead/ignored configuration,
 update test-only HTMLProofer to 5.2.2 and refresh GitHub Pages actions. The
-multilingual build uses Polyglot 1.14.0. The four Workshop HTML differences were
+multilingual build uses Polyglot 1.14.0 and `jekyll-seo-tag` 2.9.0. The four Workshop HTML differences were
 verified as serialization-only changes. A small read-lifecycle hook initializes
 Polyglot for `jekyll doctor`; diagnostics and multilingual pagination are CI
-gates. Do not upgrade plugins without rerunning the route/SEO/PWA checks.
+gates. SEO checks also require name-based Twitter metadata and locally resolvable
+absolute social-image URLs. Do not upgrade plugins without rerunning the
+route/SEO/PWA checks.
 
 ---
 

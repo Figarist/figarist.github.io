@@ -66,6 +66,10 @@ graph TD
 - **Runtime policy** — Ruby 3.4.x via `.ruby-version`; CI uses the same minor
   version and the Bundler version recorded in `Gemfile.lock` (4.0.7 at the
   current baseline)
+- **Hardening status** — The accepted build/CI maintenance commits are verified
+  locally. Polyglot remains locked at 1.5.1 after the 1.14.0 pilot changed the
+  Workshop archive output contract; `jekyll doctor` remains a documented
+  diagnostic-only failure until a new migration experiment is designed.
 - **Frontmatter CMS** — VS Code extension as a headless CMS. Manages front matter, content, images, and Git directly from the editor. Configuration file: `frontmatter.json`
 - **Polyglot** — Quadrilingual build (EN, UK, RU, KO). DRY: one `index.html`, text in `_data/[lang]/strings.yml`
 - **PWA (Workbox)** — Service Worker + `manifest.json`. Offline-first approach

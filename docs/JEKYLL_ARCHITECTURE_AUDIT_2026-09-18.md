@@ -402,3 +402,93 @@ Current workflow uses `checkout@v4`, `upload-pages-artifact@v3`, and `deploy-pag
 - [jekyll-pwa-workbox](https://github.com/souldanger/jekyll-pwa-workbox)
 - [HTMLProofer changelog](https://github.com/gjtorikian/html-proofer/blob/main/CHANGELOG.md)
 - [WEBrick advisory GHSA-h4w6-wx8r-p68v](https://github.com/advisories/GHSA-h4w6-wx8r-p68v)
+
+## 15. Implementation appendix — hardening run (2026-09-18)
+
+This appendix records the implementation outcome without rewriting the historical
+findings above. The migration stop conditions were applied to the generated-site
+contract, not relaxed to make the pilot pass.
+
+### Accepted local commits
+
+The following commits were created and remain in history, in order:
+
+1. `063cadc docs: add Jekyll architecture audit`
+2. `9a90a0d build: align Ruby and Bundler runtime policy`
+3. `efc622e ci: preserve git history for content timestamps`
+4. `42bc9aa build: remove unused jekyll-sitemap dependency`
+5. `ccd2353 chore: remove ignored minifier option and centralize patch`
+6. `56c50c0 test: update html-proofer and test transitive gems`
+7. `ff94899 ci: update GitHub Pages actions`
+
+No Polyglot or SEO-plugin migration commit was created. The final documentation
+commit is intentionally separate from these source/build changes.
+
+### Final verified runtime and dependency state
+
+| Item | Final state | Decision |
+| --- | --- | --- |
+| Ruby | 3.4.8, policy `3.4.x` in `.ruby-version` and CI | Accepted |
+| Bundler | 4.0.7 from `Gemfile.lock` | Accepted |
+| Jekyll | 4.4.1 | Unchanged |
+| Polyglot | 1.5.1 | Retained after failed 1.14.0 pilot |
+| HTMLProofer | 5.2.2, test group only | Accepted |
+| jekyll-seo-tag | 2.8.0 | Phase H deferred because Polyglot did not pass |
+| WEBrick | 1.9.2, local preview only | Security watch remains |
+
+The Polyglot 1.14.0 experiment changed only the direct Polyglot constraint and
+its lock entry after the broad resolver result was narrowed back to the original
+transitive lock state. Its clean production build completed, but the contract
+reported HTML changes for `/blog/`, `/uk/blog/`, `/ru/blog/`, and `/ko/blog/`.
+The pilot was therefore rolled back without a destructive Git operation.
+
+### Contract and regression evidence
+
+The reusable verifier is `scripts/capture_jekyll_contract.rb`. Gitignored QA
+artifacts are stored under
+`C:\Users\igors\.codex\qa\figarist-jekyll-hardening`:
+
+- `baseline.json` captured the approved pre-hardening production output.
+- `final-stable.json` captured the final 1.5.1 production output.
+- The final comparison reported empty route, HTML, SEO, sitemap, search, PWA,
+  size, warning, runtime and dependency diffs.
+- Final output counts are 105 routes, 105 HTML pages, 48 sitemap locations, 8
+  redirect pages, 4 search indexes and 46 service-worker precache entries.
+- Baseline build time was 28.987 seconds; final stable build time was 28.552
+  seconds. The rejected 1.14.0 pilot completed in 28.523 seconds before its
+  output contract failure was applied.
+
+The final local gates were green: NAV-01, tutoring content, tutoring build,
+service-worker, site metadata/budgets, link audit and Git-derived last-modified
+history. Author readiness reported zero structural errors and two expected
+pending author decisions (portrait and published student cases).
+
+### Browser matrix
+
+The production preview was served on loopback at
+`http://127.0.0.1:4005/`. EN/UK/RU/KO home, Workshop, both technical posts,
+education category/tag archives, tutoring overview and Unity tutoring were
+checked at 390x844, 768x900 and 1280x900: 96 route/viewport checks, zero
+horizontal-overflow failures, one canonical per page, five hreflang links and
+the correct active locale. The mobile menu, breadcrumbs, footer and all four
+localized Education redirect destinations were also read back. Console review
+found only the expected GoatCounter “localhost” warning and no JavaScript errors.
+
+### Known limits and deferred work
+
+- `bundle exec jekyll doctor` still fails in Polyglot 1.5.1 at
+  `@languages.each` (`site.rb:171`). This is the documented diagnostic-only
+  baseline failure; the production build and all production gates pass.
+- In the rejected 1.14.0 pilot, Doctor failed on its newer `prepare` lifecycle
+  path (`site.rb:158`), and the generated-site contract changed. The 1.14.0
+  migration remains deferred until a separately designed compatibility/output
+  experiment is available.
+- The real CI HTMLProofer command was executed locally. HTMLProofer 5.2.2 could
+  not start because this Windows Ruby installation lacks `libcurl.dll`; this is
+  recorded as an environment limitation, not masked as a pass. The Ubuntu CI
+  run remains unverified until an authorized push.
+- WEBrick remains loopback-only and is not a production dependency. The current
+  advisory watch item is retained until an authoritative patched release exists.
+- Selective `jekyll-seo-tag` 2.9.0, `bundler-audit`, new runtime plugins, live
+  GitHub Actions execution, deployment, live HTTP redirect status and external
+  accessibility certification were not performed.

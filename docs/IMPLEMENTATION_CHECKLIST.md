@@ -1,6 +1,6 @@
 # Website improvement backlog
 
-Updated: 2026-09-15. Baseline: `1350ff7`. [Work hub](README.md).
+Updated: 2026-09-18. Baseline: `1350ff7`. [Work hub](README.md).
 This is the only task status register.
 
 Statuses: **Ready**, **Needs author**, **Implemented**, **Verified**, **Deferred**.
@@ -45,3 +45,18 @@ preserved through redirects to the matching localized Workshop page.
 For each ID record changed files, observed behavior, checks, evidence location,
 remaining limits and source revision (or “uncommitted”). Keep author-dependent
 tasks open while completing independent work. Follow [release checks](deployment_guide.md).
+
+## Jekyll hardening status (2026-09-18)
+
+This engineering package is independent of the author-dependent backlog above.
+
+| Work item | Status | Evidence and limit |
+| --- | --- | --- |
+| Ruby/Bundler runtime policy | Verified | `.ruby-version`, CI runtime check, Ruby 3.4.8 local build |
+| Git-derived `last_modified_at` history | Verified | Full-vs-shallow experiment, `test_last_modified_history.rb`, CI `fetch-depth: 0` |
+| Dead sitemap dependency and ignored minifier option | Verified | Stable contract comparison and site/link gates |
+| Frozen-string compatibility patch | Verified | Single named plugin patch; stable contract unchanged |
+| HTMLProofer 5.2.2 | Verified locally as dependency | CI command is wired; Windows run is blocked by missing `libcurl.dll` |
+| GitHub Pages action maintenance | Verified locally | YAML and command-order review; live run remains unverified until push |
+| Polyglot 1.14.0 migration | Deferred | Rolled back because contract changed four Workshop archive HTML outputs and Doctor still failed |
+| Selective SEO plugin update and new audit tooling | Deferred | Not started after the Polyglot stop condition |

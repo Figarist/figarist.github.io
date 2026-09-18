@@ -199,3 +199,33 @@ case directions, cross-locale original reviews and the source_only display limit
   - Browser navigation from each legacy Education route reaches its matching localized Workshop target.
 - Results: NAV-01 is locally verified and the checklist status is `Verified`. No empty Education card or Education navigation link remains; the educational post, category archive and tag archive remain available in every locale.
 - Redirect status and limits: `jekyll-redirect-from` generates static HTML redirect pages with canonical, JavaScript, meta-refresh and crawlable fallback links. This is not a server-level HTTP 301/308. The report proves generated files and local browser behavior only; no live deployment, production HTTP status or accessibility certification was performed. No push or deployment was performed.
+
+## JEKYLL-HARDENING Runtime, dependency and contract verification
+
+- Date: 2026-09-18
+- Scope: implementation of the Jekyll architecture audit recommendations
+- Accepted revisions: `063cadc`, `9a90a0d`, `efc622e`, `42bc9aa`, `ccd2353`,
+  `56c50c0`, `ff94899`
+- Runtime: Ruby 3.4.8, Bundler 4.0.7, Jekyll 4.4.1
+- Final locked plugin state: Polyglot 1.5.1, HTMLProofer 5.2.2, SEO tag 2.8.0,
+  WEBrick 1.9.2
+
+The final stable production build completed in 28.552 seconds. The reusable
+contract comparison was an exact match against the approved baseline: 105 routes,
+105 HTML pages, 48 sitemap locations, 8 redirects, 4 search indexes and 46
+service-worker precache entries, with no route/HTML/SEO/sitemap/search/PWA/size
+diff. All local regression scripts passed; author readiness had 0 structural
+errors and 2 expected pending author decisions.
+
+The Polyglot 1.14.0 pilot was intentionally rejected and rolled back. Its clean
+build completed, but the contract changed the four Workshop archive HTML outputs,
+and `jekyll doctor` still failed on Polyglot's lifecycle. No weakened assertion,
+metadata rewrite or production workaround was introduced. The SEO plugin update
+and new security tooling were consequently deferred.
+
+The loopback production preview was browser-checked at 390x844, 768x900 and
+1280x900 across the EN/UK/RU/KO route matrix. There was no horizontal overflow,
+canonical/hreflang drift, locale-prefix duplication or redirect-target drift.
+The only console message was the expected GoatCounter localhost warning. Live
+GitHub Actions, deployment, live HTTP status and external accessibility remain
+unverified because no push or deployment was authorized.

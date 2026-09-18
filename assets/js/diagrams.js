@@ -8,7 +8,14 @@
     code.parentElement.replaceWith(diagram);
   });
   if (blocks.length && window.mermaid) {
-    mermaid.initialize({ startOnLoad: false, securityLevel: 'strict', gantt: { useWidth: 900, useMaxWidth: false, fontSize: 12, sectionFontSize: 12 } });
+    mermaid.initialize({
+      startOnLoad: false,
+      securityLevel: 'strict',
+      layout: 'dagre',
+      theme: 'default',
+      look: 'classic',
+      gantt: { useWidth: 900, useMaxWidth: false, fontSize: 12, sectionFontSize: 12 }
+    });
     mermaid.run({ querySelector: '.mermaid' }).catch(function (error) {
       console.error('Diagram rendering failed', error);
     });

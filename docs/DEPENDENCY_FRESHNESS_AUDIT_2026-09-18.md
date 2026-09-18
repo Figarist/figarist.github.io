@@ -55,6 +55,17 @@ the local Ruby toolchain lacks libffi headers. Ruby 4 therefore remains a
 separate compatibility migration and is not mixed into this safe dependency
 refresh.
 
+### Decision: do not migrate now
+
+We consciously do not plan a Ruby 4 migration for the current site. It would
+pull in native dependency setup, Windows and Linux runtime alignment, explicit
+stdlib gems, compatibility work across the Jekyll plugin graph, and a complete
+revalidation of generated routes, metadata, search, PWA output and browser
+behavior. The site is static in production, so that cost currently brings no
+material visitor-facing improvement. Reconsider Ruby 4 only when Ruby 3.4 exits
+the project's support window, a required dependency drops Ruby 3.4, or Ruby 4
+provides a concrete security or operational benefit.
+
 Likewise, Mermaid 12 requires ES2024 and Safari 17.4 or newer. This is now the
 browser compatibility floor for pages containing Mermaid diagrams; ordinary
 site pages do not load Mermaid.

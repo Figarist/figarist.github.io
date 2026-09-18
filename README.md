@@ -91,9 +91,11 @@ route/SEO/PWA checks.
 
 The 2026-09-18 freshness sweep also updates every resolvable transitive gem,
 adds `bundler-audit` to CI, and refreshes vendored Mermaid to 12.0.0, MathJax to
-4.1.3 and GoatCounter to its current official asset. Ruby stays on the supported
-3.4 line; Ruby 4 is tracked as a separate compatibility migration because of
-upstream `ostruct`/`fiddle` readiness and local libffi requirements.
+4.1.3 and GoatCounter to its current official asset. Ruby deliberately stays on
+the supported 3.4 line. We are not migrating this site to Ruby 4 now: that is a
+runtime-platform project involving upstream `ostruct`/`fiddle`, native libffi,
+local/CI toolchain alignment and a complete output-contract retest, with no
+current user-facing benefit for the generated static site.
 
 ---
 

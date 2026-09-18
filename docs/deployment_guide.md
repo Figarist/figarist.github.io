@@ -15,6 +15,17 @@ rtk proxy bundle --version
 rtk proxy bundle exec jekyll --version
 ```
 
+### Ruby 4 decision
+
+Ruby 3.4.x is an intentional support policy, not an overlooked update. Do not
+change `.ruby-version` or the CI runtime to Ruby 4 as part of routine dependency
+maintenance. Ruby 4 removes default-stdlib assumptions used by the current
+Jekyll stack (`ostruct` and `fiddle`), and the Windows toolchain additionally
+needs native libffi support. A migration would require an isolated runtime
+pilot, local and Linux parity, native dependency setup, the complete
+route/SEO/search/PWA contract, browser verification and an explicit rollback.
+Until that separately scoped work is approved and proven, keep Ruby 3.4.x.
+
 ## Preview
 
 ```powershell

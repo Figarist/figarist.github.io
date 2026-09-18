@@ -79,7 +79,7 @@ redirect_from:
 pagination:
   enabled: true
   per_page: 6
-  permalink: "/blog/page/:num/"
+  permalink: "/page/:num/"
   limit: 0
   sort_field: "date"
   sort_reverse: true

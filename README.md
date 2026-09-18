@@ -1,462 +1,141 @@
-# figarist.github.io (EXTREME EDITION)
+# Figarist website
 
-## Current work and handoff
+Source for [figarist.com](https://figarist.com): Ihor Sivochka's multilingual
+personal website, tutoring profile and technical workshop. Jekyll generates a
+static site that GitHub Actions verifies and publishes to GitHub Pages.
 
-Start with [docs/README.md](docs/README.md) for current evidence, the canonical
-backlog and the next implementation prompt. Operational commands live in
-[the build and release guide](docs/deployment_guide.md). The architecture overview
-below is historical reference; current source and CI take precedence over its
-feature labels and counts.
+The public interface supports English, Ukrainian, Russian and Korean. Source
+code and technical documentation are maintained in English.
 
-<div align="center">
-  <img src="https://readme-typing-svg.herokuapp.com?font=Fira+Code&size=36&duration=3000&pause=1000&color=9D4EDD&center=true&vCenter=true&width=800&lines=figarist.github.io+%F0%9F%8E%AE;Performance+First+%E2%9A%A1;Hub+Architecture+%F0%9F%A7%B1;Quadrilingual+Sync+%F0%9F%8C%8E" alt="Typing SVG" />
-</div>
+## Site areas
 
----
+- Personal profile and selected projects
+- Tutoring services, approach and contact routes
+- Workshop posts under `/blog/`
+- Category and tag archives
+- Local search, feed and offline/PWA support
 
-## 🗺️ PROJECT MAP
+The former Education hub is intentionally retired. Its four localized routes
+redirect to the matching Workshop page. Existing education posts and their
+category/tag archives remain available.
 
-```mermaid
-graph LR
-    subgraph Core
-        JS["script.js (IIFE, <20KB)"]
-        SCSS["_sass/ (20 partials)"]
-        SM["sitemap.xml (custom, hreflang)"]
-    end
-    subgraph Content
-        Posts["_posts/ (×4 langs)"]
-        Drafts["_drafts/ (WIP)"]
-        Blog["_posts/ (author and educational content)"]
-        Langs["_data/ (EN, UK, RU, KO)"]
-    end
-    subgraph CMS
-        FM["frontmatter.json (VS Code CMS)"]
-        Scripts[".frontmatter/scripts/"]
-    end
-    subgraph Plugins
-        TOC["jekyll-toc"]
-        Archives["jekyll-archives"]
-        LMA["jekyll-last-modified-at"]
-        Spaceship["jekyll-spaceship"]
-        SEO["jekyll-seo-tag"]
-    end
-    subgraph Ops
-        GA[".github/workflows/jekyll.yml"]
-        PWA["Service Worker + manifest.json"]
-        Proofer["HTML Proofer + Bundle Check"]
-    end
-    CMS --- Content
-    Core --- Content
-    Content --- Plugins
-    Plugins --- Ops
-```
+## Current baseline
 
----
+| Area | Version or policy |
+| --- | --- |
+| Runtime | Ruby 3.4.x, Bundler 4.0.7 |
+| Generator | Jekyll 4.4.1 |
+| Localization | jekyll-polyglot 1.14.0 |
+| SEO | jekyll-seo-tag 2.9.0 plus project-specific metadata checks |
+| Content | Markdown, Liquid, Sass, Mermaid and MathJax |
+| Verification | Ruby regression scripts, HTMLProofer and bundler-audit |
+| Delivery | GitHub Actions and GitHub Pages |
 
-## ⚡ QUICK START
+Ruby 3.4 is an intentional support policy. Ruby 4 migration is deferred until
+its standard-library and Windows native dependency changes can pass an isolated
+compatibility pilot and the complete generated-site contract. See the
+[Ruby 4 decision](docs/deployment_guide.md#ruby-4-decision).
+
+## Local development
+
+Requirements:
+
+- Ruby 3.4.x
+- the Bundler version recorded in `Gemfile.lock`
+- Node.js for service-worker tests
+
+Install dependencies and start a loopback-only development server:
 
 ```powershell
-git clone https://github.com/figarist/figarist.github.io.git
-cd figarist.github.io
 bundle install
+bundle exec jekyll serve --config _config.yml,_config_dev.yml --host 127.0.0.1
+```
 
-# Runtime policy: Ruby 3.4.x and the Bundler version recorded in Gemfile.lock.
-# The CI workflow uses the same Ruby minor policy.
-Get-Content .ruby-version
-bundle --version
+Open `http://127.0.0.1:4000/`.
 
-# Production (full optimization + PWA + minification)
+Build the production artifact with:
+
+```powershell
 $env:JEKYLL_ENV = 'production'
-bundle exec jekyll serve --host 127.0.0.1
-
-# Development (fast builds, no minification, no PWA)
-bundle exec jekyll serve --config _config.yml,_config_dev.yml
+bundle exec jekyll build --destination _site
 ```
 
-The local preview is intentionally bound to loopback. This repository publishes
-static Pages artifacts; WEBrick is only a development server and must not be
-exposed to an untrusted network.
+WEBrick is used only for local preview. The deployed website is static and does
+not expose a Ruby application server.
 
-## Current hardening status
+## Verification
 
-The accepted hardening commits align Ruby 3.4.x across local policy and CI,
-preserve Git history for content timestamps, remove dead/ignored configuration,
-update test-only HTMLProofer to 5.2.2 and refresh GitHub Pages actions. The
-multilingual build uses Polyglot 1.14.0 and `jekyll-seo-tag` 2.9.0. The four Workshop HTML differences were
-verified as serialization-only changes. A small read-lifecycle hook initializes
-Polyglot for `jekyll doctor`; diagnostics and multilingual pagination are CI
-gates. SEO checks also require name-based Twitter metadata and locally resolvable
-absolute social-image URLs. Do not upgrade plugins without rerunning the
-route/SEO/PWA checks.
+A successful Jekyll build is only one gate. Before publication, the project
+checks content rules, multilingual pagination, metadata, canonical and hreflang
+relationships, sitemap output, search indexes, redirects, PWA routes, link
+integrity, dependency advisories and bundle budgets.
 
-The 2026-09-18 freshness sweep also updates every resolvable transitive gem,
-adds `bundler-audit` to CI, and refreshes vendored Mermaid to 12.0.0, MathJax to
-4.1.3 and GoatCounter to its current official asset. Ruby deliberately stays on
-the supported 3.4 line. We are not migrating this site to Ruby 4 now: that is a
-runtime-platform project involving upstream `ostruct`/`fiddle`, native libffi,
-local/CI toolchain alignment and a complete output-contract retest, with no
-current user-facing benefit for the generated static site.
+The complete local sequence is maintained in the
+[build and release guide](docs/deployment_guide.md#source-and-production-checks).
+Useful focused checks include:
 
----
-
-## 🛠️ TECH STACK
-
-| Feature               | Technology                                   | Status        |
-| :-------------------- | :------------------------------------------- | :------------ |
-| **Engine**            | Jekyll 4.4                                   | ⚡ Stable     |
-| **CMS**               | Frontmatter CMS (VS Code extension)          | ✏️ Active     |
-| **Architecture**      | Hub Bento Grid (`grid-template-areas`)       | 🏗️ Core       |
-| **Localization**      | Quadrilingual (EN, UK, RU, KO)               | 🌍 Native     |
-| **UX**                | PWA (Workbox) + Liquid Glass UI              | ✨ Premium    |
-| **Performance**       | Minification + Lazy-loading                  | 🚀 Optimized  |
-| **TOC**               | `jekyll-toc` (auto-generated)                | 📋 Active     |
-| **Archives**          | `jekyll-archives` (categories/tags)          | 🗂️ Active     |
-| **Freshness**         | `jekyll-last-modified-at` (git)              | 🔄 Active     |
-| **Technical Visuals** | `jekyll-spaceship` (Mermaid/MathJax)         | 📊 Active     |
-| **SEO**               | JSON-LD (Person + WebSite + BlogPosting + BreadcrumbList) | 🔍 Full |
-| **Sitemap**           | Custom `sitemap.xml` with hreflang (4 langs) | 🗺️ Verified   |
-| **Accessibility**     | Skip-link, ARIA labels, focus states         | Features present; full audit pending |
-| **Analytics**         | GoatCounter (Privacy-first)                  | 📈 Integrated |
-| **CI/CD**             | GitHub Actions + HTML Proofer + Bundle Check | 🛡️ Hardened   |
-
----
-
-## 📂 ARCHITECTURE
-
-### Directory Structure
-
-```
-figarist.github.io/
-├── _config.yml                # Main config (plugins, polyglot, TOC, archives)
-├── _config_dev.yml            # Dev overlay (no minification, no PWA)
-├── frontmatter.json           # Frontmatter CMS config (content types, snippets, scripts)
-├── manifest.json              # PWA Web App Manifest
-├── script.js                  # Single IIFE (10 modules, <20KB budget)
-├── sitemap.xml                # Custom multilingual sitemap (hreflang, NOT jekyll-sitemap)
-│
-├── .frontmatter/
-│   └── scripts/
-│       ├── create-translations.js  # CMS action: auto-generate uk/ru/ko stubs
-│       └── check-images.js         # CMS action: list non-WebP images
-│
-├── _layouts/
-│   ├── default.html           # Shell: head → skip-link → header → main → footer → search
-│   ├── post.html              # Blog posts: TOC, hierarchical breadcrumbs, JSON-LD, related
-│   └── archive.html           # Auto-generated category/tag pages with breadcrumb nav
-│
-├── _includes/
-│   ├── head.html              # <head>: meta, fonts, SEO, analytics, PWA
-│   ├── header.html            # Sticky nav: sections, search trigger, lang-switch
-│   ├── footer.html            # 3-col footer: brand, explore, connect
-│   ├── breadcrumbs.html       # BreadcrumbList (Hub → Section → Category → Article)
-│   ├── related-bento.html     # Circular related posts logic (Atomic)
-│   ├── metadata/              # Structured data modules:
-│   │   └── json-ld.html       # Unified BlogPosting/Article/Person/WebSite schema
-│   ├── lang-redirect.html     # Auto-redirect based on browser/localStorage lang
-│   ├── search-modal.html      # Full-text search modal (Cmd+K)
-│   └── author_box.html        # Post author card
-│
-├── _sass/                     # 20 Modular SCSS Partials:
-│   ├── _variables.scss        # Design tokens (Cloud Dancer palette)
-│   ├── _base.scss             # Reset, a11y (skip-link), scrollbar, reduced-motion
-│   ├── _layout.scss           # Hub page layout, nav, header
-│   ├── _grid.scss             # Bento grid (grid-template-areas)
-│   ├── _cards.scss            # Base card styles + responsive overrides
-│   ├── _card-bio.scss         # Bio card + doodles
-│   ├── _card-studio.scss      # Studio card + watch mockups
-│   ├── _card-webgl.scss       # WebGL overlay + iframe
-│   ├── _card-stack.scss       # Tech stack blueprint grid
-│   ├── _card-shrine.scss      # Shrine gradient card
-│   ├── _card-python.scss      # Terminal mockup card
-│   ├── _card-feed.scss        # All feed cards (blog, vr, gamedev, personal)
-│   ├── _hub-pages.scss        # Blog/collection/404 hub pages
-│   ├── _post.scss             # Article typography, breadcrumbs, related posts
-│   ├── _search.scss           # Search modal overlay
-│   ├── _components.scss       # Buttons, badges, pagination, banners
-│   ├── _spaceship.scss        # Spaceship plugin overrides (Mermaid, MathJax)
-│   ├── _footer.scss           # Footer grid + socials
-│   ├── _toc.scss              # Table of Contents nav + updated badge
-│   └── _archive.scss          # Archive pages (pills, navigation, tags)
-│
-├── _data/
-│   ├── authors.yml            # Author profiles (Frontmatter CMS data file)
-│   ├── en/strings.yml         # English UI strings (130+ keys, incl. skip_link)
-│   ├── uk/strings.yml         # Ukrainian
-│   ├── ru/strings.yml         # Russian
-│   └── ko/strings.yml         # Korean
-│
-├── _posts/                    # Blog posts (×4 langs per article)
-├── _drafts/                   # WIP posts (not published, git-tracked)
-├── blog/index.html            # Blog hub with category/tag pills + pagination
-├── collection/index.html      # Shrine/collection hub
-├── 404.html                   # Custom 404 page
-│
-└── .github/workflows/
-    └── jekyll.yml             # CI: build → HTML Proofer → Bundle Check → deploy
+```powershell
+bundle exec jekyll doctor
+bundle exec ruby scripts/test_polyglot_pagination.rb
+bundle exec ruby scripts/test_nav_01.rb
+bundle exec ruby scripts/test_vendor_assets.rb
+node scripts/test_service_worker.cjs
 ```
 
-### SCSS Import Order (`styles.scss`)
+HTMLProofer treats generated HTML, internal links, fragments, images and scripts
+as deployment-blocking. External HTTP probes are advisory because third-party
+availability and bot policies are outside the site's deployment contract.
 
-```scss
-@use "variables"; // 1. Design tokens
-@use "base";      // 2. Reset & a11y (skip-link)
-@use "layout";    // 3. Page structure
-@use "grid";      // 4. Bento grid
-@use "cards";     // 5. Base card styles
-@use "card-bio";  // 6-12. Per-card partials
-@use "card-studio";
-@use "card-webgl";
-@use "card-stack";
-@use "card-shrine";
-@use "card-python";
-@use "card-feed";
-@use "hub-pages"; // 13. Hub sub-pages (blog, edu, 404)
-@use "post";      // 14. Article + breadcrumbs
-@use "search";    // 15. Search modal
-@use "components";// 16. Shared UI (buttons, badges)
-@use "spaceship"; // 17. Spaceship overrides
-@use "footer";    // 18. Footer
-@use "toc";       // 19. Table of Contents
-@use "archive";   // 20. Archive pages
+## Repository map
+
+```text
+_data/          localized interface copy and structured content
+_includes/      reusable Liquid components
+_layouts/       page and post templates
+_plugins/       project-specific Jekyll behavior
+_posts/         Workshop posts in four locale variants
+_sass/          design system and component styles
+assets/         fonts, images and vendored browser libraries
+scripts/        content, build, route, SEO, PWA and live-site checks
+docs/           implementation, operations and verification documentation
 ```
 
-### script.js Modules (IIFE)
+Generated `_site/` output is not source. The `docs/` directory is excluded from
+the deployed Jekyll artifact but remains public repository content.
 
-| §   | Module           | Purpose                                         |
-| --- | ---------------- | ----------------------------------------------- |
-| 1   | Scroll Fade-In   | `IntersectionObserver` for `.fade-in` cards     |
-| 2   | WebGL Overlay    | Click-to-load iframe for Unity demos            |
-| 3   | Card Tilt        | 3D perspective on hover (`hub-card`, Rect Cache)|
-| 4   | Reading Progress | Throttled scroll-based progress bar             |
-| 5   | Copy Code        | Click-to-copy on code blocks                    |
-| 6   | Navbar Scroll    | Show/hide on scroll direction                   |
-| 7   | View Transitions | Client-side `startViewTransition()`             |
-| 8   | Search           | Full-text search with `search.json`             |
-| 9   | Lang Switch      | Save `preferred_lang` to localStorage           |
-| 10  | Rect Caching     | Zero-GC layout thrashing prevention (120Hz+)    |
-| —   | SW Registration  | Service Worker (`/sw.js`) registration          |
+## Content and localization
 
----
+Localized posts are maintained as matching EN, UK, RU and KO files with stable
+permalinks. Navigation labels, subtitles and interface strings live in `_data/`.
+Canonical URLs, hreflang relationships, sitemap entries and search indexes are
+covered by regression tests; do not infer their correctness from build success.
 
-## ✏️ FRONTMATTER CMS
+For tutoring content, start with the
+[content editing guide](docs/tutoring-content-guide.md). Decisions that require
+owner confirmation are tracked in the
+[author action guide](docs/AUTHOR_ACTION_GUIDE.md).
 
-The site uses [Front Matter CMS](https://frontmatter.codes/) — a VS Code extension that turns the editor into a full headless CMS without any server or database.
+## Deployment
 
-### Content Types
+Pushes to `main` run the complete build, test, Pages deployment and live-domain
+verification workflow. Publication should happen only after reviewing the scoped
+diff and local gates. Operational details and recovery guidance are in the
+[deployment guide](docs/deployment_guide.md).
 
-| Type        | Folder        | Key Fields                                           |
-| ----------- | ------------- | ---------------------------------------------------- |
-| **Post**    | `_posts/`     | title, description, date, lang, **page_id**, permalink, author, **image_alt**, image, categories, tags, published, **focus_keyword, seo_title, seo_type, canonical_url, robots, noindex, sitemap**, *related_posts, featured, hidden, last_modified_at* |
-| **Post**    | `_drafts/`    | Same as Post — draft toggle hides from build         |
+Do not commit private correspondence, consent records, credentials, generated
+QA captures or local verification manifests.
 
-- `author` field is a **data file picker** reading `_data/authors.yml` directly — no manual input
-- `image` field links to `assets/images/` with a visual picker
-- `published: false` = Jekyll draft (excluded from build via `_config.yml` defaults)
+## Documentation
 
-### Content Snippets (18 total)
+Use the [documentation index](docs/README.md) as the starting point.
 
-| Category      | Snippets                                                      |
-| ------------- | ------------------------------------------------------------- |
-| Spaceship     | YouTube embed, **Vimeo embed, Figma embed**, Local video, Mermaid diagram, MathJax block, Markdown table |
-| Polyglot      | Translation note (links to all 4 langs)                       |
-| Callouts      | Info, Warning                                                 |
-| Code          | Liquid raw block, Rouge highlight with line numbers           |
-| Media         | WebP `<figure>` with `figcaption`, `loading="lazy"`, `width/height` |
-| Links         | Internal post link (relative_url), Jekyll include tag, **Asset URL** |
-| SEO           | Article JSON-LD schema block, **Localized Site String**      |
+- [Implementation checklist](docs/IMPLEMENTATION_CHECKLIST.md) — canonical task status
+- [Verification report](docs/VERIFICATION_REPORT_2026-09-15.md) — dated evidence and limits
+- [Dependency freshness audit](docs/DEPENDENCY_FRESHNESS_AUDIT_2026-09-18.md) — dependency policy
+- [Polyglot migration plan](docs/POLYGLOT_MIGRATION_2026-09-18.md) — multilingual upgrade evidence
+- [SEO plugin migration plan](docs/SEO_TAG_MIGRATION_2026-09-18.md) — SEO compatibility evidence
+- [Project context](project_context.md) — product and architecture context
 
-### Custom CMS Scripts
-
-| Script                       | Trigger      | What it does                                              |
-| ---------------------------- | ------------ | --------------------------------------------------------- |
-| **`check-seo.js`**           | Content panel button | **Validates** SEO meta limits and focus keyword           |
-| **`sync-languages.js`**      | Content panel button | **Primary sync action:** auto-generates stubs + syncs `page_id` + `permalink` |
-| `create-translations.js`     | Content panel button | (Legacy) Auto-generates uk/ru/ko stub files from EN source |
-| `check-images.js`            | Media folder button  | Scans `assets/images/` and reports all non-WebP files     |
-| **`build-manual.js`**        | Content panel button | Provides `bundle exec jekyll build` command for quick copy-paste |
-
-### CMS Workflow: New Post
-
-1. Open **Front Matter** panel in VS Code (`Ctrl+Shift+P → Front Matter: Open Dashboard`)
-2. Click **New content** → select **Post**; educational materials also belong in `_posts/` with the appropriate category or tags.
-3. Fill required fields (title, lang, permalink, categories, tags)
-4. Write content — use **Snippets** panel for Mermaid/YouTube/Vimeo/Figma/callouts
-5. Run **🔄 Sync All Languages** action → stubs generated + `page_id` synced instantly
-6. Translate stubs, set `published: true` on all 4 files
-7. (Optional) Run **🏗️ Build Site (Manual)** to verify before pushing
-8. Git commit — message auto-filled as `content: {{title}} [{{date}}]`
-
----
-
-## 🌐 QUADRILINGUAL SYNC (EN · UK · RU · KO)
-
-> Full workflow: [`/i18n-sync`](.agents/workflows/i18n-sync.md)
-
-**Golden rule: One permalink. Four files. All in sync.** EN is always the source of truth.
-
-### Language Map
-
-| File suffix | `lang:` | URL prefix | Strings file            |
-| ----------- | ------- | ---------- | ----------------------- |
-| `-en.md`    | `en`    | _(none)_   | `_data/en/strings.yml`  |
-| `-uk.md`    | `uk`    | `/uk/`     | `_data/uk/strings.yml`  |
-| `-ru.md`    | `ru`    | `/ru/`     | `_data/ru/strings.yml`  |
-| `-ko.md`    | `ko`    | `/ko/`     | `_data/ko/strings.yml`  |
-
-### Post Front Matter Template (mandatory for all 4 files)
-
-```yaml
----
-layout: post
-title: "Title"
-description: "SEO description ~160 chars."   # required!
-date: YYYY-MM-DD
-lang: en           # change per file: en / uk / ru / ko
-permalink: /blog/my-post/                    # IDENTICAL in all 4!
-author: ihor
-categories: gamedev
-tags: [unity, csharp]
-published: true
----
-```
-
-### UI Strings — Adding a New Key
-
-1. Add key to `_data/en/strings.yml`
-2. Copy key to `uk`, `ru`, `ko` → translate
-3. Use in Liquid: `{{ site.data[page.lang].strings.my_key }}`
-
-> ⚠️ Missing key in any strings.yml = **blank text** for that language.
-
-### Pre-push Checklist
-
-- [ ] All 4 files have **identical `permalink`**
-- [ ] All 4 files have `published: true`
-- [ ] New UI keys added to all 4 `strings.yml`
-- [ ] `description` present in every file
-- [ ] `author: ihor` set
-- [ ] `categories` from pre-seeded list (`frontmatter.json`)
-
-### How jekyll-polyglot Builds URLs
-
-```
-permalink: /blog/my-post/
-  → /blog/my-post/      (EN, default)
-  → /uk/blog/my-post/   (UK)
-  → /ru/blog/my-post/   (RU)
-  → /ko/blog/my-post/   (KO)
-hreflang injected automatically based on matching permalinks
-```
-
----
-
-## 🔌 PLUGINS
-
-| Plugin                    | Purpose                      | Config                                      |
-| ------------------------- | ---------------------------- | ------------------------------------------- |
-| `jekyll-seo-tag`          | Auto SEO meta tags           | `_config.yml` defaults                      |
-| `jekyll-feed`             | RSS/Atom feeds               | `feed.xml` — excluded from minifier         |
-| `jekyll-polyglot`         | Quadrilingual routing        | `languages: [en, uk, ru, ko]`               |
-| `jekyll-paginate-v2`      | Blog pagination              | `per_page: 6`                               |
-| `jekyll-spaceship`        | Mermaid, MathJax, YouTube    | Enabled globally                            |
-| `jekyll-minifier`         | HTML/CSS/JS minification     | Excludes: `sitemap.xml`, `feed.xml`, `assets/vendor/**` |
-| `jekyll-redirect-from`    | URL redirects                | —                                           |
-| `jekyll-pwa-workbox`      | Service Worker + offline     | `sw.js`                                     |
-| `jekyll-toc`              | Auto Table of Contents       | `toc: true` in front matter                 |
-| `jekyll-last-modified-at` | Git-based modification dates | Auto from git log                           |
-| `jekyll-archives`         | Category/tag archive pages   | `/blog/category/:name/`, `/blog/tag/:name/` |
-
-
-> ⚠️ **`jekyll-sitemap` REMOVED** — conflicted with custom `sitemap.xml`, generated XML without `hreflang`, and overwrote the correct file.
-
----
-
-## 🗺️ SITEMAP ARCHITECTURE
-
-Custom `sitemap.xml` (NOT a plugin) generates a full XML:
-
-```xml
-<?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
-        xmlns:xhtml="http://www.w3.org/1999/xhtml">
-  <url>
-    <loc>https://sivochka.com/blog/</loc>
-    <lastmod>2026-03-04T14:18:27+00:00</lastmod>
-    <xhtml:link rel="alternate" hreflang="en" href="..." />
-    <xhtml:link rel="alternate" hreflang="uk" href="..." />
-    <xhtml:link rel="alternate" hreflang="ru" href="..." />
-    <xhtml:link rel="alternate" hreflang="ko" href="..." />
-    <xhtml:link rel="alternate" hreflang="x-default" href="..." />
-  </url>
-</urlset>
-```
-
-- `Content-Type: application/xml` ✅
-- Excluded from `jekyll-minifier` → XML declaration preserved ✅
-- Excluded from `jekyll-polyglot` → only one file, not `/uk/sitemap.xml` ✅
-- Verified by Google Search Console ✅
-
----
-
-## 🔍 SEO & STRUCTURED DATA
-
-Every page has:
-
-- **`jekyll-seo-tag`**: Auto title, description, canonical, OG, Twitter cards
-- **`hreflang`**: Auto-generated by `jekyll-polyglot` for 4 languages
-- **Sitemap**: Custom XML sitemap at `/sitemap.xml` (with hreflang alternates)
-- **Skip Link**: `<a href="#main-content">` for accessibility (visually hidden)
-
-Blog post pages additionally have:
-
-- **Modular JSON-LD**: Unified schema logic via `_includes/metadata/json-ld.html`
-  - `@type: BlogPosting` for posts
-  - `@type: BlogPosting` for author and educational articles
-- **Home Page**: `is_home: true` front matter triggers `Person` + `WebSite` schemas
-- **Related Posts**: Decoupled bento logic in `_includes/related-bento.html`
-- **Safe-Area Hygiene**: Dynamic `env(safe-area-inset)` support in SCSS
-- **`apple-touch-icon`**: For iOS PWA
-
----
-
-## 🚀 CI/CD PIPELINE
-
-```mermaid
-graph LR
-    A["Push to main"] --> B["bundle install"]
-    B --> C["jekyll build"]
-    C --> D["HTML Proofer"]
-    D --> E["JS Bundle Check (<20KB)"]
-    E --> F["Deploy to GitHub Pages"]
-```
-
-Hardened checks:
-
-- **HTML Proofer**: Link integrity (ignores Google Fonts, Mermaid CDN, own domain)
-- **Bundle Size**: `script.js` must be < 20KB (20480 bytes)
-- **Current size**: ~6.2KB ✅ (well within budget)
-
----
-
-## 🤖 AI ASSISTANT RULES
-
-1. **Embedded-First**: No React, Vue, Tailwind, jQuery. Pure HTML/CSS/JS/Liquid.
-2. **Hub Rigor**: `grid-template-areas` only. No `grid-auto-flow: dense`.
-3. **Quad-Sync**: Every post needs 4 language siblings sharing exact `permalink`.
-4. **Performance Budget**: JS < 20KB, CSS < 30KB (gzipped).
-5. **Zero Inline Styles**: All styling in `_sass/` partials. Only `view-transition-name` allowed inline (Liquid-dependent).
-6. **CGM Layout**: Minimalist article headers. No "Back" buttons (use breadcrumbs). No decorative emojis. Standardized meta line: `AUTHOR | DATE | READ TIME`.
-7. **Semantics**: `<article>`, `<section>`, `<nav>`, `<time>`. `aria-label` on icon-only buttons.
-8. **Sitemap Rule**: DO NOT add `jekyll-sitemap` to plugins. Custom `sitemap.xml` already exists and is correctly configured.
-9. **Minifier Exclusions**: `sitemap.xml` and `feed.xml` **ALWAYS** in the `exclude` list of `jekyll-minifier`.
-10. **CMS-First Content**: New content is created via Frontmatter CMS (VS Code panel). Scripts in `.frontmatter/scripts/` automate translations and image checks.
-
-See [gemini3rules.md](.agents/rules/gemini3rules.md) for full rules.
-
----
-
-<div align="center">
-  <strong>💜 Developed with extreme precision by Ihor Sivochka | 2026 💜</strong>
-  <br/>
-  <sub>𝙿𝚞𝚛𝚎 𝙽𝚊𝚝𝚒𝚟𝚎 𝙿𝚘𝚠𝚎𝚛 | 𝚉𝚎𝚛𝚘-𝚋𝚕𝚘𝚊𝚝 𝙰𝚛𝚌𝚑𝚒𝚝𝚎𝚌𝚝𝚞𝚛𝚎</sub>
-</div>
+Historical reports describe the state at the time they were written. For current
+behavior, prefer source code, the lockfile, CI workflow, canonical checklist and
+the latest dated verification addendum.

@@ -1,32 +1,62 @@
-# Website work hub
+# Documentation index
 
-Updated: 2026-09-15. Source baseline: `1350ff7`.
+Updated: 2026-09-18.
 
-## Start here
+This directory contains the operational, implementation and verification record
+for figarist.com. Current source, `Gemfile.lock`, the CI workflow and executable
+tests take precedence over dated snapshots.
 
-1. [Baseline and evidence](VERIFICATION_REPORT_2026-09-15.md).
-2. [Canonical backlog](IMPLEMENTATION_CHECKLIST.md): the only task status register.
-3. [Implementation brief](TUTORING_REARRANGEMENT_PLAN.md).
-4. [Next implementation prompt](NEXT_WORK_PROMPT.md): copy into a new task.
-5. [Author decisions](AUTHOR_ACTION_GUIDE.md).
+## Operations and current status
 
-Reference: [UX rationale](UX_CRO_DEEP_ANALYSIS.md), [content editing](tutoring-content-guide.md),
-[build and release](deployment_guide.md).
+- [Build and release guide](deployment_guide.md) — runtime policy, local checks,
+  publication and recovery
+- [Implementation checklist](IMPLEMENTATION_CHECKLIST.md) — the canonical task
+  status register
+- [Verification report](VERIFICATION_REPORT_2026-09-15.md) — dated test evidence,
+  later addenda and explicit limitations
+- [Dependency freshness audit](DEPENDENCY_FRESHNESS_AUDIT_2026-09-18.md) — direct,
+  transitive, browser and GitHub Actions dependency decisions
 
-Current source and tests take precedence over snapshots. Explicit author decisions
-take precedence over proposed copy. Update task status only in the backlog;
-record evidence with date, revision, command and limitations in the evidence report.
+## Content and product work
 
-## Consolidation
+- [Tutoring implementation brief](TUTORING_REARRANGEMENT_PLAN.md)
+- [Tutoring content guide](tutoring-content-guide.md)
+- [Author action guide](AUTHOR_ACTION_GUIDE.md)
+- [UX and conversion rationale](UX_CRO_DEEP_ANALYSIS.md)
 
-The September 15 audits now separate rationale, implementation, tasks and evidence.
-Unsupported statistics and inaccurate sample claims were removed. Previous versions
-remain in Git at `0962efd` and `4d6c2c2`.
+The author guide covers decisions that cannot be inferred safely from code or
+synthetic checks. Structural readiness does not prove authorship, consent or
+qualifications.
 
-September 13 SEO, link and worktree reports were deleted in `667f10b`; they are
-historical records, not missing prerequisites. For example:
-`git show 1e8c13a:docs/LINK_AUDIT_2026-09-13.md`.
-Do not restore parallel task lists.
+## Migration records
 
-The docs directory is excluded from the generated site but remains public repository
-content. Keep private correspondence and consent documents outside it.
+- [Polyglot 1.14 migration plan](POLYGLOT_MIGRATION_2026-09-18.md)
+- [jekyll-seo-tag 2.9 migration plan](SEO_TAG_MIGRATION_2026-09-18.md)
+- [Jekyll architecture audit](JEKYLL_ARCHITECTURE_AUDIT_2026-09-18.md)
+
+The architecture audit began as a snapshot of the older Polyglot 1.5.1 state.
+Its dated follow-up sections record the completed 1.14.0 migration. Do not read
+an earlier finding as the current dependency state without its later addendum.
+
+## Historical planning
+
+- [Next-work prompt](NEXT_WORK_PROMPT.md) — preserved implementation handoff,
+  not the current status authority
+
+The September 15 documentation cleanup separated rationale, implementation,
+tasks and evidence. Earlier parallel task lists and September 13 SEO, link and
+worktree reports remain available through Git history. They should not be
+restored as active status documents.
+
+## Documentation rules
+
+- Maintain technical documentation in English.
+- Update task status only in `IMPLEMENTATION_CHECKLIST.md`.
+- Record evidence with its date, revision, command and limitations.
+- Keep historical claims intact; add a dated follow-up when the state changes.
+- Keep private correspondence, consent records and credentials outside the repo.
+- Treat browser checks, live deployment checks and structural tests as separate
+  kinds of evidence.
+
+This directory is excluded from the generated Jekyll site but remains public
+repository content.

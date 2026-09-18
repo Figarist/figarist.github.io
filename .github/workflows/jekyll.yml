@@ -21,6 +21,9 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
+        with:
+          # jekyll-last-modified-at derives published timestamps from Git.
+          fetch-depth: 0
 
       - name: Setup Ruby
         uses: ruby/setup-ruby@v1
@@ -61,6 +64,9 @@ jobs:
         run: bundle exec jekyll build --destination ./_site
         env:
           JEKYLL_ENV: production
+
+      - name: Verify Git-derived content timestamps
+        run: bundle exec ruby scripts/test_last_modified_history.rb
 
       - name: Validate production metadata and budgets
         run: bundle exec ruby scripts/test_site.rb

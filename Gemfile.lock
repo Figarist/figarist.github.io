@@ -182,7 +182,7 @@ DEPENDENCIES
   jekyll-last-modified-at
   jekyll-minifier
   jekyll-paginate-v2
-  jekyll-polyglot
+  jekyll-polyglot (= 1.5.1)
   jekyll-pwa-workbox
   jekyll-redirect-from
   jekyll-seo-tag

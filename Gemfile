@@ -7,7 +7,9 @@ gem "jekyll", "~> 4.3"
 group :jekyll_plugins do
   gem "jekyll-feed", "~> 0.12"
   gem "jekyll-seo-tag"
-  gem "jekyll-polyglot"
+  # Keep the verified multilingual route contract until a newer Polyglot
+  # release passes the route, metadata, search, and PWA regression gates.
+  gem "jekyll-polyglot", "= 1.5.1"
   gem "jekyll-paginate-v2"
   gem "jekyll-spaceship"
   gem "jekyll-minifier"

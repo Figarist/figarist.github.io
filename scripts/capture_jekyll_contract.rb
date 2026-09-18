@@ -185,6 +185,7 @@ sitemap_document = Nokogiri::XML(File.read(sitemap_path))
 sitemap = sitemap_document.xpath('//*[local-name()="url"]').map do |node|
   {
     'loc' => node.at_xpath('./*[local-name()="loc"]')&.text.to_s,
+    'lastmod' => node.at_xpath('./*[local-name()="lastmod"]')&.text.to_s,
     'alternates' => node.xpath('./*[local-name()="link"]').map do |link|
       { 'lang' => link['hreflang'], 'href' => link['href'] }
     end.sort_by { |item| [item['lang'].to_s, item['href'].to_s] }

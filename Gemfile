@@ -22,5 +22,5 @@ end
 gem "webrick", "~> 1.8"
 
 group :test do
-  gem "html-proofer", "~> 5.0"
+  gem "html-proofer", "~> 5.2"
 end

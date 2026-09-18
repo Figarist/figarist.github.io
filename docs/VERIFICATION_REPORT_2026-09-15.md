@@ -209,6 +209,9 @@ case directions, cross-locale original reviews and the source_only display limit
 - Runtime: Ruby 3.4.8, Bundler 4.0.7, Jekyll 4.4.1
 - Final locked plugin state: Polyglot 1.5.1, HTMLProofer 5.2.2, SEO tag 2.8.0,
   WEBrick 1.9.2
+- Polyglot is constrained to exactly 1.5.1 in both `Gemfile` and `Gemfile.lock`
+  so a future broad dependency update cannot silently restore the rejected 1.14.0
+  output contract.
 
 The final stable production build completed in 28.552 seconds. The reusable
 contract comparison was an exact match against the approved baseline: 105 routes,

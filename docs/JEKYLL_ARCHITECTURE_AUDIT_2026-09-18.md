@@ -431,7 +431,7 @@ commit is intentionally separate from these source/build changes.
 | Ruby | 3.4.8, policy `3.4.x` in `.ruby-version` and CI | Accepted |
 | Bundler | 4.0.7 from `Gemfile.lock` | Accepted |
 | Jekyll | 4.4.1 | Unchanged |
-| Polyglot | 1.5.1 | Retained after failed 1.14.0 pilot |
+| Polyglot | 1.5.1, exact direct constraint | Retained and pinned after failed 1.14.0 pilot |
 | HTMLProofer | 5.2.2, test group only | Accepted |
 | jekyll-seo-tag | 2.8.0 | Phase H deferred because Polyglot did not pass |
 | WEBrick | 1.9.2, local preview only | Security watch remains |

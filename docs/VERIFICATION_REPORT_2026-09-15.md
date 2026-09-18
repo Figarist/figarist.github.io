@@ -245,3 +245,13 @@ See [Polyglot migration evidence](POLYGLOT_MIGRATION_2026-09-18.md).
 Polyglot 1.14.0 is now pinned; Doctor and multilingual pagination pass locally
 and are required CI gates. This supersedes the earlier deferred migration and
 diagnostic-only failure notes.
+
+## SEO Tag migration follow-up (2026-09-18)
+
+`jekyll-seo-tag` 2.9.0 is now pinned after an isolated dependency update and a
+clean production build. Route, canonical, Open Graph, JSON-LD, sitemap, search,
+PWA and size contracts stayed unchanged. Version 2.9.0 intentionally adds
+`twitter:description` and emits Twitter title/image metadata with the correct
+`name` attribute. Its relative-image handling exposed a latent tutoring fallback
+path; the fallback is now root-absolute and all sitemap social-image targets are
+verified to exist locally. See [SEO Tag migration evidence](SEO_TAG_MIGRATION_2026-09-18.md).

@@ -493,6 +493,18 @@ found only the expected GoatCounter “localhost” warning and no JavaScript er
   GitHub Actions execution, deployment, live HTTP redirect status and external
   accessibility certification were not performed.
 
+## Subsequent SEO Tag migration (2026-09-18)
+
+The selective `jekyll-seo-tag` 2.9.0 step was later completed independently of
+the historical audit run. The dependency is constrained to `~> 2.9`. A clean
+build preserved routes, canonical URLs, Open Graph values, JSON-LD, sitemap,
+localized search and PWA output. The new release's relative-image behavior
+exposed a missing leading slash in the tutoring fallback image; correcting it
+restored the existing absolute production URL. Regression coverage now checks
+name-based Twitter metadata, `twitter:description`, same-origin social images
+and local image targets. See `SEO_TAG_MIGRATION_2026-09-18.md` for the current
+evidence; the older deferred statements above remain as historical audit state.
+
 ### Subsequent Polyglot migration
 
 The earlier pilot rejection is superseded by

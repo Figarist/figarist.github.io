@@ -59,4 +59,4 @@ This engineering package is independent of the author-dependent backlog above.
 | HTMLProofer 5.2.2 | Verified in CI | Linux run passed; Windows run still requires local `libcurl.dll` |
 | GitHub Pages action maintenance | Verified live | Current Node 24 action majors; build, deploy and live-domain jobs passed on GitHub-hosted runners |
 | Polyglot 1.14.0 migration | Verified | Doctor, 6+2 pagination, regression, browser and deployment gates passed; live run 35352425957; see POLYGLOT_MIGRATION_2026-09-18.md |
-| Selective SEO plugin update and new audit tooling | Deferred | Not started after the Polyglot stop condition |
+| `jekyll-seo-tag` 2.9.0 migration | Verified locally | Canonical/OG/JSON-LD, sitemap, search and PWA contracts unchanged; Twitter metadata and social-image target regression checks added; live CI/deploy pending |

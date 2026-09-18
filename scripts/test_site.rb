@@ -5,6 +5,7 @@ require 'nokogiri'
 require 'zlib'
 require 'stringio'
 require 'uri'
+require 'time'
 root = ARGV.fetch(0, '_site')
 origin = 'https://sivochka.com'
 retired_origin = 'https://figarist.github.io'
@@ -24,6 +25,18 @@ urls.each do |url|
   doc = Nokogiri::HTML(File.read(file))
   check(doc.at_css('link[rel="canonical"]')&.[]('href') == url, "#{path}: sitemap page canonical")
   check(doc.at_css('meta[property="og:url"]')&.[]('content') == url, "#{path}: sitemap page og:url")
+  og_description = doc.at_css('meta[property="og:description"]')&.[]('content')
+  twitter_description = doc.at_css('meta[name="twitter:description"]')&.[]('content')
+  check(twitter_description == og_description && !twitter_description.to_s.empty?, "#{path}: Twitter description differs from Open Graph")
+  %w[title image].each do |field|
+    check(doc.at_css("meta[name='twitter:#{field}']"), "#{path}: missing name-based Twitter #{field}")
+    check(!doc.at_css("meta[property='twitter:#{field}']"), "#{path}: obsolete property-based Twitter #{field}")
+  end
+  og_image = doc.at_css('meta[property="og:image"]')&.[]('content')
+  image_uri = URI(og_image)
+  check(image_uri.scheme == 'https' && image_uri.host == URI(origin).host, "#{path}: social image is outside the canonical origin")
+  image_path = image_uri.path.sub(%r{\A/}, '')
+  check(File.file?(File.join(root, image_path)), "#{path}: social image target is missing: /#{image_path}")
   check(!doc.at_css('meta[name="robots"]')&.[]('content').to_s.include?('noindex'), "#{path}: noindex page in sitemap")
   structured_data = doc.css('script[type="application/ld+json"]').map { |block| JSON.parse(block.text) }
   seo_schema = structured_data.find { |schema| schema['url'] }
@@ -34,6 +47,8 @@ urls.each do |url|
     check(breadcrumb && breadcrumb['@id'] == "#{url}#breadcrumb", "#{path}: breadcrumb JSON-LD ID")
     article = graph.find { |item| %w[Article BlogPosting].include?(item['@type']) }
     if article
+      modified_time = doc.at_css('meta[property="article:modified_time"]')&.[]('content')
+      check(modified_time && Time.iso8601(modified_time), "#{path}: missing or invalid article:modified_time")
       check(article['@id'] == "#{url}#article", "#{path}: article JSON-LD ID")
       check(article.dig('mainEntityOfPage', '@id') == url, "#{path}: article JSON-LD mainEntityOfPage")
       check(breadcrumb.fetch('itemListElement').last['item'] == url, "#{path}: breadcrumb current-page URL")

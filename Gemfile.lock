@@ -102,7 +102,7 @@ GEM
       jekyll (>= 3.3, < 5.0)
     jekyll-sass-converter (3.1.0)
       sass-embedded (~> 1.75)
-    jekyll-seo-tag (2.8.0)
+    jekyll-seo-tag (2.9.0)
       jekyll (>= 3.8, < 5.0)
     jekyll-spaceship (0.10.2)
       gemoji (~> 3.0)
@@ -185,7 +185,7 @@ DEPENDENCIES
   jekyll-polyglot (= 1.14.0)
   jekyll-pwa-workbox
   jekyll-redirect-from
-  jekyll-seo-tag
+  jekyll-seo-tag (~> 2.9)
   jekyll-spaceship
   jekyll-toc
   webrick (~> 1.8)
@@ -234,7 +234,7 @@ CHECKSUMS
   jekyll-pwa-workbox (5.1.41) sha256=8192f6aee99c2c76c2638fd2bb5d9760d04213a1c138ce3f3339d31abab1e4e0
   jekyll-redirect-from (0.16.0) sha256=6635cae569ef9b0f90ffb71ec014ba977177fafb44d32a2b0526288d4d9be6db
   jekyll-sass-converter (3.1.0) sha256=83925d84f1d134410c11d0c6643b0093e82e3a3cf127e90757a85294a3862443
-  jekyll-seo-tag (2.8.0) sha256=3f2ed1916d56f14ebfa38e24acde9b7c946df70cb183af2cb5f0598f21ae6818
+  jekyll-seo-tag (2.9.0) sha256=0260015a8e1df9bf195cdfb0c675b7b2883fd8cbf12556e1c1cbe36a831c6852
   jekyll-spaceship (0.10.2) sha256=f0fb49b1a50f745b278378557460d898337bf6b28a9417f1e55825bc11b94b90
   jekyll-toc (0.19.0) sha256=8a8270f7e8e3d849e2035710b1713d0af5e2185a4bfaca70f9192ecf5ac50668
   jekyll-watch (2.2.1) sha256=bc44ed43f5e0a552836245a54dbff3ea7421ecc2856707e8a1ee203a8387a7e1

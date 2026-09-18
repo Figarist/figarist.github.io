@@ -60,5 +60,5 @@ This engineering package is independent of the author-dependent backlog above.
 | GitHub Pages action maintenance | Verified live | Current Node 24 action majors; build, deploy and live-domain jobs passed on GitHub-hosted runners |
 | Polyglot 1.14.0 migration | Verified | Doctor, 6+2 pagination, regression, browser and deployment gates passed; live run 35352425957; see POLYGLOT_MIGRATION_2026-09-18.md |
 | `jekyll-seo-tag` 2.9.0 migration | Verified live | Canonical/OG/JSON-LD, sitemap, search and PWA contracts unchanged; Twitter/social-image regression checks and live run 35354239246 passed |
-| Dependency freshness sweep | Verified locally | All resolved gems current; Ruby advisory audit clean; Mermaid 12.0.0, MathJax 4.1.3, Lunr 2.3.9 and current GoatCounter asset verified; live CI/deploy pending |
+| Dependency freshness sweep | Verified live | All resolved gems current; Ruby advisory audit clean; vendored assets, browser rendering and live run 35356518797 passed |
 | Ruby 4 runtime migration | Deferred | Ruby 4.0.7 is newer than the supported 3.4 line, but current Jekyll dependencies warn about removed stdlib gems and Windows `fiddle 1.1.8` requires an unavailable libffi toolchain; migrate separately |

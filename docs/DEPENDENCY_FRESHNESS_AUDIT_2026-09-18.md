@@ -38,7 +38,12 @@ upstream-supported rolling action tag.
 - 105 HTML pages and 5,942 link references: 0 errors.
 - Route, canonical, sitemap, search and PWA contracts: unchanged.
 - Ruby advisory database: 1,245 advisories checked; no vulnerabilities found.
-- Live CI and deployment: pending the authorized push.
+- GitHub Actions run
+  [35356518797](https://github.com/Figarist/figarist.github.io/actions/runs/35356518797):
+  dependency audit, vendor checks, build, HTMLProofer, deployment and live-domain
+  verification PASS.
+- Live browser read-back: three Mermaid diagrams and three MathJax expressions
+  rendered; no JavaScript errors; canonical remained unchanged.
 
 ## Honest runtime boundary
 

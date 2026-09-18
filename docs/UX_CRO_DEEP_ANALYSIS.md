@@ -43,7 +43,7 @@ Inspect actual mobile behavior before changing games: the tutoring Hero currentl
 uses imagery and a project link, so an active canvas trapping scrolling there
 is not established.
 
-Inspect education content and incoming links before changing navigation or routes.
+Keep educational articles in the blog and inspect incoming links before changing navigation or routes.
 A static build does not itself configure server-side 301 redirects.
 
 Use existing analytics only after inspecting events and data. A CTA click is not

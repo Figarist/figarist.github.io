@@ -26,7 +26,7 @@ graph LR
     subgraph Content
         Posts["_posts/ (×4 langs)"]
         Drafts["_drafts/ (WIP)"]
-        Edu["_education/ (collections)"]
+        Blog["_posts/ (author and educational content)"]
         Langs["_data/ (EN, UK, RU, KO)"]
     end
     subgraph CMS
@@ -113,7 +113,6 @@ figarist.github.io/
 ├── _layouts/
 │   ├── default.html           # Shell: head → skip-link → header → main → footer → search
 │   ├── post.html              # Blog posts: TOC, hierarchical breadcrumbs, JSON-LD, related
-│   ├── education.html         # Tutorials: level badge, hierarchical breadcrumbs, tags, JSON-LD
 │   └── archive.html           # Auto-generated category/tag pages with breadcrumb nav
 │
 ├── _includes/
@@ -140,8 +139,8 @@ figarist.github.io/
 │   ├── _card-stack.scss       # Tech stack blueprint grid
 │   ├── _card-shrine.scss      # Shrine gradient card
 │   ├── _card-python.scss      # Terminal mockup card
-│   ├── _card-feed.scss        # All feed cards (blog, vr, gamedev, personal, edu)
-│   ├── _hub-pages.scss        # Blog/education/collection/404 hub pages
+│   ├── _card-feed.scss        # All feed cards (blog, vr, gamedev, personal)
+│   ├── _hub-pages.scss        # Blog/collection/404 hub pages
 │   ├── _post.scss             # Article typography, breadcrumbs, related posts
 │   ├── _search.scss           # Search modal overlay
 │   ├── _components.scss       # Buttons, badges, pagination, banners
@@ -159,9 +158,7 @@ figarist.github.io/
 │
 ├── _posts/                    # Blog posts (×4 langs per article)
 ├── _drafts/                   # WIP posts (not published, git-tracked)
-├── _education/                # Tutorial collection
 ├── blog/index.html            # Blog hub with category/tag pills + pagination
-├── education/index.html       # Education hub
 ├── collection/index.html      # Shrine/collection hub
 ├── 404.html                   # Custom 404 page
 │
@@ -222,7 +219,6 @@ The site uses [Front Matter CMS](https://frontmatter.codes/) — a VS Code exten
 | ----------- | ------------- | ---------------------------------------------------- |
 | **Post**    | `_posts/`     | title, description, date, lang, **page_id**, permalink, author, **image_alt**, image, categories, tags, published, **focus_keyword, seo_title, seo_type, canonical_url, robots, noindex, sitemap**, *related_posts, featured, hidden, last_modified_at* |
 | **Post**    | `_drafts/`    | Same as Post — draft toggle hides from build         |
-| **Education** | `_education/` | title, description, excerpt, **page_id**, level, sort_order, author, **image_alt**, image, tags, published, **focus_keyword, seo_title, robots, noindex, sitemap**, *related_posts, featured, hidden, last_modified_at* |
 
 - `author` field is a **data file picker** reading `_data/authors.yml` directly — no manual input
 - `image` field links to `assets/images/` with a visual picker
@@ -253,7 +249,7 @@ The site uses [Front Matter CMS](https://frontmatter.codes/) — a VS Code exten
 ### CMS Workflow: New Post
 
 1. Open **Front Matter** panel in VS Code (`Ctrl+Shift+P → Front Matter: Open Dashboard`)
-2. Click **New content** → select **Post** or **Education**
+2. Click **New content** → select **Post**; educational materials also belong in `_posts/` with the appropriate category or tags.
 3. Fill required fields (title, lang, permalink, categories, tags)
 4. Write content — use **Snippets** panel for Mermaid/YouTube/Vimeo/Figma/callouts
 5. Run **🔄 Sync All Languages** action → stubs generated + `page_id` synced instantly
@@ -355,7 +351,7 @@ Custom `sitemap.xml` (NOT a plugin) generates a full XML:
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
         xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>https://sivochka.com/education/</loc>
+    <loc>https://sivochka.com/blog/</loc>
     <lastmod>2026-03-04T14:18:27+00:00</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="..." />
     <xhtml:link rel="alternate" hreflang="uk" href="..." />
@@ -382,11 +378,11 @@ Every page has:
 - **Sitemap**: Custom XML sitemap at `/sitemap.xml` (with hreflang alternates)
 - **Skip Link**: `<a href="#main-content">` for accessibility (visually hidden)
 
-Post/Education pages additionally have:
+Blog post pages additionally have:
 
 - **Modular JSON-LD**: Unified schema logic via `_includes/metadata/json-ld.html`
   - `@type: BlogPosting` for posts
-  - `@type: Article` for education/tutorials
+  - `@type: BlogPosting` for author and educational articles
 - **Home Page**: `is_home: true` front matter triggers `Person` + `WebSite` schemas
 - **Related Posts**: Decoupled bento logic in `_includes/related-bento.html`
 - **Safe-Area Hygiene**: Dynamic `env(safe-area-inset)` support in SCSS

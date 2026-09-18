@@ -30,6 +30,12 @@ localize_metadata = lambda do |page, payload|
     payload['page']['title'] = title if title
   end
 
+  if page.data['description_key']
+    description = localized.fetch('strings', {})[page.data['description_key']]
+    page.data['description'] = description if description
+    payload['page']['description'] = description if description
+  end
+
   next unless page.data['tutoring'] || page.data['is_home']
 
   tutoring = localized.fetch('tutoring')

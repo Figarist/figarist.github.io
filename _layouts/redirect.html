@@ -1,0 +1,18 @@
+{% assign redirect_language = page.lang | default: site.default_lang %}
+{% assign redirect_target = page.redirect_target | default: '/blog/' %}
+{% assign redirect_target_url = page.redirect.to | default: redirect_target | absolute_url %}
+<!DOCTYPE html>
+<html lang="{{ redirect_language }}">
+  <head>
+    <meta charset="utf-8">
+    <title>Redirecting&hellip;</title>
+    <link rel="canonical" href="{{ redirect_target_url }}">
+    <meta http-equiv="refresh" content="0; url={{ redirect_target | relative_url }}">
+    <meta name="robots" content="noindex">
+    <script>location.replace({{ redirect_target | relative_url | jsonify }});</script>
+  </head>
+  <body>
+    <h1>Redirecting&hellip;</h1>
+    <p><a href="{{ redirect_target | relative_url }}">Continue to the Workshop.</a></p>
+  </body>
+</html>

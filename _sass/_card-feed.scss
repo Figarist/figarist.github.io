@@ -33,10 +33,6 @@
   border-left: 4px solid var(--accent-pink-d);
 }
 
-.card--feed-edu {
-  border-left: 4px solid var(--accent-yellow);
-}
-
 /* ── Post list ── */
 .post-list {
   list-style: none;
@@ -113,21 +109,6 @@
   font-size: 0.82rem;
   color: var(--text-muted);
   margin-bottom: 4px;
-}
-
-/* ── Education level badge ── */
-.edu-level {
-  display: inline-block;
-  font-size: 0.62rem;
-  font-weight: 600;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  padding: 1px 7px;
-  border-radius: 99px;
-  background: rgba(247, 224, 74, 0.22);
-  color: #8a6f00;
-  font-family: var(--font-mono);
-  margin-top: 2px;
 }
 
 /* ── Gallery grid (for collection page) ── */

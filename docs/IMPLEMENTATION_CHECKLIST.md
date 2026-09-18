@@ -17,7 +17,7 @@ Dependencies block only the affected task.
 | UX-06 | P1 | Needs author | First genuine case, then two more | DEC-02 supplied; actual schema and publication gates pass |
 | UX-07 | P1 | Verified | Compact lesson conditions | Existing terms accessible; semantic layout; keyboard/mobile checks |
 | BLOG-01 | P1 | Verified | Quadrilingual technical blog content sync | Spaceship & Minecraft translated across EN, UK, RU, KO; 0 missing translations; search.json indexed; 105 pages 0 link errors |
-| NAV-01 | P2 | Needs author | Education hub treatment | DEC-03 answered; published routes preserved; link audit passes |
+| NAV-01 | P2 | Verified | Merge Education hub into the localized Workshop | Workshop copy, education architecture removal, localized legacy redirects and link audit verified |
 | TRAFFIC-01 | P2 | Needs author | External profile destinations | DEC-06 authorization; correct localized URLs read back |
 | SEO-01 | P2 | Needs author | Search Console submission | DEC-06 access/authorization; recorded outcome |
 | CONTENT-01 | P3 | Deferred | Optional portrait and later videos | Actual assets, permission and localized alt text |
@@ -36,6 +36,9 @@ secondary information; price and access to cancellation/payment terms remain cle
 
 No conversion uplift is established. Track implementation quality separately
 from later visitor and inquiry outcomes.
+
+NAV-01 decision: Education is merged into Workshop; localized legacy routes are
+preserved through redirects to the matching localized Workshop page.
 
 ## Updating status
 

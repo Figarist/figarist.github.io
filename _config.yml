@@ -33,11 +33,6 @@ sass:
   sourcemap: never
 
 # ── Collections ──────────────────────────────────────────────
-collections:
-  education:
-    output: true
-    permalink: /education/:title/
-
 # Exclude dev artefacts from the build
 exclude:
   - README.md
@@ -76,6 +71,9 @@ plugins:
   - jekyll-toc
   - jekyll-last-modified-at
   - jekyll-archives
+
+redirect_from:
+  json: false
 
 # ── Pagination Settings ──────────────────────────────────────
 pagination:
@@ -126,12 +124,6 @@ defaults:
       type: "pages"
     values:
       layout: "default"
-  - scope:
-      path: ""
-      type: "education"
-    values:
-      layout: "education"
-
 # ── Permalink ─────────────────────────────────────────────────
 permalink: /blog/:year/:month/:day/:title/
 

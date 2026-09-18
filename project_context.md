@@ -21,7 +21,7 @@ graph TD
         H["index.html (Hub)"]
         P["_posts/*.md (×4 langs)"]
         Drafts["_drafts/*.md (WIP)"]
-        E["_education/*.md (×4 langs)"]
+        E["Educational articles in _posts/*.md (×4 langs)"]
         D["_data/{en,uk,ru,ko}/strings.yml"]
         Authors["_data/authors.yml"]
         S["_sass/ (20 partials)"]
@@ -173,12 +173,10 @@ hreflang auto-inject: based on matching permalink values
 | ------------- | ------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | **Post**      | `_posts/`     | layout, title, description, date, lang, **page_id**, permalink, author, **image_alt**, image, categories, tags, published, **focus_keyword, seo_title, seo_type, canonical_url, robots, noindex, sitemap**, _related_posts, featured, hidden, last_modified_at_ |
 | **Post**      | `_drafts/`    | Same fields. `published: false` → not built by Jekyll                                                                                                                                                                                                           |
-| **Education** | `_education/` | title, description, excerpt, **page_id**, author, lang, permalink, level, sort*order, tags, **image_alt**, image, published, **focus_keyword, seo_title, robots, noindex, sitemap**, \_related_posts, featured, hidden, last_modified_at*                       |
 
 - **`author`** — data file picker from `_data/authors.yml`. Do not enter manually.
 - **`image`** — visual picker from `assets/images/`
 - **`published`** — draft toggle (Jekyll `published: false` excludes file from build)
-- **`level`** — `beginner | intermediate | advanced` (for Education)
 
 ### Editor Snippets (18 total)
 
@@ -204,7 +202,7 @@ hreflang auto-inject: based on matching permalink values
 
 ### Workflow: New Post
 
-1. VS Code → Front Matter panel → **New content** → Post or Education
+1. VS Code → Front Matter panel → **New content** → Post; use education-related categories or tags for learning materials.
 2. Fill fields (title, lang=en, permalink, categories, tags)
 3. Write content, insert blocks via **Snippets**
 4. Click **🔄 Sync All Languages** → stubs + `page_id` synced

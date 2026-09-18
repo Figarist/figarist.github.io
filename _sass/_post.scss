@@ -69,14 +69,6 @@
   margin-bottom: 2rem;
 }
 
-.edu-meta {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  margin-bottom: 1rem;
-  flex-wrap: wrap;
-}
-
 /* ── Translation Warning Banner ─────────────────────────────── */
 .banner--translation-warning {
   background: rgba(255, 170, 0, 0.08);
@@ -124,16 +116,14 @@
   color: var(--text-primary);
 }
 
-.post-container [itemprop="articleBody"] a,
-.post-container .edu-body a {
+.post-container [itemprop="articleBody"] a {
   color: var(--accent-blue-d);
   text-decoration: underline;
   text-underline-offset: 3px;
   transition: color var(--t-fast);
 }
 
-.post-container [itemprop="articleBody"] a:hover,
-.post-container .edu-body a:hover {
+.post-container [itemprop="articleBody"] a:hover {
   color: #1a6f80;
 }
 

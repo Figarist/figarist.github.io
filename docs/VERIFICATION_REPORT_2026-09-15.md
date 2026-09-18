@@ -154,3 +154,48 @@ case directions, cross-locale original reviews and the source_only display limit
   - All 4 blog index feeds display 2 published cards in native language without empty fallback states.
   - `search.json` across all 4 locales includes both articles with localized title and excerpt.
   - Legacy redirect route `/blog/test/` preserved across all 4 locales.
+
+## NAV-01 Education Hub Merge & Localized Workshop Redirects
+
+- Task: NAV-01
+- Date: 2026-09-18
+- Revision: uncommitted on `main` at `57d1f09`
+- Decision: Education is merged into the localized Workshop; educational posts remain normal blog posts with their `education` category/tag.
+- Changed files:
+  - `_config.yml`, `frontmatter.json`, `search.json`, `sitemap.xml`, `scripts/public_routes.json`
+  - `_data/{en,uk,ru,ko}/strings.yml`, `blog/index.html`, `index.html`
+  - `_includes/{breadcrumbs,footer,head,header,language-switcher,post-labels}.html`
+  - `_includes/metadata/json-ld.html`, `_plugins/localized_page_metadata.rb`
+  - `_sass/{_card-feed,_cards,_grid,_hub-pages,_post}.scss`
+  - deleted `education/index.html` and `_layouts/education.html`
+  - new `_layouts/redirect.html` and `redirects/education-{en,uk,ru,ko}.html`
+  - new `scripts/test_nav_01.rb`
+  - `README.md`, `project_context.md`, `docs/{AUTHOR_ACTION_GUIDE,IMPLEMENTATION_CHECKLIST,UX_CRO_DEEP_ANALYSIS,deployment_guide}.md`
+  - this verification report
+- Redirect mapping:
+
+  | Legacy route | Workshop target |
+  | --- | --- |
+  | `/education/` | `/blog/` |
+  | `/uk/education/` | `/uk/blog/` |
+  | `/ru/education/` | `/ru/blog/` |
+  | `/ko/education/` | `/ko/blog/` |
+
+- Executed automated commands:
+  - `rtk proxy bundle exec jekyll clean` (PASS)
+  - `rtk powershell -NoProfile -Command '$env:JEKYLL_ENV="production"; rtk proxy bundle exec jekyll build --destination _site'` (PASS; clean production build)
+  - `rtk proxy bundle exec ruby scripts/test_nav_01.rb` (PASS: localized copy, removed architecture, redirects, archives, search, sitemap and metadata)
+  - `rtk proxy bundle exec ruby scripts/test_tutoring_content.rb` (PASS)
+  - `rtk proxy bundle exec ruby scripts/test_tutoring_build.rb` (PASS)
+  - `rtk proxy node scripts/test_service_worker.cjs` (PASS)
+  - `rtk proxy bundle exec ruby scripts/verify_author_ready.rb` (PASS: 0 structural errors; portrait and student cases remain pending)
+  - `rtk proxy bundle exec ruby scripts/test_site.rb` (PASS: 28 pages, 24 tutoring routes, metadata, hreflang, search, sitemap, JSON-LD and budgets)
+  - `rtk proxy bundle exec ruby scripts/audit_links.rb` (PASS: 105 HTML pages, 5942 link references, 0 errors)
+  - `rtk git diff --check` (PASS)
+- Browser observations from the generated `_site` served at `http://127.0.0.1:4005/`:
+  - Desktop 1280 px: Workshop H1/subtitle, category links, two blog posts, Workshop desktop/mobile navigation labels, breadcrumb and footer are visible; `scrollWidth` 1273 <= viewport 1280.
+  - Mobile 390×844: responsive header and hamburger menu render correctly; expanded menu exposes Lessons, Collection, Workshop and Studio; `scrollWidth` 383 <= viewport 390.
+  - `/blog/`, `/uk/blog/`, `/ru/blog/`, and `/ko/blog/` show the requested localized Workshop names and subtitles.
+  - Browser navigation from each legacy Education route reaches its matching localized Workshop target.
+- Results: NAV-01 is locally verified and the checklist status is `Verified`. No empty Education card or Education navigation link remains; the educational post, category archive and tag archive remain available in every locale.
+- Redirect status and limits: `jekyll-redirect-from` generates static HTML redirect pages with canonical, JavaScript, meta-refresh and crawlable fallback links. This is not a server-level HTTP 301/308. The report proves generated files and local browser behavior only; no live deployment, production HTTP status or accessibility certification was performed. No push or deployment was performed.

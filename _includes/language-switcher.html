@@ -14,6 +14,7 @@
       {% break %}
     {% endif %}
   {% endfor %}
+  {% assign bare_url = bare_url | remove: 'index.html' %}
   {% if bare_url == '' %}{% assign bare_url = '/' %}{% endif %}
   {% for lang in site.languages %}
     {% if lang == site.active_lang %}

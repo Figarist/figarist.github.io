@@ -57,6 +57,6 @@ This engineering package is independent of the author-dependent backlog above.
 | Dead sitemap dependency and ignored minifier option | Verified | Stable contract comparison and site/link gates |
 | Frozen-string compatibility patch | Verified | Single named plugin patch; stable contract unchanged |
 | HTMLProofer 5.2.2 | Verified locally as dependency | CI command is wired; Windows run is blocked by missing `libcurl.dll` |
-| GitHub Pages action maintenance | Verified locally | YAML and command-order review; live run remains unverified until push |
+| GitHub Pages action maintenance | Verified live | Current Node 24 action majors; build, deploy and live-domain jobs passed on GitHub-hosted runners |
 | Polyglot 1.14.0 migration | Deferred | Rolled back because contract changed four Workshop archive HTML outputs and Doctor still failed; `Gemfile` is pinned to verified 1.5.1 |
 | Selective SEO plugin update and new audit tooling | Deferred | Not started after the Polyglot stop condition |

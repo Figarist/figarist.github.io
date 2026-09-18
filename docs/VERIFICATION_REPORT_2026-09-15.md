@@ -232,3 +232,9 @@ canonical/hreflang drift, locale-prefix duplication or redirect-target drift.
 The only console message was the expected GoatCounter localhost warning. Live
 GitHub Actions, deployment, live HTTP status and external accessibility remain
 unverified because no push or deployment was authorized.
+
+Post-authorization deployment run `35344358696` passed its build, HTMLProofer,
+artifact upload, Pages deployment and live-domain verification jobs. Its only
+action-runtime warning identified `actions/cache@v4` as Node 20-based; the
+workflow was subsequently moved to the current Node 24 `actions/cache@v6` major
+for a clean follow-up deployment.

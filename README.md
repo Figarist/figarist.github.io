@@ -82,10 +82,10 @@ exposed to an untrusted network.
 The accepted hardening commits align Ruby 3.4.x across local policy and CI,
 preserve Git history for content timestamps, remove dead/ignored configuration,
 update test-only HTMLProofer to 5.2.2 and refresh GitHub Pages actions. The
-multilingual production contract remains on Polyglot 1.5.1: a controlled 1.14.0
-pilot was rolled back because it changed four Workshop archive HTML outputs and
-did not make `jekyll doctor` green. Do not upgrade Polyglot or the SEO plugin
-without rerunning the route/SEO/PWA contract checks.
+multilingual build uses Polyglot 1.14.0. The four Workshop HTML differences were
+verified as serialization-only changes. A small read-lifecycle hook initializes
+Polyglot for `jekyll doctor`; diagnostics and multilingual pagination are CI
+gates. Do not upgrade plugins without rerunning the route/SEO/PWA checks.
 
 ---
 

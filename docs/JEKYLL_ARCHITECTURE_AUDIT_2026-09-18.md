@@ -492,3 +492,11 @@ found only the expected GoatCounter “localhost” warning and no JavaScript er
 - Selective `jekyll-seo-tag` 2.9.0, `bundler-audit`, new runtime plugins, live
   GitHub Actions execution, deployment, live HTTP redirect status and external
   accessibility certification were not performed.
+
+### Subsequent Polyglot migration
+
+The earlier pilot rejection is superseded by
+[the migration report](POLYGLOT_MIGRATION_2026-09-18.md). Its four HTML changes
+were serialization-only. Polyglot is now pinned to 1.14.0; the obsolete
+frozen-string patch was removed, Doctor initialization fixed, and a multilingual
+pagination regression gate added. The sections above retain historical evidence.

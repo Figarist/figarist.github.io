@@ -74,12 +74,13 @@ generated `_site` with the saved baseline and stop on any unexplained route,
 HTML, SEO, sitemap, search, PWA, size or warning diff. Do not commit `_site` or
 the local QA manifests.
 
-`bundle exec jekyll doctor` is not currently a green gate: Polyglot 1.5.1 fails
-before language initialization at `@languages.each`. Treat it as a documented
-diagnostic limitation while the production build and dedicated site gates remain
-green. A Polyglot 1.14.0 pilot was rolled back after changing four Workshop
-archive HTML outputs; do not retry that migration without a new isolated contract
-experiment.
+Polyglot is pinned to 1.14.0. Run `bundle exec jekyll doctor` and
+`bundle exec ruby scripts/test_polyglot_pagination.rb` before publishing; both
+are CI gates. `_plugins/polyglot_read_lifecycle.rb` initializes language state
+for direct site reads used by Doctor. The obsolete frozen-string patch was
+removed because upstream now duplicates output itself. Keep
+`parallel_localization: false`. Pagination permalinks are relative to the hub:
+`/page/:num/` produces `/blog/page/2/`, without a duplicated `/blog/` prefix.
 
 The current WEBrick advisory is a local-server watch item. Keep preview bound to
 `127.0.0.1`; the deployed artifact is static Pages output and does not use

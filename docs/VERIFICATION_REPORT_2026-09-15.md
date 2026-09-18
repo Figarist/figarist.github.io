@@ -238,3 +238,10 @@ artifact upload, Pages deployment and live-domain verification jobs. Its only
 action-runtime warning identified `actions/cache@v4` as Node 20-based; the
 workflow was subsequently moved to the current Node 24 `actions/cache@v6` major
 for a clean follow-up deployment.
+
+## Polyglot migration follow-up (2026-09-18)
+
+See [Polyglot migration evidence](POLYGLOT_MIGRATION_2026-09-18.md).
+Polyglot 1.14.0 is now pinned; Doctor and multilingual pagination pass locally
+and are required CI gates. This supersedes the earlier deferred migration and
+diagnostic-only failure notes.

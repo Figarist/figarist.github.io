@@ -51,6 +51,12 @@ jobs:
       - name: Validate tutoring content rules
         run: bundle exec ruby scripts/test_tutoring_content.rb
 
+      - name: Check Jekyll diagnostics
+        run: bundle exec jekyll doctor
+
+      - name: Validate multilingual pagination
+        run: bundle exec ruby scripts/test_polyglot_pagination.rb
+
       - name: Validate tutoring build guards
         run: bundle exec ruby scripts/test_tutoring_build.rb
 

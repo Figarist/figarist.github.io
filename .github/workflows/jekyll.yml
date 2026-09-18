@@ -51,6 +51,12 @@ jobs:
       - name: Validate tutoring content rules
         run: bundle exec ruby scripts/test_tutoring_content.rb
 
+      - name: Audit Ruby dependencies
+        run: bundle exec bundle-audit check --update
+
+      - name: Validate vendored browser libraries
+        run: bundle exec ruby scripts/test_vendor_assets.rb
+
       - name: Check Jekyll diagnostics
         run: bundle exec jekyll doctor
 

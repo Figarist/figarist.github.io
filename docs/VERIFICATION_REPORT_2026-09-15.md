@@ -255,3 +255,6 @@ PWA and size contracts stayed unchanged. Version 2.9.0 intentionally adds
 `name` attribute. Its relative-image handling exposed a latent tutoring fallback
 path; the fallback is now root-absolute and all sitemap social-image targets are
 verified to exist locally. See [SEO Tag migration evidence](SEO_TAG_MIGRATION_2026-09-18.md).
+GitHub Actions run 35354239246 subsequently passed build, Linux HTMLProofer,
+deployment and live-domain verification; live Twitter and article metadata were
+also read back from `https://sivochka.com`.

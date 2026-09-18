@@ -44,11 +44,16 @@ tutoring route.
   Twitter descriptions, correct name-based Twitter tags, a same-origin HTTPS
   social image and a corresponding generated local image target.
 
-## Remaining verification boundary
+## Live verification
 
-GitHub-hosted CI, Pages deployment and live-origin metadata are pending until
-this change is pushed. Windows HTMLProofer remains unavailable locally because
-the native `libcurl.dll` runtime is absent; Linux CI is the authoritative gate.
+- GitHub Actions run
+  [35354239246](https://github.com/Figarist/figarist.github.io/actions/runs/35354239246):
+  build, Linux HTMLProofer, deploy and live-domain jobs PASS.
+- The live tutoring page emits `twitter:description`, name-based Twitter title
+  and image tags, and the correct root social-image URL.
+- A live article emits a valid `article:modified_time` value.
+- Windows HTMLProofer remains unavailable locally because the native
+  `libcurl.dll` runtime is absent; the authoritative Linux CI gate passed.
 
 ## Upstream source
 

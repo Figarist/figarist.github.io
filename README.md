@@ -60,13 +60,22 @@ git clone https://github.com/figarist/figarist.github.io.git
 cd figarist.github.io
 bundle install
 
+# Runtime policy: Ruby 3.4.x and the Bundler version recorded in Gemfile.lock.
+# The CI workflow uses the same Ruby minor policy.
+Get-Content .ruby-version
+bundle --version
+
 # Production (full optimization + PWA + minification)
 $env:JEKYLL_ENV = 'production'
-bundle exec jekyll serve
+bundle exec jekyll serve --host 127.0.0.1
 
 # Development (fast builds, no minification, no PWA)
 bundle exec jekyll serve --config _config.yml,_config_dev.yml
 ```
+
+The local preview is intentionally bound to loopback. This repository publishes
+static Pages artifacts; WEBrick is only a development server and must not be
+exposed to an untrusted network.
 
 ---
 

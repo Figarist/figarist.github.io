@@ -63,6 +63,9 @@ graph TD
 ## 🔧 TECHNICAL CORE
 
 - **Jekyll 4.4** — Static Site Generator
+- **Runtime policy** — Ruby 3.4.x via `.ruby-version`; CI uses the same minor
+  version and the Bundler version recorded in `Gemfile.lock` (4.0.7 at the
+  current baseline)
 - **Frontmatter CMS** — VS Code extension as a headless CMS. Manages front matter, content, images, and Git directly from the editor. Configuration file: `frontmatter.json`
 - **Polyglot** — Quadrilingual build (EN, UK, RU, KO). DRY: one `index.html`, text in `_data/[lang]/strings.yml`
 - **PWA (Workbox)** — Service Worker + `manifest.json`. Offline-first approach

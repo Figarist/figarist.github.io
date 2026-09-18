@@ -3,12 +3,28 @@
 Authoritative CI: [jekyll.yml](../.github/workflows/jekyll.yml). [Hub](README.md).
 Run from the repository root in PowerShell. RTK prefixes follow local instructions.
 
+## Runtime policy
+
+The supported build runtime is Ruby 3.4.x, recorded in `.ruby-version` and used
+by CI. `Gemfile.lock` pins Bundler 4.0.7; do not install an unrelated Bundler
+version implicitly. Verify the active toolchain with:
+
+```powershell
+rtk proxy ruby --version
+rtk proxy bundle --version
+rtk proxy bundle exec jekyll --version
+```
+
 ## Preview
 
 ```powershell
 rtk proxy bundle install
-rtk proxy bundle exec jekyll serve --config _config.yml,_config_dev.yml
+rtk proxy bundle exec jekyll serve --config _config.yml,_config_dev.yml --host 127.0.0.1
 ```
+
+The preview server is for local development only and is bound to `127.0.0.1`.
+The site is deployed as static GitHub Pages output; do not expose WEBrick to an
+untrusted network.
 
 ## Source and production checks
 

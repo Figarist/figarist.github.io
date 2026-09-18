@@ -38,3 +38,18 @@ deployment checks run in the publication workflow. Windows HTMLProofer still
 requires local libcurl. External accessibility certification is not claimed.
 
 Upstream: https://github.com/untra/polyglot/releases/tag/1.14.0
+
+## Publication evidence
+
+Source commit `e0982ba`; lock metadata correction `0273b55`.
+The first CI run stopped before build because the lock retained Polyglot's old
+Jekyll requirement. `bundle update jekyll-polyglot --conservative` corrected it
+to `jekyll (>= 4.0, >= 3.0)` without changing other package versions. Frozen
+installation then passed locally and in CI.
+
+[Run 35352425957](https://github.com/Figarist/figarist.github.io/actions/runs/35352425957)
+passed build (including Doctor, pagination and Linux HTMLProofer), Pages deploy,
+and live verification of 48 sitemap URLs and domain redirects. CI used Ruby
+3.4.10; local validation used 3.4.8, both within the declared 3.4.x policy.
+All four live Education routes were also opened in a browser and reached the
+matching Workshop with correct heading/canonical and two post links each.

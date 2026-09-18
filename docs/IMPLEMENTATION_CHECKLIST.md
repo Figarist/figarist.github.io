@@ -55,8 +55,8 @@ This engineering package is independent of the author-dependent backlog above.
 | Ruby/Bundler runtime policy | Verified | `.ruby-version`, CI runtime check, Ruby 3.4.8 local build |
 | Git-derived `last_modified_at` history | Verified | Full-vs-shallow experiment, `test_last_modified_history.rb`, CI `fetch-depth: 0` |
 | Dead sitemap dependency and ignored minifier option | Verified | Stable contract comparison and site/link gates |
-| Polyglot read lifecycle | Verified locally | Doctor passes via after_init preparation; obsolete frozen-string patch removed |
-| HTMLProofer 5.2.2 | Verified locally as dependency | CI command is wired; Windows run is blocked by missing `libcurl.dll` |
+| Polyglot read lifecycle | Verified | Doctor passes locally and in Linux CI via after_init preparation; obsolete frozen-string patch removed |
+| HTMLProofer 5.2.2 | Verified in CI | Linux run passed; Windows run still requires local `libcurl.dll` |
 | GitHub Pages action maintenance | Verified live | Current Node 24 action majors; build, deploy and live-domain jobs passed on GitHub-hosted runners |
-| Polyglot 1.14.0 migration | Verified locally | Serialization-only Workshop differences approved; Doctor, 6+2 pagination, regression and browser checks pass; see POLYGLOT_MIGRATION_2026-09-18.md |
+| Polyglot 1.14.0 migration | Verified | Doctor, 6+2 pagination, regression, browser and deployment gates passed; live run 35352425957; see POLYGLOT_MIGRATION_2026-09-18.md |
 | Selective SEO plugin update and new audit tooling | Deferred | Not started after the Polyglot stop condition |

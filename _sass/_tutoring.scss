@@ -1001,6 +1001,39 @@
   }
 }
 
+@media (max-width: 640px) and (orientation: landscape), (max-height: 480px) {
+  .tutoring-mobile-bar {
+    display: none !important;
+  }
+}
+
+@media (max-width: 360px) {
+  .tutoring-mobile-bar {
+    padding: 8px 10px;
+    padding-bottom: max(8px, env(safe-area-inset-bottom));
+
+    &__inner {
+      gap: 8px;
+    }
+
+    &__price strong {
+      font-size: 0.84rem;
+      white-space: nowrap;
+    }
+
+    &__price small {
+      font-size: 0.68rem;
+      white-space: nowrap;
+    }
+
+    .tutoring-button {
+      padding: 8px 12px;
+      font-size: 0.78rem;
+      line-height: 1.25;
+    }
+  }
+}
+
 .tutoring-print-contact {
   display: none;
 }
@@ -1146,8 +1179,13 @@
 
 .tutoring-copy-btn[hidden] { display: none; }
 @media (max-width: 640px) {
+  .tutoring-main { padding-bottom: calc(100px + env(safe-area-inset-bottom)); }
   body:has(.tutoring-mobile-bar) { padding-bottom: calc(100px + env(safe-area-inset-bottom)); }
   .tutoring-mobile-bar .tutoring-button { white-space: normal; text-align: center; }
+}
+@media (max-width: 640px) and (orientation: landscape), (max-height: 480px) {
+  .tutoring-main { padding-bottom: 0; }
+  body:has(.tutoring-mobile-bar) { padding-bottom: 0; }
 }
 @media (prefers-reduced-motion: reduce) { .tutoring-mobile-bar { transition: none; } }
 @media print {

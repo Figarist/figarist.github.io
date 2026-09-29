@@ -22,7 +22,7 @@ layout: default
       <p class="tutoring-lead">{{ course.intro | default: t.intro }}</p>
       <div class="tutoring-hero__facts">
         <span>{{ t.language }}</span>
-        <strong>{% if s.price_usd_prefix and tutoring_settings.price.usd_amount %}{{ s.price_usd_prefix }}{{ tutoring_settings.price.usd_amount }} / {{ tutoring_settings.price.amount }} {{ tutoring_settings.price.currency }} {{ s.price_unit }}{% elsif s.price_unit_before %}{{ s.price_unit }} {{ tutoring_settings.price.amount }} {{ tutoring_settings.price.currency }}{% elsif s.price_currency_before %}{{ tutoring_settings.price.currency }} {{ tutoring_settings.price.amount }} {{ s.price_unit }}{% else %}{{ tutoring_settings.price.amount }} {{ s.price_currency_label }} {{ s.price_unit }}{% endif %}</strong>
+        <strong>{% if s.price_usd_prefix and tutoring_settings.price.usd_amount %}{{ s.price_usd_prefix }}{{ tutoring_settings.price.usd_amount }} / {{ tutoring_settings.price.amount }} {{ tutoring_settings.price.currency }} {{ s.price_unit }}{% elsif s.price_unit_before %}{{ s.price_unit }} {{ tutoring_settings.price.amount }} {{ tutoring_settings.price.currency }}{% elsif s.price_currency_before %}{{ tutoring_settings.price.currency }}&nbsp;{{ tutoring_settings.price.amount }}&nbsp;{{ s.price_unit }}{% else %}{{ tutoring_settings.price.amount }}&nbsp;{{ s.price_currency_label }}&nbsp;{{ s.price_unit }}{% endif %}</strong>
         {% if tutoring_settings.price.equivalents %}
         <span class="tutoring-hero__equivalents" title="{{ s.price_equivalents_label }}">${{ tutoring_settings.price.equivalents.usd }} · €{{ tutoring_settings.price.equivalents.eur }} · {{ tutoring_settings.price.equivalents.pln }} zł · £{{ tutoring_settings.price.equivalents.gbp }} ({{ tutoring_settings.price.amount }} {{ tutoring_settings.price.currency }})</span>
         {% endif %}
@@ -107,6 +107,7 @@ layout: default
   </section>
   {% endif %}
 
+  {% unless course %}
   <section class="tutoring-section tutoring-section--directions{% if course %} tutoring-section--related{% endif %}" id="details" aria-labelledby="directions-title">
     <span id="learning" class="anchor-target" aria-hidden="true"></span>
     <div class="section-heading section-heading--compact">
@@ -125,6 +126,7 @@ layout: default
       {% endfor %}
     </div>
   </section>
+  {% endunless %}
 
   <section class="tutoring-section tutoring-section--trust" aria-labelledby="trust-title">
     <div class="trust-copy"><p class="section-kicker">{{ s.home_trust_label }}</p><h2 id="trust-title">{{ t.proof }}</h2><p>{{ t.proof_text }}</p></div>
@@ -138,6 +140,27 @@ layout: default
   {% include tutoring-cases.html %}
   {% include tutoring-profile.html %}
   {% include tutoring-testimonials.html %}
+
+  {% if course %}
+  <section class="tutoring-section tutoring-section--directions{% if course %} tutoring-section--related{% endif %}" id="details" aria-labelledby="directions-title">
+    <span id="learning" class="anchor-target" aria-hidden="true"></span>
+    <div class="section-heading section-heading--compact">
+      <div><p class="section-kicker">{{ s.home_learning_label }}</p><h2 id="directions-title">{% if course %}{{ s.tutoring_related_title }}{% else %}{{ t.choose }}{% endif %}</h2></div>
+      <p>{% if course %}{{ s.tutoring_related_intro }}{% else %}{{ s.tutoring_directions_intro }}{% endif %}</p>
+    </div>
+    <div class="tutoring-options">
+      {% for option in t.courses %}
+      {% unless course and course.slug == option.slug %}
+      <a class="tutoring-option" href="{{ '/tutoring/' | append: option.slug | append: '/' | relative_url }}"{% if course.slug == option.slug %} aria-current="page"{% endif %}>
+        <span class="tutoring-option__number">0{{ forloop.index }}</span>
+        <div><h3>{{ option.heading }}</h3>{% unless course %}<p>{{ option.intro }}</p>{% endunless %}</div>
+        <span class="tutoring-option__arrow" aria-hidden="true">→</span>
+      </a>
+      {% endunless %}
+      {% endfor %}
+    </div>
+  </section>
+  {% endif %}
 
   <section class="tutoring-section tutoring-section--conditions" id="conditions" aria-labelledby="conditions-title">
     <div class="section-heading section-heading--compact"><div><p class="section-kicker">{{ s.tutoring_conditions_label }}</p><h2 id="conditions-title">{{ s.tutoring_conditions_title }}</h2></div><p>{{ s.tutoring_conditions_intro }}</p></div>
@@ -156,7 +179,7 @@ layout: default
 
       <div class="condition-card">
         <h3>{{ s.tutoring_price_title }}</h3>
-        <p><strong>{% if s.price_usd_prefix and tutoring_settings.price.usd_amount %}{{ s.price_usd_prefix }}{{ tutoring_settings.price.usd_amount }} / {{ tutoring_settings.price.amount }} {{ tutoring_settings.price.currency }} {{ s.price_unit }}{% elsif s.price_unit_before %}{{ s.price_unit }} {{ tutoring_settings.price.amount }} {{ tutoring_settings.price.currency }}{% elsif s.price_currency_before %}{{ tutoring_settings.price.currency }} {{ tutoring_settings.price.amount }} {{ s.price_unit }}{% else %}{{ tutoring_settings.price.amount }} {{ s.price_currency_label }} {{ s.price_unit }}{% endif %}</strong><br>{% include tutoring-payment.html %}</p>
+        <p><strong>{% if s.price_usd_prefix and tutoring_settings.price.usd_amount %}{{ s.price_usd_prefix }}{{ tutoring_settings.price.usd_amount }} / {{ tutoring_settings.price.amount }} {{ tutoring_settings.price.currency }} {{ s.price_unit }}{% elsif s.price_unit_before %}{{ s.price_unit }} {{ tutoring_settings.price.amount }} {{ tutoring_settings.price.currency }}{% elsif s.price_currency_before %}{{ tutoring_settings.price.currency }}&nbsp;{{ tutoring_settings.price.amount }}&nbsp;{{ s.price_unit }}{% else %}{{ tutoring_settings.price.amount }}&nbsp;{{ s.price_currency_label }}&nbsp;{{ s.price_unit }}{% endif %}</strong><br>{% include tutoring-payment.html %}</p>
         {% if optional_conditions.payment_order %}
         <p class="condition-card__sub">{{ optional_conditions.payment_order[site.active_lang] | default: optional_conditions.payment_order.en | default: optional_conditions.payment_order.uk | default: optional_conditions.payment_order.first[1] | default: optional_conditions.payment_order }}</p>
         {% endif %}
@@ -203,14 +226,14 @@ layout: default
 
   <section class="tutoring-contact-panel" id="contact" aria-labelledby="contact-title">
     <div><p class="section-kicker">{{ s.tutoring_contact_label }}</p><h2 id="contact-title">{{ t.contact }}</h2><p>{{ t.contact_text }}</p></div>
-    <div><p class="tutoring-price">{% if s.price_usd_prefix and tutoring_settings.price.usd_amount %}{{ s.price_usd_prefix }}{{ tutoring_settings.price.usd_amount }} / {{ tutoring_settings.price.amount }} {{ tutoring_settings.price.currency }} {{ s.price_unit }}{% elsif s.price_unit_before %}{{ s.price_unit }} {{ tutoring_settings.price.amount }} {{ tutoring_settings.price.currency }}{% elsif s.price_currency_before %}{{ tutoring_settings.price.currency }} {{ tutoring_settings.price.amount }} {{ s.price_unit }}{% else %}{{ tutoring_settings.price.amount }} {{ s.price_currency_label }} {{ s.price_unit }}{% endif %}</p>{% include tutoring-contact.html %}</div>
+    <div><p class="tutoring-price">{% if s.price_usd_prefix and tutoring_settings.price.usd_amount %}{{ s.price_usd_prefix }}{{ tutoring_settings.price.usd_amount }} / {{ tutoring_settings.price.amount }} {{ tutoring_settings.price.currency }} {{ s.price_unit }}{% elsif s.price_unit_before %}{{ s.price_unit }} {{ tutoring_settings.price.amount }} {{ tutoring_settings.price.currency }}{% elsif s.price_currency_before %}{{ tutoring_settings.price.currency }}&nbsp;{{ tutoring_settings.price.amount }}&nbsp;{{ s.price_unit }}{% else %}{{ tutoring_settings.price.amount }}&nbsp;{{ s.price_currency_label }}&nbsp;{{ s.price_unit }}{% endif %}</p>{% include tutoring-contact.html %}</div>
   </section>
 </article>
 
 <aside class="tutoring-mobile-bar" aria-label="{{ t.cta | escape }}">
   <div class="tutoring-mobile-bar__inner">
     <div class="tutoring-mobile-bar__price">
-      <strong>{% if s.price_usd_prefix and tutoring_settings.price.usd_amount %}{{ s.price_usd_prefix }}{{ tutoring_settings.price.usd_amount }} / {{ tutoring_settings.price.amount }} {{ tutoring_settings.price.currency }}{% elsif s.price_unit_before %}{{ s.price_unit }} {{ tutoring_settings.price.amount }} {{ tutoring_settings.price.currency }}{% elsif s.price_currency_before %}{{ tutoring_settings.price.currency }} {{ tutoring_settings.price.amount }} {{ s.price_unit }}{% else %}{{ tutoring_settings.price.amount }} {{ s.price_currency_label }}{% endif %}</strong>
+      <strong>{% if s.price_currency_before %}{{ tutoring_settings.price.currency }}&nbsp;{{ tutoring_settings.price.amount }}{% elsif s.price_currency_label and s.price_currency_label != '' %}{{ tutoring_settings.price.amount }}&nbsp;{{ s.price_currency_label }}{% else %}{{ tutoring_settings.price.amount }}&nbsp;{{ tutoring_settings.price.currency }}{% endif %}</strong>
       <small>{{ s.price_unit }}</small>
     </div>
     {% include tutoring-contact.html is_sticky=true compact=true %}

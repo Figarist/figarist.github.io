@@ -9,7 +9,7 @@ require 'yaml'
 
 source = Dir.pwd
 Dir.mktmpdir('figarist-tutoring-build-test') do |tmp|
-  %w[_config.yml _plugins _data service-worker.js].each do |entry|
+  %w[_config.yml _plugins _data _sass assets service-worker.js].each do |entry|
     FileUtils.cp_r(File.join(source, entry), tmp)
   end
   cases_dir = File.join(tmp, '_data', 'tutoring', 'cases')

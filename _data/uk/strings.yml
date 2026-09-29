@@ -195,7 +195,7 @@ tutoring_contact_label: "Готові обговорити?"
 tutoring_contact_hint: "Напишіть вік дитини та чим вона цікавиться — обговоримо, з чого почати."
 tutoring_proof_degree: "Педагогічна освіта · Магістр"
 tutoring_buki_detail: "Профіль BUKI, де можна перевірити відгуки про викладання"
-price_unit: "за заняття"
+price_unit: "за заняття"
 price_currency_before: false
 price_unit_before: false
 price_currency_label: "грн"

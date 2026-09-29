@@ -20,8 +20,8 @@ proof:
   tutor_association_review_count: 7
 conditions:
   duration:
-    uk: 60 хвилин для всіх учнів. Заняття проходять у закріплений за вами час і завершуються
-      за розкладом.
+    uk: 60 хвилин для всіх учнів. Заняття проходять у закріплений за вами час і завершуються
+      за розкладом.
     en: 60 minutes for every student. Lessons take place in your reserved time slot
       and finish on schedule.
     ru: 60 минут для всех учеников. Занятия проходят в закреплённое за вами время

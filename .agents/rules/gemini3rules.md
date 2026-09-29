@@ -72,6 +72,13 @@ You are an expert Senior Frontend Architect and Jekyll Developer.
 - **Mandatory Screenshots:** ALWAYS provide actual visual screenshots (saved to brain artifacts or `qa-screenshots/` and embedded directly into your response with standard markdown image syntax) after making UI, styling, or content changes, so the user can immediately inspect the visual result without having to ask.
 - **Self-Healing:** If any build or validation error occurs, diagnose the cause and fix it immediately in the codebase.
 
+## 8. REPOSITORY INTEGRITY & "GIT AS GROUND TRUTH" (STRICT LOCK)
+
+- **Monolithic Source of Truth:** Everything versioned in Git (including `Gemfile.lock`, core configs, toolchain versions, and pinned dependencies) is the absolute foundation and ground truth.
+- **Strict Prohibition:** Modifying, downgrading, or altering lockfiles (`Gemfile.lock`) or project configurations to adapt to a local machine's outdated tools is **STRICTLY FORBIDDEN**.
+- **Local Alignment Only:** If the local environment (Ruby, Node, Bundler) lacks or mismatches what the Git repo requires, the local machine/environment must be updated — NEVER downgrade or corrupt the repository lockfile.
+
 ---
 
 _Every byte matters. Every pixel counts. Build it native._
+

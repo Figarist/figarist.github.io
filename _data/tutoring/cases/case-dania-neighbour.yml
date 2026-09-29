@@ -10,13 +10,14 @@ age_or_grade: null
 duration: null
 media:
   cover:
-    path: null
+    path: /assets/images/tutoring/cases/hello-neighbour-placeholder.webp
   additional_images: []
   video_url: null
   playable_url: null
 translations:
   uk:
     ready: true
+    student_name: "Даня"
     title: "Hello Neighbour — 3D-пригода з таємницями та розумним ворогом"
     card_description: "Результат року занять: великий двоповерховий будинок, інвентар предметів, головоломки з ключами та сусід, який чує шум і шукає гравця."
     full_description: "Даня дуже любить гру Hello Neighbor і мріяв зробити власний схожий світ. За рік регулярних щотижневих занять він пройшов шлях від перших кроків у програмуванні до повноцінного 3D-проєкту. У грі є великий будинок, кінематографічна заставка як у кіно, інтерактивні двері, драбини та сусід, який патрулює кімнати."
@@ -33,9 +34,10 @@ translations:
       - "Режисура та створення катсцен (анімаційних заставок)"
       - "Уміння доводити великий проєкт до кінця (понад рік роботи)"
     evidence: "Жива 3D-гра з понад сотнею збережених етапів роботи, у яку можна грати та досліджувати будинок."
-    cover_alt: null
+    cover_alt: "Скріншот 3D-гри Hello Neighbour, створеної учнем Данею на Unity"
   en:
     ready: true
+    student_name: "Dania"
     title: "Hello Neighbour — 3D Mystery Adventure with Smart AI"
     card_description: "One-year achievement: a full two-story house, item inventory, key puzzles, and a clever Neighbour who reacts to sounds and tracks the player."
     full_description: "Dania is a huge fan of Hello Neighbor and dreamed of making his own version of the game. Over a year of weekly lessons, he advanced from simple basics to an impressive 3D experience featuring an explorable house, cinematic intro cutscene, interactive doors, ladders, and a reactive neighbour searching the rooms."
@@ -52,9 +54,10 @@ translations:
       - "Directing cinematic cutscenes and storytelling"
       - "Long-term project discipline (over a year of development)"
     evidence: "A living 3D game with over a hundred versioned milestones that can be explored and played directly."
-    cover_alt: null
+    cover_alt: "Screenshot of Hello Neighbour 3D game created by student Dania in Unity"
   ru:
     ready: true
+    student_name: "Даня"
     title: "Hello Neighbour — 3D-приключение с тайнами и умным врагом"
     card_description: "Результат года занятий: большой двухэтажный дом, инвентарь предметов, головоломки с ключами и сосед, который слышит шум и ищет игрока."
     full_description: "Даня очень любит игру Hello Neighbor и мечтал сделать собственный похожий мир. За год регулярных занятий он прошёл путь от первых строк кода до полноценного 3D-проекта. В игре есть большой дом, кинематографичная заставка, интерактивные двери, лестницы и сосед, который патрулирует комнаты."
@@ -71,12 +74,13 @@ translations:
       - "Режиссура и создание катсцен (анимационных заставок)"
       - "Умение доводить большой проект до конца (более года работы)"
     evidence: "Живая 3D-игра с более чем сотней сохранённых этапов работы, в которую можно играть и исследовать дом."
-    cover_alt: null
+    cover_alt: "Скриншот 3D-игры Hello Neighbour, созданной учеником Даней на Unity"
   ko:
     ready: true
+    student_name: "다냐"
     title: "Hello Neighbour — 인공지능 이웃이 등장하는 3D 미스터리 어드벤처"
     card_description: "1년 수업의 결실: 2층 주택 탐색, 소지품 인벤토리, 열쇠 퍼즐, 발소리를 듣고 쫓아오는 인공지능 이웃."
-    full_description: "다냐 학생은 Hello Neighbor 게임을 매우 좋아하여 자신만의 게임을 만들고 싶어 했습니다. 1년 동안 매주 꾸준히 수업을 들으며 기초 코드부터 시작해 탐험 가능한 2층 집, 영화 같은 오프닝 컷씬, 상호작용 가능한 문과 사да리, 방을 순찰하는 이웃 AI가 있는 멋진 3D 게임을 완성했습니다."
+    full_description: "다냐 학생은 Hello Neighbor 게임을 매우 좋아하여 자신만의 게임을 만들고 싶어 했습니다. 1년 동안 매주 꾸준히 수업을 들으며 기초 코드부터 시작해 탐험 가능한 2층 집, 영화 같은 오프닝 컷씬, 상호작용 가능한 문과 사다리, 방을 순찰하는 이웃 AI가 있는 멋진 3D 게임을 완성했습니다."
     starting_level: "프로그래밍 경험이 전혀 없었으나, 좋아하는 게임을 직접 만들고 싶다는 강한 열정으로 시작함."
     goal: "실제 3D 게임의 원리를 배우고, 퍼즐과 인공지능 이웃이 있는 나만의 게임 공간 완성하기."
     created: "1인칭 3D 게임: 디테일한 2층 주택, 지능형 적 AI, 5칸 인벤토리, 열쇠 찾기 퀘스트, 시네마틱 오프닝 영상."
@@ -90,4 +94,4 @@ translations:
       - "시네마틱 컷씬 연출 및 스토리텔링"
       - "1년 이상 꾸준히 프로젝트를 완성해내는 끈기와 성취감"
     evidence: "100개 이상의 개발 기록이 누적된, 실제로 탐험하고 플레이할 수 있는 완성형 3D 게임."
-    cover_alt: null
+    cover_alt: "다냐 학생이 Unity로 제작한 3D 헬로 네이버 게임 스크린샷"

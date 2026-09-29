@@ -10,13 +10,14 @@ age_or_grade: null
 duration: null
 media:
   cover:
-    path: null
+    path: /assets/images/tutoring/cases/hockey-zombie-placeholder.webp
   additional_images: []
   video_url: null
   playable_url: null
 translations:
   uk:
     ready: true
+    student_name: "Максим"
     title: "Hockey Zombie — власна мережева 3D-гра на льоду"
     card_description: "Справжня онлайн-гра на двох: ковзання по льоду, ключка, зомбі замість шайби та можливість грати з другом по мережі."
     full_description: "Максим хотів створити не просто навчальний проєкт, а динамічну екшн-гру, у яку можна грати разом із друзями через інтернет. Разом ми реалізували повноцінний хокейний бій: гравець керує хокеїстом, відчуває інерцію ковзання, відбиває хвилі зомбі та забиває їх ключкою у ворота суперника."
@@ -33,9 +34,10 @@ translations:
       - "Розробка зручного меню та інтерфейсу гри"
       - "Самостійне тестування та пошук помилок у коді"
     evidence: "Робоча гра, у яку учень грає разом із викладачем та друзями через інтернет."
-    cover_alt: null
+    cover_alt: "Скріншот 3D-гри Hockey Zombie, створеної учнем Максимом на Unity"
   en:
     ready: true
+    student_name: "Maksym"
     title: "Hockey Zombie — Custom 3D Online Multiplayer Game"
     card_description: "A real two-player online game: ice skating physics, hockey stick combat, zombies as pucks, and playing with friends online."
     full_description: "Maksym wanted to build more than just a practice project — he wanted an exciting action game he could actually play with friends online. Together we created a full hockey arena battle: dynamic ice skating physics, defending against zombie waves, and scoring goals by launching zombies into the opponent's net."
@@ -52,9 +54,10 @@ translations:
       - "Game UI & menu design"
       - "Debugging and testing skills"
     evidence: "A fully working game that the student regularly plays with friends and the teacher online."
-    cover_alt: null
+    cover_alt: "Screenshot of Hockey Zombie 3D game created by student Maksym in Unity"
   ru:
     ready: true
+    student_name: "Максим"
     title: "Hockey Zombie — собственная сетевая 3D-игра на льду"
     card_description: "Настоящая онлайн-игра на двоих: скольжение по льду, клюшка, зомби вместо шайбы и возможность играть с другом по сети."
     full_description: "Максим хотел создать не просто учебный проект, а динамичную экшен-игру, в которую можно играть с друзьями через интернет. Вместе мы реализовали полноценный хоккейный бой: игрок управляет хоккеистом, чувствует скольжение по льду, отбивает волны зомби и забивает их клюшкой в ворота соперника."
@@ -64,16 +67,17 @@ translations:
     student_work: "Создал арену и внешний вид игроков, настроил анимации движений и ударов клюшкой, собрал главное меню, магазин формы и логику быстрого рывка (Dash)."
     tutor_help: "Помог настроить соединение между игроками через интернет, оптимизировать плавность движений и создать тестовый режим для проверки всех механик."
     skills:
-      - "Создание 3D-игр в движке Unity"
+      - "Создание 3D-игры в движке Unity"
       - "Сетевое программирование (мультиплеер для игры по интернету)"
       - "Физика движения персонажа и скольжения на льду"
       - "Настройка плавной анимации персонажей"
       - "Разработка удобного меню и интерфейса игры"
       - "Самостоятельное тестирование и поиск ошибок в коде"
     evidence: "Рабочая игра, в которую ученик играет вместе с преподавателем и друзьями по сети."
-    cover_alt: null
+    cover_alt: "Скриншот 3D-игры Hockey Zombie, созданной учеником Максимом на Unity"
   ko:
     ready: true
+    student_name: "막심"
     title: "Hockey Zombie — 직접 만든 3D 온라인 멀티플레이어 게임"
     card_description: "친구와 함께 즐기는 2인 온라인 게임: 빙판 스케이팅, 하키 스틱 타격, 살아있는 좀비 퍽, 온라인 멀티플레이."
     full_description: "막심 학생은 단순한 연습용 과제가 아니라 친구들과 인터넷으로 직접 플레이할 수 있는 액션 게임을 만들고 싶어 했습니다. 빙판 위 스케이팅의 속도감, 좀비 웨이브 방어, 좀비를 하키 스틱으로 날려 상대 골대에 넣는 통쾌한 대전 게임을 완성했습니다."
@@ -90,4 +94,4 @@ translations:
       - "게임 메뉴 및 사용자 인터페이스(UI) 디자인"
       - "코드 디버깅 및 게임 테스트 역량"
     evidence: "선생님 및 친구들과 인터넷으로 직접 플레이할 수 있는 완성된 실제 게임."
-    cover_alt: null
+    cover_alt: "막심 학생이 Unity로 제작한 3D 하키 좀비 게임 스크린샷"

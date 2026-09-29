@@ -1,4 +1,11 @@
 // jekyll-pwa-workbox prepends the local Workbox loader and manifest.
+if (typeof self.skipWaiting === 'function') {
+  self.skipWaiting();
+}
+if (typeof workbox !== 'undefined' && workbox.core && typeof workbox.core.clientsClaim === 'function') {
+  workbox.core.clientsClaim();
+}
+
 const { precacheAndRoute, matchPrecache } = workbox.precaching;
 const { registerRoute } = workbox.routing;
 const { NetworkFirst, CacheFirst } = workbox.strategies;
@@ -22,6 +29,8 @@ registerRoute(
       url.search = '';
       const cached = await matchPrecache(url.href);
       if (cached) return cached;
+      const fallback = await matchPrecache('/404.html');
+      if (fallback) return fallback;
       throw error;
     }
   }

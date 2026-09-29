@@ -8,12 +8,13 @@ Do not request them again merely because an old guide did.
 | ID | Needed for | Author input | Default meanwhile |
 | --- | --- | --- | --- |
 | DEC-01 | UX-05 | Starting ages for all five directions and readiness exceptions | Keep current policy |
-| DEC-02 | UX-06 | One real project, contributions, result, evidence and permission | Keep cases hidden |
+| DEC-02 | UX-06 | Closed: Maksym & Dania Unity projects supplied with permissions | Published on Unity track |
 | DEC-04 | EXP-01 | Whether to offer a call; actual length, price and platform | Paid first lesson and Zoom remain |
 | DEC-05 | EXP-01 | Cross-border availability and time-zone wording | No new service promise |
 | DEC-06 | TRAFFIC-01 / SEO-01 | Accounts, target URLs, authorization/access | Prepare list locally |
 | DEC-07 | CONTENT-01 | Optional actual portrait/video and permission | No portrait; not a release blocker |
 
+DEC-02 is closed: Maksym and Dania Unity cases are published with explicit permissions.
 DEC-03 is closed: educational and author content lives in Workshop, and the four
 legacy Education routes redirect to their matching localized Workshop pages.
 

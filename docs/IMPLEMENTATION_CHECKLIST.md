@@ -14,7 +14,7 @@ Dependencies block only the affected task.
 | UX-03 | P0 | Verified | Visible first-contact guidance | Localized copy; Telegram prefill and tracking retained |
 | UX-04 | P1 | Verified | Three initially visible review cards | Exact text and attribution; remaining reviews accessible; mobile/keyboard checks |
 | UX-05 | P1 | Needs author | Direction-specific age recommendations | DEC-01 answered; overview, courses and FAQ consistent in four locales |
-| UX-06 | P1 | Needs author | First genuine case, then two more | DEC-02 supplied; actual schema and publication gates pass |
+| UX-06 | P1 | Verified | First genuine case, then two more | DEC-02 supplied; Maksym (Hockey) and Dania (Neighbour) cases published with permissions; 4-locale rendering & all test gates pass |
 | UX-07 | P1 | Verified | Compact lesson conditions | Existing terms accessible; semantic layout; keyboard/mobile checks |
 | BLOG-01 | P1 | Verified | Quadrilingual technical blog content sync | Spaceship & Minecraft translated across EN, UK, RU, KO; 0 missing translations; search.json indexed; 105 pages 0 link errors |
 | NAV-01 | P2 | Verified | Merge Education hub into the localized Workshop | Workshop copy, education architecture removal, localized legacy redirects and link audit verified |

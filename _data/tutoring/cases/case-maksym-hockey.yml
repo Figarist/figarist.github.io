@@ -1,0 +1,93 @@
+id: case-maksym-hockey-zombie
+slug: hockey-zombie-multiplayer
+direction: unity
+order: 1
+featured: false
+status: published
+permission: true
+student_name: "Максим"
+age_or_grade: null
+duration: null
+media:
+  cover:
+    path: null
+  additional_images: []
+  video_url: null
+  playable_url: null
+translations:
+  uk:
+    ready: true
+    title: "Hockey Zombie — власна мережева 3D-гра на льоду"
+    card_description: "Справжня онлайн-гра на двох: ковзання по льоду, ключка, зомбі замість шайби та можливість грати з другом по мережі."
+    full_description: "Максим хотів створити не просто навчальний проєкт, а динамічну екшн-гру, у яку можна грати разом із друзями через інтернет. Разом ми реалізували повноцінний хокейний бій: гравець керує хокеїстом, відчуває інерцію ковзання, відбиває хвилі зомбі та забиває їх ключкою у ворота суперника."
+    starting_level: "Учень вже знав основи комп'ютера й трохи програмував, але хотів створити складну 3D-гру з мультиплеєром."
+    goal: "Створити авторську гру з нуля та зіграти в неї по мережі з друзями."
+    created: "Грабельний 3D-екшн для двох гравців: вибір форми, ковзання по льоду, суперники-зомбі, боти-помічники та підрахунок очок."
+    student_work: "Створив арену й зовнішній вигляд гравців, налаштував анімації рухів і ударів ключкою, зібрав головне меню, магазин форми та логіку швидкого ривка (Dash)."
+    tutor_help: "Допоміг налаштувати з'єднання між гравцями через інтернет, оптимізувати плавність рухів і створити тестовий режим для перевірки всіх механік."
+    skills:
+      - "Створення 3D-ігор у рушії Unity"
+      - "Мережеве програмування (мультиплеєр для гри по інтернету)"
+      - "Фізика руху персонажа та ковзання на льоду"
+      - "Налаштування плавної анімації персонажів"
+      - "Розробка зручного меню та інтерфейсу гри"
+      - "Самостійне тестування та пошук помилок у коді"
+    evidence: "Робоча гра, у яку учень грає разом із викладачем та друзями через інтернет."
+    cover_alt: null
+  en:
+    ready: true
+    title: "Hockey Zombie — Custom 3D Online Multiplayer Game"
+    card_description: "A real two-player online game: ice skating physics, hockey stick combat, zombies as pucks, and playing with friends online."
+    full_description: "Maksym wanted to build more than just a practice project — he wanted an exciting action game he could actually play with friends online. Together we created a full hockey arena battle: dynamic ice skating physics, defending against zombie waves, and scoring goals by launching zombies into the opponent's net."
+    starting_level: "Basic programming curiosity and computer skills, with a dream to build a real multiplayer 3D game."
+    goal: "Build an original game from scratch and play it online with friends."
+    created: "A playable two-player 3D action game: character customization, ice skating, zombie rivals, helper bots, and a live scoreboard."
+    student_work: "Designed the arena and player visuals, set up skating and shooting animations, built the main menu, uniform store, and dash mechanics."
+    tutor_help: "Engineered smooth online connectivity between players, optimized performance, and built a dedicated testing arena to fine-tune game balance."
+    skills:
+      - "3D game development in Unity"
+      - "Multiplayer programming (connecting players online)"
+      - "Character movement physics & ice friction"
+      - "Smooth character animation setup"
+      - "Game UI & menu design"
+      - "Debugging and testing skills"
+    evidence: "A fully working game that the student regularly plays with friends and the teacher online."
+    cover_alt: null
+  ru:
+    ready: true
+    title: "Hockey Zombie — собственная сетевая 3D-игра на льду"
+    card_description: "Настоящая онлайн-игра на двоих: скольжение по льду, клюшка, зомби вместо шайбы и возможность играть с другом по сети."
+    full_description: "Максим хотел создать не просто учебный проект, а динамичную экшен-игру, в которую можно играть с друзьями через интернет. Вместе мы реализовали полноценный хоккейный бой: игрок управляет хоккеистом, чувствует скольжение по льду, отбивает волны зомби и забивает их клюшкой в ворота соперника."
+    starting_level: "Ученик уже знал основы компьютера и немного программировал, но хотел создать сложную 3D-игру с мультиплеером."
+    goal: "Создать авторскую игру с нуля и сыграть в неё по сети с друзьями."
+    created: "Играбельный 3D-экшен для двоих игроков: выбор формы, скольжение по льду, соперники-зомби, боты-помощники и подсчёт очков."
+    student_work: "Создал арену и внешний вид игроков, настроил анимации движений и ударов клюшкой, собрал главное меню, магазин формы и логику быстрого рывка (Dash)."
+    tutor_help: "Помог настроить соединение между игроками через интернет, оптимизировать плавность движений и создать тестовый режим для проверки всех механик."
+    skills:
+      - "Создание 3D-игр в движке Unity"
+      - "Сетевое программирование (мультиплеер для игры по интернету)"
+      - "Физика движения персонажа и скольжения на льду"
+      - "Настройка плавной анимации персонажей"
+      - "Разработка удобного меню и интерфейса игры"
+      - "Самостоятельное тестирование и поиск ошибок в коде"
+    evidence: "Рабочая игра, в которую ученик играет вместе с преподавателем и друзьями по сети."
+    cover_alt: null
+  ko:
+    ready: true
+    title: "Hockey Zombie — 직접 만든 3D 온라인 멀티플레이어 게임"
+    card_description: "친구와 함께 즐기는 2인 온라인 게임: 빙판 스케이팅, 하키 스틱 타격, 살아있는 좀비 퍽, 온라인 멀티플레이."
+    full_description: "막심 학생은 단순한 연습용 과제가 아니라 친구들과 인터넷으로 직접 플레이할 수 있는 액션 게임을 만들고 싶어 했습니다. 빙판 위 스케이팅의 속도감, 좀비 웨이브 방어, 좀비를 하키 스틱으로 날려 상대 골대에 넣는 통쾌한 대전 게임을 완성했습니다."
+    starting_level: "기본적인 컴퓨터 활용 능력과 프로그래밍 흥미를 가졌으며, 실제 멀티플레이어 3D 게임 제작을 목표로 시작함."
+    goal: "나만의 독창적인 게임을 처음부터 완성하고 친구들과 온라인으로 함께 플레이하기."
+    created: "2인 플레이가 가능한 3D 액션 게임: 유니폼 커스텀, 빙판 스케이팅, 좀비 라이벌, 서포트 봇, 실시간 점수판."
+    student_work: "경기장 맵 및 캐릭터 외형 디자인, 스케이팅 및 슈팅 애니메이션 연출, 메인 메뉴, 유니폼 상점, 대시 스킬 제작."
+    tutor_help: "인터넷을 통한 두 플레이어 간의 안정적인 연결 구축, 부드러운 움직임 최적화, 게임 밸런스 테스트 모드 개발 지원."
+    skills:
+      - "Unity 엔진 기반 3D 게임 제작"
+      - "온라인 멀티플레이어 네트워크 프로그래밍"
+      - "캐릭터 이동 및 빙판 물리 제어"
+      - "부드러운 캐릭터 애니메이션 연출"
+      - "게임 메뉴 및 사용자 인터페이스(UI) 디자인"
+      - "코드 디버깅 및 게임 테스트 역량"
+    evidence: "선생님 및 친구들과 인터넷으로 직접 플레이할 수 있는 완성된 실제 게임."
+    cover_alt: null

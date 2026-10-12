@@ -10,7 +10,7 @@ errors = []
 files = Dir["#{base}/**/*.html"].select { |f| File.file?(f) }
 documents = {}
 files.each { |file| documents[file] = Nokogiri::HTML(File.read(file)) }
-external_projects = %w[/OGCruncher/ /lego-catalog/]
+external_projects = %w[/OGCruncher/ /lego-catalog/ /3d-club-studio/]
 files.each do |file|
   route = file.delete_prefix(base).sub(/index\.html$/, '')
   doc = documents[file]

@@ -29,7 +29,8 @@ absolute_url -%}
       "jobTitle": {{ site.data[site.active_lang].strings.bio_roles | default: 'Developer' | jsonify }},
       "sameAs": [
         {% for link in site.social.links %}"{{ link }}"{% unless forloop.last %},{% endunless %}{% endfor %},
-        "https://sivochka.com/lego-catalog/"
+        "https://sivochka.com/lego-catalog/",
+        "https://sivochka.com/3d-club-studio/"
       ]
     },
     {%- else -%}

@@ -105,6 +105,7 @@ exclude_from_localization:
   - qa-screenshots
   - lego-catalog
   - OGCruncher
+  - 3d-club-studio
   - feed.xml
 parallel_localization: false
 

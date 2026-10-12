@@ -138,6 +138,12 @@ lego_cta: "Open Catalog"
 aria_visit_lego: "Open LEGO WeDo 2.0 Catalog — educational resource by Sivochka Ihor"
 nav_lego_catalog: "LEGO WeDo Catalog"
 
+# ── 3D Club Studio Card ──
+studio_3d_label: "EDU_3D_STUDIO"
+studio_3d_title: "3D Club Studio"
+studio_3d_desc: "Interactive procedural 3D generation studio for school modeling clubs and support-free FDM 3D printing."
+aria_visit_3d_studio: "Open 3D Club Studio — procedural 3D modeling and print-safe generation tool"
+
 # ── Redesigned home page ──
 home_facts_label: "Lesson details"
 home_online_fact: "Individual online lessons"

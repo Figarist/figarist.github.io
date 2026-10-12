@@ -138,6 +138,12 @@ lego_cta: "카탈로그 열기"
 aria_visit_lego: "LEGO WeDo 2.0 카탈로그 열기 — 이호르 시보치카의 교육 리소스"
 nav_lego_catalog: "LEGO WeDo 카탈로그"
 
+# ── 3D 클럽 스튜디오 ──
+studio_3d_label: "3D_공작소"
+studio_3d_title: "3D 클럽 스튜디오"
+studio_3d_desc: "학교 3D 모델링 수업 및 서포트 없는 FDM 3D 프린팅을 위한 절차적 웹 3D 생성 스튜디오입니다."
+aria_visit_3d_studio: "3D 클럽 스튜디오 열기 — 절차적 3D 모델링 및 출력 생성 도구"
+
 # ── 개편된 홈 페이지 ──
 home_facts_label: "수업 정보"
 home_online_fact: "개별 온라인 수업"

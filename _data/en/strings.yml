@@ -144,6 +144,12 @@ studio_3d_title: "3D Club Studio"
 studio_3d_desc: "Interactive procedural 3D generation studio for school modeling clubs and support-free FDM 3D printing."
 aria_visit_3d_studio: "Open 3D Club Studio — procedural 3D modeling and print-safe generation tool"
 
+# ── Quiet Class (Bouncy) Card ──
+bouncy_label: "EDU_CLASSROOM_TOOL"
+bouncy_title: "Quiet Class"
+bouncy_desc: "Adaptive Web Audio DSP classroom noise meter, task timer, and star jar for school TVs and projectors."
+aria_visit_bouncy: "Open Quiet Class — interactive classroom noise meter and timer for teachers"
+
 # ── Redesigned home page ──
 home_facts_label: "Lesson details"
 home_online_fact: "Individual online lessons"

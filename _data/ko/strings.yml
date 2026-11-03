@@ -144,6 +144,12 @@ studio_3d_title: "3D 클럽 스튜디오"
 studio_3d_desc: "학교 3D 모델링 수업 및 서포트 없는 FDM 3D 프린팅을 위한 절차적 웹 3D 생성 스튜디오입니다."
 aria_visit_3d_studio: "3D 클럽 스튜디오 열기 — 절차적 3D 모델링 및 출력 생성 도구"
 
+# ── 조용한 교실 (Bouncy) ──
+bouncy_label: "교실_오디오_도구"
+bouncy_title: "조용한 교실 (Quiet Class)"
+bouncy_desc: "원거리 웹캠용 Web Audio DSP 필터링, 수업 타이머 및 별 모으기 보상을 갖춘 교실 소음 측정기입니다."
+aria_visit_bouncy: "조용한 교실 열기 — 교사용 인터랙티브 소음 측정기 및 수업 타이머"
+
 # ── 개편된 홈 페이지 ──
 home_facts_label: "수업 정보"
 home_online_fact: "개별 온라인 수업"

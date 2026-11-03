@@ -156,6 +156,7 @@ jekyll-minifier:
     - "vendor/**/*"
     - "assets/vendor/**/*"
     - "assets/**/*.json"
+    - "bouncy/**/*"
     - "sitemap.xml"
     - "feed.xml"
 # ── PWA Settings ──────────────────────────────────────────────

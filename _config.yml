@@ -106,6 +106,7 @@ exclude_from_localization:
   - lego-catalog
   - OGCruncher
   - 3d-club-studio
+  - bouncy
   - feed.xml
 parallel_localization: false
 

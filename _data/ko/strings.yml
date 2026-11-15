@@ -268,3 +268,8 @@ case_goal_label: "목표"
 case_starting_level_label: "시작 수준"
 copy_telegram_nick: "@Figarist 복사"
 copied_tooltip: "복사됨! ✔️"
+
+canirun_unity_label: "Unity 사양 검사기"
+canirun_unity_title: "Can I Run Unity?"
+canirun_unity_desc: "Unity 6, VR 및 로컬 AI용 GPU·CPU·RAM 자동 감지"
+aria_visit_canirun_unity: "Can I Run Unity? 사양 검사기 열기"

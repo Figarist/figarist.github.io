@@ -267,3 +267,8 @@ case_goal_label: "Цель"
 case_starting_level_label: "Начальный уровень"
 copy_telegram_nick: "Скопировать ник @Figarist"
 copied_tooltip: "Скопировано! ✔️"
+
+canirun_unity_label: "Проверка ПК для Unity"
+canirun_unity_title: "Can I Run Unity?"
+canirun_unity_desc: "Автодетект GPU, CPU и RAM для Unity 6, VR и Local AI"
+aria_visit_canirun_unity: "Открыть проверку совместимости ПК с Unity"

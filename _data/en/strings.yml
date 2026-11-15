@@ -268,3 +268,8 @@ case_goal_label: "Goal"
 case_starting_level_label: "Starting level"
 copy_telegram_nick: "Copy @Figarist"
 copied_tooltip: "Copied! ✔️"
+
+canirun_unity_label: "Unity PC Checker"
+canirun_unity_title: "Can I Run Unity?"
+canirun_unity_desc: "Auto-detect GPU, CPU & RAM for Unity 6, VR & Local AI"
+aria_visit_canirun_unity: "Open Can I Run Unity? hardware compatibility checker"

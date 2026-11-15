@@ -47,7 +47,7 @@ shrine_desc: "Nintendo DS archive, Switch & Simcade rig."
 shrine_cta: "Unlock the vault →"
 
 # OGCRUNCHER CARD
-cruncher_desc: "High-performance in-browser audio bit-crusher and OGG compressor."
+cruncher_desc: "High-performance in-browser audio bit-crusher and OGG, WAV & MP3 converter."
 
 # VR FEED
 vr_heading: "VR News & Life"

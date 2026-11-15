@@ -19,8 +19,22 @@
     <link rel="dns-prefetch" href="https://t.me">
 
     <!-- Jekyll SEO Tag (Generates Title, OG, Twitter, JSON-LD, Canonical) -->
-    {% if page.tutoring or page.is_home %}
-    <title>{{ page.title | escape }} | Figarist</title>
+    {% assign active_lang = site.active_lang | default: 'en' %}
+    {% assign seo_title_key = 'seo_' | append: active_lang | append: '_title' %}
+    {% assign seo_desc_key = 'seo_' | append: active_lang | append: '_desc' %}
+    {% assign resolved_title = page[seo_title_key] | default: page.title %}
+    {% assign resolved_desc = page[seo_desc_key] %}
+    {% if resolved_desc %}
+    <title>{{ resolved_title | escape }} | Figarist</title>
+    <meta name="description" content="{{ resolved_desc | escape }}">
+    <link rel="canonical" href="{{ site.url }}{{ site.baseurl }}{% unless active_lang == site.default_lang %}/{{ active_lang }}{% endunless %}{{ page.url | remove: 'index.html' }}">
+    <meta property="og:title" content="{{ resolved_title | escape }}">
+    <meta property="og:description" content="{{ resolved_desc | escape }}">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="{{ site.url }}{{ site.baseurl }}{% unless active_lang == site.default_lang %}/{{ active_lang }}{% endunless %}{{ page.url | remove: 'index.html' }}">
+    <meta name="twitter:card" content="summary">
+    {% elsif page.tutoring or page.is_home %}
+    <title>{{ resolved_title | escape }} | Figarist</title>
     {% seo title=false %}
     {% else %}
     {% seo %}

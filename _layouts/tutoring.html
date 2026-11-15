@@ -159,6 +159,12 @@ layout: default
       <a href="https://sivochka.com/bouncy/" target="_blank" rel="noopener" class="explore-card" data-goatcounter-click="tutoring-eco-bouncy">
         <span>{{ s.bouncy_label }}</span><strong>{{ s.bouncy_title }}</strong><small>{{ s.bouncy_desc }}</small><b aria-hidden="true">↗</b>
       </a>
+      <a href="https://sivochka.com/canirunUnity/{% unless site.active_lang == 'en' %}{{ site.active_lang }}/{% endunless %}" target="_blank" rel="noopener" class="explore-card" data-goatcounter-click="tutoring-eco-canirununity">
+        <span>{{ s.canirun_unity_label }}</span><strong>{{ s.canirun_unity_title }}</strong><small>{{ s.canirun_unity_desc }}</small><b aria-hidden="true">↗</b>
+      </a>
+      <a href="{{ '/tools/code-translator/' | relative_url }}" class="explore-card" data-goatcounter-click="tutoring-eco-translator">
+        <span>Scratch → Python → C#</span><strong>Code Translator</strong><small>Scratch · Minecraft Python · Unity C#</small><b aria-hidden="true">→</b>
+      </a>
       <a href="{{ tutoring_settings.proof.studio_url }}" target="_blank" rel="noopener" class="explore-card" data-goatcounter-click="tutoring-eco-studio">
         <span>{{ s.nav_studio }}</span><strong>Wrist &amp; Pocket Studio</strong><small>{{ s.home_studio_detail }}</small><b aria-hidden="true">↗</b>
       </a>

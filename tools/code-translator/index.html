@@ -1,0 +1,278 @@
+---
+layout: default
+author: ihor
+sitemap: true
+tutoring: true
+priority: 0.8
+changefreq: monthly
+permalink: /tools/code-translator/
+title: "Code Translator: Scratch → Python (Minecraft) → Unity C# | sivochka.com"
+description: "Interactive side-by-side comparison of game logic in Scratch blocks, Python (Minescript in Minecraft), and Unity C# for kids 8–17 and parents."
+---
+{% assign lang = site.active_lang | default: 'uk' %}
+{% case lang %}
+  {% when 'uk' %}
+    {% assign ct_nav_tutor = "Навчання" %}
+    {% assign ct_kicker = "Безкоштовний EdTech-тренажер" %}
+    {% assign ct_title = "Як росте код дитини: Scratch → Python → Unity C#" %}
+    {% assign ct_lead = "Натисніть на ігрову механіку, щоб побачити поруч, як та сама логіка працює у візуальних блоках Scratch, у Python для Minecraft та в реальному C# на Unity 6." %}
+    {% assign ct_a1 = "Стрибок персонажа" %}
+    {% assign ct_a2 = "Лічильник очок (+1)" %}
+    {% assign ct_a3 = "Ворог переслідує гравця" %}
+    {% assign ct_a4 = "Відкрити двері ключем" %}
+    {% assign ct_h1 = "Візуальні блоки · 6–10 років" %}
+    {% assign ct_h2 = "Текстовий код · 9–14 років" %}
+    {% assign ct_h3 = "Ігровий рушій · 11–17 років" %}
+    {% assign ct_d1 = "Логіка без помилок у синтаксисі: дитина перетягує події, умови та змінні як конструктор." %}
+    {% assign ct_d2 = "Перший справжній Python: координати, функції та автоматизація всередині улюбленого Minecraft." %}
+    {% assign ct_d3 = "Професійний C# та фізика Unity: типізація, компоненти й навігація для власних 2D/3D-ігор." %}
+    {% assign ct_cta1 = "Програма Scratch →" %}
+    {% assign ct_cta2 = "Python у Minecraft →" %}
+    {% assign ct_cta3 = "Менторство Unity C# →" %}
+    {% assign ct_p_kicker = "Наступний крок" %}
+    {% assign ct_p_title = "Підберемо правильний старт для вашої дитини за 1 хвилину" %}
+    {% assign ct_p_desc = "Індивідуальні заняття 1-на-1 по 60 хв з діючим розробником ігор. Прозорий тариф без прихованих пакетів, оплата на рахунок ФОП." %}
+    {% assign ct_p_price = "1000 грн / 20 € (~$22) · 60 хв" %}
+    {% assign ct_btn = "Підібрати трек та перевірити ПК →" %}
+  {% when 'ru' %}
+    {% assign ct_nav_tutor = "Обучение" %}
+    {% assign ct_kicker = "Бесплатный EdTech-тренажёр" %}
+    {% assign ct_title = "Как растёт код ребёнка: Scratch → Python → Unity C#" %}
+    {% assign ct_lead = "Нажмите на игровую механику, чтобы сравнить рядом, как одна и та же логика работает в блоках Scratch, Python для Minecraft и C# в Unity 6." %}
+    {% assign ct_a1 = "Прыжок персонажа" %}
+    {% assign ct_a2 = "Счётчик очков (+1)" %}
+    {% assign ct_a3 = "Враг преследует игрока" %}
+    {% assign ct_a4 = "Открыть дверь ключом" %}
+    {% assign ct_h1 = "Визуальные блоки · 6–10 лет" %}
+    {% assign ct_h2 = "Текстовый код · 9–14 лет" %}
+    {% assign ct_h3 = "Игровой движок · 11–17 лет" %}
+    {% assign ct_d1 = "Логика без ошибок в синтаксисе: ребёнок собирает события, циклы и переменные как конструктор." %}
+    {% assign ct_d2 = "Настоящий Python: координаты, функции и автоматизация прямо внутри мира Minecraft Java." %}
+    {% assign ct_d3 = "Профессиональный C# и физика Unity: строгая типизация и компоненты для своих 2D/3D-игр." %}
+    {% assign ct_cta1 = "Программа Scratch →" %}
+    {% assign ct_cta2 = "Python в Minecraft →" %}
+    {% assign ct_cta3 = "Менторство Unity C# →" %}
+    {% assign ct_p_kicker = "Следующий шаг" %}
+    {% assign ct_p_title = "Подберём правильный старт для вашего ребёнка за 1 минуту" %}
+    {% assign ct_p_desc = "Индивидуальные уроки 1-на-1 по 60 мин (UA / EU / US / CA / IL). Прозрачный тариф с оплатой на счёт ФОП." %}
+    {% assign ct_p_price = "1000 грн / 20 € (~$22) · 60 мин" %}
+    {% assign ct_btn = "Подобрать трек и проверить ПК →" %}
+  {% when 'ko' %}
+    {% assign ct_nav_tutor = "멘토링" %}
+    {% assign ct_kicker = "무료 EdTech 비교 도구" %}
+    {% assign ct_title = "아이의 코딩 성장: Scratch → Python → Unity C#" %}
+    {% assign ct_lead = "게임 메커니즘을 선택하면 Scratch 블록, 마인크래프트 Python, Unity 6 C#에서 동일한 로직이 어떻게 작성되는지 한눈에 비교됩니다." %}
+    {% assign ct_a1 = "캐릭터 점프" %}
+    {% assign ct_a2 = "점수 카운터 (+1)" %}
+    {% assign ct_a3 = "적 AI 추적" %}
+    {% assign ct_a4 = "열쇠로 문 열기" %}
+    {% assign ct_h1 = "비주얼 블록 · 6–10세" %}
+    {% assign ct_h2 = "텍스트 코딩 · 9–14세" %}
+    {% assign ct_h3 = "게임 엔진 · 11–17세" %}
+    {% assign ct_d1 = "오타 걱정 없이 이벤트, 반복문, 변수의 논리 구조를 블록 조립으로 익힙니다." %}
+    {% assign ct_d2 = "마인크래프트 월드에서 좌표와 함수를 활용해 실제 Python 문법을 익힙니다." %}
+    {% assign ct_d3 = "Unity C# 컴포넌트와 물리 엔진으로 나만의 2D/3D 게임을 완성합니다." %}
+    {% assign ct_cta1 = "Scratch 커리큘럼 →" %}
+    {% assign ct_cta2 = "Minecraft Python →" %}
+    {% assign ct_cta3 = "Unity C# 멘토링 →" %}
+    {% assign ct_p_kicker = "다음 단계" %}
+    {% assign ct_p_title = "1분 만에 우리 아이에게 맞는 시작 트랙을 확인하세요" %}
+    {% assign ct_p_desc = "현업 게임 개발자와 함께하는 60분 1:1 맞춤형 코딩 멘토링." %}
+    {% assign ct_p_price = "€20 (~$22 / 1000 UAH) · 60분" %}
+    {% assign ct_btn = "트랙 선택 & PC 체크 →" %}
+  {% else %}
+    {% assign ct_nav_tutor = "Mentoring" %}
+    {% assign ct_kicker = "Free EdTech Tool" %}
+    {% assign ct_title = "How Coding Evolves: Scratch → Python → Unity C#" %}
+    {% assign ct_lead = "Pick a game mechanic to compare side-by-side how the exact same logic is built with visual Scratch blocks, Python in Minecraft, and Unity 6 C#." %}
+    {% assign ct_a1 = "Player Jump" %}
+    {% assign ct_a2 = "Score Counter (+1)" %}
+    {% assign ct_a3 = "Enemy AI Chase" %}
+    {% assign ct_a4 = "Unlock Door with Key" %}
+    {% assign ct_h1 = "Visual Blocks · Ages 6–10" %}
+    {% assign ct_h2 = "Text Code · Ages 9–14" %}
+    {% assign ct_h3 = "Game Engine · Ages 11–17" %}
+    {% assign ct_d1 = "Pure logic without syntax typos: kids snap events, loops, and variables together visually." %}
+    {% assign ct_d2 = "Real Python inside Minecraft: 3D coordinates, functions, and instant visual rewards." %}
+    {% assign ct_d3 = "Production C# and Unity physics: components, types, and architecture for real 2D/3D games." %}
+    {% assign ct_cta1 = "Scratch Track →" %}
+    {% assign ct_cta2 = "Minecraft Python →" %}
+    {% assign ct_cta3 = "Unity C# Track →" %}
+    {% assign ct_p_kicker = "Next Step" %}
+    {% assign ct_p_title = "Find the right starting track in 60 seconds" %}
+    {% assign ct_p_desc = "1-on-1 60-minute mentoring with a practicing indie game developer. Clear per-lesson rate, no subscriptions." %}
+    {% assign ct_p_price = "€20 (~$22 / 1000 UAH) · 60 min" %}
+    {% assign ct_btn = "Open Track Calculator →" %}
+{% endcase %}
+
+<article class="tutoring-page" id="code-translator">
+  <nav class="breadcrumbs" aria-label="{{ ct_nav_tutor }}">
+    <a href="{{ '/' | relative_url }}">Figarist</a>
+    <span aria-hidden="true">/</span>
+    <a href="{{ '/tutoring/' | relative_url }}">{{ ct_nav_tutor }}</a>
+    <span aria-hidden="true">/</span>
+    <span>Scratch → Python → Unity C#</span>
+  </nav>
+
+  <section class="tutoring-section tutoring-section--directions ct-shell" aria-labelledby="ct-title">
+    <div class="section-heading section-heading--compact">
+      <div>
+        <p class="section-kicker">{{ ct_kicker }}</p>
+        <h1 class="ct-title" id="ct-title">{{ ct_title }}</h1>
+      </div>
+      <p>{{ ct_lead }}</p>
+    </div>
+
+    <div class="ct-toolbar" role="group" aria-label="{{ ct_title }}">
+      <button type="button" class="calc-pill ct-pill is-active" data-ct-action="jump"><span>01</span> {{ ct_a1 }}</button>
+      <button type="button" class="calc-pill ct-pill" data-ct-action="score"><span>02</span> {{ ct_a2 }}</button>
+      <button type="button" class="calc-pill ct-pill" data-ct-action="chase"><span>03</span> {{ ct_a3 }}</button>
+      <button type="button" class="calc-pill ct-pill" data-ct-action="door"><span>04</span> {{ ct_a4 }}</button>
+    </div>
+
+    <div class="ct-grid">
+      <article class="ct-card">
+        <div class="ct-card__head">
+          <span class="ct-badge ct-badge--scratch">1. Scratch 3.0</span>
+          <span class="ct-age">{{ ct_h1 }}</span>
+        </div>
+        <div class="ct-stage" id="ct-scratch" aria-live="polite"></div>
+        <p class="ct-note">{{ ct_d1 }}</p>
+        <a class="text-link" href="{{ '/tutoring/scratch/' | relative_url }}">{{ ct_cta1 }}</a>
+      </article>
+
+      <article class="ct-card">
+        <div class="ct-card__head">
+          <span class="ct-badge ct-badge--python">2. Python (Minescript)</span>
+          <span class="ct-age">{{ ct_h2 }}</span>
+        </div>
+        <div class="ct-ide">
+          <div class="ct-ide__bar">
+            <span class="ct-dots" aria-hidden="true"><i></i><i></i><i></i></span>
+            <code>minescript_bot.py</code>
+          </div>
+          <pre class="ct-code" id="ct-python" aria-live="polite"></pre>
+        </div>
+        <p class="ct-note">{{ ct_d2 }}</p>
+        <a class="text-link" href="{{ '/tutoring/minecraft/' | relative_url }}">{{ ct_cta2 }}</a>
+      </article>
+
+      <article class="ct-card">
+        <div class="ct-card__head">
+          <span class="ct-badge ct-badge--unity">3. Unity 6 &amp; C#</span>
+          <span class="ct-age">{{ ct_h3 }}</span>
+        </div>
+        <div class="ct-ide">
+          <div class="ct-ide__bar">
+            <span class="ct-dots" aria-hidden="true"><i></i><i></i><i></i></span>
+            <code>PlayerController.cs</code>
+          </div>
+          <pre class="ct-code" id="ct-unity" aria-live="polite"></pre>
+        </div>
+        <p class="ct-note">{{ ct_d3 }}</p>
+        <a class="text-link" href="{{ '/tutoring/unity/' | relative_url }}">{{ ct_cta3 }}</a>
+      </article>
+    </div>
+  </section>
+
+  <section class="tutoring-contact-panel" aria-labelledby="ct-cta-title">
+    <div>
+      <p class="section-kicker">{{ ct_p_kicker }}</p>
+      <h2 id="ct-cta-title">{{ ct_p_title }}</h2>
+      <p>{{ ct_p_desc }}</p>
+    </div>
+    <div>
+      <p class="tutoring-price">{{ ct_p_price }}</p>
+      <a class="tutoring-button" href="{{ '/tutoring/#tutoring-calculator' | relative_url }}">{{ ct_btn }}</a>
+    </div>
+  </section>
+</article>
+
+<script>
+(function(){
+  var root = document.getElementById("code-translator");
+  if (!root) return;
+  var data = {
+    jump: {
+      blocks: [
+        ["sb-hat", "коли клавішу", "пробіл", "натиснуто"],
+        ["sb-motion", "змінити y на", "10", ""],
+        ["sb-control", "чекати", "0.2", "секунд"],
+        ["sb-motion", "змінити y на", "-10", ""]
+      ],
+      p: "import minescript as ms\n\ndef on_space_key():\n  x, y, z = ms.player_position()\n  ms.execute(f\"/tp @p {x} {y+2} {z}\")",
+      u: "void Update() {\n  if (Input.GetKeyDown(KeyCode.Space)) {\n    rb.AddForce(Vector3.up * 6f,\n      ForceMode.Impulse);\n  }\n}"
+    },
+    score: {
+      blocks: [
+        ["sb-hat", "коли я отримаю", "coin", ""],
+        ["sb-var", "змінити", "score", "на 1"],
+        ["sb-sound", "відтворити звук", "Coin", ""]
+      ],
+      p: "score = 0\n\ndef on_collect_gem():\n  global score\n  score += 1\n  ms.echo(f\"Score: {score}\")",
+      u: "public int score = 0;\n\nvoid OnTriggerEnter(Collider col) {\n  if (col.CompareTag(\"Coin\"))\n    score++;\n}"
+    },
+    chase: {
+      blocks: [
+        ["sb-hat", "коли", "⚑", "натиснуто"],
+        ["sb-control", "завжди", "", ""],
+        ["sb-motion indent", "слідувати за", "Player", ""],
+        ["sb-motion indent", "перемістити на", "3", "кроки"]
+      ],
+      p: "px, py, pz = ms.player_position()\n\n# Move mob toward player\nms.execute(\n  f\"/tp @e[tag=bot] {px-1} {py} {pz}\"\n)",
+      u: "public NavMeshAgent agent;\npublic Transform player;\n\nvoid Update() {\n  agent.SetDestination(player.position);\n}"
+    },
+    door: {
+      blocks: [
+        ["sb-hat", "коли", "⚑", "натиснуто"],
+        ["sb-control", "якщо", "has_key = 1", "то"],
+        ["sb-looks indent", "змінити образ на", "open", ""],
+        ["sb-hat indent", "оповістити", "enter", ""]
+      ],
+      p: "has_key = True\n\nif has_key:\n  ms.execute(\"/setblock 10 64 5 air\")\n  ms.echo(\"Door unlocked!\")",
+      u: "if (inventory.hasKey) {\n  doorAnimator.SetBool(\n    \"IsOpen\", true\n  );\n}"
+    }
+  };
+  var sEl = document.getElementById("ct-scratch");
+  var pEl = document.getElementById("ct-python");
+  var uEl = document.getElementById("ct-unity");
+
+  function renderScratch(blocks) {
+    sEl.innerHTML = "";
+    var stack = document.createElement("div");
+    stack.className = "sb-stack";
+    blocks.forEach(function(b) {
+      var row = document.createElement("div");
+      row.className = "sb-block " + b[0];
+      row.appendChild(document.createTextNode(b[1] + " "));
+      if (b[2]) {
+        var inp = document.createElement("span");
+        inp.className = "sb-input";
+        inp.textContent = b[2];
+        row.appendChild(inp);
+      }
+      if (b[3]) row.appendChild(document.createTextNode(" " + b[3]));
+      stack.appendChild(row);
+    });
+    sEl.appendChild(stack);
+  }
+
+  function show(k) {
+    var d = data[k] || data.jump;
+    renderScratch(d.blocks);
+    pEl.textContent = d.p;
+    uEl.textContent = d.u;
+  }
+
+  root.addEventListener("click", function(e) {
+    var b = e.target.closest("[data-ct-action]");
+    if (!b) return;
+    root.querySelectorAll("[data-ct-action]").forEach(function(x) {
+      x.classList.remove("is-active");
+    });
+    b.classList.add("is-active");
+    show(b.dataset.ctAction);
+  });
+  show("jump");
+})();
+</script>

@@ -108,6 +108,7 @@ layout: default
   {% endif %}
 
   {% unless course %}
+  {% include tutoring-calculator.html %}
   <section class="tutoring-section tutoring-section--directions{% if course %} tutoring-section--related{% endif %}" id="details" aria-labelledby="directions-title">
     <span id="learning" class="anchor-target" aria-hidden="true"></span>
     <div class="section-heading section-heading--compact">

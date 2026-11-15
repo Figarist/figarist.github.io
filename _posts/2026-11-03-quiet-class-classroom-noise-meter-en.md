@@ -82,6 +82,7 @@ Launch the tool directly in your browser:
 👉 **[Open Quiet Class (Тихий клас) Online](https://sivochka.com/bouncy/)**
 
 Explore our other open educational tools for schools and STEM clubs:
+* **[OGCruncher — Free Online Audio Bit-Crusher &amp; OGG/WAV/MP3 Game SFX Optimizer](https://sivochka.com/OGCruncher/)**
 * **[3D Club Studio — Procedural Support-Free 3D Generator](https://sivochka.com/3d-club-studio/)**
 * **[LEGO WeDo 2.0 Building Instructions Catalog](https://sivochka.com/lego-catalog/)**
 

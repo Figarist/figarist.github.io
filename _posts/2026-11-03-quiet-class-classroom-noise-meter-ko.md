@@ -82,6 +82,7 @@ fmContentType: "Post"
 👉 **[조용한 교실 (Quiet Class) 온라인 열기](https://sivochka.com/bouncy/)**
 
 학교와 방과후 수업을 위한 다른 무료 교육 도구도 확인해 보세요:
+* **[OGCruncher — 무료 온라인 오디오 비트크러셔 &amp; 게임 SFX 최적화 도구](https://sivochka.com/OGCruncher/)**
 * **[3D 클럽 스튜디오 — 서포트 없는 학교 3D 프린터 전용 절차적 생성기](https://sivochka.com/3d-club-studio/)**
 * **[LEGO WeDo 2.0 로봇 공학 조립 설명서 카탈로그](https://sivochka.com/lego-catalog/)**
 

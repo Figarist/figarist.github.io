@@ -78,5 +78,10 @@ The studio runs entirely in the browser without requiring any software installat
 Try the studio directly in your browser:  
 👉 **[Launch 3D Club Studio Online](https://sivochka.com/3d-club-studio/)**
 
+Explore our other free browser tools:
+* **[OGCruncher — Free Online Audio Bit-Crusher &amp; OGG/WAV/MP3 Game SFX Optimizer](https://sivochka.com/OGCruncher/)**
+* **[Quiet Class — Adaptive Web Audio DSP Classroom Noise Meter](https://sivochka.com/bouncy/)**
+* **[LEGO WeDo 2.0 Building Instructions Catalog (597 Models)](https://sivochka.com/lego-catalog/)**
+
 Interested in private 1-on-1 tutoring in 3D modeling, Unity game development, or programming?  
 👉 **[Explore 1-on-1 Mentorship & Tutoring](https://sivochka.com/tutoring/)**

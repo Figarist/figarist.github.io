@@ -78,5 +78,10 @@ fmContentType: "Post"
 지금 웹 브라우저에서 바로 체험해 보세요:  
 👉 **[3D 클럽 스튜디오 온라인 열기](https://sivochka.com/3d-club-studio/)**
 
+다른 무료 브라우저 교육 및 개발 도구:
+* **[OGCruncher — 무료 온라인 오디오 비트크러셔 &amp; 게임 SFX 최적화 도구](https://sivochka.com/OGCruncher/)**
+* **[조용한 교실 (Quiet Class) — 원거리 웹캠용 Web Audio DSP 소음 측정기](https://sivochka.com/bouncy/)**
+* **[LEGO WeDo 2.0 로봇 공학 조립 설명서 카탈로그 (597종 모델)](https://sivochka.com/lego-catalog/)**
+
 3D 모델링, Unity 게임 개발, 프로그래밍 1:1 맞춤 수업에 관심이 있으신가요?  
 👉 **[1:1 개인 튜터링 및 멘토링 자세히 보기](https://sivochka.com/tutoring/)**

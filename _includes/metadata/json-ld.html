@@ -23,17 +23,63 @@ absolute_url -%}
     {
       "@type": "Person",
       "@id": "{{ author_url }}#person",
-      "name": "{{ author_name }}",
+      "name": {{ author_name | jsonify }},
+      "alternateName": [
+        "Ігор Сівочка",
+        "Ihor Sivochka",
+        "Sivochka Ihor",
+        "Ігор Глібович Сівочка",
+        "Игорь Сивочка",
+        "Figarist"
+      ],
       "url": "{{ author_url }}",
       "image": "{{ site_logo }}",
       "jobTitle": {{ site.data[site.active_lang].strings.bio_roles | default: 'Developer' | jsonify }},
+      "knowsAbout": [
+        "Unity",
+        "C#",
+        "Python",
+        "Scratch",
+        "Game Development",
+        "Web Audio API",
+        "3D Printing",
+        "LEGO WeDo 2.0 Robotics",
+        "Wear OS",
+        "Computer Science Education"
+      ],
+      "hasCredential": [
+        {
+          "@type": "EducationalOccupationalCredential",
+          "name": "Unity Junior Programmer"
+        },
+        {
+          "@type": "EducationalOccupationalCredential",
+          "name": "Unity Essentials"
+        }
+      ],
       "sameAs": [
-        {% for link in site.social.links %}"{{ link }}"{% unless forloop.last %},{% endunless %}{% endfor %},
+        {% for link in site.social.links %}"{{ link }}",{% endfor %}
+        "https://sivochka.com/tutoring/",
         "https://sivochka.com/lego-catalog/",
         "https://sivochka.com/3d-club-studio/",
         "https://sivochka.com/bouncy/",
         "https://sivochka.com/OGCruncher/"
       ]
+    },
+    {
+      "@type": "WebSite",
+      "@id": "{{ author_url }}#website",
+      "url": "{{ author_url }}/",
+      "name": "Figarist — Ihor Sivochka",
+      "alternateName": [
+        "Ігор Сівочка",
+        "Sivochka Ihor",
+        "Figarist"
+      ],
+      "inLanguage": ["en", "uk", "ru", "ko"],
+      "publisher": {
+        "@id": "{{ author_url }}#person"
+      }
     },
     {%- else -%}
     {
@@ -48,7 +94,13 @@ absolute_url -%}
       "author": {
         "@type": "Person",
         "@id": "{{ author_url }}#person",
-        "name": "{{ author_name }}",
+        "name": {{ author_name | jsonify }},
+        "alternateName": [
+          "Ігор Сівочка",
+          "Ihor Sivochka",
+          "Sivochka Ihor",
+          "Figarist"
+        ],
         "url": "{{ author_url }}"
       },
       "publisher": {

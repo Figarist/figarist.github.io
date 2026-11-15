@@ -85,6 +85,7 @@ fmContentType: "Post"
 👉 **[Открыть «Тихий класс» онлайн](https://sivochka.com/bouncy/)**
 
 Другие открытые образовательные инструменты для школ и кружков:
+* **[OGCruncher — бесплатный онлайн биткрашер и оптимизатор звука для игр](https://sivochka.com/OGCruncher/)**
 * **[3D Кузница Чудес — процедурный 3D-генератор для школьных принтеров без поддержек](https://sivochka.com/3d-club-studio/)**
 * **[Каталог инструкций LEGO WeDo 2.0 для уроков робототехники](https://sivochka.com/lego-catalog/)**
 

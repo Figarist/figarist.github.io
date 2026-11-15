@@ -1,8 +1,12 @@
-# Figarist website
+# Ihor Sivochka (Figarist) — Personal Hub & EdTech Workshop
 
-Source for [figarist.com](https://figarist.com): Ihor Sivochka's multilingual
+Source for [sivochka.com](https://sivochka.com/): Ihor Sivochka's multilingual
 personal website, tutoring profile and technical workshop. Jekyll generates a
 static site that GitHub Actions verifies and publishes to GitHub Pages.
+
+- **🌐 Live Website:** [sivochka.com](https://sivochka.com/) · [Українська (`/uk/`)](https://sivochka.com/uk/) · [Русский (`/ru/`)](https://sivochka.com/ru/) · [한국어 (`/ko/`)](https://sivochka.com/ko/)
+- **🎓 1-on-1 Programming Tutoring (Unity/C#, Python, Scratch, CS):** [sivochka.com/tutoring/](https://sivochka.com/tutoring/) · [Українською](https://sivochka.com/uk/tutoring/)
+- **📖 Architecture Guide:** [Jekyll Spaceship + Hub Architecture (EN)](https://sivochka.com/blog/jekyll-spaceship-hub-architecture/) · [UK](https://sivochka.com/uk/blog/jekyll-spaceship-hub-architecture/)
 
 The public interface supports English, Ukrainian, Russian and Korean. Source
 code and technical documentation are maintained in English.
@@ -139,3 +143,16 @@ Use the [documentation index](docs/README.md) as the starting point.
 Historical reports describe the state at the time they were written. For current
 behavior, prefer source code, the lockfile, CI workflow, canonical checklist and
 the latest dated verification addendum.
+
+## Author & Ecosystem (`Ihor Sivochka / Figarist`)
+
+Created and maintained by **Ihor Sivochka (Ігор Сівочка / Figarist)** — Certified Unity Developer, Computer Science Mentor, and EdTech Toolmaker.
+
+- 🌐 **Main Hub & Multilingual Blog (`EN` / `UK` / `RU` / `KO`):** [sivochka.com](https://sivochka.com/)
+- 🎓 **1-on-1 Programming Mentoring (Unity/C#, Python, Scratch, CS, 3D):** [sivochka.com/tutoring/](https://sivochka.com/tutoring/) · [Українською](https://sivochka.com/uk/tutoring/)
+- ⌚ **Indie Game Studio (Android & Wear OS):** [Wrist & Pocket Studio](https://wristandpocket.dev/) (`@wristandpocket`)
+- 🎛️ **OGCruncher:** [sivochka.com/OGCruncher/](https://sivochka.com/OGCruncher/) ([Repo](https://github.com/Figarist/OGCruncher)) — browser Web Audio bit-crusher & game SFX optimizer
+- ⚒️ **3D Club Studio (`3D Кузня Чудес`):** [sivochka.com/3d-club-studio/](https://sivochka.com/3d-club-studio/) ([Repo](https://github.com/Figarist/3d-club-studio)) — offline 3D modeling studio & support-free STL generator
+- 🧱 **LEGO WeDo 2.0 Catalog:** [sivochka.com/lego-catalog/](https://sivochka.com/lego-catalog/) ([Repo](https://github.com/Figarist/lego-catalog)) — 597 robotics PDF building instructions in 26 categories
+- 🤫 **Quiet Class (`Тихий Клас`):** [sivochka.com/bouncy/](https://sivochka.com/bouncy/) ([Repo](https://github.com/Figarist/bouncy)) — gamified Web Audio DSP classroom noise meter
+- 📺 **YouTube:** [@proVR_ua](https://www.youtube.com/@proVR_ua) · 💬 **Telegram:** [@proVR_ua](https://t.me/proVR_ua) · 💻 **GitHub:** [@Figarist](https://github.com/Figarist)

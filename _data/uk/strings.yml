@@ -47,7 +47,7 @@ shrine_desc: "Архів Nintendo DS, Switch та Simcade ріг."
 shrine_cta: "Відкрити сховище →"
 
 # OGCRUNCHER CARD
-cruncher_desc: "Браузерний біт-крашер та OGG компресор. Працює на базі OfflineAudioContext."
+cruncher_desc: "Браузерний біт-крашер та конвертер в OGG, WAV і MP3. Працює на базі OfflineAudioContext."
 
 # VR FEED
 vr_heading: "VR Новини та Життя"

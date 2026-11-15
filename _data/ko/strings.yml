@@ -47,7 +47,7 @@ shrine_desc: "닌텐도 DS 아카이브, 스위치 및 심케이드 장비."
 shrine_cta: "저장소 잠금 해제 →"
 
 # OGCRUNCHER CARD
-cruncher_desc: "브라우저 기반 오디오 비트 크러셔 및 OGG 압축기입니다. OfflineAudioContext를 기반으로 작동합니다."
+cruncher_desc: "브라우저 기반 오디오 비트 크러셔 및 OGG·WAV·MP3 변환기입니다. OfflineAudioContext를 기반으로 작동합니다."
 
 # VR FEED
 vr_heading: "VR 뉴스 & 라이프"

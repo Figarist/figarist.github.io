@@ -107,6 +107,7 @@ exclude_from_localization:
   - OGCruncher
   - 3d-club-studio
   - bouncy
+  - canirunUnity
   - feed.xml
 parallel_localization: false
 

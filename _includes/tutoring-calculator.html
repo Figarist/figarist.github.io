@@ -172,8 +172,10 @@
         <div class="calc-result__links">
           <a href="{{ '/tutoring/unity/' | relative_url }}" class="text-link text-link--light" id="calc-track-link">{{ c_more }}</a>
           <a href="{{ '/tools/code-translator/' | relative_url }}" class="text-link text-link--light">{{ c_cmp }}</a>
+          <a href="https://sivochka.com/canirunUnity/{% unless site.active_lang == 'en' %}{{ site.active_lang }}/{% endunless %}" target="_blank" rel="noopener" class="text-link text-link--light">Can I Run Unity? ↗</a>
         </div>
       </div>
     </aside>
   </div>
+  <script defer src="{{ '/assets/js/tutoring-calc.js' | relative_url }}?v={{ site.time | date: '%s' }}"></script>
 </section>

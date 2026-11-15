@@ -102,3 +102,12 @@ for step in range(0, 1000):
 ### Educational Takeaways
 
 Leveraging real-time game engines for computer science education maintains high student motivation. It bridges abstract algorithmic concepts with immediate visual feedback, encourages experimental debugging, and builds confidence in developing independent software.
+
+---
+
+### Want to Try This Approach in 1-on-1 Mentoring?
+
+This methodology powers my **[Python in Minecraft](https://sivochka.com/tutoring/minecraft/)** track for students ages 9–13. Sessions run strictly **1-on-1** with a working developer (60 minutes, **€20 / ~$22 / 1000 UAH**, official multi-currency invoicing available).
+
+- Explore mentoring terms & availability: [1-on-1 Coding & Game Dev Mentoring](https://sivochka.com/tutoring/)
+- Comparing Scratch, Python, and Unity C#? Read the parent guide: [How to Choose a Programming Track for Your Child](https://sivochka.com/blog/how-to-choose-programming-for-child/)

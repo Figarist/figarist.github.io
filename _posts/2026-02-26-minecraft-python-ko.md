@@ -102,3 +102,12 @@ for step in range(0, 1000):
 ### 교육적 가치
 
 게임 엔진을 프로그래밍 수업에 결합하면 학생들의 학습 몰입도를 높게 유지할 수 있습니다. 추상적인 알고리즘이 가상 세계에서 즉각적인 시각적 결과로 나타나므로, 코드 디버깅 과정을 자연스럽게 익히고 독립적인 소프트웨어 개발에 대한 자신감을 기를 수 있습니다.
+
+---
+
+### 1:1 개인 멘토링으로 직접 경험해 보세요
+
+이 교육 방법론은 9~13세 학생을 위한 **[Minecraft Python 트랙](https://sivochka.com/ko/tutoring/minecraft/)**의 핵심입니다. 현업 개발자와 **1:1 개인 수업**(60분, **20 € / ~$22 / 1000 UAH**, 다중 통화 공식 계좌 결제 가능)으로 진행됩니다.
+
+- 수업 조건 및 일정 문의: [1:1 코딩·게임 개발 멘토링](https://sivochka.com/ko/tutoring/)
+- Scratch, Python, Unity C# 중 고민 중이신가요? 학부모 가이드 보기: [자녀를 위한 코딩 진로 선택 가이드](https://sivochka.com/ko/blog/how-to-choose-programming-for-child/)

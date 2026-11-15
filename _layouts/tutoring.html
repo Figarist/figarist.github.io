@@ -22,9 +22,9 @@ layout: default
       <p class="tutoring-lead">{{ course.intro | default: t.intro }}</p>
       <div class="tutoring-hero__facts">
         <span>{{ t.language }}</span>
-        <strong>{% if s.price_usd_prefix and tutoring_settings.price.usd_amount %}{{ s.price_usd_prefix }}{{ tutoring_settings.price.usd_amount }} / {{ tutoring_settings.price.amount }} {{ tutoring_settings.price.currency }} {{ s.price_unit }}{% elsif s.price_unit_before %}{{ s.price_unit }} {{ tutoring_settings.price.amount }} {{ tutoring_settings.price.currency }}{% elsif s.price_currency_before %}{{ tutoring_settings.price.currency }}&nbsp;{{ tutoring_settings.price.amount }}&nbsp;{{ s.price_unit }}{% else %}{{ tutoring_settings.price.amount }}&nbsp;{{ s.price_currency_label }}&nbsp;{{ s.price_unit }}{% endif %}</strong>
+        <strong>{{ s.price_display_main }}</strong>
         {% if tutoring_settings.price.equivalents %}
-        <span class="tutoring-hero__equivalents" title="{{ s.price_equivalents_label }}">${{ tutoring_settings.price.equivalents.usd }} · €{{ tutoring_settings.price.equivalents.eur }} · {{ tutoring_settings.price.equivalents.pln }} zł · £{{ tutoring_settings.price.equivalents.gbp }} ({{ tutoring_settings.price.amount }} {{ tutoring_settings.price.currency }})</span>
+        <span class="tutoring-hero__equivalents" title="{{ s.price_equivalents_label }}">€{{ tutoring_settings.price.equivalents.eur }} · ~${{ tutoring_settings.price.equivalents.usd }} · ~{{ tutoring_settings.price.equivalents.pln }} zł · ~£{{ tutoring_settings.price.equivalents.gbp }} ({{ tutoring_settings.price.amount }} {{ tutoring_settings.price.currency }})</span>
         {% endif %}
       </div>
       <div class="tutoring-hero__actions">
@@ -137,6 +137,33 @@ layout: default
     </div>
   </section>
 
+  <section class="tutoring-section" aria-labelledby="ecosystem-title">
+    <div class="section-heading section-heading--compact">
+      <div><p class="section-kicker">{{ s.tutoring_ecosystem_kicker }}</p><h2 id="ecosystem-title">{{ s.tutoring_ecosystem_title }}</h2></div>
+      <p>{{ s.tutoring_ecosystem_intro }}</p>
+    </div>
+    <div class="explore-grid">
+      <a href="{{ tutoring_settings.proof.own_project.url | relative_url }}" class="explore-card explore-card--dark" data-goatcounter-click="tutoring-eco-dish">
+        <span>Unity 6 · WebGL</span><strong>{{ tutoring_settings.proof.own_project.title }}</strong><small>{{ s.tutoring_dish_detail }}</small><b aria-hidden="true">→</b>
+      </a>
+      <a href="https://sivochka.com/3d-club-studio/" target="_blank" rel="noopener" class="explore-card" data-goatcounter-click="tutoring-eco-3d">
+        <span>{{ s.studio_3d_label }}</span><strong>{{ s.studio_3d_title }}</strong><small>{{ s.studio_3d_desc }}</small><b aria-hidden="true">↗</b>
+      </a>
+      <a href="https://sivochka.com/OGCruncher/" target="_blank" rel="noopener" class="explore-card" data-goatcounter-click="tutoring-eco-ogcruncher">
+        <span>{{ s.utility_core_label }}</span><strong>{{ s.cruncher_title }}</strong><small>{{ s.cruncher_desc }}</small><b aria-hidden="true">↗</b>
+      </a>
+      <a href="https://sivochka.com/lego-catalog/" target="_blank" rel="noopener" class="explore-card" data-goatcounter-click="tutoring-eco-lego">
+        <span>{{ s.lego_label }}</span><strong>LEGO WeDo 2.0</strong><small>{{ s.lego_desc }}</small><b aria-hidden="true">↗</b>
+      </a>
+      <a href="https://sivochka.com/bouncy/" target="_blank" rel="noopener" class="explore-card" data-goatcounter-click="tutoring-eco-bouncy">
+        <span>{{ s.bouncy_label }}</span><strong>{{ s.bouncy_title }}</strong><small>{{ s.bouncy_desc }}</small><b aria-hidden="true">↗</b>
+      </a>
+      <a href="{{ tutoring_settings.proof.studio_url }}" target="_blank" rel="noopener" class="explore-card" data-goatcounter-click="tutoring-eco-studio">
+        <span>{{ s.nav_studio }}</span><strong>Wrist &amp; Pocket Studio</strong><small>{{ s.home_studio_detail }}</small><b aria-hidden="true">↗</b>
+      </a>
+    </div>
+  </section>
+
   {% include tutoring-cases.html %}
   {% include tutoring-profile.html %}
   {% include tutoring-testimonials.html %}
@@ -179,12 +206,12 @@ layout: default
 
       <div class="condition-card">
         <h3>{{ s.tutoring_price_title }}</h3>
-        <p><strong>{% if s.price_usd_prefix and tutoring_settings.price.usd_amount %}{{ s.price_usd_prefix }}{{ tutoring_settings.price.usd_amount }} / {{ tutoring_settings.price.amount }} {{ tutoring_settings.price.currency }} {{ s.price_unit }}{% elsif s.price_unit_before %}{{ s.price_unit }} {{ tutoring_settings.price.amount }} {{ tutoring_settings.price.currency }}{% elsif s.price_currency_before %}{{ tutoring_settings.price.currency }}&nbsp;{{ tutoring_settings.price.amount }}&nbsp;{{ s.price_unit }}{% else %}{{ tutoring_settings.price.amount }}&nbsp;{{ s.price_currency_label }}&nbsp;{{ s.price_unit }}{% endif %}</strong><br>{% include tutoring-payment.html %}</p>
+        <p><strong>{{ s.price_display_main }}</strong><br>{% include tutoring-payment.html %}</p>
         {% if optional_conditions.payment_order %}
         <p class="condition-card__sub">{{ optional_conditions.payment_order[site.active_lang] | default: optional_conditions.payment_order.en | default: optional_conditions.payment_order.uk | default: optional_conditions.payment_order.first[1] | default: optional_conditions.payment_order }}</p>
         {% endif %}
         {% if tutoring_settings.price.equivalents %}
-        <div class="condition-card__equivalents">${{ tutoring_settings.price.equivalents.usd }} · €{{ tutoring_settings.price.equivalents.eur }} · {{ tutoring_settings.price.equivalents.pln }} zł · £{{ tutoring_settings.price.equivalents.gbp }} ({{ tutoring_settings.price.amount }} {{ tutoring_settings.price.currency }})</div>
+        <div class="condition-card__equivalents">€{{ tutoring_settings.price.equivalents.eur }} · ~${{ tutoring_settings.price.equivalents.usd }} · ~{{ tutoring_settings.price.equivalents.pln }} zł · ~£{{ tutoring_settings.price.equivalents.gbp }} ({{ tutoring_settings.price.amount }} {{ tutoring_settings.price.currency }})</div>
         {% endif %}
       </div>
 
@@ -222,18 +249,42 @@ layout: default
     <div class="faq-list">{% for question in faq_questions %}<details class="tutoring-faq"><summary data-goatcounter-click="tutoring-faq-toggle">{{ question[0] }}</summary><p>{% if question[0] == t.payment_question %}{% include tutoring-payment.html %}{% else %}{{ question[1] }}{% endif %}</p></details>{% endfor %}</div>
   </section>
 
+  <section class="tutoring-section tutoring-section--directions" aria-labelledby="articles-title">
+    <div class="section-heading section-heading--compact">
+      <div><p class="section-kicker">{{ s.tutoring_articles_kicker }}</p><h2 id="articles-title">{{ s.tutoring_articles_title }}</h2></div>
+      <p>{{ s.tutoring_articles_intro }}</p>
+    </div>
+    <div class="tutoring-options">
+      <a class="tutoring-option" href="{{ '/blog/unity-csharp-mentoring-for-kids/' | relative_url }}">
+        <span class="tutoring-option__number">01</span>
+        <div><h3>{{ s.tutoring_article_unity_title }}</h3><p>{{ s.tutoring_article_unity_desc }}</p></div>
+        <span class="tutoring-option__arrow" aria-hidden="true">→</span>
+      </a>
+      <a class="tutoring-option" href="{{ '/blog/how-to-choose-programming-for-child/' | relative_url }}">
+        <span class="tutoring-option__number">02</span>
+        <div><h3>{{ s.tutoring_article_guide_title }}</h3><p>{{ s.tutoring_article_guide_desc }}</p></div>
+        <span class="tutoring-option__arrow" aria-hidden="true">→</span>
+      </a>
+      <a class="tutoring-option" href="{{ '/blog/minecraft-python/' | relative_url }}">
+        <span class="tutoring-option__number">03</span>
+        <div><h3>{{ s.tutoring_article_minecraft_title }}</h3><p>{{ s.tutoring_article_minecraft_desc }}</p></div>
+        <span class="tutoring-option__arrow" aria-hidden="true">→</span>
+      </a>
+    </div>
+  </section>
+
   {% include tutoring-video.html %}
 
   <section class="tutoring-contact-panel" id="contact" aria-labelledby="contact-title">
     <div><p class="section-kicker">{{ s.tutoring_contact_label }}</p><h2 id="contact-title">{{ t.contact }}</h2><p>{{ t.contact_text }}</p></div>
-    <div><p class="tutoring-price">{% if s.price_usd_prefix and tutoring_settings.price.usd_amount %}{{ s.price_usd_prefix }}{{ tutoring_settings.price.usd_amount }} / {{ tutoring_settings.price.amount }} {{ tutoring_settings.price.currency }} {{ s.price_unit }}{% elsif s.price_unit_before %}{{ s.price_unit }} {{ tutoring_settings.price.amount }} {{ tutoring_settings.price.currency }}{% elsif s.price_currency_before %}{{ tutoring_settings.price.currency }}&nbsp;{{ tutoring_settings.price.amount }}&nbsp;{{ s.price_unit }}{% else %}{{ tutoring_settings.price.amount }}&nbsp;{{ s.price_currency_label }}&nbsp;{{ s.price_unit }}{% endif %}</p>{% include tutoring-contact.html %}</div>
+    <div><p class="tutoring-price">{{ s.price_display_main }}</p>{% include tutoring-contact.html %}</div>
   </section>
 </article>
 
 <aside class="tutoring-mobile-bar" aria-label="{{ t.cta | escape }}">
   <div class="tutoring-mobile-bar__inner">
     <div class="tutoring-mobile-bar__price">
-      <strong>{% if s.price_currency_before %}{{ tutoring_settings.price.currency }}&nbsp;{{ tutoring_settings.price.amount }}{% elsif s.price_currency_label and s.price_currency_label != '' %}{{ tutoring_settings.price.amount }}&nbsp;{{ s.price_currency_label }}{% else %}{{ tutoring_settings.price.amount }}&nbsp;{{ tutoring_settings.price.currency }}{% endif %}</strong>
+      <strong>{{ s.price_display_compact }}</strong>
       <small>{{ s.price_unit }}</small>
     </div>
     {% include tutoring-contact.html is_sticky=true compact=true %}

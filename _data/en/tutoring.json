@@ -1,96 +1,106 @@
 {
   "nav": "Lessons",
-  "title": "Online programming tutor for children — Sivochka Ihor",
-  "description": "Individual Unity and C#, Python and Scratch lessons for children with game developer Sivochka Ihor. Online, project-based learning.",
-  "heading": "Online programming lessons for children and teenagers",
-  "mobile_heading": "Programming for children",
-  "intro": "I am Sivochka Ihor, a teacher and game developer. Unity and C# are my main focus. I also teach Python, including through Minecraft, Scratch and computer science. Individual lessons combine clear tasks with personal projects.",
-  "audience": "Ages 6+. Basic mouse or touchscreen skills are enough to start.",
-  "language": "Individual Zoom lessons · 60 minutes · ages 6+",
-  "cta": "Discuss lessons on Telegram",
-  "availability": "Message me to discuss the format and a convenient schedule.",
-  "choose": "Choose a direction",
-  "learn": "What we explore",
-  "projects": "Possible learning projects",
-  "project_note": "These are examples of possible tasks. Difficulty and pace depend on the student’s experience and interests.",
-  "approach": "How we learn",
+  "title": "Online Unity, C#, Python & Scratch Mentor and Tutor — Ihor Sivochka",
+  "description": "1-on-1 online programming & game dev mentoring for kids and teens with developer Ihor Sivochka: Unity & C#, Python, Minecraft, Scratch, CS. €20 / ~$22 (1000 UAH) per 60-min lesson.",
+  "heading": "Personal 1-on-1 Mentoring in Unity, C#, Python & Computer Science",
+  "mobile_heading": "Unity, C# & Python Mentoring",
+  "intro": "I am Ihor Sivochka (Figarist)—a practicing indie game developer, Master of Education in Computer Science, and creator of live EdTech web platforms. My flagship track is 1-on-1 Unity and C# mentoring for kids and teenagers (building 2D/3D games, enemy AI, multiplayer, and portfolio projects from scratch). I also teach Python (including via Minecraft), Scratch for ages 6+, and school computer science. Personal 1-on-1 mentoring with no group slides or mass classes.",
+  "audience": "Children and teenagers ages 6–17 worldwide (Ukraine, Europe, UK, USA, Canada, Israel).",
+  "language": "1-on-1 Zoom mentoring · 60 min · Worldwide (EU, US, CA, UA)",
+  "cta": "Book a lesson on Telegram",
+  "availability": "Weekly schedule slots are limited. Message on Telegram to check availability and align on goals.",
+  "choose": "Choose a 1-on-1 mentoring track",
+  "learn": "What we build & master",
+  "projects": "Real student projects & outcomes",
+  "project_note": "Every project grows around the student's ideas—from first playable prototypes to multi-mechanic 3D games. Pace and scope match age and experience.",
+  "approach": "How 1-on-1 mentoring works",
   "steps": [
-    "We discuss interests and explore example projects. Start from scratch or bring a game you are already making.",
-    "We begin with something manageable, such as a Flappy Bird-style game or walking around a 3D world. Complex games take time; we work through things step by step.",
-    "I explain the logic and help students experiment and debug. If their interests change, we can switch projects or directions."
+    "We align with parents on Telegram (student age, time zone, hardware, goals) and reserve a regular weekly slot. The first paid 60-minute session starts right into practice.",
+    "We work live 1-on-1 on the student's own project—progressing from simple mechanics to C# architecture, physics, AI behavior, or multiplayer networking.",
+    "I explain why the code works, teach independent debugging, and adapt the pace without templated group presentations."
   ],
-  "proof": "Learn with a practising game developer",
-  "proof_text": "Explore my own projects on this website for examples of my development work. Teaching reviews are available on BUKI and the Ukrainian Tutors Association.",
+  "proof": "Learn with a builder shipping real games and EdTech tools",
+  "proof_text": "Instead of textbook theory, students learn with an active developer whose live games and web apps run right on this domain: Dish of Chaos (Unity 6 WebGL), 3D Club Studio, OGCruncher Web Audio DSP, LEGO WeDo 2.0 Catalog (597 guides), and Quiet Class (Bouncy). Credentials include Unity Junior Programmer, Unity Essentials, a Master's degree in Education, and 18 independent 5/5 reviews on BUKI and the Ukrainian Tutors Association.",
   "game": "Play my game Dish of Chaos",
   "reviews": "BUKI reviews",
-  "faq": "Before starting",
+  "faq": "Pricing, format & frequently asked questions",
   "questions": [
     [
-      "Is programming experience required?",
-      "Ages 6+. Basic mouse or touchscreen skills are enough to start."
+      "How much do individual lessons cost and why is this 1-on-1 mentoring?",
+      "The fixed rate is €20 for families in Europe / ~$22 USD for the US and Canada (or 1000 UAH) per 60-minute 1-on-1 session. You work directly with an active indie game developer, Master of Computer Science Education, and EdTech creator—not mass group courses or junior instructors. Weekly slots are limited so every student's codebase receives focused attention."
     ],
     [
-      "Can students join from abroad?",
-      "Yes, lessons are online. Include your country or time zone and preferred times in your message."
+      "Is there a free trial lesson?",
+      "Initial parent consultation on Telegram (discussing age, goals, hardware readiness, and choosing a track) is free. The first full 60-minute hands-on lesson and project kickoff is paid at the standard rate (€20 / ~$22 / 1000 UAH)."
     ],
     [
-      "What computer is needed?",
-      "A computer or laptop with Zoom, screen sharing and the software for the chosen subject. A computer or tablet with Scratch, Zoom and screen sharing."
+      "Which age and track is the best starting point?",
+      "Ages 6–9 usually start best with Scratch to build algorithmic thinking. Ages 9–12 are ideal for Python (including through Minecraft) or transitioning into Unity. Ages 10–17 thrive in the flagship Unity & C# track, building real 2D/3D games for their portfolio."
     ],
     [
-      "How do I enquire?",
-      "Message @Figarist on Telegram with the student’s age, subject, experience and preferred times. I will reply about availability."
+      "Can students join from Europe, the US, Canada, or Israel?",
+      "Yes, most students join online from across Europe, North America, Israel, and Ukraine. Lessons are held on Zoom in a reserved weekly slot matching your local time zone (available in Ukrainian or Russian; international terminology in English)."
+    ],
+    [
+      "What computer setup is required?",
+      "Unity, Python, and Minecraft require a Windows or Mac computer/laptop with Zoom, screen sharing, and software installation access. Scratch works on a computer or tablet."
+    ],
+    [
+      "How do I book a weekly slot?",
+      "Message @Figarist on Telegram with the student's age, country/time zone, preferred track (Unity/C#, Python, Scratch, CS), prior experience, and convenient hours."
     ],
     [
       "How do I pay for lessons?",
       "Payment details are listed in the conditions above."
     ]
   ],
-  "contact": "Start with your goal",
-  "contact_text": "Tell me the learner’s age or your level, what you want to create and when lessons would suit you.",
-  "all": "All lesson options",
+  "contact": "Reserve a weekly mentoring slot",
+  "contact_text": "1-on-1 format (€20 / ~$22 / 1000 UAH per 60 min). Share the student's age, time zone, experience, and what they want to create.",
+  "all": "All mentoring tracks",
   "courses": [
     {
       "slug": "unity",
-      "title": "Online Unity and C# tutor for children",
-      "heading": "Create games with Unity and C#",
-      "description": "Individual online Unity lessons for children: 2D/3D games, game logic and C#. With Sivochka Ihor.",
-      "intro": "For children curious about how games work. We build a Unity project and gradually learn C# through its mechanics.",
+      "title": "Online Unity & C# Mentor and Tutor for Kids & Teens — Ihor Sivochka",
+      "heading": "1-on-1 Mentoring in Unity and C# Game Development",
+      "description": "Private 1-on-1 online Unity & C# lessons for kids and teens with certified developer (Unity Junior Programmer). Build 2D/3D games, AI & multiplayer. €20 / ~$22 (1000 UAH) per 60 min.",
+      "intro": "Flagship mentoring track for students ages 10–17 who want to move beyond playing games and learn to engineer real 2D and 3D games in Unity and C#. Working 1-on-1, students grow from first movement scripts to deep projects like Dania's 3D Hello Neighbour with reactive AI or Maksym's online multiplayer Hockey Zombie.",
       "topics": [
-        "Unity editor, scenes and game objects",
-        "C# variables, conditions, loops and methods",
-        "Movement, collisions, physics and game logic",
-        "Interfaces, animation and building a playable game"
+        "Unity Editor architecture: scenes, prefabs, components, and ScriptableObjects",
+        "C# programming: variables, conditions, loops, methods, OOP classes, and events",
+        "Game physics (Rigidbody, colliders, Vector3), cameras, audio, and animation",
+        "Enemy AI logic (patrolling, sound detection, states) and multiplayer fundamentals",
+        "UI Canvas, cinematic cutscenes, optimization, and building standalone/WebGL games"
       ],
       "examples": [
-        "A 2D game with character movement, obstacles and a score",
-        "A 3D scene with controls and object interaction"
+        "3D mystery adventure with inventory, cutscenes, and reactive AI enemy (student Dania's 1-year project Hello Neighbour)",
+        "Two-player online 3D ice hockey action game with multiplayer networking (student Maksym's Hockey Zombie)",
+        "Original 2D arcade or platformer with scoring, animations, audio, and menus"
       ],
       "steps": [
-        "We discuss interests and explore example projects. Start from scratch or bring a game you are already making.",
-        "We begin with something manageable, such as a Flappy Bird-style game or walking around a 3D world. Complex games take time; we work through things step by step.",
-        "I explain the logic and help students experiment and debug. If their interests change, we can switch projects or directions."
+        "We discuss the student's game ideas and verify computer specs. Beginners can start from zero C# knowledge or bring an existing Unity scene.",
+        "Early sessions deliver a playable mini-prototype so the student immediately sees how C# lines drive gameplay on screen.",
+        "We scale complexity step by step: breaking big ideas into tasks, reading console errors, and shipping playable builds."
       ],
       "questions": [
         [
-          "Can I start Unity without knowing C#?",
-          "Yes. We begin with the editor and simple game actions, then introduce C# variables, conditions, loops and methods through the project. The aim is to understand the code, not just run it."
+          "How much do Unity & C# lessons cost and why is it 1-on-1 mentoring?",
+          "Each 60-minute individual session costs €20 / ~$22 USD (1000 UAH). You work 1-on-1 with a Unity Junior Programmer & Unity Essentials certified developer and Master of Computer Science Education, with the entire hour dedicated to your child's game architecture and C# code."
         ],
         [
-          "Can I bring an existing game?",
-          "Yes. We look at the project and choose a manageable next step. Complex games take time, so I do not promise completion in a fixed number of lessons."
+          "Can I start Unity without knowing C#?",
+          "Yes. We begin with the editor and simple controlled objects, then introduce C# variables, conditions, loops, methods, and classes directly inside real game mechanics so the student understands every line rather than copy-pasting."
+        ],
+        [
+          "Can a student bring an existing game project?",
+          "Yes. We review the existing project, organize its architecture, and define clear next engineering steps without unrealistic completion guarantees."
         ],
         [
           "Can students join from abroad?",
-          "Yes, lessons are online. Include your country or time zone and preferred times in your message."
+          "Yes, lessons run online via Zoom screen sharing, scheduled to fit time zones in Europe, the UK, USA, Canada, and Israel."
         ],
         [
-          "What computer is needed?",
-          "A computer or laptop with Zoom, screen sharing and the software for the chosen subject. A computer or tablet with Scratch, Zoom and screen sharing."
-        ],
-        [
-          "How do I enquire?",
-          "Message @Figarist on Telegram with the student’s age, subject, experience and preferred times. I will reply about availability."
+          "What computer is needed for Unity?",
+          "A Windows or macOS computer/laptop capable of running Unity Hub, a code editor, and Zoom (8–16 GB RAM recommended for 3D projects; verified before booking)."
         ],
         [
           "How do I pay for lessons?",
@@ -100,45 +110,46 @@
     },
     {
       "slug": "python",
-      "title": "Online Python tutor for children",
-      "heading": "Learn Python through projects",
-      "description": "Individual online Python lessons for children with Sivochka Ihor: programming basics, algorithms and projects.",
-      "intro": "For students who want to write text-based code and create programs. We break problems into steps and test our solutions.",
+      "title": "Online Python Tutor for Kids & Teens 1-on-1 — Ihor Sivochka",
+      "heading": "Python: Text-Based Code, Algorithms & Custom Programs",
+      "description": "1-on-1 online Python tutoring for school students (Ukraine, EU, US, Canada): clean syntax, algorithms, projects, and Python via Minecraft. €20 / ~$22 (1000 UAH) per 60 min.",
+      "intro": "For students ages 9–17 ready to transition from visual blocks into real text-based Python programming. We learn problem decomposition, data structures, algorithms, and build playable games and practical utilities.",
       "topics": [
-        "Variables, data types, conditions and loops",
-        "Functions, lists and data processing",
-        "Algorithms and debugging",
-        "Libraries for small projects"
+        "Core Python syntax: variables, data types, conditionals, and loops",
+        "Functions, lists, dictionaries, file handling, and exception handling",
+        "Algorithmic thinking, olympiad and school computer science problem solving",
+        "Turtle graphics, console RPG games, and automation foundations"
       ],
       "examples": [
-        "Drawings and animation with Turtle",
-        "A text adventure or quiz with custom rules"
+        "Interactive text RPG or quiz with inventory and branching combat logic",
+        "Procedural geometry and animations using Python Turtle",
+        "Custom automation scripts and logic tools tailored to student interests"
       ],
       "steps": [
-        "We discuss interests and explore example projects. Start from scratch or bring a game you are already making.",
-        "Start small with a Turtle drawing or a text quiz. We explain the code step by step and add new features.",
-        "I explain the logic and help students experiment and debug. If their interests change, we can switch projects or directions."
+        "We assess prior experience and pick the right track: project-based Python or Python through Minecraft (Minescript).",
+        "Each session introduces a core concept and puts it straight into the student's own code without dry memorization.",
+        "We build habits of clean code, independent debugging, and readiness for future Unity C# or software development."
       ],
       "questions": [
         [
+          "How much do Python lessons cost?",
+          "The rate for a 60-minute 1-on-1 lesson is €20 / ~$22 USD (1000 UAH). It is personalized instruction with a Master of Computer Science Education and practicing developer."
+        ],
+        [
           "Can Python be a first programming language?",
-          "We can start from short commands, variables and simple tasks. Scratch may be a better starting point for a younger child. We set the pace around understanding and practice."
+          "Yes, from ages 9–10 Python is an excellent starting point thanks to readable syntax. For ages 6–8, starting with Scratch before Python works best."
         ],
         [
           "Can we learn Python through Minecraft?",
-          "Yes. In a separate Minescript-based direction, coordinates, conditions and loops connect to actions in Minecraft. We discuss the computer and game setup beforehand."
+          "Yes. Our dedicated Minescript track connects Python variables, coordinates, conditionals, and loops directly to in-game actions. PC compatibility is checked beforehand."
         ],
         [
           "Can students join from abroad?",
-          "Yes, lessons are online. Include your country or time zone and preferred times in your message."
+          "Yes, lessons take place online via Zoom and align with European, UK, US, Canadian, and Israeli time zones."
         ],
         [
-          "What computer is needed?",
-          "A computer or laptop with Zoom, screen sharing and the software for the chosen subject. A computer or tablet with Scratch, Zoom and screen sharing."
-        ],
-        [
-          "How do I enquire?",
-          "Message @Figarist on Telegram with the student’s age, subject, experience and preferred times. I will reply about availability."
+          "How do I enquire about Python?",
+          "Message @Figarist on Telegram with the student's age, country, current level, and preferred times."
         ],
         [
           "How do I pay for lessons?",
@@ -148,45 +159,41 @@
     },
     {
       "slug": "informatics",
-      "title": "Online computer science tutor for children",
-      "heading": "Computer science: understand and work independently",
-      "description": "Individual online computer science lessons with Sivochka Ihor: programming foundations, algorithms and computer literacy for school students. 60 minutes, 1000 UAH.",
-      "intro": "I help school students understand computer science, from using a computer to algorithms and programming. We start with a specific topic, task or difficulty and choose manageable practice.",
+      "title": "Online Computer Science & Informatics Tutor for Kids — Ihor Sivochka",
+      "heading": "Computer Science: Algorithms, School Curriculum & Digital Skills",
+      "description": "1-on-1 online computer science tutor (Master of Education, practicing teacher). Support for Ukrainian, EU, UK & US school CS, algorithms, Scratch, Python. €20 / ~$22 (1000 UAH) per 60 min.",
+      "intro": "Structured 1-on-1 support in school and advanced computer science for students in Ukraine and abroad. As a practicing CS teacher with a Master's degree in Education, I help students truly understand algorithms, OS/file workflows, Scratch/Python tasks, and practical digital tools rather than mechanically copying homework.",
       "topics": [
-        "Files, folders and learning applications",
-        "Algorithms: sequences, conditions and repetition",
-        "Scratch or Python fundamentals suited to the student's level",
-        "Explaining school tasks and checking the student's own solution"
+        "Confident file systems, OS navigation, and cloud learning workflows",
+        "Algorithms: sequences, branching, loops, and flowcharts",
+        "School coding in Scratch or Python (aligned with Ukrainian NUS or EU/US CS classes)",
+        "Practical digital media & optional procedural 3D literacy (e.g., via 3D Club Studio)"
       ],
       "examples": [
-        "Build an algorithm and test it with several examples",
-        "Create a small program and explain how it works"
+        "Completing and confidently explaining a school CS project or lab assignment",
+        "Designing and testing an algorithm in Scratch or Python step by step"
       ],
       "steps": [
-        "Discuss the difficulty; a topic or task can be shared before the lesson.",
-        "Explore a simple example, then let the student try a similar task independently.",
-        "Check the solution, explain mistakes and decide what to practise next."
+        "Share the school topic, textbook, or challenging assignment before the lesson.",
+        "We break down the underlying principle with clear examples, then the student solves a parallel task independently.",
+        "We close foundational gaps so tests and class projects feel manageable without outside help."
       ],
       "questions": [
         [
-          "Can you help with school computer science?",
-          "Send the topic or a sample task so we can identify what needs explaining. I guide the student through the steps and help them build their own solution. Lessons follow the specific need."
+          "How much do 1-on-1 computer science lessons cost?",
+          "The fixed rate is €20 / ~$22 USD (1000 UAH) for 60 minutes of individual work with a practicing CS teacher and Master of Education."
         ],
         [
-          "Should we choose computer science, Unity or Python?",
-          "Computer science supports school topics and basic skills. Unity focuses on making games; Python focuses on text-based programming. We can change direction as interests develop."
+          "Do you help students adapting to Computer Science / Informatik schools abroad?",
+          "Yes. Alongside the Ukrainian curriculum, I support students adjusting to Computer Science / Informatik classes in Poland, Germany, Czechia, the UK, and North America."
         ],
         [
-          "Can students join from abroad?",
-          "Yes, lessons are online. Include your country or time zone and preferred times in your message."
+          "Should we choose computer science, Unity, or Python?",
+          "Choose computer science for school topics and digital foundations, Python for text-based coding, and Unity & C# when the main goal is building full 2D/3D games."
         ],
         [
           "What computer is needed?",
-          "A computer or laptop with Zoom, screen sharing and the software for the chosen subject. A computer or tablet with Scratch, Zoom and screen sharing."
-        ],
-        [
-          "How do I enquire?",
-          "Message @Figarist on Telegram with the student’s age, subject, experience and preferred times. I will reply about availability."
+          "A Windows or Mac computer/laptop with Zoom and screen sharing; we set up any free learning software together."
         ],
         [
           "How do I pay for lessons?",
@@ -196,41 +203,41 @@
     },
     {
       "slug": "scratch",
-      "title": "Online Scratch tutor for children",
-      "heading": "First games and animations with Scratch",
-      "description": "Individual online Scratch lessons for children with Sivochka Ihor. Learn through games and animation in",
-      "intro": "An introduction to programming through visual blocks. Children see how commands change characters’ behaviour and learn to build their own logic.",
+      "title": "Online Scratch Tutor for Kids (Ages 6–10) 1-on-1 — Ihor Sivochka",
+      "heading": "Scratch: First Games, Animation & Coding Logic for Kids",
+      "description": "1-on-1 online Scratch lessons for kids ages 6–10. Algorithmic thinking, custom games & animations, and smooth transition to Python/Unity. €20 / ~$22 (1000 UAH) per 60 min.",
+      "intro": "The ideal first step into programming for children ages 6–10. Using Scratch's visual blocks, kids learn to think like developers—planning coordinates, variables, events, and loops—while building a strong bridge toward future Python or Unity C#.",
       "topics": [
-        "Sprites, stages and events",
-        "Conditions, loops and variables",
-        "Movement, interaction and messages",
-        "Testing and improving a game"
+        "Sprites, stages, X/Y coordinate plane, and event-driven logic",
+        "Loops, conditionals, variables (score, lives, timers), and cloning",
+        "Sprite communication via broadcasts and custom animations",
+        "Testing rules and iteratively improving playable games"
       ],
       "examples": [
-        "A game with a character, goals and scoring",
-        "An interactive animated story with choices"
+        "Multi-level arcade catching/dodging game with timer, lives, and score",
+        "Interactive animated story with player choices"
       ],
       "steps": [
-        "We discuss interests and explore example projects. Start from scratch or bring a game you are already making.",
-        "Start small with a character animation or a simple score-based game. We gradually combine blocks and add our own rules.",
-        "I explain the logic and help students experiment and debug. If their interests change, we can switch projects or directions."
+        "We get to know the child in a calm 1-on-1 session centered on their favorite games or cartoons.",
+        "In the very first lesson, the child builds an interactive scene with live character controls.",
+        "We progress smoothly from simple animations to multi-sprite games ready for later transition to text code."
       ],
       "questions": [
         [
-          "Is programming experience required?",
-          "Ages 6+. Basic mouse or touchscreen skills are enough to start."
+          "How much do 1-on-1 Scratch lessons cost?",
+          "Each 60-minute individual session is €20 / ~$22 USD (1000 UAH). Unlike crowded group classes, a qualified educator works exclusively at your child's pace."
         ],
         [
-          "Can students join from abroad?",
-          "Yes, lessons are online. Include your country or time zone and preferred times in your message."
+          "Is programming experience required for Scratch?",
+          "No—ages 6+ with basic mouse or touchscreen familiarity are enough to start."
         ],
         [
-          "What computer is needed?",
-          "A computer or laptop with Zoom, screen sharing and the software for the chosen subject. A computer or tablet with Scratch, Zoom and screen sharing."
+          "Can students join on a tablet or from abroad?",
+          "Yes. Scratch works on both computers and tablets alongside Zoom screen sharing, from any country."
         ],
         [
-          "How do I enquire?",
-          "Message @Figarist on Telegram with the student’s age, subject, experience and preferred times. I will reply about availability."
+          "How do I book Scratch lessons?",
+          "Message @Figarist on Telegram with your child's age, country, and preferred days."
         ],
         [
           "How do I pay for lessons?",
@@ -240,46 +247,45 @@
     },
     {
       "slug": "minecraft",
-      "title": "Learn Python through Minecraft — online lessons",
-      "heading": "Python foundations through Minecraft",
-      "description": "Individual Python lessons through Minecraft with course author Sivochka Ihor. Learn coordinates, loops, conditions and building with code online.",
-      "intro": "Minecraft becomes a place to experiment with Python: write commands and see the game world change. I developed a course on programming foundations through Minecraft; I now use Minescript for lessons.",
+      "title": "Learn Python Through Minecraft — 1-on-1 Online Mentoring",
+      "heading": "Python Programming Inside Minecraft (Minescript)",
+      "description": "1-on-1 Python lessons through Minecraft with an award-winning course author (2nd place national CS research award). €20 / ~$22 (1000 UAH) per 60 min.",
+      "intro": "Turn a favorite 3D sandbox into a real Python coding lab. Built on an award-winning pedagogical methodology (2nd place, All-Ukrainian Student Research Competition) updated to modern Minescript: students write real Python scripts and immediately observe 3D changes in Minecraft.",
       "topics": [
-        "Player and block coordinates",
-        "Python variables, conditions, loops and functions",
-        "Automating repeated actions in the game",
-        "Debugging and checking results in Minecraft"
+        "3D coordinate system (X, Y, Z) for players and blocks",
+        "Real Python variables, conditionals, loops, and functions",
+        "Algorithmic building and task automation via Minescript",
+        "Hypothesis testing and debugging code live in-game"
       ],
       "examples": [
-        "Teleport the player to random coordinates",
-        "Build a fortress or lay rails with code",
-        "Check blocks below the player and react to lava"
+        "Building fortresses, tunnels, or automated rail tracks using loops",
+        "Coordinate-based teleportation, traps, and lava detection scripts"
       ],
       "steps": [
-        "Check the Minecraft version, Minescript setup and Zoom screen sharing. A computer is required; we discuss the setup before the lesson.",
-        "Start with coordinates and short commands, connecting changes in the game to Python concepts.",
-        "Combine commands into a program, adding conditions, loops and individual rules at a suitable pace."
+        "Before lesson one, we verify PC hardware, Minecraft version, and Minescript compatibility with Zoom screen sharing.",
+        "We begin with short coordinate commands so the student connects math formulas directly to in-world blocks.",
+        "We combine commands into reusable Python functions, loops, and custom world-generation algorithms."
       ],
       "questions": [
         [
-          "Is Minecraft on a tablet enough?",
-          "This direction needs a computer with Minecraft, a compatible Minescript setup and Zoom screen sharing. We check the game version and installation options before starting."
+          "How much does Python through Minecraft cost?",
+          "The rate is €20 / ~$22 USD (1000 UAH) per 60-minute 1-on-1 lesson directly with the course author—not a group gaming club."
         ],
         [
-          "How is this different from simply playing?",
-          "Students write Python, predict the result and test it in Minecraft. The game makes coordinates, conditions and loops visible; understanding programming is the goal."
+          "Is Minecraft on a tablet, phone, or console enough?",
+          "No. Real Python automation via Minescript requires a Windows or Mac PC/laptop with a compatible Minecraft version and Zoom screen sharing, verified before booking."
+        ],
+        [
+          "How is this different from just playing Minecraft?",
+          "Students write authentic Python scripts, predict 3D coordinates, and debug behavior. Minecraft is the visual canvas, while Python logic and syntax are the core skill."
         ],
         [
           "Can students join from abroad?",
-          "Yes, lessons are online. Include your country or time zone and preferred times in your message."
-        ],
-        [
-          "What computer is needed?",
-          "A computer or laptop with Zoom, screen sharing and the software for the chosen subject. A computer or tablet with Scratch, Zoom and screen sharing."
+          "Yes—lessons run online via Zoom across Ukraine, Europe, the UK, USA, and Canada."
         ],
         [
           "How do I enquire?",
-          "Message @Figarist on Telegram with the student’s age, subject, experience and preferred times. I will reply about availability."
+          "Message @Figarist on Telegram with your child's age, installed Minecraft edition on PC, and time zone."
         ],
         [
           "How do I pay for lessons?",
@@ -290,26 +296,26 @@
   ],
   "payment_question": "How do I pay for lessons?",
   "name": "Sivochka Ihor",
-  "role": "Programming tutor and game developer",
-  "home_title": "Sivochka Ihor — games, teaching and collecting",
-  "home_description": "The personal website of Sivochka Ihor (Figarist): game development, projects, blog and collection. Individual online Unity, Python and computer science lessons.",
+  "role": "1-on-1 Unity/C# & Python Mentor and Indie Game Developer",
+  "home_title": "Ihor Sivochka (Figarist) — Game Dev, EdTech & 1-on-1 Unity, Python Mentoring",
+  "home_description": "Personal hub of indie game developer and CS educator Ihor Sivochka (Figarist): Unity & Wear OS games, EdTech platforms (3D Club Studio, OGCruncher, LEGO WeDo), blog, and 1-on-1 mentoring.",
   "video_title": "Meet me on video",
-  "video_text": "An earlier introduction to me and my lessons.",
+  "video_text": "An introductory video sharing my teaching philosophy and development work.",
   "video_cta": "Watch on YouTube",
-  "payment_text": "Payment to a sole proprietor account in hryvnias and foreign currency.",
+  "payment_text": "Payment to a sole proprietor account (FOP) in hryvnias, euros, or US dollars (€20 / ~$22 / 1000 UAH per 60-minute lesson).",
   "phone_show": "Show phone number",
   "phone_copied": "Copied",
   "phone_fallback": "Copy the number manually",
-  "reviews_heading": "Students and parents say",
-  "reviews_kicker": "18 experiences of learning",
-  "reviews_intro": "Reviews from BUKI and the Ukrainian Tutors Association, in their original language.",
+  "reviews_heading": "Student & parent feedback (18 verified reviews · 5/5)",
+  "reviews_kicker": "Verified track record",
+  "reviews_intro": "Independent reviews from BUKI and the Ukrainian Tutors Association, preserved in their original language.",
   "reviews_prev": "Previous review",
   "reviews_next": "Next review",
   "minecraft_evidence": {
-    "title": "The course behind my Minecraft lessons",
-    "text": "In 2021 I received second place in the All-Ukrainian student research competition in Secondary Education (Computer Science). My work explored teaching programming foundations through Minecraft. Tasks included teleportation, building a fortress and laying rails with code.",
-    "note": "The public materials from that course use mcpi. They are historical examples; current Minescript lessons require a different setup.",
+    "title": "The academic foundation behind my Minecraft Python course",
+    "text": "In 2021 I won 2nd place in the All-Ukrainian Student Research Competition in Secondary Education (Computer Science) for teaching programming foundations through Minecraft.",
+    "note": "Public archival examples from 2021 use mcpi; active 1-on-1 lessons run on the modern Minescript stack.",
     "award": "Second-place diploma · 2021",
-    "code": "View Python examples on GitHub"
+    "code": "View open Python examples on GitHub"
   }
 }

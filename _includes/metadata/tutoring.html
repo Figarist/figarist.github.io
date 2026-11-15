@@ -17,17 +17,38 @@
       "@type": "Person",
       "@id": {{ person_id | jsonify }},
       "name": {{ t.name | jsonify }},
-      "alternateName": "Figarist",
+      "alternateName": [
+        "Ігор Сівочка",
+        "Ihor Sivochka",
+        "Sivochka Ihor",
+        "Ігор Глібович Сівочка",
+        "Игорь Сивочка",
+        "Figarist"
+      ],
       "jobTitle": {{ t.role | jsonify }},
       "url": {{ '/' | absolute_url | jsonify }},
       "image": {{ '/assets/images/figaristgithub.png' | absolute_url | jsonify }},
       "knowsAbout": [
-        "Game Development",
         "Unity",
         "C#",
         "Python",
         "Scratch",
-        "Computer Science"
+        "Game Development",
+        "Web Audio API",
+        "3D Printing",
+        "LEGO WeDo 2.0 Robotics",
+        "Wear OS",
+        "Computer Science Education"
+      ],
+      "hasCredential": [
+        {
+          "@type": "EducationalOccupationalCredential",
+          "name": "Unity Junior Programmer"
+        },
+        {
+          "@type": "EducationalOccupationalCredential",
+          "name": "Unity Essentials"
+        }
       ],
       "sameAs": [
         {{ tutoring_settings.contact.telegram_url | jsonify }},
@@ -35,7 +56,11 @@
         "https://www.youtube.com/@proVR_ua",
         {{ tutoring_settings.proof.buki_url | jsonify }},
         {{ tutoring_settings.proof.tutor_association_url | jsonify }},
-        {{ tutoring_settings.proof.studio_url | jsonify }}
+        {{ tutoring_settings.proof.studio_url | jsonify }},
+        "https://sivochka.com/lego-catalog/",
+        "https://sivochka.com/3d-club-studio/",
+        "https://sivochka.com/bouncy/",
+        "https://sivochka.com/OGCruncher/"
       ]
     },
     {
@@ -43,13 +68,22 @@
       "@id": {{ service_url | append: '#service' | jsonify }},
       "name": {{ page.title | default: t.title | jsonify }},
       "description": {{ page.description | default: t.description | jsonify }},
+      "serviceType": "1-on-1 Online Programming & Game Development Mentoring",
       "url": {{ service_url | jsonify }},
+      "areaServed": [
+        {"@type": "Country", "name": "Ukraine"},
+        {"@type": "Place", "name": "Europe"},
+        {"@type": "Country", "name": "United States"},
+        {"@type": "Country", "name": "Canada"},
+        {"@type": "Country", "name": "Israel"}
+      ],
       "provider": {"@id": {{ person_id | jsonify }}},
       "offers": {
         "@type": "Offer",
         "price": {{ tutoring_settings.price.amount | jsonify }},
         "priceCurrency": {{ tutoring_settings.price.currency | jsonify }},
-        "description": {{ s.tutoring_price_title | append: ': ' | append: tutoring_settings.price.amount | append: ' ' | append: tutoring_settings.price.currency | jsonify }},
+        "availability": "https://schema.org/LimitedAvailability",
+        "description": {{ s.price_display_main | append: ' — ' | append: s.tutoring_price_title | jsonify }},
         "url": {{ service_url | jsonify }}
       }
     },
@@ -58,13 +92,21 @@
       "@id": {{ service_url | append: '#course' | jsonify }},
       "name": {{ page.title | default: t.title | jsonify }},
       "description": {{ page.description | default: t.description | jsonify }},
+      "inLanguage": {{ site.active_lang | jsonify }},
       "url": {{ service_url | jsonify }},
       "provider": {"@id": {{ person_id | jsonify }}},
-      "hasCourseInstance": {"@type": "CourseInstance", "courseMode": "Online"},
+      "hasCourseInstance": {
+        "@type": "CourseInstance",
+        "courseMode": "Online",
+        "courseWorkload": "PT1H",
+        "instructor": {"@id": {{ person_id | jsonify }}}
+      },
       "offers": {
         "@type": "Offer",
         "price": {{ tutoring_settings.price.amount | jsonify }},
         "priceCurrency": {{ tutoring_settings.price.currency | jsonify }},
+        "availability": "https://schema.org/LimitedAvailability",
+        "description": {{ s.price_display_main | jsonify }},
         "url": {{ service_url | jsonify }}
       }
     },

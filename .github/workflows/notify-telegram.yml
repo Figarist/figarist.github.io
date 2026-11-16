@@ -25,19 +25,33 @@ on:
         required: true
         type: string
         default: "Test notification from GitHub Actions"
+      status:
+        required: false
+        type: string
+        default: "info"
+
+permissions:
+  contents: read
+  actions: read
 
 jobs:
   send:
     runs-on: ubuntu-latest
     steps:
-      - name: Send Telegram notification
+      - name: Send rich Telegram notification
         env:
           TG_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
           TG_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+          GH_TOKEN: ${{ github.token }}
           ALERT_TITLE: ${{ inputs.title }}
           ALERT_STATUS: ${{ inputs.status || 'info' }}
           ALERT_DETAILS: ${{ inputs.details }}
-          RUN_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
+          REPO: ${{ github.repository }}
+          BRANCH: ${{ github.ref_name }}
+          SHA: ${{ github.sha }}
+          ACTOR: ${{ github.actor }}
+          SERVER_URL: ${{ github.server_url }}
+          RUN_ID: ${{ github.run_id }}
         run: |
           if [ -z "$TG_TOKEN" ] || [ -z "$TG_CHAT_ID" ]; then
             echo "TELEGRAM_BOT_TOKEN or TELEGRAM_CHAT_ID secret is not configured; skipping alert."
@@ -45,24 +59,94 @@ jobs:
           fi
 
           python3 - <<'PY'
-          import json, os, urllib.request
+          import html
+          import json
+          import os
+          import urllib.request
 
-          icons = {"ok": "✅", "info": "🔔", "warn": "⚠️", "error": "❌"}
-          icon = icons.get(os.environ.get("ALERT_STATUS", "info"), "🔔")
-          repo = os.environ.get("GITHUB_REPOSITORY", "")
+          icons = {"ok": "✅", "info": "🔔", "warn": "⚠️", "error": "🚨"}
+          status = os.environ.get("ALERT_STATUS", "info")
+          icon = icons.get(status, "🔔")
+          repo = os.environ.get("REPO", "")
+          short_repo = repo.split("/")[-1] if "/" in repo else repo
           title = os.environ.get("ALERT_TITLE", "")
-          details = os.environ.get("ALERT_DETAILS", "")
-          run_url = os.environ.get("RUN_URL", "")
+          details = os.environ.get("ALERT_DETAILS", "").strip()
+          branch = os.environ.get("BRANCH", "")
+          sha = os.environ.get("SHA", "")
+          short_sha = sha[:7] if sha else ""
+          actor = os.environ.get("ACTOR", "")
+          server = os.environ.get("SERVER_URL", "https://github.com")
+          run_id = os.environ.get("RUN_ID", "")
+          gh_token = os.environ.get("GH_TOKEN", "")
 
-          lines = [f"{icon} [{repo}] {title}"]
-          if details:
-              lines.append(details)
-          lines.append(f"Run: {run_url}")
+          run_url = f"{server}/{repo}/actions/runs/{run_id}"
+          commit_url = f"{server}/{repo}/commit/{sha}" if sha else ""
+
+          def gh_get(path):
+              headers = {"Accept": "application/vnd.github+json", "User-Agent": "SivochkaHQ-Notifier"}
+              if gh_token:
+                  headers["Authorization"] = f"Bearer {gh_token}"
+              req = urllib.request.Request(f"https://api.github.com{path}", headers=headers)
+              with urllib.request.urlopen(req, timeout=10) as resp:
+                  return json.loads(resp.read().decode("utf-8"))
+
+          commit_msg = ""
+          failed_steps = []
+          try:
+              if sha:
+                  c = gh_get(f"/repos/{repo}/commits/{sha}")
+                  commit_msg = c.get("commit", {}).get("message", "").splitlines()[0][:80]
+          except Exception:
+              pass
+
+          try:
+              if run_id and status == "error":
+                  jobs = gh_get(f"/repos/{repo}/actions/runs/{run_id}/jobs?per_page=30").get("jobs", [])
+                  for job in jobs:
+                      if job.get("conclusion") in ("failure", "timed_out", "cancelled"):
+                          bad = [
+                              s.get("name")
+                              for s in job.get("steps", [])
+                              if s.get("conclusion") in ("failure", "timed_out")
+                          ]
+                          if bad:
+                              failed_steps.append(f"• {job.get('name')} → {', '.join(bad)}")
+                          else:
+                              failed_steps.append(f"• {job.get('name')} ({job.get('conclusion')})")
+          except Exception:
+              pass
+
+          lines = [f"{icon} <b>[{html.escape(short_repo)}] {html.escape(title)}</b>", ""]
+          meta = []
+          if branch:
+              meta.append(f"🌿 <b>Гілка:</b> <code>{html.escape(branch)}</code>")
+          if short_sha:
+              c_line = f"🔖 <b>Коміт:</b> <code>{html.escape(short_sha)}</code>"
+              if commit_msg:
+                  c_line += f" — {html.escape(commit_msg)}"
+              meta.append(c_line)
+          if actor:
+              meta.append(f"👤 <b>Автор:</b> <code>{html.escape(actor)}</code>")
+          lines.extend(meta)
+
+          if failed_steps:
+              lines.append("")
+              lines.append("💥 <b>Проблемні кроки:</b>")
+              lines.extend(html.escape(s) for s in failed_steps[:6])
+          elif details:
+              lines.append("")
+              lines.append(f"<pre>{html.escape(details[:1200])}</pre>")
+
+          buttons = [[{"text": "🛠 Логи GitHub Actions", "url": run_url}]]
+          if commit_url:
+              buttons[0].append({"text": "📝 Коміт", "url": commit_url})
 
           payload = json.dumps({
               "chat_id": os.environ["TG_CHAT_ID"],
-              "text": "\n".join(lines),
+              "text": "\n".join(lines)[:4096],
+              "parse_mode": "HTML",
               "disable_web_page_preview": True,
+              "reply_markup": {"inline_keyboard": buttons},
           }).encode("utf-8")
 
           req = urllib.request.Request(

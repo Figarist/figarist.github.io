@@ -35,8 +35,9 @@
     <meta name="twitter:card" content="summary">
     <meta name="twitter:title" content="{{ resolved_title | escape }}">
     <meta name="twitter:description" content="{{ resolved_desc | escape }}">
-    <meta property="og:image" content="{{ site.url }}{{ site.baseurl }}/assets/images/figaristgithub.png">
-    <meta name="twitter:image" content="{{ site.url }}{{ site.baseurl }}/assets/images/figaristgithub.png">
+    {% assign seo_social_img = page.image | default: '/assets/images/figaristgithub.png' %}
+    <meta property="og:image" content="{{ site.url }}{{ site.baseurl }}{{ seo_social_img }}">
+    <meta name="twitter:image" content="{{ site.url }}{{ site.baseurl }}{{ seo_social_img }}">
     {% elsif page.tutoring or page.is_home %}
     <title>{{ resolved_title | escape }} | Figarist</title>
     {% seo title=false %}

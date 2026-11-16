@@ -1,0 +1,68 @@
+- id: cruncher
+  repo: Figarist/OGCruncher
+  path: /OGCruncher/
+  localized: false
+  brand: personal
+  home_tile: true
+  sitemap: true
+  label_key: cruncher_title
+  title_key: cruncher_title
+  desc_key: cruncher_desc
+  aria_key: aria_visit_cruncher
+
+- id: lego-catalog
+  repo: Figarist/lego-catalog
+  path: /lego-catalog/
+  localized: false
+  brand: personal
+  home_tile: true
+  sitemap: true
+  label_key: lego_label
+  title_literal: "LEGO WeDo 2.0"
+  desc_key: lego_desc
+  aria_key: aria_visit_lego
+
+- id: studio-3d
+  repo: Figarist/3d-club-studio
+  path: /3d-club-studio/
+  localized: false
+  brand: personal
+  home_tile: true
+  sitemap: true
+  label_key: studio_3d_label
+  title_key: studio_3d_title
+  desc_key: studio_3d_desc
+  aria_key: aria_visit_3d_studio
+
+- id: bouncy
+  repo: Figarist/bouncy
+  path: /bouncy/
+  localized: false
+  brand: personal
+  home_tile: true
+  sitemap: true
+  label_key: bouncy_label
+  title_key: bouncy_title
+  desc_key: bouncy_desc
+  aria_key: aria_visit_bouncy
+
+- id: canirun-unity
+  repo: Figarist/canirunUnity
+  path: /canirunUnity/
+  localized: true
+  brand: personal
+  home_tile: true
+  sitemap: true
+  label_key: canirun_unity_label
+  title_key: canirun_unity_title
+  desc_key: canirun_unity_desc
+  aria_key: aria_visit_canirun_unity
+
+- id: code-translator
+  repo: Figarist/figarist.github.io
+  path: /tools/code-translator/
+  localized: true
+  internal: true
+  brand: personal
+  home_tile: false
+  sitemap: false

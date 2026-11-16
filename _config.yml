@@ -57,6 +57,8 @@ exclude:
   - qa-screenshots
   - qa-screenshots/**
   - _drafts/
+  - mise.toml
+  - renovate.json
 
 # ── Plugins ──────────────────────────────────────────────────
 plugins:

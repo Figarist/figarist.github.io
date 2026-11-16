@@ -1,0 +1,9 @@
+- id: dish-of-chaos
+  slug: dish-of-chaos
+  status: published
+  author_type: owner
+  permission: true
+  engine: "Unity 6 (6000.5.7f1)"
+  platforms: "WebGL, Windows, Wear OS"
+  itch_url: "https://figarist.itch.io/dish-of-chaos"
+  build_path: "/assets/games/dish-of-chaos/index.html"

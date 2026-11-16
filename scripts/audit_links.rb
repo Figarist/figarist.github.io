@@ -1,4 +1,5 @@
 # Frozen public routes and local link integrity are deployment gates.
+require 'yaml'
 require 'nokogiri'
 require 'json'
 require 'uri'
@@ -10,7 +11,8 @@ errors = []
 files = Dir["#{base}/**/*.html"].select { |f| File.file?(f) }
 documents = {}
 files.each { |file| documents[file] = Nokogiri::HTML(File.read(file)) }
-external_projects = %w[/OGCruncher/ /lego-catalog/ /3d-club-studio/ /bouncy/ /canirunUnity/]
+tools_data = YAML.safe_load(File.read(File.expand_path('../_data/tools.yml', __dir__))) || []
+external_projects = tools_data.reject { |t| t['internal'] }.map { |t| t['path'] }
 files.each do |file|
   route = file.delete_prefix(base).sub(/index\.html$/, '')
   doc = documents[file]

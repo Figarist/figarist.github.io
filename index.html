@@ -65,21 +65,12 @@ changefreq: weekly
         <span id="feed-personal" class="legacy-anchor" aria-hidden="true"></span>
         <span>{{ s.home_hobbies_label }}</span><strong>{{ s.home_hobbies_title }}</strong><small>{{ h.collection }}</small><b aria-hidden="true">→</b>
       </a>
-      <a href="https://sivochka.com/OGCruncher/" target="_blank" rel="noopener" class="explore-card" id="cruncher" aria-label="{{ s.aria_visit_cruncher }}">
-        <span>{{ s.cruncher_title }}</span><strong>{{ s.cruncher_title }}</strong><small>{{ s.cruncher_desc }}</small><b aria-hidden="true">↗</b>
+      {% for tool in site.data.tools %}{% if tool.home_tile %}
+      {% assign tool_title = tool.title_literal | default: s[tool.title_key] %}
+      <a href="https://sivochka.com{{ tool.path }}{% if tool.localized %}{% unless site.active_lang == 'en' %}{{ site.active_lang }}/{% endunless %}{% endif %}" target="_blank" rel="noopener" class="explore-card" id="{{ tool.id }}" aria-label="{{ s[tool.aria_key] }}">
+        <span>{{ s[tool.label_key] }}</span><strong>{{ tool_title }}</strong><small>{{ s[tool.desc_key] }}</small><b aria-hidden="true">↗</b>
       </a>
-      <a href="https://sivochka.com/lego-catalog/" target="_blank" rel="noopener" class="explore-card" id="lego-catalog" aria-label="{{ s.aria_visit_lego }}">
-        <span>{{ s.lego_label }}</span><strong>LEGO WeDo 2.0</strong><small>{{ s.lego_desc }}</small><b aria-hidden="true">↗</b>
-      </a>
-      <a href="https://sivochka.com/3d-club-studio/" target="_blank" rel="noopener" class="explore-card" id="studio-3d" aria-label="{{ s.aria_visit_3d_studio }}">
-        <span>{{ s.studio_3d_label }}</span><strong>{{ s.studio_3d_title }}</strong><small>{{ s.studio_3d_desc }}</small><b aria-hidden="true">↗</b>
-      </a>
-      <a href="https://sivochka.com/bouncy/" target="_blank" rel="noopener" class="explore-card" id="bouncy" aria-label="{{ s.aria_visit_bouncy }}">
-        <span>{{ s.bouncy_label }}</span><strong>{{ s.bouncy_title }}</strong><small>{{ s.bouncy_desc }}</small><b aria-hidden="true">↗</b>
-      </a>
-      <a href="https://sivochka.com/canirunUnity/{% unless site.active_lang == 'en' %}{{ site.active_lang }}/{% endunless %}" target="_blank" rel="noopener" class="explore-card" id="canirun-unity" aria-label="{{ s.aria_visit_canirun_unity }}">
-        <span>{{ s.canirun_unity_label }}</span><strong>{{ s.canirun_unity_title }}</strong><small>{{ s.canirun_unity_desc }}</small><b aria-hidden="true">↗</b>
-      </a>
+      {% endif %}{% endfor %}
     </div>
   </section>
 

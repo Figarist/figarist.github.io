@@ -201,6 +201,7 @@ seo_en_desc: "Interactive side-by-side comparison of game logic in Scratch block
   "@graph": [
     {
       "@type": "WebApplication",
+      "@id": "https://sivochka.com{% unless lang == 'en' %}/{{ lang }}{% endunless %}/tools/code-translator/#app",
       "name": {{ ct_title | jsonify }},
       "url": "https://sivochka.com{% unless lang == 'en' %}/{{ lang }}{% endunless %}/tools/code-translator/",
       "applicationCategory": "EducationalApplication",
@@ -212,6 +213,7 @@ seo_en_desc: "Interactive side-by-side comparison of game logic in Scratch block
     },
     {
       "@type": "BreadcrumbList",
+      "@id": "https://sivochka.com{% unless lang == 'en' %}/{{ lang }}{% endunless %}/tools/code-translator/#breadcrumb",
       "itemListElement": [
         { "@type": "ListItem", "position": 1, "name": "Figarist", "item": "https://sivochka.com{% unless lang == 'en' %}/{{ lang }}{% endunless %}/" },
         { "@type": "ListItem", "position": 2, "name": {{ ct_nav_tutor | jsonify }}, "item": "https://sivochka.com{% unless lang == 'en' %}/{{ lang }}{% endunless %}/tutoring/" },

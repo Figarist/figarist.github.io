@@ -33,6 +33,10 @@
     <meta property="og:type" content="website">
     <meta property="og:url" content="{{ site.url }}{{ site.baseurl }}{% unless active_lang == site.default_lang %}/{{ active_lang }}{% endunless %}{{ page.url | remove: 'index.html' }}">
     <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="{{ resolved_title | escape }}">
+    <meta name="twitter:description" content="{{ resolved_desc | escape }}">
+    <meta property="og:image" content="{{ site.url }}{{ site.baseurl }}/assets/images/figaristgithub.png">
+    <meta name="twitter:image" content="{{ site.url }}{{ site.baseurl }}/assets/images/figaristgithub.png">
     {% elsif page.tutoring or page.is_home %}
     <title>{{ resolved_title | escape }} | Figarist</title>
     {% seo title=false %}

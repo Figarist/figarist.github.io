@@ -37,8 +37,7 @@ category/tag archives remain available.
 
 Ruby 3.4 is an intentional support policy. Ruby 4 migration is deferred until
 its standard-library and Windows native dependency changes can pass an isolated
-compatibility pilot and the complete generated-site contract. See the
-[Ruby 4 decision](docs/deployment_guide.md#ruby-4-decision).
+compatibility pilot and the complete generated-site contract.
 
 ## Local development
 
@@ -74,9 +73,7 @@ checks content rules, multilingual pagination, metadata, canonical and hreflang
 relationships, sitemap output, search indexes, redirects, PWA routes, link
 integrity, dependency advisories and bundle budgets.
 
-The complete local sequence is maintained in the
-[build and release guide](docs/deployment_guide.md#source-and-production-checks).
-Useful focused checks include:
+The local verification sequence checks content, build output, link integrity, and service worker behavior:
 
 ```powershell
 bundle exec jekyll doctor
@@ -101,11 +98,9 @@ _posts/         Workshop posts in four locale variants
 _sass/          design system and component styles
 assets/         fonts, images and vendored browser libraries
 scripts/        content, build, route, SEO, PWA and live-site checks
-docs/           implementation, operations and verification documentation
 ```
 
-Generated `_site/` output is not source. The `docs/` directory is excluded from
-the deployed Jekyll artifact but remains public repository content.
+Generated `_site/` output is not source.
 
 ## Content and localization
 
@@ -114,35 +109,14 @@ permalinks. Navigation labels, subtitles and interface strings live in `_data/`.
 Canonical URLs, hreflang relationships, sitemap entries and search indexes are
 covered by regression tests; do not infer their correctness from build success.
 
-For tutoring content, start with the
-[content editing guide](docs/tutoring-content-guide.md). Decisions that require
-owner confirmation are tracked in the
-[author action guide](docs/AUTHOR_ACTION_GUIDE.md).
-
 ## Deployment
 
 Pushes to `main` run the complete build, test, Pages deployment and live-domain
 verification workflow. Publication should happen only after reviewing the scoped
-diff and local gates. Operational details and recovery guidance are in the
-[deployment guide](docs/deployment_guide.md).
+diff and local gates.
 
 Do not commit private correspondence, consent records, credentials, generated
-QA captures or local verification manifests.
-
-## Documentation
-
-Use the [documentation index](docs/README.md) as the starting point.
-
-- [Implementation checklist](docs/IMPLEMENTATION_CHECKLIST.md) — canonical task status
-- [Verification report](docs/VERIFICATION_REPORT_2026-09-15.md) — dated evidence and limits
-- [Dependency freshness audit](docs/DEPENDENCY_FRESHNESS_AUDIT_2026-09-18.md) — dependency policy
-- [Polyglot migration plan](docs/POLYGLOT_MIGRATION_2026-09-18.md) — multilingual upgrade evidence
-- [SEO plugin migration plan](docs/SEO_TAG_MIGRATION_2026-09-18.md) — SEO compatibility evidence
-- [Project context](project_context.md) — product and architecture context
-
-Historical reports describe the state at the time they were written. For current
-behavior, prefer source code, the lockfile, CI workflow, canonical checklist and
-the latest dated verification addendum.
+QA captures, internal planning notes, or local verification manifests.
 
 ## Author & Ecosystem (`Ihor Sivochka / Figarist`)
 

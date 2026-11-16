@@ -12,12 +12,6 @@ var fs   = require('fs');
 var path = require('path');
 
 // -- Config ---
-// DEBUG LOGGING
-fs.appendFileSync(
-  path.join(__dirname, 'debug.log'),
-  '--- RUN ' + new Date().toISOString() + ' ---\n' + process.argv.join('\n') + '\n\n'
-);
-
 var DEFAULT_LANG   = 'en';
 var LANG_SUFFIXES  = ['en', 'uk', 'ru', 'ko'];
 var TYPE_TO_PATH   = { post: '/blog', education: '/education' };

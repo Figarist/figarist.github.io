@@ -145,7 +145,7 @@ titles = []; descriptions = []
 end
 check(titles.uniq == titles, 'Duplicate page titles')
 check(descriptions.uniq == descriptions, 'Duplicate descriptions')
-%w[docs scripts test .agents qa-screenshots frontmatter.json].each do |path|
+%w[docs scripts test .agents qa-screenshots frontmatter.json mise.toml renovate.json].each do |path|
   check(!File.exist?("#{root}/#{path}"), "Private development artifact in output: #{path}")
 end
 Dir["#{root}/**/*.html"].each do |path|
@@ -180,5 +180,35 @@ end
 styles_css = File.read("#{root}/assets/css/styles.css")
 check(styles_css.include?('scroll-margin-top:120px') || styles_css.include?('scroll-margin-top: 120px'), 'styles.css: missing scroll-margin-top: 120px')
 check(styles_css.include?('@media print'), 'styles.css: missing @media print')
-check(File.read("#{root}/robots.txt").include?(origin + '/sitemap.xml'), 'robots sitemap')
-puts 'PASS: 28 pages, 24 tutoring routes, metadata, hreflang, search, sitemap, JSON-LD, draft exclusion and budgets'
+robots_txt = File.read("#{root}/robots.txt")
+check(robots_txt.include?(origin + '/sitemap.xml'), 'robots sitemap')
+
+tools = YAML.safe_load(File.read('_data/tools.yml')) || []
+tools.each do |tool|
+  if tool['sitemap']
+    check(robots_txt.include?("#{origin}#{tool['path']}sitemap.xml"), "robots.txt missing sitemap for #{tool['id']}")
+  end
+  next unless tool['home_tile']
+
+  %w[en uk ru ko].each do |lang|
+    prefix = lang == 'en' ? '' : "/#{lang}"
+    home_doc = Nokogiri::HTML(File.read("#{root}#{prefix}/index.html"))
+    tile = home_doc.at_css("a##{tool['id']}")
+    expected_href = "#{origin}#{tool['path']}" + (tool['localized'] && lang != 'en' ? "#{lang}/" : '')
+    check(tile && tile['href'] == expected_href, "Home tile ##{tool['id']} missing or wrong href for #{lang} (expected #{expected_href})")
+  end
+end
+
+games = YAML.safe_load(File.read('_data/games.yml')) || []
+games.each do |game|
+  next unless game['status'] == 'published'
+
+  check(game['permission'] == true, "Published game #{game['id']} must have permission: true")
+  if game['author_type'] == 'student'
+    student_display = game['student_display'].to_s.strip
+    check(!student_display.empty?, "Published student game #{game['id']} must define student_display")
+    check(!student_display.match?(/\.(png|jpe?g|webp|gif)\b/i), "Student game #{game['id']} must not reference photos")
+  end
+end
+
+puts 'PASS: 28 pages, 24 tutoring routes, metadata, hreflang, search, sitemap, JSON-LD, tools/games registries, draft exclusion and budgets'

@@ -597,8 +597,6 @@ if ("serviceWorker" in navigator) {
       .then(function (reg) {
         console.log("SW registered:", reg);
       })
-      .catch(function (err) {
-        
-      });
+      .catch(function () {});
   });
 }

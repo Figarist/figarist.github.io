@@ -16,7 +16,6 @@ playground_heading: "VR Playground"
 playground_sub: "Figarist의 인터랙티브 미니 게임, 프로토타입 및 데모"
 webgl_overlay_text: "클릭하여 재생"
 webgl_overlay_note: "Unity WebGL 로드 중 — 잠시 시간이 걸릴 수 있습니다"
-webgl_status: "● 출시 예정"
 webgl_caption: "Wrist & Pocket Studio의 미니 게임과 인터랙티브 데모를 위한 실험실입니다."
 dish_of_chaos_title: "Dish of Chaos"
 dish_of_chaos_tagline: "쟁반을 돌려 요리를 맞추세요. 실수가 반격하게 두세요."
@@ -24,10 +23,6 @@ dish_of_chaos_badge: "Ihrovary Jam 2026"
 dish_of_chaos_engine: "Unity 6 • WebGL"
 dish_of_chaos_play_cta: "플레이"
 dish_of_chaos_itch_btn: "itch.io 페이지"
-teaser_game_title: "Wear OS Lab"
-teaser_game_badge: "개발 중"
-teaser_game_tagline: "스마트워치와 VR 기기를 위한 작은 세상."
-teaser_game_cta: "스튜디오 탐색 →"
 game_back_to_hub: "← 플레이그라운드로 돌아가기"
 game_play_browser: "브라우저에서 플레이"
 game_launch_now: "게임을 시작하려면 클릭하세요"
@@ -52,17 +47,14 @@ cruncher_desc: "브라우저 기반 오디오 비트 크러셔 및 OGG·WAV·MP3
 # VR FEED
 vr_heading: "VR 뉴스 & 라이프"
 vr_subtitle: "헤드셋, XR 실험 및 몰입형 생각들"
-vr_empty: "VR 포스트가 곧 올라옵니다 — 기대해 주세요."
 vr_cta: "모든 VR 포스트 →"
 
 # GAMEDEV FEED
 gamedev_subtitle: "개발 로그, 메커니즘 및 Wear OS 실험"
-gamedev_empty: "개발 로그가 곧 올라옵니다 — 기대해 주세요."
 gamedev_cta: "모든 GameDev 포스트 →"
 
 # PERSONAL FEED
 personal_heading: "개인 생활"
-personal_subtitle: "우크라이나의 고양이, 정전 그리고 개발자의 삶"
 personal_empty: "브이로그 포스트가 곧 올라옵니다 — 기대해 주세요."
 personal_cta: "모든 브이로그 →"
 

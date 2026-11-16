@@ -12,12 +12,10 @@
 .hub-grid {
   display: grid;
   gap: var(--hub-gap);
-  /* Гнучкі відступи: на ПК більше простору, на планшетах менше */
   padding: clamp(16px, 3vw, 32px);
   max-width: 1300px;
   margin: 0 auto;
   grid-template-columns: repeat(3, 1fr);
-  /* Базова висота картки */
   grid-auto-rows: minmax(180px, auto);
 
   /* New 4-stream content layout */

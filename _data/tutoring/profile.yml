@@ -1,7 +1,7 @@
 ---
 status: published
 portrait:
-  path: /assets/images/tutoring/tutor-portrait-placeholder.webp
+  path: null
   aspect_ratio: 4 / 5
   object_position: center
 translations:

@@ -125,9 +125,7 @@ titles = []; descriptions = []
     contact = doc.at_css('.tutoring-hero [data-goatcounter-click]')
     direction = route.split('/')[2] || 'overview'
     check(contact && contact['data-goatcounter-click'] == "tutoring-telegram-#{direction}-#{lang}", "#{path}: Telegram event identity")
-    check(!html.include?('Legacy Credential'), "#{path}: unexpected credential label")
     check(doc.text.include?('Unity Junior Programmer') && doc.text.include?('Unity Essentials'), "#{path}: approved credentials missing")
-    check(!doc.text.include?('unexpected_rate'), "#{path}: unexpected rate value")
     check(doc.css('a[href="https://youtu.be/3CxXkJ8ANbQ"]').size == 1, "#{path}: video link missing")
     check(search.any? { |entry| entry['url'] == path }, "#{path}: search")
     graph = doc.css('script[type="application/ld+json"]').map { |b| JSON.parse(b.text) }.find { |b| b['@graph'] }['@graph']

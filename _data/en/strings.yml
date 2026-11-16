@@ -16,7 +16,6 @@ playground_heading: "VR Playground"
 playground_sub: "Interactive mini-games, prototypes, and tech demos by Figarist"
 webgl_overlay_text: "Click to Play"
 webgl_overlay_note: "Loads Unity WebGL — may take a moment"
-webgl_status: "● Coming soon"
 webgl_caption: "Experimental lab for mini-games and interactive demos by Wrist & Pocket Studio."
 dish_of_chaos_title: "Dish of Chaos"
 dish_of_chaos_tagline: "Rotate the tray. Match the dishes. Let your mistakes fight back."
@@ -24,10 +23,6 @@ dish_of_chaos_badge: "Ihrovary Jam 2026"
 dish_of_chaos_engine: "Unity 6 • WebGL"
 dish_of_chaos_play_cta: "Play"
 dish_of_chaos_itch_btn: "itch.io Page"
-teaser_game_title: "Wear OS Lab"
-teaser_game_badge: "In Dev"
-teaser_game_tagline: "Tiny worlds for tiny screens and VR headsets."
-teaser_game_cta: "Explore Studio →"
 game_back_to_hub: "← Back to Playground"
 game_play_browser: "Play in Browser"
 game_launch_now: "Click to Launch Game"
@@ -52,17 +47,14 @@ cruncher_desc: "High-performance in-browser audio bit-crusher and OGG, WAV & MP3
 # VR FEED
 vr_heading: "VR News & Life"
 vr_subtitle: "Headsets, XR experiments & immersive thoughts"
-vr_empty: "VR posts incoming — stay tuned."
 vr_cta: "All VR posts →"
 
 # GAMEDEV FEED
 gamedev_subtitle: "Dev logs, mechanics & Wear OS experiments"
-gamedev_empty: "Dev logs incoming — stay tuned."
 gamedev_cta: "All GameDev posts →"
 
 # PERSONAL FEED
 personal_heading: "Personal Life"
-personal_subtitle: "Cats, power cuts & dev life in Ukraine"
 personal_empty: "Vlog posts incoming — stay tuned."
 personal_cta: "All vlogs →"
 

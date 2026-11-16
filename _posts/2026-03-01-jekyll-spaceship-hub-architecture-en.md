@@ -31,8 +31,6 @@ sitemap: true
 related_posts: null
 featured: false
 hidden: false
-redirect_from:
-  - "/blog/test/"
 toc: true
 published: true
 fmContentType: "Post"
@@ -220,24 +218,6 @@ public class CopyTest : MonoBehaviour
 ```
 
 This interaction is driven by our lightweight Vanilla JS in `script.js` and aligns with the Hub Architecture guidelines.
-
----
-
-## 8. High-Resolution Responsive Images
-
-To test cross-device visual fidelity and WebP compression:
-
-### 1K Image (1920x1080)
-
-![Test Image 1K](/assets/images/1k.webp)
-
-### 2K Image (2560x1440)
-
-![Test Image 2K](/assets/images/2k.webp)
-
-### 4K Image (3840x2160)
-
-![Test Image 4K](/assets/images/4k.webp)
 
 ---
 

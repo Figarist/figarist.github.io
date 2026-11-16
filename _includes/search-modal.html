@@ -1,4 +1,3 @@
-<!-- Ultimate Search Modal -->
 {% if site.active_lang == site.default_lang %}
 {% assign search_index_url = '/search.json' | relative_url %}
 {% else %}
@@ -20,7 +19,6 @@
     </div>
     <div id="search-results" class="search-results" aria-live="polite"
       data-no-results="{{ site.data[site.active_lang].strings.search_no_results }}">
-      <!-- Results will be injected here -->
     </div>
     <div class="search-footer">
       <span class="search-hint"><kbd>Enter</kbd> {{ site.data[site.active_lang].strings.search_select_hint }}</span>
@@ -29,5 +27,4 @@
   </div>
 </dialog>
 
-<!-- Lunr Engine (Local Vendor for PWA Offline Support) -->
 <script src="{{ '/assets/vendor/lunr.min.js' | relative_url }}" defer></script>

@@ -31,8 +31,6 @@ sitemap: true
 related_posts: null
 featured: false
 hidden: false
-redirect_from:
-  - "/blog/test/"
 toc: true
 published: true
 fmContentType: "Post"
@@ -221,24 +219,6 @@ public class CopyTest : MonoBehaviour
 ```
 
 Ця функція працює завдяки нашому Vanilla JS в `script.js` (§7) і ідеально вписується в Hub Architecture.
-
----
-
-## 8. Тестування роздільної здатності зображень (Responsive Images)
-
-Для перевірки оптимізації та рендерингу на різних пристроях ми додаємо зображення у різних форматах (1K, 2K, 4K). Завдяки `jekyll-webp`, ці зображення будуть автоматично оптимізовані в майбутньому (якщо ми їх збережемо локально), а поки використовуємо тестові плейсхолдери.
-
-### 1K Зображення (1920x1080)
-
-![Test Image 1K](/assets/images/1k.webp)
-
-### 2K Зображення (2560x1440)
-
-![Test Image 2K](/assets/images/2k.webp)
-
-### 4K Зображення (3840x2160)
-
-![Test Image 4K](/assets/images/4k.webp)
 
 ---
 

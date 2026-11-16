@@ -1,4 +1,3 @@
-
 {
   "items": [
     {
@@ -7,7 +6,6 @@
       "status": "published",
       "ready": true,
       "permission": true,
-      
       "language": "uk",
       "signature": "Надія",
       "date": "2026-08-27",
@@ -22,7 +20,6 @@
       "status": "published",
       "ready": true,
       "permission": true,
-      
       "language": "uk",
       "signature": "Анжела",
       "date": "2026-08-27",
@@ -37,7 +34,6 @@
       "status": "published",
       "ready": true,
       "permission": true,
-      
       "language": "uk",
       "signature": "Yevgen",
       "date": "2026-07-28",
@@ -52,7 +48,6 @@
       "status": "published",
       "ready": true,
       "permission": true,
-      
       "language": "uk",
       "signature": "Наталия",
       "date": "2024-11-09",
@@ -67,7 +62,6 @@
       "status": "published",
       "ready": true,
       "permission": true,
-      
       "language": "uk",
       "signature": "Андрій",
       "date": "2024-06-13",
@@ -82,7 +76,6 @@
       "status": "published",
       "ready": true,
       "permission": true,
-      
       "language": "uk",
       "signature": "Філіп",
       "date": "2024-01-25",
@@ -97,7 +90,6 @@
       "status": "published",
       "ready": true,
       "permission": true,
-      
       "language": "uk",
       "signature": "Микола",
       "date": "2024-01-19",
@@ -112,7 +104,6 @@
       "status": "published",
       "ready": true,
       "permission": true,
-      
       "language": "uk",
       "signature": "Mariana",
       "date": "2023-06-08",
@@ -127,7 +118,6 @@
       "status": "published",
       "ready": true,
       "permission": true,
-      
       "language": "uk",
       "signature": "Сергій",
       "date": "2022-11-14",
@@ -142,7 +132,6 @@
       "status": "published",
       "ready": true,
       "permission": true,
-      
       "language": "uk",
       "signature": "Роман",
       "date": "2022-08-25",
@@ -157,7 +146,6 @@
       "status": "published",
       "ready": true,
       "permission": true,
-      
       "language": "uk",
       "signature": "Олександр",
       "date": "2022-08-25",
@@ -172,7 +160,6 @@
       "status": "published",
       "ready": true,
       "permission": true,
-      
       "language": "uk",
       "signature": "Єгор ( мама )",
       "date": "2025-03-11",
@@ -187,7 +174,6 @@
       "status": "published",
       "ready": true,
       "permission": true,
-      
       "language": "uk",
       "signature": "Алла (мама)",
       "date": "2024-10-31",
@@ -202,7 +188,6 @@
       "status": "published",
       "ready": true,
       "permission": true,
-      
       "language": "uk",
       "signature": "Алена",
       "date": "2022-06-21",
@@ -217,7 +202,6 @@
       "status": "published",
       "ready": true,
       "permission": true,
-      
       "language": "ru",
       "signature": "Виталина",
       "date": "2021-07-19",
@@ -232,7 +216,6 @@
       "status": "published",
       "ready": true,
       "permission": true,
-      
       "language": "ru",
       "signature": "Богдан (мама)",
       "date": "2021-06-30",
@@ -247,7 +230,6 @@
       "status": "published",
       "ready": true,
       "permission": true,
-      
       "language": "ru",
       "signature": "Виктор",
       "date": "2021-06-16",
@@ -262,7 +244,6 @@
       "status": "published",
       "ready": true,
       "permission": true,
-      
       "language": "ru",
       "signature": "Владислав",
       "date": "2021-01-15",

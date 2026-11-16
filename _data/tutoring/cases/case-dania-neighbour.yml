@@ -10,7 +10,7 @@ age_or_grade: null
 duration: null
 media:
   cover:
-    path: /assets/images/tutoring/cases/hello-neighbour-placeholder.webp
+    path: null
   additional_images: []
   video_url: null
   playable_url: null

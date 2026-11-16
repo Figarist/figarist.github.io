@@ -31,8 +31,6 @@ sitemap: true
 related_posts: null
 featured: false
 hidden: false
-redirect_from:
-  - "/blog/test/"
 toc: true
 published: true
 fmContentType: "Post"
@@ -220,24 +218,6 @@ public class CopyTest : MonoBehaviour
 ```
 
 Кнопка работает на нативном Vanilla JS в `script.js` и полностью соответствует эстетике Hub Architecture.
-
----
-
-## 8. Адаптивные Изображения Высокого Разрешения
-
-Для проверки рендеринга и сжатия WebP на различных устройствах:
-
-### 1K Изображение (1920x1080)
-
-![Test Image 1K](/assets/images/1k.webp)
-
-### 2K Изображение (2560x1440)
-
-![Test Image 2K](/assets/images/2k.webp)
-
-### 4K Изображение (3840x2160)
-
-![Test Image 4K](/assets/images/4k.webp)
 
 ---
 

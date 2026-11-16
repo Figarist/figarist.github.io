@@ -16,7 +16,6 @@ playground_heading: "VR Playground"
 playground_sub: "Интерактивные мини-игры, прототипы и демо от Figarist"
 webgl_overlay_text: "Нажмите, чтобы играть"
 webgl_overlay_note: "Загружает Unity WebGL — это может занять минуту"
-webgl_status: "● Скоро будет"
 webgl_caption: "Экспериментальное пространство для мини-игр и демо от Wrist & Pocket Studio."
 dish_of_chaos_title: "Dish of Chaos"
 dish_of_chaos_tagline: "Вращай поднос. Собирай блюда. Не дай хаосу победить."
@@ -24,10 +23,6 @@ dish_of_chaos_badge: "Ігровари джем 2026"
 dish_of_chaos_engine: "Unity 6 • WebGL"
 dish_of_chaos_play_cta: "Играть"
 dish_of_chaos_itch_btn: "Страница на itch.io"
-teaser_game_title: "Wear OS Lab"
-teaser_game_badge: "В разработке"
-teaser_game_tagline: "Крошечные миры для умных часов и VR."
-teaser_game_cta: "Студия →"
 game_back_to_hub: "← В Playground"
 game_play_browser: "Играть в браузере"
 game_launch_now: "Нажмите для запуска игры"
@@ -52,17 +47,14 @@ cruncher_desc: "Браузерный бит-крашер и конвертер �
 # VR FEED
 vr_heading: "VR Новости и Жизнь"
 vr_subtitle: "Шлемы, XR эксперименты и погружение"
-vr_empty: "VR посты уже на подходе — следите за обновлениями."
 vr_cta: "Все VR посты →"
 
 # GAMEDEV FEED
 gamedev_subtitle: "Дневники разработки, механики и эксперименты Wear OS"
-gamedev_empty: "Логи разработки уже на подходе — следите за обновлениями."
 gamedev_cta: "Все GameDev посты →"
 
 # PERSONAL FEED
 personal_heading: "Личная жизнь"
-personal_subtitle: "Коты, отключения света и жизнь разработчика в Украине"
 personal_empty: "Влоги уже на подходе — следите за обновлениями."
 personal_cta: "Все влоги →"
 

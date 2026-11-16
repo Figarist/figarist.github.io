@@ -22,10 +22,10 @@ jobs:
 
           forbidden_prefixes = ("docs/", ".agents/", ".agent/")
           forbidden_names = {"project_context.md", "debug.log", ".env"}
-          forbidden_name_re = re.compile(r"(NEXT_WORK_PROMPT|HANDOFF|CRO_DEEP_ANALYSIS|IMPLEMENTATION_CHECKLIST)", re.I)
+          forbidden_name_re = re.compile(r"(NEXT_WORK_PROMPT|HANDOFF|CRO_DEEP_ANALYSIS|IMPLEMENTATION_CHECKLIST|-placeholder\.webp$)", re.I)
 
           path_leak_re = re.compile(r"([A-Za-z]:\\Users\\|[A-Za-z]:\\GitHub\\|/Users/[a-zA-Z0-9._-]+/|C:\\Program Files\\)")
-          fictional_re = re.compile(r"UNVERIFIED AI-GENERATED EXAMPLES")
+          fictional_re = re.compile(r"(UNVERIFIED AI-GENERATED EXAMPLES|permission_basis)")
           secret_re = re.compile(r"(ghp_[A-Za-z0-9]{20,}|github_pat_[A-Za-z0-9_]{20,}|AIza[0-9A-Za-z_-]{35}|-----BEGIN [A-Z ]*PRIVATE KEY-----)")
 
           for path in files:

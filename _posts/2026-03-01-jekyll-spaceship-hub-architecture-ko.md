@@ -31,8 +31,6 @@ sitemap: true
 related_posts: null
 featured: false
 hidden: false
-redirect_from:
-  - "/blog/test/"
 toc: true
 published: true
 fmContentType: "Post"
@@ -219,24 +217,6 @@ public class CopyTest : MonoBehaviour
 ```
 
 순수 바닐라 JS(`script.js`)로 작동하여 불필요한 라이브러리 로드를 방지합니다.
-
----
-
-## 8. 고해상도 반응형 이미지 테스트
-
-기기별 WebP 렌더링 검증:
-
-### 1K 이미지 (1920x1080)
-
-![Test Image 1K](/assets/images/1k.webp)
-
-### 2K 이미지 (2560x1440)
-
-![Test Image 2K](/assets/images/2k.webp)
-
-### 4K 이미지 (3840x2160)
-
-![Test Image 4K](/assets/images/4k.webp)
 
 ---
 

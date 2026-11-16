@@ -1,24 +1,19 @@
 <head>
     <meta charset="utf-8">
 
-    <!-- Viewport & Meta Base -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
     <meta name="theme-color" content="#f2f0eb">
     <meta name="robots" content="{% if page.noindex or page.layout == 'archive' %}noindex, follow{% else %}{{ page.robots | default: 'index, follow' | escape }}{% endif %}">
     <meta name="google-site-verification" content="Whr2bJTggESM1pyCXLfqwodNQu6cNqk_XKdZ0ix2Tyk" />
 
-    <!-- Favicon -->
     <link rel="shortcut icon" type="image/png" href="{{ '/assets/images/figaristgithub.png' | relative_url }}">
     <link rel="apple-touch-icon" href="{{ '/assets/images/figaristgithub.png' | relative_url }}">
 
-    <!-- PWA Manifest -->
     <link rel="manifest" href="{{ '/manifest.json' | relative_url }}">
 
-    <!-- Preconnect for Instant CTA Messenger Transition -->
     <link rel="preconnect" href="https://t.me">
     <link rel="dns-prefetch" href="https://t.me">
 
-    <!-- Jekyll SEO Tag (Generates Title, OG, Twitter, JSON-LD, Canonical) -->
     {% assign active_lang = site.active_lang | default: 'en' %}
     {% assign seo_title_key = 'seo_' | append: active_lang | append: '_title' %}
     {% assign seo_desc_key = 'seo_' | append: active_lang | append: '_desc' %}
@@ -58,11 +53,9 @@
     {% endfor %}
     <link rel="alternate" hreflang="x-default" {% static_href %}href="{{ site.url }}{{ site.baseurl }}{{ alternate_path }}"{% endstatic_href %}>
 
-    <!-- RSS Feeds -->
     {% feed_meta %}
     <link rel="stylesheet" href="{{ '/assets/css/styles.css' | relative_url }}?v={{ site.time | date: '%s' }}">
 
-    <!-- Analytics (Local Proxy) -->
     <script data-goatcounter="https://figarist.goatcounter.com/count" async
         src="{{ '/assets/vendor/count.js' | relative_url }}"></script>
 

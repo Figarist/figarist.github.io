@@ -67,7 +67,7 @@ changefreq: weekly
       </a>
       {% for tool in site.data.tools %}{% if tool.home_tile %}
       {% assign tool_title = tool.title_literal | default: s[tool.title_key] %}
-      <a href="https://sivochka.com{{ tool.path }}{% if tool.localized %}{% unless site.active_lang == 'en' %}{{ site.active_lang }}/{% endunless %}{% endif %}" target="_blank" rel="noopener" class="explore-card" id="{{ tool.id }}" aria-label="{{ s[tool.aria_key] }}">
+      <a href="https://sivochka.com{{ tool.path }}{% if tool.locale_paths %}{{ tool.locale_paths[site.active_lang] }}{% elsif tool.localized %}{% unless site.active_lang == 'en' %}{{ site.active_lang }}/{% endunless %}{% endif %}" target="_blank" rel="noopener" class="explore-card" id="{{ tool.id }}" aria-label="{{ s[tool.aria_key] }}">
         <span>{{ s[tool.label_key] }}</span><strong>{{ tool_title }}</strong><small>{{ s[tool.desc_key] }}</small><b aria-hidden="true">↗</b>
       </a>
       {% endif %}{% endfor %}

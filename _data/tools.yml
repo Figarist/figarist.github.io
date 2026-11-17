@@ -61,7 +61,14 @@
 - id: pyscratch
   repo: Figarist/pyScratch
   path: /pyScratch/
+  # pyScratch keeps uk at the root, so the hub's "{lang}/" suffix scheme does not apply.
+  # locale_paths maps each hub locale to the matching pyScratch sub-path (ko falls back to en).
   localized: false
+  locale_paths:
+    en: en/
+    uk: ""
+    ru: ru/
+    ko: en/
   brand: personal
   home_tile: true
   sitemap: true

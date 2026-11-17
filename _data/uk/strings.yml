@@ -271,5 +271,5 @@ aria_visit_canirun_unity: "Відкрити перевірку суміснос�
 
 pyscratch_label: "Python ↔ Scratch 3.0"
 pyscratch_title: "pyScratch IDE"
-pyscratch_desc: "Редагуйте .sb3 проєкти на Python і запускайте прямо у браузері"
+pyscratch_desc: "Безкоштовний конвертер і IDE: Scratch 3.0 (.sb3) ↔ Python з живою сценою у браузері"
 aria_visit_pyscratch: "Відкрити онлайн-редактор pyScratch (Python ↔ Scratch 3.0)"

@@ -192,7 +192,8 @@ tools.each do |tool|
     prefix = lang == 'en' ? '' : "/#{lang}"
     home_doc = Nokogiri::HTML(File.read("#{root}#{prefix}/index.html"))
     tile = home_doc.at_css("a##{tool['id']}")
-    expected_href = "#{origin}#{tool['path']}" + (tool['localized'] && lang != 'en' ? "#{lang}/" : '')
+    suffix = tool['locale_paths'] ? tool['locale_paths'][lang].to_s : (tool['localized'] && lang != 'en' ? "#{lang}/" : '')
+    expected_href = "#{origin}#{tool['path']}#{suffix}"
     check(tile && tile['href'] == expected_href, "Home tile ##{tool['id']} missing or wrong href for #{lang} (expected #{expected_href})")
   end
 end

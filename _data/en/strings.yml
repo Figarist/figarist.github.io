@@ -272,5 +272,5 @@ aria_visit_canirun_unity: "Open Can I Run Unity? hardware compatibility checker"
 
 pyscratch_label: "Python ↔ Scratch 3.0"
 pyscratch_title: "pyScratch IDE"
-pyscratch_desc: "Edit .sb3 projects in Python and run them live in the browser"
+pyscratch_desc: "Free Scratch 3.0 (.sb3) ↔ Python converter and IDE with a live stage in the browser"
 aria_visit_pyscratch: "Open pyScratch Python to Scratch 3.0 online IDE"

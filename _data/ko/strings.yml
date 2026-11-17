@@ -272,5 +272,5 @@ aria_visit_canirun_unity: "Can I Run Unity? 사양 검사기 열기"
 
 pyscratch_label: "Python ↔ Scratch 3.0"
 pyscratch_title: "pyScratch IDE"
-pyscratch_desc: "Python으로 .sb3 프로젝트를 편집하고 브라우저에서 바로 실행"
+pyscratch_desc: "무료 Scratch 3.0(.sb3) ↔ Python 변환기 및 IDE, 브라우저에서 바로 실행"
 aria_visit_pyscratch: "pyScratch 온라인 Python ↔ Scratch 3.0 IDE 열기"

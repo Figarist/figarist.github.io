@@ -75,7 +75,7 @@ fmContentType: "Post"
 
 ### 개인 1:1 멘토링이 단체 학원과 다른 이유
 
-다인원 그룹 강의는 정해진 커리큘럼 속도에 맞춰 모든 학생이 똑같은 템플릿 게임을 만들며, 개인 질문에 할애되는 시간이 매우 짧습니다.
+다인원 그룹 강의는 정해진 커리큘럼 속도에 맞춰 모든 학생이 똑같은 템플릿 게임을 만들며, 개인 질문에 할애되는 시간이 매우 짧습니다. 그룹 수업이 오히려 더 잘 맞는 경우까지 포함한 균형 잡힌 비교는 [코딩 과외 vs 그룹 코딩 수업: 학부모를 위한 솔직한 비교](https://sivochka.com/ko/blog/coding-tutor-vs-group-classes/)에서 확인하세요.
 
 **1:1 멘토링 포맷**에서는 60분 전체가 오직 한 학생의 프로젝트와 코드에 집중됩니다:
 1. **현업 개발자이자 교육학 석사의 직접 지도**: 컴퓨터 과학·수학 교육학 석사이자 공인 **Unity Junior Programmer** & **Unity Essentials** 자격을 보유하고, Unity 6 WebGL 게임 [Dish of Chaos](https://sivochka.com/ko/games/dish-of-chaos/) 및 오디오 DSP 도구 [OGCruncher](https://sivochka.com/OGCruncher/)를 제작한 이호르 시보치카가 직접 가르칩니다.

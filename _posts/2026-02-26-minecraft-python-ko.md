@@ -111,3 +111,4 @@ for step in range(0, 1000):
 
 - 수업 조건 및 일정 문의: [1:1 코딩·게임 개발 멘토링](https://sivochka.com/ko/tutoring/)
 - Scratch, Python, Unity C# 중 고민 중이신가요? 학부모 가이드 보기: [자녀를 위한 코딩 진로 선택 가이드](https://sivochka.com/ko/blog/how-to-choose-programming-for-child/)
+- 첫 수업을 준비 중이신가요(Minecraft Java Edition, Minescript, Zoom)? [아이의 첫 온라인 코딩 수업: 준비물과 기대할 점](https://sivochka.com/ko/blog/first-online-coding-lesson-for-kids/)을 확인하세요.

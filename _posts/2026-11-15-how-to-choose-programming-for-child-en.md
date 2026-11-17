@@ -59,7 +59,7 @@ Explore the early-learner curriculum on the [1-on-1 Scratch tutoring page](https
 
 ### Step 2. Python & Python in Minecraft (Ages 9–13): Bridging into Real Text Code
 
-Once visual blocks feel limiting, **Python** is the cleanest bridge into professional syntax because it reads almost like plain English.
+Once visual blocks feel limiting, **Python** is the cleanest bridge into professional syntax because it reads almost like plain English. Not sure whether your child is ready for that step? Read [Scratch vs Python: how to tell when your child is ready to switch](https://sivochka.com/blog/scratch-vs-python-for-kids/).
 
 However, dry terminal exercises ("print the sum of numbers from 1 to N") lose momentum quickly for 9–12-year-olds. Pairing **Python directly with Minecraft** via Minescript changes that completely: instead of staring at plain text output, your child's Python code immediately constructs structures, spawns entities, and transforms biomes in real time.
 

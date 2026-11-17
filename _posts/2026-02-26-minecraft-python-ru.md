@@ -111,3 +111,4 @@ for step in range(0, 1000):
 
 - Подробнее об условиях и записи: [Индивидуальное менторство 1-на-1](https://sivochka.com/ru/tutoring/)
 - Выбираете между Scratch, Python и Unity C#? Читайте гайд для родителей: [Как выбрать направление программирования для ребёнка](https://sivochka.com/ru/blog/how-to-choose-programming-for-child/)
+- Готовитесь к первому уроку (Minecraft Java Edition, Minescript, Zoom)? Читайте [Первый онлайн-урок программирования для ребёнка: как подготовиться](https://sivochka.com/ru/blog/first-online-coding-lesson-for-kids/)

@@ -75,7 +75,7 @@ Both projects are documented on the [Unity & C# mentoring page](https://sivochka
 
 ### Why Personal 1-on-1 Mentoring Beats Mass Group Courses
 
-Group coding schools follow rigid slide decks where 10 students build identical templates and each learner gets only a couple minutes of individual attention.
+Group coding schools follow rigid slide decks where 10 students build identical templates and each learner gets only a couple minutes of individual attention. For a balanced view, including the cases where a group is actually the better fit, see [Coding tutor vs coding class for kids: an honest comparison](https://sivochka.com/blog/coding-tutor-vs-group-classes/).
 
 In a **1-on-1 mentoring format**, the full 60-minute session focuses exclusively on your child's architecture and code:
 1. **Practicing developer & qualified educator**: lessons are taught by Ihor Sivochka—Master of Education (Computer Science & Mathematics), certified **Unity Junior Programmer** and **Unity Essentials**, and creator of the live Unity 6 WebGL game [Dish of Chaos](https://sivochka.com/games/dish-of-chaos/) and game-audio DSP studio [OGCruncher](https://sivochka.com/OGCruncher/).

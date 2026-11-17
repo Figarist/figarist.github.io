@@ -111,3 +111,4 @@ This methodology powers my **[Python in Minecraft](https://sivochka.com/tutoring
 
 - Explore mentoring terms & availability: [1-on-1 Coding & Game Dev Mentoring](https://sivochka.com/tutoring/)
 - Comparing Scratch, Python, and Unity C#? Read the parent guide: [How to Choose a Programming Track for Your Child](https://sivochka.com/blog/how-to-choose-programming-for-child/)
+- Getting ready for the first lesson (Minecraft Java Edition, Minescript, Zoom)? See [Your child's first online coding lesson: what to prepare](https://sivochka.com/blog/first-online-coding-lesson-for-kids/)

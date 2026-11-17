@@ -1,7 +1,7 @@
 ---
 layout: "post"
 title: "Навчання школярів основ програмування за допомогою середовища Minecraft"
-description: "Як використовувати Minecraft для навчання школярів основам програмування мовою Python."
+description: "Як використовувати Minecraft Pi Edition і Python, щоб навчати школярів основам програмування та тривимірному просторовому мисленню."
 last_modified_at: null
 date: "2026-02-26 10:15:00 +0200"
 lang: "uk"
@@ -20,7 +20,7 @@ author: "ihor"
 image: null
 image_alt: null
 focus_keyword: null
-seo_title: null
+seo_title: "Основи програмування зі школярами через Minecraft"
 seo_type: "BlogPosting"
 canonical_url: null
 robots: null

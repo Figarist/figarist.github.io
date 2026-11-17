@@ -1,7 +1,7 @@
 ---
 layout: "post"
 title: "Teaching Students Programming Fundamentals with Minecraft and Python"
-description: "How to use Minecraft Pi Edition and Python to teach school students foundational programming and 3D spatial thinking."
+description: "How to use Minecraft Pi Edition and Python to teach school students foundational programming skills and 3D spatial thinking."
 last_modified_at: null
 date: "2026-02-26 10:15:00 +0200"
 lang: "en"
@@ -20,7 +20,7 @@ author: "ihor"
 image: null
 image_alt: null
 focus_keyword: "minecraft python education"
-seo_title: null
+seo_title: "Teach Programming with Minecraft and Python"
 seo_type: "BlogPosting"
 canonical_url: null
 robots: null

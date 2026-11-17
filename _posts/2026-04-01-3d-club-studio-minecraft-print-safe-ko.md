@@ -20,7 +20,7 @@ author: "ihor"
 image: null
 image_alt: null
 focus_keyword: "3d 클럽 스튜디오"
-seo_title: "3D 클럽 스튜디오: 서포트 없는 학교 3D 프린터 전용 절차적 생성기"
+seo_title: "3D 클럽 스튜디오: 서포트 없는 학교 3D 프린팅"
 seo_type: "BlogPosting"
 canonical_url: null
 robots: null

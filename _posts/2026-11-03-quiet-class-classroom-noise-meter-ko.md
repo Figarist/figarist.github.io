@@ -20,7 +20,7 @@ author: "ihor"
 image: null
 image_alt: null
 focus_keyword: "교실 소음 측정기"
-seo_title: "조용한 교실(Quiet Class): 원거리 웹캠용 Web Audio DSP 교실 소음 측정기"
+seo_title: "조용한 교실(Quiet Class): 무료 교실 소음 측정기"
 seo_type: "BlogPosting"
 canonical_url: null
 robots: null

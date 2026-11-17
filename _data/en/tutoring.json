@@ -1,7 +1,7 @@
 {
   "nav": "Lessons",
-  "title": "Online Unity, C#, Python & Scratch Mentor and Tutor — Ihor Sivochka",
-  "description": "1-on-1 online programming & game dev mentoring for kids and teens with developer Ihor Sivochka: Unity & C#, Python, Minecraft, Scratch, CS. €20 / ~$22 (1000 UAH) per 60-min lesson.",
+  "title": "Online Unity, C#, Python & Scratch Tutor — Ihor Sivochka",
+  "description": "1-on-1 online programming & game dev mentoring for kids and teens: Unity & C#, Python, Minecraft, Scratch, CS. €20 / ~$22 (1000 UAH) per 60 min.",
   "heading": "Personal 1-on-1 Mentoring in Unity, C#, Python & Computer Science",
   "mobile_heading": "Unity, C# & Python Mentoring",
   "intro": "I am Ihor Sivochka (Figarist)—a practicing indie game developer, Master of Education in Computer Science, and creator of live EdTech web platforms. My flagship track is 1-on-1 Unity and C# mentoring for kids and teenagers (building 2D/3D games, enemy AI, multiplayer, and portfolio projects from scratch). I also teach Python (including via Minecraft), Scratch for ages 6+, and school computer science. Personal 1-on-1 mentoring with no group slides or mass classes.",
@@ -60,9 +60,10 @@
   "courses": [
     {
       "slug": "unity",
-      "title": "Online Unity & C# Mentor and Tutor for Kids & Teens — Ihor Sivochka",
+      "title": "Online Unity & C# Tutor for Kids & Teens — Ihor Sivochka",
+      "h1": "Online Unity & C# Mentor and Tutor for Kids & Teens — Ihor Sivochka",
       "heading": "1-on-1 Mentoring in Unity and C# Game Development",
-      "description": "Private 1-on-1 online Unity & C# lessons for kids and teens with certified developer (Unity Junior Programmer). Build 2D/3D games, AI & multiplayer. €20 / ~$22 (1000 UAH) per 60 min.",
+      "description": "1-on-1 online Unity & C# lessons for kids and teens with a certified developer. Build 2D/3D games, AI and multiplayer. €20 / ~$22 (1000 UAH) per 60 min.",
       "intro": "Flagship mentoring track for students ages 10–17 who want to move beyond playing games and learn to engineer real 2D and 3D games in Unity and C#. Working 1-on-1, students grow from first movement scripts to deep projects like Dania's 3D Hello Neighbour with reactive AI or Maksym's online multiplayer Hockey Zombie.",
       "topics": [
         "Unity Editor architecture: scenes, prefabs, components, and ScriptableObjects",
@@ -110,9 +111,10 @@
     },
     {
       "slug": "python",
-      "title": "Online Python Tutor for Kids & Teens 1-on-1 — Ihor Sivochka",
+      "title": "Online Python Tutor for Kids & Teens — Ihor Sivochka",
+      "h1": "Online Python Tutor for Kids & Teens 1-on-1 — Ihor Sivochka",
       "heading": "Python: Text-Based Code, Algorithms & Custom Programs",
-      "description": "1-on-1 online Python tutoring for school students (Ukraine, EU, US, Canada): clean syntax, algorithms, projects, and Python via Minecraft. €20 / ~$22 (1000 UAH) per 60 min.",
+      "description": "1-on-1 online Python tutoring for kids and teens: clean syntax, algorithms, projects and Python via Minecraft. €20 / ~$22 (1000 UAH) per 60 min.",
       "intro": "For students ages 9–17 ready to transition from visual blocks into real text-based Python programming. We learn problem decomposition, data structures, algorithms, and build playable games and practical utilities.",
       "topics": [
         "Core Python syntax: variables, data types, conditionals, and loops",
@@ -159,9 +161,10 @@
     },
     {
       "slug": "informatics",
-      "title": "Online Computer Science & Informatics Tutor for Kids — Ihor Sivochka",
+      "title": "Online Computer Science Tutor for Kids — Ihor Sivochka",
+      "h1": "Online Computer Science & Informatics Tutor for Kids — Ihor Sivochka",
       "heading": "Computer Science: Algorithms, School Curriculum & Digital Skills",
-      "description": "1-on-1 online computer science tutor (Master of Education, practicing teacher). Support for Ukrainian, EU, UK & US school CS, algorithms, Scratch, Python. €20 / ~$22 (1000 UAH) per 60 min.",
+      "description": "1-on-1 online computer science tutor (Master of Education, practicing teacher): school CS, algorithms, Scratch, Python. €20 / ~$22 (1000 UAH) per 60 min.",
       "intro": "Structured 1-on-1 support in school and advanced computer science for students in Ukraine and abroad. As a practicing CS teacher with a Master's degree in Education, I help students truly understand algorithms, OS/file workflows, Scratch/Python tasks, and practical digital tools rather than mechanically copying homework.",
       "topics": [
         "Confident file systems, OS navigation, and cloud learning workflows",
@@ -203,9 +206,10 @@
     },
     {
       "slug": "scratch",
-      "title": "Online Scratch Tutor for Kids (Ages 6–10) 1-on-1 — Ihor Sivochka",
+      "title": "Online Scratch Tutor for Kids (6–10) — Ihor Sivochka",
+      "h1": "Online Scratch Tutor for Kids (Ages 6–10) 1-on-1 — Ihor Sivochka",
       "heading": "Scratch: First Games, Animation & Coding Logic for Kids",
-      "description": "1-on-1 online Scratch lessons for kids ages 6–10. Algorithmic thinking, custom games & animations, and smooth transition to Python/Unity. €20 / ~$22 (1000 UAH) per 60 min.",
+      "description": "1-on-1 online Scratch lessons for kids ages 6–10: algorithmic thinking, custom games and animations, then Python/Unity. €20 / ~$22 (1000 UAH) per 60 min.",
       "intro": "The ideal first step into programming for children ages 6–10. Using Scratch's visual blocks, kids learn to think like developers—planning coordinates, variables, events, and loops—while building a strong bridge toward future Python or Unity C#.",
       "topics": [
         "Sprites, stages, X/Y coordinate plane, and event-driven logic",
@@ -247,7 +251,8 @@
     },
     {
       "slug": "minecraft",
-      "title": "Learn Python Through Minecraft — 1-on-1 Online Mentoring",
+      "title": "Learn Python Through Minecraft — 1-on-1 Online",
+      "h1": "Learn Python Through Minecraft — 1-on-1 Online Mentoring",
       "heading": "Python Programming Inside Minecraft (Minescript)",
       "description": "1-on-1 Python lessons through Minecraft with an award-winning course author (2nd place national CS research award). €20 / ~$22 (1000 UAH) per 60 min.",
       "intro": "Turn a favorite 3D sandbox into a real Python coding lab. Built on an award-winning pedagogical methodology (2nd place, All-Ukrainian Student Research Competition) updated to modern Minescript: students write real Python scripts and immediately observe 3D changes in Minecraft.",
@@ -297,8 +302,8 @@
   "payment_question": "How do I pay for lessons?",
   "name": "Sivochka Ihor",
   "role": "1-on-1 Unity/C# & Python Mentor and Indie Game Developer",
-  "home_title": "Ihor Sivochka (Figarist) — Game Dev, EdTech & 1-on-1 Unity, Python Mentoring",
-  "home_description": "Personal hub of indie game developer and CS educator Ihor Sivochka (Figarist): Unity & Wear OS games, EdTech platforms (3D Club Studio, OGCruncher, LEGO WeDo), blog, and 1-on-1 mentoring.",
+  "home_title": "Ihor Sivochka (Figarist) — Game Dev & 1-on-1 Mentoring",
+  "home_description": "Personal hub of indie game developer and CS educator Ihor Sivochka (Figarist): Unity & Wear OS games, EdTech tools, blog and 1-on-1 mentoring.",
   "video_title": "Meet me on video",
   "video_text": "An introductory video sharing my teaching philosophy and development work.",
   "video_cta": "Watch on YouTube",

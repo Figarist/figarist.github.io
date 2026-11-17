@@ -1,7 +1,7 @@
 ---
 layout: "post"
 title: "OGCruncher: Free In-Browser Audio Bit-Crusher & Batch SFX Optimizer for Indie Games"
-description: "Engineering breakdown of OGCruncher — a local Web Audio bit-crusher, sample rate reducer, and OGG/WAV/MP3 batch exporter built for Unity, Godot, WebGL, and Wear OS game audio."
+description: "How OGCruncher works: a local Web Audio bit-crusher, sample rate reducer and OGG/WAV/MP3 batch exporter for Unity, Godot, WebGL and Wear OS games."
 last_modified_at: null
 date: "2026-11-15 10:00:00 +0200"
 lang: "en"
@@ -20,7 +20,7 @@ author: "ihor"
 image: null
 image_alt: null
 focus_keyword: "online audio bit-crusher"
-seo_title: "OGCruncher: Free Online Audio Bit-Crusher & Game SFX Compressor"
+seo_title: "OGCruncher: Free Online Audio Bit-Crusher for Game SFX"
 seo_type: "BlogPosting"
 canonical_url: null
 robots: null

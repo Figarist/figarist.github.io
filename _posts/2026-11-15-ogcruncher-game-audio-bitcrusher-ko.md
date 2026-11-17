@@ -20,7 +20,7 @@ author: "ihor"
 image: null
 image_alt: null
 focus_keyword: "온라인 오디오 비트크러셔"
-seo_title: "OGCruncher: 무료 온라인 오디오 비트크러셔 & OGG/WAV/MP3 게임 사운드 최적화"
+seo_title: "OGCruncher: 무료 온라인 오디오 비트크러셔 & 게임 사운드 최적화"
 seo_type: "BlogPosting"
 canonical_url: null
 robots: null

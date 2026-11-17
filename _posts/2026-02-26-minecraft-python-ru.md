@@ -20,7 +20,7 @@ author: "ihor"
 image: null
 image_alt: null
 focus_keyword: "minecraft python education"
-seo_title: null
+seo_title: "Основы программирования с Minecraft и Python"
 seo_type: "BlogPosting"
 canonical_url: null
 robots: null

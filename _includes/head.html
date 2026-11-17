@@ -17,10 +17,14 @@
     {% assign active_lang = site.active_lang | default: 'en' %}
     {% assign seo_title_key = 'seo_' | append: active_lang | append: '_title' %}
     {% assign seo_desc_key = 'seo_' | append: active_lang | append: '_desc' %}
-    {% assign resolved_title = page[seo_title_key] | default: page.title %}
+    {% assign seo_title_string = site.data[active_lang].strings[page.title_seo_key] %}
+    {% assign resolved_title = page[seo_title_key] | default: page.seo_title | default: seo_title_string | default: page.title %}
     {% assign resolved_desc = page[seo_desc_key] %}
+    {% comment %}Append the brand suffix only when the whole <title> stays within 60 characters.{% endcomment %}
+    {% assign suffixed_title = resolved_title | append: ' | Figarist' %}
+    {% if suffixed_title.size <= 60 %}{% assign head_title = suffixed_title %}{% else %}{% assign head_title = resolved_title %}{% endif %}
     {% if resolved_desc %}
-    <title>{{ resolved_title | escape }} | Figarist</title>
+    <title>{{ head_title | escape }}</title>
     <meta name="description" content="{{ resolved_desc | escape }}">
     <link rel="canonical" href="{{ site.url }}{{ site.baseurl }}{% unless active_lang == site.default_lang %}/{{ active_lang }}{% endunless %}{{ page.url | remove: 'index.html' }}">
     <meta property="og:title" content="{{ resolved_title | escape }}">
@@ -33,8 +37,8 @@
     {% assign seo_social_img = page.image | default: '/assets/images/figaristgithub.png' %}
     <meta property="og:image" content="{{ site.url }}{{ site.baseurl }}{{ seo_social_img }}">
     <meta name="twitter:image" content="{{ site.url }}{{ site.baseurl }}{{ seo_social_img }}">
-    {% elsif page.tutoring or page.is_home %}
-    <title>{{ resolved_title | escape }} | Figarist</title>
+    {% elsif page.tutoring or page.is_home or page.seo_title or page.title_seo_key %}
+    <title>{{ head_title | escape }}</title>
     {% seo title=false %}
     {% else %}
     {% seo %}

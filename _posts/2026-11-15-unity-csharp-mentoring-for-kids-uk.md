@@ -1,7 +1,7 @@
 ---
 layout: "post"
 title: "Unity та C# для дітей і підлітків: як 1-на-1 менторство веде від першої механіки до власної 3D-гри"
-description: "Детальний розбір індивідуального менторства з Unity та C# для школярів 10–17 років (Україна, Європа, США, Канада): архітектура коду, реальні кейси учнів Hello Neighbour і Hockey Zombie, вимоги до ПК та вартість 1000 грн / €20."
+description: "1-на-1 менторство Unity та C# для школярів 10–17 років: проєкти Hello Neighbour і Hockey Zombie, вимоги до ПК та вартість 1000 грн / €20."
 last_modified_at: null
 date: "2026-11-15 11:00:00 +0200"
 lang: "uk"
@@ -21,7 +21,7 @@ author: "ihor"
 image: null
 image_alt: null
 focus_keyword: "репетитор ментор Unity C# для дітей"
-seo_title: "Unity та C# для підлітків: персональне 1-на-1 менторство від ідеї до гри"
+seo_title: "Менторство Unity і C# для дітей 1-на-1 онлайн"
 seo_type: "BlogPosting"
 canonical_url: null
 robots: null

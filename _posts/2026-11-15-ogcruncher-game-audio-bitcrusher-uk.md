@@ -1,7 +1,7 @@
 ---
 layout: "post"
 title: "OGCruncher: безкоштовний онлайн біткрашер і пакетний оптимізатор звуку для ігор"
-description: "Технічний розбір OGCruncher — браузерного біткрашера, редуктора частоти дискретизації та пакетного конвертера OGG/WAV/MP3 для Unity, Godot, WebGL і Wear OS без завантаження файлів на сервер."
+description: "Розбір OGCruncher: браузерний біткрашер, редуктор частоти дискретизації та пакетний конвертер OGG/WAV/MP3 для Unity, Godot, WebGL і Wear OS."
 last_modified_at: null
 date: "2026-11-15 10:00:00 +0200"
 lang: "uk"
@@ -20,7 +20,7 @@ author: "ihor"
 image: null
 image_alt: null
 focus_keyword: "біткрашер онлайн для ігор"
-seo_title: "OGCruncher: безкоштовний біткрашер онлайн та оптимізатор OGG/WAV/MP3 для ігор"
+seo_title: "OGCruncher: безкоштовний біткрашер звуку для ігор"
 seo_type: "BlogPosting"
 canonical_url: null
 robots: null

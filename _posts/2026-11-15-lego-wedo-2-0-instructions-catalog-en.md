@@ -1,7 +1,7 @@
 ---
 layout: "post"
 title: "LEGO WeDo 2.0 Catalog: 597 Robotics Building Instructions in a Fast PWA"
-description: "Architecture and pedagogical design of our free non-commercial LEGO WeDo 2.0 catalog: 597 building instructions across 26 categories, Classroom Roulette, progress badges, and offline PWA shell."
+description: "Free non-commercial LEGO WeDo 2.0 catalog: 597 building instructions in 26 categories, Classroom Roulette, progress badges and an offline PWA."
 last_modified_at: null
 date: "2026-11-15 11:00:00 +0200"
 lang: "en"
@@ -20,7 +20,7 @@ author: "ihor"
 image: null
 image_alt: null
 focus_keyword: "lego wedo 2.0 building instructions"
-seo_title: "LEGO WeDo 2.0 Catalog: 597 Free Robotics Building Instructions"
+seo_title: "LEGO WeDo 2.0 Catalog: 597 Free Building Instructions"
 seo_type: "BlogPosting"
 canonical_url: null
 robots: null

@@ -1,7 +1,7 @@
 ---
 layout: "post"
 title: "Quiet Class: Web Audio DSP Classroom Noise Meter for Distant TV Webcams"
-description: "How we engineered an offline-first PWA classroom noise meter with a 120 Hz highpass filter, 2.2 kHz speech presence boost, and 25th-percentile calibration for distant school TV webcams."
+description: "How we built an offline-first PWA classroom noise meter: 120 Hz highpass filter, speech presence boost and calibration for distant TV webcams."
 last_modified_at: null
 date: "2026-11-03 10:00:00 +0200"
 lang: "en"
@@ -20,7 +20,7 @@ author: "ihor"
 image: null
 image_alt: null
 focus_keyword: "classroom noise meter"
-seo_title: "Quiet Class: Web Audio DSP Classroom Noise Meter for School TVs"
+seo_title: "Quiet Class: Free Classroom Noise Meter for School TVs"
 seo_type: "BlogPosting"
 canonical_url: null
 robots: null

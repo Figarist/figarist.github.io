@@ -20,7 +20,7 @@ author: "ihor"
 image: null
 image_alt: null
 focus_keyword: "minecraft python education"
-seo_title: null
+seo_title: "마인크래프트와 파이썬으로 배우는 프로그래밍 기초"
 seo_type: "BlogPosting"
 canonical_url: null
 robots: null

@@ -18,7 +18,7 @@ layout: default
   <section class="tutoring-hero" aria-labelledby="tutoring-title">
     <div class="tutoring-hero__copy">
       <p class="tutoring-eyebrow">Figarist · {{ t.name }}</p>
-      <h1 id="tutoring-title">{{ course.title | default: t.heading }}</h1>
+      <h1 id="tutoring-title">{{ course.h1 | default: course.title | default: t.heading }}</h1>
       <p class="tutoring-lead">{{ course.intro | default: t.intro }}</p>
       <div class="tutoring-hero__facts">
         <span>{{ t.language }}</span>

@@ -1,7 +1,7 @@
 ---
 layout: "post"
 title: "3D Club Studio: Procedural 3D Generator for School Printers (100% Support-Free)"
-description: "How we built a free browser-based 3D studio for school STEM clubs (grades 2–6), guaranteeing 100% support-free 3D printing on basic FDM printers with Tinkercad integration."
+description: "A free browser-based 3D studio for school STEM clubs (grades 2–6): 100% support-free printing on basic FDM printers, with Tinkercad integration."
 last_modified_at: null
 date: "2026-04-01 11:00:00 +0300"
 lang: "en"
@@ -20,7 +20,7 @@ author: "ihor"
 image: null
 image_alt: null
 focus_keyword: "3d club studio"
-seo_title: "3D Club Studio: Procedural 3D Generator for School Printers"
+seo_title: "3D Club Studio: Support-Free 3D Printing for Schools"
 seo_type: "BlogPosting"
 canonical_url: null
 robots: null

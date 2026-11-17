@@ -1,7 +1,7 @@
 ---
 layout: "post"
 title: "Каталог LEGO WeDo 2.0: 597 схем сборки роботов для уроков в быстром PWA"
-description: "Архитектура и учебная логика бесплатного некоммерческого каталога LEGO WeDo 2.0: 597 инструкций в 26 категориях, Колесо инструкций, трекер прогресса учеников и работа офлайн."
+description: "Бесплатный некоммерческий каталог LEGO WeDo 2.0: 597 инструкций в 26 категориях, Колесо инструкций, трекер прогресса учеников и работа офлайн."
 last_modified_at: null
 date: "2026-11-15 11:00:00 +0200"
 lang: "ru"
@@ -20,7 +20,7 @@ author: "ihor"
 image: null
 image_alt: null
 focus_keyword: "lego wedo 2.0 инструкции"
-seo_title: "Каталог LEGO WeDo 2.0: 597 бесплатных схем сборки для робототехники"
+seo_title: "Каталог LEGO WeDo 2.0: 597 бесплатных схем сборки"
 seo_type: "BlogPosting"
 canonical_url: null
 robots: null

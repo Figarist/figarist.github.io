@@ -1,7 +1,7 @@
 ---
 layout: "post"
 title: "Unity & C# for Kids & Teens: How 1-on-1 Mentoring Turns Game Ideas into Playable 3D Projects"
-description: "An inside look at 1-on-1 online Unity and C# mentoring for students ages 10–17 (Ukraine, Europe, UK, US, Canada): real student projects Hello Neighbour & Hockey Zombie, PC specs, and transparent €20 / ~$22 (1000 UAH) pricing."
+description: "1-on-1 online Unity and C# mentoring for students 10–17: real projects Hello Neighbour and Hockey Zombie, PC specs and €20 / ~$22 (1000 UAH) pricing."
 last_modified_at: null
 date: "2026-11-15 11:00:00 +0200"
 lang: "en"
@@ -21,7 +21,7 @@ author: "ihor"
 image: null
 image_alt: null
 focus_keyword: "Unity C# mentor tutor for kids"
-seo_title: "Unity & C# for Kids & Teens: 1-on-1 Online Mentoring from Idea to 3D Game"
+seo_title: "Unity & C# Mentoring for Kids & Teens: 1-on-1 Online"
 seo_type: "BlogPosting"
 canonical_url: null
 robots: null

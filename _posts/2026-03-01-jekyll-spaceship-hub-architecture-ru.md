@@ -22,7 +22,7 @@ author: "ihor"
 image: null
 image_alt: null
 focus_keyword: "jekyll-spaceship"
-seo_title: null
+seo_title: "Jekyll Spaceship + Hub Architecture: технический лонгрид"
 seo_type: "BlogPosting"
 canonical_url: null
 robots: null

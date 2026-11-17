@@ -21,7 +21,7 @@ author: "ihor"
 image: null
 image_alt: null
 focus_keyword: "Unity C# 어린이 청소년 1대1 멘토링"
-seo_title: "Unity & C# 청소년 1:1 멘토링: 아이디어에서 실제 3D 게임 출시까지"
+seo_title: "Unity & C# 어린이·청소년 1:1 온라인 멘토링"
 seo_type: "BlogPosting"
 canonical_url: null
 robots: null

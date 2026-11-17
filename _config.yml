@@ -110,6 +110,7 @@ exclude_from_localization:
   - 3d-club-studio
   - bouncy
   - canirunUnity
+  - pyScratch
   - feed.xml
 parallel_localization: false
 

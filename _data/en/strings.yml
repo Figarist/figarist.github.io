@@ -269,3 +269,8 @@ canirun_unity_label: "Unity PC Checker"
 canirun_unity_title: "Can I Run Unity?"
 canirun_unity_desc: "Auto-detect GPU, CPU & RAM for Unity 6, VR & Local AI"
 aria_visit_canirun_unity: "Open Can I Run Unity? hardware compatibility checker"
+
+pyscratch_label: "Python ↔ Scratch 3.0"
+pyscratch_title: "pyScratch IDE"
+pyscratch_desc: "Edit .sb3 projects in Python and run them live in the browser"
+aria_visit_pyscratch: "Open pyScratch Python to Scratch 3.0 online IDE"

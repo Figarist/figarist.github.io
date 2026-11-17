@@ -58,6 +58,18 @@
   desc_key: canirun_unity_desc
   aria_key: aria_visit_canirun_unity
 
+- id: pyscratch
+  repo: Figarist/pyScratch
+  path: /pyScratch/
+  localized: false
+  brand: personal
+  home_tile: true
+  sitemap: true
+  label_key: pyscratch_label
+  title_key: pyscratch_title
+  desc_key: pyscratch_desc
+  aria_key: aria_visit_pyscratch
+
 - id: code-translator
   repo: Figarist/figarist.github.io
   path: /tools/code-translator/

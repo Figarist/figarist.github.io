@@ -268,3 +268,8 @@ canirun_unity_label: "Перевірка ПК для Unity"
 canirun_unity_title: "Can I Run Unity?"
 canirun_unity_desc: "Автодетект GPU, CPU та RAM для Unity 6, VR і Local AI"
 aria_visit_canirun_unity: "Відкрити перевірку сумісності ПК з Unity"
+
+pyscratch_label: "Python ↔ Scratch 3.0"
+pyscratch_title: "pyScratch IDE"
+pyscratch_desc: "Редагуйте .sb3 проєкти на Python і запускайте прямо у браузері"
+aria_visit_pyscratch: "Відкрити онлайн-редактор pyScratch (Python ↔ Scratch 3.0)"

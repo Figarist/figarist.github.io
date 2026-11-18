@@ -26,8 +26,8 @@ layout: default
   {% include translation-banner.html %}
 
   {% if page.toc %}
-  <nav class="toc" aria-label="Table of Contents">
-    <h3 class="toc__heading">{{ site.data[site.active_lang].strings.toc_heading | default: "Contents" }}</h3>
+  <nav class="toc" aria-labelledby="toc-heading">
+    <p class="toc__heading" id="toc-heading">{{ site.data[site.active_lang].strings.toc_heading | default: "Contents" }}</p>
     {{ content | toc_only }}
   </nav>
   {% endif %}

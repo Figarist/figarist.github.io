@@ -55,7 +55,7 @@ What Scratch removes is *syntax*. A block cannot be misspelled, and it only snap
 
 The logic stays the same. Almost everything around it changes. Here is how I explain the difference to parents:
 
-| | Scratch | Python |
+| Aspect | Scratch | Python |
 | :--- | :--- | :--- |
 | **How code is written** | Dragging and snapping blocks | Typing text on the keyboard |
 | **Mistakes** | Blocks only fit where they make sense | A typo, a missing colon or wrong indentation stops the program with an error message |

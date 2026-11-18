@@ -47,7 +47,7 @@
 }
 
 .post-meta-author {
-  color: var(--accent-persimmon);
+  color: var(--accent-persimmon-text);
   font-weight: 700;
 }
 
@@ -205,7 +205,7 @@
 }
 
 .post-tag-link {
-  color: var(--accent-persimmon);
+  color: var(--accent-persimmon-text);
   font-weight: 600;
   text-transform: uppercase;
   text-decoration: none;
@@ -353,3 +353,7 @@
 pre.mermaid { display: block; background: #fff; color: #19192e; padding: 20px; overflow-x: auto; white-space: normal; }
 pre.mermaid svg { display: block; margin: 0 auto; height: auto; }
 pre.mermaid svg[aria-roledescription="gantt"] { min-width: 900px; }
+
+/* Markdown task lists: decorative glyph instead of an unlabeled checkbox */
+.task-list-item { list-style: none; }
+.task-list-item-box { margin: 0 .5em 0 -1.4em; }

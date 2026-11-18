@@ -120,6 +120,12 @@ I never treat Python as "starting from zero". The child already knows a lot; my 
 ### Is Minecraft a good bridge between Scratch and Python?
 For children who love Minecraft, often yes. In [Python through Minecraft](https://sivochka.com/tutoring/minecraft/) the code places blocks and builds structures right in the game world, so the result stays visual and exciting. It needs Minecraft Java Edition on a Windows or Mac computer. I describe the methodology behind it in [Teaching Programming Fundamentals with Minecraft and Python](https://sivochka.com/blog/minecraft-python/).
 
+{% assign now_ts = site.time | date: "%s" | plus: 0 %}
+{% if now_ts >= 1795507232 %}
+If your child already builds projects in Scratch and wants to see how they look in Python, the free [pyScratch tool](https://sivochka.com/blog/pyscratch-python-to-scratch-sb3/) converts `.sb3` projects into Python code and back.
+
+{% endif %}
+
 ---
 
 ## What should parents expect in the first weeks of Python?

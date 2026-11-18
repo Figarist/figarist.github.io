@@ -120,6 +120,12 @@ Scratch убирает только *синтаксис*. Блок невозм�
 ### Может ли Minecraft стать мостиком между Scratch и Python?
 Для детей, которые любят Minecraft, — часто да. На занятиях [Python в Minecraft](https://sivochka.com/ru/tutoring/minecraft/) код ставит блоки и строит сооружения прямо в игровом мире, поэтому результат остаётся наглядным и увлекательным. Для этого нужна Minecraft Java Edition на компьютере с Windows или macOS. О методике я подробно писал в статье [об обучении программированию через Minecraft и Python](https://sivochka.com/ru/blog/minecraft-python/).
 
+{% assign now_ts = site.time | date: "%s" | plus: 0 %}
+{% if now_ts >= 1795507232 %}
+Если ребёнок уже собирает проекты в Scratch и хочет увидеть, как они выглядят в Python, поможет бесплатный инструмент [pyScratch](https://sivochka.com/ru/blog/pyscratch-python-to-scratch-sb3/): он превращает `.sb3` проекты в код Python и обратно.
+
+{% endif %}
+
 ---
 
 ## Чего ждать родителям в первые недели Python?

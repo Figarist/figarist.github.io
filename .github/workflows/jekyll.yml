@@ -4,6 +4,9 @@ on:
   push:
     branches: ["main"]
   workflow_dispatch:
+  # Daily rebuild so future-dated posts publish themselves on their date.
+  schedule:
+    - cron: "15 8 * * *"
 
 # Grant GITHUB_TOKEN permissions to deploy Pages
 permissions:

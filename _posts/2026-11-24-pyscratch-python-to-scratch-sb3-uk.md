@@ -31,11 +31,11 @@ featured: false
 hidden: null
 redirect_from: null
 toc: true
-published: false
+published: true
 fmContentType: "Post"
 ---
 
-Багато учнів після [занять зі Scratch](/tutoring/scratch/) хочуть перейти на справжній текстовий код — [Python](/tutoring/python/), але стикаються з бар'єром: у звичайному Python немає готової сцени зі спрайтами, костюмами та миттєвою візуалізацією.
+Багато учнів після [занять зі Scratch](https://sivochka.com/uk/tutoring/scratch/) хочуть перейти на справжній текстовий код — [Python](https://sivochka.com/uk/tutoring/python/), але стикаються з бар'єром: у звичайному Python немає готової сцени зі спрайтами, костюмами та миттєвою візуалізацією.
 
 Щоб зробити цей перехід плавним і наочним, я створив **[pyScratch](https://sivochka.com/pyScratch/)** — безкоштовну онлайн-IDE, яка працює повністю у браузері без встановлення програм.
 
@@ -55,4 +55,4 @@ fmContentType: "Post"
 
 Спробуйте прямо зараз у браузері: **[Відкрити pyScratch IDE ↗](https://sivochka.com/pyScratch/)**
 
-Якщо дитина хоче системно перейти від візуальних блоків до Python або Unity C#, записуйтеся на [індивідуальні заняття](/tutoring/).
+Якщо дитина хоче системно перейти від візуальних блоків до Python або Unity C#, записуйтеся на [індивідуальні заняття](https://sivochka.com/uk/tutoring/).

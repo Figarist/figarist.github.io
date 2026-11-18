@@ -120,6 +120,12 @@ Scratch가 없애 주는 것은 *문법*뿐입니다. 블록은 철자를 틀릴
 ### Minecraft가 Scratch와 Python 사이의 다리가 될 수 있을까요?
 Minecraft를 좋아하는 아이라면 많은 경우 그렇습니다. [Minecraft로 배우는 Python](https://sivochka.com/ko/tutoring/minecraft/) 수업에서는 코드가 게임 세계에 직접 블록을 놓고 건물을 지어서, 결과가 계속 눈에 보이고 재미있습니다. Windows 또는 Mac 컴퓨터용 Minecraft Java Edition이 필요합니다. 이 방법론은 [마인크래프트와 파이썬으로 배우는 프로그래밍 기초](https://sivochka.com/ko/blog/minecraft-python/)에서 자세히 소개했습니다.
 
+{% assign now_ts = site.time | date: "%s" | plus: 0 %}
+{% if now_ts >= 1795507232 %}
+Scratch로 이미 프로젝트를 만들고 있고 Python에서는 어떻게 보이는지 궁금해하는 아이라면, `.sb3` 프로젝트를 Python 코드로(또는 그 반대로) 바꿔 주는 무료 도구 [pyScratch](https://sivochka.com/ko/blog/pyscratch-python-to-scratch-sb3/)가 도움이 됩니다.
+
+{% endif %}
+
 ---
 
 ## Python을 시작한 첫 몇 주 동안 부모님은 무엇을 기대하면 될까요?

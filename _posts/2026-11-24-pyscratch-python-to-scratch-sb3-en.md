@@ -31,13 +31,13 @@ featured: false
 hidden: null
 redirect_from: null
 toc: true
-published: false
+published: true
 fmContentType: "Post"
 ---
 
-Many students moving from [Scratch](/tutoring/scratch/) to [Python](/tutoring/python/) hit the same wall: standard Python tutorials start with a black terminal instead of sprites, costumes, and a live interactive stage.
+Many students moving from [Scratch](https://sivochka.com/tutoring/scratch/) to [Python](https://sivochka.com/tutoring/python/) hit the same wall: standard Python tutorials start with a black terminal instead of sprites, costumes, and a live interactive stage.
 
-To bridge that gap, I built **[pyScratch](https://sivochka.com/pyScratch/)** — a free browser-based IDE that requires zero installation.
+To bridge that gap, I built **[pyScratch](https://sivochka.com/pyScratch/en/)** — a free browser-based IDE that requires zero installation.
 
 ## Key Capabilities
 
@@ -48,6 +48,6 @@ To bridge that gap, I built **[pyScratch](https://sivochka.com/pyScratch/)** —
 3. **One-Click Sharing & Embed Mode**  
    The **Share** button encodes the active Python script into a `?code=...` URL, and `?embed=1` provides a compact layout for embedding interactive examples.
 
-Try it directly in your browser: **[Open pyScratch IDE ↗](https://sivochka.com/pyScratch/)**
+Try it directly in your browser: **[Open pyScratch IDE ↗](https://sivochka.com/pyScratch/en/)**
 
-Looking for structured 1-on-1 guidance from Scratch to Python or Unity C#? Explore [individual tutoring](/tutoring/).
+Looking for structured 1-on-1 guidance from Scratch to Python or Unity C#? Explore [individual tutoring](https://sivochka.com/tutoring/).

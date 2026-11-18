@@ -95,6 +95,8 @@ pyScratch is in test mode right now, so keep the original `.sb3` separately and 
 
 Saving to the Scratch server is convenient, but I don't recommend relying on it alone. When the server lets you down, the local copy is what saves you.
 
-It helps to use "File → Save to your computer" at the end of every session, and in a big project halfway through as well. Such an `.sb3` usually doesn't weigh much, and on a bad day it keeps everything the child managed to build.
+Kids don't pick this habit up on their own. My students almost never keep a local `.sb3` copy unless someone reminds them, and that goes for every child I teach. I have to remind them every time, and not only in Scratch: Unity projects, Python scripts and Blender files get left unsaved in exactly the same way. It is a mass problem.
+
+So use "File → Save to your computer" at the end of every session, and in a big project halfway through as well. If your child works alone, the reminder is a job for the adult nearby. Such an `.sb3` usually doesn't weigh much, and on a bad day it keeps everything the child managed to build.
 
 If your child does a lot in Scratch and wants to move on, from a first game to their own projects, come to [one-to-one Scratch lessons](https://sivochka.com/tutoring/scratch/). And if a game won't save right now because of its size, open it in [pyScratch](https://sivochka.com/pyScratch/en/) and look at the asset table: the heaviest file will be the first row.

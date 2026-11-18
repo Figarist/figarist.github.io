@@ -80,6 +80,8 @@ Some general signs that a child is closer to ready:
 
 Signs it may be early: they still discover new blocks every lesson, or slow typing turns each task into a chore. Neither is a problem. Extra time in Scratch is not wasted, because the logic goes with them into Python.
 
+And when it is clear that plain Python is too hard for a child right now, I don't push. We switch to a game-based course such as [CodeCombat](https://codecombat.com), where they start learning Python inside a game. In my view a game format is a must-have for learning to program.
+
 ## The first Python lessons: Turtle and small examples
 
 My first Python lessons use Turtle and basic examples. [Turtle](https://docs.python.org/3/library/turtle.html) is part of Python's standard library, so there is nothing extra to install: you import it and a small pen starts drawing on the screen. For a child coming from Scratch this feels familiar, because Scratch's Pen extension works on the same idea of moving and turning.
@@ -99,7 +101,7 @@ turtle.done()
 
 Two commands inside a loop, and a square appears. A Scratch student recognises "repeat 4, move 100, turn 90" straight away and now sees the same idea written as text. That recognition makes the new commands feel less foreign.
 
-After Turtle come basic examples: printing, variables, asking the user a question and reacting to the answer. They are short on purpose, so the typing stays manageable while the child gets used to the keyboard.
+Once Turtle is covered, kids usually get interested in Python itself. From there we move on to small tasks or work through game logic, for example steering the turtle with the keyboard, much like moving a sprite in Scratch.
 
 {% assign now_ts = site.time | date: "%s" | plus: 0 %}
 {% if now_ts >= 1795507232 %}

@@ -111,7 +111,7 @@ turtle.done()
 Коли Turtle пройдено, дітям зазвичай стає цікаво вже сам Python. Далі ми розв'язуємо невеликі задачі або розбираємо логіку гри: наприклад, керуємо черепашкою з клавіатури, як спрайтом у Scratch.
 
 {% assign now_ts = site.time | date: "%s" | plus: 0 %}
-{% if now_ts >= 1795507232 %}
+{% if now_ts >= 1795075200 %}
 Якщо дитина вже має проєкти у Scratch і хоче побачити, як вони виглядають у Python, спробуйте безкоштовний [pyScratch](https://sivochka.com/pyScratch/). Він перетворює `.sb3` проєкти на код Python і назад, а [у статті про pyScratch](https://sivochka.com/uk/blog/pyscratch-python-to-scratch-sb3/) я показую, як це працює.
 
 {% endif %}

@@ -3,7 +3,7 @@ layout: "post"
 title: "스크래치 파이썬 변환: 테스트 버전 pyScratch를 소개합니다"
 description: "Scratch .sb3 파일을 Python 코드로 열고 다시 Scratch로 저장하는 무료 테스트 버전 pyScratch입니다. 할 수 있는 일과 한계, 어떤 아이에게 맞는지 정리했습니다."
 last_modified_at: null
-date: "2026-11-24 10:00:00 +0200"
+date: "2026-11-19 10:00:00 +0200"
 lang: "ko"
 page_id: "pyscratch-python-to-scratch-sb3"
 permalink: "/blog/pyscratch-python-to-scratch-sb3/"

@@ -98,7 +98,7 @@ turtle.done()
 
 
 {% assign now_ts = site.time | date: "%s" | plus: 0 %}
-{% if now_ts >= 1795507232 %}
+{% if now_ts >= 1795075200 %}
 Если хочется посмотреть, как готовый проект Scratch выглядит в виде кода Python, попробуйте бесплатный инструмент [pyScratch](https://sivochka.com/ru/blog/pyscratch-python-to-scratch-sb3/): он переводит проекты `.sb3` в Python и обратно.
 
 {% endif %}

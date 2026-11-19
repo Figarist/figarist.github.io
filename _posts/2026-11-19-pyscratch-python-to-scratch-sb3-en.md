@@ -3,7 +3,7 @@ layout: "post"
 title: "Scratch to Python Converter Online: pyScratch (Test Version)"
 description: "Open an .sb3 as Python code, edit it and save it back to Scratch. A free test version of pyScratch from a tutor: what works, the limits, who it's for."
 last_modified_at: null
-date: "2026-11-24 10:00:00 +0200"
+date: "2026-11-19 10:00:00 +0200"
 lang: "en"
 page_id: "pyscratch-python-to-scratch-sb3"
 permalink: "/blog/pyscratch-python-to-scratch-sb3/"

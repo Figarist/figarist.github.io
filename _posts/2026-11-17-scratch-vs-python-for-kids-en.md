@@ -104,7 +104,7 @@ Two commands inside a loop, and a square appears. A Scratch student recognises "
 Once Turtle is covered, kids usually get interested in Python itself. From there we move on to small tasks or work through game logic, for example steering the turtle with the keyboard, much like moving a sprite in Scratch.
 
 {% assign now_ts = site.time | date: "%s" | plus: 0 %}
-{% if now_ts >= 1795507232 %}
+{% if now_ts >= 1795075200 %}
 If your child already has Scratch projects and wants to see them as Python, the free [pyScratch tool](https://sivochka.com/blog/pyscratch-python-to-scratch-sb3/) converts `.sb3` projects to Python code and back.
 
 {% endif %}

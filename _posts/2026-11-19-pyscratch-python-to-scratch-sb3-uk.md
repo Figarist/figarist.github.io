@@ -3,7 +3,7 @@ layout: "post"
 title: "Scratch на Python онлайн: pyScratch у тестовому режимі"
 description: "Відкрийте .sb3 як Python-код і збережіть назад у Scratch. Безкоштовна тестова версія pyScratch від репетитора: що вміє, де обмеження, кому підійде."
 last_modified_at: null
-date: "2026-11-24 10:00:00 +0200"
+date: "2026-11-19 10:00:00 +0200"
 lang: "uk"
 page_id: "pyscratch-python-to-scratch-sb3"
 permalink: "/blog/pyscratch-python-to-scratch-sb3/"

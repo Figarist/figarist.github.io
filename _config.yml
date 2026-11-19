@@ -36,6 +36,10 @@ sass:
 # Exclude dev artefacts from the build
 exclude:
   - README.md
+  - AGENTS.md
+  - CLAUDE.md
+  - GEMINI.md
+  - AI_CONTEXT.md
   - Gemfile
   - Gemfile.lock
   - node_modules/

@@ -2,7 +2,7 @@
 layout: "post"
 title: "OGCruncher: 인디 게임과 Wear OS를 위한 무료 브라우저 오디오 비트크러셔 & 배치 최적화 도구"
 description: "Unity, Godot, WebGL, Wear OS 게임 오디오를 위해 OfflineAudioContext와 Web Worker로 로컬에서 비트 크러싱, 샘플레이트 축소, OGG/WAV/MP3 일괄 변환을 수행하는 OGCruncher 아키텍처 소개."
-last_modified_at: null
+last_modified_at: "2026-11-20 15:00:00 +0200"
 date: "2026-11-15 10:00:00 +0200"
 lang: "ko"
 page_id: "ogcruncher-game-audio-bitcrusher"
@@ -62,7 +62,7 @@ fmContentType: "Post"
 #### 2. `Float32Array` Crush 파이프라인 (`js/dsp-core.js` & Web Worker)
 1. **비유한 샘플 정제 및 노이즈 플로어**: `NaN`/`Infinity` 값을 안전하게 정제하고 선택적으로 테이프 스타일 노이즈(`0–0.05`)를 추가합니다.
 2. **Crush 모드 (DC 제거 + 소프트 익스팬더 + TPDF 디더 + 2탭 안티앨리어싱)**: DC 오프셋을 제거하고 `sign(x) * |x|^1.15` 익스팬더를 적용한 뒤, `1–16`비트로 양자화(선택적 TPDF 삼각 디더링 포함) 및 스무딩을 수행합니다.
-3. **Grit 새추레이션 (`tanh`) & 링크드 0 dBFS 정규화**: `tanh(x * drive) / tanh(drive)` 하모닉 드라이브(`1.0–10.0`) 후 스테레오 밸런스를 유지하면서 피크를 정규화합니다.
+3. **Grit 새추레이션 (`tanh`) & 링크드 -1 dBFS 정규화**: `tanh(x * drive) / tanh(drive)` 하모닉 드라이브(`1.0–10.0`) 후 기본 `-1 dBFS`(OGG/MP3용 헤드룸, `0 dBFS` 전환 가능)로 스테레오 밸런스를 유지하면서 피크를 정규화합니다.
 
 #### 3. 멀티 포맷 Web Worker 및 Lanczos-3 MP3 리샘플링
 대기열의 각 파일은 전용 Web Worker에서 세 가지 포맷으로 독립 인코딩됩니다:

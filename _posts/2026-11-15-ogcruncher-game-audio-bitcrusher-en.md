@@ -2,7 +2,7 @@
 layout: "post"
 title: "OGCruncher: Free In-Browser Audio Bit-Crusher & Batch SFX Optimizer for Indie Games"
 description: "How OGCruncher works: a local Web Audio bit-crusher, sample rate reducer and OGG/WAV/MP3 batch exporter for Unity, Godot, WebGL and Wear OS games."
-last_modified_at: null
+last_modified_at: "2026-11-20 15:00:00 +0200"
 date: "2026-11-15 10:00:00 +0200"
 lang: "en"
 page_id: "ogcruncher-game-audio-bitcrusher"
@@ -62,7 +62,7 @@ Before sample-level quantization runs, audio is resampled to the selected output
 #### 2. `Float32Array` Crush Pipeline (`js/dsp-core.js` & Web Worker)
 1. **Non-Finite Sanitization & Seeded Noise Floor**: Guards `NaN`/`Infinity` samples and optionally layers deterministic tape-style hiss (`0–0.05`).
 2. **Crush Mode (DC Removal + Soft Expander + TPDF Dither + 2-Tap Anti-Alias)**: Removes DC bias, applies `sign(x) * |x|^1.15` expansion, quantizes to `1–16` bits (with optional triangular probability density function dither), and runs a two-tap smoothing pass.
-3. **Grit Saturation (`tanh`) & Linked 0 dBFS Normalization**: Applies `tanh(x * drive) / tanh(drive)` harmonic drive (`1.0–10.0`) followed by stereo-linked peak normalization so SFX batches retain consistent loudness without shifting stereo balance.
+3. **Grit Saturation (`tanh`) & Linked -1 dBFS Normalization**: Applies `tanh(x * drive) / tanh(drive)` harmonic drive (`1.0–10.0`) followed by stereo-linked peak normalization to `-1 dBFS` by default (headroom for OGG/MP3, switchable to `0 dBFS`) without shifting stereo balance.
 
 #### 3. Multi-Format Batch Worker & Lanczos-3 MP3 Resampling
 For every queued file, a classic Web Worker isolates encoding across three formats so one codec error never discards other outputs:

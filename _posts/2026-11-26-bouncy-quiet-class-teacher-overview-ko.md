@@ -36,6 +36,8 @@ fmContentType: "Post"
 
 교실이 시끄러워질 때마다 목소리를 높여 주의를 주면 교사도 아이들도 금세 지칩니다. 무료 브라우저 도구 [Quiet Class(Bouncy)](https://sivochka.com/bouncy/)는 TV, 프로젝터, 전자칠판 화면으로 소음 관리를 옮겨 줍니다. 회원가입이나 별도 프로그램 설치가 필요 없고, 한 번만 열면 오프라인에서도 작동합니다. 화면 언어는 우크라이나어, 영어, 폴란드어를 지원하므로 아래 버튼 이름은 영어 인터페이스 기준으로 적었습니다.
 
+<img src="/assets/images/blog/bouncy-quiet-class.webp" alt="Quiet Class(Bouncy) 화면: ‘조용함’ 신호등, 수업 모드, 4-B반 별 저금통 23/20, 학급 목록 창" width="1200" height="630" decoding="async">
+
 ## 수업 시작 전 1분 만에 켜기
 
 브라우저와 마이크가 연결된 컴퓨터만 있으면 바로 시작할 수 있습니다.

@@ -36,6 +36,8 @@ fmContentType: "Post"
 
 When a classroom gets loud, constant reminders wear down both the teacher and the students. [Quiet Class (Bouncy)](https://sivochka.com/bouncy/) is a free browser noise meter built for classroom TVs, projectors and smart boards. It requires no sign-up or installation, and after the first visit it keeps working offline.
 
+<img src="/assets/images/blog/bouncy-quiet-class.webp" alt="Quiet Class (Bouncy) screen: the “Quiet” traffic light, work modes, the 23/20 star jar for class 4-B and the class list window" width="1200" height="630" decoding="async">
+
 ## One-minute setup before the bell
 
 You only need a computer with a browser and any connected microphone.

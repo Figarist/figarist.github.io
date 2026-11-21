@@ -70,4 +70,4 @@ TRIM SILENCE는 `-48 dBFS`보다 큰 신호 구간을 찾고 양쪽에 `2 ms` �
 
 기본 `-1 dBFS` 상한은 `OGG`·`MP3` 같은 손실 코덱에서 피크 클리핑을 줄이기 위한 여유(headroom)입니다. `WAV` 컨테이너는 선택한 비트 심도에 맞춰 1–8비트에서는 8-bit unsigned PCM, 9–16비트에서는 16-bit signed PCM으로 저장됩니다.
 
-비트크러셔의 기본 구조는 [첫 번째 OGCruncher 글](/ko/blog/ogcruncher-game-audio-bitcrusher/)에서, Audacity 비교와 도구의 솔직한 한계는 [OGCruncher와 Audacity 비교 글](/ko/blog/ogcruncher-vs-audacity-for-game-sfx/)에서 확인할 수 있습니다. Unity로 첫 게임을 만들면서 에셋 관리와 C# 코드를 체계적으로 배우고 싶다면 [Unity·C# 1:1 튜터링](/ko/tutoring/unity/)을 확인해 보세요.
+비트크러셔의 기본 구조는 [첫 번째 OGCruncher 글](/ko/blog/ogcruncher-game-audio-bitcrusher/)에서 확인할 수 있습니다. Unity로 첫 게임을 만들면서 에셋 관리와 C# 코드를 체계적으로 배우고 싶다면 [Unity·C# 1:1 튜터링](/ko/tutoring/unity/)을 확인해 보세요.

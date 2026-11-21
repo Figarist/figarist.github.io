@@ -36,13 +36,13 @@ published: true
 fmContentType: "Post"
 ---
 
-In my own games, I kept running 20 MB music tracks through OGCruncher and getting roughly 4 MB files with the retro vibe I wanted. When you just need to prep a folder of short game effects or shrink audio for a build, opening Audacity for SFX is unnecessary: for batch SFX prep and retro compression, a browser tool handles the job in one window.
+In my own games, I kept running 20 MB music tracks through OGCruncher and getting roughly 4 MB files with the retro vibe I wanted. When you just need to prep a folder of short game effects or compress audio for a build, you do not need Audacity at all — a browser tool handles the whole batch in one window.
 
 The latest [OGCruncher](/blog/ogcruncher-game-audio-bitcrusher/) update started from two missing pieces I kept running into: a Ukrainian interface and a Scratch preset. Alongside them, dozens of small fixes stacked into a full update.
 
 ## Shrinking 20 MB tracks to 4 MB
 
-I used OGCruncher most often on game music, both to cut build size and to get a distinct retro vibe: files around 20 MB came out at roughly 4 MB after processing, a 5x reduction.
+The reason I reached for OGCruncher most often on game music was practical: that 5x drop cuts build size right away while giving the track a distinct retro vibe without a full mixing session.
 
 For short effects, the practical win is having no macro to build: drop the folder in, set your parameters once, and every file in the queue gets the same pass. [Audacity Macros](https://manual.audacityteam.org/man/macros.html) can also batch-process files, but you first have to build, save, and test the macro chain.
 

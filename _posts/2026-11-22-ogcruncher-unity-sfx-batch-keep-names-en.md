@@ -70,4 +70,4 @@ In preview mode, the ORIGINAL branch is trimmed to the exact same window as the 
 
 The default `-1 dBFS` ceiling leaves headroom for lossy codecs (`OGG` and `MP3`), reducing peak clipping after compression. For `WAV`, container bit depth follows your effect depth: 8-bit unsigned PCM for 1–8 bits, and 16-bit signed PCM for 9–16 bits.
 
-For an overview of the core bit-crusher features, see the [first OGCruncher post](/blog/ogcruncher-game-audio-bitcrusher/), and for a comparison with Audacity plus the tool's honest limits, see the [OGCruncher vs Audacity post](/blog/ogcruncher-vs-audacity-for-game-sfx/). If you or your child are building a first Unity game and want structured guidance with assets, scenes, and C#, check out [1-on-1 Unity and C# lessons](/tutoring/unity/).
+For an overview of the core bit-crusher features, see the [first OGCruncher post](/blog/ogcruncher-game-audio-bitcrusher/). If you or your child are building a first Unity game and want structured guidance with assets, scenes, and C#, check out [1-on-1 Unity and C# lessons](/tutoring/unity/).

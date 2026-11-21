@@ -2,7 +2,7 @@
 layout: "post"
 title: "OGCruncher: 인디 게임과 Wear OS를 위한 무료 브라우저 오디오 비트크러셔 & 배치 최적화 도구"
 description: "Unity, Godot, WebGL, Wear OS 게임 오디오를 위해 OfflineAudioContext와 Web Worker로 로컬에서 비트 크러싱, 샘플레이트 축소, OGG/WAV/MP3 일괄 변환을 수행하는 OGCruncher 아키텍처 소개."
-last_modified_at: "2026-11-20 15:00:00 +0200"
+last_modified_at: "2026-11-21 09:20:00 +0200"
 date: "2026-11-15 10:00:00 +0200"
 lang: "ko"
 page_id: "ogcruncher-game-audio-bitcrusher"
@@ -65,7 +65,7 @@ fmContentType: "Post"
 3. **Grit 새추레이션 (`tanh`) & 링크드 -1 dBFS 정규화**: `tanh(x * drive) / tanh(drive)` 하모닉 드라이브(`1.0–10.0`) 후 기본 `-1 dBFS`(OGG/MP3용 헤드룸, `0 dBFS` 전환 가능)로 스테레오 밸런스를 유지하면서 피크를 정규화합니다.
 
 #### 3. 멀티 포맷 Web Worker 및 Lanczos-3 MP3 리샘플링
-대기열의 각 파일은 전용 Web Worker에서 세 가지 포맷으로 독립 인코딩됩니다:
+대기열의 각 파일은 전용 Web Worker에서 선택한 포맷만 독립 인코딩됩니다(OGG, WAV, MP3를 개별적으로 켜고 끌 수 있으며 최소 한 개는 항상 켜져 있습니다):
 * **PCM WAV**: `1–8비트` 설정 시 부호 없는 8비트 PCM WAV를, `9–16비트` 설정 시 부호 있는 16비트 PCM WAV를 RIFF 워드 정렬과 함께 생성합니다.
 * **Ogg Vorbis (`.ogg`)**: Unity, Godot, WebGL용 경량 배경 루프 및 사운드 에셋을 위해 요청한 샘플레이트 그대로 인코딩합니다.
 * **MP3 (`128 kbps`)**: `4,000 Hz`나 `28,000 Hz` 같은 비표준 MPEG 샘플레이트 선택 시 창 함수 기반 **Lanczos-3** 보간법으로 가장 가까운 유효 MPEG 레이트(`8,000–48,000 Hz`)로 자동 리샘플링합니다.

@@ -2,7 +2,7 @@
 layout: "post"
 title: "OGCruncher: Free In-Browser Audio Bit-Crusher & Batch SFX Optimizer for Indie Games"
 description: "How OGCruncher works: a local Web Audio bit-crusher, sample rate reducer and OGG/WAV/MP3 batch exporter for Unity, Godot, WebGL and Wear OS games."
-last_modified_at: "2026-11-20 15:00:00 +0200"
+last_modified_at: "2026-11-21 09:20:00 +0200"
 date: "2026-11-15 10:00:00 +0200"
 lang: "en"
 page_id: "ogcruncher-game-audio-bitcrusher"
@@ -65,7 +65,7 @@ Before sample-level quantization runs, audio is resampled to the selected output
 3. **Grit Saturation (`tanh`) & Linked -1 dBFS Normalization**: Applies `tanh(x * drive) / tanh(drive)` harmonic drive (`1.0–10.0`) followed by stereo-linked peak normalization to `-1 dBFS` by default (headroom for OGG/MP3, switchable to `0 dBFS`) without shifting stereo balance.
 
 #### 3. Multi-Format Batch Worker & Lanczos-3 MP3 Resampling
-For every queued file, a classic Web Worker isolates encoding across three formats so one codec error never discards other outputs:
+For every queued file, a classic Web Worker encodes only the selected formats (OGG, WAV, and MP3 can be toggled individually, with at least one always active) so one codec error never discards other outputs:
 * **PCM WAV**: Automatically writes unsigned 8-bit PCM for `1–8 bit` depth or signed 16-bit PCM for `9–16 bit` depth with word-aligned RIFF `data` padding.
 * **Ogg Vorbis (`.ogg`)**: Encodes directly at your target sample rate for lightweight Unity, Godot, and WebGL playback.
 * **MP3 (`128 kbps`)**: Automatically resamples non-MPEG rates (such as `4,000 Hz` or `28,000 Hz`) via windowed **Lanczos-3** interpolation to the nearest valid MPEG rate (`8,000–48,000 Hz`).

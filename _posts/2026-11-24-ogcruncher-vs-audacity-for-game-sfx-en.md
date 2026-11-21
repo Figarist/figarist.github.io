@@ -36,15 +36,15 @@ published: true
 fmContentType: "Post"
 ---
 
-For batch-prepping short effects and shrinking game audio, opening Audacity for SFX is often unnecessary overhead. My stance is simple: for consistent batch processing or retro styling aimed at a smaller build, you do not need Audacity at all because a browser tool can handle the whole pass in one window.
+In my own games, I kept running 20 MB music tracks through OGCruncher and getting roughly 4 MB files with the retro vibe I wanted. When you just need to prep a folder of short game effects or shrink audio for a build, opening Audacity for SFX is unnecessary: for batch SFX prep and retro compression, a browser tool handles the job in one window.
 
 The latest [OGCruncher](/blog/ogcruncher-game-audio-bitcrusher/) update started from two missing pieces I kept running into: a Ukrainian interface and a Scratch preset. Alongside them, dozens of small fixes stacked into a full update.
 
-## Shrinking 20 MB tracks to 4 MB (and a batch timing check)
+## Shrinking 20 MB tracks to 4 MB
 
-In my own games, I ran music tracks through OGCruncher most often, both to cut build size and to get a distinct retro vibe. Audio files around 20 MB came out at roughly 4 MB after processing, a 5x reduction.
+I used OGCruncher most often on game music, both to cut build size and to get a distinct retro vibe: files around 20 MB came out at roughly 4 MB after processing, a 5x reduction.
 
-For short effects, the real win is batch speed. In a local benchmark of OGCruncher's core processing path (20 one-second 22050 Hz mono files with silence trim, 8-bit crush, normalization, and WAV packing), the core pass finished in about 43 ms (browser decoding and optional OGG or MP3 encoding add extra time on top). [Audacity Macros](https://manual.audacityteam.org/man/macros.html) can also batch-process files, but you first have to build, save, and test the macro chain.
+For short effects, the practical win is having no macro to build: drop the folder in, set your parameters once, and every file in the queue gets the same pass. [Audacity Macros](https://manual.audacityteam.org/man/macros.html) can also batch-process files, but you first have to build, save, and test the macro chain.
 
 ## When Audacity for SFX is unnecessary, and when you still need it
 

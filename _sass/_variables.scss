@@ -100,7 +100,7 @@
   --safe-area-top: env(safe-area-inset-top, 0px);
   --safe-area-bottom: env(safe-area-inset-bottom, 0px);
   --nav-floating-top: calc(max(16px, var(--safe-area-top) + 8px));
-  --main-top-spacing: calc(var(--nav-floating-top) + 60px);
+  --main-top-spacing: calc(var(--nav-floating-top) + 96px); /* clears the fixed .site-nav (~66px) plus breathing room */
 
   /* Transitions */
   --t-fast: 0.18s ease;

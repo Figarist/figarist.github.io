@@ -12,18 +12,13 @@
         <span>{{ site.data[site.active_lang].strings.workshop_label }}</span>
       </a>
     </li>
-    {% if page.category %}
+    {%- comment -%} The post title is the h1 right below, so it is not repeated here;
+    the "workshop" category would only duplicate the Workshop crumb. {%- endcomment -%}
+    {% if page.category and page.category != 'workshop' %}
     <li class="breadcrumbs__item">
       <a href="{{ '/blog/category/' | append: page.category | append: '/' | relative_url }}">
-        <span>{{ page.category | upcase }}</span>
+        <span>{{ page.category | capitalize }}</span>
       </a>
-    </li>
-    <li class="breadcrumbs__item breadcrumbs__item--active">
-      <span>{{ page.title | truncatewords: 6 }}</span>
-    </li>
-    {% else %}
-    <li class="breadcrumbs__item breadcrumbs__item--active">
-      <span>{{ page.title | truncatewords: 6 }}</span>
     </li>
     {% endif %}
 

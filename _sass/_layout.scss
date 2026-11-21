@@ -166,6 +166,17 @@
   padding: 0 24px;
 }
 
+/* The site nav is position: fixed, so regular pages must start below it,
+   otherwise the breadcrumbs sit hidden under the nav. */
+.jekyll-main:not(.hub-page):not(.tutoring-main) {
+  padding-top: var(--main-top-spacing);
+}
+
+/* Posts and the blog hub get a wider reading column (~800px of text). */
+.jekyll-main:has(.post-container) {
+  max-width: 888px;
+}
+
 /* На головній сторінці .jekyll-main обгортає hub-grid —
    прибираємо обмеження ширини */
 .jekyll-main:has(.hub-grid),
@@ -199,9 +210,8 @@
     padding: 10px 18px;
   }
 
-  .jekyll-main:not(.hub-page) {
-    margin-top: calc(var(--nav-floating-top) + 12px);
-    padding: 0 16px;
+  .jekyll-main:not(.hub-page):not(.tutoring-main) {
+    padding: calc(var(--nav-floating-top) + 84px) 16px 0;
   }
 }
 

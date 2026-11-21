@@ -3,7 +3,7 @@ layout: "post"
 title: "OGCruncher Isn't a DAW, Yet You Don't Need Audacity for SFX"
 description: "When Audacity for game SFX is unnecessary, how OGCruncher shrank 20 MB game music to 4 MB in the browser, and where a desktop audio editor still wins."
 last_modified_at: null
-date: "2026-11-24 10:00:00 +0200"
+date: "2026-11-28 10:00:00 +0200"
 lang: "en"
 page_id: "ogcruncher-vs-audacity-for-game-sfx"
 permalink: "/blog/ogcruncher-vs-audacity-for-game-sfx/"

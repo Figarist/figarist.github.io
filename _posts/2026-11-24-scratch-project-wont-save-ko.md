@@ -3,7 +3,7 @@ layout: "post"
 title: "스크래치 저장 안됨: 게임을 잃지 않는 응급 처치"
 description: "Scratch에 「프로젝트를 저장하지 못했습니다.」가 뜨나요? .sb3 파일을 먼저 컴퓨터에 저장하고, 새로고침한 뒤 다시 불러오세요. 너무 큰 프로젝트를 줄이는 방법도 정리했습니다."
 last_modified_at: null
-date: "2026-11-26 10:00:00 +0200"
+date: "2026-11-24 10:00:00 +0200"
 lang: "ko"
 page_id: "scratch-project-wont-save"
 permalink: "/blog/scratch-project-wont-save/"

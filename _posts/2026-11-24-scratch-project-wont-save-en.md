@@ -3,7 +3,7 @@ layout: "post"
 title: "Scratch Project Won't Save: How Not to Lose the Game"
 description: "Scratch says \"Project could not save\"? Save the .sb3 to your computer, reload and load the game back. Plus how to shrink a project that is too large."
 last_modified_at: null
-date: "2026-11-26 10:00:00 +0200"
+date: "2026-11-24 10:00:00 +0200"
 lang: "en"
 page_id: "scratch-project-wont-save"
 permalink: "/blog/scratch-project-wont-save/"

@@ -3,7 +3,7 @@ layout: "post"
 title: "OGCruncher는 DAW가 아니지만 게임 SFX에 Audacity는 과하다"
 description: "짧은 게임 효과음과 레트로 음악(20MB→4MB) 일괄 처리에서 OGCruncher가 Audacity보다 빠른 이유와 DAW가 여전히 필요한 영역."
 last_modified_at: null
-date: "2026-11-24 10:00:00 +0200"
+date: "2026-11-28 10:00:00 +0200"
 lang: "ko"
 page_id: "ogcruncher-vs-audacity-for-game-sfx"
 permalink: "/blog/ogcruncher-vs-audacity-for-game-sfx/"

@@ -3,7 +3,7 @@ layout: "post"
 title: "Scratch не зберігає проєкт: що робити, щоб не втратити гру"
 description: "Scratch пише «Проєкт не збережено»? Збережіть .sb3 на комп'ютер, перезавантажте сторінку й поверніть гру. І як зменшити завеликий проєкт."
 last_modified_at: null
-date: "2026-11-26 10:00:00 +0200"
+date: "2026-11-24 10:00:00 +0200"
 lang: "uk"
 page_id: "scratch-project-wont-save"
 permalink: "/blog/scratch-project-wont-save/"

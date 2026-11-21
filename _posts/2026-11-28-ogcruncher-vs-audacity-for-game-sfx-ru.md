@@ -3,7 +3,7 @@ layout: "post"
 title: "OGCruncher — не замена DAW, но Audacity для SFX лишний"
 description: "Когда Audacity для игровых SFX и ретро-музыки лишний, как сжать 20 МБ аудио до 4 МБ в OGCruncher и где браузерный инструмент честно уступает DAW."
 last_modified_at: null
-date: "2026-11-24 10:00:00 +0200"
+date: "2026-11-28 10:00:00 +0200"
 lang: "ru"
 page_id: "ogcruncher-vs-audacity-for-game-sfx"
 permalink: "/blog/ogcruncher-vs-audacity-for-game-sfx/"

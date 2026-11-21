@@ -3,6 +3,7 @@
 require 'json'
 require 'nokogiri'
 require 'uri'
+require 'yaml'
 
 ROOT = File.expand_path(ARGV.fetch(0, '_site'))
 ORIGIN = 'https://sivochka.com'
@@ -86,7 +87,9 @@ LANGUAGES.each do |lang|
 
   check(blog.at_css('h1')&.text.to_s.strip == workshop_name, "#{blog_route}: Workshop H1 drift")
   check(blog.at_css('.hub-page-subtitle')&.text.to_s.strip == subtitle, "#{blog_route}: Workshop subtitle drift")
-  check(blog.at_css('meta[name="description"]')&.[]('content') == subtitle, "#{blog_route}: metadata description drift")
+  # The meta description is a longer SEO string (120-155 chars), not the on-page subtitle.
+  meta_desc = YAML.safe_load(File.read("_data/#{lang}/strings.yml")).fetch('blog_hub_meta_desc')
+  check(blog.at_css('meta[name="description"]')&.[]('content') == meta_desc, "#{blog_route}: metadata description drift")
   check(blog.at_css('link[rel="canonical"]')&.[]('href') == ORIGIN + blog_route, "#{blog_route}: canonical")
 
   navigation = blog.at_css('.site-nav')

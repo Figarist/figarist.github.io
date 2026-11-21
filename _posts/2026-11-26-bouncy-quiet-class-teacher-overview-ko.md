@@ -16,7 +16,7 @@ tags:
   - "tools"
   - "classroom"
 author: "ihor"
-image: "/assets/images/default-social-card.webp"
+image: "/assets/images/blog/bouncy-quiet-class.webp"
 image_alt: "교실 소음 측정기 웹 앱 Quiet Class (Bouncy) 인터페이스"
 focus_keyword: "Quiet Class"
 seo_title: "Quiet Class(Bouncy): 무료 교실 소음 측정기 안내"

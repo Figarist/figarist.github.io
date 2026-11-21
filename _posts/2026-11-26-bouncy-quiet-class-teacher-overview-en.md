@@ -16,7 +16,7 @@ tags:
   - "tools"
   - "classroom"
 author: "ihor"
-image: "/assets/images/default-social-card.webp"
+image: "/assets/images/blog/bouncy-quiet-class.webp"
 image_alt: "Quiet Class (Bouncy) classroom noise meter web app interface"
 focus_keyword: "Quiet Class"
 seo_title: "Quiet Class (Bouncy): Free Classroom Noise Meter"

@@ -16,7 +16,7 @@ tags:
   - "tools"
   - "classroom"
 author: "ihor"
-image: "/assets/images/default-social-card.webp"
+image: "/assets/images/blog/bouncy-quiet-class.webp"
 image_alt: "Интерфейс веб-приложения «Тихий класс» (Bouncy) для контроля шума в классе"
 focus_keyword: "Тихий класс"
 seo_title: "«Тихий класс» (Bouncy): бесплатный шумомер на урок"

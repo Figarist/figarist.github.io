@@ -157,6 +157,9 @@ end
   check(size <= budget, "#{path}: exceeds gzip budget")
   puts "#{path}: #{size} gzip bytes / #{budget}"
 end
+# A CSS minifier once rewrote calc(var(--x) + 8px) into calc(var( -  - x)+8px), which browsers drop.
+css = File.read("#{root}/assets/css/styles.css")
+check(!css.match?(/var\(\s*-\s+-/), 'assets/css/styles.css: var() mangled by a minifier')
 sw_file = "#{root}/sw.js"
 check(File.exist?(sw_file), 'Production sw.js is missing')
 if File.exist?(sw_file)

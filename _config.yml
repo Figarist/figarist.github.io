@@ -159,6 +159,9 @@ jekyll-spaceship:
 
 # ── Minifier Settings ────────────────────────────────────────
 jekyll-minifier:
+  # Sass already emits compressed CSS; cssminify2 breaks var() inside calc()
+  # (it rewrote calc(var(--nav-floating-top) + 96px) into invalid CSS).
+  compress_css: false
   exclude:
     - "node_modules/**/*"
     - "vendor/**/*"

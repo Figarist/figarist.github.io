@@ -44,8 +44,8 @@ fmContentType: "Post"
 ### 실제 교실 수업을 위한 26개 카테고리 · 597종 구성
 
 [LEGO WeDo 2.0 카탈로그](https://sivochka.com/lego-catalog/)는 `data_localized.js`에 담긴 597개 모델을 시각적인 카드 그리드와 26개 카테고리 필터로 정리했습니다:
-* **기초 공학 및 교과 연계**: 공식 LEGO WeDo 2.0 모델, 기본 메커니즘, 로봇, 그리고 스마트허브 없이 순수 기어·벨트 원리를 익히는 *무허브 모델* 카테고리.
-* **학생 선호 테마**: 동물, 공룡, 곤충, 조류, 우주 탐사, 자동차·특수 장비, 보행 로봇, 드로잉 봇 등.
+* **기초 공학 및 교과 연계**: 공식 LEGO WeDo 2.0 모델, [기본 메커니즘](https://sivochka.com/lego-catalog/en/c/mekhanizmy/), [로봇](https://sivochka.com/lego-catalog/en/c/roboty/), 그리고 스마트허브 없이 순수 기어·벨트 원리를 익히는 *무허브 모델* 카테고리.
+* **학생 선호 테마**: 동물, [공룡](https://sivochka.com/lego-catalog/en/c/dynozavry/), 곤충, 조류, 우주 탐사, 자동차·특수 장비, 보행 로봇, 드로잉 봇 등.
 * **4개 언어 실시간 전환**: 페이지 새로고침 없이 우크라이나어(`UK`), 영어(`EN`), 폴란드어(`PL`), 러시아어(`RU`) UI와 모델명을 즉시 전환합니다.
 
 ---
@@ -66,5 +66,5 @@ Figarist 스튜디오의 다른 무료 브라우저 교육 및 개발 도구:
 * **[조용한 교실 (Quiet Class) — 원거리 교실 웹캠용 Web Audio DSP 소음 측정기](https://sivochka.com/bouncy/)**
 * **[OGCruncher — 무료 온라인 오디오 비트크러셔 & 게임 SFX 최적화 도구](https://sivochka.com/OGCruncher/)**
 
-Unity 게임 개발, C#, Python, Scratch 또는 3D 모델링 1:1 온라인 수업에 관심이 있으신가요?  
+[Unity 게임 개발](https://sivochka.com/ko/tutoring/unity/), C#, Python, [Scratch](https://sivochka.com/ko/tutoring/scratch/) 또는 3D 모델링 1:1 온라인 수업에 관심이 있으신가요?  
 👉 **[이호르 시보치카의 1:1 개인 튜터링 자세히 보기](https://sivochka.com/ko/tutoring/)**

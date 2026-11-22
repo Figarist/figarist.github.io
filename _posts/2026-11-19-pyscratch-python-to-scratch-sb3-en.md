@@ -105,4 +105,4 @@ If you're not sure your child is ready for text code, start with [Scratch vs Pyt
 
 Take one of your own Scratch games, save it as `.sb3`, open it in [pyScratch](https://sivochka.com/pyScratch/en/) and see how it looks in Python. Change one number in a loop, run it, save it back and open it in Scratch.
 
-If after that you want to write real Python, from a blank file and without blocks as hints, that's exactly what we do in [one-to-one Python lessons](https://sivochka.com/tutoring/python/).
+If after that you want to write real Python, from a blank file and without blocks as hints, that's exactly what we do in [one-to-one Python lessons](https://sivochka.com/tutoring/python/). And if your child is just starting with block coding, take a look at [one-to-one Scratch lessons](https://sivochka.com/tutoring/scratch/).

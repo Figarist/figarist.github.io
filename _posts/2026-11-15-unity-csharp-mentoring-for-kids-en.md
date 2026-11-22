@@ -21,7 +21,7 @@ author: "ihor"
 image: null
 image_alt: null
 focus_keyword: "Unity C# mentor tutor for kids"
-seo_title: "Unity & C# Mentoring for Kids & Teens: 1-on-1 Online"
+seo_title: "Unity Tutorial & C# Mentoring for Teens & Kids (1-on-1)"
 seo_type: "BlogPosting"
 canonical_url: null
 robots: null

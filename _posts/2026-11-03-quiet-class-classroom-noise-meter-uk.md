@@ -20,7 +20,7 @@ author: "ihor"
 image: null
 image_alt: null
 focus_keyword: "шумомір для класу"
-seo_title: "Тихий клас: безкоштовний шумомір для уроку"
+seo_title: "Шумомір онлайн «Тихий клас»: безкоштовно для уроку і ПК"
 seo_type: "BlogPosting"
 canonical_url: null
 robots: null

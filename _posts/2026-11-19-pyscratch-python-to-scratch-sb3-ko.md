@@ -110,4 +110,4 @@ pyScratch는 지금 테스트 모드이고, 아직 Scratch와 1:1로 똑같지�
 
 아이가 만든 Scratch 게임을 `.sb3`로 저장하고 [pyScratch](https://sivochka.com/pyScratch/en/)에서 열어 Python으로는 어떻게 보이는지 확인해 보세요. 반복문 안의 숫자 하나를 바꿔 실행하고, 다시 저장한 뒤 Scratch에서 열어 보면 됩니다.
 
-그다음 블록의 도움 없이 처음부터 진짜 Python을 써 보고 싶어진다면, 그게 바로 [Python 1:1 수업](https://sivochka.com/ko/tutoring/python/)에서 하는 일입니다.
+그다음 블록의 도움 없이 처음부터 진짜 Python을 써 보고 싶어진다면, 그게 바로 [Python 1:1 수업](https://sivochka.com/ko/tutoring/python/)에서 하는 일입니다. 아직 블록 코딩을 막 시작하는 단계라면 [Scratch 1:1 수업](https://sivochka.com/ko/tutoring/scratch/)도 준비되어 있습니다.

@@ -44,8 +44,8 @@ To make lesson prep effortless for teachers and exciting for students, we built 
 ### Designed for Real Classrooms (26 Categories, 597 Models)
 
 Rather than forcing teachers to paginate through clunky spreadsheets, [the catalog](https://sivochka.com/lego-catalog/) structures every model in `data_localized.js` with pre-indexed metadata across 26 categories:
-* **Core Classroom Foundations**: Official LEGO WeDo 2.0 plans, Basic Mechanisms (`Механізми`), Robotics (`Роботи`), and Non-SmartHub Mechanical Builds (`Моделі без смартхаба`) for introductory mechanical intuition.
-* **Student-Favorite Themes**: Animals (`Тварини`), Dinosaurs (`Динозаври`), Insects (`Комахи`), Birds (`Птахи`), Space Exploration (`Космос`), Vehicles & Special Machinery (`Автомобілі`, `Спецтехніка`), Walking Robots (`Крокуючі`), and Drawing Bots (`Моделі, що малюють`).
+* **Core Classroom Foundations**: Official LEGO WeDo 2.0 plans, [Basic Mechanisms](https://sivochka.com/lego-catalog/en/c/mekhanizmy/), [Robots](https://sivochka.com/lego-catalog/en/c/roboty/), and Non-SmartHub Mechanical Builds (`Моделі без смартхаба`) for introductory mechanical intuition.
+* **Student-Favorite Themes**: Animals (`Тварини`), [Dinosaurs](https://sivochka.com/lego-catalog/en/c/dynozavry/), Insects (`Комахи`), Birds (`Птахи`), Space Exploration (`Космос`), Vehicles & Special Machinery (`Автомобілі`, `Спецтехніка`), Walking Robots (`Крокуючі`), and Drawing Bots (`Моделі, що малюють`).
 * **Four Instant UI Languages**: Switch seamlessly between **Ukrainian (`UK`)**, **English (`EN`)**, **Russian (`RU`)**, and **Polish (`PL`)** without page reloads or external i18n bundles.
 
 ---
@@ -66,5 +66,5 @@ Explore our other free tools for classrooms and indie game creators:
 * **[Quiet Class — Adaptive Web Audio DSP Classroom Noise Meter](https://sivochka.com/bouncy/)**
 * **[OGCruncher — Free Online Audio Bit-Crusher & Game SFX Optimizer](https://sivochka.com/OGCruncher/)**
 
-Looking for 1-on-1 online mentorship in programming (Unity, C#, Python, Scratch) or 3D modeling?  
+Looking for 1-on-1 online mentorship in programming ([Scratch](https://sivochka.com/tutoring/scratch/), [Unity & C#](https://sivochka.com/tutoring/unity/), Python) or 3D modeling?  
 👉 **[Explore 1-on-1 Tutoring & Mentorship with Sivochka Ihor](https://sivochka.com/tutoring/)**

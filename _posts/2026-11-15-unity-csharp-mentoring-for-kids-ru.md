@@ -21,7 +21,7 @@ author: "ihor"
 image: null
 image_alt: null
 focus_keyword: "репетитор ментор Unity C# для детей"
-seo_title: "Менторство Unity и C# для детей 1-на-1 онлайн"
+seo_title: "Уроки и менторство Unity C# для детей и подростков 1-на-1"
 seo_type: "BlogPosting"
 canonical_url: null
 robots: null

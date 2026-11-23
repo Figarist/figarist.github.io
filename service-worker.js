@@ -19,7 +19,7 @@ const pageStrategy = new NetworkFirst({
 
 // First matching route wins: online HTML must precede the precache route.
 registerRoute(
-  ({ request }) => request.mode === 'navigate',
+  ({ request, url }) => request.mode === 'navigate' && !(url && url.pathname.startsWith('/m/')),
   async ({ event }) => {
     try {
       return await pageStrategy.handle({ event, request: event.request });
@@ -38,7 +38,7 @@ registerRoute(
 precacheAndRoute(self.__precacheManifest || self.__WB_MANIFEST || []);
 
 registerRoute(
-  ({ request }) => request.destination === 'image',
+  ({ request, url }) => request.destination === 'image' && !(url && url.pathname.startsWith('/m/')),
   new CacheFirst({
     cacheName: 'images-cache',
     plugins: [new ExpirationPlugin({ maxEntries: 60, maxAgeSeconds: 30 * 24 * 60 * 60 })]

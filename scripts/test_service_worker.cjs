@@ -24,6 +24,9 @@ const context = {
 vm.runInNewContext(fs.readFileSync('service-worker.js', 'utf8'), context);
 (async () => {
   assert.equal(routes[0].match({request: {mode: 'navigate'}}), true);
+  assert.equal(routes[0].match({request: {mode: 'navigate'}, url: new URL('https://example.test/m/e')}), false);
+  assert.equal(routes[2].match({request: {destination: 'image'}, url: new URL('https://example.test/img/a.png')}), true);
+  assert.equal(routes[2].match({request: {destination: 'image'}, url: new URL('https://example.test/m/e?p=/')}), false);
   assert.equal(routes[1], 'precache');
   const event = { request: {url: 'https://example.test/uk/tutoring/?utm_source=test'} };
   assert.equal(await routes[0].handler({event}), 'fresh HTML');

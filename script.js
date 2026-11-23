@@ -592,17 +592,18 @@ const code = codeEl.textContent;
     try {
       var k = "lead_origin";
       if (!sessionStorage.getItem(k)) {
-        var ref = document.referrer, origin = "direct", p = location.pathname;
+        var ref = document.referrer, origin = "direct";
         if (ref) {
-          var u = new URL(ref);
-          p = u.pathname;
+          var u = new URL(ref), rp = u.pathname;
           if (u.hostname !== location.hostname) origin = "ext:" + u.hostname;
-          else if (/^\/(canirunUnity|lego-catalog|OGCruncher|pyScratch)\b/.test(p)) origin = "tool:" + p.split("/")[1];
-          else if (/\/blog\/([^/]+)/.test(p)) origin = "blog:" + p.match(/\/blog\/([^/]+)/)[1];
-          else if (/\/games\/([^/]+)/.test(p)) origin = "game:" + p.match(/\/games\/([^/]+)/)[1];
-        } else {
-          if (/\/blog\/([^/]+)/.test(p)) origin = "blog:" + p.match(/\/blog\/([^/]+)/)[1];
-          else if (/\/games\/([^/]+)/.test(p)) origin = "game:" + p.match(/\/games\/([^/]+)/)[1];
+          else if (/^\/(canirunUnity|lego-catalog|OGCruncher|pyScratch)\b/.test(rp)) origin = "tool:" + rp.split("/")[1];
+          else if (/\/blog\/([^/]+)/.test(rp)) origin = "blog:" + rp.match(/\/blog\/([^/]+)/)[1];
+          else if (/\/games\/([^/]+)/.test(rp)) origin = "game:" + rp.match(/\/games\/([^/]+)/)[1];
+        }
+        if (origin === "direct") {
+          var lp = location.pathname;
+          if (/\/blog\/([^/]+)/.test(lp)) origin = "blog:" + lp.match(/\/blog\/([^/]+)/)[1];
+          else if (/\/games\/([^/]+)/.test(lp)) origin = "game:" + lp.match(/\/games\/([^/]+)/)[1];
         }
         sessionStorage.setItem(k, origin);
       }

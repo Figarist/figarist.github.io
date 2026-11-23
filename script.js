@@ -587,6 +587,30 @@ const code = codeEl.textContent;
     }
   })();
 
+  // Zero-cookie sessionStorage funnel attribution (lead-source/<origin>)
+  (function () {
+    try {
+      var k = "lead_origin";
+      if (!sessionStorage.getItem(k)) {
+        var ref = document.referrer, origin = "direct";
+        if (ref) {
+          var u = new URL(ref), p = u.pathname;
+          if (u.hostname !== location.hostname) origin = "ext:" + u.hostname;
+          else if (/^\/(canirunUnity|lego-catalog|OGCruncher|pyScratch)\b/.test(p)) origin = "tool:" + p.split("/")[1];
+          else if (/\/blog\/([^/]+)/.test(p)) origin = "blog:" + p.match(/\/blog\/([^/]+)/)[1];
+          else if (/\/games\/([^/]+)/.test(p)) origin = "game:" + p.match(/\/games\/([^/]+)/)[1];
+        }
+        sessionStorage.setItem(k, origin);
+      }
+      document.addEventListener("click", function (e) {
+        var a = e.target && e.target.closest ? e.target.closest('a[data-goatcounter-click*="telegram"]') : null;
+        if (a && window.goatcounter && typeof window.goatcounter.count === "function") {
+          window.goatcounter.count({ path: "lead-source/" + (sessionStorage.getItem(k) || "direct"), event: true });
+        }
+      });
+    } catch (e) {}
+  })();
+
 })();
 
 // Service Worker Registration

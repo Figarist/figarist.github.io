@@ -51,6 +51,7 @@ files.each do |file|
       errors << {source: route, url: url.to_s, error: 'retired external rendering dependency'} if %w[polyfill.io mermaid.ink].include?(url.host)
       next unless url.host == 'sivochka.com'
       next if external_projects.any? { |prefix| url.path.start_with?(prefix) }
+      next if url.path.start_with?('/m/')
       target = File.join(base, URI::DEFAULT_PARSER.unescape(url.path))
       target = File.join(target, 'index.html') if File.directory?(target)
       unless File.file?(target)

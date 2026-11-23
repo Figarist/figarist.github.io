@@ -592,12 +592,16 @@ const code = codeEl.textContent;
     try {
       var k = "lead_origin";
       if (!sessionStorage.getItem(k)) {
-        var ref = document.referrer, origin = "direct";
+        var ref = document.referrer, origin = "direct", p = location.pathname;
         if (ref) {
-          var u = new URL(ref), p = u.pathname;
+          var u = new URL(ref);
+          p = u.pathname;
           if (u.hostname !== location.hostname) origin = "ext:" + u.hostname;
           else if (/^\/(canirunUnity|lego-catalog|OGCruncher|pyScratch)\b/.test(p)) origin = "tool:" + p.split("/")[1];
           else if (/\/blog\/([^/]+)/.test(p)) origin = "blog:" + p.match(/\/blog\/([^/]+)/)[1];
+          else if (/\/games\/([^/]+)/.test(p)) origin = "game:" + p.match(/\/games\/([^/]+)/)[1];
+        } else {
+          if (/\/blog\/([^/]+)/.test(p)) origin = "blog:" + p.match(/\/blog\/([^/]+)/)[1];
           else if (/\/games\/([^/]+)/.test(p)) origin = "game:" + p.match(/\/games\/([^/]+)/)[1];
         }
         sessionStorage.setItem(k, origin);

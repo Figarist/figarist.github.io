@@ -51,10 +51,74 @@
   }
 
   /* ——————————————————————————————————————————
-     2. VR PLAYGROUND
-     (Game tiles now link to dedicated pages.
-      WebGL player logic is inline on each game page.)
+     2. WEBGL GAME PLAYER (Lazy Mount + Fullscreen + GoatCounter)
   —————————————————————————————————————————— */
+  var gamePlayer = document.getElementById("game-player");
+  if (gamePlayer) {
+    var gOverlay = document.getElementById("game-overlay");
+    var gWrap = document.getElementById("game-player-wrap");
+    var gStatus = document.getElementById("game-status");
+    var gFsBtn = document.getElementById("game-fullscreen-btn");
+    var gSlug = gamePlayer.getAttribute("data-game-slug") || "game";
+    var gLaunched = false;
+
+    var trackGame = function (path) {
+      try {
+        if (window.goatcounter && typeof window.goatcounter.count === "function") {
+          window.goatcounter.count({ path: path, event: true });
+        }
+      } catch (e) {}
+    };
+
+    var launchGame = function () {
+      if (gLaunched || !gWrap) return;
+      var src = gamePlayer.getAttribute("data-build-src");
+      if (!src) return;
+      gLaunched = true;
+      trackGame("game-launch/" + gSlug);
+
+      var frame = document.createElement("iframe");
+      frame.id = "game-iframe";
+      frame.className = "game-detail__player-iframe active";
+      frame.src = src;
+      frame.title = gamePlayer.getAttribute("data-game-title") || "Unity WebGL";
+      frame.allow = gamePlayer.getAttribute("data-allow") || "fullscreen; pointer-lock";
+      frame.allowFullscreen = true;
+      frame.onload = function () {
+        if (gStatus) {
+          gStatus.textContent = gamePlayer.getAttribute("data-running-text") || "● Running in browser";
+          gStatus.style.color = "#3f6518";
+        }
+        if (gFsBtn) gFsBtn.disabled = false;
+      };
+      gWrap.appendChild(frame);
+
+      if (gStatus) {
+        gStatus.textContent = gamePlayer.getAttribute("data-loading-text") || "● Loading WebGL…";
+        gStatus.style.color = "#b8d986";
+      }
+      if (gOverlay) {
+        gOverlay.style.transition = "opacity 0.35s ease";
+        gOverlay.style.opacity = "0";
+        gOverlay.style.pointerEvents = "none";
+        setTimeout(function () { gOverlay.style.display = "none"; }, 350);
+      }
+    };
+
+    if (gOverlay) {
+      gOverlay.addEventListener("click", launchGame);
+      gOverlay.addEventListener("keydown", function (e) {
+        if (e.key === "Enter" || e.key === " ") { e.preventDefault(); launchGame(); }
+      });
+    }
+    if (gFsBtn && gWrap) {
+      gFsBtn.addEventListener("click", function () {
+        trackGame("game-fullscreen/" + gSlug);
+        if (gWrap.requestFullscreen) gWrap.requestFullscreen();
+        else if (gWrap.webkitRequestFullscreen) gWrap.webkitRequestFullscreen();
+      });
+    }
+  }
 
   /* ——————————————————————————————————————————
      UTILITIES: Throttled MouseMove

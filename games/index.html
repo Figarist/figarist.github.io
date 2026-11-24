@@ -1,0 +1,157 @@
+---
+layout: default
+author: ihor
+tutoring: true
+sitemap: true
+priority: 0.85
+changefreq: monthly
+permalink: /games/
+image: /assets/images/games/dish-of-chaos-cover.png
+title: "WebGL Games & Unity Prototypes"
+seo_en_title: "WebGL Games & Unity Prototypes"
+seo_uk_title: "WebGL-ігри та прототипи на Unity"
+seo_ru_title: "WebGL-игры и прототипы на Unity"
+seo_ko_title: "Unity WebGL 게임 및 프로토타입"
+seo_en_desc: "Play browser-ready Unity 6 WebGL games and contest prototypes built by Ihor Sivochka (Figarist) — from Wear OS ports to fast jam experiments."
+seo_uk_desc: "Авторські Unity 6 WebGL-ігри та конкурсні прототипи Ігоря Сівочки (Figarist): грайте прямо в браузері без встановлення та дивіться історії розробки."
+seo_ru_desc: "Авторские Unity 6 WebGL-игры и конкурсные прототипы Игоря Сивочки (Figarist): играйте прямо в браузере без установки и читайте истории разработки."
+seo_ko_desc: "이호르 시보치카(Figarist)가 Unity 6로 만든 브라우저 WebGL 게임과 공모전 프로토타입 모음. 설치 없이 바로 플레이해 보세요."
+---
+{% assign lang = site.active_lang | default: 'en' %}
+{% assign lang_prefix = '' %}
+{% unless lang == site.default_lang %}{% assign lang_prefix = '/' | append: lang %}{% endunless %}
+{% assign canonical_url = site.url | append: lang_prefix | append: '/games/' %}
+{% assign home_url = site.url | append: lang_prefix | append: '/' %}
+{% assign published_games = site.data.games | where: "status", "published" %}
+
+{% case lang %}
+  {% when 'uk' %}
+    {% assign gh_home = "Головна" %}
+    {% assign gh_kicker = "Портфоліо та експерименти" %}
+    {% assign gh_title = "WebGL-ігри та прототипи" %}
+    {% assign gh_intro = "Тут зібрані мої ігри та швидкі конкурсні прототипи на Unity 6, які можна запустити прямо в браузері — з історією створення, обмеженнями джему та пов'язаними статтями." %}
+    {% assign gh_kind_release = "Реліз" %}
+    {% assign gh_kind_prototype = "Конкурсний прототип" %}
+    {% assign gh_play = "Відкрити та грати" %}
+    {% assign gh_cta_kicker = "Хочете створити власну гру?" %}
+    {% assign gh_cta_title = "Навчу робити 2D/3D-ігри на Unity 6 та C# — від першої механіки до WebGL-білду" %}
+    {% assign gh_cta_btn = "Навчання Unity 1-на-1" %}
+  {% when 'ru' %}
+    {% assign gh_home = "Главная" %}
+    {% assign gh_kicker = "Портфолио и эксперименты" %}
+    {% assign gh_title = "WebGL-игры и прототипы" %}
+    {% assign gh_intro = "Здесь собраны мои игры и быстрые конкурсные прототипы на Unity 6, которые можно запустить прямо в браузере — с историей разработки, условиями джема и связанными статьями." %}
+    {% assign gh_kind_release = "Релиз" %}
+    {% assign gh_kind_prototype = "Конкурсный прототип" %}
+    {% assign gh_play = "Открыть и играть" %}
+    {% assign gh_cta_kicker = "Хотите создать свою игру?" %}
+    {% assign gh_cta_title = "Научу делать 2D/3D-игры на Unity 6 и C# — от первой механики до WebGL-билда" %}
+    {% assign gh_cta_btn = "Обучение Unity 1-на-1" %}
+  {% when 'ko' %}
+    {% assign gh_home = "홈" %}
+    {% assign gh_kicker = "포트폴리오 및 실험실" %}
+    {% assign gh_title = "WebGL 게임 및 프로토타입" %}
+    {% assign gh_intro = "Unity 6로 제작해 브라우저에서 바로 실행할 수 있는 게임과 공모전 프로토타입 모음입니다. 제작 배경과 관련 개발 일지도 함께 확인하세요." %}
+    {% assign gh_kind_release = "정식 빌드" %}
+    {% assign gh_kind_prototype = "공모전 프로토타입" %}
+    {% assign gh_play = "열고 플레이하기" %}
+    {% assign gh_cta_kicker = "나만의 Unity 게임을 만들고 싶나요?" %}
+    {% assign gh_cta_title = "첫 메커니즘부터 WebGL 배포까지 1:1 Unity & C# 수업으로 함께 만들어 보세요" %}
+    {% assign gh_cta_btn = "Unity 1:1 수업 보기" %}
+  {% else %}
+    {% assign gh_home = "Home" %}
+    {% assign gh_kicker = "Playable Portfolio & Lab" %}
+    {% assign gh_title = "WebGL Games & Prototypes" %}
+    {% assign gh_intro = "Browser-playable Unity 6 games and fast contest prototypes — each with its design constraints, build notes, and related devlogs." %}
+    {% assign gh_kind_release = "Release" %}
+    {% assign gh_kind_prototype = "Contest Prototype" %}
+    {% assign gh_play = "Open & Play" %}
+    {% assign gh_cta_kicker = "Want to build your own game?" %}
+    {% assign gh_cta_title = "Learn 2D/3D game development in Unity 6 & C# — from first mechanic to a live WebGL build" %}
+    {% assign gh_cta_btn = "Explore Unity Lessons" %}
+{% endcase %}
+
+<div class="game-detail games-hub">
+  <nav class="game-detail__crumbs" aria-label="Breadcrumb">
+    <a href="{{ '/' | relative_url }}">{{ gh_home }}</a>
+    <span aria-hidden="true">/</span>
+    <span>{{ gh_title }}</span>
+  </nav>
+
+  <header class="games-hub__header">
+    <p class="section-kicker">{{ gh_kicker }}</p>
+    <h1 class="game-detail__title">{{ gh_title }}</h1>
+    <p class="game-detail__tagline">{{ gh_intro }}</p>
+  </header>
+
+  <section class="games-hub__grid" aria-label="{{ gh_title }}">
+    {% for game in published_games %}
+    {% assign gcopy = site.data.game_pages[game.id][lang] | default: site.data.game_pages[game.id]['en'] %}
+    <a href="{{ '/games/' | append: game.slug | append: '/' | relative_url }}" class="games-hub__card" data-goatcounter-click="games-hub-{{ game.slug }}">
+      <div class="games-hub__cover">
+        <img src="{{ game.cover | relative_url }}" alt="{{ gcopy.cover_alt | escape }}" width="640" height="400" {% if forloop.first %}fetchpriority="high"{% else %}loading="lazy"{% endif %}>
+      </div>
+      <div class="games-hub__body">
+        <div class="game-detail__badges">
+          <span class="game-detail__kind game-detail__kind--{{ game.kind | default: 'release' }}">
+            {% if game.kind == 'prototype' %}{{ gh_kind_prototype }}{% else %}{{ gh_kind_release }}{% endif %}
+          </span>
+          {% if gcopy.badge %}<span class="game-detail__badge">{{ gcopy.badge }}</span>{% endif %}
+          <span class="game-detail__badge">{{ game.aspect_ratio | default: '16:9' }}</span>
+        </div>
+        <h2>{{ gcopy.title }}</h2>
+        <p>{{ gcopy.tagline }}</p>
+        <span class="games-hub__cta">{{ gh_play }} <span aria-hidden="true">→</span></span>
+      </div>
+    </a>
+    {% endfor %}
+  </section>
+
+  <section class="game-detail__cta-card">
+    <div>
+      <p class="section-kicker">{{ gh_cta_kicker }}</p>
+      <h2>{{ gh_cta_title }}</h2>
+    </div>
+    <a href="{{ '/tutoring/unity/' | relative_url }}" class="button button--primary" data-goatcounter-click="games-hub-to-unity">
+      {{ gh_cta_btn }} <span aria-hidden="true">→</span>
+    </a>
+  </section>
+</div>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "CollectionPage",
+      "@id": "{{ canonical_url }}#collection",
+      "name": {{ gh_title | jsonify }},
+      "description": {{ gh_intro | jsonify }},
+      "url": "{{ canonical_url }}",
+      "inLanguage": "{{ lang }}",
+      "mainEntity": {
+        "@type": "ItemList",
+        "itemListElement": [
+          {% for game in published_games %}
+          {% assign gcopy = site.data.game_pages[game.id][lang] | default: site.data.game_pages[game.id]['en'] %}
+          {
+            "@type": "ListItem",
+            "position": {{ forloop.index }},
+            "name": {{ gcopy.title | jsonify }},
+            "url": "{{ site.url }}{{ lang_prefix }}/games/{{ game.slug }}/"
+          }{% unless forloop.last %},{% endunless %}
+          {% endfor %}
+        ]
+      }
+    },
+    {
+      "@type": "BreadcrumbList",
+      "@id": "{{ canonical_url }}#breadcrumb",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Figarist", "item": "{{ home_url }}" },
+        { "@type": "ListItem", "position": 2, "name": {{ gh_title | jsonify }}, "item": "{{ canonical_url }}" }
+      ]
+    }
+  ]
+}
+</script>

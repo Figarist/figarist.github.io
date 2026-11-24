@@ -39,4 +39,16 @@ sitemap: false
     "content": {{ course.intro | jsonify }}
   }
   {% endfor %}
+  {% assign published_games = site.data.games | where: "status", "published" %}
+  {% for game in published_games %}
+  {% assign gcopy = site.data.game_pages[game.id][site.active_lang] | default: site.data.game_pages[game.id]['en'] %},
+  {
+    "id": {{ '/games/' | append: game.slug | append: '/' | prepend: search_prefix | relative_url | jsonify }},
+    "title": {{ gcopy.title | jsonify }},
+    "url": {{ '/games/' | append: game.slug | append: '/' | prepend: search_prefix | relative_url | jsonify }},
+    "tags": {{ game.platforms | append: ' Unity WebGL Game' | jsonify }},
+    "description": {{ gcopy.tagline | jsonify }},
+    "content": {{ gcopy.about | jsonify }}
+  }
+  {% endfor %}
 ]

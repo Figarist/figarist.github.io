@@ -1,0 +1,32 @@
+{% if page.game_id %}
+{% assign embedded_game = site.data.games | where: "id", page.game_id | first %}
+{% if embedded_game and embedded_game.status == "published" %}
+{% assign glang = site.active_lang | default: 'en' %}
+{% assign gcopy = site.data.game_pages[embedded_game.id][glang] | default: site.data.game_pages[embedded_game.id]['en'] %}
+{% case glang %}
+  {% when 'uk' %}
+    {% assign ge_kicker = "Спробувати у браузері" %}
+    {% assign ge_btn = "Відкрити WebGL-версію" %}
+  {% when 'ru' %}
+    {% assign ge_kicker = "Попробовать в браузере" %}
+    {% assign ge_btn = "Открыть WebGL-версию" %}
+  {% when 'ko' %}
+    {% assign ge_kicker = "브라우저에서 직접 플레이" %}
+    {% assign ge_btn = "WebGL 버전 열기" %}
+  {% else %}
+    {% assign ge_kicker = "Try it in your browser" %}
+    {% assign ge_btn = "Open WebGL Version" %}
+{% endcase %}
+<aside class="post-game-card" aria-label="{{ gcopy.title | escape }}">
+  <img class="post-game-card__cover" src="{{ embedded_game.cover | relative_url }}" alt="{{ gcopy.cover_alt | escape }}" width="240" height="150" loading="lazy">
+  <div class="post-game-card__body">
+    <p class="section-kicker">{{ ge_kicker }}</p>
+    <h2 class="post-game-card__title">{{ gcopy.title }}</h2>
+    <p class="post-game-card__desc">{{ gcopy.tagline }}</p>
+    <a href="{{ '/games/' | append: embedded_game.slug | append: '/' | relative_url }}" class="button button--primary" data-goatcounter-click="post-to-game-{{ embedded_game.slug }}">
+      {{ ge_btn }} <span aria-hidden="true">→</span>
+    </a>
+  </div>
+</aside>
+{% endif %}
+{% endif %}

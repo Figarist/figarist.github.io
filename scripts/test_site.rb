@@ -202,10 +202,43 @@ tools.each do |tool|
 end
 
 games = YAML.safe_load(File.read('_data/games.yml')) || []
+%w[en uk ru ko].each do |lang|
+  prefix = lang == 'en' ? '' : "/#{lang}"
+  hub_file = "#{root}#{prefix}/games/index.html"
+  check(File.file?(hub_file), "Missing games hub: #{prefix}/games/")
+  hub_doc = Nokogiri::HTML(File.read(hub_file))
+  check(hub_doc.css('h1').size == 1, "#{prefix}/games/: H1")
+  hub_graph = hub_doc.css('script[type="application/ld+json"]').map { |b| JSON.parse(b.text) }.find { |b| b['@graph'] }&.fetch('@graph', nil)
+  check(hub_graph && hub_graph.any? { |n| n['@type'] == 'CollectionPage' }, "#{prefix}/games/: CollectionPage JSON-LD")
+  check(hub_graph && hub_graph.any? { |n| n['@type'] == 'BreadcrumbList' }, "#{prefix}/games/: BreadcrumbList JSON-LD")
+end
 games.each do |game|
   next unless game['status'] == 'published'
 
   check(game['permission'] == true, "Published game #{game['id']} must have permission: true")
+  check(%w[1:1 16:9].include?(game['aspect_ratio'].to_s), "Published game #{game['id']} must set aspect_ratio to 1:1 or 16:9")
+  check(%w[release prototype].include?(game['kind'].to_s), "Published game #{game['id']} must set kind to release or prototype")
+  build_path = game['build_path'].to_s
+  if build_path.start_with?('https://play.sivochka.com/')
+    check(
+      build_path.match?(%r{\Ahttps://play\.sivochka\.com/[a-z0-9-]+/v[0-9][a-z0-9._-]*/index\.html\z}),
+      "Published game #{game['id']} has invalid play.sivochka.com build_path: #{build_path}"
+    )
+  else
+    build_rel = build_path.sub(%r{\A/}, '')
+    check(File.file?(File.join(root, build_rel)), "Published game #{game['id']} missing build_path: #{build_path}")
+  end
+  cover_rel = game['cover'].to_s.sub(%r{\A/}, '')
+  check(File.file?(File.join(root, cover_rel)), "Published game #{game['id']} missing cover: #{game['cover']}")
+  %w[en uk ru ko].each do |lang|
+    prefix = lang == 'en' ? '' : "/#{lang}"
+    gfile = "#{root}#{prefix}/games/#{game['slug']}/index.html"
+    check(File.file?(gfile), "Missing localized game page: #{prefix}/games/#{game['slug']}/")
+    gdoc = Nokogiri::HTML(File.read(gfile))
+    check(gdoc.css('h1').size == 1, "#{prefix}/games/#{game['slug']}/: H1")
+    player = gdoc.at_css('#game-player')
+    check(player && !player['data-build-src'].to_s.empty?, "#{prefix}/games/#{game['slug']}/: player missing data-build-src")
+  end
   if game['author_type'] == 'student'
     student_display = game['student_display'].to_s.strip
     check(!student_display.empty?, "Published student game #{game['id']} must define student_display")

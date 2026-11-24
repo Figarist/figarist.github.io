@@ -31,7 +31,7 @@
     <meta property="og:description" content="{{ resolved_desc | escape }}">
     <meta property="og:type" content="website">
     <meta property="og:url" content="{{ site.url }}{{ site.baseurl }}{% unless active_lang == site.default_lang %}/{{ active_lang }}{% endunless %}{{ page.url | remove: 'index.html' }}">
-    <meta name="twitter:card" content="summary">
+    <meta name="twitter:card" content="{% if page.image %}summary_large_image{% else %}summary{% endif %}">
     <meta name="twitter:title" content="{{ resolved_title | escape }}">
     <meta name="twitter:description" content="{{ resolved_desc | escape }}">
     {% assign seo_social_img = page.image | default: '/assets/images/figaristgithub.png' %}

@@ -1,9 +1,14 @@
 - id: dish-of-chaos
   slug: dish-of-chaos
   status: published
+  kind: release
   author_type: owner
   permission: true
+  featured: true
+  aspect_ratio: "1:1"
+  cover: "/assets/images/games/dish-of-chaos-cover.png"
   engine: "Unity 6 (6000.5.7f1)"
   platforms: "WebGL, Windows, Wear OS"
   itch_url: "https://figarist.itch.io/dish-of-chaos"
-  build_path: "/assets/games/dish-of-chaos/index.html"
+  github_url: ""
+  build_path: "https://play.sivochka.com/dish-of-chaos/v1/index.html"

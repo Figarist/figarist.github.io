@@ -1,0 +1,240 @@
+{% assign lang = site.active_lang | default: 'en' %}
+{% assign s = site.data[lang].strings %}
+{% assign game = site.data.games | where: "id", page.game_id | first %}
+{% assign copy = site.data.game_pages[page.game_id][lang] | default: site.data.game_pages[page.game_id]['en'] %}
+{% assign aspect_mod = 'wide' %}
+{% if game.aspect_ratio == '1:1' %}{% assign aspect_mod = 'square' %}{% endif %}
+
+{% case lang %}
+  {% when 'uk' %}
+    {% assign gd_home = "Головна" %}
+    {% assign gd_games = "Ігри" %}
+    {% assign gd_kind_release = "Реліз" %}
+    {% assign gd_kind_prototype = "Конкурсний прототип" %}
+    {% assign gd_github_btn = "Код на GitHub" %}
+    {% assign gd_story_title = "Історія та задача прототипу" %}
+    {% assign gd_faq_title = "Питання про гру" %}
+    {% assign gd_posts_title = "Пов'язані дописи в блозі" %}
+    {% assign gd_posts_read = "Читати статтю" %}
+    {% assign gd_time_label = "Час розробки" %}
+    {% assign gd_cta_kicker = "Хочете створити власну гру на Unity 6?" %}
+    {% assign gd_cta_title = "Навчу робити 2D/3D-ігри та публікувати їх у браузер на заняттях з Unity & C#" %}
+    {% assign gd_cta_btn = "Дізнатися про навчання Unity" %}
+    {% assign gd_loading = "● Завантаження WebGL…" %}
+    {% assign gd_running = "● Запущено в браузері" %}
+  {% when 'ru' %}
+    {% assign gd_home = "Главная" %}
+    {% assign gd_games = "Игры" %}
+    {% assign gd_kind_release = "Релиз" %}
+    {% assign gd_kind_prototype = "Конкурсный прототип" %}
+    {% assign gd_github_btn = "Код на GitHub" %}
+    {% assign gd_story_title = "История и задача прототипа" %}
+    {% assign gd_faq_title = "Вопросы об игре" %}
+    {% assign gd_posts_title = "Связанные статьи в блоге" %}
+    {% assign gd_posts_read = "Читать статью" %}
+    {% assign gd_time_label = "Время разработки" %}
+    {% assign gd_cta_kicker = "Хотите создать свою игру на Unity 6?" %}
+    {% assign gd_cta_title = "Научу делать 2D/3D-игры и публиковать их в браузер на уроках по Unity & C#" %}
+    {% assign gd_cta_btn = "Подробнее об обучении Unity" %}
+    {% assign gd_loading = "● Загрузка WebGL…" %}
+    {% assign gd_running = "● Запущено в браузере" %}
+  {% when 'ko' %}
+    {% assign gd_home = "홈" %}
+    {% assign gd_games = "게임" %}
+    {% assign gd_kind_release = "정식 빌드" %}
+    {% assign gd_kind_prototype = "공모전 프로토타입" %}
+    {% assign gd_github_btn = "GitHub 코드" %}
+    {% assign gd_story_title = "개발 배경 및 프로토타입 목표" %}
+    {% assign gd_faq_title = "자주 묻는 질문" %}
+    {% assign gd_posts_title = "관련 블로그 글" %}
+    {% assign gd_posts_read = "글 읽기" %}
+    {% assign gd_time_label = "제작 기간" %}
+    {% assign gd_cta_kicker = "Unity 6로 나만의 게임을 만들고 싶나요?" %}
+    {% assign gd_cta_title = "Unity & C# 1:1 수업에서 2D/3D 게임 제작부터 WebGL 배포까지 함께 배워보세요." %}
+    {% assign gd_cta_btn = "Unity 수업 자세히 보기" %}
+    {% assign gd_loading = "● WebGL 로딩 중…" %}
+    {% assign gd_running = "● 브라우저에서 실행 중" %}
+  {% else %}
+    {% assign gd_home = "Home" %}
+    {% assign gd_games = "Games" %}
+    {% assign gd_kind_release = "Release" %}
+    {% assign gd_kind_prototype = "Contest Prototype" %}
+    {% assign gd_github_btn = "Source on GitHub" %}
+    {% assign gd_story_title = "Development Story & Scope" %}
+    {% assign gd_faq_title = "Game FAQ" %}
+    {% assign gd_posts_title = "Related Devlogs & Posts" %}
+    {% assign gd_posts_read = "Read article" %}
+    {% assign gd_time_label = "Build Time" %}
+    {% assign gd_cta_kicker = "Want to build your own game in Unity 6?" %}
+    {% assign gd_cta_title = "Learn 2D/3D game development and WebGL publishing in 1-on-1 Unity & C# lessons." %}
+    {% assign gd_cta_btn = "Explore Unity Lessons" %}
+    {% assign gd_loading = "● Loading WebGL…" %}
+    {% assign gd_running = "● Running in browser" %}
+{% endcase %}
+
+<div class="game-detail" data-game-slug="{{ game.slug }}">
+  <nav class="game-detail__crumbs" aria-label="Breadcrumb">
+    <a href="{{ '/' | relative_url }}">{{ gd_home }}</a>
+    <span aria-hidden="true">/</span>
+    <a href="{{ '/games/' | relative_url }}">{{ gd_games }}</a>
+    <span aria-hidden="true">/</span>
+    <span>{{ copy.title }}</span>
+  </nav>
+
+  <section class="game-detail__hero">
+    <div class="game-detail__cover-wrap">
+      <img src="{{ game.cover | relative_url }}"
+        alt="{{ copy.cover_alt | escape }}"
+        width="1024" height="640" fetchpriority="high">
+    </div>
+
+    <div class="game-detail__info">
+      <div class="game-detail__badges">
+        <span class="game-detail__kind game-detail__kind--{{ game.kind | default: 'release' }}">
+          {% if game.kind == 'prototype' %}{{ gd_kind_prototype }}{% else %}{{ gd_kind_release }}{% endif %}
+        </span>
+        {% if copy.badge %}<span class="game-detail__badge">{{ copy.badge }}</span>{% endif %}
+      </div>
+      <p class="section-kicker">{{ copy.kicker }}</p>
+      <h1 class="game-detail__title">{{ copy.title }}</h1>
+      <p class="game-detail__tagline">{{ copy.tagline }}</p>
+
+      <dl class="game-detail__meta">
+        <div class="game-detail__meta-row">
+          <dt class="game-detail__meta-label">{{ s.game_author_label }}</dt>
+          <dd>Ihor Sivochka (Figarist)</dd>
+        </div>
+        <div class="game-detail__meta-row">
+          <dt class="game-detail__meta-label">{{ s.game_engine_label }}</dt>
+          <dd>{{ game.engine }}</dd>
+        </div>
+        <div class="game-detail__meta-row">
+          <dt class="game-detail__meta-label">{{ s.game_platforms_label }}</dt>
+          <dd>{{ game.platforms }}</dd>
+        </div>
+        {% if copy.event_value %}
+        <div class="game-detail__meta-row">
+          <dt class="game-detail__meta-label">{{ copy.event_label | default: "Event" }}</dt>
+          <dd>{{ copy.event_value }}</dd>
+        </div>
+        {% endif %}
+        {% if copy.build_time %}
+        <div class="game-detail__meta-row">
+          <dt class="game-detail__meta-label">{{ gd_time_label }}</dt>
+          <dd>{{ copy.build_time }}</dd>
+        </div>
+        {% endif %}
+      </dl>
+
+      <div class="game-detail__actions">
+        <a href="#game-player" class="button button--primary">
+          {{ s.game_play_browser }} <span aria-hidden="true">↓</span>
+        </a>
+        {% if game.itch_url and game.itch_url != "" %}
+        <a href="{{ game.itch_url }}" target="_blank" rel="noopener" class="button button--quiet" data-goatcounter-click="game-itch-{{ game.slug }}">
+          {{ copy.itch_btn | default: "itch.io" }} <span aria-hidden="true">↗</span>
+        </a>
+        {% endif %}
+        {% if game.github_url and game.github_url != "" %}
+        <a href="{{ game.github_url }}" target="_blank" rel="noopener" class="button button--quiet" data-goatcounter-click="game-github-{{ game.slug }}">
+          {{ gd_github_btn }} <span aria-hidden="true">↗</span>
+        </a>
+        {% endif %}
+      </div>
+    </div>
+  </section>
+
+  <section class="game-detail__player" id="game-player" aria-label="{{ copy.title }}"
+    data-game-slug="{{ game.slug }}"
+    data-build-src="{% if game.build_path contains '://' %}{{ game.build_path }}{% else %}{{ game.build_path | relative_url }}{% endif %}"
+    data-game-title="{{ copy.title | escape }} — Unity WebGL"
+    data-loading-text="{{ gd_loading | escape }}"
+    data-running-text="{{ gd_running | escape }}">
+    {% if copy.desktop_hint %}
+    <p class="game-detail__desktop-hint">{{ copy.desktop_hint }}</p>
+    {% endif %}
+
+    <div class="game-detail__player-stage">
+      <div class="game-detail__player-wrap game-detail__player-wrap--{{ aspect_mod }}" id="game-player-wrap">
+        <div class="game-detail__player-overlay" id="game-overlay" role="button" tabindex="0"
+          aria-label="{{ s.game_launch_now }}">
+          <div class="webgl__play-btn" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <circle cx="12" cy="12" r="11" stroke="currentColor" stroke-width="1.5" />
+              <path d="M10 8.5L16 12L10 15.5V8.5Z" fill="currentColor" />
+            </svg>
+          </div>
+          <p class="game-detail__player-overlay-text">{{ s.game_launch_now }}</p>
+          <p class="game-detail__player-overlay-note">{{ s.game_launch_note }}</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="game-detail__player-bar">
+      <span class="game-detail__player-status" id="game-status">● {{ s.webgl_overlay_text }}</span>
+      <button class="game-detail__fullscreen-btn" id="game-fullscreen-btn" aria-label="{{ s.game_fullscreen }}" disabled>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 3 21 3 21 9"/><polyline points="9 21 3 21 3 15"/><line x1="21" y1="3" x2="14" y2="10"/><line x1="3" y1="21" x2="10" y2="14"/></svg>
+        {{ s.game_fullscreen }}
+      </button>
+    </div>
+  </section>
+
+  <div class="game-detail__sections">
+    <section class="game-detail__section">
+      <h2 class="game-detail__section-title">{{ s.game_about_title }}</h2>
+      <p class="game-detail__section-text">{{ copy.about }}</p>
+    </section>
+    <section class="game-detail__section">
+      <h2 class="game-detail__section-title">{{ s.game_controls_title }}</h2>
+      <p class="game-detail__section-text">{{ copy.controls }}</p>
+    </section>
+  </div>
+
+  {% if copy.story %}
+  <section class="game-detail__section game-detail__story">
+    <h2 class="game-detail__section-title">{{ copy.story_title | default: gd_story_title }}</h2>
+    <p class="game-detail__section-text">{{ copy.story }}</p>
+  </section>
+  {% endif %}
+
+  {% if copy.faq and copy.faq.size > 0 %}
+  <section class="game-detail__faq" aria-labelledby="game-faq-heading">
+    <h2 class="game-detail__section-title" id="game-faq-heading">{{ gd_faq_title }}</h2>
+    <div class="game-detail__faq-list">
+      {% for item in copy.faq %}
+      <details class="game-detail__faq-item">
+        <summary>{{ item.q }}</summary>
+        <p>{{ item.a }}</p>
+      </details>
+      {% endfor %}
+    </div>
+  </section>
+  {% endif %}
+
+  {% assign linked_posts = site.posts | where: "game_id", game.id %}
+  {% if linked_posts.size > 0 %}
+  <section class="game-detail__posts" aria-labelledby="game-posts-heading">
+    <h2 class="game-detail__section-title" id="game-posts-heading">{{ gd_posts_title }}</h2>
+    <div class="game-detail__posts-grid">
+      {% for post in linked_posts limit: 4 %}
+      <a href="{{ post.url | relative_url }}" class="game-detail__post-card" data-goatcounter-click="game-post-{{ game.slug }}">
+        <time datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: "%Y-%m-%d" }}</time>
+        <h3>{{ post.title }}</h3>
+        {% if post.description %}<p>{{ post.description }}</p>{% endif %}
+        <span class="game-detail__post-cta">{{ gd_posts_read }} →</span>
+      </a>
+      {% endfor %}
+    </div>
+  </section>
+  {% endif %}
+
+  <section class="game-detail__cta-card">
+    <div>
+      <p class="section-kicker">{{ gd_cta_kicker }}</p>
+      <h2>{{ gd_cta_title }}</h2>
+    </div>
+    <a href="{{ '/tutoring/unity/' | relative_url }}" class="button button--primary" data-goatcounter-click="game-to-unity-{{ game.slug }}">
+      {{ gd_cta_btn }} <span aria-hidden="true">→</span>
+    </a>
+  </section>
+</div>

@@ -49,6 +49,10 @@ layout: default
 
 {% include related-bento.html %}
 
+{% if content contains 'class="term-wrap"' or content contains 'data-gallery' %}
+<script defer src="{{ '/assets/js/post-media.js' | relative_url }}"></script>
+{% endif %}
+
 {% if page.mermaid %}
 <script defer src="{{ '/assets/vendor/mermaid.min.js' | relative_url }}"></script>
 <script defer src="{{ '/assets/js/diagrams.js' | relative_url }}"></script>

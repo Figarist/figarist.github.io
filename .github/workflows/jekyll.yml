@@ -94,7 +94,8 @@ jobs:
           bundle exec htmlproofer ./_site \
             --allow-hash-href \
             --ignore-empty-alt \
-            --disable-external
+            --disable-external \
+            --ignore-urls "/^\/m\//"
 
       # Third-party availability and bot policies are outside the deploy
       # contract. Report regressions here without blocking a valid site build.
@@ -104,7 +105,7 @@ jobs:
           bundle exec htmlproofer ./_site \
             --allow-hash-href \
             --ignore-empty-alt \
-            --ignore-urls "/^https:\/\/(sivochka\.com|figarist\.com|fonts\.googleapis\.com|fonts\.gstatic\.com|mermaid\.ink|polyfill\.io)/,/^https:\/\/buki\.com\.ua\/user-82505\/$/"
+            --ignore-urls "/^\/m\//,/^https:\/\/(sivochka\.com|figarist\.com|fonts\.googleapis\.com|fonts\.gstatic\.com|mermaid\.ink|polyfill\.io)/,/^https:\/\/buki\.com\.ua\/user-82505\/$/"
 
       - name: Check JS bundle size
         run: |

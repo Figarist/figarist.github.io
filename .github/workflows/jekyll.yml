@@ -142,13 +142,13 @@ jobs:
           restore-keys: indexnow-
 
       - name: Plan IndexNow submission
-        run: node scripts/indexnow.mjs plan --site _site --origin https://sivochka.com --prev .indexnow-prev/manifest.json --out .indexnow
+        run: node scripts/indexnow.mjs plan --site _site --origin https://sivochka.com --prev .indexnow-prev/manifest.json --out indexnow-plan
 
       - name: Upload IndexNow plan
         uses: actions/upload-artifact@v7
         with:
           name: indexnow-plan
-          path: .indexnow/
+          path: indexnow-plan/
           retention-days: 3
 
       - name: Upload artifact

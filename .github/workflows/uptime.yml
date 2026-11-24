@@ -1,0 +1,82 @@
+name: Uptime & Security Watch
+
+# Runs every 15 minutes. A failed run makes GitHub email the repository owner,
+# so any outage, expiring certificate or missing security header becomes an email.
+on:
+  schedule:
+    - cron: "*/15 * * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: uptime
+  cancel-in-progress: false
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: Check sites, game CDN, analytics proxy, TLS and headers
+        shell: bash
+        run: |
+          set -u
+          fail=0
+          err() { echo "::error::$1"; fail=1; }
+
+          # url | expected status | required body substring ('' = skip)
+          checks=(
+            "https://sivochka.com/|200|data-goatcounter"
+            "https://sivochka.com/uk/|200|"
+            "https://sivochka.com/games/|200|"
+            "https://wristandpocket.dev/|200|data-goatcounter"
+            "https://wristandpocket.dev/uk/|200|"
+            "https://sivochka.com/m/v1.js|200|goatcounter"
+            "https://wristandpocket.dev/m/v1.js|200|goatcounter"
+            "https://play.sivochka.com/dish-of-chaos/v1/index.html|200|"
+            "https://sivochka.com/sitemap.xml|200|<urlset"
+            "https://wristandpocket.dev/sitemap.xml|200|<urlset"
+            "https://sivochka.com/security.txt|200|Contact:"
+            "https://wristandpocket.dev/security.txt|200|Contact:"
+          )
+          for c in "${checks[@]}"; do
+            IFS='|' read -r url want needle <<<"$c"
+            ok=0
+            for attempt in 1 2 3; do
+              body=$(curl -sS -A "sivochka-uptime/1.0" --max-time 20 -o /tmp/body -w '%{http_code}' "$url" 2>/tmp/cerr) || body="000"
+              if [ "$body" = "$want" ] && { [ -z "$needle" ] || grep -q -- "$needle" /tmp/body; }; then ok=1; break; fi
+              sleep 10
+            done
+            if [ "$ok" = 1 ]; then echo "OK   $url"; else err "DOWN $url (HTTP $body $(head -c 200 /tmp/cerr))"; fi
+          done
+
+          # Security headers set by Cloudflare Transform Rules / HSTS.
+          for host in sivochka.com wristandpocket.dev; do
+            h=$(curl -sSI --max-time 20 "https://$host/" | tr -d '\r' | tr 'A-Z' 'a-z')
+            for hdr in strict-transport-security referrer-policy x-frame-options permissions-policy; do
+              grep -q "^$hdr:" <<<"$h" || err "$host lost header $hdr"
+            done
+          done
+
+          # HTTP must redirect to HTTPS.
+          for host in sivochka.com wristandpocket.dev; do
+            code=$(curl -s -o /dev/null -w '%{http_code}' --max-time 20 "http://$host/")
+            [ "$code" = "301" ] || [ "$code" = "308" ] || err "$host http->https redirect broken (HTTP $code)"
+          done
+
+          # TLS certificates must be valid for at least 14 more days.
+          for host in sivochka.com wristandpocket.dev play.sivochka.com; do
+            end=$(echo | openssl s_client -servername "$host" -connect "$host:443" 2>/dev/null | openssl x509 -noout -enddate 2>/dev/null | cut -d= -f2)
+            if [ -z "$end" ]; then err "$host TLS handshake failed"; continue; fi
+            days=$(( ( $(date -d "$end" +%s) - $(date +%s) ) / 86400 ))
+            if [ "$days" -lt 14 ]; then err "$host certificate expires in $days days"; else echo "OK   $host cert $days days"; fi
+          done
+
+          # DNS email-spoofing protection must stay in place.
+          for host in sivochka.com wristandpocket.dev; do
+            dig +short TXT "_dmarc.$host" | grep -q "v=DMARC1" || err "$host DMARC record missing"
+          done
+
+          exit $fail

@@ -34,6 +34,9 @@ sass:
 
 # ── Collections ──────────────────────────────────────────────
 # Exclude dev artefacts from the build
+include:
+  - .well-known
+
 exclude:
   - README.md
   - AGENTS.md
@@ -94,6 +97,8 @@ pagination:
 languages: ["en", "uk", "ru", "ko"]
 default_lang: "en"
 exclude_from_localization:
+  - .well-known
+  - favicon.ico
   - assets
   - css
   - javascript

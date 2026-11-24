@@ -133,6 +133,24 @@ jobs:
             exit 1
           fi
 
+      # IndexNow: list pages whose HTML changed since the last successful submission.
+      - name: Restore IndexNow manifest
+        uses: actions/cache/restore@v6
+        with:
+          path: .indexnow-prev
+          key: indexnow-${{ github.run_id }}
+          restore-keys: indexnow-
+
+      - name: Plan IndexNow submission
+        run: node scripts/indexnow.mjs plan --site _site --origin https://sivochka.com --prev .indexnow-prev/manifest.json --out .indexnow
+
+      - name: Upload IndexNow plan
+        uses: actions/upload-artifact@v7
+        with:
+          name: indexnow-plan
+          path: .indexnow/
+          retention-days: 3
+
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v5
         with:
@@ -160,10 +178,36 @@ jobs:
       - name: Verify sitemap URLs and domain redirects
         run: ruby scripts/verify_live_site.rb
 
+  indexnow:
+    name: Ping IndexNow (Bing, Yandex, Seznam, Naver)
+    runs-on: ubuntu-latest
+    needs: verify
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v7
+
+      - name: Download IndexNow plan
+        uses: actions/download-artifact@v8
+        with:
+          name: indexnow-plan
+          path: .indexnow
+
+      - name: Submit changed URLs
+        run: node scripts/indexnow.mjs submit --dir .indexnow --origin https://sivochka.com
+
+      - name: Remember submitted state
+        run: mkdir -p .indexnow-prev && cp .indexnow/manifest.json .indexnow-prev/manifest.json
+
+      - name: Save IndexNow manifest
+        uses: actions/cache/save@v6
+        with:
+          path: .indexnow-prev
+          key: indexnow-${{ github.run_id }}
+
   notify_failure:
     name: Notify Telegram on failure
     if: failure()
-    needs: [build, deploy, verify]
+    needs: [build, deploy, verify, indexnow]
     uses: ./.github/workflows/notify-telegram.yml
     with:
       title: "Deploy failed on ${{ github.ref_name }}"

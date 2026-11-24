@@ -88,7 +88,7 @@
       frame.title = gamePlayer.getAttribute("data-game-title") || "Unity WebGL";
       frame.allow = gamePlayer.getAttribute("data-allow") || "fullscreen; pointer-lock";
       frame.allowFullscreen = true;
-      frame.setAttribute("sandbox", "allow-scripts allow-same-origin allow-pointer-lock allow-fullscreen allow-downloads");
+      frame.setAttribute("sandbox", "allow-scripts allow-same-origin allow-pointer-lock allow-downloads");
       frame.referrerPolicy = "strict-origin-when-cross-origin";
       frame.onload = function () {
         if (gStatus) {

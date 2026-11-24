@@ -146,7 +146,7 @@
 
   <section class="game-detail__player" id="game-player" aria-label="{{ copy.title }}"
     data-game-slug="{{ game.slug }}"
-    data-build-src="{% if game.build_path contains '://' %}{{ game.build_path }}{% else %}{{ game.build_path | relative_url }}{% endif %}"
+    data-build-src="{% if game.build_path contains '://' %}{{ game.build_path | escape }}{% else %}{{ game.build_path | relative_url | escape }}{% endif %}"
     data-game-title="{{ copy.title | escape }} — Unity WebGL"
     data-loading-text="{{ gd_loading | escape }}"
     data-running-text="{{ gd_running | escape }}">

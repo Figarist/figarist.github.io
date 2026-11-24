@@ -74,6 +74,10 @@
       if (gLaunched || !gWrap) return;
       var src = gamePlayer.getAttribute("data-build-src");
       if (!src) return;
+      if (src.indexOf("https://play.sivochka.com/") !== 0) {
+        console.warn("Game launch blocked: untrusted source");
+        return;
+      }
       gLaunched = true;
       trackGame("game-launch/" + gSlug);
 
@@ -84,6 +88,8 @@
       frame.title = gamePlayer.getAttribute("data-game-title") || "Unity WebGL";
       frame.allow = gamePlayer.getAttribute("data-allow") || "fullscreen; pointer-lock";
       frame.allowFullscreen = true;
+      frame.setAttribute("sandbox", "allow-scripts allow-same-origin allow-pointer-lock allow-fullscreen allow-downloads");
+      frame.referrerPolicy = "strict-origin-when-cross-origin";
       frame.onload = function () {
         if (gStatus) {
           gStatus.textContent = gamePlayer.getAttribute("data-running-text") || "● Running in browser";
@@ -657,10 +663,16 @@ const code = codeEl.textContent;
       var k = "lead_origin";
       if (!sessionStorage.getItem(k)) {
         var ref = document.referrer, origin = "direct";
-        if (ref) {
+        var tools = ["canirunUnity", "lego-catalog", "OGCruncher", "pyScratch", "wearview"];
+        var qr = (new URLSearchParams(location.search).get("ref") || "").toLowerCase();
+        var tool = "";
+        for (var i = 0; i < tools.length; i++) if (tools[i].toLowerCase() === qr) tool = tools[i];
+        if (tool) origin = "tool:" + tool;
+        else if (ref) {
           var u = new URL(ref), rp = u.pathname;
-          if (u.hostname !== location.hostname) origin = "ext:" + u.hostname;
-          else if (/^\/(canirunUnity|lego-catalog|OGCruncher|pyScratch)\b/.test(rp)) origin = "tool:" + rp.split("/")[1];
+          var rh = u.hostname.replace(/^www\./, ""), lh = location.hostname.replace(/^www\./, "");
+          if (rh !== lh) origin = "ext:" + u.hostname;
+          else if (/^\/(canirunUnity|lego-catalog|OGCruncher|pyScratch|wearview)\b/.test(rp)) origin = "tool:" + rp.split("/")[1];
           else if (/\/blog\/([^/]+)/.test(rp)) origin = "blog:" + rp.match(/\/blog\/([^/]+)/)[1];
           else if (/\/games\/([^/]+)/.test(rp)) origin = "game:" + rp.match(/\/games\/([^/]+)/)[1];
         }

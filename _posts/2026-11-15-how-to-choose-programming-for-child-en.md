@@ -1,7 +1,7 @@
 ---
 layout: "post"
 title: "How to Choose a Programming Track for Your Child: Scratch, Python, Unity C#, or Computer Science (Parent Guide)"
-description: "A practical roadmap for parents: choose a coding path by age (6–17), check hardware needs, and vet a 1-on-1 developer mentor. Real student projects."
+description: "Scratch, Python, Unity C# or computer science for a 6–17-year-old? Age-by-age table, what each track needs from your PC, and how to vet a tutor."
 last_modified_at: null
 date: "2026-11-15 12:00:00 +0200"
 lang: "en"
@@ -13,7 +13,7 @@ tags: ["education", "coding", "python", "unity", "scratch"]
 author: "ihor"
 image: null
 image_alt: null
-seo_title: "How to Choose a Programming Track for Your Child"
+seo_title: "Scratch, Python or Unity? Coding for Kids by Age"
 seo_type: "BlogPosting"
 sitemap: true
 featured: true

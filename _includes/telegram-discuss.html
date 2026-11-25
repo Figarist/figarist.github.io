@@ -1,0 +1,14 @@
+{%- comment -%}
+  Call to discuss the post in the owner's Ukrainian Telegram channel (comments under channel posts).
+  Shown on every blog post in every locale; non-Ukrainian locales say the discussion is in Ukrainian.
+{%- endcomment -%}
+{% assign s = site.data[site.active_lang].strings %}
+<aside class="tg-discuss" aria-labelledby="tg-discuss-title">
+  <p class="tg-discuss__title" id="tg-discuss-title">{{ s.tg_discuss_title }}</p>
+  <p class="tg-discuss__text">{{ s.tg_discuss_text }}</p>
+  <a class="tg-discuss__btn" href="https://t.me/sivochka_ua" target="_blank" rel="noopener noreferrer"
+     data-goatcounter-click="post-telegram-discuss">
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg>
+    {{ s.tg_discuss_button }}
+  </a>
+</aside>

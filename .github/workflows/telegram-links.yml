@@ -1,0 +1,50 @@
+name: Telegram Post Links
+
+# Links each blog post to its announcement in the Telegram channel @sivochka_ua
+# (scripts/telegram_links.py writes _data/telegram_posts.json). Runs 25 minutes after
+# the channel bot (sivochka-hq telegram-channel.yml, :40 at 06, 13, 17 UTC), so a new
+# post goes: site -> Telegram post -> the post's "discuss" block links to it.
+# A push made with GITHUB_TOKEN does not trigger the deploy, so this dispatches it.
+on:
+  schedule:
+    - cron: "5 7,14,18 * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  actions: write
+
+concurrency:
+  group: telegram-links
+  cancel-in-progress: false
+
+jobs:
+  links:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v7
+
+      - name: Read channel post ids
+        run: python3 scripts/telegram_links.py
+
+      - name: Commit and deploy
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          git add _data/telegram_posts.json
+          if git diff --cached --quiet; then
+            echo "Telegram links unchanged."
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git commit -m "chore(telegram): update post discussion links"
+          for i in 1 2 3; do
+            if git pull --rebase && git push; then
+              gh workflow run jekyll.yml --ref main
+              exit 0
+            fi
+            sleep 5
+          done
+          echo "::error::Could not push Telegram links." && exit 1

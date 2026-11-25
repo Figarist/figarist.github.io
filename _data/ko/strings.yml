@@ -279,3 +279,5 @@ footer_privacy: "개인정보: 쿠키 없이 Cloudflare의 자체 프록시를 �
 tg_discuss_title: "이야기를 나눠 보고 싶으신가요?"
 tg_discuss_text: "제 텔레그램 채널에 참여하세요. 새 글마다 댓글로 토론할 수 있어요. 채널과 토론은 우크라이나어로 진행돼요."
 tg_discuss_button: "텔레그램에서 토론하기"
+tg_discuss_post_text: "이 글은 제 텔레그램 채널에도 올라와 있고, 그 아래에 댓글을 남길 수 있어요. 토론은 우크라이나어로 진행돼요."
+tg_discuss_post_button: "이 글 토론하기"

@@ -4,11 +4,11 @@ layout: default
 
 <div id="reading-progress-bar"></div>
 
-<article class="post-container" itemscope itemtype="https://schema.org/BlogPosting">
+<article class="post-container">
 
   {% include breadcrumbs.html %}
 
-  <h1 itemprop="headline" style="view-transition-name: post-{{ page.slug }};">{{ page.title }}</h1>
+  <h1 style="view-transition-name: post-{{ page.slug }};">{{ page.title }}</h1>
 
   <div class="post-header-meta">
     <span class="post-meta-author">{{ site.data[site.active_lang].strings.author_name }}</span>
@@ -32,8 +32,8 @@ layout: default
   </nav>
   {% endif %}
 
-  <div itemprop="articleBody">
-    {{ content | replace: '<img', '<img loading="lazy"' }}
+  <div class="post-body">
+    {{ content | lazy_images }}
   </div>
 
       {% include game-embed-card.html %}

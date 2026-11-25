@@ -116,14 +116,14 @@
   color: var(--text-primary);
 }
 
-.post-container [itemprop="articleBody"] a {
+.post-container .post-body a {
   color: var(--accent-blue-d);
   text-decoration: underline;
   text-underline-offset: 3px;
   transition: color var(--t-fast);
 }
 
-.post-container [itemprop="articleBody"] a:hover {
+.post-container .post-body a:hover {
   color: #1a6f80;
 }
 

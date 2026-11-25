@@ -2,18 +2,18 @@
 {% if author_id.name %}{% assign author_id = 'ihor' %}{% endif %}
 {% assign author = site.data.authors[author_id] | default: site.data.authors['ihor'] %}
 {% if author %}
-<section class="author-box fade-in" itemprop="author" itemscope itemtype="https://schema.org/Person">
+<section class="author-box fade-in">
     <div class="author-box__avatar">
         <img src="{{ author.picture | relative_url }}"
-            alt="{{ site.data[site.active_lang].strings.author_name }} avatar" itemprop="image" loading="lazy"
+            alt="{{ site.data[site.active_lang].strings.author_name }} avatar" loading="lazy"
             width="72" height="72">
     </div>
     <div class="author-box__content">
         <div class="author-box__header">
-            <h3 class="author-box__name" itemprop="name">{{ site.data[site.active_lang].strings.author_name }}</h3>
-            <span class="author-box__job" itemprop="jobTitle">{{ author.jobTitle }}</span>
+            <h3 class="author-box__name">{{ site.data[site.active_lang].strings.author_name }}</h3>
+            <span class="author-box__job">{{ author.jobTitle }}</span>
         </div>
-        <p class="author-box__bio" itemprop="description">
+        <p class="author-box__bio">
             {{ site.data[site.active_lang].strings.author_bio }}
         </p>
         <div class="author-box__socials">
@@ -37,13 +37,5 @@
             {% endif %}
         </div>
     </div>
-
-    {% if author.sameAs %}
-    <div style="display:none;">
-        {% for link in author.sameAs %}
-        <link itemprop="sameAs" href="{{ link }}">
-        {% endfor %}
-    </div>
-    {% endif %}
 </section>
 {% endif %}

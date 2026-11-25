@@ -671,7 +671,9 @@ const code = codeEl.textContent;
         else if (ref) {
           var u = new URL(ref), rp = u.pathname;
           var rh = u.hostname.replace(/^www\./, ""), lh = location.hostname.replace(/^www\./, "");
-          if (rh !== lh) origin = "ext:" + u.hostname;
+          // Local previews (localhost:4000) are the owner testing, not a traffic source.
+          if (/^(localhost|127\.0\.0\.1|\[::1\])$/.test(u.hostname)) origin = "direct";
+          else if (rh !== lh) origin = "ext:" + u.hostname;
           else if (/^\/(canirunUnity|lego-catalog|OGCruncher|pyScratch|wearview)\b/.test(rp)) origin = "tool:" + rp.split("/")[1];
           else if (/\/blog\/([^/]+)/.test(rp)) origin = "blog:" + rp.match(/\/blog\/([^/]+)/)[1];
           else if (/\/games\/([^/]+)/.test(rp)) origin = "game:" + rp.match(/\/games\/([^/]+)/)[1];
@@ -684,7 +686,9 @@ const code = codeEl.textContent;
         sessionStorage.setItem(k, origin);
       }
       document.addEventListener("click", function (e) {
-        var a = e.target && e.target.closest ? e.target.closest('a[data-goatcounter-click*="telegram"]') : null;
+        // Tutoring Telegram CTAs only (tutoring-telegram-*, tutoring-calc-telegram); "discuss in Telegram" under
+        // posts is a reader action, not a lead.
+        var a = e.target && e.target.closest ? e.target.closest('a[data-goatcounter-click^="tutoring-"][data-goatcounter-click*="telegram"]') : null;
         if (a && window.goatcounter && typeof window.goatcounter.count === "function") {
           window.goatcounter.count({ path: "lead-source/" + (sessionStorage.getItem(k) || "direct"), event: true });
         }

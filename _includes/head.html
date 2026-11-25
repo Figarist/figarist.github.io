@@ -18,31 +18,55 @@
     {% assign seo_title_key = 'seo_' | append: active_lang | append: '_title' %}
     {% assign seo_desc_key = 'seo_' | append: active_lang | append: '_desc' %}
     {% assign seo_title_string = site.data[active_lang].strings[page.title_seo_key] %}
-    {% assign resolved_title = page[seo_title_key] | default: page.seo_title | default: seo_title_string | default: page.title %}
-    {% assign resolved_desc = page[seo_desc_key] %}
+    {% assign resolved_title = page[seo_title_key] | default: page.seo_title | default: seo_title_string | default: page.title | default: site.title %}
+    {% assign excerpt_desc = page.excerpt | strip_html | normalize_whitespace | truncate: 160 %}
+    {% assign resolved_desc = page[seo_desc_key] | default: page.description | default: excerpt_desc | default: site.description | strip_html | normalize_whitespace %}
+    {% comment %}Paginated blog pages get a localized page number so titles and descriptions stay unique.{% endcomment %}
+    {% if paginator and paginator.page > 1 %}
+      {% case active_lang %}{% when 'uk' %}{% assign page_word = 'сторінка' %}{% when 'ru' %}{% assign page_word = 'страница' %}{% when 'ko' %}{% assign page_word = '페이지' %}{% else %}{% assign page_word = 'page' %}{% endcase %}
+      {% assign resolved_title = resolved_title | append: ' — ' | append: page_word | append: ' ' | append: paginator.page %}
+      {% assign resolved_desc = resolved_desc | append: ' (' | append: page_word | append: ' ' | append: paginator.page | append: ')' %}
+    {% endif %}
     {% comment %}Append the brand suffix only when the whole <title> stays within 60 characters.{% endcomment %}
     {% assign suffixed_title = resolved_title | append: ' | Figarist' %}
     {% if suffixed_title.size <= 60 %}{% assign head_title = suffixed_title %}{% else %}{% assign head_title = resolved_title %}{% endif %}
-    {% if resolved_desc %}
+    {% assign lang_prefix = '' %}{% unless active_lang == site.default_lang %}{% assign lang_prefix = active_lang | prepend: '/' %}{% endunless %}
+    {% capture page_canonical %}{{ site.url }}{{ site.baseurl }}{{ lang_prefix }}{{ page.url | remove: 'index.html' }}{% endcapture %}
+    {% assign og_site_name = site.data[active_lang].strings.og_site_name | default: 'Figarist' %}
+    {% assign seo_social_img = page.image | default: '/assets/images/default-social-card.webp' %}
+    {% if seo_social_img contains '://' %}{% assign seo_social_url = seo_social_img %}{% else %}{% assign seo_social_url = site.url | append: site.baseurl | append: seo_social_img %}{% endif %}
+    {% assign seo_social_size = seo_social_img | image_size %}
+    {% assign seo_social_alt = page.image_alt | default: resolved_title %}
+    {% assign locale_map = 'en:en_US,uk:uk_UA,ru:ru_RU,ko:ko_KR' | split: ',' %}
     <title>{{ head_title | escape }}</title>
     <meta name="description" content="{{ resolved_desc | escape }}">
-    <link rel="canonical" href="{{ site.url }}{{ site.baseurl }}{% unless active_lang == site.default_lang %}/{{ active_lang }}{% endunless %}{{ page.url | remove: 'index.html' }}">
+    <meta name="author" content="{{ site.data[active_lang].strings.author_name | default: site.author.name | escape }}">
+    <link rel="canonical" href="{{ page_canonical }}">
     <meta property="og:title" content="{{ resolved_title | escape }}">
     <meta property="og:description" content="{{ resolved_desc | escape }}">
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="{{ site.url }}{{ site.baseurl }}{% unless active_lang == site.default_lang %}/{{ active_lang }}{% endunless %}{{ page.url | remove: 'index.html' }}">
-    <meta name="twitter:card" content="{% if page.image %}summary_large_image{% else %}summary{% endif %}">
+    <meta property="og:type" content="{% if page.layout == 'post' %}article{% else %}website{% endif %}">
+    <meta property="og:url" content="{{ page_canonical }}">
+    <meta property="og:site_name" content="{{ og_site_name | escape }}">
+    {% for pair in locale_map %}{% assign pair_parts = pair | split: ':' %}{% if pair_parts[0] == active_lang %}
+    <meta property="og:locale" content="{{ pair_parts[1] }}">{% endif %}{% endfor %}
+    {% for pair in locale_map %}{% assign pair_parts = pair | split: ':' %}{% unless pair_parts[0] == active_lang %}
+    <meta property="og:locale:alternate" content="{{ pair_parts[1] }}">{% endunless %}{% endfor %}
+    <meta property="og:image" content="{{ seo_social_url }}">
+    {% if seo_social_size %}<meta property="og:image:width" content="{{ seo_social_size[0] }}">
+    <meta property="og:image:height" content="{{ seo_social_size[1] }}">{% endif %}
+    <meta property="og:image:alt" content="{{ seo_social_alt | escape }}">
+    {% if page.layout == 'post' %}
+    <meta property="article:published_time" content="{{ page.date | date_to_xmlschema }}">
+    <meta property="article:modified_time" content="{{ page.last_modified_at | default: page.date | date_to_xmlschema }}">
+    {% endif %}
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@{{ site.twitter.username }}">
+    <meta name="twitter:creator" content="@{{ site.twitter.username }}">
     <meta name="twitter:title" content="{{ resolved_title | escape }}">
     <meta name="twitter:description" content="{{ resolved_desc | escape }}">
-    {% assign seo_social_img = page.image | default: '/assets/images/figaristgithub.png' %}
-    <meta property="og:image" content="{{ site.url }}{{ site.baseurl }}{{ seo_social_img }}">
-    <meta name="twitter:image" content="{{ site.url }}{{ site.baseurl }}{{ seo_social_img }}">
-    {% elsif page.tutoring or page.is_home or page.seo_title or page.title_seo_key %}
-    <title>{{ head_title | escape }}</title>
-    {% seo title=false %}
-    {% else %}
-    {% seo %}
-    {% endif %}
+    <meta name="twitter:image" content="{{ seo_social_url }}">
+    <meta name="twitter:image:alt" content="{{ seo_social_alt | escape }}">
+    <link rel="alternate" type="application/atom+xml" title="{{ og_site_name | escape }}" {% static_href %}href="{{ site.url }}{{ site.baseurl }}{{ lang_prefix }}/feed.xml"{% endstatic_href %}>
 
     {% assign alternate_path = page.url | default: '/' | remove: 'index.html' %}
     {% for language in site.languages %}
@@ -57,7 +81,6 @@
     {% endfor %}
     <link rel="alternate" hreflang="x-default" {% static_href %}href="{{ site.url }}{{ site.baseurl }}{{ alternate_path }}"{% endstatic_href %}>
 
-    {% feed_meta %}
     <link rel="stylesheet" href="{{ '/assets/css/styles.css' | relative_url }}?v={{ site.time | date: '%s' }}">
 
     <script data-goatcounter="/m/e" async src="/m/v1.js"></script>

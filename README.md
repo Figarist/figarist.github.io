@@ -129,4 +129,4 @@ Created and maintained by **Ihor Sivochka (Ігор Сівочка / Figarist)**
 - ⚒️ **3D Club Studio (`3D Кузня Чудес`):** [sivochka.com/3d-club-studio/](https://sivochka.com/3d-club-studio/) ([Repo](https://github.com/Figarist/3d-club-studio)) — offline 3D modeling studio & support-free STL generator
 - 🧱 **LEGO WeDo 2.0 Catalog:** [sivochka.com/lego-catalog/](https://sivochka.com/lego-catalog/) ([Repo](https://github.com/Figarist/lego-catalog)) — 597 robotics PDF building instructions in 26 categories
 - 🤫 **Quiet Class (`Тихий Клас`):** [sivochka.com/bouncy/](https://sivochka.com/bouncy/) ([Repo](https://github.com/Figarist/bouncy)) — gamified Web Audio DSP classroom noise meter
-- 📺 **YouTube:** [@proVR_ua](https://www.youtube.com/@proVR_ua) · 💬 **Telegram:** [@proVR_ua](https://t.me/proVR_ua) · 💻 **GitHub:** [@Figarist](https://github.com/Figarist)
+- 📺 **YouTube:** [@proVR_ua](https://www.youtube.com/@proVR_ua) · 💻 **GitHub:** [@Figarist](https://github.com/Figarist)

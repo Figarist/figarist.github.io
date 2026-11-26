@@ -28,11 +28,11 @@
       {% assign resolved_desc = resolved_desc | append: ' (' | append: page_word | append: ' ' | append: paginator.page | append: ')' %}
     {% endif %}
     {% comment %}Append the brand suffix only when the whole <title> stays within 60 characters.{% endcomment %}
-    {% assign suffixed_title = resolved_title | append: ' | Figarist' %}
-    {% if suffixed_title.size <= 60 %}{% assign head_title = suffixed_title %}{% else %}{% assign head_title = resolved_title %}{% endif %}
+    {% assign og_site_name = site.data[active_lang].strings.og_site_name | default: 'Ihor Sivochka' %}
+    {% assign suffixed_title = resolved_title | append: ' | ' | append: og_site_name %}
+    {% if resolved_title contains og_site_name %}{% assign head_title = resolved_title %}{% elsif suffixed_title.size <= 60 %}{% assign head_title = suffixed_title %}{% else %}{% assign head_title = resolved_title %}{% endif %}
     {% assign lang_prefix = '' %}{% unless active_lang == site.default_lang %}{% assign lang_prefix = active_lang | prepend: '/' %}{% endunless %}
     {% capture page_canonical %}{{ site.url }}{{ site.baseurl }}{{ lang_prefix }}{{ page.url | remove: 'index.html' }}{% endcapture %}
-    {% assign og_site_name = site.data[active_lang].strings.og_site_name | default: 'Figarist' %}
     {% assign seo_social_img = page.image | default: '/assets/images/default-social-card.webp' %}
     {% if seo_social_img contains '://' %}{% assign seo_social_url = seo_social_img %}{% else %}{% assign seo_social_url = site.url | append: site.baseurl | append: seo_social_img %}{% endif %}
     {% assign seo_social_size = seo_social_img | image_size %}

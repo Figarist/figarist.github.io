@@ -30,9 +30,13 @@ on:
         type: string
         default: "info"
 
+permissions:
+  contents: read
+
 jobs:
   send:
     runs-on: ubuntu-latest
+    timeout-minutes: 5
     steps:
       - name: Send rich Telegram notification
         env:

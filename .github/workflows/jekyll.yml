@@ -8,11 +8,9 @@ on:
   schedule:
     - cron: "15 8 * * *"
 
-# Grant GITHUB_TOKEN permissions to deploy Pages
+# Least privilege: only the deploy job gets pages/id-token write.
 permissions:
   contents: read
-  pages: write
-  id-token: write
 
 concurrency:
   group: "pages"
@@ -20,16 +18,19 @@ concurrency:
 
 jobs:
   build:
+    permissions:
+      contents: read
     runs-on: ubuntu-latest
+    timeout-minutes: 30
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v7
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
           # jekyll-last-modified-at derives published timestamps from Git.
           fetch-depth: 0
 
       - name: Setup Ruby
-        uses: ruby/setup-ruby@v1
+        uses: ruby/setup-ruby@14594264cd68ce8a2345dd349bc3d138a4ef85c8 # v1.327.0
         with:
           ruby-version: "3.4"
           bundler-cache: true
@@ -41,7 +42,7 @@ jobs:
           bundle exec jekyll --version
 
       - name: Cache Jekyll
-        uses: actions/cache@v6
+        uses: actions/cache@55cc8345863c7cc4c66a329aec7e433d2d1c52a9 # v6.1.0
         with:
           path: .jekyll-cache
           key: ${{ runner.os }}-jekyll-${{ hashFiles('Gemfile.lock') }}-${{ hashFiles('_config.yml') }}
@@ -49,7 +50,7 @@ jobs:
             ${{ runner.os }}-jekyll-
 
       - name: Setup Pages
-        uses: actions/configure-pages@v6
+        uses: actions/configure-pages@45bfe0192ca1faeb007ade9deae92b16b8254a0d # v6
 
       - name: Validate tutoring content rules
         run: bundle exec ruby scripts/test_tutoring_content.rb
@@ -135,7 +136,7 @@ jobs:
 
       # IndexNow: list pages whose HTML changed since the last successful submission.
       - name: Restore IndexNow manifest
-        uses: actions/cache/restore@v6
+        uses: actions/cache/restore@55cc8345863c7cc4c66a329aec7e433d2d1c52a9 # v6.1.0
         with:
           path: .indexnow-prev
           key: indexnow-${{ github.run_id }}
@@ -145,14 +146,14 @@ jobs:
         run: node scripts/indexnow.mjs plan --site _site --origin https://sivochka.com --prev .indexnow-prev/manifest.json --out indexnow-plan
 
       - name: Upload IndexNow plan
-        uses: actions/upload-artifact@v7
+        uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7.0.1
         with:
           name: indexnow-plan
           path: indexnow-plan/
           retention-days: 3
 
       - name: Upload artifact
-        uses: actions/upload-pages-artifact@v5
+        uses: actions/upload-pages-artifact@fc324d3547104276b827a68afc52ff2a11cc49c9 # v5
         with:
           path: ./_site
 
@@ -160,34 +161,44 @@ jobs:
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
+    permissions:
+      pages: write
+      id-token: write
     runs-on: ubuntu-latest
+    timeout-minutes: 10
     needs: build
     steps:
       - name: Deploy to GitHub Pages
         id: deployment
-        uses: actions/deploy-pages@v5
+        uses: actions/deploy-pages@368f82528645a54fb793d4d04e342629a3f51346 # v5.0.1
 
   verify:
     name: Verify live domain
+    permissions:
+      contents: read
     runs-on: ubuntu-latest
+    timeout-minutes: 15
     needs: deploy
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v7
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
 
       - name: Verify sitemap URLs and domain redirects
         run: ruby scripts/verify_live_site.rb
 
   indexnow:
     name: Ping IndexNow (Bing, Yandex, Seznam, Naver)
+    permissions:
+      contents: read
     runs-on: ubuntu-latest
+    timeout-minutes: 10
     needs: verify
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v7
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
 
       - name: Download IndexNow plan
-        uses: actions/download-artifact@v8
+        uses: actions/download-artifact@9000827ccba6bdab643e8b6fd33ac0654aef8333 # v8.0.2
         with:
           name: indexnow-plan
           path: .indexnow
@@ -199,7 +210,7 @@ jobs:
         run: mkdir -p .indexnow-prev && cp .indexnow/manifest.json .indexnow-prev/manifest.json
 
       - name: Save IndexNow manifest
-        uses: actions/cache/save@v6
+        uses: actions/cache/save@55cc8345863c7cc4c66a329aec7e433d2d1c52a9 # v6.1.0
         with:
           path: .indexnow-prev
           key: indexnow-${{ github.run_id }}
@@ -208,6 +219,8 @@ jobs:
     name: Notify Telegram on failure
     if: failure()
     needs: [build, deploy, verify, indexnow]
+    permissions:
+      contents: read
     uses: ./.github/workflows/notify-telegram.yml
     with:
       title: "Deploy failed on ${{ github.ref_name }}"

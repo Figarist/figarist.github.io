@@ -442,7 +442,19 @@ const code = codeEl.textContent;
       return;
     }
 
-    var results = lunrIndex.search(query + "*"); // Wildcard for better UX
+    var results = [];
+    try {
+      results = lunrIndex.search(query + "*"); // Wildcard for better UX
+    } catch (e) {
+      // lunr throws QueryParseError on syntax such as "foo:bar", "~" or "C++":
+      // retry with lunr's special characters stripped.
+      var safe = query.replace(/[:~^+*\-\\]/g, " ").trim();
+      try {
+        results = safe ? lunrIndex.search(safe + "*") : [];
+      } catch (e2) {
+        results = [];
+      }
+    }
     var html = "";
 
     if (results.length > 0) {

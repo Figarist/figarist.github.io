@@ -19,8 +19,8 @@ tags:
   - "unity"
   - "minecraft"
 author: "ihor"
-image: null
-image_alt: null
+image: "/assets/images/blog/cards/first-online-coding-lesson-for-kids-en.webp"
+image_alt: "First Coding Lesson for Kids: What to Expect Online"
 focus_keyword: "first coding lesson for kids what to expect"
 seo_title: "First Coding Lesson for Kids: What to Expect Online"
 seo_type: "BlogPosting"

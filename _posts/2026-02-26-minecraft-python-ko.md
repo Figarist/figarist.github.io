@@ -17,8 +17,8 @@ tags:
   - "education"
   - "coding"
 author: "ihor"
-image: null
-image_alt: null
+image: "/assets/images/blog/cards/minecraft-python-ko.webp"
+image_alt: "마인크래프트와 파이썬으로 배우는 프로그래밍 기초"
 focus_keyword: "minecraft python education"
 seo_title: "마인크래프트와 파이썬으로 배우는 프로그래밍 기초"
 seo_type: "BlogPosting"

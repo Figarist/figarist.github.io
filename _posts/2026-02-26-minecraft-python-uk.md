@@ -17,8 +17,8 @@ tags:
   - "education"
   - "coding"
 author: "ihor"
-image: null
-image_alt: null
+image: "/assets/images/blog/cards/minecraft-python-uk.webp"
+image_alt: "Основи програмування зі школярами через Minecraft"
 focus_keyword: null
 seo_title: "Основи програмування зі школярами через Minecraft"
 seo_type: "BlogPosting"

@@ -27,7 +27,7 @@
       ],
       "jobTitle": {{ t.role | jsonify }},
       "url": {{ '/' | absolute_url | jsonify }},
-      "image": {{ '/assets/images/figaristgithub.png' | absolute_url | jsonify }},
+      "image": {{ '/assets/images/is-mark-512.png' | absolute_url | jsonify }},
       "knowsAbout": [
         "Unity",
         "C#",
@@ -131,7 +131,7 @@
       "@type": "BreadcrumbList",
       "@id": {{ service_url | append: '#breadcrumb' | jsonify }},
       "itemListElement": [
-        {"@type": "ListItem", "position": 1, "name": "Figarist", "item": {{ localized_home_url | jsonify }}},
+        {"@type": "ListItem", "position": 1, "name": "sivochka.com", "item": {{ localized_home_url | jsonify }}},
         {"@type": "ListItem", "position": 2, "name": {{ t.nav | jsonify }}, "item": {{ localized_tutoring_url | jsonify }}}
         {% if course %},
         {"@type": "ListItem", "position": 3, "name": {{ course.heading | jsonify }}, "item": {{ service_url | jsonify }}}

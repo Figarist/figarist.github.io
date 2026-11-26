@@ -18,8 +18,8 @@ tags:
   - "education"
   - "coding"
 author: "ihor"
-image: null
-image_alt: null
+image: "/assets/images/blog/cards/unity-csharp-mentoring-for-kids-ru.webp"
+image_alt: "Уроки и менторство Unity C# для детей и подростков 1-на-1"
 focus_keyword: "репетитор ментор Unity C# для детей"
 seo_title: "Уроки и менторство Unity C# для детей и подростков 1-на-1"
 seo_type: "BlogPosting"

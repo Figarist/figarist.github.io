@@ -9,7 +9,7 @@ layout: default
 
 <article class="tutoring-page">
   <nav class="breadcrumbs" aria-label="{{ t.nav | escape }}">
-    <a href="{{ '/' | relative_url }}">Figarist</a>
+    <a href="{{ '/' | relative_url }}">sivochka.com</a>
     <span aria-hidden="true">/</span>
     <a href="{{ '/tutoring/' | relative_url }}">{{ t.nav }}</a>
     {% if course %}<span aria-hidden="true">/</span><span>{{ course.heading }}</span>{% endif %}
@@ -17,7 +17,7 @@ layout: default
 
   <section class="tutoring-hero" aria-labelledby="tutoring-title">
     <div class="tutoring-hero__copy">
-      <p class="tutoring-eyebrow">Figarist · {{ t.name }}</p>
+      <p class="tutoring-eyebrow">{% if course %}{{ t.nav }}{% else %}{{ t.name }}{% endif %}</p>
       <h1 id="tutoring-title">{{ course.h1 | default: course.title | default: t.heading }}</h1>
       <p class="tutoring-lead">{{ course.intro | default: t.intro }}</p>
       <div class="tutoring-hero__facts">

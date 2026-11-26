@@ -17,8 +17,8 @@ tags:
   - "education"
   - "tools"
 author: "ihor"
-image: null
-image_alt: null
+image: "/assets/images/blog/cards/3d-club-studio-minecraft-print-safe-ko.webp"
+image_alt: "3D 클럽 스튜디오: 서포트 없는 학교 3D 프린팅"
 focus_keyword: "3d 클럽 스튜디오"
 seo_title: "3D 클럽 스튜디오: 서포트 없는 학교 3D 프린팅"
 seo_type: "BlogPosting"

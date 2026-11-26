@@ -17,8 +17,8 @@ tags:
   - "tools"
   - "gamedev"
 author: "ihor"
-image: null
-image_alt: null
+image: "/assets/images/blog/cards/quiet-class-classroom-noise-meter-ko.webp"
+image_alt: "조용한 교실(Quiet Class): 무료 교실 소음 측정기"
 focus_keyword: "교실 소음 측정기"
 seo_title: "조용한 교실(Quiet Class): 무료 교실 소음 측정기"
 seo_type: "BlogPosting"

@@ -18,8 +18,8 @@ tags:
   - "unity"
   - "scratch"
 author: "ihor"
-image: null
-image_alt: null
+image: "/assets/images/blog/cards/coding-tutor-vs-group-classes-ko.webp"
+image_alt: "코딩 과외 vs 그룹 코딩 수업: 솔직한 비교"
 focus_keyword: "코딩 과외 vs 그룹 코딩 수업"
 seo_title: "코딩 과외 vs 그룹 코딩 수업: 솔직한 비교"
 seo_type: "BlogPosting"

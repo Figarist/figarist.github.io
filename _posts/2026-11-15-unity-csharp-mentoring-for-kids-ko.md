@@ -18,8 +18,8 @@ tags:
   - "education"
   - "coding"
 author: "ihor"
-image: null
-image_alt: null
+image: "/assets/images/blog/cards/unity-csharp-mentoring-for-kids-ko.webp"
+image_alt: "Unity & C# 어린이·청소년 1:1 온라인 멘토링"
 focus_keyword: "Unity C# 어린이 청소년 1대1 멘토링"
 seo_title: "Unity & C# 어린이·청소년 1:1 온라인 멘토링"
 seo_type: "BlogPosting"

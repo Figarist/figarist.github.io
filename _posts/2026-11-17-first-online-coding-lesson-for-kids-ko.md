@@ -19,8 +19,8 @@ tags:
   - "unity"
   - "minecraft"
 author: "ihor"
-image: null
-image_alt: null
+image: "/assets/images/blog/cards/first-online-coding-lesson-for-kids-ko.webp"
+image_alt: "아이의 첫 온라인 코딩 수업: 준비물과 기대할 점"
 focus_keyword: "아이 첫 코딩 수업 온라인"
 seo_title: "아이의 첫 온라인 코딩 수업: 준비물과 기대할 점"
 seo_type: "BlogPosting"

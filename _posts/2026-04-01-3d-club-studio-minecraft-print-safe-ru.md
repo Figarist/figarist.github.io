@@ -17,8 +17,8 @@ tags:
   - "education"
   - "tools"
 author: "ihor"
-image: null
-image_alt: null
+image: "/assets/images/blog/cards/3d-club-studio-minecraft-print-safe-ru.webp"
+image_alt: "3D Кузница Чудес: печать без поддержек для школ"
 focus_keyword: "3d кузница чудес"
 seo_title: "3D Кузница Чудес: печать без поддержек для школ"
 seo_type: "BlogPosting"

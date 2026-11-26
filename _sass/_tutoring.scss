@@ -55,17 +55,26 @@
 
 .home-mark,
 .site-nav__brand-mark {
-  display: inline-grid;
-  width: 28px;
+  display: inline-flex;
+  min-width: 30px;
   height: 28px;
-  place-items: center;
+  padding: 0 6px;
+  align-items: center;
+  justify-content: center;
   margin-right: 6px;
   border-radius: 8px;
   background: var(--text-primary);
-  color: #fff;
-  font-size: .88rem;
-  letter-spacing: 0;
+  color: #f2f0eb;
+  font-family: 'Outfit', var(--font-sans);
+  font-size: .9rem;
+  font-weight: 700;
+  letter-spacing: .02em;
+  text-transform: none;
+  line-height: 1;
 }
+
+.home-mark .brand-s,
+.site-nav__brand-mark .brand-s { color: var(--accent-green); }
 
 .home-hero h1,
 .tutoring-hero h1 {
@@ -1314,3 +1323,5 @@
 @media (max-width: 640px) {
   .calc-pills--stack, .ct-toolbar { grid-template-columns: 1fr; }
 }
+
+.footer-logo { display: flex; align-items: center; gap: 4px; }

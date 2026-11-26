@@ -17,8 +17,8 @@ tags:
   - "education"
   - "tools"
 author: "ihor"
-image: null
-image_alt: null
+image: "/assets/images/blog/cards/lego-wedo-2-0-instructions-catalog-ko.webp"
+image_alt: "LEGO WeDo 2.0 카탈로그: 597종 무료 로봇 조립 설명서"
 focus_keyword: "lego wedo 2.0 조립 설명서"
 seo_title: "LEGO WeDo 2.0 카탈로그: 597종 무료 로봇 조립 설명서"
 seo_type: "BlogPosting"

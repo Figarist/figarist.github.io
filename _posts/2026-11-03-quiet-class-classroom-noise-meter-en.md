@@ -17,8 +17,8 @@ tags:
   - "tools"
   - "gamedev"
 author: "ihor"
-image: null
-image_alt: null
+image: "/assets/images/blog/cards/quiet-class-classroom-noise-meter-en.webp"
+image_alt: "Quiet Class: Free Classroom Noise Meter for School TVs"
 focus_keyword: "classroom noise meter"
 seo_title: "Quiet Class: Free Classroom Noise Meter for School TVs"
 seo_type: "BlogPosting"

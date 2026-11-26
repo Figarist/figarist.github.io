@@ -17,8 +17,8 @@ tags:
   - "tools"
   - "gamedev"
 author: "ihor"
-image: null
-image_alt: null
+image: "/assets/images/blog/cards/quiet-class-classroom-noise-meter-ru.webp"
+image_alt: "Шумомер онлайн «Тихий класс»: бесплатно для уроков и ПК"
 focus_keyword: "шумомер для класса"
 seo_title: "Шумомер онлайн «Тихий класс»: бесплатно для уроков и ПК"
 seo_type: "BlogPosting"

@@ -231,7 +231,7 @@
 .nav-inner { padding: 12px 18px; }
 .site-nav__brand { position: relative; z-index: 2; display: inline-flex; flex: 0 0 auto; align-items: center; gap: 2px; color: var(--text-primary); font-size: 1rem; letter-spacing: -.01em; }
 .site-nav__brand:hover { color: var(--text-primary); }
-.site-nav__brand-mark { width: 24px; height: 24px; margin-right: 5px; border-radius: 6px; font-size: .75rem; }
+.site-nav__brand-mark { min-width: 34px; height: 30px; margin-right: 0; border-radius: 8px; font-size: 1rem; }
 .site-nav__links { gap: clamp(12px, 2vw, 24px); }
 .site-nav__links > a { color: var(--text-secondary); font-size: .8rem; }
 .site-nav__links > a:hover { color: var(--text-primary); }

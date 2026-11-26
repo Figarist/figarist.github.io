@@ -17,8 +17,8 @@ tags:
   - "unity"
   - "tools"
 author: "ihor"
-image: null
-image_alt: null
+image: "/assets/images/blog/cards/ogcruncher-game-audio-bitcrusher-uk.webp"
+image_alt: "OGCruncher: безкоштовний біткрашер звуку для ігор"
 focus_keyword: "біткрашер онлайн для ігор"
 seo_title: "OGCruncher: безкоштовний біткрашер звуку для ігор"
 seo_type: "BlogPosting"

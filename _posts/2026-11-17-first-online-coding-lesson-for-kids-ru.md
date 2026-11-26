@@ -19,8 +19,8 @@ tags:
   - "unity"
   - "minecraft"
 author: "ihor"
-image: null
-image_alt: null
+image: "/assets/images/blog/cards/first-online-coding-lesson-for-kids-ru.webp"
+image_alt: "Первый урок программирования для ребёнка онлайн"
 focus_keyword: "первый урок программирования для ребёнка онлайн"
 seo_title: "Первый урок программирования для ребёнка онлайн"
 seo_type: "BlogPosting"

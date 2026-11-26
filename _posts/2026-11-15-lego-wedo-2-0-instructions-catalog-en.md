@@ -17,8 +17,8 @@ tags:
   - "education"
   - "tools"
 author: "ihor"
-image: null
-image_alt: null
+image: "/assets/images/blog/cards/lego-wedo-2-0-instructions-catalog-en.webp"
+image_alt: "LEGO WeDo 2.0 Instructions: 597 Free Building Guides (PDF)"
 focus_keyword: "lego wedo 2.0 building instructions"
 seo_title: "LEGO WeDo 2.0 Instructions: 597 Free Building Guides (PDF)"
 seo_type: "BlogPosting"

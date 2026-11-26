@@ -11,8 +11,8 @@ category: "education"
 categories: ["education"]
 tags: ["education", "coding", "python", "unity", "scratch"]
 author: "ihor"
-image: null
-image_alt: null
+image: "/assets/images/blog/cards/how-to-choose-programming-for-child-uk.webp"
+image_alt: "Як обрати програмування для дитини: гід для батьків"
 seo_title: "Як обрати програмування для дитини: гід для батьків"
 seo_type: "BlogPosting"
 sitemap: true

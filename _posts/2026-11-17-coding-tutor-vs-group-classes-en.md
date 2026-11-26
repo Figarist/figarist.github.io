@@ -18,8 +18,8 @@ tags:
   - "unity"
   - "scratch"
 author: "ihor"
-image: null
-image_alt: null
+image: "/assets/images/blog/cards/coding-tutor-vs-group-classes-en.webp"
+image_alt: "Coding Tutor vs Coding Class for Kids: Honest Comparison"
 focus_keyword: "coding tutor vs coding class for kids"
 seo_title: "Coding Tutor vs Coding Class for Kids: Honest Comparison"
 seo_type: "BlogPosting"

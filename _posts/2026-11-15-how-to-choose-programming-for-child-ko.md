@@ -11,8 +11,8 @@ category: "education"
 categories: ["education"]
 tags: ["education", "coding", "python", "unity", "scratch"]
 author: "ihor"
-image: null
-image_alt: null
+image: "/assets/images/blog/cards/how-to-choose-programming-for-child-ko.webp"
+image_alt: "자녀를 위한 코딩 진로 선택 가이드 (학부모용)"
 seo_title: "자녀를 위한 코딩 진로 선택 가이드 (학부모용)"
 seo_type: "BlogPosting"
 sitemap: true

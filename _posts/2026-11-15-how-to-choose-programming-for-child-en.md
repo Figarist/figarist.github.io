@@ -11,8 +11,8 @@ category: "education"
 categories: ["education"]
 tags: ["education", "coding", "python", "unity", "scratch"]
 author: "ihor"
-image: null
-image_alt: null
+image: "/assets/images/blog/cards/how-to-choose-programming-for-child-en.webp"
+image_alt: "Scratch, Python or Unity? Coding for Kids by Age"
 seo_title: "Scratch, Python or Unity? Coding for Kids by Age"
 seo_type: "BlogPosting"
 sitemap: true

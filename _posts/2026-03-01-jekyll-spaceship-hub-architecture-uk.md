@@ -19,8 +19,8 @@ tags:
   - "mermaid"
   - "mathjax"
 author: "ihor"
-image: null
-image_alt: null
+image: "/assets/images/blog/cards/jekyll-spaceship-hub-architecture-uk.webp"
+image_alt: "Jekyll Spaceship + Hub Architecture: технічний лонгрід"
 focus_keyword: "jekyll-spaceship"
 seo_title: "Jekyll Spaceship + Hub Architecture: технічний лонгрід"
 seo_type: "BlogPosting"

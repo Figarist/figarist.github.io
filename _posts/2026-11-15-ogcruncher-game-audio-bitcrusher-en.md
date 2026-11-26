@@ -17,8 +17,8 @@ tags:
   - "unity"
   - "tools"
 author: "ihor"
-image: null
-image_alt: null
+image: "/assets/images/blog/cards/ogcruncher-game-audio-bitcrusher-en.webp"
+image_alt: "OGCruncher: Free Online Audio Bit-Crusher for Game SFX"
 focus_keyword: "online audio bit-crusher"
 seo_title: "OGCruncher: Free Online Audio Bit-Crusher for Game SFX"
 seo_type: "BlogPosting"

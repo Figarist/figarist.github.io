@@ -4,8 +4,8 @@ Expects Layout to provide context if needed, but uses standard page/site vars.
 {% endcomment %}
 {%- assign author_name = site.data[site.active_lang].strings.author_name | default: 'Sivochka Ihor' -%}
 {%- assign author_url = 'https://sivochka.com' -%}
-{%- assign site_logo = '/assets/images/figaristgithub.png' | absolute_url -%}
-{%- assign page_image = page.image | default: site.default_social_image | default: '/assets/images/figaristgithub.png' |
+{%- assign site_logo = '/assets/images/is-mark-512.png' | absolute_url -%}
+{%- assign page_image = page.image | default: site.default_social_image | default: '/assets/images/is-mark-512.png' |
 absolute_url -%}
 {%- assign language_prefix = '' -%}
 {%- unless site.active_lang == site.default_lang -%}
@@ -71,9 +71,10 @@ absolute_url -%}
       "@type": "WebSite",
       "@id": "{{ author_url }}#website",
       "url": "{{ author_url }}/",
-      "name": "Figarist — Ihor Sivochka",
+      "name": "Ihor Sivochka",
       "alternateName": [
         "Ігор Сівочка",
+        "sivochka.com",
         "Sivochka Ihor",
         "Figarist"
       ],
@@ -110,7 +111,7 @@ absolute_url -%}
       "@type": "BreadcrumbList",
       "@id": "{{ game_canonical_url }}#breadcrumb",
       "itemListElement": [
-        { "@type": "ListItem", "position": 1, "name": "Figarist", "item": "{{ localized_home_url }}" },
+        { "@type": "ListItem", "position": 1, "name": "sivochka.com", "item": "{{ localized_home_url }}" },
         { "@type": "ListItem", "position": 2, "name": {{ gd_games_label | jsonify }}, "item": "{{ localized_games_url }}" },
         { "@type": "ListItem", "position": 3, "name": {{ gcopy.title | jsonify }}, "item": "{{ game_canonical_url }}" }
       ]
@@ -168,7 +169,7 @@ absolute_url -%}
       "publisher": {
         "@type": "Organization",
         "@id": "{{ site.url }}#organization",
-        "name": "Figarist",
+        "name": "Ihor Sivochka",
         "logo": {
           "@type": "ImageObject",
           "url": "{{ site_logo }}"
@@ -188,7 +189,7 @@ absolute_url -%}
         {
           "@type": "ListItem",
           "position": 1,
-          "name": "{{ site.data[site.active_lang].strings.nav_brand | default: 'Figarist' }}",
+          "name": "{{ site.data[site.active_lang].strings.nav_brand | default: 'sivochka.com' }}",
           "item": "{{ localized_home_url }}"
         }
         {%- if page.layout == 'post' -%}

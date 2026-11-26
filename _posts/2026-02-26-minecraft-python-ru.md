@@ -17,8 +17,8 @@ tags:
   - "education"
   - "coding"
 author: "ihor"
-image: null
-image_alt: null
+image: "/assets/images/blog/cards/minecraft-python-ru.webp"
+image_alt: "Основы программирования с Minecraft и Python"
 focus_keyword: "minecraft python education"
 seo_title: "Основы программирования с Minecraft и Python"
 seo_type: "BlogPosting"

@@ -18,8 +18,8 @@ tags:
   - "unity"
   - "scratch"
 author: "ihor"
-image: null
-image_alt: null
+image: "/assets/images/blog/cards/coding-tutor-vs-group-classes-uk.webp"
+image_alt: "Репетитор з програмування чи курси для дітей?"
 focus_keyword: "репетитор з програмування чи курси для дітей"
 seo_title: "Репетитор з програмування чи курси для дітей?"
 seo_type: "BlogPosting"

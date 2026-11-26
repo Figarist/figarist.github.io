@@ -17,8 +17,8 @@ tags:
   - "education"
   - "tools"
 author: "ihor"
-image: null
-image_alt: null
+image: "/assets/images/blog/cards/lego-wedo-2-0-instructions-catalog-ru.webp"
+image_alt: "Каталог LEGO WeDo 2.0: 597 бесплатных схем сборки"
 focus_keyword: "lego wedo 2.0 инструкции"
 seo_title: "Каталог LEGO WeDo 2.0: 597 бесплатных схем сборки"
 seo_type: "BlogPosting"

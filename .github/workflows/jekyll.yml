@@ -81,7 +81,7 @@ jobs:
         env:
           JEKYLL_ENV: production
 
-      - name: Verify Git-derived content timestamps
+      - name: Verify content timestamps (Git for pages, explicit dates for posts)
         run: bundle exec ruby scripts/test_last_modified_history.rb
 
       - name: Validate production metadata and budgets

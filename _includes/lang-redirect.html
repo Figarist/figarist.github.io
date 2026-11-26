@@ -14,9 +14,25 @@
                 } else if (preferredLang !== activeLang) {
                     targetLang = preferredLang;
                 }
+            } else if (
+                activeLang === 'en' &&
+                (window.location.pathname === '/' || window.location.pathname === '/index.html') &&
+                !navigator.webdriver &&
+                !/bot|crawl|spider|slurp|facebookexternalhit|lighthouse|headless|bingpreview|yandex|baidu|duckduckbot|applebot|semrush|ahrefs/i.test(navigator.userAgent || '')
+            ) {
+                // First-time human visitor on the root English page: match the highest-priority browser language.
+                // Do not persist to localStorage so explicit URLs and switching back to EN always work.
+                var langs = (navigator.languages && navigator.languages.length)
+                    ? navigator.languages
+                    : [navigator.language || navigator.userLanguage || ''];
+                for (var i = 0; i < langs.length; i++) {
+                    var base = String(langs[i] || '').toLowerCase().split('-')[0];
+                    if (supportedLangs.includes(base)) {
+                        if (base !== activeLang) targetLang = base;
+                        break;
+                    }
+                }
             }
-            // Do not forcefully redirect first-time visitors or search crawlers (Googlebot)
-            // Explicit URL requested by the visitor or crawler is respected.
 
             // Execute Redirect
             if (targetLang && targetLang !== activeLang) {

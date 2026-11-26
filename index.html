@@ -15,7 +15,7 @@ changefreq: weekly
 <div class="home-shell">
   <section class="home-hero" id="bio" aria-labelledby="home-title">
     <div class="home-hero__copy">
-      <p class="home-eyebrow"><span class="home-mark" aria-hidden="true">I<span class="brand-s">S</span></span> {{ t.name }}</p>
+      <p class="home-eyebrow"><span class="home-mark notranslate" translate="no" aria-hidden="true">I<span class="brand-s">S</span></span> {{ t.name }}</p>
       <h1 id="home-title">{{ h.heading }}</h1>
       <p class="home-hero__lead">{{ h.intro }}</p>
       <div class="home-hero__actions">
@@ -36,7 +36,7 @@ changefreq: weekly
       <img src="{{ tutoring_settings.proof.own_project.image | relative_url }}" alt="{{ s.home_project_image_alt }}" width="480" height="300" fetchpriority="high">
       <div class="home-project-card__body">
         <p class="home-project-card__meta">{{ s.home_project_meta }}</p>
-        <h2 id="home-project-title">{{ tutoring_settings.proof.own_project.title }}</h2>
+        <h2 id="home-project-title" class="notranslate" translate="no">{{ tutoring_settings.proof.own_project.title }}</h2>
         <p>{{ s.home_practice_description }}</p>
         <a class="text-link text-link--light" href="{{ tutoring_settings.proof.own_project.url | relative_url }}">{{ s.home_project_cta }} <span aria-hidden="true">→</span></a>
       </div>
@@ -54,7 +54,7 @@ changefreq: weekly
     </div>
     <div class="explore-grid">
       <a href="{{ tutoring_settings.proof.studio_url }}" target="_blank" rel="noopener" class="explore-card explore-card--dark" id="studio">
-        <span>{{ s.nav_studio }}</span><strong>Wrist &amp; Pocket Studio</strong><small>{{ s.home_studio_detail }}</small><b aria-hidden="true">↗</b>
+        <span>{{ s.nav_studio }}</span><strong class="notranslate" translate="no">Wrist &amp; Pocket Studio</strong><small>{{ s.home_studio_detail }}</small><b aria-hidden="true">↗</b>
       </a>
       <a href="{{ '/blog/' | relative_url }}" class="explore-card" id="feed-gamedev">
         <span id="feed-vr" class="legacy-anchor" aria-hidden="true"></span>

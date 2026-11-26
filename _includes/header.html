@@ -3,7 +3,7 @@
     <nav class="site-nav" aria-label="{{ site.data[site.active_lang].strings.main_nav_aria }}">
         <div class="nav-inner">
             <a href="{% if site.active_lang == site.default_lang %}{{ '/' | relative_url }}{% else %}{{ '/' | append: site.active_lang | append: '/' | relative_url }}{% endif %}" class="site-nav__brand" id="site-logo" aria-label="{{ site.data[site.active_lang].strings.og_site_name | escape }}">
-                <span class="site-nav__brand-mark" aria-hidden="true">I<span class="brand-s">S</span></span>
+                <span class="site-nav__brand-mark notranslate" translate="no" aria-hidden="true">I<span class="brand-s">S</span></span>
             </a>
 
             <div class="site-nav__links">

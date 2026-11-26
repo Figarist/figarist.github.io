@@ -14,6 +14,10 @@ layout: default
     <span class="post-meta-author">{{ site.data[site.active_lang].strings.author_name }}</span>
     <span class="post-meta-sep">|</span>
     <time class="post-meta-date" datetime="{{ page.date | date_to_xmlschema }}">{{ page.date | local_date: site.active_lang }}</time>
+    {% if page.last_modified_at %}
+    <span class="post-meta-sep">|</span>
+    <span class="post-meta-updated">{{ site.data[site.active_lang].strings.updated_label | default: 'Updated' }} <time datetime="{{ page.last_modified_at | date_to_xmlschema }}">{{ page.last_modified_at | local_date: site.active_lang }}</time></span>
+    {% endif %}
     {% assign words = content | strip_html | number_of_words %}
     {% assign read_time = words | divided_by: 160 %}
     {% if read_time == 0 %}{% assign read_time = 1 %}{% endif %}

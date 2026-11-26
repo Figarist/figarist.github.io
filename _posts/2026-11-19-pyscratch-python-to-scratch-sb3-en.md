@@ -93,7 +93,6 @@ pyScratch is in test mode, and it doesn't match Scratch one to one yet. Here is 
 - Comments attached to blocks that pyScratch regenerates are lost when you save.
 - The stage in pyScratch is a simplified simulator, so some things (touching checks, for example) can behave a little differently from Scratch. The fisheye and whirl effects are not drawn. Check the final result in Scratch.
 - Only Scratch 3.0 files (`.sb3`) are supported. Open an old `.sb2` in Scratch 3.0 first and save it again.
-- Compiler error messages and the comments the converter adds to the code are in Ukrainian only for now.
 
 ## Who it's for
 

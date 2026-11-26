@@ -477,12 +477,13 @@ const code = codeEl.textContent;
     } else {
       var noResultsFoundText =
         searchResults.getAttribute("data-no-results") || "No matches found for";
-      html =
-        '<p class="search-no-results">' +
-        noResultsFoundText +
-        ' "' +
-        query +
-        '"</p>';
+      // The query is user input: build the empty state with textContent, never innerHTML.
+      var p = document.createElement("p");
+      p.className = "search-no-results";
+      p.textContent = noResultsFoundText + ' "' + query + '"';
+      searchResults.textContent = "";
+      searchResults.appendChild(p);
+      return;
     }
 
     searchResults.innerHTML = html;
@@ -659,6 +660,7 @@ const code = codeEl.textContent;
 
   // Zero-cookie sessionStorage funnel attribution (lead-source/<origin>)
   (function () {
+    if (/^(localhost|127\.0\.0\.1|\[::1\])$/.test(location.hostname)) return;
     try {
       var k = "lead_origin";
       if (!sessionStorage.getItem(k)) {
@@ -671,8 +673,8 @@ const code = codeEl.textContent;
         else if (ref) {
           var u = new URL(ref), rp = u.pathname;
           var rh = u.hostname.replace(/^www\./, ""), lh = location.hostname.replace(/^www\./, "");
-          // Local previews (localhost:4000) are the owner testing, not a traffic source.
-          if (/^(localhost|127\.0\.0\.1|\[::1\])$/.test(u.hostname)) origin = "direct";
+          // Arriving from a local preview (localhost:4000) is the owner testing: never record a lead for it.
+          if (/^(localhost|127\.0\.0\.1|\[::1\])$/.test(u.hostname)) origin = "dev";
           else if (rh !== lh) origin = "ext:" + u.hostname;
           else if (/^\/(canirunUnity|lego-catalog|OGCruncher|pyScratch|wearview)\b/.test(rp)) origin = "tool:" + rp.split("/")[1];
           else if (/\/blog\/([^/]+)/.test(rp)) origin = "blog:" + rp.match(/\/blog\/([^/]+)/)[1];
@@ -689,6 +691,7 @@ const code = codeEl.textContent;
         // Tutoring Telegram CTAs only (tutoring-telegram-*, tutoring-calc-telegram); "discuss in Telegram" under
         // posts is a reader action, not a lead.
         var a = e.target && e.target.closest ? e.target.closest('a[data-goatcounter-click^="tutoring-"][data-goatcounter-click*="telegram"]') : null;
+        if (sessionStorage.getItem(k) === "dev") return;
         if (a && window.goatcounter && typeof window.goatcounter.count === "function") {
           window.goatcounter.count({ path: "lead-source/" + (sessionStorage.getItem(k) || "direct"), event: true });
         }

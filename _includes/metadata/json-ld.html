@@ -58,7 +58,7 @@ absolute_url -%}
         }
       ],
       "sameAs": [
-        {% for link in site.social.links %}"{{ link }}",{% endfor %}
+        {% for link in site.data.authors.ihor.sameAs %}{{ link | jsonify }},{% endfor %}
         "https://sivochka.com/tutoring/",
         "https://sivochka.com/canirunUnity/",
         "https://sivochka.com/lego-catalog/",

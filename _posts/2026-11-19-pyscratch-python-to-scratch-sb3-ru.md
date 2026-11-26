@@ -61,7 +61,7 @@ pyScratch закрывает именно этот разрыв: ребёнок 
 
 Работает и в обратную сторону: можно писать код с нуля, и pyScratch соберёт из него блоки Scratch. Вот спрайт, который патрулирует сцену и отталкивается от края (пример из [справочника языка pyScratch](https://github.com/Figarist/pyScratch/blob/main/docs/DSL_REFERENCE.md)):
 
-```python
+{% capture py %}
 @when_flag_clicked
 def patrol():
     set_rotation_style("left-right")
@@ -72,7 +72,20 @@ def patrol():
         move(8)
         if_on_edge_bounce()
         wait(0.03)
-```
+{% endcapture %}
+{% capture sb %}
+when flag clicked
+set rotation style [left-right v]
+go to x: (0) y: (0)
+glide (0.5) secs to (random position v)
+point in direction (90)
+repeat (60)
+  move (8) steps
+  if on edge, bounce
+  wait (0.03) seconds
+end
+{% endcapture %}
+{% include py-scratch.html python=py blocks=sb %}
 
 Каждая функция здесь соответствует одному блоку Scratch. Декоратор `@when_flag_clicked` превращается в блок «когда флажок нажат» (в самом блоке вместо слова нарисован зелёный флажок), а `for i in range(60):` выполняет тело цикла 60 раз. Ребёнок, который собирал такое из блоков, узнает каждую строку.
 

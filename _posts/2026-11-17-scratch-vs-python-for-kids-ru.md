@@ -81,7 +81,7 @@ fmContentType: "Post"
 
 Вот пример такого масштаба. Квадрат из Scratch («повторить 4 раза: идти 100 шагов, повернуть на 90 градусов») в Python выглядит так:
 
-```python
+{% capture py %}
 import turtle
 
 t = turtle.Turtle()
@@ -90,7 +90,16 @@ for i in range(4):
     t.left(90)
 
 turtle.done()
-```
+{% endcapture %}
+{% capture sb %}
+when flag clicked
+pen down
+repeat (4)
+  move (100) steps
+  turn left (90) degrees
+end
+{% endcapture %}
+{% include py-scratch.html python=py blocks=sb run=false %}
 
 Шесть строк, и почти каждая напрямую соответствует знакомому блоку. На таком коде удобно показать, что цикл остался циклом, а поменялась только запись.
 

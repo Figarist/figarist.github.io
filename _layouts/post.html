@@ -58,6 +58,10 @@ layout: default
 <script defer src="{{ '/assets/js/post-media.js' | relative_url }}"></script>
 {% endif %}
 
+{% if content contains 'data-pysb' %}
+<script defer src="{{ '/assets/js/py-scratch.js' | relative_url }}" data-vendor="{{ '/assets/vendor/scratchblocks/' | relative_url }}"></script>
+{% endif %}
+
 {% if page.mermaid %}
 <script defer src="{{ '/assets/vendor/mermaid.min.js' | relative_url }}"></script>
 <script defer src="{{ '/assets/js/diagrams.js' | relative_url }}"></script>

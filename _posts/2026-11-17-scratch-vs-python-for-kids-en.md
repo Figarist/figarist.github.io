@@ -88,7 +88,7 @@ My first Python lessons use Turtle and basic examples. [Turtle](https://docs.pyt
 
 A first program can be this small:
 
-```python
+{% capture py %}
 import turtle
 
 t = turtle.Turtle()
@@ -97,7 +97,16 @@ for i in range(4):
     t.right(90)
 
 turtle.done()
-```
+{% endcapture %}
+{% capture sb %}
+when flag clicked
+pen down
+repeat (4)
+  move (100) steps
+  turn right (90) degrees
+end
+{% endcapture %}
+{% include py-scratch.html python=py blocks=sb run=false %}
 
 Two commands inside a loop, and a square appears. A Scratch student recognises "repeat 4, move 100, turn 90" straight away and now sees the same idea written as text. That recognition makes the new commands feel less foreign.
 

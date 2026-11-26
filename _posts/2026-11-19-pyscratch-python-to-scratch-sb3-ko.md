@@ -67,7 +67,7 @@ pyScratch는 바로 이 간격을 메우려고 합니다. 아이는 익숙한 �
 
 반대 방향도 됩니다. 코드를 처음부터 쓰면 pyScratch가 그 코드로 Scratch 블록을 만들어 줍니다. 아래는 무대를 돌아다니다가 벽에 닿으면 튕기는 스프라이트입니다([pyScratch 언어 레퍼런스](https://github.com/Figarist/pyScratch/blob/main/docs/DSL_REFERENCE.md)에 있는 예제입니다).
 
-```python
+{% capture py %}
 @when_flag_clicked
 def patrol():
     set_rotation_style("left-right")
@@ -78,7 +78,20 @@ def patrol():
         move(8)
         if_on_edge_bounce()
         wait(0.03)
-```
+{% endcapture %}
+{% capture sb %}
+when flag clicked
+set rotation style [left-right v]
+go to x: (0) y: (0)
+glide (0.5) secs to (random position v)
+point in direction (90)
+repeat (60)
+  move (8) steps
+  if on edge, bounce
+  wait (0.03) seconds
+end
+{% endcapture %}
+{% include py-scratch.html python=py blocks=sb %}
 
 여기서 함수 하나가 Scratch 블록 하나에 해당합니다. 데코레이터 `@when_flag_clicked`는 「깃발 클릭했을 때」 블록이 되고, `for i in range(60):`은 「60 번 반복하기」처럼 안쪽을 60번 실행합니다. 이걸 블록으로 직접 조립해 본 아이라면 어느 줄이든 알아볼 수 있습니다.
 

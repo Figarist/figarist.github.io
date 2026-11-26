@@ -85,7 +85,7 @@ Turtle входить у стандартну бібліотеку Python, то�
 
 Ось квадрат. У Scratch це блок «повторити 4» із кроком і поворотом усередині. У Python так:
 
-```python
+{% capture py %}
 import turtle
 
 t = turtle.Turtle()
@@ -94,7 +94,16 @@ for i in range(4):
     t.right(90)
 
 turtle.done()
-```
+{% endcapture %}
+{% capture sb %}
+when flag clicked
+pen down
+repeat (4)
+  move (100) steps
+  turn right (90) degrees
+end
+{% endcapture %}
+{% include py-scratch.html python=py blocks=sb run=false %}
 
 Дитина впізнає логіку одразу. Нове тут лише те, що кожне слово треба набрати правильно, а рядки всередині циклу мають відступ.
 

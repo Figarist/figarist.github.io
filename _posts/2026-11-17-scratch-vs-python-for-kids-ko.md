@@ -83,7 +83,7 @@ fmContentType: "Post"
 
 예를 들어 정사각형을 그리는 코드는 이렇습니다.
 
-```python
+{% capture py %}
 import turtle
 
 t = turtle.Turtle()
@@ -92,7 +92,16 @@ for i in range(4):
     t.left(90)
 
 turtle.done()
-```
+{% endcapture %}
+{% capture sb %}
+when flag clicked
+pen down
+repeat (4)
+  move (100) steps
+  turn left (90) degrees
+end
+{% endcapture %}
+{% include py-scratch.html python=py blocks=sb run=false %}
 
 스크래치에서 「4번 반복하기」 블록을 써 본 아이라면 `for i in range(4):`가 무슨 뜻인지 금방 알아봅니다. 형태만 새롭고 생각은 익숙합니다.
 

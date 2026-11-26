@@ -61,7 +61,7 @@ pyScratch закриває саме цей розрив: дитина бачит
 
 Працює й навпаки: можна писати код з нуля, а pyScratch складе з нього блоки Scratch. Ось як виглядає спрайт, що патрулює сцену і відбивається від краю (приклад із [довідника мови pyScratch](https://github.com/Figarist/pyScratch/blob/main/docs/DSL_REFERENCE.md)):
 
-```python
+{% capture py %}
 @when_flag_clicked
 def patrol():
     set_rotation_style("left-right")
@@ -72,7 +72,20 @@ def patrol():
         move(8)
         if_on_edge_bounce()
         wait(0.03)
-```
+{% endcapture %}
+{% capture sb %}
+when flag clicked
+set rotation style [left-right v]
+go to x: (0) y: (0)
+glide (0.5) secs to (random position v)
+point in direction (90)
+repeat (60)
+  move (8) steps
+  if on edge, bounce
+  wait (0.03) seconds
+end
+{% endcapture %}
+{% include py-scratch.html python=py blocks=sb %}
 
 Кожна функція тут відповідає одному блоку Scratch. Декоратор `@when_flag_clicked` стає блоком «коли прапорець натиснуто», а `for i in range(60):` виконує тіло циклу 60 разів. Для дитини, яка зібрала таке блоками, кожен рядок впізнаваний.
 

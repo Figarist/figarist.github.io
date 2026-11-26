@@ -13,8 +13,7 @@ layout: default
   <div class="post-header-meta">
     <span class="post-meta-author">{{ site.data[site.active_lang].strings.author_name }}</span>
     <span class="post-meta-sep">|</span>
-    <time class="post-meta-date" datetime="{{ page.date | date_to_xmlschema }}">{{ page.date | date: "%B %d, %Y"
-      }}</time>
+    <time class="post-meta-date" datetime="{{ page.date | date_to_xmlschema }}">{{ page.date | local_date: site.active_lang }}</time>
     {% assign words = content | strip_html | number_of_words %}
     {% assign read_time = words | divided_by: 160 %}
     {% if read_time == 0 %}{% assign read_time = 1 %}{% endif %}

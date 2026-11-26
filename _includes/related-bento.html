@@ -21,8 +21,7 @@
     {% assign main_tag = post.categories.first | default: post.tags.first %}
     {% if main_tag %}<span class="related-bento__badge">{{ main_tag }}</span>{% endif %}
     <h3 class="related-bento__title">{{ post.title }}</h3>
-    <time class="related-bento__date" datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: "%d %B %Y"
-        }}</time>
+    <time class="related-bento__date" datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | local_date: site.active_lang }}</time>
     </a>
     {% assign relatedCount = relatedCount | plus: 1 %}
     {% endif %}
@@ -46,8 +45,7 @@
             {% assign main_tag = post.categories.first | default: post.tags.first %}
             {% if main_tag %}<span class="related-bento__badge">{{ main_tag }}</span>{% endif %}
             <h3 class="related-bento__title">{{ post.title }}</h3>
-            <time class="related-bento__date" datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: "%d %B
-                %Y" }}</time>
+            <time class="related-bento__date" datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | local_date: site.active_lang }}</time>
             </a>
             {% assign fallback_count = fallback_count | plus: 1 %}
             {% endif %}

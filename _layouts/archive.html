@@ -22,7 +22,7 @@ layout: default
         <span class="post-title blog-list__title">{{ post.title }}</span>
         <div class="blog-list__meta">
           <time class="post-meta" datetime="{{ post.date | date_to_xmlschema }}">
-            {{ post.date | date: "%B %d, %Y" }}
+            {{ post.date | local_date: site.active_lang }}
           </time>
           {% if post.category %}
           <span class="blog-list__category">{{ post.category }}</span>

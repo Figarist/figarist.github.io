@@ -11,9 +11,6 @@
 
     <link rel="manifest" href="{{ '/manifest.json' | relative_url }}">
 
-    <link rel="preconnect" href="https://t.me">
-    <link rel="dns-prefetch" href="https://t.me">
-
     {% assign active_lang = site.active_lang | default: 'en' %}
     {% assign seo_title_key = 'seo_' | append: active_lang | append: '_title' %}
     {% assign seo_desc_key = 'seo_' | append: active_lang | append: '_desc' %}

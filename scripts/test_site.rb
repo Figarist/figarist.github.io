@@ -119,7 +119,8 @@ titles = []; descriptions = []
     visible_reviews = reviews.count { |item| item['status'] == 'published' && item['permission'] == true && item['ready'] == true }
     check(doc.css('.testimonial-card').size == (route.empty? ? 0 : visible_reviews), "#{path}: testimonial publication gate")
     doc.css('script[type="application/ld+json"]').each { |block| JSON.parse(block.text) }
-    check(doc.css('iframe[src="https://www.youtube-nocookie.com/embed/3CxXkJ8ANbQ"]').size == 1, "#{path}: embedded video missing")
+    check(doc.css('button[data-yt-src="https://www.youtube-nocookie.com/embed/3CxXkJ8ANbQ"]').size == 1, "#{path}: click-to-load video missing")
+    check(doc.css('iframe[src*="youtube"]').empty?, "#{path}: YouTube iframe must load only after a click")
     check(doc.css(".tutoring-adult-note").empty?, "#{path}: adult aside leaked")
     next if route.empty?
     contact = doc.at_css('.tutoring-hero [data-goatcounter-click]')

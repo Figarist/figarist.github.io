@@ -21,6 +21,7 @@
                 <ul>
                     <li><a href="{{ '/tutoring/' | relative_url }}">{{ site.data[site.active_lang].tutoring.nav }}</a></li>
                     <li><a href="{{ '/blog/' | relative_url }}">{{ site.data[site.active_lang].strings.workshop_label }}</a></li>
+                    <li><a href="{{ '/privacy/' | relative_url }}">{{ site.data[site.active_lang].privacy.nav }}</a></li>
                 </ul>
             </div>
 
@@ -38,6 +39,6 @@
             <div class="copyright">&copy; {{ 'now' | date: "%Y" }} {{ site.author.name }}. {{ site.data[site.active_lang].strings.footer_rights }}</div>
             <div class="compiled-by">{{ site.data[site.active_lang].strings.bio_roles }}</div>
         </div>
-        <p class="footer-privacy">{{ site.data[site.active_lang].strings.footer_privacy }}</p>
+        <p class="footer-privacy">{{ site.data[site.active_lang].strings.footer_privacy }} <a href="{{ '/privacy/' | relative_url }}">{{ site.data[site.active_lang].privacy.nav }}</a></p>
     </div>
 </footer>

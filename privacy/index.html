@@ -1,0 +1,43 @@
+---
+layout: default
+title: "Privacy policy"
+seo_en_title: "Privacy policy"
+seo_uk_title: "Політика конфіденційності"
+seo_ru_title: "Политика конфиденциальности"
+seo_ko_title: "개인정보 처리방침"
+description: "How sivochka.com handles data: no cookies or ads, cookieless visit counts via GoatCounter and Cloudflare, tools that run on your device and your rights."
+seo_en_desc: "How sivochka.com handles data: no cookies or ads, cookieless visit counts via GoatCounter and Cloudflare, tools that run on your device and your rights."
+seo_uk_desc: "Як sivochka.com працює з даними: без cookies і реклами, підрахунок візитів без cookies, інструменти працюють на вашому пристрої, ваші права за GDPR."
+seo_ru_desc: "Как sivochka.com работает с данными: без cookies и рекламы, подсчёт визитов без cookies, инструменты работают на вашем устройстве, ваши права по GDPR."
+seo_ko_desc: "sivochka.com의 데이터 처리 방식: 쿠키와 광고 없음, 쿠키 없는 방문 집계(GoatCounter, Cloudflare), 기기에서 작동하는 도구, GDPR에 따른 사용자의 권리 및 문의 방법을 안내합니다."
+sitemap: true
+changefreq: yearly
+priority: 0.3
+---
+{%- assign p = site.data[site.active_lang].privacy -%}
+{%- assign tg = site.data.tutoring.settings.contact.telegram_url -%}
+{%- capture seo_desc_field -%}seo_{{ site.active_lang }}_desc{%- endcapture -%}
+{%- assign p_desc = page[seo_desc_field] -%}
+
+<article class="post-container privacy-page">
+
+    {% include breadcrumbs.html %}
+
+    <h1 class="hub-page-title">{{ p.title }}</h1>
+    <p class="privacy-updated">{{ p.updated }}</p>
+
+    <div class="post-body">
+        <p>{{ p.intro }}</p>
+        {% for s in p.sections %}
+        <h2>{{ s.h }}</h2>
+        {% for b in s.body %}{% if b.list %}
+        <ul>{% for li in b.list %}
+            <li>{{ li | replace: '%EMAIL%', site.email | replace: '%TELEGRAM%', tg }}</li>{% endfor %}
+        </ul>{% else %}
+        <p>{{ b | replace: '%EMAIL%', site.email | replace: '%TELEGRAM%', tg }}</p>{% endif %}{% endfor %}
+        {% endfor %}
+    </div>
+
+</article>
+
+{% include metadata/json-ld.html type="WebPage" name=p.title description=p_desc %}

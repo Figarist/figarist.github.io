@@ -670,46 +670,57 @@ const code = codeEl.textContent;
     }
   })();
 
-  // Zero-cookie sessionStorage funnel attribution (lead-source/<origin>)
+  // Lead attribution without any browser storage (lead-source/<origin>): the origin is worked out at click time
+  // from ?ref=<tool>, the referrer (external site or the previous page on this site) and the current page.
   (function () {
     if (/^(localhost|127\.0\.0\.1|\[::1\])$/.test(location.hostname)) return;
-    try {
-      var k = "lead_origin";
-      if (!sessionStorage.getItem(k)) {
-        var ref = document.referrer, origin = "direct";
-        var tools = ["canirunUnity", "lego-catalog", "OGCruncher", "pyScratch", "wearview"];
-        var qr = (new URLSearchParams(location.search).get("ref") || "").toLowerCase();
-        var tool = "";
-        for (var i = 0; i < tools.length; i++) if (tools[i].toLowerCase() === qr) tool = tools[i];
-        if (tool) origin = "tool:" + tool;
-        else if (ref) {
-          var u = new URL(ref), rp = u.pathname;
-          var rh = u.hostname.replace(/^www\./, ""), lh = location.hostname.replace(/^www\./, "");
+    var tools = ["canirunUnity", "lego-catalog", "OGCruncher", "pyScratch", "wearview"];
+    var fromPath = function (p) {
+      if (/^\/(canirunUnity|lego-catalog|OGCruncher|pyScratch|wearview)\b/.test(p)) return "tool:" + p.split("/")[1];
+      var m = p.match(/\/blog\/([^/]+)/);
+      if (m) return "blog:" + m[1];
+      m = p.match(/\/games\/([^/]+)/);
+      return m ? "game:" + m[1] : "";
+    };
+    var leadOrigin = function () {
+      var qr = (new URLSearchParams(location.search).get("ref") || "").toLowerCase();
+      for (var i = 0; i < tools.length; i++) if (tools[i].toLowerCase() === qr) return "tool:" + tools[i];
+      var ref = document.referrer;
+      if (ref) {
+        try {
+          var u = new URL(ref);
           // Arriving from a local preview (localhost:4000) is the owner testing: never record a lead for it.
-          if (/^(localhost|127\.0\.0\.1|\[::1\])$/.test(u.hostname)) origin = "dev";
-          else if (rh !== lh) origin = "ext:" + u.hostname;
-          else if (/^\/(canirunUnity|lego-catalog|OGCruncher|pyScratch|wearview)\b/.test(rp)) origin = "tool:" + rp.split("/")[1];
-          else if (/\/blog\/([^/]+)/.test(rp)) origin = "blog:" + rp.match(/\/blog\/([^/]+)/)[1];
-          else if (/\/games\/([^/]+)/.test(rp)) origin = "game:" + rp.match(/\/games\/([^/]+)/)[1];
-        }
-        if (origin === "direct") {
-          var lp = location.pathname;
-          if (/\/blog\/([^/]+)/.test(lp)) origin = "blog:" + lp.match(/\/blog\/([^/]+)/)[1];
-          else if (/\/games\/([^/]+)/.test(lp)) origin = "game:" + lp.match(/\/games\/([^/]+)/)[1];
-        }
-        sessionStorage.setItem(k, origin);
+          if (/^(localhost|127\.0\.0\.1|\[::1\])$/.test(u.hostname)) return "dev";
+          if (u.hostname.replace(/^www\./, "") !== location.hostname.replace(/^www\./, "")) return "ext:" + u.hostname;
+          var o = fromPath(u.pathname);
+          if (o) return o;
+        } catch (e) {}
       }
-      document.addEventListener("click", function (e) {
-        // Tutoring Telegram CTAs only (tutoring-telegram-*, tutoring-calc-telegram); "discuss in Telegram" under
-        // posts is a reader action, not a lead.
-        var a = e.target && e.target.closest ? e.target.closest('a[data-goatcounter-click^="tutoring-"][data-goatcounter-click*="telegram"]') : null;
-        if (sessionStorage.getItem(k) === "dev") return;
-        if (a && window.goatcounter && typeof window.goatcounter.count === "function") {
-          window.goatcounter.count({ path: "lead-source/" + (sessionStorage.getItem(k) || "direct"), event: true });
-        }
-      });
-    } catch (e) {}
+      return fromPath(location.pathname) || "direct";
+    };
+    document.addEventListener("click", function (e) {
+      // Tutoring Telegram CTAs only (tutoring-telegram-*, tutoring-calc-telegram); "discuss in Telegram" under
+      // posts is a reader action, not a lead.
+      var a = e.target && e.target.closest ? e.target.closest('a[data-goatcounter-click^="tutoring-"][data-goatcounter-click*="telegram"]') : null;
+      if (!a || !window.goatcounter || typeof window.goatcounter.count !== "function") return;
+      var origin = leadOrigin();
+      if (origin !== "dev") window.goatcounter.count({ path: "lead-source/" + origin, event: true });
+    });
   })();
+
+  // Click-to-load YouTube: no request reaches YouTube/Google until the visitor presses play.
+  document.addEventListener("click", function (e) {
+    var btn = e.target && e.target.closest ? e.target.closest("button[data-yt-src]") : null;
+    if (!btn) return;
+    var f = document.createElement("iframe");
+    f.className = "tutoring-video";
+    f.src = btn.getAttribute("data-yt-src") + "?autoplay=1";
+    f.title = btn.getAttribute("data-yt-title") || "";
+    f.setAttribute("referrerpolicy", "strict-origin-when-cross-origin");
+    f.setAttribute("allow", "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share");
+    f.setAttribute("allowfullscreen", "");
+    btn.replaceWith(f);
+  });
 
 })();
 

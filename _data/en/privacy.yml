@@ -1,0 +1,100 @@
+# %EMAIL% and %TELEGRAM% are replaced in privacy/index.html with site.email and the tutoring Telegram URL.
+nav: "Privacy policy"
+title: "Privacy policy"
+updated: "Last updated: 27 November 2026"
+intro: >-
+  This page explains what happens to your data when you visit sivochka.com, use the free tools and games, or contact
+  me about lessons. Short version: no cookies, no ads, no selling or sharing of data for marketing, and no tracking
+  across other websites.
+sections:
+  - h: "Who is responsible"
+    body:
+      - >-
+        The controller of personal data is Ihor Sivochka, a sole proprietor (FOP) registered in Ukraine. Contact for any
+        privacy question: <a href="mailto:%EMAIL%">%EMAIL%</a> or <a href="%TELEGRAM%">Telegram</a>.
+  - h: "Hosting and security"
+    body:
+      - >-
+        The site is hosted on GitHub Pages (GitHub, Inc., USA) and delivered through Cloudflare (Cloudflare, Inc., USA),
+        which speeds it up and protects it from attacks and abusive bots. To deliver each page, these providers process
+        technical request data: IP address, browser type (User-Agent), requested address, referring page and time. This
+        is needed to show the site and keep it safe (legitimate interest, Art. 6(1)(f) GDPR). The providers keep such
+        logs for a short time under their own policies; I do not get your IP address from them.
+  - h: "Visit statistics"
+    body:
+      - >-
+        To understand which pages and tools are useful, I count visits with two cookieless services:
+      - list:
+          - >-
+            <b>GoatCounter</b> (open-source, hosted in the EU), loaded through my own proxy on Cloudflare. For every
+            pageview it receives the IP address, User-Agent and referring page to count unique visits, and does not
+            store the IP. It also counts clicks on some buttons (for example "Write in Telegram" or starting a game)
+            without knowing who clicked.
+          - >-
+            <b>Cloudflare Web Analytics</b>, a script from the hosting provider that counts visits and page load speed.
+            It uses no cookies and no fingerprinting and builds no visitor profiles.
+      - >-
+        I only see totals: how many visits, from which websites, to which pages, from which country. Neither service
+        identifies you, and I do not combine this data with anything else. Legal basis: legitimate interest in keeping
+        the site useful (Art. 6(1)(f) GDPR). You can block both with any content blocker; the site keeps working.
+  - h: "What is stored in your browser"
+    body:
+      - >-
+        The site sets no cookies. A few things are saved only in your own browser and are never sent to me:
+      - list:
+          - "the language you chose, so the next visit opens in it;"
+          - "a cache of site files (service worker), so pages open faster and work offline;"
+          - "settings and progress inside the free tools, for example favourites in the LEGO catalog;"
+          - "game saves and cached game files when you start a game from play.sivochka.com."
+      - >-
+        You can delete all of it at any time in your browser settings (site data for sivochka.com).
+  - h: "Tools work on your device"
+    body:
+      - >-
+        The free tools (OGCruncher, pyScratch, Can I Run Unity, Bouncy, the LEGO instructions catalog and others)
+        process your files and settings directly in the browser. Audio files, Scratch projects and other files you open
+        are not uploaded anywhere. Bouncy uses the microphone only after you allow it, measures loudness on your device
+        and neither records nor sends the sound.
+  - h: "Video and external links"
+    body:
+      - >-
+        The intro video on the tutoring pages is loaded from YouTube (Google) only after you press play; before that no
+        request goes to YouTube. After you start it, Google's
+        <a href="https://policies.google.com/privacy" rel="noopener">privacy policy</a> applies. Links to Telegram,
+        GitHub, Google Drive (LEGO instructions), Wrist &amp; Pocket Studio and other sites open those services, and
+        their own policies apply there.
+  - h: "Contacting me about lessons"
+    body:
+      - >-
+        The site has no forms. If you write to me in Telegram or by email, I receive what you send (name, contact, the
+        student's age, level and goals) and use it only to answer, arrange and run lessons (steps before and under a
+        contract, Art. 6(1)(b) GDPR). I keep this correspondence while we work together and as long as Ukrainian
+        accounting rules require for payments, and delete it on request when no law requires keeping it. Payments go to
+        the bank account of a Ukrainian sole proprietor; the site itself does not process payments.
+      - >-
+        For my own statistics I note only the date, the channel the request came from (for example Google or Telegram)
+        and its stage (wrote, trial lesson, student). No names or contacts are stored there.
+  - h: "Children"
+    body:
+      - >-
+        Lessons for minors are arranged with a parent or guardian. The site does not ask children for personal data.
+        Student projects are published only with the written consent of a parent and show only the first name, the
+        initial of the surname and the age, without photos or a city.
+  - h: "Transfers outside your country"
+    body:
+      - >-
+        Cloudflare, GitHub and Google are based in the USA. Transfers to them rely on the EU–US Data Privacy Framework
+        and the European Commission's standard contractual clauses that these companies use.
+  - h: "Your rights"
+    body:
+      - >-
+        Under the GDPR (EU/EEA), the UK GDPR and the Law of Ukraine "On Personal Data Protection" you can ask what data
+        I have about you, have it corrected or deleted, restrict or object to its processing, and receive it in a
+        portable form. Write to <a href="mailto:%EMAIL%">%EMAIL%</a>; I answer within 30 days. You may also complain to
+        the data protection authority of your country (in Ukraine, the Ukrainian Parliament Commissioner for Human
+        Rights).
+  - h: "Changes"
+    body:
+      - >-
+        If I add new services or change how data is used, I will update this page before the change takes effect and
+        change the date at the top.

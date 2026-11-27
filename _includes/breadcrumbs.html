@@ -38,6 +38,10 @@
     <li class="breadcrumbs__item breadcrumbs__item--active">
       <span>{{ site.data[site.active_lang].strings.workshop_label }}</span>
     </li>
+    {%- elsif page_path == '/privacy' or page_path == '/privacy/' -%}
+    <li class="breadcrumbs__item breadcrumbs__item--active">
+      <span>{{ site.data[site.active_lang].privacy.title }}</span>
+    </li>
     {%- elsif page_path == '/collection' or page_path == '/collection/' -%}
     <li class="breadcrumbs__item breadcrumbs__item--active">
       <span>{{ site.data[site.active_lang].strings.shrine_title }}</span>

@@ -1,5 +1,9 @@
 ---
 layout: default
 ---
-{% include game-page-body.html %}
+{% capture game_body %}{% include game-page-body.html %}{% endcapture %}
+{{ game_body }}
 {% include metadata/json-ld.html type="VideoGame" %}
+{% if game_body contains 'data-gallery' %}
+<script defer src="{{ '/assets/js/post-media.js' | relative_url }}"></script>
+{% endif %}

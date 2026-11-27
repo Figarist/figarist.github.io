@@ -15,7 +15,7 @@
 {%- assign pm_photos = pm_dir | gallery_photos -%}
 {%- assign pm_count = pm_photos.size -%}
 {%- if pm_count > 0 -%}
-{%- assign pm_alts = page.photo_alts[include.id] -%}
+{%- assign pm_alts = include.alts | default: page.photo_alts[include.id] -%}
 {%- assign pm_caption = include.caption | default: page.title -%}
 {%- assign pm_layout = pm_count -%}{%- if pm_layout > 5 -%}{%- assign pm_layout = 5 -%}{%- endif -%}
 <figure class="pm-gallery pm-gallery--n{{ pm_layout }}" data-gallery>

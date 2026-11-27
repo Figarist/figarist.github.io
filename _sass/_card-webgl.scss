@@ -582,10 +582,15 @@
   background: #d0ec9f;
 }
 
+.game-detail__screenshots,
 .game-detail__story,
 .game-detail__faq,
 .game-detail__posts {
   margin-bottom: 24px;
+}
+
+.game-detail__screenshots .pm-gallery {
+  margin: 12px 0 0;
 }
 
 .game-detail__faq-list {

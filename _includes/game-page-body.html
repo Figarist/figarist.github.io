@@ -22,6 +22,7 @@
     {% assign gd_cta_btn = "Дізнатися про навчання Unity" %}
     {% assign gd_loading = "● Завантаження WebGL…" %}
     {% assign gd_running = "● Запущено в браузері" %}
+    {% assign gd_screenshots_title = "Скріншоти" %}
   {% when 'ru' %}
     {% assign gd_home = "Главная" %}
     {% assign gd_games = "Игры" %}
@@ -38,6 +39,7 @@
     {% assign gd_cta_btn = "Подробнее об обучении Unity" %}
     {% assign gd_loading = "● Загрузка WebGL…" %}
     {% assign gd_running = "● Запущено в браузере" %}
+    {% assign gd_screenshots_title = "Скриншоты" %}
   {% when 'ko' %}
     {% assign gd_home = "홈" %}
     {% assign gd_games = "게임" %}
@@ -54,6 +56,7 @@
     {% assign gd_cta_btn = "Unity 수업 자세히 보기" %}
     {% assign gd_loading = "● WebGL 로딩 중…" %}
     {% assign gd_running = "● 브라우저에서 실행 중" %}
+    {% assign gd_screenshots_title = "스크린샷" %}
   {% else %}
     {% assign gd_home = "Home" %}
     {% assign gd_games = "Games" %}
@@ -70,6 +73,7 @@
     {% assign gd_cta_btn = "Explore Unity Lessons" %}
     {% assign gd_loading = "● Loading WebGL…" %}
     {% assign gd_running = "● Running in browser" %}
+    {% assign gd_screenshots_title = "Screenshots" %}
 {% endcase %}
 
 <div class="game-detail" data-game-slug="{{ game.slug }}">
@@ -178,6 +182,15 @@
       </button>
     </div>
   </section>
+
+  {% capture screenshots_dir %}/assets/images/games/{{ game.slug }}/{% endcapture %}
+  {% assign screenshots = screenshots_dir | gallery_photos %}
+  {% if screenshots.size > 0 %}
+  <section class="game-detail__screenshots" aria-labelledby="game-screenshots-heading">
+    <h2 class="game-detail__section-title" id="game-screenshots-heading">{{ gd_screenshots_title }}</h2>
+    {% include gallery.html id="screenshots" dir=screenshots_dir alts=copy.screenshot_alts %}
+  </section>
+  {% endif %}
 
   <div class="game-detail__sections">
     <section class="game-detail__section">

@@ -1,3 +1,17 @@
+- id: ember-panic
+  slug: ember-panic
+  status: published
+  kind: prototype
+  author_type: owner
+  permission: true
+  featured: false
+  aspect_ratio: "16:9"
+  cover: "/assets/images/games/ember-panic-cover.jpg"
+  engine: "Unity 6 (6000.6.8f1)"
+  platforms: "WebGL (desktop browser)"
+  itch_url: ""
+  github_url: ""
+  build_path: "https://play.sivochka.com/ember-panic/v1/index.html"
 - id: dish-of-chaos
   slug: dish-of-chaos
   status: published

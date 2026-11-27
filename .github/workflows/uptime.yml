@@ -36,6 +36,7 @@ jobs:
             "https://sivochka.com/m/v1.js|200|goatcounter"
             "https://wristandpocket.dev/m/v1.js|200|goatcounter"
             "https://play.sivochka.com/dish-of-chaos/v1/index.html|200|"
+            "https://play.sivochka.com/ember-panic/v1/index.html|200|"
             "https://sivochka.com/sitemap.xml|200|<urlset"
             "https://wristandpocket.dev/sitemap.xml|200|<urlset"
             "https://sivochka.com/security.txt|200|Contact:"

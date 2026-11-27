@@ -11,7 +11,7 @@
   platforms: "WebGL (desktop browser)"
   itch_url: ""
   github_url: ""
-  build_path: "https://play.sivochka.com/ember-panic/v3/index.html"
+  build_path: "https://play.sivochka.com/ember-panic/v4/index.html"
 - id: dish-of-chaos
   slug: dish-of-chaos
   status: published

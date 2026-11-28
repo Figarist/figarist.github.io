@@ -1,0 +1,326 @@
+{
+  "nav": "Lekcje",
+  "title": "Korepetytor Unity, C#, Python i Scratch online — Ihor Sivochka",
+  "description": "Indywidualny mentoring 1-na-1 z programowania i tworzenia gier dla dzieci i młodzieży: Unity & C#, Python, Minecraft, Scratch, informatyka. 20 € / ~$22 (1000 UAH) za 60 min.",
+  "heading": "Indywidualny mentoring 1-na-1 z Unity, C#, Pythona i informatyki",
+  "mobile_heading": "Mentoring Unity, C# i Python",
+  "intro": "Jestem Ihor Sivochka — praktykujący niezależny twórca gier, magister edukacji informatycznej i autor działających platform EdTech. Moim głównym kierunkiem jest mentoring 1-na-1 z Unity i C# dla dzieci i nastolatków (tworzenie gier 2D/3D, AI przeciwników, multiplayer i projekty do portfolio od zera). Uczę też Pythona (m.in. przez Minecrafta), Scratcha dla dzieci od 6 lat oraz szkolnej informatyki. Wyłącznie lekcje indywidualne — bez grupowych slajdów i masowych kursów.",
+  "audience": "Dzieci i młodzież w wieku 6–17 lat na całym świecie (Polska, Ukraina, Europa, Wielka Brytania, USA, Kanada, Izrael).",
+  "language": "Mentoring 1-na-1 na Zoom · 60 min · Cały świat (PL, EU, US, CA, UA)",
+  "cta": "Umów lekcję na Telegramie",
+  "availability": "Liczba miejsc w tygodniu jest ograniczona. Napisz na Telegramie, aby sprawdzić terminy i ustalić cele.",
+  "choose": "Wybierz ścieżkę mentoringu 1-na-1",
+  "learn": "Czego uczymy się i co budujemy",
+  "projects": "Prawdziwe projekty i efekty uczniów",
+  "project_note": "Każdy projekt rozwija się wokół pomysłów ucznia — od pierwszych grywalnych prototypów po rozbudowane gry 3D. Tempo i zakres dopasowujemy do wieku i doświadczenia.",
+  "approach": "Jak wygląda mentoring 1-na-1",
+  "steps": [
+    "Uzgadniamy z rodzicami na Telegramie wiek ucznia, strefę czasową, sprzęt i cele oraz rezerwujemy stały termin w tygodniu. Pierwsza płatna lekcja (60 min) od razu zaczyna się od praktyki.",
+    "Pracujemy na żywo 1-na-1 nad własnym projektem ucznia — od prostych mechanik po architekturę C#, fizykę, AI przeciwników czy tryb multiplayer.",
+    "Tłumaczę, dlaczego kod działa, uczę samodzielnego debugowania i dopasowuję tempo bez gotowych prezentacji grupowych."
+  ],
+  "proof": "Nauka z praktykiem, który wydaje prawdziwe gry i narzędzia EdTech",
+  "proof_text": "Zamiast suchej teorii z podręcznika uczeń pracuje z aktywnym deweloperem, którego gry i aplikacje działają w tej domenie: Dish of Chaos (Unity 6 WebGL), 3D Club Studio, OGCruncher Web Audio DSP, katalog LEGO WeDo 2.0 (597 instrukcji) i Quiet Class (Bouncy). Potwierdzają to certyfikaty Unity Junior Programmer, Unity Essentials, tytuł magistra edukacji oraz 18 niezależnych opinii 5/5 na BUKI i w Ukraińskim Stowarzyszeniu Korepetytorów.",
+  "game": "Zagraj w moją grę Dish of Chaos",
+  "reviews": "Opinie na BUKI",
+  "faq": "Cena, format i najczęstsze pytania",
+  "questions": [
+    [
+      "Ile kosztują lekcje indywidualne i dlaczego to mentoring 1-na-1?",
+      "Stała stawka wynosi 20 € dla rodzin w Europie / ~$22 USD dla USA i Kanady (lub 1000 UAH) za 60-minutową sesję 1-na-1. Uczeń pracuje bezpośrednio z praktykującym twórcą gier indie, magistrem edukacji informatycznej i autorem narzędzi EdTech — nie z masowym kursem ani młodszym instruktorem. Liczba miejsc w tygodniu jest ograniczona, aby każdy projekt otrzymał pełną uwagę."
+    ],
+    [
+      "Czy jest darmowa lekcja próbna?",
+      "Wstępna konsultacja z rodzicem na Telegramie (omówienie wieku, celów, gotowości sprzętu i wybór ścieżki) jest bezpłatna. Pierwsza pełna 60-minutowa lekcja praktyczna i start projektu są płatne według standardowej stawki (20 € / ~$22 / 1000 UAH)."
+    ],
+    [
+      "Jaki wiek i kierunek wybrać na początek?",
+      "W wieku 6–9 lat najlepiej zacząć od Scratcha, aby rozwinąć myślenie algorytmiczne. W wieku 9–12 lat świetnie sprawdza się Python (również przez Minecrafta) lub płynne wejście w Unity. Nastolatki 10–17 lat najwięcej zyskują na flagowym torze Unity & C#, budując prawdziwe gry 2D/3D do portfolio."
+    ],
+    [
+      "Czy można uczyć się z Polski, Europy, USA, Kanady lub Izraela?",
+      "Tak, większość uczniów dołącza online z Polski, innych krajów Europy, Ameryki Północnej, Izraela i Ukrainy. Lekcje odbywają się na Zoom w stałym tygodniowym terminie dopasowanym do lokalnej strefy czasowej (zajęcia po ukraińsku lub rosyjsku; terminologia branżowa po angielsku)."
+    ],
+    [
+      "Jaki sprzęt jest potrzebny do zajęć?",
+      "Do Unity, Pythona i Minecrafta potrzebny jest komputer lub laptop z Windows lub macOS, z Zoomem, udostępnianiem ekranu i możliwością instalacji programów. Scratch działa zarówno na komputerze, jak i na tablecie."
+    ],
+    [
+      "Jak zarezerwować stały termin w tygodniu?",
+      "Napisz do @Figarist na Telegramie, podając wiek ucznia, kraj i strefę czasową, wybrany kierunek (Unity/C#, Python, Scratch, informatyka), dotychczasowe doświadczenie oraz dogodne godziny."
+    ],
+    [
+      "Jak wygląda płatność za lekcje?",
+      "Szczegóły płatności znajdują się w sekcji warunków powyżej."
+    ]
+  ],
+  "contact": "Zarezerwuj termin mentoringu",
+  "contact_text": "Format 1-na-1 (20 € / ~$22 / 1000 UAH za 60 min). Napisz wiek ucznia, strefę czasową, doświadczenie i to, co chce stworzyć.",
+  "all": "Wszystkie ścieżki mentoringu",
+  "courses": [
+    {
+      "slug": "unity",
+      "title": "Korepetytor Unity i C# online dla dzieci i młodzieży — Ihor Sivochka",
+      "h1": "Mentoring i korepetycje Unity & C# online dla dzieci i młodzieży — Ihor Sivochka",
+      "heading": "Mentoring 1-na-1 z tworzenia gier w Unity i C#",
+      "description": "Indywidualne lekcje online Unity i C# dla dzieci i młodzieży z certyfikowanym deweloperem. Gry 2D/3D, AI i multiplayer. 20 € / ~$22 (1000 UAH) za 60 min.",
+      "intro": "Flagowy tor mentoringowy dla uczniów w wieku 10–17 lat, którzy chcą przejść od grania do projektowania własnych gier 2D i 3D w Unity i C#. Pracując 1-na-1, uczniowie przechodzą od pierwszych skryptów ruchu do rozbudowanych projektów, takich jak gra 3D Hello Neighbour Danii z reaktywnym AI czy sieciowy hokej 3D Hockey Zombie Maksyma.",
+      "topics": [
+        "Architektura edytora Unity: sceny, prefaby, komponenty i ScriptableObjects",
+        "Programowanie w C#: zmienne, warunki, pętle, metody, klasy OOP i zdarzenia",
+        "Fizyka gry (Rigidbody, kolizje, Vector3), kamery, dźwięk i animacje",
+        "Logika AI przeciwników (patrolowanie, wykrywanie dźwięku, stany) i podstawy multiplayera",
+        "UI Canvas, przerywniki filmowe, optymalizacja i budowanie gier standalone/WebGL"
+      ],
+      "examples": [
+        "Tajemnicza gra przygodowa 3D z ekwipunkiem, scenkami i reaktywnym AI przeciwnika (roczny projekt ucznia Danii — Hello Neighbour)",
+        "Dw osobowy hokej 3D online z obsługą sieciowego multiplayera (projekt ucznia Maksyma — Hockey Zombie)",
+        "Autorska gra zręcznościowa lub platformówka 2D z punktacją, animacjami, dźwiękiem i menu"
+      ],
+      "steps": [
+        "Omawiamy pomysły ucznia na grę i sprawdzamy parametry komputera. Początkujący mogą zacząć bez znajomości C# albo przynieść własną scenę Unity.",
+        "Już na pierwszych zajęciach powstaje grywalny mini-prototyp, dzięki czemu uczeń od razu widzi, jak linie C# sterują rozgrywką.",
+        "Stopniowo zwiększamy złożoność: dzielimy duże pomysły na zadania, czytamy błędy w konsoli i budujemy gotowe wersje gry."
+      ],
+      "questions": [
+        [
+          "Ile kosztują lekcje Unity i C# oraz dlaczego prowadzone są 1-na-1?",
+          "Każda 60-minutowa sesja indywidualna kosztuje 20 € / ~$22 USD (1000 UAH). Uczeń pracuje 1-na-1 z certyfikowanym deweloperem Unity Junior Programmer i Unity Essentials oraz magistrem edukacji informatycznej — cała godzina poświęcona jest architekturze jego gry i kodowi C#."
+        ],
+        [
+          "Czy można zacząć Unity bez znajomości C#?",
+          "Tak. Zaczynamy od edytora i prostych obiektów, a następnie wprowadzamy zmienne, warunki, pętle, metody i klasy C# bezpośrednio w mechanikach gry, aby uczeń rozumiał każdą linijkę zamiast kopiować gotowce."
+        ],
+        [
+          "Czy uczeń może przyjść z własnym rozpoczętym projektem?",
+          "Tak. Przeglądamy istniejący projekt, porządkujemy architekturę i wyznaczamy jasne kolejne kroki inżynieryjne bez nierealnych obietnic."
+        ],
+        [
+          "Czy można uczyć się z zagranicy?",
+          "Tak, lekcje odbywają się online przez Zoom z udostępnianiem ekranu i są dopasowane do stref czasowych Polski, Europy, Wielkiej Brytanii, USA, Kanady i Izraela."
+        ],
+        [
+          "Jaki komputer jest potrzebny do Unity?",
+          "Komputer lub laptop z Windows albo macOS zdolny uruchomić Unity Hub, edytor kodu i Zooma (zalecane 8–16 GB RAM do projektów 3D; weryfikujemy przed zapisem)."
+        ],
+        [
+          "Jak wygląda płatność za lekcje?",
+          "Szczegóły płatności znajdują się w sekcji warunków powyżej."
+        ]
+      ]
+    },
+    {
+      "slug": "python",
+      "title": "Korepetytor Pythona online dla dzieci i młodzieży — Ihor Sivochka",
+      "h1": "Indywidualne lekcje Pythona 1-na-1 dla dzieci i młodzieży — Ihor Sivochka",
+      "heading": "Python: kod tekstowy, algorytmy i własne programy",
+      "description": "Indywidualne lekcje Pythona online dla dzieci i młodzieży: czysty kod, algorytmy, projekty oraz Python w Minecraft. 20 € / ~$22 (1000 UAH) za 60 min.",
+      "intro": "Dla uczniów w wieku 9–17 lat gotowych przejść od bloków wizualnych do prawdziwego programowania tekstowego w Pythonie. Uczymy się rozbijania problemów na kroki, struktur danych, algorytmów oraz tworzymy grywalne gry i praktyczne narzędzia.",
+      "topics": [
+        "Podstawy składni Pythona: zmienne, typy danych, instrukcje warunkowe i pętle",
+        "Funkcje, listy, słowniki, obsługa plików i wyjątków",
+        "Myślenie algorytmiczne, zadania olimpijskie i szkolna informatyka",
+        "Grafika żółwiowa (Turtle), tekstowe gry RPG i podstawy automatyzacji"
+      ],
+      "examples": [
+        "Interaktywna tekstowa gra RPG lub quiz z ekwipunkiem i rozgałęzioną walką",
+        "Proceduralna geometria i animacje w Python Turtle",
+        "Własne skrypty automatyzujące i narzędzia logiczne dopasowane do pasji ucznia"
+      ],
+      "steps": [
+        "Oceniamy dotychczasowe doświadczenie i dobieramy ścieżkę: Python projektowy albo Python w Minecraftcie (Minescript).",
+        "Na każdej lekcji wprowadzamy nowe pojęcie i od razu wykorzystujemy je we własnym kodzie ucznia bez suchego wkuwania.",
+        "Budujemy nawyk pisania czystego kodu, samodzielnego debugowania i przygotowujemy grunt pod Unity C# lub dalszą naukę programowania."
+      ],
+      "questions": [
+        [
+          "Ile kosztują lekcje Pythona?",
+          "Stawka za 60-minutową lekcję 1-na-1 wynosi 20 € / ~$22 USD (1000 UAH). To indywidualna nauka z magistrem edukacji informatycznej i praktykującym deweloperem."
+        ],
+        [
+          "Czy Python może być pierwszym językiem programowania?",
+          "Tak — od 9–10 roku życia Python jest świetnym wyborem dzięki czytelnej składni. Dla dzieci w wieku 6–8 lat lepiej zacząć od Scratcha przed Pythonem."
+        ],
+        [
+          "Czy można uczyć się Pythona przez Minecrafta?",
+          "Tak. Dedykowany tor Minescript łączy zmienne, współrzędne, warunki i pętle Pythona bezpośrednio z akcjami w grze. Zgodność sprzętu sprawdzamy przed startem."
+        ],
+        [
+          "Czy można dołączyć spoza Ukrainy?",
+          "Tak, lekcje odbywają się online na Zoomie w godzinach dopasowanych do Polski, Europy, Wielkiej Brytanii, USA, Kanady i Izraela."
+        ],
+        [
+          "Jak umówić się na lekcje Pythona?",
+          "Napisz do @Figarist na Telegramie, podając wiek ucznia, kraj, obecny poziom i preferowane godziny."
+        ],
+        [
+          "Jak wygląda płatność za lekcje?",
+          "Szczegóły płatności znajdują się w sekcji warunków powyżej."
+        ]
+      ]
+    },
+    {
+      "slug": "informatics",
+      "title": "Korepetytor informatyki online dla dzieci — Ihor Sivochka",
+      "h1": "Korepetycje z informatyki i algorytmiki online dla dzieci — Ihor Sivochka",
+      "heading": "Informatyka: algorytmy, program szkolny i kompetencje cyfrowe",
+      "description": "Indywidualny nauczyciel informatyki online (magister edukacji, praktykujący nauczyciel): program szkolny, algorytmy, Scratch, Python. 20 € / ~$22 (1000 UAH) za 60 min.",
+      "intro": "Uporządkowane wsparcie 1-na-1 ze szkolnej i rozszerzonej informatyki dla uczniów w Polsce, Ukrainie i innych krajach. Jako praktykujący nauczyciel informatyki z tytułem magistra edukacji pomagam naprawdę zrozumieć algorytmy, pracę z systemem i plikami, zadania w Scratchu/Pythonie oraz narzędzia cyfrowe zamiast bezmyślnego przepisywania prac domowych.",
+      "topics": [
+        "Sprawna praca z plikami, systemem operacyjnym i narzędziami chmurowymi",
+        "Algorytmy: sekwencje, rozgałęzienia, pętle i schematy blokowe",
+        "Szkolne programowanie w Scratchu lub Pythonie (zgodne z programem w Polsce, UE, USA lub ukraińskim NUS)",
+        "Praktyczne multimedia i opcjonalne podstawy proceduralnego 3D (np. w 3D Club Studio)"
+      ],
+      "examples": [
+        "Samodzielne wykonanie i pewne omówienie szkolnego projektu lub zadania laboratoryjnego",
+        "Zaprojektowanie i przetestowanie algorytmu krok po kroku w Scratchu lub Pythonie"
+      ],
+      "steps": [
+        "Przed lekcją przesyłacie temat szkolny, podręcznik lub trudniejsze zadanie.",
+        "Rozkładamy zasadę działania na jasnych przykładach, a następnie uczeń rozwiązuje podobne zadanie samodzielnie.",
+        "Uzupełniamy zaległości, aby sprawdziany i projekty klasowe nie wymagały pomocy z zewnątrz."
+      ],
+      "questions": [
+        [
+          "Ile kosztują indywidualne lekcje informatyki?",
+          "Stała stawka wynosi 20 € / ~$22 USD (1000 UAH) za 60 minut indywidualnej pracy z praktykującym nauczycielem informatyki i magistrem edukacji."
+        ],
+        [
+          "Czy pomagasz uczniom adaptującym się do lekcji informatyki za granicą?",
+          "Tak. Poza ukraińskim programem wspieram uczniów na lekcjach informatyki w szkołach w Polsce, Niemczech, Czechach, Wielkiej Brytanii i Ameryce Północnej."
+        ],
+        [
+          "Wybrać informatykę, Unity czy Pythona?",
+          "Wybierz informatykę dla tematów szkolnych i podstaw cyfrowych, Pythona dla programowania tekstowego, a Unity i C#, jeśli głównym celem jest tworzenie gier 2D/3D."
+        ],
+        [
+          "Jaki komputer jest potrzebny?",
+          "Komputer lub laptop z Windows lub macOS z Zoomem i udostępnianiem ekranu; wspólnie konfigurujemy potrzebne darmowe programy."
+        ],
+        [
+          "Jak wygląda płatność za lekcje?",
+          "Szczegóły płatności znajdują się w sekcji warunków powyżej."
+        ]
+      ]
+    },
+    {
+      "slug": "scratch",
+      "title": "Korepetytor Scratch online dla dzieci (6–10 lat) — Ihor Sivochka",
+      "h1": "Indywidualne lekcje Scratch 1-na-1 dla dzieci (6–10 lat) — Ihor Sivochka",
+      "heading": "Scratch: pierwsze gry, animacje i logika kodu dla dzieci",
+      "description": "Lekcje Scratch online 1-na-1 dla dzieci 6–10 lat: myślenie algorytmiczne, własne gry i animacje, a potem Python/Unity. 20 € / ~$22 (1000 UAH) za 60 min.",
+      "intro": "Idealny pierwszy krok w świat programowania dla dzieci w wieku 6–10 lat. Za pomocą wizualnych bloków Scratcha dzieci uczą się myśleć jak twórcy — planują współrzędne, zmienne, zdarzenia i pętle — budując solidny pomost do przyszłego Pythona lub Unity C#.",
+      "topics": [
+        "Duszki, sceny, układ współrzędnych X/Y i logika oparta na zdarzeniach",
+        "Pętle, warunki, zmienne (punkty, życia, czas) i klonowanie",
+        "Komunikacja między duszkami przez komunikaty i własne animacje",
+        "Testowanie zasad i stopniowe ulepszanie grywalnych projektów"
+      ],
+      "examples": [
+        "Wielopoziomowa gra zręcznościowa z łapaniem/omijaniem obiektów, czasem, życiami i punktacją",
+        "Interaktywna animowana historia z wyborami gracza"
+      ],
+      "steps": [
+        "Poznajemy się w spokojnej atmosferze 1-na-1, wychodząc od ulubionych gier lub bajek dziecka.",
+        "Już na pierwszej lekcji dziecko tworzy interaktywną scenę ze sterowaniem postacią.",
+        "Płynnie przechodzimy od prostych animacji do gier wieloetapowych gotowych na przyszłe przejście do kodu tekstowego."
+      ],
+      "questions": [
+        [
+          "Ile kosztują indywidualne lekcje Scratcha?",
+          "Każda 60-minutowa lekcja 1-na-1 kosztuje 20 € / ~$22 USD (1000 UAH). W przeciwieństwie do tłocznych grup doświadczony pedagog pracuje wyłącznie w tempie Twojego dziecka."
+        ],
+        [
+          "Czy przed Scratchem potrzebne jest doświadczenie?",
+          "Nie — wystarczy wiek od 6 lat i podstawowa obsługa myszki lub ekranu dotykowego."
+        ],
+        [
+          "Czy można uczyć się na tablecie lub z zagranicy?",
+          "Tak. Scratch działa zarówno na komputerach, jak i na tabletach z udostępnianiem ekranu na Zoomie z dowolnego kraju."
+        ],
+        [
+          "Jak zapisać dziecko na lekcje Scratcha?",
+          "Napisz do @Figarist na Telegramie, podając wiek dziecka, kraj i dogodne dni."
+        ],
+        [
+          "Jak wygląda płatność za lekcje?",
+          "Szczegóły płatności znajdują się w sekcji warunków powyżej."
+        ]
+      ]
+    },
+    {
+      "slug": "minecraft",
+      "title": "Nauka Pythona przez Minecrafta — 1-na-1 online",
+      "h1": "Nauka Pythona przez Minecrafta — indywidualny mentoring online",
+      "heading": "Programowanie w Pythonie wewnątrz Minecrafta (Minescript)",
+      "description": "Indywidualne lekcje Pythona w Minecrafcie z autorem nagrodzonego kursu (2. miejsce w ogólnoukraińskim konkursie MAN). 20 € / ~$22 (1000 UAH) za 60 min.",
+      "intro": "Zamień ulubiony sandbox 3D w prawdziwe laboratorium kodu Python. Kurs opiera się na nagrodzonej metodyce dydaktycznej (2. miejsce w Ogólnoukraińskim Konkursie Prac Badawczych MAN) zaktualizowanej do nowoczesnego Minescript: uczniowie piszą prawdziwe skrypty Pythona i natychmiast widzą efekty 3D w Minecrafcie.",
+      "topics": [
+        "Trójwymiarowy układ współrzędnych (X, Y, Z) dla gracza i bloków",
+        "Prawdziwe zmienne, warunki, pętle i funkcje w Pythonie",
+        "Algorytmiczne budowanie i automatyzacja zadań przez Minescript",
+        "Testowanie hipotez i debugowanie kodu na żywo w grze"
+      ],
+      "examples": [
+        "Budowanie twierdz, tuneli lub automatycznych torów kolejowych za pomocą pętli",
+        "Skrypty teleportacji po współrzędnych, pułapek i wykrywania lawy"
+      ],
+      "steps": [
+        "Przed pierwszą lekcją sprawdzamy sprzęt PC, wersję Minecrafta i zgodność z Minescript przy udostępnianiu ekranu na Zoomie.",
+        "Zaczynamy od krótkich poleceń współrzędnych, aby uczeń połączył wzory matematyczne z blokami w świecie gry.",
+        "Łączymy polecenia w wielokrotnego użytku funkcje Pythona, pętle i własne algorytmy generowania świata."
+      ],
+      "questions": [
+        [
+          "Ile kosztuje nauka Pythona przez Minecrafta?",
+          "Stawka wynosi 20 € / ~$22 USD (1000 UAH) za 60-minutową lekcję 1-na-1 bezpośrednio z autorem kursu — to nie jest grupowy klub graczy."
+        ],
+        [
+          "Czy wystarczy Minecraft na tablecie, telefonie lub konsoli?",
+          "Nie. Prawdziwa automatyzacja w Pythonie przez Minescript wymaga komputera lub laptopa z Windows lub macOS, odpowiedniej wersji Minecrafta i Zooma — sprawdzamy to przed zapisem."
+        ],
+        [
+          "Czym to się różni od zwykłego grania w Minecrafta?",
+          "Uczniowie piszą prawdziwe skrypty w Pythonie, przewidują współrzędne 3D i debugują działanie kodu. Minecraft jest tu płótnem wizualnym, a główną umiejętnością są logika i składnia Pythona."
+        ],
+        [
+          "Czy można uczyć się z zagranicy?",
+          "Tak — lekcje odbywają się online na Zoomie dla uczniów z Polski, Ukrainy, Europy, Wielkiej Brytanii, USA i Kanady."
+        ],
+        [
+          "Jak zgłosić się na zajęcia?",
+          "Napisz do @Figarist na Telegramie, podając wiek dziecka, zainstalowaną wersję Minecrafta na PC oraz strefę czasową."
+        ],
+        [
+          "Jak wygląda płatność za lekcje?",
+          "Szczegóły płatności znajdują się w sekcji warunków powyżej."
+        ]
+      ]
+    }
+  ],
+  "payment_question": "Jak wygląda płatność za lekcje?",
+  "name": "Ihor Sivochka",
+  "role": "Mentor 1-na-1 Unity/C# i Pythona oraz niezależny twórca gier",
+  "home_title": "Ihor Sivochka — Game Dev i mentoring 1-na-1",
+  "home_description": "Osobisty hub niezależnego twórcy gier i nauczyciela informatyki Ihora Sivochki: gry Unity i Wear OS, narzędzia EdTech, blog oraz mentoring 1-na-1.",
+  "video_title": "Poznajmy się na wideo",
+  "video_text": "Krótkie wideo powitalne o moim podejściu do nauczania i tworzenia gier.",
+  "video_cta": "Obejrzyj na YouTube",
+  "payment_text": "Płatność na konto jednoosobowej działalności gospodarczej (FOP) w hrywnach, euro lub dolarach amerykańskich (20 € / ~$22 / 1000 UAH za lekcję 60 min).",
+  "phone_show": "Pokaż numer telefonu",
+  "phone_copied": "Skopiowano",
+  "phone_fallback": "Skopiuj numer ręcznie",
+  "reviews_heading": "Opinie uczniów i rodziców (18 zweryfikowanych opinii · 5/5)",
+  "reviews_kicker": "Potwierdzona skuteczność",
+  "reviews_intro": "Niezależne opinie z BUKI i Ukraińskiego Stowarzyszenia Korepetytorów, zachowane w oryginalnym języku.",
+  "reviews_prev": "Poprzednia opinia",
+  "reviews_next": "Następna opinia",
+  "minecraft_evidence": {
+    "title": "Naukowe podstawy mojego kursu Pythona w Minecrafcie",
+    "text": "W 2021 roku zdobyłem 2. miejsce w Ogólnoukraińskim Konkursie Prac Badawczych Uczniów MAN (informatyka) za metodykę nauczania podstaw programowania przez Minecrafta.",
+    "note": "Publiczne archiwalne przykłady z 2021 roku używają mcpi; obecne lekcje 1-na-1 prowadzone są na nowoczesnym stosie Minescript.",
+    "award": "Dyplom za 2. miejsce · 2021",
+    "code": "Zobacz otwarte przykłady Pythona na GitHubie"
+  }
+}

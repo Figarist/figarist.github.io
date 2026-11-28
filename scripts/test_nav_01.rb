@@ -7,24 +7,27 @@ require 'yaml'
 
 ROOT = File.expand_path(ARGV.fetch(0, '_site'))
 ORIGIN = 'https://sivochka.com'
-LANGUAGES = %w[en uk ru ko].freeze
+LANGUAGES = %w[en uk ru ko pl].freeze
 REDIRECTS = {
   '/education/' => '/blog/',
   '/uk/education/' => '/uk/blog/',
   '/ru/education/' => '/ru/blog/',
-  '/ko/education/' => '/ko/blog/'
+  '/ko/education/' => '/ko/blog/',
+  '/pl/education/' => '/pl/blog/'
 }.freeze
 WORKSHOP_NAMES = {
   'en' => 'Workshop',
   'uk' => 'Майстерня',
   'ru' => 'Мастерская',
-  'ko' => '워크숍'
+  'ko' => '워크숍',
+  'pl' => 'Warsztat'
 }.freeze
 WORKSHOP_SUBTITLES = {
   'en' => 'Notes, dev logs, technical deep dives, and resources for learning programming.',
   'uk' => 'Нотатки, девлоги, технічні розбори та матеріали про навчання програмуванню.',
   'ru' => 'Заметки, девлоги, технические разборы и материалы об обучении программированию.',
-  'ko' => '노트, 개발 일지, 기술을 깊이 있게 다루는 글, 프로그래밍 학습 자료.'
+  'ko' => '노트, 개발 일지, 기술을 깊이 있게 다루는 글, 프로그래밍 학습 자료.',
+  'pl' => 'Notatki, devlogi, analizy techniczne i materiały do nauki programowania.'
 }.freeze
 
 def check(condition, message)
@@ -101,12 +104,14 @@ LANGUAGES.each do |lang|
   check(breadcrumb && breadcrumb.text.include?(workshop_name), "#{blog_route}: breadcrumb Workshop label drift")
   check(blog.css('a[href]').none? { |link| REDIRECTS.key?(link['href']) }, "#{blog_route}: retired Education link remains")
 
-  %w[en uk ru ko x-default].each do |alternate|
+  %w[en uk ru ko pl x-default].each do |alternate|
     alternate_prefix = %w[en x-default].include?(alternate) ? '' : "/#{alternate}"
     expected_href = ORIGIN + alternate_prefix + '/blog/'
     link = blog.at_css("link[rel='alternate'][hreflang='#{alternate}']")
     check(link && link['href'] == expected_href, "#{blog_route}: incorrect hreflang #{alternate}")
   end
+
+  next if lang == 'pl' && Dir.glob('_posts/*-pl.md').empty?
 
   search = JSON.parse(File.read(site_path("#{prefix}/search.json".gsub(%r{/+}, '/'))))
   expected_post = "#{prefix}/blog/minecraft-python/".gsub(%r{/+}, '/')

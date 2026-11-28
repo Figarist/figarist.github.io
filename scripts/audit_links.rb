@@ -33,8 +33,8 @@ files.each do |file|
   end
   alternates = doc.css('link[hreflang]')
   unless alternates.empty?
-    bare_route = route.sub(%r{^/(uk|ru|ko)/}, '/')
-    %w[en uk ru ko x-default].each do |lang|
+    bare_route = route.sub(%r{^/(uk|ru|ko|pl)/}, '/')
+    %w[en uk ru ko pl x-default].each do |lang|
       prefix = %w[en x-default].include?(lang) ? '' : "/#{lang}"
       expected = "#{canonical_origin}#{prefix}#{bare_route}"
       matches = alternates.select { |link| link['hreflang'] == lang }

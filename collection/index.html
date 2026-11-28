@@ -7,6 +7,50 @@ description_key: shrine_meta_desc
 sitemap: true
 ---
 
+{% assign lang = site.active_lang | default: 'en' %}
+{% case lang %}
+  {% when 'uk' %}
+    {% assign col_vault = "АРХІВ" %}
+    {% assign col_dsl_sub = "Polar White · ARM9 + ARM7" %}
+    {% assign col_dsixl_sub = "Bronze · Два IPS-екрани" %}
+    {% assign col_switch_sub = "Кастомні Joy-Con · Портативний сетап" %}
+    {% assign col_sim_badge = "СІМРІГ" %}
+    {% assign col_sim_title = "Кокпіт для симрейсингу й телеметрія" %}
+    {% assign col_sim_sub = "Кермо з Force Feedback, педалі Load-Cell і станція для симкад" %}
+  {% when 'ru' %}
+    {% assign col_vault = "АРХИВ" %}
+    {% assign col_dsl_sub = "Polar White · ARM9 + ARM7" %}
+    {% assign col_dsixl_sub = "Bronze · Два IPS-экрана" %}
+    {% assign col_switch_sub = "Кастомные Joy-Con · Портативный сетап" %}
+    {% assign col_sim_badge = "СИМРИГ" %}
+    {% assign col_sim_title = "Кокпит для симрейсинга и телеметрия" %}
+    {% assign col_sim_sub = "Руль с Force Feedback, педали Load-Cell и станция для симкад" %}
+  {% when 'ko' %}
+    {% assign col_vault = "아카이브" %}
+    {% assign col_dsl_sub = "Polar White · ARM9 + ARM7" %}
+    {% assign col_dsixl_sub = "Bronze · 듀얼 IPS 패널" %}
+    {% assign col_switch_sub = "커스텀 Joy-Con · 휴대용 세팅" %}
+    {% assign col_sim_badge = "심리그" %}
+    {% assign col_sim_title = "심 레이싱 콕핏 및 텔레메트리" %}
+    {% assign col_sim_sub = "포스 피드백 휠, 로드셀 페달 및 심케이드 스테이션" %}
+  {% when 'pl' %}
+    {% assign col_vault = "ARCHIWUM" %}
+    {% assign col_dsl_sub = "Polar White · ARM9 + ARM7" %}
+    {% assign col_dsixl_sub = "Bronze · Podwójne ekrany IPS" %}
+    {% assign col_switch_sub = "Własne Joy-Cony · Zestaw przenośny" %}
+    {% assign col_sim_badge = "SIMRIG" %}
+    {% assign col_sim_title = "Kokpit Sim Racing i telemetria" %}
+    {% assign col_sim_sub = "Kierownica Force Feedback, pedały Load-Cell i stanowisko simcade" %}
+  {% else %}
+    {% assign col_vault = "VAULT" %}
+    {% assign col_dsl_sub = "Polar White · ARM9 + ARM7" %}
+    {% assign col_dsixl_sub = "Bronze · Dual IPS Panels" %}
+    {% assign col_switch_sub = "Custom Joy-Cons · Portable Rig" %}
+    {% assign col_sim_badge = "SIMRIG" %}
+    {% assign col_sim_title = "Sim Racing Cockpit & Telemetry" %}
+    {% assign col_sim_sub = "Force Feedback Wheel, Load-Cell Pedals & Simcade Station" %}
+{% endcase %}
+
 <div class="post-container shrine-hub">
 
     {% include breadcrumbs.html %}
@@ -24,23 +68,23 @@ sitemap: true
     <div class="photo-grid" id="shrine-handhelds-grid">
         <div class="photo-card">
             <div class="photo-placeholder">
-                <span class="shrine__badge">VAULT</span>
+                <span class="shrine__badge">{{ col_vault }}</span>
                 <strong>Nintendo DS Lite</strong>
-                <small>Polar White · ARM9 + ARM7</small>
+                <small>{{ col_dsl_sub }}</small>
             </div>
         </div>
         <div class="photo-card">
             <div class="photo-placeholder">
-                <span class="shrine__badge">VAULT</span>
+                <span class="shrine__badge">{{ col_vault }}</span>
                 <strong>Nintendo DSi XL</strong>
-                <small>Bronze · Dual IPS Panels</small>
+                <small>{{ col_dsixl_sub }}</small>
             </div>
         </div>
         <div class="photo-card">
             <div class="photo-placeholder">
-                <span class="shrine__badge">VAULT</span>
+                <span class="shrine__badge">{{ col_vault }}</span>
                 <strong>Nintendo Switch</strong>
-                <small>Custom Joy-Cons · Portable Rig</small>
+                <small>{{ col_switch_sub }}</small>
             </div>
         </div>
     </div>
@@ -51,9 +95,9 @@ sitemap: true
     <div class="photo-grid" id="shrine-simracing-grid">
         <div class="photo-card photo-card--featured">
             <div class="photo-placeholder">
-                <span class="shrine__badge">SIMRIG</span>
-                <strong>Sim Racing Cockpit &amp; Telemetry</strong>
-                <small>Force Feedback Wheel, Load-Cell Pedals &amp; Simcade Station</small>
+                <span class="shrine__badge">{{ col_sim_badge }}</span>
+                <strong>{{ col_sim_title }}</strong>
+                <small>{{ col_sim_sub }}</small>
             </div>
         </div>
     </div>

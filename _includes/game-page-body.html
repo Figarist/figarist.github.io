@@ -57,6 +57,25 @@
     {% assign gd_loading = "● WebGL 로딩 중…" %}
     {% assign gd_running = "● 브라우저에서 실행 중" %}
     {% assign gd_screenshots_title = "스크린샷" %}
+    {% assign gd_crumb_aria = "이동 경로" %}
+  {% when 'pl' %}
+    {% assign gd_home = "Strona główna" %}
+    {% assign gd_games = "Gry" %}
+    {% assign gd_kind_release = "Wydanie" %}
+    {% assign gd_kind_prototype = "Prototyp konkursowy" %}
+    {% assign gd_github_btn = "Kod na GitHubie" %}
+    {% assign gd_story_title = "Historia powstania i zakres" %}
+    {% assign gd_faq_title = "Pytania o grę" %}
+    {% assign gd_posts_title = "Powiązane wpisy na blogu" %}
+    {% assign gd_posts_read = "Czytaj artykuł" %}
+    {% assign gd_time_label = "Czas tworzenia" %}
+    {% assign gd_cta_kicker = "Chcesz stworzyć własną grę w Unity 6?" %}
+    {% assign gd_cta_title = "Naucz się tworzyć gry 2D/3D i publikować je w przeglądarce na indywidualnych lekcjach Unity i C#." %}
+    {% assign gd_cta_btn = "Zobacz lekcje Unity" %}
+    {% assign gd_loading = "● Ładowanie WebGL…" %}
+    {% assign gd_running = "● Uruchomiono w przeglądarce" %}
+    {% assign gd_screenshots_title = "Zrzuty ekranu" %}
+    {% assign gd_crumb_aria = "Ścieżka nawigacji" %}
   {% else %}
     {% assign gd_home = "Home" %}
     {% assign gd_games = "Games" %}
@@ -74,10 +93,12 @@
     {% assign gd_loading = "● Loading WebGL…" %}
     {% assign gd_running = "● Running in browser" %}
     {% assign gd_screenshots_title = "Screenshots" %}
+    {% assign gd_crumb_aria = "Breadcrumb" %}
 {% endcase %}
+{% if lang == 'uk' %}{% assign gd_crumb_aria = "Навігаційний ланцюжок" %}{% elsif lang == 'ru' %}{% assign gd_crumb_aria = "Навигационная цепочка" %}{% endif %}
 
 <div class="game-detail" data-game-slug="{{ game.slug }}">
-  <nav class="game-detail__crumbs" aria-label="Breadcrumb">
+  <nav class="game-detail__crumbs" aria-label="{{ gd_crumb_aria }}">
     <a href="{{ '/' | relative_url }}">{{ gd_home }}</a>
     <span aria-hidden="true">/</span>
     <a href="{{ '/games/' | relative_url }}">{{ gd_games }}</a>
@@ -106,7 +127,7 @@
       <dl class="game-detail__meta">
         <div class="game-detail__meta-row">
           <dt class="game-detail__meta-label">{{ s.game_author_label }}</dt>
-          <dd>Ihor Sivochka</dd>
+          <dd>{{ s.og_site_name | default: 'Ihor Sivochka' }}</dd>
         </div>
         <div class="game-detail__meta-row">
           <dt class="game-detail__meta-label">{{ s.game_engine_label }}</dt>

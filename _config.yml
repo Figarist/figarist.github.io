@@ -91,7 +91,7 @@ pagination:
   sort_reverse: true
 
 # ── Polyglot Settings ────────────────────────────────────────
-languages: ["en", "uk", "ru", "ko"]
+languages: ["en", "uk", "ru", "ko", "pl"]
 default_lang: "en"
 exclude_from_localization:
   - security.txt
@@ -190,6 +190,7 @@ pwa:
     - "uk/tutoring/**/*.html"
     - "ru/tutoring/**/*.html"
     - "ko/tutoring/**/*.html"
+    - "pl/tutoring/**/*.html"
 
 # ── TOC Settings ──────────────────────────────────────────────
 toc:

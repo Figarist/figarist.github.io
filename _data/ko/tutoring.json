@@ -61,6 +61,7 @@
     {
       "slug": "unity",
       "title": "어린이·청소년 온라인 Unity & C# 1:1 멘토링 — Sivochka Ihor",
+      "h1": "어린이·청소년 온라인 Unity & C# 1:1 멘토링 — Sivochka Ihor",
       "heading": "Unity와 C# 게임 개발 1:1 멘토링",
       "description": "공인 개발자(Unity Junior Programmer)와 함께하는 어린이·청소년 Unity & C# 1:1 온라인 수업. 2D/3D 게임, AI, 멀티플레이어 제작. 60분 €20 / ~$22 (1000 UAH).",
       "intro": "만 10~17세 학생이 단순한 게임 플레이어를 넘어 전문 엔진 Unity와 C# 언어로 실제 2D/3D 게임을 설계하고 완성하도록 이끄는 주력 멘토링 과정입니다. 기초 이동 스크립트부터 다냐 학생의 3D AI 추격 게임(Hello Neighbour), 막심 학생의 온라인 멀티플레이어 게임(Hockey Zombie) 수준까지 1:1로 지도합니다.",
@@ -111,6 +112,7 @@
     {
       "slug": "python",
       "title": "어린이·청소년 온라인 Python 1:1 개인 수업 — Sivochka Ihor",
+      "h1": "어린이·청소년 온라인 Python 1:1 개인 수업 — Sivochka Ihor",
       "heading": "Python: 텍스트 코드, 알고리즘과 나만의 프로그램",
       "description": "학생 대상 온라인 Python 1:1 개인 수업(유럽, 미국, 캐나다, 우크라이나): 기초 문법, 알고리즘, 프로젝트 및 Minecraft 연계 Python. 60분 €20 / ~$22 (1000 UAH).",
       "intro": "블록 코딩에서 실제 텍스트 프로그래밍 언어인 Python으로 도약하려는 만 9~17세 학생을 위한 과정입니다. 문제 분해, 자료구조, 알고리즘 사고를 익히고 나만의 텍스트 게임과 실용 도구를 제작합니다.",
@@ -160,6 +162,7 @@
     {
       "slug": "informatics",
       "title": "어린이·청소년 온라인 정보과학(컴퓨터 과학) 1:1 지도 — Sivochka Ihor",
+      "h1": "어린이·청소년 온라인 정보과학(컴퓨터 과학) 1:1 지도 — Sivochka Ihor",
       "heading": "정보과학: 알고리즘, 학교 교과 및 실용 디지털 역량",
       "description": "현직 교사·교육학 석사의 1:1 온라인 정보과학 과외. 우크라이나·유럽·영국·미국 학교 컴퓨터 과학 교과, 알고리즘, Scratch, Python 지도. 60분 €20 / ~$22 (1000 UAH).",
       "intro": "국내외 학교에 재학 중인 학생들을 위한 체계적인 1:1 정보과학 지도입니다. 현직 정보과학 교사이자 교육학 석사로서 단순 숙제 풀이가 아니라 알고리즘 원리, 파일 및 OS 활용, Scratch/Python 과제, 디지털 리터러시를 스스로 이해하도록 돕습니다.",
@@ -204,6 +207,7 @@
     {
       "slug": "scratch",
       "title": "만 6~10세 어린이 온라인 Scratch 1:1 개인 수업 — Sivochka Ihor",
+      "h1": "만 6~10세 어린이 온라인 Scratch 1:1 개인 수업 — Sivochka Ihor",
       "heading": "Scratch: 첫 게임, 애니메이션과 코딩 논리 입문",
       "description": "만 6~10세 어린이를 위한 1:1 온라인 Scratch 수업. 알고리즘 사고력 발달, 나만의 게임 제작 및 Python/Unity 연계 준비. 60분 €20 / ~$22 (1000 UAH).",
       "intro": "만 6~10세 어린이가 프로그래밍의 세계에 첫발을 내딛는 가장 좋은 과정입니다. 시각적 블록을 조합하며 좌표, 변수, 이벤트, 반복문의 원리를 자연스럽게 체득하고, 추후 Python과 Unity C#으로 나아갈 튼튼한 논리 기반을 다집니다.",
@@ -248,6 +252,7 @@
     {
       "slug": "minecraft",
       "title": "Minecraft로 배우는 Python — 1:1 온라인 코딩 멘토링",
+      "h1": "Minecraft로 배우는 Python — 1:1 온라인 코딩 멘토링",
       "heading": "Minecraft 세계 속에서 배우는 실전 Python (Minescript)",
       "description": "전국 경진대회 2위 수상 교육 과정 개발자와 함께하는 Minecraft 연계 Python 1:1 수업. 좌표, 반복문, 조건문 자동화. 60분 €20 / ~$22 (1000 UAH).",
       "intro": "좋아하는 3D 샌드박스 게임을 살아있는 Python 코딩 실험실로 바꿉니다. 전우크라이나 학생 연구 경진대회 2위 수상 교육 방법론을 최신 Minescript 환경으로 발전시켜, 학생이 직접 작성한 Python 코드의 결과를 Minecraft 3D 공간에서 즉시 확인합니다.",

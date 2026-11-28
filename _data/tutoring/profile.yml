@@ -55,6 +55,19 @@ translations:
     approach: 학생이 무엇을 만드는 것을 좋아하는지 발견하는 것이 중요합니다. 어떤 학생에게 게임 개발은 취미가 되고, 다른 학생에게는
       미래의 직업이 됩니다. 다른 분야를 탐색하고 싶다는 것을 깨닫는 학생도 있습니다. 그것 역시 가치 있는 결과라고 생각합니다.
     portrait_alt: "이호르 시보치카 — 프로그래밍 교사이자 게임 개발자"
+  pl:
+    ready: true
+    short_description: Jestem nauczycielem i twórcą gier. Gram od dzieciństwa, a z Unity
+      pracuję od 2020 roku i wciąż się uczę. Lubię tworzyć gry i pomagać innym realizować
+      własne pomysły.
+    long_description: Pierwsze korepetycje z matematyki prowadziłem już na pierwszym roku
+      uniwersytetu pedagogicznego. Później pracowałem w szkole STEM, a w czasie pandemii
+      stopniowo przeszedłem na lekcje online. Obecnie uczę w szkole w Charkowie oraz
+      prowadzę indywidualne zajęcia online dla dzieci i młodzieży.
+    approach: Zależy mi, aby uczeń odkrył, co naprawdę lubi tworzyć. Dla jednych tworzenie
+      gier staje się pasją, dla innych przyszłym zawodem. A niektórzy po zajęciach
+      przekonują się, że wolą inną dziedzinę — to również uważam za cenny rezultat.
+    portrait_alt: "Ihor Sivochka — nauczyciel programowania i twórca gier"
 verified_facts:
   experience: []
   education:
@@ -66,6 +79,7 @@ verified_facts:
       ru: Харьковский национальный педагогический университет им. Сковороды — магистр,
         Среднее образование (Информатика, Математика)
       ko: H.S. 스코보로다 하르키우 국립사범대학교 — 중등교육 석사 (정보과학 및 수학)
+      pl: Charkowski Narodowy Uniwersytet Pedagogiczny im. H. Skoworody — magister, Edukacja Średnia (Informatyka, Matematyka)
     date: '2022'
     url: https://buki.com.ua/user-82505/
     status: published
@@ -84,6 +98,7 @@ verified_facts:
       en: "Second place — All-Ukrainian student research competition, Secondary Education (Computer Science)"
       ru: "II место — Всеукраинский конкурс студенческих научных работ, Среднее образование (Информатика)"
       ko: "우크라이나 전국 학생 연구 경진대회 2위 — 중등교육(정보과학)"
+      pl: "II miejsce — Ogólnoukraiński Konkurs Prac Badawczych Studentów, Edukacja Średnia (Informatyka)"
     date: '2021'
     url: /assets/images/credentials/research-award-2021.png
     status: published

@@ -12,10 +12,12 @@ seo_en_title: "WebGL Games & Unity Prototypes"
 seo_uk_title: "WebGL-ігри та прототипи на Unity"
 seo_ru_title: "WebGL-игры и прототипы на Unity"
 seo_ko_title: "Unity WebGL 게임 및 프로토타입"
+seo_pl_title: "Gry WebGL i prototypy w Unity"
 seo_en_desc: "Play browser-ready Unity 6 WebGL games and contest prototypes built by Ihor Sivochka (Figarist) — from Wear OS ports to fast jam experiments."
 seo_uk_desc: "Авторські Unity 6 WebGL-ігри та конкурсні прототипи Ігоря Сівочки (Figarist): грайте прямо в браузері без встановлення та дивіться історії розробки."
 seo_ru_desc: "Авторские Unity 6 WebGL-игры и конкурсные прототипы Игоря Сивочки (Figarist): играйте прямо в браузере без установки и читайте истории разработки."
 seo_ko_desc: "이호르 시보치카(Figarist)가 Unity 6로 만든 브라우저 WebGL 게임과 공모전 프로토타입 모음. 설치 없이 바로 플레이해 보세요."
+seo_pl_desc: "Autorskie gry Unity 6 WebGL i konkursowe prototypy Ihora Sivochki (Figarist): graj od razu w przeglądarce bez instalacji i poznaj kulisy tworzenia."
 ---
 {% assign lang = site.active_lang | default: 'en' %}
 {% assign lang_prefix = '' %}
@@ -58,6 +60,17 @@ seo_ko_desc: "이호르 시보치카(Figarist)가 Unity 6로 만든 브라우저
     {% assign gh_cta_kicker = "나만의 Unity 게임을 만들고 싶나요?" %}
     {% assign gh_cta_title = "첫 메커니즘부터 WebGL 배포까지 1:1 Unity & C# 수업으로 함께 만들어 보세요" %}
     {% assign gh_cta_btn = "Unity 1:1 수업 보기" %}
+  {% when 'pl' %}
+    {% assign gh_home = "Strona główna" %}
+    {% assign gh_kicker = "Portfolio i laboratorium" %}
+    {% assign gh_title = "Gry WebGL i prototypy" %}
+    {% assign gh_intro = "Zbiór moich gier i szybkich prototypów konkursowych w Unity 6, które możesz uruchomić prosto w przeglądarce — z historią powstawania, wymogami dżemu i powiązanymi wpisami." %}
+    {% assign gh_kind_release = "Wydanie" %}
+    {% assign gh_kind_prototype = "Prototyp konkursowy" %}
+    {% assign gh_play = "Otwórz i graj" %}
+    {% assign gh_cta_kicker = "Chcesz stworzyć własną grę?" %}
+    {% assign gh_cta_title = "Naucz się tworzyć gry 2D/3D w Unity 6 i C# — od pierwszej mechaniki po działający build WebGL" %}
+    {% assign gh_cta_btn = "Lekcje Unity 1-na-1" %}
   {% else %}
     {% assign gh_home = "Home" %}
     {% assign gh_kicker = "Playable Portfolio & Lab" %}
@@ -71,8 +84,9 @@ seo_ko_desc: "이호르 시보치카(Figarist)가 Unity 6로 만든 브라우저
     {% assign gh_cta_btn = "Explore Unity Lessons" %}
 {% endcase %}
 
+{% case lang %}{% when 'uk' %}{% assign gh_crumb_aria = "Навігаційний ланцюжок" %}{% when 'ru' %}{% assign gh_crumb_aria = "Навигационная цепочка" %}{% when 'ko' %}{% assign gh_crumb_aria = "이동 경로" %}{% when 'pl' %}{% assign gh_crumb_aria = "Ścieżka nawigacji" %}{% else %}{% assign gh_crumb_aria = "Breadcrumb" %}{% endcase %}
 <div class="game-detail games-hub">
-  <nav class="game-detail__crumbs" aria-label="Breadcrumb">
+  <nav class="game-detail__crumbs" aria-label="{{ gh_crumb_aria }}">
     <a href="{{ '/' | relative_url }}">{{ gh_home }}</a>
     <span aria-hidden="true">/</span>
     <span>{{ gh_title }}</span>

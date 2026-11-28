@@ -7,7 +7,7 @@ require 'yaml'
 require 'nokogiri'
 
 source = Dir.pwd
-languages = %w[en uk ru ko]
+languages = %w[en uk ru ko pl]
 Dir.mktmpdir('polyglot-pagination') do |tmp|
   config = {
     'url' => 'https://sivochka.com', 'languages' => languages,

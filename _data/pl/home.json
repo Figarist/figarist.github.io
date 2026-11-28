@@ -1,0 +1,16 @@
+{
+  "title": "Ihor Sivochka — gry, nauczanie i kolekcja",
+  "description": "Strona osobista Ihora Sivochki: tworzenie gier, projekty, blog i kolekcja. Indywidualne lekcje online z Unity, Pythona i informatyki.",
+  "heading": "Twórz, ucz, kolekcjonuj.",
+  "intro": "Jestem Ihor Sivochka. Tworzę gry, uczę programowania i rozwijam własną kolekcję. To miejsce dla moich projektów, zainteresowań i rzeczy, którymi chcę się dzielić.",
+  "projects": "Moje projekty i zainteresowania",
+  "teaching": "Ucz się ze mną",
+  "teaching_intro": "Pomagam dzieciom i nastolatkom zrozumieć programowanie i tworzyć własne projekty. Moim głównym kierunkiem są Unity i C#. Punkt startowy dobieramy do zainteresowań i doświadczenia ucznia.",
+  "links": "Gdzie mnie znaleźć",
+  "github": "Moje publiczne projekty na GitHubie",
+  "explore": "Warsztat i zainteresowania",
+  "explore_intro": "Gry, wpisy na blogu, materiały do nauki i eksponaty z mojej kolekcji — różne części jednej osobistej strony.",
+  "kicker": "Moja przestrzeń",
+  "project": "Moja gra",
+  "collection": "Sprzęt i gry z mojej osobistej kolekcji"
+}

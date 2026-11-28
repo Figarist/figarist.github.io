@@ -6,6 +6,8 @@
 Здравствуйте, Игорь! Хочу узнать об индивидуальных занятиях{% if page.course %} (направление {{ page.course | upcase }}){% endif %}. Возраст ученика:
 {%- elsif site.active_lang == 'ko' -%}
 안녕하세요, 이호르 선생님! 개인 수업에 대해 문의드리고 싶습니다{% if page.course %} ({{ page.course | upcase }} 분야){% endif %}. 학생 나이:
+{%- elsif site.active_lang == 'pl' -%}
+Cześć Ihor! Chciałbym zapytać o indywidualne lekcje{% if page.course %} (kierunek {{ page.course | upcase }}){% endif %}. Wiek ucznia:
 {%- else -%}
 Hi Ihor! I would like to inquire about private tutoring lessons{% if page.course %} ({{ page.course | upcase }}){% endif %}. Student's age:
 {%- endif -%}

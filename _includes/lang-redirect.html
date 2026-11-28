@@ -6,7 +6,7 @@
             var targetLang = null;
 
             // 1. Check if explicit user preference exists in localStorage
-            var supportedLangs = ['en', 'uk', 'ru', 'ko'];
+            var supportedLangs = ['en', 'uk', 'ru', 'ko', 'pl'];
             if (preferredLang) {
                 if (!supportedLangs.includes(preferredLang)) {
                     localStorage.removeItem('preferred_lang');
@@ -38,7 +38,7 @@
             if (targetLang && targetLang !== activeLang) {
                 var currentPath = window.location.pathname;
                 var pathWithoutLang = currentPath;
-                var match = currentPath.match(/^\/(uk|ru|ko)(\/|$)/);
+                var match = currentPath.match(/^\/(uk|ru|ko|pl)(\/|$)/);
                 if (match) {
                     pathWithoutLang = currentPath.substring(match[0].length);
                     if (!pathWithoutLang.startsWith('/')) {

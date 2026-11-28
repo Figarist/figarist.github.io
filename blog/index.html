@@ -61,7 +61,8 @@ pagination:
 
   <!-- ── PAGINATION UI ── -->
   {% if paginator.total_pages > 1 %}
-  <nav class="pagination" aria-label="Pagination">
+  {% case site.active_lang %}{% when 'uk' %}{% assign pg_aria = "Навігація сторінками" %}{% when 'ru' %}{% assign pg_aria = "Навигация по страницам" %}{% when 'ko' %}{% assign pg_aria = "페이지 탐색" %}{% when 'pl' %}{% assign pg_aria = "Paginacja" %}{% else %}{% assign pg_aria = "Pagination" %}{% endcase %}
+  <nav class="pagination" aria-label="{{ pg_aria }}">
     {% if paginator.previous_page %}
     <a href="{{ paginator.previous_page_path | relative_url }}" class="pagination-item pagination-prev">
       {{ site.data[site.active_lang].strings.prev_page }}

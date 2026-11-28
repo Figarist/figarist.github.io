@@ -53,6 +53,18 @@
       rateNo: "rate €20 (~$22 / 1000 UAH) to be confirmed",
       hwOk: "Device check: {cores} CPU threads, WebGL2 {webgl} — ready for Unity/Python.",
       hwLow: "Device check: {cores} CPU threads, WebGL2 {webgl} — Scratch or lightweight Python recommended."
+    },
+    pl: {
+      unity: ["Unity & C#", "W 1–3 miesiące uczeń zbuduje własną grę 2D/3D z fizyką, UI i prawdziwymi skryptami w C#."],
+      minecraft: ["Python w Minecrafcie (Minescript)", "Automatyzacja budowania, mini-gry i prawdziwa składnia Pythona wewnątrz Minecraft Java."],
+      scratch: ["Scratch (kodowanie wizualne)", "Najlepszy start dla logiki, pętli i współrzędnych — pierwsza grywalna gra już na 1–2 lekcji."],
+      informatics: ["Szkolna informatyka i algorytmy", "Systemowe wsparcie w szkolnej informatyce (PL / UA / EU / US / CA) oraz rozwiązywaniu zadań."],
+      tabWarn: "Unity 6 i Minecraft Java wymagają komputera lub laptopa z Windows/macOS. Na tablecie działa tylko Scratch.",
+      weakWarn: "Na słabszym laptopie lub Chromebooku płynniejszy będzie start od Scratcha lub lekkiego Pythona.",
+      rateOk: "20 € (~$22 / 1000 UAH) potwierdzone",
+      rateNo: "stawka 20 € (~$22 / 1000 UAH) do potwierdzenia",
+      hwOk: "Test sprzętu: {cores} wątków CPU, WebGL2 {webgl} — gotowy do Unity/Pythona.",
+      hwLow: "Test sprzętu: {cores} wątków CPU, WebGL2 {webgl} — zalecany Scratch lub lekki Python."
     }
   };
   var L = copy[lang] || copy.uk;

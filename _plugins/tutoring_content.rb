@@ -8,7 +8,7 @@ require 'psych'
 
 module Figarist
   module TutoringContent
-    LANGUAGES = %w[en uk ru ko].freeze
+    LANGUAGES = %w[en uk ru ko pl].freeze
     DIRECTIONS = %w[unity python scratch informatics minecraft].freeze
     REQUIRED_TRANSLATION_FIELDS = %w[
       title card_description full_description starting_level goal created
@@ -204,7 +204,7 @@ module Figarist
         %w[id signature].each { |key| add_error(errors, file, key, 'is required for a published testimonial') if blank?(item[key]) }
         add_error(errors, file, 'permission', 'must be true before publishing') unless item['permission'] == true
         add_error(errors, file, 'ready', 'must be true before publishing') unless item['ready'] == true
-        add_error(errors, file, 'language', 'must be en, uk, ru or ko') unless LANGUAGES.include?(item['language'])
+        add_error(errors, file, 'language', 'must be en, uk, ru, ko or pl') unless LANGUAGES.include?(item['language'])
         mode = item['mode'] || 'exact_text'
         unless %w[exact_text source_only].include?(mode)
           add_error(errors, file, 'mode', 'use exact_text or source_only')

@@ -95,3 +95,23 @@ translations:
       - "코드 디버깅 및 게임 테스트 역량"
     evidence: "선생님 및 친구들과 인터넷으로 직접 플레이할 수 있는 완성된 실제 게임."
     cover_alt: "막심 학생이 Unity로 제작한 3D 하키 좀비 게임 스크린샷"
+  pl:
+    ready: true
+    student_name: "Maksym"
+    title: "Hockey Zombie — własna sieciowa gra 3D na lodzie"
+    card_description: "Prawdziwa gra online dla dwóch graczy: jazda na łyżwach, kij hokejowy, zombie zamiast krążka i rozgrywka ze znajomymi przez sieć."
+    full_description: "Maksym chciał stworzyć nie zwykły projekt szkolny, lecz dynamiczną grę akcji, w którą można grać ze znajomymi przez internet. Wspólnie zrealizowaliśmy pełnoprawny mecz hokejowy: gracz steruje hokeistą, czuje poślizg na lodzie, odpiera fale zombie i wbija je kijem do bramki przeciwnika."
+    starting_level: "Uczeń znał już podstawy obsługi komputera i trochę programował, ale chciał stworzyć złożoną grę 3D z trybem multiplayer."
+    goal: "Stworzyć autorską grę od zera i zagrać w nią przez sieć ze znajomymi."
+    created: "Grywalna gra akcji 3D dla dwóch graczy: wybór stroju, ślizg po lodzie, przeciwnicy-zombie, boty pomocnicze i zliczanie punktów."
+    student_work: "Stworzył arenę i wygląd zawodników, skonfigurował animacje ruchu i uderzeń kijem, zbudował menu główne, sklep ze strojami oraz mechanikę szybkiego zrywu (Dash)."
+    tutor_help: "Pomógł skonfigurować połączenie sieciowe między graczami, zoptymalizować płynność ruchu i zbudować tryb testowy do sprawdzania mechanik."
+    skills:
+      - "Tworzenie gier 3D w silniku Unity"
+      - "Programowanie sieciowe (multiplayer do gry przez internet)"
+      - "Fizyka ruchu postaci i tarcia na lodzie"
+      - "Konfiguracja płynnych animacji postaci"
+      - "Projektowanie przejrzystego menu i interfejsu gry"
+      - "Samodzielne testowanie i szukanie błędów w kodzie"
+    evidence: "Działająca gra, w którą uczeń regularnie gra przez internet z nauczycielem i znajomymi."
+    cover_alt: "Zrzut ekranu z gry 3D Hockey Zombie stworzonej przez ucznia Maksyma w Unity"

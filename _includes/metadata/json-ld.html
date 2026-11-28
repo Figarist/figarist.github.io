@@ -78,7 +78,7 @@ absolute_url -%}
         "Sivochka Ihor",
         "Figarist"
       ],
-      "inLanguage": ["en", "uk", "ru", "ko"],
+      "inLanguage": ["en", "uk", "ru", "ko", "pl"],
       "publisher": {
         "@id": "{{ author_url }}#person"
       }
@@ -92,6 +92,7 @@ absolute_url -%}
       {%- when 'uk' -%}{%- assign gd_games_label = "Ігри" -%}
       {%- when 'ru' -%}{%- assign gd_games_label = "Игры" -%}
       {%- when 'ko' -%}{%- assign gd_games_label = "게임" -%}
+      {%- when 'pl' -%}{%- assign gd_games_label = "Gry" -%}
       {%- else -%}{%- assign gd_games_label = "Games" -%}
     {%- endcase -%}
     {

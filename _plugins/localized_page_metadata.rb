@@ -17,7 +17,8 @@ localize_metadata = lambda do |page, payload|
     'en' => 'en_US',
     'uk' => 'uk_UA',
     'ru' => 'ru_RU',
-    'ko' => 'ko_KR'
+    'ko' => 'ko_KR',
+    'pl' => 'pl_PL'
   }.fetch(language, language)
   page.data['canonical_url'] = canonical_url
   page.data['locale'] = locale

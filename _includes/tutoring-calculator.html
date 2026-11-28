@@ -25,6 +25,7 @@
     {% assign c_tg_btn = "Написати в Telegram з планом →" %}
     {% assign c_more = "Детальніше про програму →" %}
     {% assign c_cmp = "Порівняти Scratch → Python → C# →" %}
+    {% assign c_one_on_one = "1-на-1" %}
   {% when 'ru' %}
     {% assign c_kicker = "Подбор трека + тест ПК" %}
     {% assign c_title = "Калькулятор менторства 1-на-1" %}
@@ -50,6 +51,7 @@
     {% assign c_tg_btn = "Написать в Telegram с планом →" %}
     {% assign c_more = "Подробнее о программе →" %}
     {% assign c_cmp = "Сравнить Scratch → Python → C# →" %}
+    {% assign c_one_on_one = "1-на-1" %}
   {% when 'ko' %}
     {% assign c_kicker = "맞춤 트랙 + PC 체크" %}
     {% assign c_title = "1:1 멘토링 트랙 계산기" %}
@@ -75,6 +77,33 @@
     {% assign c_tg_btn = "맞춤 플랜으로 Telegram 문의 →" %}
     {% assign c_more = "커리큘럼 자세히 보기 →" %}
     {% assign c_cmp = "Scratch → Python → C# 비교 →" %}
+    {% assign c_one_on_one = "1:1" %}
+  {% when 'pl' %}
+    {% assign c_kicker = "Dobór ścieżki + test PC" %}
+    {% assign c_title = "Kalkulator mentoringu 1-na-1" %}
+    {% assign c_intro = "Wybierz wiek, cel i sprzęt — system podpowie najlepszy tor, sprawdzi gotowość przeglądarki/PC pod Unity 6 i przygotuje wiadomość na Telegrama." %}
+    {% assign c_s1 = "01 · Wiek ucznia" %}
+    {% assign c_s2 = "02 · Główny cel" %}
+    {% assign c_s3 = "03 · Sprzęt w domu" %}
+    {% assign c_s4 = "04 · Format i stawka" %}
+    {% assign c_g_unity = "Stworzyć grę 2D/3D (Unity C#)" %}
+    {% assign c_g_mc = "Programować w Minecrafcie (Python)" %}
+    {% assign c_g_scratch = "Pierwsze kroki w kodzie (Scratch)" %}
+    {% assign c_g_inf = "Szkolna informatyka i algorytmy" %}
+    {% assign c_d_pc = "PC / Laptop (8–16+ GB RAM)" %}
+    {% assign c_d_weak = "Słabszy laptop / Chromebook" %}
+    {% assign c_d_tab = "Tablet iPad / Android" %}
+    {% assign c_check_btn = "Sprawdź mój PC" %}
+    {% assign c_budget = "Indywidualnie 1-na-1, 60 min · 20 € / ~$22 (1000 UAH), pierwsza lekcja płatna, płatność na FOP" %}
+    {% assign c_res_label = "Polecany start" %}
+    {% assign c_spec_age = "Wiek ucznia" %}
+    {% assign c_spec_dev = "Urządzenie" %}
+    {% assign c_spec_rate = "Stawka 1-na-1" %}
+    {% assign c_rate_val = "20 € / ~$22 · 60 min" %}
+    {% assign c_tg_btn = "Napisz na Telegramie z planem →" %}
+    {% assign c_more = "Więcej o programie →" %}
+    {% assign c_cmp = "Porównaj Scratch → Python → C# →" %}
+    {% assign c_one_on_one = "1-na-1" %}
   {% else %}
     {% assign c_kicker = "Track Selector + PC Check" %}
     {% assign c_title = "1-on-1 Mentoring Calculator" %}
@@ -100,6 +129,7 @@
     {% assign c_tg_btn = "Message on Telegram with Plan →" %}
     {% assign c_more = "View full curriculum →" %}
     {% assign c_cmp = "Compare Scratch → Python → C# →" %}
+    {% assign c_one_on_one = "1-on-1" %}
 {% endcase %}
 
 <section class="tutoring-section tutoring-section--directions tutoring-calc" id="tutoring-calculator" data-calc-lang="{{ lang }}" data-base-url="{{ '/tutoring/' | relative_url }}" aria-labelledby="calc-title">
@@ -155,7 +185,7 @@
     <aside class="tutoring-calc__result" id="calc-result" aria-live="polite">
       <div class="calc-result__top">
         <span class="calc-result__kicker">{{ c_res_label }}</span>
-        <span class="project-status"><span></span>1-on-1</span>
+        <span class="project-status"><span></span>{{ c_one_on_one }}</span>
       </div>
       <h3 class="calc-result__title" id="calc-res-title">Unity &amp; C#</h3>
       <p class="calc-result__desc" id="calc-res-desc"></p>

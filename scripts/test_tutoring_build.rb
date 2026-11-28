@@ -66,12 +66,12 @@ Dir.mktmpdir('figarist-tutoring-build-test') do |tmp|
   LIQUID
   stdout, stderr, status = Open3.capture3('bundle', 'exec', 'jekyll', 'build', '--source', tmp, '--destination', destination, '--disable-disk-cache', chdir: source)
   raise "Valid isolated build failed: #{stdout}\n#{stderr}" unless status.success?
-  %w[en uk ru ko].each do |lang|
+  %w[en uk ru ko pl].each do |lang|
     prefix = lang == 'en' ? '' : lang
     html = File.read(File.join(destination, prefix, 'index.html'))
     raise "Incorrect case localization: #{lang}" unless html.include?('QA-UK-ONLY-CASE') == (lang == 'uk')
     raise "Empty evidence section rendered: #{lang}" if html.include?('profile-title') || html.include?('testimonials-title')
-    raise "Raw Ruby Hash leak detected: #{lang}" if html.match?(/\{["'](?:uk|en|ru|ko)["']\s*=>/) || html.include?('=&gt;')
+    raise "Raw Ruby Hash leak detected: #{lang}" if html.match?(/\{["'](?:uk|en|ru|ko|pl)["']\s*=>/) || html.include?('=&gt;')
   end
 
   # Test multilingual profile facts and case metadata rendering without Cyrillic leaks in EN
@@ -123,7 +123,7 @@ Dir.mktmpdir('figarist-tutoring-build-test') do |tmp|
   uk_html = File.read(File.join(destination, 'uk', 'index.html'))
 
   [en_html, uk_html].each do |h|
-    raise 'Raw Ruby Hash leak detected in HTML' if h.match?(/\{["'](?:uk|en|ru|ko)["']\s*=>/) || h.include?('=&gt;')
+    raise 'Raw Ruby Hash leak detected in HTML' if h.match?(/\{["'](?:uk|en|ru|ko|pl)["']\s*=>/) || h.include?('=&gt;')
   end
 
   raise 'Cyrillic leaked into EN profile facts' if en_html.include?('Досвід 7 років') || en_html.include?('дотепер')

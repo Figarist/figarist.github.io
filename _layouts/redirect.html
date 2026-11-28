@@ -1,18 +1,35 @@
 {% assign redirect_language = page.lang | default: site.default_lang %}
 {% assign redirect_target = page.redirect_target | default: '/blog/' %}
 {% assign redirect_target_url = page.redirect.to | default: redirect_target | absolute_url %}
+{% case redirect_language %}
+  {% when 'uk' %}
+    {% assign rd_title = 'Переадресація&hellip;' %}
+    {% assign rd_link = 'Перейти до Майстерні.' %}
+  {% when 'ru' %}
+    {% assign rd_title = 'Переадресация&hellip;' %}
+    {% assign rd_link = 'Перейти в Мастерскую.' %}
+  {% when 'ko' %}
+    {% assign rd_title = '이동 중&hellip;' %}
+    {% assign rd_link = '워크숍으로 이동하기.' %}
+  {% when 'pl' %}
+    {% assign rd_title = 'Przekierowanie&hellip;' %}
+    {% assign rd_link = 'Przejdź do Warsztatu.' %}
+  {% else %}
+    {% assign rd_title = 'Redirecting&hellip;' %}
+    {% assign rd_link = 'Continue to the Workshop.' %}
+{% endcase %}
 <!DOCTYPE html>
 <html lang="{{ redirect_language }}">
   <head>
     <meta charset="utf-8">
-    <title>Redirecting&hellip;</title>
+    <title>{{ rd_title }}</title>
     <link rel="canonical" href="{{ redirect_target_url }}">
     <meta http-equiv="refresh" content="0; url={{ redirect_target | relative_url }}">
     <meta name="robots" content="noindex">
     <script>location.replace({{ redirect_target | relative_url | jsonify }});</script>
   </head>
   <body>
-    <h1>Redirecting&hellip;</h1>
-    <p><a href="{{ redirect_target | relative_url }}">Continue to the Workshop.</a></p>
+    <h1>{{ rd_title }}</h1>
+    <p><a href="{{ redirect_target | relative_url }}">{{ rd_link }}</a></p>
   </body>
 </html>

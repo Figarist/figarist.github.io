@@ -165,8 +165,25 @@ layout: default
       <a href="https://sivochka.com/pyScratch/{% case site.active_lang %}{% when 'uk' %}{% when 'ru' %}ru/{% else %}en/{% endcase %}" target="_blank" rel="noopener" class="explore-card" data-goatcounter-click="tutoring-eco-pyscratch">
         <span>{{ s.pyscratch_label }}</span><strong>{{ s.pyscratch_title }}</strong><small>{{ s.pyscratch_desc }}</small><b aria-hidden="true">↗</b>
       </a>
+      {% case site.active_lang %}
+        {% when 'uk' %}
+          {% assign ct_card_title = "Код-перекладач" %}
+          {% assign ct_card_desc = "Scratch · Python у Minecraft · Unity C#" %}
+        {% when 'ru' %}
+          {% assign ct_card_title = "Переводчик кода" %}
+          {% assign ct_card_desc = "Scratch · Python в Minecraft · Unity C#" %}
+        {% when 'ko' %}
+          {% assign ct_card_title = "코드 비교기" %}
+          {% assign ct_card_desc = "Scratch · Minecraft Python · Unity C#" %}
+        {% when 'pl' %}
+          {% assign ct_card_title = "Translator kodu" %}
+          {% assign ct_card_desc = "Scratch · Python w Minecrafcie · Unity C#" %}
+        {% else %}
+          {% assign ct_card_title = "Code Translator" %}
+          {% assign ct_card_desc = "Scratch · Minecraft Python · Unity C#" %}
+      {% endcase %}
       <a href="{{ '/tools/code-translator/' | relative_url }}" class="explore-card" data-goatcounter-click="tutoring-eco-translator">
-        <span>Scratch → Python → C#</span><strong>Code Translator</strong><small>Scratch · Minecraft Python · Unity C#</small><b aria-hidden="true">→</b>
+        <span>Scratch → Python → C#</span><strong>{{ ct_card_title }}</strong><small>{{ ct_card_desc }}</small><b aria-hidden="true">→</b>
       </a>
       <a href="{{ tutoring_settings.proof.studio_url }}" target="_blank" rel="noopener" class="explore-card" data-goatcounter-click="tutoring-eco-studio">
         <span>{{ s.nav_studio }}</span><strong class="notranslate" translate="no">Wrist &amp; Pocket Studio</strong><small>{{ s.home_studio_detail }}</small><b aria-hidden="true">↗</b>

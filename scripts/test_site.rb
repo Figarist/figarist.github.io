@@ -59,7 +59,7 @@ cases = Dir['_data/tutoring/cases/*.yml'].map { |file| YAML.safe_load(File.read(
 profile = YAML.safe_load(File.read('_data/tutoring/profile.yml'))
 reviews = YAML.safe_load(File.read('_data/tutoring/testimonials.yml')).fetch('items')
 titles = []; descriptions = []
-%w[en uk ru ko].each do |lang|
+%w[en uk ru ko pl].each do |lang|
   prefix = lang == 'en' ? '' : "/#{lang}"
   search = JSON.parse(File.read("#{root}#{prefix}/search.json"))
   ['', '/tutoring', '/tutoring/unity', '/tutoring/python', '/tutoring/scratch', '/tutoring/informatics', '/tutoring/minecraft'].each do |route|
@@ -94,7 +94,7 @@ titles = []; descriptions = []
       check(doc.at_css('#details'), "#{path}: missing #details section")
       check(doc.at_css('#learning'), "#{path}: missing #learning anchor target")
     end
-    %w[en uk ru ko x-default].each do |alternate|
+    %w[en uk ru ko pl x-default].each do |alternate|
       expected = origin + (%w[en x-default].include?(alternate) ? '' : "/#{alternate}") + route + '/'
       links = doc.css("link[hreflang='#{alternate}']")
       check(links.size == 1 && links.first['href'] == expected, "#{path}: hreflang #{alternate}")
@@ -169,7 +169,7 @@ if File.exist?(sw_file)
   check(sw_content.include?('/uk/tutoring/index.html') || sw_content.include?('/uk/tutoring/'), 'sw.js: missing /uk/tutoring/ precache')
   check(sw_content.include?('/uk/tutoring/unity/index.html') || sw_content.include?('/uk/tutoring/unity/'), 'sw.js: missing /uk/tutoring/unity/ precache')
   manifest = JSON.parse(sw_content.match(/self\.__precacheManifest = (\[.*?\]);/m)[1])
-  %w[en uk ru ko].each do |lang|
+  %w[en uk ru ko pl].each do |lang|
     prefix = lang == 'en' ? '' : "/#{lang}"
     ['', '/unity', '/python', '/scratch', '/informatics', '/minecraft'].each do |course_path|
       expected = "#{prefix}/tutoring#{course_path}/index.html"
@@ -192,7 +192,7 @@ tools.each do |tool|
   end
   next unless tool['home_tile']
 
-  %w[en uk ru ko].each do |lang|
+  %w[en uk ru ko pl].each do |lang|
     prefix = lang == 'en' ? '' : "/#{lang}"
     home_doc = Nokogiri::HTML(File.read("#{root}#{prefix}/index.html"))
     tile = home_doc.at_css("a##{tool['id']}")
@@ -203,7 +203,7 @@ tools.each do |tool|
 end
 
 games = YAML.safe_load(File.read('_data/games.yml')) || []
-%w[en uk ru ko].each do |lang|
+%w[en uk ru ko pl].each do |lang|
   prefix = lang == 'en' ? '' : "/#{lang}"
   hub_file = "#{root}#{prefix}/games/index.html"
   check(File.file?(hub_file), "Missing games hub: #{prefix}/games/")
@@ -231,7 +231,7 @@ games.each do |game|
   end
   cover_rel = game['cover'].to_s.sub(%r{\A/}, '')
   check(File.file?(File.join(root, cover_rel)), "Published game #{game['id']} missing cover: #{game['cover']}")
-  %w[en uk ru ko].each do |lang|
+  %w[en uk ru ko pl].each do |lang|
     prefix = lang == 'en' ? '' : "/#{lang}"
     gfile = "#{root}#{prefix}/games/#{game['slug']}/index.html"
     check(File.file?(gfile), "Missing localized game page: #{prefix}/games/#{game['slug']}/")

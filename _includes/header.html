@@ -12,7 +12,7 @@
                 <a href="{{ '/collection/' | relative_url }}">{{ site.data[site.active_lang].strings.home_hobbies_label }}</a>
                 <a href="{{ '/blog/' | relative_url }}">{{ site.data[site.active_lang].strings.workshop_label }}</a>
 
-                <button id="search-trigger" class="site-nav__search-trigger" aria-label="{{ site.data[site.active_lang].strings.search_label | default: 'Search' }}" title="Search (Cmd+K)">
+                <button id="search-trigger" class="site-nav__search-trigger" aria-label="{{ site.data[site.active_lang].strings.search_label | default: 'Search' }}" title="{{ site.data[site.active_lang].strings.search_label | default: 'Search' }} (Cmd+K)">
                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
                         <circle cx="11" cy="11" r="8"></circle>
                         <line x1="21" y1="21" x2="16.65" y2="16.65"></line>

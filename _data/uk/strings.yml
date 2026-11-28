@@ -224,6 +224,7 @@ price_display_compact: "1000 грн / €20"
 price_currency_before: false
 price_unit_before: false
 price_currency_label: "грн"
+price_usd_prefix: "1000 грн / €20 (~$"
 price_equivalents_label: "Орієнтири для родин за кордоном"
 format_online: "Індивідуальні онлайн-заняття"
 case_created_label: "Що створено"

@@ -1,0 +1,105 @@
+# %EMAIL% and %TELEGRAM% are replaced in privacy/index.html with site.email and the tutoring Telegram URL.
+nav: "Polityka prywatności"
+title: "Polityka prywatności"
+updated: "Ostatnia aktualizacja: 27 listopada 2026"
+intro: >-
+  Ta strona wyjaśnia, co dzieje się z Twoimi danymi, gdy odwiedzasz sivochka.com, korzystasz z darmowych narzędzi
+  i gier lub kontaktujesz się ze mną w sprawie lekcji. W skrócie: brak plików cookies, brak reklam, brak sprzedaży
+  lub udostępniania danych w celach marketingowych i brak śledzenia na innych stronach.
+sections:
+  - h: "Administrator danych"
+    body:
+      - >-
+        Administratorem danych osobowych jest Ihor Sivochka, jednoosobowa działalność gospodarcza (FOP) zarejestrowana
+        w Ukrainie. Kontakt w sprawach prywatności: <a href="mailto:%EMAIL%">%EMAIL%</a> lub
+        <a href="%TELEGRAM%">Telegram</a>.
+  - h: "Hosting i bezpieczeństwo"
+    body:
+      - >-
+        Strona działa na GitHub Pages (GitHub, Inc., USA) i jest dostarczana przez Cloudflare (Cloudflare, Inc., USA),
+        co przyspiesza jej ładowanie oraz chroni przed atakami i złośliwymi botami. Aby wyświetlić stronę, dostawcy ci
+        przetwarzają techniczne dane żądania: adres IP, typ przeglądarki (User-Agent), żądany adres, stronę odsyłającą
+        i czas. Jest to niezbędne do działania i bezpieczeństwa serwisu (prawnie uzasadniony interes, art. 6 ust. 1
+        lit. f RODO). Dostawcy przechowują takie logi krótko zgodnie z własnymi politykami; nie otrzymuję od nich Twojego
+        adresu IP.
+  - h: "Statystyki odwiedzin"
+    body:
+      - >-
+        Aby wiedzieć, które strony i narzędzia są przydatne, zliczam odwiedziny za pomocą dwóch usług bez plików cookies:
+      - list:
+          - >-
+            <b>GoatCounter</b> (open-source, hostowany w UE), ładowany przez moje własne proxy na Cloudflare. Przy każdej
+            odsłonie otrzymuje adres IP, User-Agent i stronę odsyłającą, aby policzyć unikalne wizyty, lecz nie zapisuje
+            adresu IP. Zlicza także kliknięcia wybranych przycisków (np. „Napisz na Telegramie” lub uruchomienie gry)
+            bez wiedzy, kto kliknął.
+          - >-
+            <b>Cloudflare Web Analytics</b>, skrypt dostawcy hostingu zliczający odwiedziny i szybkość ładowania stron.
+            Nie używa cookies ani fingerprintingu i nie buduje profili użytkowników.
+      - >-
+        Widzę jedynie sumy: ile było wizyt, z jakich stron, na jakie podstrony i z jakiego kraju. Żadna z usług nie
+        identyfikuje Cię osobiście, a ja nie łączę tych danych z niczym innym. Podstawa prawna: prawnie uzasadniony
+        interes w utrzymaniu użyteczności strony (art. 6 ust. 1 lit. f RODO). Możesz zablokować oba narzędzia dowolnym
+        blokerem treści — strona nadal będzie działać.
+  - h: "Co zapisuje się w Twojej przeglądarce"
+    body:
+      - >-
+        Strona nie ustawia plików cookies. Kilka informacji zapisuje się wyłącznie w Twojej przeglądarce i nigdy nie
+        jest do mnie wysyłana:
+      - list:
+          - "wybrany język, aby kolejna wizyta otwierała się w tym samym języku;"
+          - "pamięć podręczna plików strony (service worker), aby strony otwierały się szybciej i działały offline;"
+          - "ustawienia i postępy w darmowych narzędziach, np. ulubione w katalogu LEGO;"
+          - "zapisy gier i pliki gier w pamięci podręcznej po uruchomieniu gry z play.sivochka.com."
+      - >-
+        Wszystkie te dane możesz w dowolnej chwili usunąć w ustawieniach przeglądarki (dane witryny dla sivochka.com).
+  - h: "Narzędzia działają na Twoim urządzeniu"
+    body:
+      - >-
+        Darmowe narzędzia (OGCruncher, pyScratch, Can I Run Unity, Bouncy, katalog instrukcji LEGO i inne) przetwarzają
+        Twoje pliki i ustawienia bezpośrednio w przeglądarce. Pliki audio, projekty Scratch i inne otwierane pliki nie
+        są nigdzie wysyłane. Bouncy korzysta z mikrofonu wyłącznie po Twojej zgodzie, mierzy głośność lokalnie na
+        urządzeniu i nie nagrywa ani nie wysyła dźwięku.
+  - h: "Wideo i linki zewnętrzne"
+    body:
+      - >-
+        Wideo powitalne na stronach korepetycji ładuje się z YouTube (Google) dopiero po kliknięciu odtwarzania;
+        wcześniej do YouTube nie jest wysyłane żadne żądanie. Po uruchomieniu obowiązuje
+        <a href="https://policies.google.com/privacy" rel="noopener">polityka prywatności Google</a>. Linki do Telegrama,
+        GitHuba, Google Drive (instrukcje LEGO), Wrist &amp; Pocket Studio i innych stron otwierają te serwisy, gdzie
+        obowiązują ich własne polityki.
+  - h: "Kontakt w sprawie lekcji"
+    body:
+      - >-
+        Strona nie zawiera formularzy. Jeśli napiszesz do mnie na Telegramie lub e-mailem, otrzymuję to, co wyślesz
+        (imię, kontakt, wiek ucznia, poziom i cele) i wykorzystuję te informacje wyłącznie do odpowiedzi, organizacji
+        oraz prowadzenia lekcji (działania przed zawarciem i w ramach umowy, art. 6 ust. 1 lit. b RODO). Korespondencję
+        przechowuję przez czas współpracy oraz tak długo, jak wymagają tego ukraińskie przepisy księgowe dla płatności,
+        a na żądanie usuwam ją, gdy prawo nie wymaga dalszego przechowywania. Płatności trafiają na rachunek bankowy
+        ukraińskiego przedsiębiorcy (FOP); sama strona nie przetwarza płatności.
+      - >-
+        Na potrzeby własnych statystyk odnotowuję jedynie datę, kanał zgłoszenia (np. Google lub Telegram) oraz etap
+        (wiadomość, lekcja próbna, uczeń). Nie zapisuję tam imion ani danych kontaktowych.
+  - h: "Dzieci"
+    body:
+      - >-
+        Lekcje dla osób niepełnoletnich umawiane są z rodzicem lub opiekunem. Strona nie prosi dzieci o podawanie
+        danych osobowych. Projekty uczniów publikowane są wyłącznie za pisemną zgodą rodzica i pokazują tylko imię,
+        inicjał nazwiska oraz wiek, bez zdjęć i nazwy miasta.
+  - h: "Przekazywanie danych poza kraj"
+    body:
+      - >-
+        Cloudflare, GitHub i Google mają siedzibę w USA. Przekazywanie danych opiera się na ramach EU–US Data Privacy
+        Framework oraz standardowych klauzulach umownych Komisji Europejskiej stosowanych przez te firmy.
+  - h: "Twoje prawa"
+    body:
+      - >-
+        Na mocy RODO (UE/EOG), UK GDPR oraz ukraińskiej ustawy „O ochronie danych osobowych” możesz zapytać, jakie dane
+        o Tobie posiadam, żądać ich sprostowania lub usunięcia, ograniczyć przetwarzanie, wnieść sprzeciw oraz otrzymać
+        dane w formacie przenośnym. Napisz na <a href="mailto:%EMAIL%">%EMAIL%</a> — odpowiadam w ciągu 30 dni. Możesz
+        również złożyć skargę do organu ochrony danych w swoim kraju (w Polsce — Prezes Urzędu Ochrony Danych Osobowych,
+        w Ukrainie — Rzecznik Praw Obywatelskich Rady Najwyższej Ukrainy).
+  - h: "Zmiany"
+    body:
+      - >-
+        Jeśli dodam nowe usługi lub zmienię sposób korzystania z danych, zaktualizuję tę stronę przed wejściem zmian
+        w życie oraz zmienię datę na górze.

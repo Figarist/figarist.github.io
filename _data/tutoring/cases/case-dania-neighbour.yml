@@ -95,3 +95,23 @@ translations:
       - "1년 이상 꾸준히 프로젝트를 완성해내는 끈기와 성취감"
     evidence: "100개 이상의 개발 기록이 누적된, 실제로 탐험하고 플레이할 수 있는 완성형 3D 게임."
     cover_alt: "다냐 학생이 Unity로 제작한 3D 헬로 네이버 게임 스크린샷"
+  pl:
+    ready: true
+    student_name: "Dania"
+    title: "Hello Neighbour — przygoda 3D z zagadkami i inteligentnym wrogiem"
+    card_description: "Efekt roku zajęć: duży piętrowy dom, ekwipunek przedmiotów, zagadki z kluczami oraz sąsiad, który słyszy hałas i szuka gracza."
+    full_description: "Dania bardzo lubi grę Hello Neighbor i marzył o stworzeniu własnego podobnego świata. Przez rok regularnych cotygodniowych lekcji przeszedł drogę od pierwszych kroków w programowaniu do rozbudowanego projektu 3D. W grze jest duży dom, filmowe intro, interaktywne drzwi, drabiny oraz sąsiad patrolujący pokoje."
+    starting_level: "Początkujący bez wcześniejszego doświadczenia w kodzie, ale z ogromnym zapałem do stworzenia wymarzonej gry."
+    goal: "Zrozumieć, jak działają prawdziwe gry 3D i zbudować własny klimatyczny dom z zagadkami i groźnym sąsiadem."
+    created: "Gra 3D z pierwszej osoby: dopracowany dom, inteligentny przeciwnik, ekwipunek na 5 przedmiotów, zadanie szukania kluczy i filmowe intro."
+    student_work: "Zaprojektował układ i wnętrze domu, zaprogramował ekwipunek, mechanikę podnoszenia i rzucania przedmiotów, skonfigurował animacje postaci oraz stworzył filmowe intro."
+    tutor_help: "Pomógł stworzyć logikę AI sąsiada (aby samodzielnie przeszukiwał pokoje, otwierał drzwi i biegł na dźwięk kroków) oraz system zadań sprawdzający zamki."
+    skills:
+      - "Podstawy programowania w C# w Unity"
+      - "Projektowanie sztucznej inteligencji dla przeciwników"
+      - "System ekwipunku i fizycznej interakcji z przedmiotami"
+      - "Praca z przestrzenią 3D, kamerą i oświetleniem"
+      - "Reżyseria i tworzenie przerywników filmowych (cutscenek)"
+      - "Umiejętność doprowadzenia dużego projektu do końca (ponad rok pracy)"
+    evidence: "Działająca gra 3D z ponad setką zapisanych etapów pracy, w którą można grać i zwiedzać dom."
+    cover_alt: "Zrzut ekranu z gry 3D Hello Neighbour stworzonej przez ucznia Danię w Unity"

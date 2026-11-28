@@ -31,11 +31,13 @@ conditions:
     en: 60 minutes 1-on-1 with the mentor. Lessons take place in a reserved weekly time slot (weekly availability is limited).
     ru: 60 минут 1-на-1 с ментором. Занятия проходят в закреплённый за учеником постоянный слот (количество свободных мест в расписании ограничено).
     ko: 멘토와 1:1로 진행하는 60분 수업입니다. 예약된 고정 주간 시간대에 진행되며, 주간 수업 가능 정원은 제한되어 있습니다.
+    pl: 60 minut 1-na-1 z mentorem. Zajęcia odbywają się w stałym, zarezerwowanym terminie tygodniowym (liczba miejsc w grafiku jest ograniczona).
   first_lesson:
     uk: Попереднє узгодження цілі й технічних вимог із батьками в Telegram — безкоштовно. Перше повноцінне 60-хвилинне заняття з практикою й планом проєкту — платне (1000 грн / €20, без безоплатних «пробних» уроків).
     en: Initial goal and setup alignment with parents on Telegram is free. The first full 60-minute hands-on lesson and roadmap session is paid (€20 / ~$22 or 1000 UAH; no free trial lessons).
     ru: Предварительное согласование цели и технических требований с родителями в Telegram — бесплатно. Первое полноценное 60-минутное практическое занятие с разбором проекта — платное (1000 грн / €20, без бесплатных «пробных» уроков).
     ko: Telegram에서 학부모와 목표 및 환경을 사전 조율하는 과정은 무료입니다. 실제 실습과 프로젝트 로드맵이 포함된 첫 60분 정식 수업은 유료입니다(€20 / ~$22 또는 1000 UAH, 무료 체험 수업 없음).
+    pl: Wstępne uzgodnienie celu i wymagań technicznych z rodzicami na Telegramie jest bezpłatne. Pierwsza pełna 60-minutowa lekcja praktyczna z planem projektu jest płatna (20 € / ~$22 lub 1000 UAH; brak darmowych lekcji „próbnych”).
   rescheduling:
     uk: Про скасування або перенесення потрібно попередити щонайменше за годину. За
       пізнішого попередження вартість заняття списується.
@@ -44,21 +46,25 @@ conditions:
     ru: Об отмене или переносе нужно предупредить минимум за час. При более позднем
       предупреждении стоимость занятия списывается.
     ko: 취소나 일정 변경은 최소 한 시간 전에 알려 주세요. 그보다 늦게 알리면 수업료가 차감됩니다.
+    pl: O odwołaniu lub przełożeniu lekcji należy uprzedzić co najmniej godzinę wcześniej. Przy późniejszym zgłoszeniu opłata za lekcję jest pobierana.
   cancellation:
     uk: "Непередбачені обставини в Україні обговорюємо індивідуально. Якщо я не можу провести заняття, домовляємося про перенесення або скасування. За заняття, яке не відбулося з мого боку, кошти не списуються."
     en: "Unforeseen circumstances in Ukraine are discussed individually. If I cannot teach a lesson, we agree to reschedule or cancel it. No payment is deducted for a lesson that did not take place because I was unavailable."
     ru: "Непредвиденные обстоятельства в Украине обсуждаем индивидуально. Если я не могу провести занятие, договариваемся о переносе или отмене. За занятие, которое не состоялось с моей стороны, деньги не списываются."
     ko: "우크라이나의 예기치 못한 상황은 개별적으로 논의합니다. 제가 수업을 진행할 수 없으면 일정 변경이나 취소를 협의합니다. 제 사정으로 진행하지 못한 수업의 비용은 차감되지 않습니다."
+    pl: "Nieprzewidziane sytuacje w Ukrainie omawiamy indywidualnie. Jeśli nie mogę przeprowadzić lekcji, uzgadniamy przełożenie lub odwołanie. Za zajęcia, które nie odbyły się z mojej strony, opłata nie jest pobierana."
   payment_order:
     uk: Ставка фіксована — 1000 грн або €20 за 60 хв (~$22). Можна оплачувати по одному заняттю або пакетом наперед. Невикористані майбутні заняття повертаються, якщо вирішили припинити навчання.
     en: Fixed rate — €20 / ~$22 (1000 UAH) per 60-minute lesson. Pay per lesson or in advance by agreement. Unused future lessons are refundable if you decide to stop.
     ru: Фиксированная ставка — 1000 грн или €20 за 60 мин (~$22). Можно оплачивать по одному занятию или пакетом заранее. Неиспользованные будущие занятия возвращаются, если решили прекратить обучение.
     ko: 고정 수업료는 60분 기준 €20 / ~$22 (1000 UAH)입니다. 1회씩 또는 협의를 통해 여러 회를 선결제할 수 있으며, 중단 시 미사용 향후 수업료는 환불됩니다.
+    pl: Stała stawka — 20 € / ~$22 (1000 UAH) za lekcję 60 min. Można płacić za pojedyncze lekcje lub pakietem z góry. Niewykorzystane przyszłe lekcje podlegają zwrotowi w razie zakończenia nauki.
   platform:
     uk: Zoom із демонстрацією екрана. Камера — за бажанням.
     en: Zoom with screen sharing. A camera is optional.
     ru: Zoom с демонстрацией экрана. Камера — по желанию.
     ko: Zoom 화면 공유로 진행합니다. 카메라 사용은 선택 사항입니다.
+    pl: Zoom z udostępnianiem ekranu. Kamera jest opcjonalna.
   technical_requirements:
     unity:
       uk: Комп’ютер або ноутбук із Zoom, демонстрацією екрана та програмами для обраного
@@ -68,6 +74,8 @@ conditions:
       ru: Компьютер или ноутбук с Zoom, демонстрацией экрана и программами для выбранного
         направления.
       ko: Zoom, 화면 공유 및 선택한 분야의 프로그램을 실행할 수 있는 컴퓨터나 노트북이 필요합니다.
+      pl: Komputer lub laptop z Zoomem, udostępnianiem ekranu i programami dla wybranego
+        kierunku.
     python:
       uk: Комп’ютер або ноутбук із Zoom, демонстрацією екрана та програмами для обраного
         напряму.
@@ -76,20 +84,25 @@ conditions:
       ru: Компьютер или ноутбук с Zoom, демонстрацией экрана и программами для выбранного
         направления.
       ko: Zoom, 화면 공유 및 선택한 분야의 프로그램을 실행할 수 있는 컴퓨터나 노트북이 필요합니다.
+      pl: Komputer lub laptop z Zoomem, udostępnianiem ekranu i programami dla wybranego
+        kierunku.
     scratch:
       uk: Комп’ютер або планшет зі Scratch, Zoom і демонстрацією екрана.
       en: A computer or tablet with Scratch, Zoom and screen sharing.
       ru: Компьютер или планшет со Scratch, Zoom и демонстрацией экрана.
       ko: Scratch, Zoom 및 화면 공유를 사용할 수 있는 컴퓨터나 태블릿이 필요합니다.
+      pl: Komputer lub tablet ze Scratchem, Zoomem i udostępnianiem ekranu.
   homework:
     uk: Домашні завдання не обов’язкові — за бажанням учня та батьків.
     en: Homework is optional, according to the student's and parents' preferences.
     ru: Домашние задания необязательны — по желанию ученика и родителей.
     ko: 숙제는 학생과 부모님의 희망에 따라 선택할 수 있습니다.
+    pl: Prace domowe są nieobowiązkowe — zależnie od chęci ucznia i rodziców.
   progress:
     uk: Програма будується персонально під сильні сторони та власний проєкт учня — без шаблонних групових слайдів і без нереалістичних обіцянок «складної гри за місяць». Між заняттями учень і батьки можуть писати із запитаннями в Telegram.
     en: Curriculum is tailored 1-on-1 around the student's pace and personal game or coding project—no mass group slides and no unrealistic fixed-date promises. Students and parents can ask questions between lessons on Telegram.
     ru: Программа строится персонально под сильные стороны и проект ученика — без шаблонных групповых презентаций и нереалистичных обещаний «сложной игры за месяц». Между занятиями ученик и родители могут задавать вопросы в Telegram.
     ko: 커리큘럼은 획일적인 그룹 수업 자료 없이 학생의 속도와 개인 프로젝트에 맞춰 1:1로 구성됩니다. 수업 사이에도 학생과 학부모가 Telegram으로 질문할 수 있습니다.
+    pl: Program budowany jest indywidualnie wokół mocnych stron i własnego projektu ucznia — bez szablonowych slajdów grupowych i bez nierealnych obietnic „złożonej gry w miesiąc”. Między lekcjami uczeń i rodzice mogą pisać z pytaniami na Telegramie.
 lesson_minutes: 60
 minimum_age: 6

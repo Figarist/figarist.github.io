@@ -20,7 +20,7 @@
     {% assign resolved_desc = page[seo_desc_key] | default: page.description | default: excerpt_desc | default: site.description | strip_html | normalize_whitespace %}
     {% comment %}Paginated blog pages get a localized page number so titles and descriptions stay unique.{% endcomment %}
     {% if paginator and paginator.page > 1 %}
-      {% case active_lang %}{% when 'uk' %}{% assign page_word = 'сторінка' %}{% when 'ru' %}{% assign page_word = 'страница' %}{% when 'ko' %}{% assign page_word = '페이지' %}{% else %}{% assign page_word = 'page' %}{% endcase %}
+      {% case active_lang %}{% when 'uk' %}{% assign page_word = 'сторінка' %}{% when 'ru' %}{% assign page_word = 'страница' %}{% when 'ko' %}{% assign page_word = '페이지' %}{% when 'pl' %}{% assign page_word = 'strona' %}{% else %}{% assign page_word = 'page' %}{% endcase %}
       {% assign resolved_title = resolved_title | append: ' — ' | append: page_word | append: ' ' | append: paginator.page %}
       {% assign resolved_desc = resolved_desc | append: ' (' | append: page_word | append: ' ' | append: paginator.page | append: ')' %}
     {% endif %}
@@ -34,7 +34,7 @@
     {% if seo_social_img contains '://' %}{% assign seo_social_url = seo_social_img %}{% else %}{% assign seo_social_url = site.url | append: site.baseurl | append: seo_social_img %}{% endif %}
     {% assign seo_social_size = seo_social_img | image_size %}
     {% assign seo_social_alt = page.image_alt | default: resolved_title %}
-    {% assign locale_map = 'en:en_US,uk:uk_UA,ru:ru_RU,ko:ko_KR' | split: ',' %}
+    {% assign locale_map = 'en:en_US,uk:uk_UA,ru:ru_RU,ko:ko_KR,pl:pl_PL' | split: ',' %}
     <title>{{ head_title | escape }}</title>
     <meta name="description" content="{{ resolved_desc | escape }}">
     <meta name="author" content="{{ site.data[active_lang].strings.author_name | default: site.author.name | escape }}">

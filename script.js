@@ -6,6 +6,46 @@
 (function () {
   "use strict";
 
+  var uiLang = (document.documentElement.lang || "en").slice(0, 2).toLowerCase();
+  var uiCopy = {
+    en: {
+      copy: "Copy",
+      copied: "Copied!",
+      copyCode: "Copy Code",
+      copiedCode: "Copied! ✔️",
+      tzNotice: "Individual lessons (€20 / ~$22 / 1000 UAH) are exclusively for students from Ukraine, Europe, the US, Canada, and Israel. Payment to a Ukrainian sole proprietor (FOP) account."
+    },
+    uk: {
+      copy: "Копіювати",
+      copied: "Скопійовано!",
+      copyCode: "Копіювати код",
+      copiedCode: "Скопійовано! ✔️",
+      tzNotice: "Індивідуальні заняття (1000 грн / 20 €) проходять виключно для учнів з України, Європи, США, Канади та Ізраїлю. Оплата на рахунок українського ФОП."
+    },
+    ru: {
+      copy: "Копировать",
+      copied: "Скопировано!",
+      copyCode: "Копировать код",
+      copiedCode: "Скопировано! ✔️",
+      tzNotice: "Индивидуальные занятия (1000 грн / 20 €) проходят исключительно для учеников из Украины, Европы, США, Канады и Израиля. Оплата на счёт украинского ФОП."
+    },
+    ko: {
+      copy: "복사",
+      copied: "복사됨!",
+      copyCode: "코드 복사",
+      copiedCode: "복사됨! ✔️",
+      tzNotice: "1:1 개인 수업(€20 / ~$22 / 1000 UAH)은 우크라이나, 유럽, 미국, 캐나다, 이스라엘 학생을 대상으로 진행되며, 우크라이나 개인사업자(FOP) 계좌로 결제됩니다."
+    },
+    pl: {
+      copy: "Kopiuj",
+      copied: "Skopiowano!",
+      copyCode: "Kopiuj kod",
+      copiedCode: "Skopiowano! ✔️",
+      tzNotice: "Indywidualne lekcje (20 € / ~$22 / 1000 UAH) prowadzone są wyłącznie dla uczniów z Polski, Ukrainy, Europy, USA, Kanady i Izraela. Płatność na konto ukraińskiego FOP."
+    }
+  };
+  var ui = uiCopy[uiLang] || uiCopy.en;
+
   /* ——————————————————————————————————————————
      1. SCROLL FADE-IN  (Intersection Observer)
   —————————————————————————————————————————— */
@@ -263,8 +303,8 @@
           .then(function () {
             var originalHTML = link.innerHTML;
             // Basic check to not duplicate the copied text if clicked rapidly
-            if (link.textContent.indexOf("Copied!") === -1) {
-              link.innerHTML = "Copied!";
+            if (link.textContent.indexOf(ui.copied) === -1) {
+              link.innerHTML = ui.copied;
               setTimeout(function () {
                 link.innerHTML = originalHTML;
               }, 2000);
@@ -329,8 +369,8 @@ const docEl = document.documentElement; // Cache for performance
     var button = document.createElement("button");
     button.className = "btn-copy-code";
     button.type = "button";
-    button.textContent = "Copy";
-    button.setAttribute("aria-label", "Copy Code");
+    button.textContent = ui.copy;
+    button.setAttribute("aria-label", ui.copyCode);
 
     button.addEventListener("click", function () {
       var codeEl = block.querySelector("code");
@@ -342,11 +382,11 @@ const code = codeEl.textContent;
         navigator.clipboard
           .writeText(code)
           .then(function () {
-            button.textContent = "Copied! ✔️";
+            button.textContent = ui.copiedCode;
             button.classList.add("copied");
 
             setTimeout(function () {
-              button.textContent = "Copy";
+              button.textContent = ui.copy;
               button.classList.remove("copied");
             }, 2000);
           })
@@ -663,7 +703,7 @@ const code = codeEl.textContent;
         if (/^(Europe\/(Moscow|Minsk|Samara|Saratov|Volgograd|Kaliningrad)|Asia\/(Yekaterinburg|Novosibirsk|Omsk|Krasnoyarsk|Irkutsk|Vladivostok))/.test(tz)) {
           var note = document.createElement("p");
           note.className = "tz-notice";
-          note.textContent = "Індивідуальні заняття (1000 грн / 20 €) проходять виключно для учнів з України, Європи, США, Канади та Ізраїлю. Оплата на рахунок українського ФОП.";
+          note.textContent = ui.tzNotice;
           page.insertBefore(note, page.firstChild);
         }
       } catch (e) {}

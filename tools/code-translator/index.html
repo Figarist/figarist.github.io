@@ -10,10 +10,12 @@ title: "Code Translator: Scratch → Python → Unity C#"
 seo_uk_title: "Код-перекладач: Scratch → Python → Unity C#"
 seo_ru_title: "Переводчик кода: Scratch → Python → Unity C#"
 seo_ko_title: "코드 비교기: Scratch → Python → Unity C#"
+seo_pl_title: "Translator kodu: Scratch → Python → Unity C#"
 seo_en_title: "Code Translator: Scratch → Python → Unity C#"
 seo_uk_desc: "Інтерактивне порівняння ігрової логіки у візуальних блоках Scratch, Python (Minescript у Minecraft) та Unity 6 C# для дітей 6–17 років."
 seo_ru_desc: "Интерактивное сравнение игровой логики в блоках Scratch, Python (Minescript в Minecraft) и Unity 6 C# для детей 6–17 лет."
 seo_ko_desc: "6~17세 학생을 위한 Scratch 블록, 마인크래프트 Python, Unity 6 C# 게임 로직 비교 도구."
+seo_pl_desc: "Interaktywne porównanie logiki gier w blokach Scratch, Pythonie (Minescript w Minecrafcie) i Unity 6 C# dla uczniów w wieku 6–17 lat."
 seo_en_desc: "Interactive side-by-side comparison of game logic in Scratch blocks, Python (Minescript in Minecraft), and Unity 6 C# for kids 6–17 and parents."
 ---
 {% assign lang = site.active_lang | default: 'uk' %}
@@ -87,6 +89,29 @@ seo_en_desc: "Interactive side-by-side comparison of game logic in Scratch block
     {% assign ct_p_desc = "현업 게임 개발자와 함께하는 60분 1:1 맞춤형 코딩 멘토링." %}
     {% assign ct_p_price = "€20 (~$22 / 1000 UAH) · 60분" %}
     {% assign ct_btn = "트랙 선택 & PC 체크 →" %}
+  {% when 'pl' %}
+    {% assign ct_nav_tutor = "Lekcje" %}
+    {% assign ct_kicker = "Darmowe narzędzie EdTech" %}
+    {% assign ct_title = "Jak rośnie kod dziecka: Scratch → Python → Unity C#" %}
+    {% assign ct_lead = "Kliknij mechanikę gry, aby porównać obok siebie, jak ta sama logika działa w blokach Scratcha, w Pythonie dla Minecrafta i w prawdziwym C# w Unity 6." %}
+    {% assign ct_a1 = "Skok postaci" %}
+    {% assign ct_a2 = "Licznik punktów (+1)" %}
+    {% assign ct_a3 = "Wróg goni gracza" %}
+    {% assign ct_a4 = "Otwarcie drzwi kluczem" %}
+    {% assign ct_h1 = "Bloki wizualne · 6–10 lat" %}
+    {% assign ct_h2 = "Kod tekstowy · 9–14 lat" %}
+    {% assign ct_h3 = "Silnik gier · 11–17 lat" %}
+    {% assign ct_d1 = "Logika bez błędów składni: dziecko układa zdarzenia, warunki i zmienne jak z klocków." %}
+    {% assign ct_d2 = "Pierwszy prawdziwy Python: współrzędne, funkcje i automatyzacja wewnątrz ulubionego Minecrafta." %}
+    {% assign ct_d3 = "Profesjonalny C# i fizyka Unity: typowanie, komponenty i nawigacja dla własnych gier 2D/3D." %}
+    {% assign ct_cta1 = "Program Scratch →" %}
+    {% assign ct_cta2 = "Python w Minecrafcie →" %}
+    {% assign ct_cta3 = "Mentoring Unity C# →" %}
+    {% assign ct_p_kicker = "Następny krok" %}
+    {% assign ct_p_title = "Dobierzemy właściwy start dla Twojego dziecka w 1 minutę" %}
+    {% assign ct_p_desc = "Indywidualne lekcje 1-na-1 po 60 min z praktykującym twórcą gier. Przejrzysta stawka bez ukrytych pakietów, płatność na konto FOP." %}
+    {% assign ct_p_price = "20 € / ~$22 (1000 UAH) · 60 min" %}
+    {% assign ct_btn = "Dobierz ścieżkę i sprawdź PC →" %}
   {% else %}
     {% assign ct_nav_tutor = "Mentoring" %}
     {% assign ct_kicker = "Free EdTech Tool" %}
@@ -228,43 +253,153 @@ seo_en_desc: "Interactive side-by-side comparison of game logic in Scratch block
 (function(){
   var root = document.getElementById("code-translator");
   if (!root) return;
-  var data = {
-    jump: {
-      blocks: [
+  var lang = {{ lang | jsonify }};
+  var scratchBlocks = {
+    uk: {
+      jump: [
         ["sb-hat", "коли клавішу", "пробіл", "натиснуто"],
         ["sb-motion", "змінити y на", "10", ""],
         ["sb-control", "чекати", "0.2", "секунд"],
         ["sb-motion", "змінити y на", "-10", ""]
       ],
-      p: "import minescript as ms\n\ndef on_space_key():\n  x, y, z = ms.player_position()\n  ms.execute(f\"/tp @p {x} {y+2} {z}\")",
-      u: "void Update() {\n  if (Input.GetKeyDown(KeyCode.Space)) {\n    rb.AddForce(Vector3.up * 6f,\n      ForceMode.Impulse);\n  }\n}"
-    },
-    score: {
-      blocks: [
+      score: [
         ["sb-hat", "коли я отримаю", "coin", ""],
         ["sb-var", "змінити", "score", "на 1"],
         ["sb-sound", "відтворити звук", "Coin", ""]
       ],
-      p: "score = 0\n\ndef on_collect_gem():\n  global score\n  score += 1\n  ms.echo(f\"Score: {score}\")",
-      u: "public int score = 0;\n\nvoid OnTriggerEnter(Collider col) {\n  if (col.CompareTag(\"Coin\"))\n    score++;\n}"
-    },
-    chase: {
-      blocks: [
+      chase: [
         ["sb-hat", "коли", "⚑", "натиснуто"],
         ["sb-control", "завжди", "", ""],
         ["sb-motion indent", "слідувати за", "Player", ""],
         ["sb-motion indent", "перемістити на", "3", "кроки"]
       ],
-      p: "px, py, pz = ms.player_position()\n\n# Move mob toward player\nms.execute(\n  f\"/tp @e[tag=bot] {px-1} {py} {pz}\"\n)",
-      u: "public NavMeshAgent agent;\npublic Transform player;\n\nvoid Update() {\n  agent.SetDestination(player.position);\n}"
-    },
-    door: {
-      blocks: [
+      door: [
         ["sb-hat", "коли", "⚑", "натиснуто"],
         ["sb-control", "якщо", "has_key = 1", "то"],
         ["sb-looks indent", "змінити образ на", "open", ""],
         ["sb-hat indent", "оповістити", "enter", ""]
+      ]
+    },
+    ru: {
+      jump: [
+        ["sb-hat", "когда клавиша", "пробел", "нажата"],
+        ["sb-motion", "изменить y на", "10", ""],
+        ["sb-control", "ждать", "0.2", "секунд"],
+        ["sb-motion", "изменить y на", "-10", ""]
       ],
+      score: [
+        ["sb-hat", "когда я получу", "coin", ""],
+        ["sb-var", "изменить", "score", "на 1"],
+        ["sb-sound", "включить звук", "Coin", ""]
+      ],
+      chase: [
+        ["sb-hat", "когда", "⚑", "нажат"],
+        ["sb-control", "всегда", "", ""],
+        ["sb-motion indent", "повернуться к", "Player", ""],
+        ["sb-motion indent", "идти", "3", "шагов"]
+      ],
+      door: [
+        ["sb-hat", "когда", "⚑", "нажат"],
+        ["sb-control", "если", "has_key = 1", "то"],
+        ["sb-looks indent", "изменить костюм на", "open", ""],
+        ["sb-hat indent", "передать", "enter", ""]
+      ]
+    },
+    ko: {
+      jump: [
+        ["sb-hat", "", "스페이스", "키를 눌렀을 때"],
+        ["sb-motion", "y좌표를", "10", "만큼 바꾸기"],
+        ["sb-control", "", "0.2", "초 기다리기"],
+        ["sb-motion", "y좌표를", "-10", "만큼 바꾸기"]
+      ],
+      score: [
+        ["sb-hat", "", "coin", "신호를 받았을 때"],
+        ["sb-var", "", "score", "을(를) 1만큼 바꾸기"],
+        ["sb-sound", "", "Coin", "소리 재생하기"]
+      ],
+      chase: [
+        ["sb-hat", "", "⚑", "클릭했을 때"],
+        ["sb-control", "무한 반복하기", "", ""],
+        ["sb-motion indent", "", "Player", "쪽 보기"],
+        ["sb-motion indent", "", "3", "만큼 움직이기"]
+      ],
+      door: [
+        ["sb-hat", "", "⚑", "클릭했을 때"],
+        ["sb-control", "만약", "has_key = 1", "(이)라면"],
+        ["sb-looks indent", "모양을", "open", "(으)로 바꾸기"],
+        ["sb-hat indent", "", "enter", "신호 보내기"]
+      ]
+    },
+    pl: {
+      jump: [
+        ["sb-hat", "kiedy klawisz", "spacja", "naciśnięty"],
+        ["sb-motion", "zmień y o", "10", ""],
+        ["sb-control", "czekaj", "0.2", "sekund"],
+        ["sb-motion", "zmień y o", "-10", ""]
+      ],
+      score: [
+        ["sb-hat", "kiedy otrzymam", "coin", ""],
+        ["sb-var", "zmień", "score", "o 1"],
+        ["sb-sound", "zagraj dźwięk", "Coin", ""]
+      ],
+      chase: [
+        ["sb-hat", "kiedy kliknięto", "⚑", ""],
+        ["sb-control", "zawsze", "", ""],
+        ["sb-motion indent", "ustaw w stronę", "Player", ""],
+        ["sb-motion indent", "przesuń o", "3", "kroki"]
+      ],
+      door: [
+        ["sb-hat", "kiedy kliknięto", "⚑", ""],
+        ["sb-control", "jeżeli", "has_key = 1", "to"],
+        ["sb-looks indent", "zmień kostium na", "open", ""],
+        ["sb-hat indent", "nadaj komunikat", "enter", ""]
+      ]
+    },
+    en: {
+      jump: [
+        ["sb-hat", "when", "space", "key pressed"],
+        ["sb-motion", "change y by", "10", ""],
+        ["sb-control", "wait", "0.2", "seconds"],
+        ["sb-motion", "change y by", "-10", ""]
+      ],
+      score: [
+        ["sb-hat", "when I receive", "coin", ""],
+        ["sb-var", "change", "score", "by 1"],
+        ["sb-sound", "start sound", "Coin", ""]
+      ],
+      chase: [
+        ["sb-hat", "when", "⚑", "clicked"],
+        ["sb-control", "forever", "", ""],
+        ["sb-motion indent", "point towards", "Player", ""],
+        ["sb-motion indent", "move", "3", "steps"]
+      ],
+      door: [
+        ["sb-hat", "when", "⚑", "clicked"],
+        ["sb-control", "if", "has_key = 1", "then"],
+        ["sb-looks indent", "switch costume to", "open", ""],
+        ["sb-hat indent", "broadcast", "enter", ""]
+      ]
+    }
+  };
+  var sb = scratchBlocks[lang] || scratchBlocks.en;
+  var data = {
+    jump: {
+      blocks: sb.jump,
+      p: "import minescript as ms\n\ndef on_space_key():\n  x, y, z = ms.player_position()\n  ms.execute(f\"/tp @p {x} {y+2} {z}\")",
+      u: "void Update() {\n  if (Input.GetKeyDown(KeyCode.Space)) {\n    rb.AddForce(Vector3.up * 6f,\n      ForceMode.Impulse);\n  }\n}"
+    },
+    score: {
+      blocks: sb.score,
+      p: "score = 0\n\ndef on_collect_gem():\n  global score\n  score += 1\n  ms.echo(f\"Score: {score}\")",
+      u: "public int score = 0;\n\nvoid OnTriggerEnter(Collider col) {\n  if (col.CompareTag(\"Coin\"))\n    score++;\n}"
+    },
+    chase: {
+      blocks: sb.chase,
+      p: "px, py, pz = ms.player_position()\n\n# Move mob toward player\nms.execute(\n  f\"/tp @e[tag=bot] {px-1} {py} {pz}\"\n)",
+      u: "public NavMeshAgent agent;\npublic Transform player;\n\nvoid Update() {\n  agent.SetDestination(player.position);\n}"
+    },
+    door: {
+      blocks: sb.door,
       p: "has_key = True\n\nif has_key:\n  ms.execute(\"/setblock 10 64 5 air\")\n  ms.echo(\"Door unlocked!\")",
       u: "if (inventory.hasKey) {\n  doorAnimator.SetBool(\n    \"IsOpen\", true\n  );\n}"
     }

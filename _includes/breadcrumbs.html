@@ -1,4 +1,5 @@
-<nav class="breadcrumbs" aria-label="Breadcrumb">
+{% case site.active_lang %}{% when 'uk' %}{% assign bc_aria = "Навігаційний ланцюжок" %}{% when 'ru' %}{% assign bc_aria = "Навигационная цепочка" %}{% when 'ko' %}{% assign bc_aria = "이동 경로" %}{% when 'pl' %}{% assign bc_aria = "Ścieżka nawigacji" %}{% else %}{% assign bc_aria = "Breadcrumb" %}{% endcase %}
+<nav class="breadcrumbs" aria-label="{{ bc_aria }}">
   <ol class="breadcrumbs__list">
     <li class="breadcrumbs__item">
       <a href="{{ '/' | relative_url }}">

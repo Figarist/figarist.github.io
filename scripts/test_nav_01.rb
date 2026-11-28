@@ -111,8 +111,6 @@ LANGUAGES.each do |lang|
     check(link && link['href'] == expected_href, "#{blog_route}: incorrect hreflang #{alternate}")
   end
 
-  next if lang == 'pl' && Dir.glob('_posts/*-pl.md').empty?
-
   search = JSON.parse(File.read(site_path("#{prefix}/search.json".gsub(%r{/+}, '/'))))
   expected_post = "#{prefix}/blog/minecraft-python/".gsub(%r{/+}, '/')
   check(search.any? { |entry| entry['url'] == expected_post && entry['tags'].to_s.include?('education') }, "#{lang}: educational blog post missing from search index")
